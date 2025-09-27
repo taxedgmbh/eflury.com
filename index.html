@@ -1108,89 +1108,138 @@
             pointer-events: none !important;
         }
         
-        /* Footer */
+        /* Footer - Pininfarina Inspired */
         .footer {
-            background: linear-gradient(135deg, var(--charcoal), var(--deep-teal));
+            background: var(--charcoal);
             color: var(--pure-white);
-            padding: 3rem 0 1rem;
+            padding: 5rem 0 2rem;
+            margin-top: 6rem;
         }
         
-        .footer-content {
+        .footer-main {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            margin-bottom: 3rem;
+            align-items: start;
         }
         
-        .footer-section h3 {
-            color: var(--primary-mint);
-            margin-bottom: 1rem;
-            font-size: 1.2rem;
-        }
-        
-        .footer-section p {
+        .footer-brand h3 {
+            color: var(--pure-white);
+            font-size: 1.8rem;
+            font-weight: 300;
             margin-bottom: 0.5rem;
-            opacity: 0.9;
+            letter-spacing: 0.5px;
         }
         
-        .footer-section a {
+        .footer-tagline {
+            color: var(--primary-turquoise);
+            font-size: 1rem;
+            font-weight: 400;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .footer-description {
+            color: rgba(255, 255, 255, 0.7);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            max-width: 400px;
+        }
+        
+        .footer-contact {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .contact-item {
+            display: grid;
+            grid-template-columns: 80px 1fr;
+            gap: 1rem;
+            align-items: center;
+        }
+        
+        .contact-label {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .contact-link {
             color: var(--pure-white);
             text-decoration: none;
+            font-size: 0.95rem;
             transition: color 0.3s ease;
         }
         
-        .footer-section a:hover {
-            color: var(--primary-mint);
+        .contact-link:hover {
+            color: var(--primary-turquoise);
         }
         
-        .footer-social {
-            display: flex;
-            gap: 1rem;
-            margin-top: 1rem;
+        .contact-text {
+            color: var(--pure-white);
+            font-size: 0.95rem;
         }
         
-        .footer-social a {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-        
-        .footer-social a:hover {
-            background: var(--primary-mint);
-            transform: translateY(-2px);
+        .footer-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent 0%, rgba(255, 255, 255, 0.1) 50%, transparent 100%);
+            margin: 3rem 0;
         }
         
         .footer-bottom {
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            padding-top: 1rem;
-            text-align: center;
-            opacity: 0.8;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .footer-copyright p {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 0.85rem;
+            margin: 0;
         }
         
         .footer-links {
             display: flex;
+            gap: 2.5rem;
             flex-wrap: wrap;
-            gap: 1rem;
-            justify-content: center;
-            margin-bottom: 1rem;
         }
         
         .footer-links a {
-            padding: 0.5rem 1rem;
-            background: rgba(255, 255, 255, 0.1);
-            border-radius: 20px;
-            font-size: 0.9rem;
-            transition: all 0.3s ease;
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
         }
         
         .footer-links a:hover {
-            background: var(--primary-mint);
-            transform: translateY(-1px);
+            color: var(--primary-turquoise);
+        }
+        
+        /* Mobile Footer */
+        @media (max-width: 768px) {
+            .footer-main {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .footer-bottom {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .footer-links {
+                justify-content: center;
+            }
         }
         
         /* Responsive Design */
@@ -1864,64 +1913,46 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-section">
+            <div class="footer-main">
+                <div class="footer-brand">
                     <h3>Emanuel Aaron Flury</h3>
-                    <p>AI-Native Automation Specialist & Swiss Tax Expert</p>
-                    <p>Bridging traditional finance with cutting-edge AI automation for global teams and Swiss expatriates.</p>
-                    <div class="footer-social">
-                        <a href="https://linkedin.com/in/emanuelflury" target="_blank" rel="noopener" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                        </a>
-                        <a href="mailto:me@eflury.com" aria-label="Email">
-                            <i class="fas fa-envelope"></i>
-                        </a>
-                        <a href="tel:+41799107787" aria-label="Phone">
-                            <i class="fas fa-phone"></i>
-                        </a>
-                        <a href="https://eflury.com" aria-label="Website">
-                            <i class="fas fa-globe"></i>
-                        </a>
+                    <p class="footer-tagline">AI-Native Automation Specialist</p>
+                    <p class="footer-description">Swiss automation expert specializing in AI-driven finance solutions for global teams and Swiss expatriates.</p>
+                </div>
+                
+                <div class="footer-contact">
+                    <div class="contact-item">
+                        <span class="contact-label">Email</span>
+                        <a href="mailto:me@eflury.com" class="contact-link">me@eflury.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Phone</span>
+                        <a href="tel:+41799107787" class="contact-link">+41 79 910 77 87</a>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Location</span>
+                        <span class="contact-text">Grenchen, Switzerland</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-label">Company</span>
+                        <span class="contact-text">Taxed GmbH</span>
                     </div>
                 </div>
-                
-                <div class="footer-section">
-                    <h3>Services</h3>
-                    <p><a href="#services">AI-Native Automation Consulting</a></p>
-                    <p><a href="#services">Swiss Tax Consulting for Expats</a></p>
-                    <p><a href="#services">Financial Process Optimization</a></p>
-                    <p><a href="#services">International Business Consulting</a></p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Quick Links</h3>
-                    <p><a href="#home">Home</a></p>
-                    <p><a href="#about">About</a></p>
-                    <p><a href="#portfolio">Portfolio</a></p>
-                    <p><a href="#services">Services</a></p>
-                    <p><a href="#contact">Contact</a></p>
-                </div>
-                
-                <div class="footer-section">
-                    <h3>Contact Information</h3>
-                    <p><i class="fas fa-envelope"></i> me@eflury.com</p>
-                    <p><i class="fas fa-phone"></i> +41 79 910 77 87</p>
-                    <p><i class="fas fa-map-marker-alt"></i> Grenchen, Switzerland</p>
-                    <p><i class="fas fa-building"></i> Taxed GmbH</p>
-                </div>
             </div>
             
-            <div class="footer-links">
-                <a href="#home">Home</a>
-                <a href="#about">About</a>
-                <a href="#services">Services</a>
-                <a href="#portfolio">Portfolio</a>
-                <a href="#blog">Blog</a>
-                <a href="#contact">Contact</a>
-            </div>
+            <div class="footer-divider"></div>
             
             <div class="footer-bottom">
-                <p>&copy; 2024 Emanuel Aaron Flury. All rights reserved. | Professional Website</p>
+                <div class="footer-copyright">
+                    <p>&copy; 2024 Emanuel Aaron Flury. All rights reserved.</p>
+                </div>
+                <div class="footer-links">
+                    <a href="#about">About</a>
+                    <a href="#services">Services</a>
+                    <a href="#portfolio">Portfolio</a>
+                    <a href="#contact">Contact</a>
+                    <a href="privacy.html">Privacy</a>
+                </div>
             </div>
         </div>
     </footer>
