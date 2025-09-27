@@ -53,7 +53,10 @@ temp/
 # Development files (keep only production website)
 development/
 owner/
+website/
 
 # Specific development files to exclude
 emanuel_flury_cv.md
 website_prd.md
+simple-index.html
+eflury-website-complete.zip

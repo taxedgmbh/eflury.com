@@ -1,0 +1,461 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - AI Automation Consulting & Swiss Tax Advisory</title>
+    <meta name="description" content="Professional automation consulting and Swiss tax services. Corporate automation solutions and expatriate tax advisory from experienced Swiss expert.">
+    <meta name="keywords" content="AI automation consulting, Swiss tax advisor, financial process optimization, Swiss expat tax, automation consulting, corporate automation">
+    
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://emanuelflury.com/services.html">
+    <meta property="og:title" content="Services - AI Automation Consulting & Swiss Tax Advisory">
+    <meta property="og:description" content="Professional automation consulting and Swiss tax services. Corporate automation solutions and expatriate tax advisory from experienced Swiss expert.">
+    
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://emanuelflury.com/services.html">
+    <meta property="twitter:title" content="Services - AI Automation Consulting & Swiss Tax Advisory">
+    <meta property="twitter:description" content="Professional automation consulting and Swiss tax services. Corporate automation solutions and expatriate tax advisory from experienced Swiss expert.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/main.css">
+    
+    <!-- Custom JavaScript -->
+    <script src="assets/js/main.js" defer></script>
+    
+    <style>
+        .services-hero {
+            background: var(--gradient-hero);
+            color: var(--pure-white);
+            padding: 120px 0 80px;
+            text-align: center;
+        }
+        
+        .services-hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .services-hero p {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .service-category {
+            margin-bottom: 4rem;
+        }
+        
+        .service-category h2 {
+            color: var(--deep-teal);
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.5rem;
+        }
+        
+        .service-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .service-card {
+            background: var(--pure-white);
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+        
+        .service-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: var(--gradient-primary);
+        }
+        
+        .service-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--pure-white);
+            font-size: 1.5rem;
+        }
+        
+        .service-card h3 {
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .service-card p {
+            color: var(--charcoal);
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .service-features {
+            list-style: none;
+            margin-bottom: 1.5rem;
+        }
+        
+        .service-features li {
+            padding: 0.5rem 0;
+            color: var(--charcoal);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+        
+        .service-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--primary-mint);
+            font-weight: bold;
+        }
+        
+        .service-price {
+            background: var(--warm-gray);
+            padding: 1rem;
+            border-radius: 8px;
+            text-align: center;
+            margin-top: 1.5rem;
+        }
+        
+        .price-amount {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-turquoise);
+            display: block;
+        }
+        
+        .price-note {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+            margin-top: 0.5rem;
+        }
+        
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .process-step {
+            text-align: center;
+            padding: 2rem;
+            background: var(--pure-white);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            position: relative;
+        }
+        
+        .process-step::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--pure-white);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .process-step:nth-child(1)::before { content: '1'; }
+        .process-step:nth-child(2)::before { content: '2'; }
+        .process-step:nth-child(3)::before { content: '3'; }
+        .process-step:nth-child(4)::before { content: '4'; }
+        
+        .process-step h4 {
+            color: var(--deep-teal);
+            margin: 1rem 0;
+        }
+        
+        .cta-section {
+            background: var(--gradient-hero);
+            color: var(--pure-white);
+            padding: 80px 0;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            color: var(--pure-white);
+            margin-bottom: 1rem;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <a href="index.html" style="color: inherit; text-decoration: none;">Emanuel Aaron Flury</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html" class="active">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+    
+    <!-- Services Hero -->
+    <section class="services-hero">
+        <div class="container">
+            <h1>Professional Services</h1>
+            <p>Comprehensive automation consulting and Swiss tax advisory services designed to optimize your business processes and ensure compliance.</p>
+        </div>
+    </section>
+    
+    <!-- Corporate Services -->
+    <section class="corporate-services" style="padding: 80px 0; background: var(--warm-gray);">
+        <div class="container">
+            <div class="service-category">
+                <h2>Corporate Services</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <h3>AI-Native Automation Consulting</h3>
+                        <p>Transform your business processes with intelligent automation solutions that learn and adapt to your specific needs.</p>
+                        <ul class="service-features">
+                            <li>Process analysis and optimization</li>
+                            <li>AI-native automation design</li>
+                            <li>Implementation and training</li>
+                            <li>Ongoing support and optimization</li>
+                            <li>ROI measurement and reporting</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price-amount">Custom Pricing</span>
+                            <span class="price-note">Based on project scope and complexity</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Financial Process Optimization</h3>
+                        <p>Streamline your financial operations with data-driven automation solutions that improve accuracy and reduce processing time.</p>
+                        <ul class="service-features">
+                            <li>Financial reporting automation</li>
+                            <li>Budget and forecasting optimization</li>
+                            <li>Compliance monitoring systems</li>
+                            <li>Data integration and analytics</li>
+                            <li>Performance dashboards</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price-amount">From CHF 2,500</span>
+                            <span class="price-note">Per project, includes implementation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h3>Global Team Automation Solutions</h3>
+                        <p>Coordinate automation initiatives across international teams with solutions that work seamlessly across different jurisdictions.</p>
+                        <ul class="service-features">
+                            <li>Multi-jurisdiction compliance</li>
+                            <li>Cross-border data integration</li>
+                            <li>International team coordination</li>
+                            <li>Cultural adaptation strategies</li>
+                            <li>Global best practices implementation</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price-amount">From CHF 5,000</span>
+                            <span class="price-note">Per month for ongoing support</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Swiss Tax Services -->
+    <section class="swiss-tax-services" style="padding: 80px 0; background: var(--pure-white);">
+        <div class="container">
+            <div class="service-category">
+                <h2>Swiss Tax & Fiduciary Services</h2>
+                <div class="service-grid">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-user-tie"></i>
+                        </div>
+                        <h3>Swiss Expatriate Tax Consulting</h3>
+                        <p>Comprehensive tax services for Swiss expatriates working abroad, ensuring compliance with complex international tax regulations.</p>
+                        <ul class="service-features">
+                            <li>Tax residency determination</li>
+                            <li>Double taxation treaty optimization</li>
+                            <li>Wealth tax planning</li>
+                            <li>Pension and social security coordination</li>
+                            <li>Annual tax return preparation</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price-amount">From CHF 800</span>
+                            <span class="price-note">Per year for basic consultation</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h3>Business Consulting & Fiduciary Services</h3>
+                        <p>Complete business support services for international companies operating in Switzerland and Swiss businesses expanding globally.</p>
+                        <ul class="service-features">
+                            <li>Company formation and registration</li>
+                            <li>Corporate tax optimization</li>
+                            <li>Fiduciary services</li>
+                            <li>Real estate management</li>
+                            <li>Compliance monitoring</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price-amount">From CHF 1,200</span>
+                            <span class="price-note">Per month for ongoing services</span>
+                        </div>
+                    </div>
+                    
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="fas fa-calculator"></i>
+                        </div>
+                        <h3>Automated Tax Compliance</h3>
+                        <p>AI-powered tax compliance solutions that automatically monitor regulatory changes and ensure ongoing compliance.</p>
+                        <ul class="service-features">
+                            <li>Real-time regulatory monitoring</li>
+                            <li>Automated compliance checking</li>
+                            <li>Multi-canton tax calculations</li>
+                            <li>Automated report generation</li>
+                            <li>Risk assessment and alerts</li>
+                        </ul>
+                        <div class="service-price">
+                            <span class="price-amount">From CHF 2,000</span>
+                            <span class="price-note">Per month for automated system</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Service Process -->
+    <section class="service-process" style="padding: 80px 0; background: var(--warm-gray);">
+        <div class="container">
+            <h2 class="section-title">How We Work Together</h2>
+            <p class="section-subtitle">A proven process for successful automation and tax solutions</p>
+            
+            <div class="process-steps">
+                <div class="process-step">
+                    <h4>Initial Consultation</h4>
+                    <p>We start with a comprehensive assessment of your current processes, challenges, and goals to understand your unique needs.</p>
+                </div>
+                
+                <div class="process-step">
+                    <h4>Solution Design</h4>
+                    <p>Based on our analysis, we design a customized solution that addresses your specific requirements and delivers measurable results.</p>
+                </div>
+                
+                <div class="process-step">
+                    <h4>Implementation</h4>
+                    <p>We implement the solution with minimal disruption to your operations, providing training and support throughout the process.</p>
+                </div>
+                
+                <div class="process-step">
+                    <h4>Ongoing Support</h4>
+                    <p>We provide continuous monitoring, optimization, and support to ensure your solution continues to deliver value over time.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Call to Action -->
+    <section class="cta-section">
+        <div class="container">
+            <h2>Ready to Transform Your Business?</h2>
+            <p>Let's discuss how my expertise can help you achieve your automation and tax optimization goals.</p>
+            <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+                <a href="index.html#contact" class="btn btn-primary">Get Started Today</a>
+                <a href="portfolio.html" class="btn btn-secondary">View Case Studies</a>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Emanuel Flury</h3>
+                    <p>AI-Native Automation Specialist & Swiss Tax Expert</p>
+                    <p>Bridging traditional finance with cutting-edge AI automation</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="about.html">About</a></p>
+                    <p><a href="services.html">Services</a></p>
+                    <p><a href="portfolio.html">Portfolio</a></p>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Email: me@eflury.com</p>
+                    <p>Phone: +41 79 910 77 87</p>
+                    <p>LinkedIn: linkedin.com/in/emanuelflury</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Emanuel Flury. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
+
