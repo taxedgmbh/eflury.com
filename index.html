@@ -28,6 +28,16 @@
     <!-- Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
+    <!-- Advanced CSS Libraries -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    
+    <!-- Advanced JavaScript Libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
     <script>
@@ -69,8 +79,7 @@
     
     <style>
         :root {
-            /* Caribbean Fresh Theme */
-            /* Caribbean Fresh Theme - PRD Compliant */
+            /* Caribbean Fresh Theme - Advanced Implementation */
             --primary-turquoise: #0891B2;  /* Ocean Turquoise - AI innovation */
             --primary-coral: #F97316;      /* Vibrant Coral - Swiss heritage */
             --primary-mint: #10B981;       /* Fresh Mint - Success, automation */
@@ -80,15 +89,29 @@
             --warm-gray: #F8FAFC;          /* Warm Gray - Background, subtle */
             --charcoal: #374151;           /* Charcoal - Professional text */
             
-            /* Gradients */
+            /* Advanced Gradients */
             --gradient-primary: linear-gradient(135deg, var(--primary-turquoise), var(--primary-mint));
             --gradient-secondary: linear-gradient(135deg, var(--primary-coral), var(--primary-sunset));
             --gradient-hero: linear-gradient(135deg, var(--deep-teal) 0%, var(--primary-turquoise) 50%, var(--primary-mint) 100%);
+            --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
+            --gradient-aurora: linear-gradient(45deg, var(--primary-turquoise), var(--primary-mint), var(--primary-coral), var(--primary-sunset));
             
-            /* Shadows */
-            --shadow-soft: 0 10px 40px rgba(32, 178, 170, 0.1);
-            --shadow-medium: 0 20px 60px rgba(32, 178, 170, 0.15);
-            --shadow-strong: 0 30px 80px rgba(32, 178, 170, 0.2);
+            /* Advanced Shadows */
+            --shadow-soft: 0 10px 40px rgba(8, 145, 178, 0.1);
+            --shadow-medium: 0 20px 60px rgba(8, 145, 178, 0.15);
+            --shadow-strong: 0 30px 80px rgba(8, 145, 178, 0.2);
+            --shadow-glow: 0 0 30px rgba(8, 145, 178, 0.3);
+            --shadow-neon: 0 0 20px var(--primary-turquoise), 0 0 40px var(--primary-turquoise), 0 0 60px var(--primary-turquoise);
+            
+            /* Advanced Effects */
+            --blur-glass: blur(10px);
+            --blur-soft: blur(5px);
+            --backdrop-glass: backdrop-filter: blur(10px);
+            
+            /* Animation Variables */
+            --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            --transition-elastic: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
         
         * {
@@ -103,6 +126,36 @@
             color: var(--charcoal);
             background: var(--pure-white);
             overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+        
+        /* Advanced Scrollbar Styling */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        ::-webkit-scrollbar-track {
+            background: var(--warm-gray);
+        }
+        
+        ::-webkit-scrollbar-thumb {
+            background: var(--gradient-primary);
+            border-radius: 4px;
+        }
+        
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--gradient-secondary);
+        }
+        
+        /* Advanced Selection Styling */
+        ::selection {
+            background: var(--primary-turquoise);
+            color: var(--pure-white);
+        }
+        
+        ::-moz-selection {
+            background: var(--primary-turquoise);
+            color: var(--pure-white);
         }
         
         /* Smooth scrolling */
@@ -110,16 +163,25 @@
             scroll-behavior: smooth;
         }
         
-        /* Navigation */
+        /* Advanced Navigation with Glass Morphism */
         .navbar {
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(255, 255, 255, 0.95);
+            background: rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             z-index: 1000;
             padding: 1rem 0;
-            transition: all 0.3s ease;
+            transition: var(--transition-smooth);
+            box-shadow: 0 8px 32px rgba(8, 145, 178, 0.1);
+        }
+        
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(25px);
+            box-shadow: 0 8px 32px rgba(8, 145, 178, 0.2);
         }
         
         .nav-container {
@@ -241,10 +303,66 @@
             overflow: hidden;
         }
         
-        .hero::before {
+        /* Advanced Hero Background Effects */
+        /* Advanced Card Hover Effects */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: var(--transition-smooth);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .card::before {
             content: '';
             position: absolute;
             top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .card:hover::before {
+            left: 100%;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px) scale(1.02);
+            box-shadow: var(--shadow-glow);
+            border-color: var(--primary-turquoise);
+        }
+        
+        /* Advanced Button Effects */
+        .btn {
+            position: relative;
+            overflow: hidden;
+            transition: var(--transition-smooth);
+        }
+        
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: left 0.5s;
+        }
+        
+        .btn:hover::before {
+            left: 100%;
+        }
+        
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-glow);
+        }
             left: 0;
             right: 0;
             bottom: 0;
@@ -1164,8 +1282,9 @@
     
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <div class="hero-particles" id="particles"></div>
         <div class="hero-container">
-            <div class="hero-content">
+            <div class="hero-content" data-aos="fade-right" data-aos-duration="1000">
                 <h1>Emanuel Aaron Flury</h1>
                 <p class="subtitle">AI-Native Automation Specialist</p>
                 <p class="description">
@@ -1183,7 +1302,7 @@
                     </a>
                 </div>
             </div>
-            <div class="hero-visual">
+            <div class="hero-visual" data-aos="fade-left" data-aos-duration="1000" data-aos-delay="200">
                 <div class="professional-photo">
                     <img src="../../assets/images/portraits/emanuel-aaron-flury-portrait.png" alt="Emanuel Aaron Flury - Professional Headshot" class="professional-photo-img">
                 </div>
@@ -1208,7 +1327,7 @@
     <!-- About Section -->
     <section id="about" class="about">
         <div class="container">
-            <h2 class="section-title">About Me</h2>
+            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">About Me</h2>
             <div class="about-content">
                 <div class="about-text">
                     <p>
@@ -2160,6 +2279,125 @@
                 }, 300);
             }
         }
+    </script>
+    
+    <!-- Advanced JavaScript Libraries -->
+    <script>
+        // Initialize AOS (Animate On Scroll)
+        AOS.init({
+            duration: 1000,
+            easing: 'ease-in-out',
+            once: true,
+            offset: 100
+        });
+        
+        // Initialize GSAP ScrollTrigger
+        gsap.registerPlugin(ScrollTrigger);
+        
+        // Advanced Navigation Scroll Effect
+        window.addEventListener('scroll', () => {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+        
+        // Advanced Hero Animations
+        gsap.timeline()
+            .from('.hero-content h1', { duration: 1, y: 50, opacity: 0, ease: 'power3.out' })
+            .from('.hero-content .subtitle', { duration: 1, y: 30, opacity: 0, ease: 'power3.out' }, '-=0.5')
+            .from('.hero-content .description', { duration: 1, y: 30, opacity: 0, ease: 'power3.out' }, '-=0.5')
+            .from('.hero-buttons', { duration: 1, y: 30, opacity: 0, ease: 'power3.out' }, '-=0.5');
+        
+        // Floating Cards Animation
+        gsap.to('.floating-card', {
+            y: -20,
+            duration: 2,
+            ease: 'power2.inOut',
+            yoyo: true,
+            repeat: -1,
+            stagger: 0.5
+        });
+        
+        // Advanced Scroll Animations
+        gsap.utils.toArray('.card').forEach(card => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 80%',
+                    end: 'bottom 20%',
+                    toggleActions: 'play none none reverse'
+                },
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out'
+            });
+        });
+        
+        // Parallax Effect for Hero
+        gsap.to('.hero::before', {
+            yPercent: -50,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: '.hero',
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: true
+            }
+        });
+        
+        // Advanced Hover Effects
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                gsap.to(card, { scale: 1.05, duration: 0.3, ease: 'power2.out' });
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                gsap.to(card, { scale: 1, duration: 0.3, ease: 'power2.out' });
+            });
+        });
+        
+        // Advanced Button Interactions
+        document.querySelectorAll('.btn').forEach(btn => {
+            btn.addEventListener('mouseenter', () => {
+                gsap.to(btn, { scale: 1.05, duration: 0.2, ease: 'power2.out' });
+            });
+            
+            btn.addEventListener('mouseleave', () => {
+                gsap.to(btn, { scale: 1, duration: 0.2, ease: 'power2.out' });
+            });
+        });
+        
+        // Advanced Form Interactions
+        document.querySelectorAll('input, textarea, select').forEach(input => {
+            input.addEventListener('focus', () => {
+                gsap.to(input, { scale: 1.02, duration: 0.2, ease: 'power2.out' });
+            });
+            
+            input.addEventListener('blur', () => {
+                gsap.to(input, { scale: 1, duration: 0.2, ease: 'power2.out' });
+            });
+        });
+        
+        // Advanced Loading Animation
+        window.addEventListener('load', () => {
+            gsap.from('body', { opacity: 0, duration: 1, ease: 'power2.out' });
+        });
+        
+        // Advanced Scroll Progress
+        gsap.to('.scroll-indicator', {
+            scaleX: 1,
+            ease: 'none',
+            scrollTrigger: {
+                trigger: 'body',
+                start: 'top top',
+                end: 'bottom bottom',
+                scrub: true
+            }
+        });
     </script>
 </body>
 </html>
