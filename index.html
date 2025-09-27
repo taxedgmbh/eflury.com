@@ -70,14 +70,15 @@
     <style>
         :root {
             /* Caribbean Fresh Theme */
-            --primary-turquoise: #20B2AA;
-            --primary-coral: #FF6B6B;
-            --primary-mint: #4ECDC4;
-            --primary-sunset: #FF8C42;
-            --deep-teal: #2C5F5F;
-            --pure-white: #FFFFFF;
-            --warm-gray: #F8F9FA;
-            --charcoal: #2C3E50;
+            /* Caribbean Fresh Theme - PRD Compliant */
+            --primary-turquoise: #0891B2;  /* Ocean Turquoise - AI innovation */
+            --primary-coral: #F97316;      /* Vibrant Coral - Swiss heritage */
+            --primary-mint: #10B981;       /* Fresh Mint - Success, automation */
+            --primary-sunset: #F59E0B;     /* Golden Sunset - Warmth, global */
+            --deep-teal: #0F766E;          /* Deep Teal - Professional depth */
+            --pure-white: #FFFFFF;         /* Pure White - Clean, minimal */
+            --warm-gray: #F8FAFC;          /* Warm Gray - Background, subtle */
+            --charcoal: #374151;           /* Charcoal - Professional text */
             
             /* Gradients */
             --gradient-primary: linear-gradient(135deg, var(--primary-turquoise), var(--primary-mint));
@@ -971,15 +972,15 @@
         }
         
         .form-status.success {
-            background: rgba(34, 197, 94, 0.2);
-            border: 1px solid #22c55e;
-            color: #22c55e;
+            background: rgba(16, 185, 129, 0.2);
+            border: 1px solid var(--primary-mint);
+            color: var(--primary-mint);
         }
         
         .form-status.error {
-            background: rgba(239, 68, 68, 0.2);
-            border: 1px solid #ef4444;
-            color: #ef4444;
+            background: rgba(249, 115, 22, 0.2);
+            border: 1px solid var(--primary-coral);
+            color: var(--primary-coral);
         }
         
         .honeypot {
@@ -1903,11 +1904,11 @@
                 charCount.textContent = count;
                 
                 if (count < 20) {
-                    charCount.style.color = '#ef4444';
+                    charCount.style.color = 'var(--primary-coral)';
                 } else if (count > 900) {
-                    charCount.style.color = '#f59e0b';
+                    charCount.style.color = 'var(--primary-sunset)';
                 } else {
-                    charCount.style.color = '#22c55e';
+                    charCount.style.color = 'var(--primary-mint)';
                 }
             });
             
