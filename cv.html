@@ -6,6 +6,101 @@
     <title>CV - Emanuel Aaron Flury</title>
     <meta name="description" content="Professional CV of Emanuel Aaron Flury - AI Automation Specialist & Swiss Tax Expert">
     <link rel="stylesheet" href="assets/css/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Footer */
+        .footer {
+            background: linear-gradient(135deg, var(--charcoal), var(--deep-teal));
+            color: var(--pure-white);
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-section h3 {
+            color: var(--primary-mint);
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .footer-section p {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .footer-section a {
+            color: var(--pure-white);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        .footer-section a:hover {
+            color: var(--primary-mint);
+        }
+        
+        .footer-social {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .footer-social a {
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-social a:hover {
+            background: var(--primary-mint);
+            transform: translateY(-2px);
+        }
+        
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 1rem;
+            text-align: center;
+            opacity: 0.8;
+        }
+        
+        .footer-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-links a {
+            padding: 0.5rem 1rem;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-links a:hover {
+            background: var(--primary-mint);
+            transform: translateY(-1px);
+        }
+        
+        /* CSS Variables for consistency */
+        :root {
+            --charcoal: #2c3e50;
+            --deep-teal: #1a5f7a;
+            --primary-mint: #4ecdc4;
+            --pure-white: #ffffff;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -25,6 +120,71 @@
             <p>Full CV content will be available here soon.</p>
         </main>
     </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Emanuel Aaron Flury</h3>
+                    <p>AI-Native Automation Specialist & Swiss Tax Expert</p>
+                    <p>Bridging traditional finance with cutting-edge AI automation for global teams and Swiss expatriates.</p>
+                    <div class="footer-social">
+                        <a href="https://linkedin.com/in/emanuelflury" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <i class="fab fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:me@eflury.com" aria-label="Email">
+                            <i class="fas fa-envelope"></i>
+                        </a>
+                        <a href="tel:+41799107787" aria-label="Phone">
+                            <i class="fas fa-phone"></i>
+                        </a>
+                        <a href="https://eflury.com" aria-label="Website">
+                            <i class="fas fa-globe"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Services</h3>
+                    <p><a href="services.html">AI-Native Automation Consulting</a></p>
+                    <p><a href="services.html">Swiss Tax Consulting for Expats</a></p>
+                    <p><a href="services.html">Financial Process Optimization</a></p>
+                    <p><a href="services.html">Maritime Leadership Consulting</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <p><a href="index.html">Home</a></p>
+                    <p><a href="about.html">About</a></p>
+                    <p><a href="portfolio.html">Portfolio</a></p>
+                    <p><a href="cv.html">CV</a></p>
+                    <p><a href="privacy.html">Privacy Policy</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>Contact Information</h3>
+                    <p><i class="fas fa-envelope"></i> me@eflury.com</p>
+                    <p><i class="fas fa-phone"></i> +41 79 910 77 87</p>
+                    <p><i class="fas fa-map-marker-alt"></i> Grenchen, Switzerland</p>
+                    <p><i class="fas fa-building"></i> Taxed GmbH</p>
+                </div>
+            </div>
+            
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="cv.html">CV</a>
+                <a href="privacy.html">Privacy</a>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2024 Emanuel Aaron Flury. All rights reserved. | Professional Website</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
 
