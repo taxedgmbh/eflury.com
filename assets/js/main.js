@@ -5,9 +5,9 @@
 
 // EmailJS Configuration
 const EMAILJS_CONFIG = {
-    serviceId: 'service_eflury', // Replace with your EmailJS service ID
-    templateId: 'template_contact', // Replace with your EmailJS template ID
-    publicKey: 'your_public_key' // Replace with your EmailJS public key
+    serviceId: 'service_eflury', // EmailJS service ID
+    templateId: 'template_contact', // EmailJS template ID
+    publicKey: 'your_public_key' // EmailJS public key (configure in production)
 };
 
 // Initialize EmailJS
