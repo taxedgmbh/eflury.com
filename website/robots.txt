@@ -1,0 +1,49 @@
+# Robots.txt for Emanuel Flury Website
+# https://emanuelflury.com
+
+User-agent: *
+Allow: /
+
+# Disallow development and private directories
+Disallow: /development/
+Disallow: /assets/css/
+Disallow: /assets/js/
+Disallow: /.git/
+Disallow: /node_modules/
+
+# Allow important pages
+Allow: /index.html
+Allow: /cv.html
+Allow: /privacy.html
+Allow: /pages/
+Allow: /assets/images/
+
+# Sitemap location
+Sitemap: https://emanuelflury.com/sitemap.xml
+
+# Crawl delay (optional - be respectful to server resources)
+Crawl-delay: 1
+
+# Specific bot instructions
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+# Block problematic bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
