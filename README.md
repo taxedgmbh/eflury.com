@@ -21,7 +21,6 @@ efluryCom/
 │   ├── about.html             # About page
 │   ├── services.html          # Services page
 │   ├── portfolio.html         # Portfolio page
-│   ├── cv.html                # CV page
 │   ├── privacy.html           # Privacy policy
 │   ├── robots.txt             # SEO robots file
 │   ├── sitemap.xml            # SEO sitemap
@@ -32,7 +31,6 @@ efluryCom/
 │           ├── portraits/     # Professional photos
 │           └── icons/         # Icons and graphics
 └── development/               # Development files
-    ├── emanuel_flury_cv.md    # CV in Markdown
     └── website_prd.md         # Product Requirements Document
 ```
 
