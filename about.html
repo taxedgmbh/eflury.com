@@ -49,8 +49,37 @@
         .about-hero p {
             font-size: 1.2rem;
             opacity: 0.9;
-            max-width: 600px;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .hero-highlights {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .highlight-item i {
+            font-size: 1.2rem;
+            color: var(--primary-mint);
+        }
+        
+        .highlight-item span {
+            font-weight: 600;
+            font-size: 0.9rem;
         }
         
         .timeline {
@@ -180,6 +209,112 @@
             font-size: 0.9rem;
         }
         
+        .international-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .international-item {
+            background: var(--pure-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .international-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .map-icon, .language-icon, .business-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--gradient-primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+        }
+        
+        .map-icon i, .language-icon i, .business-icon i {
+            font-size: 1.5rem;
+            color: var(--pure-white);
+        }
+        
+        .travel-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .stat {
+            text-align: center;
+        }
+        
+        .stat .number {
+            display: block;
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-turquoise);
+        }
+        
+        .stat .label {
+            font-size: 0.9rem;
+            color: var(--charcoal);
+        }
+        
+        .languages, .business-areas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-top: 1rem;
+        }
+        
+        .language-tag, .area-tag {
+            background: var(--warm-gray);
+            color: var(--deep-teal);
+            padding: 0.25rem 0.75rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+        
+        .value-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+        
+        .value-item {
+            text-align: center;
+            padding: 2rem;
+            background: var(--pure-white);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
+        }
+        
+        .value-item:hover {
+            transform: translateY(-5px);
+        }
+        
+        .value-item i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .value-item h3 {
+            color: var(--deep-teal);
+            margin-bottom: 1rem;
+        }
+        
         @media (max-width: 768px) {
             .timeline::before {
                 left: 2rem;
@@ -200,6 +335,16 @@
             
             .timeline-dot {
                 left: 2rem;
+            }
+            
+            .hero-highlights {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .travel-stats {
+                flex-direction: column;
+                gap: 1rem;
             }
         }
     </style>
@@ -225,8 +370,26 @@
     <!-- About Hero -->
     <section class="about-hero">
         <div class="container">
-            <h1>About Emanuel Flury</h1>
-            <p>From Swiss Army service to Johnson & Johnson automation leadership, discover the journey of a hybrid finance-tech expert who bridges traditional finance with cutting-edge AI automation. A unique blend of Swiss precision, international experience, and innovative thinking.</p>
+            <h1>About Emanuel Aaron Flury</h1>
+            <p>From Swiss Army service to Johnson & Johnson automation leadership, discover the journey of a hybrid finance-tech expert who bridges traditional finance with cutting-edge AI automation. A unique blend of Swiss precision, international experience, and innovative thinking that has shaped a career spanning military service, technical excellence, and corporate innovation.</p>
+            <div class="hero-highlights">
+                <div class="highlight-item">
+                    <i class="fas fa-award"></i>
+                    <span>Top Performer</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-globe"></i>
+                    <span>50+ Countries</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-bridge"></i>
+                    <span>Hybrid Expert</span>
+                </div>
+                <div class="highlight-item">
+                    <i class="fas fa-anchor"></i>
+                    <span>Maritime Leader</span>
+                </div>
+            </div>
         </div>
     </section>
     
@@ -383,6 +546,63 @@
                     <h4>Royal Yachting Association Day Skipper</h4>
                     <p class="date">June 2024</p>
                     <p>International maritime leadership certification from Gibraltar, demonstrating advanced leadership and risk management skills.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- International Experience -->
+    <section class="about-international">
+        <div class="container">
+            <h2 class="section-title">Global Experience & Cultural Intelligence</h2>
+            <p class="section-subtitle">50+ countries visited, 5 languages spoken, international business expertise</p>
+            
+            <div class="international-grid">
+                <div class="international-item">
+                    <div class="map-icon">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3>Global Traveler</h3>
+                    <p>Extensive travel across Asia, Americas, and Europe has provided deep cultural intelligence and understanding of diverse business practices. This international perspective enables effective collaboration with global teams and clients.</p>
+                    <div class="travel-stats">
+                        <div class="stat">
+                            <span class="number">50+</span>
+                            <span class="label">Countries</span>
+                        </div>
+                        <div class="stat">
+                            <span class="number">3</span>
+                            <span class="label">Continents</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="international-item">
+                    <div class="language-icon">
+                        <i class="fas fa-language"></i>
+                    </div>
+                    <h3>Multilingual Communication</h3>
+                    <p>Native Swiss German speaker with fluency in German and English, plus basic French and Spanish. This multilingual capability enables seamless communication with international clients and global teams.</p>
+                    <div class="languages">
+                        <span class="language-tag">Swiss German (Native)</span>
+                        <span class="language-tag">German (Fluent)</span>
+                        <span class="language-tag">English (Fluent)</span>
+                        <span class="language-tag">French (Basic)</span>
+                        <span class="language-tag">Spanish (Basic)</span>
+                    </div>
+                </div>
+                
+                <div class="international-item">
+                    <div class="business-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>Cross-Cultural Business</h3>
+                    <p>Deep understanding of Swiss business culture combined with international experience enables effective navigation of complex global business environments and regulatory frameworks.</p>
+                    <div class="business-areas">
+                        <span class="area-tag">Swiss Tax Law</span>
+                        <span class="area-tag">International Business</span>
+                        <span class="area-tag">Global Teams</span>
+                        <span class="area-tag">Cultural Adaptation</span>
+                    </div>
                 </div>
             </div>
         </div>
