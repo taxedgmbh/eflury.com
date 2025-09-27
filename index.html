@@ -836,6 +836,159 @@
             border-color: var(--primary-mint);
         }
         
+        /* Enhanced form styling */
+        .form-group select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--pure-white);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--primary-mint);
+        }
+        
+        .form-group select option {
+            background: var(--charcoal);
+            color: var(--pure-white);
+        }
+        
+        .char-counter {
+            text-align: right;
+            font-size: 0.8rem;
+            color: rgba(255, 255, 255, 0.7);
+            margin-top: 0.5rem;
+        }
+        
+        .captcha-group {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1rem;
+            border-radius: 10px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .captcha-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .captcha-container span {
+            font-weight: 600;
+            color: var(--primary-mint);
+            min-width: 120px;
+        }
+        
+        .captcha-container input {
+            flex: 1;
+            min-width: 100px;
+        }
+        
+        .btn-refresh {
+            background: rgba(78, 205, 196, 0.2);
+            border: 1px solid var(--primary-mint);
+            color: var(--primary-mint);
+            padding: 0.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-refresh:hover {
+            background: var(--primary-mint);
+            color: var(--charcoal);
+        }
+        
+        .checkbox-group {
+            margin: 1.5rem 0;
+        }
+        
+        .checkbox-label {
+            display: flex;
+            align-items: flex-start;
+            gap: 0.75rem;
+            cursor: pointer;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+        
+        .checkbox-label input[type="checkbox"] {
+            display: none;
+        }
+        
+        .checkmark {
+            width: 20px;
+            height: 20px;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 4px;
+            background: transparent;
+            position: relative;
+            transition: all 0.3s ease;
+            flex-shrink: 0;
+            margin-top: 2px;
+        }
+        
+        .checkbox-label input[type="checkbox"]:checked + .checkmark {
+            background: var(--primary-mint);
+            border-color: var(--primary-mint);
+        }
+        
+        .checkbox-label input[type="checkbox"]:checked + .checkmark::after {
+            content: '✓';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: var(--charcoal);
+            font-weight: bold;
+            font-size: 12px;
+        }
+        
+        .submit-btn:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            background: rgba(255, 255, 255, 0.1);
+        }
+        
+        .submit-btn:not(:disabled) {
+            background: linear-gradient(135deg, var(--primary-turquoise), var(--primary-mint));
+            color: var(--charcoal);
+            font-weight: 600;
+        }
+        
+        .form-status {
+            margin-top: 1rem;
+            padding: 1rem;
+            border-radius: 10px;
+            text-align: center;
+            font-weight: 500;
+        }
+        
+        .form-status.success {
+            background: rgba(34, 197, 94, 0.2);
+            border: 1px solid #22c55e;
+            color: #22c55e;
+        }
+        
+        .form-status.error {
+            background: rgba(239, 68, 68, 0.2);
+            border: 1px solid #ef4444;
+            color: #ef4444;
+        }
+        
+        .honeypot {
+            position: absolute !important;
+            left: -9999px !important;
+            opacity: 0 !important;
+            pointer-events: none !important;
+        }
+        
         /* Footer */
         .footer {
             background: linear-gradient(135deg, var(--charcoal), var(--deep-teal));
@@ -1501,27 +1654,88 @@
                         </div>
                     </div>
                 </div>
-                <form class="contact-form">
-                    <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" placeholder="Your name" required>
+                <form class="contact-form" id="contactForm">
+                    <!-- Honeypot field - hidden from users but visible to bots -->
+                    <div class="honeypot" style="position: absolute; left: -9999px; opacity: 0; pointer-events: none;">
+                        <label for="website">Website (leave blank):</label>
+                        <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
                     </div>
+                    
+                    <!-- Time-based validation -->
+                    <input type="hidden" id="formStartTime" name="formStartTime" value="">
+                    
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        <label for="name">Full Name *</label>
+                        <input type="text" id="name" name="name" placeholder="Your full name" required 
+                               minlength="2" maxlength="50" pattern="[a-zA-Z\s]+" 
+                               title="Please enter a valid name (letters and spaces only)">
                     </div>
+                    
                     <div class="form-group">
-                        <label for="subject">Subject</label>
-                        <input type="text" id="subject" name="subject" placeholder="How can I help you?" required>
+                        <label for="email">Email Address *</label>
+                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required
+                               pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$" 
+                               title="Please enter a valid email address">
                     </div>
+                    
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                        <label for="company">Company/Organization</label>
+                        <input type="text" id="company" name="company" placeholder="Your company (optional)" 
+                               maxlength="100">
                     </div>
-                    <button type="submit" class="btn btn-primary" style="width: 100%;">
+                    
+                    <div class="form-group">
+                        <label for="subject">Subject *</label>
+                        <select id="subject" name="subject" required>
+                            <option value="">Select a topic...</option>
+                            <option value="automation">AI-Native Automation Consulting</option>
+                            <option value="tax">Swiss Tax Consulting</option>
+                            <option value="finance">Financial Process Optimization</option>
+                            <option value="maritime">Maritime Leadership Consulting</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Message *</label>
+                        <textarea id="message" name="message" rows="5" placeholder="Please describe your project or inquiry in detail..." 
+                                  required minlength="20" maxlength="1000" 
+                                  title="Please provide at least 20 characters describing your inquiry"></textarea>
+                        <div class="char-counter">
+                            <span id="charCount">0</span>/1000 characters
+                        </div>
+                    </div>
+                    
+                    <!-- Simple math captcha -->
+                    <div class="form-group captcha-group">
+                        <label for="captcha">Security Check *</label>
+                        <div class="captcha-container">
+                            <span id="captchaQuestion">What is 7 + 3?</span>
+                            <input type="number" id="captcha" name="captcha" placeholder="Your answer" required>
+                            <button type="button" id="refreshCaptcha" class="btn-refresh" title="Get new question">
+                                <i class="fas fa-sync-alt"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <!-- Terms acceptance -->
+                    <div class="form-group checkbox-group">
+                        <label class="checkbox-label">
+                            <input type="checkbox" id="terms" name="terms" required>
+                            <span class="checkmark"></span>
+                            I agree to the <a href="#privacy" target="_blank">Privacy Policy</a> and consent to being contacted *
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary submit-btn" style="width: 100%;" disabled>
                         <i class="fas fa-paper-plane"></i>
-                        Send Message
+                        <span class="btn-text">Send Message</span>
+                        <span class="btn-loading" style="display: none;">
+                            <i class="fas fa-spinner fa-spin"></i> Sending...
+                        </span>
                     </button>
+                    
+                    <div class="form-status" id="formStatus" style="display: none;"></div>
                 </form>
             </div>
         </div>
@@ -1662,12 +1876,218 @@
             });
         });
         
-        // Form submission
-        document.querySelector('.contact-form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            // Here you would typically send the form data to a server
-            alert('Thank you for your message! I\'ll get back to you soon.');
+        // Enhanced anti-bot form validation and submission
+        let formStartTime = Date.now();
+        let captchaAnswer = 10; // Will be updated dynamically
+        let submissionAttempts = 0;
+        const maxAttempts = 3;
+        
+        // Initialize form
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('contactForm');
+            const formStartTimeInput = document.getElementById('formStartTime');
+            const submitBtn = document.querySelector('.submit-btn');
+            const termsCheckbox = document.getElementById('terms');
+            const messageTextarea = document.getElementById('message');
+            const charCount = document.getElementById('charCount');
+            
+            // Set form start time
+            formStartTimeInput.value = formStartTime;
+            
+            // Generate initial captcha
+            generateCaptcha();
+            
+            // Character counter for message
+            messageTextarea.addEventListener('input', function() {
+                const count = this.value.length;
+                charCount.textContent = count;
+                
+                if (count < 20) {
+                    charCount.style.color = '#ef4444';
+                } else if (count > 900) {
+                    charCount.style.color = '#f59e0b';
+                } else {
+                    charCount.style.color = '#22c55e';
+                }
+            });
+            
+            // Enable/disable submit button based on form validity
+            function updateSubmitButton() {
+                const isFormValid = form.checkValidity() && termsCheckbox.checked;
+                submitBtn.disabled = !isFormValid;
+            }
+            
+            // Listen for form changes
+            form.addEventListener('input', updateSubmitButton);
+            form.addEventListener('change', updateSubmitButton);
+            termsCheckbox.addEventListener('change', updateSubmitButton);
+            
+            // Captcha refresh
+            document.getElementById('refreshCaptcha').addEventListener('click', generateCaptcha);
+            
+            // Form submission with anti-bot measures
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Anti-bot validation
+                if (!validateAntiBot()) {
+                    return;
+                }
+                
+                // Show loading state
+                showLoadingState();
+                
+                // Simulate form processing (replace with actual submission)
+                setTimeout(() => {
+                    showSuccessMessage();
+                    resetForm();
+                }, 2000);
+            });
         });
+        
+        // Generate random math captcha
+        function generateCaptcha() {
+            const operations = ['+', '-', '*'];
+            const operation = operations[Math.floor(Math.random() * operations.length)];
+            let num1, num2, answer;
+            
+            switch(operation) {
+                case '+':
+                    num1 = Math.floor(Math.random() * 20) + 1;
+                    num2 = Math.floor(Math.random() * 20) + 1;
+                    answer = num1 + num2;
+                    break;
+                case '-':
+                    num1 = Math.floor(Math.random() * 20) + 10;
+                    num2 = Math.floor(Math.random() * 10) + 1;
+                    answer = num1 - num2;
+                    break;
+                case '*':
+                    num1 = Math.floor(Math.random() * 10) + 1;
+                    num2 = Math.floor(Math.random() * 10) + 1;
+                    answer = num1 * num2;
+                    break;
+            }
+            
+            document.getElementById('captchaQuestion').textContent = `What is ${num1} ${operation} ${num2}?`;
+            captchaAnswer = answer;
+            document.getElementById('captcha').value = '';
+        }
+        
+        // Comprehensive anti-bot validation
+        function validateAntiBot() {
+            const form = document.getElementById('contactForm');
+            const formData = new FormData(form);
+            
+            // 1. Honeypot check
+            if (formData.get('website')) {
+                console.log('Bot detected: Honeypot field filled');
+                showErrorMessage('Invalid submission detected.');
+                return false;
+            }
+            
+            // 2. Time-based validation (minimum 10 seconds on form)
+            const currentTime = Date.now();
+            const timeOnForm = (currentTime - formStartTime) / 1000;
+            if (timeOnForm < 10) {
+                showErrorMessage('Please take your time to fill out the form properly.');
+                return false;
+            }
+            
+            // 3. Captcha validation
+            const userCaptcha = parseInt(document.getElementById('captcha').value);
+            if (userCaptcha !== captchaAnswer) {
+                showErrorMessage('Incorrect security check answer. Please try again.');
+                generateCaptcha();
+                return false;
+            }
+            
+            // 4. Rate limiting
+            submissionAttempts++;
+            if (submissionAttempts > maxAttempts) {
+                showErrorMessage('Too many submission attempts. Please wait before trying again.');
+                return false;
+            }
+            
+            // 5. Content validation
+            const message = formData.get('message');
+            if (message.length < 20) {
+                showErrorMessage('Please provide a more detailed message (at least 20 characters).');
+                return false;
+            }
+            
+            // 6. Check for suspicious patterns
+            const suspiciousPatterns = [
+                /viagra|cialis|pharmacy|casino|poker|loan|credit/i,
+                /bitcoin|crypto|investment|trading/i,
+                /seo|marketing|promotion|advertising/i
+            ];
+            
+            for (let pattern of suspiciousPatterns) {
+                if (pattern.test(message)) {
+                    showErrorMessage('Your message contains content that cannot be processed.');
+                    return false;
+                }
+            }
+            
+            return true;
+        }
+        
+        // Show loading state
+        function showLoadingState() {
+            const submitBtn = document.querySelector('.submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            
+            submitBtn.disabled = true;
+            btnText.style.display = 'none';
+            btnLoading.style.display = 'inline-flex';
+        }
+        
+        // Show success message
+        function showSuccessMessage() {
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.innerHTML = '<i class="fas fa-check-circle"></i> Thank you! Your message has been sent successfully. I\'ll get back to you within 24 hours.';
+            statusDiv.className = 'form-status success';
+            statusDiv.style.display = 'block';
+        }
+        
+        // Show error message
+        function showErrorMessage(message) {
+            const statusDiv = document.getElementById('formStatus');
+            statusDiv.innerHTML = `<i class="fas fa-exclamation-circle"></i> ${message}`;
+            statusDiv.className = 'form-status error';
+            statusDiv.style.display = 'block';
+            
+            // Hide error after 5 seconds
+            setTimeout(() => {
+                statusDiv.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Reset form
+        function resetForm() {
+            const form = document.getElementById('contactForm');
+            const submitBtn = document.querySelector('.submit-btn');
+            const btnText = submitBtn.querySelector('.btn-text');
+            const btnLoading = submitBtn.querySelector('.btn-loading');
+            
+            form.reset();
+            submitBtn.disabled = true;
+            btnText.style.display = 'inline-flex';
+            btnLoading.style.display = 'none';
+            
+            // Reset form start time
+            formStartTime = Date.now();
+            document.getElementById('formStartTime').value = formStartTime;
+            
+            // Generate new captcha
+            generateCaptcha();
+            
+            // Reset character counter
+            document.getElementById('charCount').textContent = '0';
+            document.getElementById('charCount').style.color = 'rgba(255, 255, 255, 0.7)';
+        }
         
         // Navbar background on scroll and active navigation
         window.addEventListener('scroll', () => {
