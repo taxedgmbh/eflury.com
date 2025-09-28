@@ -415,7 +415,7 @@
             z-index: 10;
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 2rem;
+            padding: 2rem;
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
@@ -423,7 +423,24 @@
             min-height: 100vh;
         }
         
-        /* Hero Content */
+        /* Hero Content Grid */
+        .hero-content {
+            display: grid;
+            grid-template-rows: auto auto auto auto auto;
+            gap: 2rem;
+            align-content: center;
+        }
+        
+        /* Hero Visual Grid */
+        .hero-visual {
+            display: grid;
+            grid-template-rows: 1fr auto;
+            gap: 2rem;
+            align-items: center;
+            justify-items: center;
+        }
+        
+        /* Hero Content Styling */
         .hero-content {
             color: var(--pure-white);
             z-index: 10;
@@ -667,16 +684,18 @@
         }
         
         .floating-elements {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
+            position: relative;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+            margin-top: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
         }
         
         .floating-card {
-            position: absolute;
+            position: relative;
             background: rgba(255, 255, 255, 0.95);
             backdrop-filter: blur(20px);
             border: 1px solid rgba(255, 255, 255, 0.3);
@@ -684,42 +703,37 @@
             padding: 1.5rem;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             animation: floatCard 6s ease-in-out infinite;
-            pointer-events: auto;
             transition: all 0.3s ease;
+            min-height: 120px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         
         .floating-card:hover {
-            transform: translateY(-10px) scale(1.05);
+            transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
         
         .ai-card {
-            top: 10%;
-            right: -10%;
             animation-delay: 0s;
         }
         
         .tax-card {
-            bottom: 20%;
-            left: -15%;
-            animation-delay: 2s;
+            animation-delay: 1.5s;
         }
         
         .maritime-card {
-            top: 60%;
-            right: -5%;
-            animation-delay: 4s;
+            animation-delay: 3s;
         }
         
         .global-card {
-            bottom: 10%;
-            right: 10%;
-            animation-delay: 1s;
+            animation-delay: 4.5s;
         }
         
         @keyframes floatCard {
             0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-20px); }
+            50% { transform: translateY(-10px); }
         }
         
         .card-header {
@@ -1812,6 +1826,17 @@
                 grid-template-columns: 1fr;
                 gap: 3rem;
                 text-align: center;
+                padding: 1.5rem;
+            }
+            
+            .hero-content {
+                grid-template-rows: auto auto auto auto auto;
+                gap: 1.5rem;
+            }
+            
+            .hero-visual {
+                grid-template-rows: auto auto;
+                gap: 1.5rem;
             }
             
             .hero-title {
@@ -1824,18 +1849,15 @@
             }
             
             .floating-elements {
-                position: relative;
-                display: flex;
-                flex-wrap: wrap;
-                justify-content: center;
+                grid-template-columns: repeat(2, 1fr);
                 gap: 1rem;
-                margin-top: 2rem;
+                margin-top: 1.5rem;
+                max-width: 500px;
             }
             
             .floating-card {
-                position: relative;
-                width: 200px;
-                margin: 0.5rem;
+                min-height: 100px;
+                padding: 1rem;
             }
         }
         
@@ -1847,6 +1869,16 @@
                 padding: 1rem;
             }
             
+            .hero-content {
+                grid-template-rows: auto auto auto auto auto;
+                gap: 1.5rem;
+            }
+            
+            .hero-visual {
+                grid-template-rows: auto auto;
+                gap: 1.5rem;
+            }
+            
             .hero-title {
                 font-size: 2.2rem;
                 line-height: 1.2;
@@ -1854,13 +1886,11 @@
             
             .hero-subtitle {
                 font-size: 1.1rem;
-                margin-bottom: 2rem;
             }
             
             .hero-stats {
                 grid-template-columns: repeat(2, 1fr);
                 gap: 0.75rem;
-                margin-bottom: 2rem;
             }
             
             .stat-item {
@@ -1890,8 +1920,15 @@
                 height: 280px;
             }
             
+            .floating-elements {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.75rem;
+                margin-top: 1rem;
+                max-width: 400px;
+            }
+            
             .floating-card {
-                width: 180px;
+                min-height: 90px;
                 padding: 1rem;
             }
             
@@ -1939,6 +1976,14 @@
                 gap: 1.5rem;
             }
             
+            .hero-content {
+                gap: 1rem;
+            }
+            
+            .hero-visual {
+                gap: 1rem;
+            }
+            
             .hero-badge {
                 padding: 0.5rem 1rem;
                 font-size: 0.8rem;
@@ -1966,8 +2011,15 @@
                 height: 240px;
             }
             
+            .floating-elements {
+                grid-template-columns: 1fr;
+                gap: 0.5rem;
+                margin-top: 1rem;
+                max-width: 300px;
+            }
+            
             .floating-card {
-                width: 160px;
+                min-height: 80px;
                 padding: 0.75rem;
             }
             
