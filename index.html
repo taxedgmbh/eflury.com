@@ -779,16 +779,47 @@
             color: var(--pure-white);
             z-index: 10;
             animation: bounce 2s infinite;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            padding: 1rem;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            opacity: 1;
+        }
+        
+        .hero-scroll-indicator:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateX(-50%) translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+        
+        .hero-scroll-indicator:active {
+            transform: translateX(-50%) translateY(-2px) scale(0.95);
         }
         
         .scroll-text {
             font-size: 0.9rem;
             margin-bottom: 0.5rem;
             opacity: 0.8;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-scroll-indicator:hover .scroll-text {
+            opacity: 1;
+            color: var(--primary-mint);
         }
         
         .scroll-arrow {
             font-size: 1.5rem;
+            transition: all 0.3s ease;
+        }
+        
+        .hero-scroll-indicator:hover .scroll-arrow {
+            color: var(--primary-mint);
+            transform: translateY(3px);
         }
         
         @keyframes bounce {
@@ -2513,7 +2544,7 @@
             </div>
         </div>
         
-        <div class="hero-scroll-indicator">
+        <div class="hero-scroll-indicator" id="heroScrollIndicator">
             <div class="scroll-text">Scroll to explore</div>
             <div class="scroll-arrow">
                 <i class="fas fa-chevron-down"></i>
@@ -3222,6 +3253,37 @@
         
         // Initialize form
         document.addEventListener('DOMContentLoaded', function() {
+            // Scroll to explore functionality
+            const heroScrollIndicator = document.getElementById('heroScrollIndicator');
+            if (heroScrollIndicator) {
+                heroScrollIndicator.addEventListener('click', function() {
+                    const aboutSection = document.getElementById('about');
+                    if (aboutSection) {
+                        aboutSection.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                    }
+                });
+                
+                // Hide scroll indicator when user scrolls
+                let scrollTimeout;
+                window.addEventListener('scroll', function() {
+                    if (heroScrollIndicator.style.opacity !== '0') {
+                        heroScrollIndicator.style.opacity = '0';
+                        heroScrollIndicator.style.transform = 'translateX(-50%) translateY(20px)';
+                    }
+                    
+                    clearTimeout(scrollTimeout);
+                    scrollTimeout = setTimeout(function() {
+                        if (window.scrollY < 100) {
+                            heroScrollIndicator.style.opacity = '1';
+                            heroScrollIndicator.style.transform = 'translateX(-50%) translateY(0)';
+                        }
+                    }, 1000);
+                });
+            }
+            
             const form = document.getElementById('contactForm');
             const formStartTimeInput = document.getElementById('formStartTime');
             const submitBtn = document.querySelector('.submit-btn');
