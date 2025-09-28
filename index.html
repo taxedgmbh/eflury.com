@@ -194,6 +194,29 @@
         }
         
         .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-size: 1.5rem;
+            font-weight: 800;
+            background: var(--gradient-primary);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .logo-image {
+            height: 40px;
+            width: auto;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+        
+        .logo-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .logo-text {
             font-size: 1.5rem;
             font-weight: 800;
             background: var(--gradient-primary);
@@ -249,6 +272,18 @@
         @media (max-width: 768px) {
             .mobile-menu-toggle {
                 display: flex;
+            }
+            
+            .logo {
+                gap: 0.5rem;
+            }
+            
+            .logo-image {
+                height: 32px;
+            }
+            
+            .logo-text {
+                font-size: 1.2rem;
             }
             
             .nav-links {
@@ -1138,11 +1173,29 @@
             z-index: 1;
         }
         
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .footer-logo-image {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+        
+        .footer-logo-image:hover {
+            transform: scale(1.05);
+        }
+        
         .footer-brand h3 {
             color: var(--pure-white);
             font-size: 2rem;
             font-weight: 600;
-            margin-bottom: 0.5rem;
+            margin: 0;
             background: linear-gradient(135deg, var(--pure-white) 0%, var(--coral-accent) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
@@ -1269,6 +1322,19 @@
                 gap: 2rem;
             }
             
+            .footer-logo {
+                justify-content: center;
+                text-align: center;
+            }
+            
+            .footer-logo-image {
+                height: 40px;
+            }
+            
+            .footer-brand h3 {
+                font-size: 1.5rem;
+            }
+            
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
@@ -1350,7 +1416,10 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <div class="logo">Emanuel Aaron Flury</div>
+            <div class="logo">
+                <img src="assets/images/icons/emanuel-flury-logo.png" alt="Emanuel Flury Logo" class="logo-image">
+                <span class="logo-text">Emanuel Aaron Flury</span>
+            </div>
             <div class="mobile-menu-toggle" id="mobileMenuToggle">
                 <span></span>
                 <span></span>
@@ -1953,7 +2022,10 @@
         <div class="container">
             <div class="footer-main">
                 <div class="footer-brand">
-                    <h3>Emanuel Aaron Flury</h3>
+                    <div class="footer-logo">
+                        <img src="assets/images/icons/emanuel-flury-logo.png" alt="Emanuel Flury Logo" class="footer-logo-image">
+                        <h3>Emanuel Aaron Flury</h3>
+                    </div>
                     <p class="footer-tagline">AI-Native Automation Specialist</p>
                     <p class="footer-description">Swiss automation expert specializing in AI-driven finance solutions for global teams and Swiss expatriates.</p>
                 </div>
