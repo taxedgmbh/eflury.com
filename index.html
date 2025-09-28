@@ -1378,35 +1378,247 @@
             padding: 6rem 0;
             background: var(--gradient-hero);
             color: var(--pure-white);
+            position: relative;
+            overflow: hidden;
         }
         
+        /* Enhanced Contact Background */
+        .contact-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+        
+        .contact-gradient-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, 
+                rgba(8, 145, 178, 0.95) 0%, 
+                rgba(249, 115, 22, 0.9) 50%, 
+                rgba(16, 185, 129, 0.85) 100%);
+            z-index: 2;
+        }
+        
+        .contact-shapes {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 3;
+        }
+        
+        .contact-shape {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            animation: contactFloat 25s infinite linear;
+        }
+        
+        .contact-shape.shape-1 {
+            width: 200px;
+            height: 200px;
+            top: 15%;
+            right: 15%;
+            animation-delay: 0s;
+        }
+        
+        .contact-shape.shape-2 {
+            width: 150px;
+            height: 150px;
+            bottom: 25%;
+            left: 20%;
+            animation-delay: -8s;
+        }
+        
+        .contact-shape.shape-3 {
+            width: 100px;
+            height: 100px;
+            top: 60%;
+            left: 10%;
+            animation-delay: -16s;
+        }
+        
+        @keyframes contactFloat {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            25% { transform: translateY(-15px) rotate(90deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+            75% { transform: translateY(-15px) rotate(270deg); }
+        }
+        
+        /* Contact Header */
+        .contact-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            position: relative;
+            z-index: 10;
+        }
+        
+        .contact-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 0.75rem 1.5rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-badge:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-2px);
+        }
+        
+        .contact-badge i {
+            color: var(--primary-mint);
+        }
+        
+        .contact-title {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--pure-white), var(--primary-mint));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .contact-subtitle {
+            font-size: 1.25rem;
+            line-height: 1.6;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        /* Contact Content Grid */
         .contact-content {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: center;
+            align-items: start;
+            position: relative;
+            z-index: 10;
         }
         
-        .contact-info h3 {
-            font-size: 2rem;
-            margin-bottom: 2rem;
+        /* Contact Info Cards */
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
         }
         
-        .contact-item {
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .contact-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s;
+        }
+        
+        .contact-card:hover::before {
+            left: 100%;
+        }
+        
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.15);
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+        
+        .contact-card-header {
             display: flex;
             align-items: center;
             gap: 1rem;
             margin-bottom: 1.5rem;
         }
         
-        .contact-item i {
-            width: 40px;
-            height: 40px;
-            background: rgba(255, 255, 255, 0.2);
-            border-radius: 10px;
+        .contact-card-header i {
+            width: 50px;
+            height: 50px;
+            background: var(--primary-coral);
+            border-radius: 15px;
             display: flex;
             align-items: center;
             justify-content: center;
+            font-size: 1.5rem;
+            color: var(--pure-white);
+            transition: all 0.3s ease;
+        }
+        
+        .contact-card:hover .contact-card-header i {
+            background: var(--primary-mint);
+            transform: scale(1.1);
+        }
+        
+        .contact-card-header h3 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: var(--pure-white);
+            margin: 0;
+        }
+        
+        .contact-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .contact-link {
+            display: flex;
+            flex-direction: column;
+            gap: 0.25rem;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        
+        .contact-link:hover {
+            transform: translateX(5px);
+        }
+        
+        .contact-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+            font-weight: 500;
+        }
+        
+        .contact-value {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--primary-mint);
+        }
+        
+        .contact-note {
+            font-size: 0.8rem;
+            opacity: 0.7;
+            margin-top: 0.5rem;
+            font-style: italic;
         }
         
         .contact-form {
@@ -1957,6 +2169,19 @@
                 grid-template-columns: 1fr;
             }
             
+            .contact-info {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+            }
+            
+            .contact-title {
+                font-size: 2.5rem;
+            }
+            
+            .contact-card {
+                padding: 1.5rem;
+            }
+            
             .portfolio-grid {
                 grid-template-columns: 1fr;
             }
@@ -2025,6 +2250,30 @@
             
             .shape-1, .shape-2, .shape-3 {
                 display: none;
+            }
+            
+            .contact-title {
+                font-size: 2rem;
+            }
+            
+            .contact-subtitle {
+                font-size: 1rem;
+            }
+            
+            .contact-card {
+                padding: 1rem;
+            }
+            
+            .contact-card-header {
+                flex-direction: column;
+                text-align: center;
+                gap: 0.5rem;
+            }
+            
+            .contact-card-header i {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
             }
         }
         
@@ -2681,44 +2930,80 @@
     
     <!-- Contact Section -->
     <section id="contact" class="contact">
+        <div class="contact-background">
+            <div class="contact-particles" id="contactParticles"></div>
+            <div class="contact-gradient-overlay"></div>
+            <div class="contact-shapes">
+                <div class="contact-shape shape-1"></div>
+                <div class="contact-shape shape-2"></div>
+                <div class="contact-shape shape-3"></div>
+            </div>
+        </div>
+        
         <div class="container">
-            <h2 class="section-title" style="color: var(--pure-white);">Get In Touch</h2>
+            <div class="contact-header">
+                <div class="contact-badge">
+                    <i class="fas fa-handshake"></i>
+                    <span>Professional Collaboration</span>
+                </div>
+                <h2 class="contact-title">Let's Transform Your Business</h2>
+                <p class="contact-subtitle">
+                    Ready to automate your processes or need Swiss tax expertise? 
+                    Let's discuss how we can drive your success forward.
+                </p>
+            </div>
+            
             <div class="contact-content">
                 <div class="contact-info">
-                    <h3>Let's Connect</h3>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <div>
-                            <strong>Email</strong><br>
-                            <a href="mailto:me@eflury.com" style="color: var(--primary-mint);">me@eflury.com</a>
+                    <div class="contact-card">
+                        <div class="contact-card-header">
+                            <i class="fas fa-envelope"></i>
+                            <h3>Email Contact</h3>
+                        </div>
+                        <div class="contact-details">
+                            <a href="mailto:me@eflury.com" class="contact-link">
+                                <span class="contact-label">Primary Email</span>
+                                <span class="contact-value">me@eflury.com</span>
+                            </a>
+                            <p class="contact-note">Response within 24 hours</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <div>
-                            <strong>Phone</strong><br>
-                            <a href="tel:+41799107787" style="color: var(--primary-mint);">+41 79 910 77 87</a>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-header">
+                            <i class="fab fa-linkedin"></i>
+                            <h3>Professional Network</h3>
+                        </div>
+                        <div class="contact-details">
+                            <a href="https://www.linkedin.com/in/emanuelflury/" target="_blank" rel="noopener" class="contact-link">
+                                <span class="contact-label">LinkedIn Profile</span>
+                                <span class="contact-value">linkedin.com/in/emanuelflury</span>
+                            </a>
+                            <p class="contact-note">Connect for professional updates</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fab fa-linkedin"></i>
-                        <div>
-                            <strong>LinkedIn</strong><br>
-                            <a href="https://www.linkedin.com/in/emanuelflury/" style="color: var(--primary-mint);">linkedin.com/in/emanuelflury</a>
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-header">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Location</h3>
+                        </div>
+                        <div class="contact-details">
+                            <span class="contact-label">Based in</span>
+                            <span class="contact-value">Grenchen, Switzerland</span>
+                            <p class="contact-note">Serving clients globally</p>
                         </div>
                     </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <div>
-                            <strong>Location</strong><br>
-                            Grenchen, Switzerland
+                    
+                    <div class="contact-card">
+                        <div class="contact-card-header">
+                            <i class="fas fa-briefcase"></i>
+                            <h3>Company</h3>
                         </div>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-briefcase"></i>
-                        <div>
-                            <strong>Company</strong><br>
-                            Taxed GmbH
+                        <div class="contact-details">
+                            <span class="contact-label">Taxed GmbH</span>
+                            <span class="contact-value">Swiss Tax & Automation</span>
+                            <p class="contact-note">100% Swiss-owned company</p>
                         </div>
                     </div>
                 </div>
