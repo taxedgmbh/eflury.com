@@ -1,12 +1,18 @@
-            /* Caribbean Fresh Theme - Advanced Implementation */
-            --primary-turquoise: #0891B2;  /* Ocean Turquoise - AI innovation */
-            --primary-coral: #F97316;      /* Vibrant Coral - Swiss heritage */
-            --primary-mint: #10B981;       /* Fresh Mint - Success, automation */
-            --primary-sunset: #F59E0B;     /* Golden Sunset - Warmth, global */
-            --deep-teal: #0F766E;          /* Deep Teal - Professional depth */
-            --pure-white: #FFFFFF;         /* Pure White - Clean, minimal */
-            --warm-gray: #F8FAFC;          /* Warm Gray - Background, subtle */
-            --charcoal: #374151;           /* Charcoal - Professional text */
+            /* Caribbean Fresh Theme - PRD Compliant */
+            --turquoise: #0891B2;          /* Ocean Turquoise - AI innovation */
+            --coral: #F97316;             /* Vibrant Coral - Swiss heritage */
+            --mint: #10B981;              /* Fresh Mint - Success, automation */
+            --sunset: #F59E0B;            /* Golden Sunset - Warmth, global */
+            --deep-teal: #0F766E;         /* Professional depth, trust */
+            --pure-white: #FFFFFF;        /* Clean, minimal, Swiss precision */
+            --warm-gray: #F8FAFC;         /* Background, subtle elements */
+            --charcoal: #374151;          /* Professional text, authority */
+            
+            /* Legacy Support */
+            --primary-turquoise: var(--turquoise);
+            --primary-coral: var(--coral);
+            --primary-mint: var(--mint);
+            --primary-sunset: var(--sunset);
             
             /* Advanced Gradients */
             --gradient-primary: linear-gradient(135deg, var(--primary-turquoise), var(--primary-mint));
@@ -31,6 +37,172 @@
             --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             --transition-elastic: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            
+            /* Grid System Variables */
+            --grid-gap-sm: 0.5rem;
+            --grid-gap-md: 1rem;
+            --grid-gap-lg: 1.5rem;
+            --grid-gap-xl: 2rem;
+            
+            /* Liquid Glass Gradients */
+            --gradient-liquid: linear-gradient(135deg, 
+                #0F172A 0%, 
+                #1E293B 25%, 
+                #334155 50%, 
+                #475569 75%, 
+                #64748B 100%);
+        }
+        
+        /* ========================================
+           COMPREHENSIVE GRID SYSTEM
+           ======================================== */
+        
+        /* Master Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--grid-gap-md);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        /* Grid Column Classes */
+        .col-1 { grid-column: span 1; }
+        .col-2 { grid-column: span 2; }
+        .col-3 { grid-column: span 3; }
+        .col-4 { grid-column: span 4; }
+        .col-5 { grid-column: span 5; }
+        .col-6 { grid-column: span 6; }
+        .col-7 { grid-column: span 7; }
+        .col-8 { grid-column: span 8; }
+        .col-9 { grid-column: span 9; }
+        .col-10 { grid-column: span 10; }
+        .col-11 { grid-column: span 11; }
+        .col-12 { grid-column: span 12; }
+        
+        /* Grid Row Classes */
+        .row-1 { grid-row: span 1; }
+        .row-2 { grid-row: span 2; }
+        .row-3 { grid-row: span 3; }
+        .row-4 { grid-row: span 4; }
+        
+        /* Grid Alignment */
+        .grid-start { justify-self: start; }
+        .grid-center { justify-self: center; }
+        .grid-end { justify-self: end; }
+        .grid-stretch { justify-self: stretch; }
+        
+        .grid-top { align-self: start; }
+        .grid-middle { align-self: center; }
+        .grid-bottom { align-self: end; }
+        .grid-stretch-vertical { align-self: stretch; }
+        
+        /* Responsive Grid Breakpoints */
+        @media (max-width: 768px) {
+            .grid-container {
+                grid-template-columns: 1fr;
+                gap: var(--grid-gap-sm);
+                padding: 0 0.5rem;
+            }
+            
+            .col-1, .col-2, .col-3, .col-4, .col-5, .col-6,
+            .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+                grid-column: span 1;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .grid-container {
+                grid-template-columns: repeat(8, 1fr);
+                gap: var(--grid-gap-lg);
+                padding: 0 1rem;
+            }
+            
+            .col-1, .col-2, .col-3, .col-4 { grid-column: span 2; }
+            .col-5, .col-6, .col-7, .col-8 { grid-column: span 4; }
+            .col-9, .col-10, .col-11, .col-12 { grid-column: span 8; }
+        }
+        
+        @media (min-width: 1025px) {
+            .grid-container {
+                grid-template-columns: repeat(12, 1fr);
+                gap: var(--grid-gap-xl);
+                padding: 0 1.5rem;
+            }
+        }
+        
+        /* Section Grid Layouts */
+        .section-grid {
+            display: grid;
+            gap: var(--grid-gap-lg);
+            padding: var(--spacing-2xl) 0;
+        }
+        
+        .section-grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .section-grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .section-grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        @media (max-width: 768px) {
+            .section-grid-2,
+            .section-grid-3,
+            .section-grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .section-grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .section-grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        
+        /* Card Grid System */
+        .card-grid {
+            display: grid;
+            gap: var(--grid-gap-md);
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        }
+        
+        .card-grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+        
+        .card-grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        
+        .card-grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        
+        @media (max-width: 768px) {
+            .card-grid,
+            .card-grid-2,
+            .card-grid-3,
+            .card-grid-4 {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .card-grid-3 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .card-grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         * {
@@ -247,19 +419,45 @@
             width: 100%;
         }
         
-        /* Hero Section - Liquid Glass Design */
+        /* Hero Section - Liquid Glass Design with Grid */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, 
-                #0F172A 0%, 
-                #1E293B 25%, 
-                #334155 50%, 
-                #475569 75%, 
-                #64748B 100%);
-            display: flex;
+            background: var(--gradient-liquid);
+            display: grid;
+            grid-template-columns: 1fr;
             align-items: center;
             position: relative;
             overflow: hidden;
+        }
+        
+        .hero-container {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--grid-gap-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+            align-items: center;
+        }
+        
+        .hero-content {
+            grid-column: span 6;
+        }
+        
+        .hero-visual {
+            grid-column: span 6;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                gap: var(--grid-gap-md);
+            }
+            
+            .hero-content,
+            .hero-visual {
+                grid-column: span 1;
+            }
         }
         
         /* Liquid Glass Background Effects */
@@ -1280,16 +1478,60 @@
             font-weight: 500;
         }
         
-        /* Services Section */
+        /* Services Section - Grid System */
         .services {
             padding: 6rem 0;
             background: var(--pure-white);
         }
         
-        .services-grid {
+        .services-container {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
+            grid-template-columns: repeat(12, 1fr);
+            gap: var(--grid-gap-xl);
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 1rem;
+        }
+        
+        .services-header {
+            grid-column: span 12;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .services-grid {
+            grid-column: span 12;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: var(--grid-gap-lg);
+        }
+        
+        .service-card {
+            background: var(--pure-white);
+            border: 1px solid var(--warm-gray);
+            border-radius: 12px;
+            padding: 2rem;
+            text-align: center;
+            transition: var(--transition-smooth);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-color: var(--turquoise);
+        }
+        
+        @media (max-width: 768px) {
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .services-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
         }
         
         .service-card {
