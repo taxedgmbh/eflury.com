@@ -53,13 +53,6 @@
         <priority>0.8</priority>
     </url>
     
-    <!-- Blog Page -->
-    <url>
-        <loc>https://emanuelflury.com/blog.html</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
     
     <!-- Contact Page -->
     <url>
@@ -98,12 +91,6 @@
         <priority>0.8</priority>
     </url>
     
-    <url>
-        <loc>https://emanuelflury.com/#blog</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.7</priority>
-    </url>
     
     <url>
         <loc>https://emanuelflury.com/#faq</loc>

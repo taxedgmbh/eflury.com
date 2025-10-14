@@ -328,22 +328,17 @@
             width: 100%;
         }
         
-        /* Hero Section - Liquid Glass Design */
+        /* Hero Section - Simplified Design */
         .hero {
             min-height: 100vh;
-            background: linear-gradient(135deg, 
-                #0F172A 0%, 
-                #1E293B 25%, 
-                #334155 50%, 
-                #475569 75%, 
-                #64748B 100%);
+            background: var(--gradient-hero);
             display: flex;
             align-items: center;
             position: relative;
             overflow: hidden;
         }
         
-        /* Liquid Glass Background Effects */
+        /* Simplified Background Effects */
         .hero::before {
             content: '';
             position: absolute;
@@ -352,52 +347,13 @@
             width: 100%;
             height: 100%;
             background: 
-                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(119, 198, 255, 0.2) 0%, transparent 50%);
-            animation: liquidFlow 20s ease-in-out infinite;
+                radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
             z-index: 1;
         }
         
-        .hero::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                linear-gradient(45deg, transparent 30%, rgba(255, 255, 255, 0.1) 50%, transparent 70%),
-                linear-gradient(-45deg, transparent 30%, rgba(255, 255, 255, 0.05) 50%, transparent 70%);
-            animation: glassShimmer 15s linear infinite;
-            z-index: 2;
-        }
         
-        @keyframes liquidFlow {
-            0%, 100% { 
-                transform: translateX(0) translateY(0) scale(1);
-                opacity: 0.8;
-            }
-            25% { 
-                transform: translateX(20px) translateY(-30px) scale(1.1);
-                opacity: 0.6;
-            }
-            50% { 
-                transform: translateX(-10px) translateY(20px) scale(0.9);
-                opacity: 0.9;
-            }
-            75% { 
-                transform: translateX(30px) translateY(-10px) scale(1.05);
-                opacity: 0.7;
-            }
-        }
-        
-        @keyframes glassShimmer {
-            0% { transform: translateX(-100%) translateY(-100%); }
-            100% { transform: translateX(100%) translateY(100%); }
-        }
-        
-        /* Enhanced Hero Background */
+        /* Simplified Hero Background */
         .hero-background {
             position: absolute;
             top: 0;
@@ -414,58 +370,9 @@
             width: 100%;
             height: 100%;
             background: linear-gradient(135deg, 
-                rgba(8, 145, 178, 0.9) 0%, 
-                rgba(249, 115, 22, 0.8) 50%, 
-                rgba(16, 185, 129, 0.7) 100%);
+                rgba(8, 145, 178, 0.8) 0%, 
+                rgba(16, 185, 129, 0.6) 100%);
             z-index: 2;
-        }
-        
-        .hero-shapes {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: 3;
-        }
-        
-        .shape {
-            position: absolute;
-            border-radius: 50%;
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            animation: float 20s infinite linear;
-        }
-        
-        .shape-1 {
-            width: 300px;
-            height: 300px;
-            top: 10%;
-            right: 10%;
-            animation-delay: 0s;
-        }
-        
-        .shape-2 {
-            width: 200px;
-            height: 200px;
-            bottom: 20%;
-            left: 15%;
-            animation-delay: -7s;
-        }
-        
-        .shape-3 {
-            width: 150px;
-            height: 150px;
-            top: 50%;
-            left: 5%;
-            animation-delay: -14s;
-        }
-        
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            25% { transform: translateY(-20px) rotate(90deg); }
-            50% { transform: translateY(-40px) rotate(180deg); }
-            75% { transform: translateY(-20px) rotate(270deg); }
         }
         
         /* Hero Container */
@@ -499,80 +406,25 @@
             justify-items: center;
         }
         
-        /* Hero Content Styling - Liquid Glass */
+        /* Simplified Hero Content Styling */
         .hero-content {
             color: var(--pure-white);
             z-index: 10;
             position: relative;
         }
         
-        .hero-content::before {
-            content: '';
-            position: absolute;
-            top: -20px;
-            left: -20px;
-            right: -20px;
-            bottom: -20px;
-            background: 
-                linear-gradient(135deg, 
-                    rgba(255, 255, 255, 0.1) 0%, 
-                    rgba(255, 255, 255, 0.05) 50%, 
-                    rgba(255, 255, 255, 0.1) 100%);
-            backdrop-filter: blur(20px);
-            border-radius: 30px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            z-index: -1;
-            animation: liquidPulse 8s ease-in-out infinite;
-        }
-        
-        @keyframes liquidPulse {
-            0%, 100% { 
-                transform: scale(1);
-                opacity: 0.8;
-            }
-            50% { 
-                transform: scale(1.02);
-                opacity: 0.9;
-            }
-        }
-        
         .hero-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            background: 
-                linear-gradient(135deg, 
-                    rgba(255, 255, 255, 0.2) 0%, 
-                    rgba(255, 255, 255, 0.1) 50%, 
-                    rgba(255, 255, 255, 0.2) 100%);
-            backdrop-filter: blur(30px);
+            background: rgba(255, 255, 255, 0.15);
             border: 1px solid rgba(255, 255, 255, 0.3);
             border-radius: 50px;
             padding: 0.75rem 1.5rem;
             margin-bottom: 2rem;
             font-size: 0.9rem;
             font-weight: 500;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .hero-badge::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: -100%;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(90deg, 
-                transparent, 
-                rgba(255, 255, 255, 0.3), 
-                transparent);
-            transition: left 0.6s ease;
-        }
-        
-        .hero-badge:hover::before {
-            left: 100%;
+            transition: all 0.3s ease;
         }
         
         .hero-badge:hover {
@@ -596,30 +448,13 @@
         
         .title-line {
             display: block;
-            opacity: 0;
-            animation: slideInUp 1s ease forwards;
         }
-        
-        .title-line:nth-child(1) { animation-delay: 0.2s; }
-        .title-line:nth-child(2) { animation-delay: 0.4s; }
-        .title-line:nth-child(3) { animation-delay: 0.6s; }
         
         .title-line.highlight {
             background: linear-gradient(135deg, var(--primary-mint), var(--primary-coral));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
-        }
-        
-        @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
         
         .hero-subtitle {
@@ -684,34 +519,6 @@
             position: relative;
             overflow: hidden;
             backdrop-filter: blur(20px);
-        }
-        
-        .btn::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                linear-gradient(135deg, 
-                    rgba(255, 255, 255, 0.2) 0%, 
-                    rgba(255, 255, 255, 0.1) 50%, 
-                    rgba(255, 255, 255, 0.2) 100%);
-            border-radius: 50px;
-            z-index: -1;
-            animation: liquidButtonFlow 6s ease-in-out infinite;
-        }
-        
-        @keyframes liquidButtonFlow {
-            0%, 100% { 
-                transform: scale(1);
-                opacity: 0.8;
-            }
-            50% { 
-                transform: scale(1.02);
-                opacity: 0.9;
-            }
         }
         
         .btn::before {
@@ -879,90 +686,25 @@
         
         .floating-card {
             position: relative;
-            background: 
-                linear-gradient(135deg, 
-                    rgba(255, 255, 255, 0.25) 0%, 
-                    rgba(255, 255, 255, 0.1) 50%, 
-                    rgba(255, 255, 255, 0.25) 100%);
-            backdrop-filter: blur(40px);
-            border: 1px solid rgba(255, 255, 255, 0.4);
-            border-radius: 24px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 16px;
             padding: 1.5rem;
-            box-shadow: 
-                0 20px 40px rgba(0, 0, 0, 0.1),
-                0 0 0 1px rgba(255, 255, 255, 0.1) inset;
-            animation: floatCard 6s ease-in-out infinite;
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
             min-height: 120px;
             display: flex;
             flex-direction: column;
             justify-content: center;
-            overflow: hidden;
-        }
-        
-        .floating-card::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: 
-                radial-gradient(circle at 30% 20%, rgba(255, 255, 255, 0.1) 0%, transparent 50%),
-                radial-gradient(circle at 70% 80%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
-            animation: liquidCardFlow 10s ease-in-out infinite;
-            z-index: 0;
-        }
-        
-        .floating-card > * {
-            position: relative;
-            z-index: 1;
-        }
-        
-        @keyframes liquidCardFlow {
-            0%, 100% { 
-                transform: translateX(0) translateY(0) scale(1);
-                opacity: 0.6;
-            }
-            25% { 
-                transform: translateX(10px) translateY(-5px) scale(1.05);
-                opacity: 0.8;
-            }
-            50% { 
-                transform: translateX(-5px) translateY(10px) scale(0.95);
-                opacity: 0.4;
-            }
-            75% { 
-                transform: translateX(15px) translateY(-8px) scale(1.02);
-                opacity: 0.7;
-            }
         }
         
         .floating-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+            background: rgba(255, 255, 255, 0.2);
         }
         
-        .ai-card {
-            animation-delay: 0s;
-        }
-        
-        .tax-card {
-            animation-delay: 1.5s;
-        }
-        
-        .maritime-card {
-            animation-delay: 3s;
-        }
-        
-        .global-card {
-            animation-delay: 4.5s;
-        }
-        
-        @keyframes floatCard {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
         
         .card-header {
             display: flex;
@@ -2623,12 +2365,11 @@
                 <span></span>
             </div>
             <ul class="nav-links" id="navLinks">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#services">Services</a></li>
-                <li><a href="#portfolio">Portfolio</a></li>
-                <li><a href="#blog">Blog</a></li>
-                <li><a href="#contact">Contact</a></li>
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="services.html">Services</a></li>
+                <li><a href="portfolio.html">Portfolio</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
@@ -2636,13 +2377,7 @@
     <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-background">
-            <div class="hero-particles" id="particles"></div>
             <div class="hero-gradient-overlay"></div>
-            <div class="hero-shapes">
-                <div class="shape shape-1"></div>
-                <div class="shape shape-2"></div>
-                <div class="shape shape-3"></div>
-            </div>
         </div>
         
         <div class="hero-container grid-container">
@@ -2682,11 +2417,11 @@
                 </div>
                 
                 <div class="hero-buttons">
-                    <a href="#services" class="btn btn-primary">
+                    <a href="services.html" class="btn btn-primary">
                         <span>Explore Services</span>
                         <i class="fas fa-arrow-right"></i>
                     </a>
-                    <a href="#portfolio" class="btn btn-secondary">
+                    <a href="portfolio.html" class="btn btn-secondary">
                         <span>View Portfolio</span>
                         <i class="fas fa-external-link-alt"></i>
                     </a>
@@ -2776,6 +2511,24 @@
             <div class="scroll-text">Scroll to explore</div>
             <div class="scroll-arrow">
                 <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Quick Contact Section -->
+    <section class="quick-contact" style="background: var(--warm-gray); padding: 3rem 0; text-align: center;">
+        <div class="grid-container">
+            <div style="background: var(--pure-white); padding: 2rem; border-radius: 16px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); max-width: 600px; margin: 0 auto;">
+                <h2 style="color: var(--deep-teal); margin-bottom: 1rem; font-size: 1.8rem;">Ready to Get Started?</h2>
+                <p style="color: var(--charcoal); margin-bottom: 1.5rem; font-size: 1.1rem;">Let's discuss your automation and tax optimization needs</p>
+                <a href="mailto:me@eflury.com" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gradient-primary); color: var(--pure-white); padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(8, 145, 178, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(8, 145, 178, 0.3)'">
+                    <i class="fas fa-envelope"></i>
+                    me@eflury.com
+                </a>
+                <p style="color: var(--primary-turquoise); margin-top: 1rem; font-size: 0.9rem; font-weight: 500;">
+                    <i class="fas fa-phone" style="margin-right: 0.5rem;"></i>
+                    +41 79 910 77 87
+                </p>
             </div>
         </div>
     </section>
@@ -3337,7 +3090,7 @@
                         <label class="checkbox-label">
                             <input type="checkbox" id="terms" name="terms" required>
                             <span class="checkmark"></span>
-                            I agree to the <a href="#privacy" target="_blank">Privacy Policy</a> and consent to being contacted *
+                            I agree to the <a href="privacy.html" target="_blank">Privacy Policy</a> and consent to being contacted *
                         </label>
                     </div>
                     
@@ -3373,10 +3126,10 @@
                 <div class="footer-navigation">
                     <h4>Navigation</h4>
                     <div class="footer-links">
-                        <a href="#about">About</a>
-                        <a href="#services">Services</a>
-                        <a href="#portfolio">Portfolio</a>
-                        <a href="#contact">Contact</a>
+                        <a href="about.html">About</a>
+                        <a href="services.html">Services</a>
+                        <a href="portfolio.html">Portfolio</a>
+                        <a href="index.html#contact">Contact</a>
                     </div>
                 </div>
                 

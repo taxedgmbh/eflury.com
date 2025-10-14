@@ -357,7 +357,12 @@
             height: 3px;
             background: var(--charcoal);
             margin: 3px 0;
-            transition: 0.3s;
+            transition: all 0.3s ease;
+            border-radius: 2px;
+        }
+        
+        .mobile-menu-toggle.active span {
+            background: var(--primary-turquoise);
         }
         
         @media (max-width: 768px) {

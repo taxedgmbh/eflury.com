@@ -30,6 +30,7 @@ function initializeWebsite() {
     setupNavbarScroll();
     setupBlogExpansion();
     setupAnalyticsTracking();
+    setupMobileMenu();
 }
 
 // Scroll Progress Indicator
@@ -517,6 +518,110 @@ if ('serviceWorker' in navigator) {
             .catch((registrationError) => {
                 console.log('SW registration failed: ', registrationError);
             });
+    });
+}
+
+// Mobile Menu Functionality
+function setupMobileMenu() {
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const navLinks = document.getElementById('navLinks');
+    
+    if (!mobileMenuToggle || !navLinks) return;
+    
+    
+    // Close mobile menu when clicking on a link
+    const navLinksList = navLinks.querySelectorAll('a');
+    navLinksList.forEach(link => {
+        link.addEventListener('click', function() {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            
+            // Reset body scroll
+            toggleBodyScroll(false);
+            
+            // Reset hamburger menu
+            const spans = mobileMenuToggle.querySelectorAll('span');
+            spans.forEach(span => {
+                span.style.transform = 'none';
+                span.style.opacity = '1';
+            });
+        });
+    });
+    
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', function(event) {
+        const isClickInsideNav = navLinks.contains(event.target);
+        const isClickOnToggle = mobileMenuToggle.contains(event.target);
+        
+        if (!isClickInsideNav && !isClickOnToggle && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            
+            // Reset body scroll
+            toggleBodyScroll(false);
+            
+            // Reset hamburger menu
+            const spans = mobileMenuToggle.querySelectorAll('span');
+            spans.forEach(span => {
+                span.style.transform = 'none';
+                span.style.opacity = '1';
+            });
+        }
+    });
+    
+    // Close mobile menu on window resize (if screen becomes larger)
+    window.addEventListener('resize', function() {
+        if (window.innerWidth > 768 && navLinks.classList.contains('active')) {
+            navLinks.classList.remove('active');
+            mobileMenuToggle.classList.remove('active');
+            
+            // Reset body scroll
+            toggleBodyScroll(false);
+            
+            // Reset hamburger menu
+            const spans = mobileMenuToggle.querySelectorAll('span');
+            spans.forEach(span => {
+                span.style.transform = 'none';
+                span.style.opacity = '1';
+            });
+        }
+    });
+    
+    // Prevent body scroll when mobile menu is open
+    function toggleBodyScroll(disable) {
+        if (disable) {
+            document.body.style.overflow = 'hidden';
+        } else {
+            document.body.style.overflow = '';
+        }
+    }
+    
+    // Update the toggle function to include body scroll
+    const originalToggle = mobileMenuToggle.addEventListener;
+    mobileMenuToggle.addEventListener('click', function() {
+        const isActive = navLinks.classList.contains('active');
+        navLinks.classList.toggle('active');
+        mobileMenuToggle.classList.toggle('active');
+        
+        // Toggle body scroll
+        toggleBodyScroll(!isActive);
+        
+        // Animate hamburger menu
+        const spans = mobileMenuToggle.querySelectorAll('span');
+        spans.forEach((span, index) => {
+            if (navLinks.classList.contains('active')) {
+                if (index === 0) {
+                    span.style.transform = 'rotate(45deg) translate(5px, 5px)';
+                } else if (index === 1) {
+                    span.style.opacity = '0';
+                } else if (index === 2) {
+                    span.style.transform = 'rotate(-45deg) translate(7px, -6px)';
+                }
+            } else {
+                span.style.transform = 'none';
+                span.style.opacity = '1';
+            }
+        });
     });
 }
 
