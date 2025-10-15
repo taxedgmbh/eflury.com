@@ -2523,6 +2523,127 @@
             color: var(--primary-mint);
         }
         
+        /* Interactive Map Section */
+        .map-section {
+            background: var(--gradient-hero);
+            padding: 4rem 0;
+            margin-top: 2rem;
+        }
+        
+        .map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .map-container h3 {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--pure-white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .map-container p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .map-wrapper {
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .map-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .map-address {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--pure-white);
+        }
+        
+        .map-address i {
+            color: var(--primary-mint);
+            font-size: 1.5rem;
+        }
+        
+        .map-address strong {
+            font-size: 1.2rem;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .map-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .map-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-mint);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.75rem 1.5rem;
+            background: rgba(8, 145, 178, 0.2);
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+        
+        .map-link:hover {
+            background: var(--primary-mint);
+            color: var(--pure-white);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(8, 145, 178, 0.4);
+        }
+        
+        .map-link i {
+            font-size: 0.9rem;
+        }
+        
+        /* Map Responsive */
+        @media (max-width: 768px) {
+            .map-section {
+                padding: 3rem 0;
+            }
+            
+            .map-container {
+                padding: 0 1rem;
+            }
+            
+            .map-container h3 {
+                font-size: 1.5rem;
+            }
+            
+            .map-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 1.5rem;
+            }
+            
+            .map-actions {
+                justify-content: center;
+            }
+        }
+        
         /* Footer Responsive */
         @media (max-width: 1024px) {
             .footer-grid {
@@ -3647,6 +3768,45 @@
                 </form>
             </div>
         </div>
+        
+        <!-- Interactive Map Section -->
+        <div class="map-section">
+            <div class="map-container">
+                <h3>Visit Our Office</h3>
+                <p>Located in the heart of Grenchen, Switzerland</p>
+                <div class="map-wrapper">
+                    <iframe 
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=7.3500%2C47.1900%2C7.3600%2C47.2000&layer=mapnik&marker=47.1950%2C7.3550"
+                        width="100%" 
+                        height="400" 
+                        style="border:0; border-radius: 12px;"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Office Location - Keltenweg 4, 2540 Grenchen">
+                    </iframe>
+                </div>
+                <div class="map-info">
+                    <div class="map-address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Keltenweg 4</strong><br>
+                            2540 Grenchen, Switzerland
+                        </div>
+                    </div>
+                    <div class="map-actions">
+                        <a href="https://www.openstreetmap.org/?mlat=47.1950&mlon=7.3550&zoom=16" target="_blank" rel="noopener" class="map-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            View on OpenStreetMap
+                        </a>
+                        <a href="https://maps.google.com/?q=Keltenweg+4,+2540+Grenchen,+Switzerland" target="_blank" rel="noopener" class="map-link">
+                            <i class="fas fa-directions"></i>
+                            Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
     
     <!-- Professional Footer -->
@@ -3675,10 +3835,10 @@
                             <i class="fas fa-phone"></i>
                             <span>+41 79 910 77 87</span>
                         </div>
-                        <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Grenchen, Switzerland</span>
-                        </div>
+                    <div class="contact-item">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Keltenweg 4, 2540 Grenchen, Switzerland</span>
+                    </div>
                     </div>
                 </div>
 
