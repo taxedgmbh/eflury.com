@@ -12,6 +12,9 @@ This website supports multiple languages with the following folder structure:
 - `/it` - Italian (Swiss spelling)
 - `/es` - Spanish (Latin America spelling)
 - `/pt` - Portuguese (Latin America spelling)
+- `/ko` - Korean
+- `/hi` - Hindi
+- `/nl` - Dutch
 
 ## Language Error Handling
 
@@ -31,6 +34,11 @@ Each language folder contains a `language-errors.md` file that defines common la
 #### Asian Languages
 - **Chinese (cn)**: Supports both Simplified and Traditional Chinese
 - **Japanese (jp)**: Uses standard Japanese with business terminology
+- **Korean (ko)**: Uses standard Korean with business terminology
+- **Hindi (hi)**: Uses standard Hindi with business terminology
+
+#### European Languages
+- **Dutch (nl)**: Uses standard Dutch with business terminology
 
 ## Implementation Notes
 
@@ -66,6 +74,12 @@ Each `language-errors.md` file serves as a reference for:
 ├── es/
 │   └── language-errors.md
 ├── pt/
+│   └── language-errors.md
+├── ko/
+│   └── language-errors.md
+├── hi/
+│   └── language-errors.md
+├── nl/
 │   └── language-errors.md
 └── MULTILINGUAL_README.md
 ```
