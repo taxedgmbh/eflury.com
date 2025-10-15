@@ -79,29 +79,29 @@
     
     <style>
         :root {
-            /* Caribbean Fresh Theme - Advanced Implementation */
-            --primary-turquoise: #0891B2;  /* Ocean Turquoise - AI innovation */
-            --primary-coral: #F97316;      /* Vibrant Coral - Swiss heritage */
-            --primary-mint: #10B981;       /* Fresh Mint - Success, automation */
-            --primary-sunset: #F59E0B;     /* Golden Sunset - Warmth, global */
-            --deep-teal: #0F766E;          /* Deep Teal - Professional depth */
-            --pure-white: #FFFFFF;         /* Pure White - Clean, minimal */
+            /* South African Flag Color Theme */
+            --primary-black: #000000;       /* Black - Strength, heritage */
+            --primary-green: #007A4D;      /* Green - Growth, nature */
+            --primary-yellow: #FFB81C;     /* Yellow - Energy, optimism */
+            --primary-red: #E03C31;        /* Red - Passion, determination */
+            --primary-blue: #002395;       /* Blue - Trust, professionalism */
+            --pure-white: #FFFFFF;         /* White - Purity, clarity */
             --warm-gray: #F8FAFC;          /* Warm Gray - Background, subtle */
             --charcoal: #374151;           /* Charcoal - Professional text */
             
-            /* Advanced Gradients */
-            --gradient-primary: linear-gradient(135deg, var(--primary-turquoise), var(--primary-mint));
-            --gradient-secondary: linear-gradient(135deg, var(--primary-coral), var(--primary-sunset));
-            --gradient-hero: linear-gradient(135deg, var(--deep-teal) 0%, var(--primary-turquoise) 50%, var(--primary-mint) 100%);
+            /* South African Flag Gradients */
+            --gradient-primary: linear-gradient(135deg, var(--primary-green), var(--primary-yellow));
+            --gradient-secondary: linear-gradient(135deg, var(--primary-red), var(--primary-yellow));
+            --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-red) 50%, var(--primary-green) 100%);
             --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-            --gradient-aurora: linear-gradient(45deg, var(--primary-turquoise), var(--primary-mint), var(--primary-coral), var(--primary-sunset));
+            --gradient-aurora: linear-gradient(45deg, var(--primary-blue), var(--primary-green), var(--primary-red), var(--primary-yellow));
             
             /* Advanced Shadows */
-            --shadow-soft: 0 10px 40px rgba(8, 145, 178, 0.1);
-            --shadow-medium: 0 20px 60px rgba(8, 145, 178, 0.15);
-            --shadow-strong: 0 30px 80px rgba(8, 145, 178, 0.2);
-            --shadow-glow: 0 0 30px rgba(8, 145, 178, 0.3);
-            --shadow-neon: 0 0 20px var(--primary-turquoise), 0 0 40px var(--primary-turquoise), 0 0 60px var(--primary-turquoise);
+            --shadow-soft: 0 10px 40px rgba(0, 122, 77, 0.1);
+            --shadow-medium: 0 20px 60px rgba(0, 122, 77, 0.15);
+            --shadow-strong: 0 30px 80px rgba(0, 122, 77, 0.2);
+            --shadow-glow: 0 0 30px rgba(0, 122, 77, 0.3);
+            --shadow-neon: 0 0 20px var(--primary-green), 0 0 40px var(--primary-green), 0 0 60px var(--primary-green);
             
             /* Advanced Effects */
             --blur-glass: blur(10px);
@@ -149,12 +149,12 @@
         
         /* Advanced Selection Styling */
         ::selection {
-            background: var(--primary-turquoise);
+            background: var(--primary-green);
             color: var(--pure-white);
         }
         
         ::-moz-selection {
-            background: var(--primary-turquoise);
+            background: var(--primary-green);
             color: var(--pure-white);
         }
         
@@ -242,14 +242,14 @@
         }
         
         .nav-links a:hover {
-            color: var(--primary-turquoise);
-            background: rgba(78, 205, 196, 0.1);
+            color: var(--primary-green);
+            background: rgba(0, 122, 77, 0.1);
             transform: translateY(-1px);
         }
         
         .nav-links a.active {
-            color: var(--primary-turquoise);
-            background: rgba(78, 205, 196, 0.15);
+            color: var(--primary-green);
+            background: rgba(0, 122, 77, 0.15);
             font-weight: 600;
         }
         
@@ -378,7 +378,7 @@
         }
         
         .enhanced-hero .hero-badge i {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
         }
         
         .enhanced-hero .hero-title {
@@ -396,7 +396,7 @@
         
         .enhanced-hero .title-highlight {
             display: block;
-            background: linear-gradient(135deg, var(--primary-mint) 0%, var(--primary-coral) 100%);
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-red) 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -496,7 +496,7 @@
         }
         
         .enhanced-hero .hero-social a:hover {
-            background: var(--primary-mint);
+            background: var(--primary-yellow);
             transform: translateY(-3px);
         }
         
@@ -532,7 +532,7 @@
             left: -20px;
             right: -20px;
             bottom: -20px;
-            background: linear-gradient(135deg, var(--primary-mint) 0%, var(--primary-coral) 100%);
+            background: linear-gradient(135deg, var(--primary-yellow) 0%, var(--primary-red) 100%);
             border-radius: 30px;
             opacity: 0.3;
             filter: blur(20px);
@@ -590,7 +590,7 @@
         }
         
         .enhanced-hero .card-content h4 {
-            color: var(--deep-teal);
+            color: var(--primary-blue);
             font-size: 1rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
@@ -608,7 +608,7 @@
         .enhanced-hero .service-tag,
         .enhanced-hero .cert-tag {
             background: var(--warm-gray);
-            color: var(--deep-teal);
+            color: var(--primary-blue);
             padding: 0.25rem 0.75rem;
             border-radius: 15px;
             font-size: 0.8rem;
@@ -748,7 +748,7 @@
         }
         
         .hero-badge i {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
         }
         
         .hero-title {
@@ -766,7 +766,7 @@
         }
         
         .title-line.highlight {
-            background: linear-gradient(135deg, var(--primary-mint), var(--primary-coral));
+            background: linear-gradient(135deg, var(--primary-yellow), var(--primary-red));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -806,7 +806,7 @@
             display: block;
             font-size: 2rem;
             font-weight: 800;
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             margin-bottom: 0.5rem;
         }
         
@@ -852,16 +852,16 @@
         }
         
         .btn-primary {
-            background: var(--primary-coral);
+            background: var(--primary-red);
             color: var(--pure-white);
-            border: 2px solid var(--primary-coral);
+            border: 2px solid var(--primary-red);
         }
         
         .btn-primary:hover {
-            background: var(--deep-teal);
-            border-color: var(--deep-teal);
+            background: var(--primary-blue);
+            border-color: var(--primary-blue);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
+            box-shadow: 0 10px 25px rgba(224, 60, 49, 0.3);
         }
         
         .btn-secondary {
@@ -897,9 +897,9 @@
         }
         
         .hero-social a:hover {
-            background: var(--primary-coral);
+            background: var(--primary-red);
             transform: translateY(-3px);
-            box-shadow: 0 10px 25px rgba(249, 115, 22, 0.3);
+            box-shadow: 0 10px 25px rgba(224, 60, 49, 0.3);
         }
         
         /* Hero Visual */
@@ -977,7 +977,7 @@
             left: -20px;
             right: -20px;
             bottom: -20px;
-            background: radial-gradient(circle, var(--primary-mint) 0%, transparent 70%);
+            background: radial-gradient(circle, var(--primary-yellow) 0%, transparent 70%);
             border-radius: 50%;
             opacity: 0.3;
             animation: pulse 3s infinite;
@@ -1026,12 +1026,12 @@
             align-items: center;
             gap: 0.5rem;
             margin-bottom: 1rem;
-            color: var(--deep-teal);
+            color: var(--primary-blue);
             font-weight: 600;
         }
         
         .card-header i {
-            color: var(--primary-turquoise);
+            color: var(--primary-green);
         }
         
         .card-content {
@@ -1041,7 +1041,7 @@
         .tech-tag, .service-list span, .leadership-skills span, .global-stats span {
             display: inline-block;
             background: var(--warm-gray);
-            color: var(--deep-teal);
+            color: var(--primary-blue);
             padding: 0.25rem 0.75rem;
             border-radius: 12px;
             font-size: 0.8rem;
@@ -1094,7 +1094,7 @@
         
         .hero-scroll-indicator:hover .scroll-text {
             opacity: 1;
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
         }
         
         .scroll-arrow {
@@ -1103,7 +1103,7 @@
         }
         
         .hero-scroll-indicator:hover .scroll-arrow {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             transform: translateY(3px);
         }
         
@@ -1144,7 +1144,7 @@
         .card:hover {
             transform: translateY(-10px) scale(1.02);
             box-shadow: var(--shadow-glow);
-            border-color: var(--primary-turquoise);
+            border-color: var(--primary-green);
         }
         
         /* Advanced Button Effects */
@@ -1236,7 +1236,7 @@
         
         .btn-primary {
             background: var(--pure-white);
-            color: var(--primary-turquoise);
+            color: var(--primary-green);
             box-shadow: var(--shadow-soft);
         }
         
@@ -1253,7 +1253,7 @@
         
         .btn-secondary:hover {
             background: var(--pure-white);
-            color: var(--primary-turquoise);
+            color: var(--primary-green);
         }
         
         .hero-visual {
@@ -1442,7 +1442,7 @@
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: var(--shadow-medium);
-            border-color: var(--primary-turquoise);
+            border-color: var(--primary-green);
         }
         
         .service-icon {
@@ -1497,7 +1497,7 @@
         .portfolio-item:hover {
             transform: translateY(-5px);
             box-shadow: var(--shadow-medium);
-            border-color: var(--primary-turquoise);
+            border-color: var(--primary-green);
         }
         
         .portfolio-header {
@@ -1534,7 +1534,7 @@
         }
         
         .tech-tag {
-            background: var(--primary-coral);
+            background: var(--primary-red);
             color: var(--pure-white);
             padding: 0.3rem 0.8rem;
             border-radius: 15px;
@@ -1566,7 +1566,7 @@
         .blog-post:hover {
             transform: translateY(-3px);
             box-shadow: var(--shadow-medium);
-            border-color: var(--primary-turquoise);
+            border-color: var(--primary-green);
         }
         
         .blog-category {
@@ -1598,7 +1598,7 @@
             display: flex;
             gap: 1rem;
             font-size: 0.9rem;
-            color: var(--primary-turquoise);
+            color: var(--primary-green);
         }
         
         .blog-date, .blog-read-time {
@@ -1798,14 +1798,14 @@
         }
         
         .contact-badge i {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
         }
         
         .contact-title {
             font-size: 3rem;
             font-weight: 800;
             margin-bottom: 1.5rem;
-            background: linear-gradient(135deg, var(--pure-white), var(--primary-mint));
+            background: linear-gradient(135deg, var(--pure-white), var(--primary-yellow));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -1878,7 +1878,7 @@
         .contact-card-header i {
             width: 50px;
             height: 50px;
-            background: var(--primary-coral);
+            background: var(--primary-red);
             border-radius: 15px;
             display: flex;
             align-items: center;
@@ -1889,7 +1889,7 @@
         }
         
         .contact-card:hover .contact-card-header i {
-            background: var(--primary-mint);
+            background: var(--primary-yellow);
             transform: scale(1.1);
         }
         
@@ -1927,7 +1927,7 @@
         .contact-value {
             font-size: 1.1rem;
             font-weight: 600;
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
         }
         
         .contact-note {
@@ -1974,7 +1974,7 @@
         .form-group input:focus,
         .form-group textarea:focus {
             outline: none;
-            border-color: var(--primary-mint);
+            border-color: var(--primary-yellow);
         }
         
         /* Enhanced form styling */
@@ -1991,7 +1991,7 @@
         
         .form-group select:focus {
             outline: none;
-            border-color: var(--primary-mint);
+            border-color: var(--primary-yellow);
         }
         
         .form-group select option {
@@ -2022,7 +2022,7 @@
         
         .captcha-container span {
             font-weight: 600;
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             min-width: 120px;
         }
         
@@ -2032,9 +2032,9 @@
         }
         
         .btn-refresh {
-            background: rgba(78, 205, 196, 0.2);
-            border: 1px solid var(--primary-mint);
-            color: var(--primary-mint);
+            background: rgba(0, 122, 77, 0.2);
+            border: 1px solid var(--primary-yellow);
+            color: var(--primary-yellow);
             padding: 0.5rem;
             border-radius: 8px;
             cursor: pointer;
@@ -2042,7 +2042,7 @@
         }
         
         .btn-refresh:hover {
-            background: var(--primary-mint);
+            background: var(--primary-yellow);
             color: var(--charcoal);
         }
         
@@ -2076,8 +2076,8 @@
         }
         
         .checkbox-label input[type="checkbox"]:checked + .checkmark {
-            background: var(--primary-mint);
-            border-color: var(--primary-mint);
+            background: var(--primary-yellow);
+            border-color: var(--primary-yellow);
         }
         
         .checkbox-label input[type="checkbox"]:checked + .checkmark::after {
@@ -2098,7 +2098,7 @@
         }
         
         .submit-btn:not(:disabled) {
-            background: linear-gradient(135deg, var(--primary-turquoise), var(--primary-mint));
+            background: linear-gradient(135deg, var(--primary-green), var(--primary-yellow));
             color: var(--charcoal);
             font-weight: 600;
         }
@@ -2112,15 +2112,15 @@
         }
         
         .form-status.success {
-            background: rgba(16, 185, 129, 0.2);
-            border: 1px solid var(--primary-mint);
-            color: var(--primary-mint);
+            background: rgba(255, 184, 28, 0.2);
+            border: 1px solid var(--primary-yellow);
+            color: var(--primary-yellow);
         }
         
         .form-status.error {
-            background: rgba(249, 115, 22, 0.2);
-            border: 1px solid var(--primary-coral);
-            color: var(--primary-coral);
+            background: rgba(224, 60, 49, 0.2);
+            border: 1px solid var(--primary-red);
+            color: var(--primary-red);
         }
         
         .honeypot {
@@ -2132,7 +2132,7 @@
         
         /* Footer - Caribbean Fresh Theme */
         .footer {
-            background: linear-gradient(135deg, var(--deep-teal) 0%, var(--primary-turquoise) 100%);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-green) 100%);
             color: var(--pure-white);
             padding: 4rem 0 2rem;
             margin-top: 6rem;
@@ -2393,7 +2393,7 @@
         }
         
         .brand-tagline {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             font-size: 0.9rem;
             font-weight: 500;
         }
@@ -2420,19 +2420,19 @@
         }
         
         .contact-item i {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             width: 16px;
             text-align: center;
         }
         
         .contact-item a {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             text-decoration: none;
             font-weight: 500;
         }
         
         .contact-item a:hover {
-            color: var(--primary-coral);
+            color: var(--primary-red);
         }
         
         /* Footer Sections */
@@ -2461,7 +2461,7 @@
             left: 0;
             width: 30px;
             height: 2px;
-            background: var(--primary-mint);
+            background: var(--primary-yellow);
         }
         
         .footer-links {
@@ -2490,7 +2490,7 @@
         }
         
         .footer-links a:hover {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             transform: translateX(5px);
         }
         
@@ -2514,7 +2514,7 @@
         }
         
         .social-link:hover {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             transform: translateX(5px);
         }
         
@@ -2561,13 +2561,13 @@
         
         .newsletter-input:focus {
             outline: none;
-            border-color: var(--primary-mint);
+            border-color: var(--primary-yellow);
             background: rgba(255, 255, 255, 0.15);
         }
         
         .newsletter-btn {
             padding: 0.75rem 1rem;
-            background: var(--primary-mint);
+            background: var(--primary-yellow);
             border: none;
             border-radius: 8px;
             color: var(--pure-white);
@@ -2579,7 +2579,7 @@
         }
         
         .newsletter-btn:hover {
-            background: var(--primary-coral);
+            background: var(--primary-red);
             transform: translateY(-2px);
         }
         
@@ -2621,7 +2621,7 @@
         }
         
         .footer-legal a:hover {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
         }
         
         /* Modern Footer Responsive */
@@ -2663,7 +2663,7 @@
         
         /* Clean Professional Footer */
         .footer {
-            background: linear-gradient(135deg, var(--charcoal), var(--deep-teal));
+            background: linear-gradient(135deg, var(--charcoal), var(--primary-blue));
             color: var(--pure-white);
             padding: 4rem 0 2rem;
             margin-top: 6rem;
@@ -2712,7 +2712,7 @@
         }
         
         .brand-tagline {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             font-size: 0.9rem;
             font-weight: 500;
         }
@@ -2737,12 +2737,12 @@
         }
         
         .contact-item i {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             width: 16px;
         }
         
         .contact-item a {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             text-decoration: none;
             transition: color 0.3s ease;
         }
@@ -2759,7 +2759,7 @@
         }
         
         .footer-section h4 {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             font-size: 1.1rem;
             font-weight: 600;
             margin: 0 0 0.5rem 0;
@@ -2784,7 +2784,7 @@
         }
         
         .footer-links li a:hover {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             transform: translateX(5px);
         }
         
@@ -2807,12 +2807,12 @@
         }
         
         .social-link:hover {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             transform: translateX(5px);
         }
         
         .social-link i {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             width: 16px;
         }
         
@@ -2854,7 +2854,7 @@
         }
         
         .footer-legal a:hover {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
         }
         
         
@@ -2872,7 +2872,7 @@
         .about-header h2 {
             font-size: 3rem;
             font-weight: 700;
-            color: var(--deep-teal);
+            color: var(--primary-blue);
             margin-bottom: 1.5rem;
         }
         
@@ -2914,7 +2914,7 @@
         .journey-section h3 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--deep-teal);
+            color: var(--primary-blue);
             text-align: center;
             margin-bottom: 1rem;
         }
@@ -2954,10 +2954,10 @@
             top: 20px;
             width: 20px;
             height: 20px;
-            background: var(--primary-mint);
+            background: var(--primary-yellow);
             border-radius: 50%;
             border: 4px solid var(--pure-white);
-            box-shadow: 0 0 0 4px var(--primary-mint);
+            box-shadow: 0 0 0 4px var(--primary-yellow);
         }
         
         .timeline-content {
@@ -2965,18 +2965,18 @@
             padding: 2rem;
             border-radius: 12px;
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
-            border-left: 4px solid var(--primary-mint);
+            border-left: 4px solid var(--primary-yellow);
         }
         
         .timeline-content h4 {
-            color: var(--deep-teal);
+            color: var(--primary-blue);
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 0.5rem;
         }
         
         .timeline-date {
-            color: var(--primary-coral);
+            color: var(--primary-red);
             font-weight: 600;
             font-size: 0.9rem;
             margin-bottom: 1rem;
@@ -3005,7 +3005,7 @@
         .stats-section h3 {
             font-size: 2.5rem;
             font-weight: 700;
-            color: var(--deep-teal);
+            color: var(--primary-blue);
             text-align: center;
             margin-bottom: 3rem;
         }
@@ -3023,7 +3023,7 @@
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
             text-align: center;
             transition: transform 0.3s ease;
-            border-top: 4px solid var(--primary-mint);
+            border-top: 4px solid var(--primary-yellow);
         }
         
         .stat-card:hover {
@@ -3034,7 +3034,7 @@
             display: block;
             font-size: 2.5rem;
             font-weight: 800;
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             margin-bottom: 0.5rem;
         }
         
@@ -3127,7 +3127,7 @@
         }
         
         .privacy-item h3 {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             font-size: 1.3rem;
             font-weight: 600;
             margin-bottom: 1rem;
@@ -3165,7 +3165,7 @@
         }
         
         .privacy-note strong {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
         }
         
         /* Privacy Responsive */
@@ -3230,7 +3230,7 @@
         }
         
         .footer-map-address i {
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             font-size: 1rem;
         }
         
@@ -3244,7 +3244,7 @@
             display: flex;
             align-items: center;
             gap: 0.4rem;
-            color: var(--primary-mint);
+            color: var(--primary-yellow);
             text-decoration: none;
             font-weight: 500;
             padding: 0.4rem 0.8rem;
@@ -3256,7 +3256,7 @@
         }
         
         .footer-map-link:hover {
-            background: var(--primary-mint);
+            background: var(--primary-yellow);
             color: var(--pure-white);
             transform: translateY(-2px);
             box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
@@ -3849,13 +3849,13 @@
     <section class="quick-contact" style="background: var(--warm-gray); padding: 3rem 0; text-align: center;">
         <div class="grid-container">
             <div style="background: var(--pure-white); padding: 2rem; border-radius: 16px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); max-width: 600px; margin: 0 auto;">
-                <h2 style="color: var(--deep-teal); margin-bottom: 1rem; font-size: 1.8rem;">Ready to Get Started?</h2>
+                <h2 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.8rem;">Ready to Get Started?</h2>
                 <p style="color: var(--charcoal); margin-bottom: 1.5rem; font-size: 1.1rem;">Let's discuss your automation and tax optimization needs</p>
                 <a href="mailto:me@eflury.com" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gradient-primary); color: var(--pure-white); padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(8, 145, 178, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(8, 145, 178, 0.3)'">
                     <i class="fas fa-envelope"></i>
                     me@eflury.com
                 </a>
-                <p style="color: var(--primary-turquoise); margin-top: 1rem; font-size: 0.9rem; font-weight: 500;">
+                <p style="color: var(--primary-green); margin-top: 1rem; font-size: 0.9rem; font-weight: 500;">
                     <i class="fas fa-phone" style="margin-right: 0.5rem;"></i>
                     +41 79 910 77 87
                 </p>
@@ -4889,11 +4889,11 @@
                 charCount.textContent = count;
                 
                 if (count < 20) {
-                    charCount.style.color = 'var(--primary-coral)';
+                    charCount.style.color = 'var(--primary-red)';
                 } else if (count > 900) {
-                    charCount.style.color = 'var(--primary-sunset)';
+                    charCount.style.color = 'var(--primary-yellow)';
                 } else {
-                    charCount.style.color = 'var(--primary-mint)';
+                    charCount.style.color = 'var(--primary-yellow)';
                 }
             });
             
