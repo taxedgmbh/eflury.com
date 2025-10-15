@@ -2644,6 +2644,223 @@
             }
         }
         
+        /* About Section */
+        .about-section {
+            background: var(--pure-white);
+            padding: 6rem 0;
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .about-header h2 {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-subtitle {
+            font-size: 1.2rem;
+            color: var(--charcoal);
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+        
+        .about-highlights {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        
+        .highlight-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-primary);
+            color: var(--pure-white);
+            padding: 0.75rem 1.5rem;
+            border-radius: 25px;
+            font-weight: 500;
+        }
+        
+        .highlight-item i {
+            font-size: 1.1rem;
+        }
+        
+        .journey-section {
+            margin: 4rem 0;
+        }
+        
+        .journey-section h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+        
+        .journey-subtitle {
+            text-align: center;
+            color: var(--charcoal);
+            font-size: 1.1rem;
+            margin-bottom: 3rem;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 30px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: var(--gradient-primary);
+        }
+        
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 80px;
+        }
+        
+        .timeline-dot {
+            position: absolute;
+            left: 20px;
+            top: 20px;
+            width: 20px;
+            height: 20px;
+            background: var(--primary-mint);
+            border-radius: 50%;
+            border: 4px solid var(--pure-white);
+            box-shadow: 0 0 0 4px var(--primary-mint);
+        }
+        
+        .timeline-content {
+            background: var(--pure-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            border-left: 4px solid var(--primary-mint);
+        }
+        
+        .timeline-content h4 {
+            color: var(--deep-teal);
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .timeline-date {
+            color: var(--primary-coral);
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-content p {
+            color: var(--charcoal);
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline-content ul {
+            color: var(--charcoal);
+            padding-left: 1.5rem;
+        }
+        
+        .timeline-content li {
+            margin-bottom: 0.5rem;
+            line-height: 1.5;
+        }
+        
+        .stats-section {
+            margin: 4rem 0;
+        }
+        
+        .stats-section h3 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--deep-teal);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .stat-card {
+            background: var(--pure-white);
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            transition: transform 0.3s ease;
+            border-top: 4px solid var(--primary-mint);
+        }
+        
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--primary-mint);
+            margin-bottom: 0.5rem;
+        }
+        
+        .stat-label {
+            color: var(--charcoal);
+            font-weight: 500;
+        }
+        
+        /* About Responsive */
+        @media (max-width: 768px) {
+            .about-section {
+                padding: 4rem 0;
+            }
+            
+            .about-header h2 {
+                font-size: 2rem;
+            }
+            
+            .about-highlights {
+                gap: 1rem;
+            }
+            
+            .timeline-item {
+                padding-left: 60px;
+            }
+            
+            .timeline::before {
+                left: 20px;
+            }
+            
+            .timeline-dot {
+                left: 10px;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+                gap: 1rem;
+            }
+        }
+        
         /* Privacy Policy Section */
         .privacy-section {
             background: var(--gradient-hero);
@@ -3309,43 +3526,143 @@
     </section>
     
     <!-- About Section -->
-    <section id="about" class="about">
+    <section id="about" class="about-section">
         <div class="container">
-            <h2 class="section-title" data-aos="fade-up" data-aos-duration="1000">About Me</h2>
-            <div class="about-content">
-                <div class="about-text">
-                    <p>
-                        I'm a Swiss-born AI-Native Automation Specialist with a unique hybrid background in finance and technology. 
-                        Currently serving as a Senior Business Analyst at Johnson & Johnson, I specialize in transforming complex 
-                        business processes through intelligent automation solutions.
-                    </p>
-                    <p>
-                        As the founder of Taxed GmbH, I provide specialized Swiss tax consulting services for expatriates, 
-                        combining my deep understanding of Swiss tax law with cutting-edge automation tools to deliver efficient, 
-                        accurate solutions.
-                    </p>
-                    <p>
-                        My international experience spans over 50 countries across Asia, the Americas, and Europe, with 
-                        professional certifications including Royal Yachting Association Day Skipper from Gibraltar. 
-                        I'm fluent in Swiss German, German, and English, with basic proficiency in French and Spanish.
-                    </p>
+            <div class="about-header">
+                <h2>About Emanuel Aaron Flury</h2>
+                <p class="about-subtitle">From Swiss Army service to Johnson & Johnson automation leadership, discover the journey of a hybrid finance-tech expert who bridges traditional finance with cutting-edge AI automation.</p>
+                <div class="about-highlights">
+                    <div class="highlight-item">
+                        <i class="fas fa-award"></i>
+                        <span>Top Performer</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-globe"></i>
+                        <span>50+ Countries</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-bridge"></i>
+                        <span>Hybrid Expert</span>
+                    </div>
+                    <div class="highlight-item">
+                        <i class="fas fa-anchor"></i>
+                        <span>Maritime Leader</span>
+                    </div>
                 </div>
+            </div>
+            
+            <!-- Professional Journey -->
+            <div class="journey-section">
+                <h3>Professional Journey</h3>
+                <p class="journey-subtitle">A unique path from mechanical engineering to AI automation leadership</p>
+                
+                <div class="timeline">
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Swiss Army Service - Medical Unit Driver</h4>
+                            <p class="timeline-date">2010-2012</p>
+                            <p>Completed mandatory Swiss Army service as a Medical Unit Driver and Rescue Team Member, developing critical leadership skills, discipline, and emergency response capabilities.</p>
+                            <ul>
+                                <li>Medical unit driver and rescue team member</li>
+                                <li>Emergency medical transport and rescue operations</li>
+                                <li>Leadership under pressure and crisis management</li>
+                                <li>Team coordination and emergency response protocols</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Vehicle Mechanic & Technical Foundation</h4>
+                            <p class="timeline-date">2005-2009</p>
+                            <p>Completed vocational training as a Vehicle Mechanic EFZ, achieving the highest grade (5.2) among all trainees in 2009.</p>
+                            <ul>
+                                <li>Federal Certificate of Competence (EFZ) in Vehicle Mechanics</li>
+                                <li>Highest performance grade (5.2) among all trainees</li>
+                                <li>Technical problem-solving and precision engineering</li>
+                                <li>Systematic approach to complex challenges</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>University of Aberdeen - Economics & Finance</h4>
+                            <p class="timeline-date">2012-2016</p>
+                            <p>Earned Master of Arts in Economics-Finance, combining technical background with financial expertise and international perspective.</p>
+                            <ul>
+                                <li>Master of Arts in Economics-Finance</li>
+                                <li>International business perspective and global markets</li>
+                                <li>Financial analysis, modeling, and economic theory</li>
+                                <li>Combined technical and financial expertise</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Johnson & Johnson - Finance Analyst FP&A & Automation Specialist</h4>
+                            <p class="timeline-date">2017-Present (7+ years)</p>
+                            <p>Leading financial planning and analysis at DePuy Synthes GmbH while pioneering automation solutions for global teams. Achieved significant cost reductions through advanced cost-centre controlling and streamlined affiliate gross profit analysis with 99.5% accuracy.</p>
+                            <ul>
+                                <li><strong>Financial Excellence:</strong> FAA PII & standard cost calculations with 99.5% accuracy</li>
+                                <li><strong>Cost Optimization:</strong> Significant cost reductions through advanced cost-centre controlling</li>
+                                <li><strong>Global Impact:</strong> WW transfer pricing maintenance across multiple countries</li>
+                                <li><strong>Process Innovation:</strong> Streamlined affiliate gross profit analysis and real-time inventory reporting</li>
+                                <li><strong>Automation Leadership:</strong> AI automation implementation since 2012, impacting global teams</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                    
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h4>Taxed GmbH - Founder & CEO (100% Ownership)</h4>
+                            <p class="timeline-date">February 2021-Present (3+ years)</p>
+                            <p>Founded and own 100% of Taxed GmbH, a Swiss fiduciary services company with CHF 20,000 capital. Achieved strong revenue growth in first 2 years with high client retention and satisfaction across Switzerland and international markets.</p>
+                            <ul>
+                                <li><strong>Business Ownership:</strong> 100% ownership of fiduciary services company</li>
+                                <li><strong>Service Portfolio:</strong> Fiduciary, financial, personnel, tax, and business consulting</li>
+                                <li><strong>Specialized Services:</strong> Swiss tax consulting for expatriates and international businesses</li>
+                                <li><strong>Business Growth:</strong> Strong revenue growth in first 2 years of operation</li>
+                                <li><strong>Innovation:</strong> AI-powered tax compliance and automation solutions</li>
+                            </ul>
+                        </div>
+                        <div class="timeline-dot"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Professional Impact Stats -->
+            <div class="stats-section">
+                <h3>Professional Impact</h3>
                 <div class="stats-grid">
                     <div class="stat-card">
-                        <div class="stat-number">5+</div>
-                        <div class="stat-label">Years Experience</div>
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label">Countries Visited</span>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">50+</div>
-                        <div class="stat-label">Countries Visited</div>
+                        <span class="stat-number">7+</span>
+                        <span class="stat-label">Years at J&J</span>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">2</div>
-                        <div class="stat-label">Companies Founded</div>
+                        <span class="stat-number">99.5%</span>
+                        <span class="stat-label">Accuracy Rate</span>
                     </div>
                     <div class="stat-card">
-                        <div class="stat-number">100%</div>
-                        <div class="stat-label">Client Satisfaction</div>
+                        <span class="stat-number">5.2</span>
+                        <span class="stat-label">Top Grade (EFZ)</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">4</span>
+                        <span class="stat-label">Professional Certifications</span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-number">5</span>
+                        <span class="stat-label">Languages</span>
                     </div>
                 </div>
             </div>
