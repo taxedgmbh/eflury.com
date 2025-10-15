@@ -866,6 +866,187 @@
             box-shadow: 0 10px 25px rgba(224, 60, 49, 0.3);
         }
         
+        /* Newsletter Signup Hero */
+        .newsletter-signup-hero {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .newsletter-signup-hero h3 {
+            color: var(--pure-white);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        .newsletter-signup-hero p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .newsletter-form-hero {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+        
+        .newsletter-input-group {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .newsletter-form-hero input[type="email"] {
+            flex: 1;
+            padding: 1rem 1.5rem;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--pure-white);
+            font-size: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .newsletter-form-hero input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .newsletter-form-hero input[type="email"]:focus {
+            outline: none;
+            border-color: var(--primary-yellow);
+            background: rgba(255, 255, 255, 0.15);
+            box-shadow: 0 0 20px rgba(255, 184, 28, 0.3);
+        }
+        
+        .newsletter-submit-btn {
+            padding: 1rem 2rem;
+            background: var(--gradient-primary);
+            border: none;
+            border-radius: 50px;
+            color: var(--pure-white);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            white-space: nowrap;
+        }
+        
+        .newsletter-submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 122, 77, 0.3);
+        }
+        
+        .newsletter-privacy {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.85rem;
+            margin: 0;
+        }
+        
+        /* Sticky Newsletter Signup for Mobile */
+        .sticky-newsletter {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: var(--gradient-hero);
+            padding: 1rem;
+            z-index: 1000;
+            transform: translateY(100%);
+            transition: transform 0.3s ease;
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .sticky-newsletter.show {
+            transform: translateY(0);
+        }
+        
+        .sticky-newsletter-content {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+        
+        .sticky-newsletter-text {
+            flex: 1;
+            color: var(--pure-white);
+        }
+        
+        .sticky-newsletter-text h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin: 0 0 0.25rem 0;
+        }
+        
+        .sticky-newsletter-text p {
+            font-size: 0.8rem;
+            opacity: 0.8;
+            margin: 0;
+        }
+        
+        .sticky-newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .sticky-newsletter input[type="email"] {
+            padding: 0.5rem 0.75rem;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            border-radius: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--pure-white);
+            font-size: 0.85rem;
+            width: 150px;
+        }
+        
+        .sticky-newsletter input[type="email"]::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+        }
+        
+        .sticky-newsletter-btn {
+            padding: 0.5rem 1rem;
+            background: var(--primary-yellow);
+            border: none;
+            border-radius: 20px;
+            color: var(--pure-white);
+            font-size: 0.8rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .sticky-newsletter-btn:hover {
+            background: var(--primary-red);
+            transform: translateY(-1px);
+        }
+        
+        .sticky-newsletter-close {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            background: none;
+            border: none;
+            color: var(--pure-white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+        
+        .sticky-newsletter-close:hover {
+            opacity: 1;
+        }
+        
         /* Hero Visual */
         .hero-visual {
             position: relative;
@@ -2493,6 +2674,11 @@
             gap: 0.5rem;
         }
         
+        .newsletter-input-group {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
         .newsletter-input {
             flex: 1;
             padding: 0.75rem 1rem;
@@ -3665,8 +3851,8 @@
                 </h1>
                 
                 <p class="hero-subtitle">
-                    Bridging traditional finance with cutting-edge AI automation for global teams and Swiss expatriates. 
-                    Transforming business processes through intelligent automation and expert tax consulting.
+                    Sharing insights on AI automation and Swiss tax optimization. 
+                    Join 500+ professionals getting weekly automation tips and thought leadership content.
                 </p>
                 
                 <div class="hero-stats">
@@ -3709,14 +3895,30 @@
                 </div>
                 
                 <div class="hero-actions">
-                    <a href="#services" class="btn btn-primary">
-                        <span>Explore Services</span>
-                        <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="#contact" class="btn btn-secondary">
-                        <span>Get in Touch</span>
+                    <a href="#newsletter" class="btn btn-primary">
+                        <span>Subscribe to Newsletter</span>
                         <i class="fas fa-envelope"></i>
                     </a>
+                    <a href="#about" class="btn btn-secondary">
+                        <span>Stay Updated</span>
+                        <i class="fas fa-bell"></i>
+                    </a>
+                </div>
+                
+                <!-- Newsletter Signup Form -->
+                <div class="newsletter-signup-hero">
+                    <h3>Get Automation Insights Delivered to Your Inbox</h3>
+                    <p>Join 500+ professionals getting weekly automation tips and Swiss tax insights</p>
+                    <form class="newsletter-form-hero" id="newsletterForm">
+                        <div class="newsletter-input-group">
+                            <input type="email" id="newsletterEmail" name="email" placeholder="Enter your email address" required>
+                            <button type="submit" class="newsletter-submit-btn">
+                                <span>Subscribe</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </div>
+                        <p class="newsletter-privacy">We respect your privacy. Unsubscribe at any time.</p>
+                    </form>
                 </div>
                 
                 <div class="hero-social">
@@ -3757,8 +3959,8 @@
     <section class="quick-contact" style="background: var(--warm-gray); padding: 3rem 0; text-align: center;">
         <div class="grid-container">
             <div style="background: var(--pure-white); padding: 2rem; border-radius: 16px; box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08); max-width: 600px; margin: 0 auto;">
-                <h2 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.8rem;">Ready to Get Started?</h2>
-                <p style="color: var(--charcoal); margin-bottom: 1.5rem; font-size: 1.1rem;">Let's discuss your automation and tax optimization needs</p>
+                <h2 style="color: var(--primary-blue); margin-bottom: 1rem; font-size: 1.8rem;">Stay Informed with Expert Insights</h2>
+                <p style="color: var(--charcoal); margin-bottom: 1.5rem; font-size: 1.1rem;">Get weekly automation tips and Swiss tax optimization insights delivered to your inbox</p>
                 <a href="mailto:me@eflury.com" style="display: inline-flex; align-items: center; gap: 0.5rem; background: var(--gradient-primary); color: var(--pure-white); padding: 1rem 2rem; border-radius: 50px; text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(8, 145, 178, 0.3);" onmouseover="this.style.transform='translateY(-3px)'; this.style.boxShadow='0 8px 25px rgba(8, 145, 178, 0.4)'" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='0 4px 15px rgba(8, 145, 178, 0.3)'">
                     <i class="fas fa-envelope"></i>
                     me@eflury.com
@@ -4582,6 +4784,20 @@
                     <p class="brand-description">
                         Swiss automation expert specializing in AI-driven finance solutions for global teams and Swiss expatriates.
                     </p>
+                    
+                    <!-- Newsletter Signup -->
+                    <div class="newsletter-signup">
+                        <h5>Stay Updated with Automation Insights</h5>
+                        <p>Get weekly tips on Swiss tax optimization and AI automation trends</p>
+                        <form class="newsletter-form" id="footerNewsletterForm">
+                            <div class="newsletter-input-group">
+                                <input type="email" id="footerNewsletterEmail" name="email" placeholder="Your email address" required>
+                                <button type="submit" class="newsletter-btn">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
                     <div class="contact-info">
                         <div class="contact-item">
                             <i class="fas fa-envelope"></i>
@@ -4669,6 +4885,21 @@
         </div>
     </footer>
     
+    <!-- Sticky Newsletter Signup for Mobile -->
+    <div class="sticky-newsletter" id="stickyNewsletter">
+        <button class="sticky-newsletter-close" onclick="closeStickyNewsletter()">×</button>
+        <div class="sticky-newsletter-content">
+            <div class="sticky-newsletter-text">
+                <h4>Get Weekly Automation Tips</h4>
+                <p>Join 500+ professionals</p>
+            </div>
+            <form class="sticky-newsletter-form" id="stickyNewsletterForm">
+                <input type="email" placeholder="Your email" required>
+                <button type="submit" class="sticky-newsletter-btn">Subscribe</button>
+            </form>
+        </div>
+    </div>
+    
     <script>
         // Scroll progress indicator
         window.addEventListener('scroll', () => {
@@ -4745,8 +4976,123 @@
         let submissionAttempts = 0;
         const maxAttempts = 3;
         
+        // Newsletter Form Handling
+        function setupNewsletterForms() {
+            const heroForm = document.getElementById('newsletterForm');
+            const footerForm = document.getElementById('footerNewsletterForm');
+            
+            if (heroForm) {
+                heroForm.addEventListener('submit', handleNewsletterSubmit);
+            }
+            
+            if (footerForm) {
+                footerForm.addEventListener('submit', handleNewsletterSubmit);
+            }
+        }
+        
+        function handleNewsletterSubmit(e) {
+            e.preventDefault();
+            
+            const form = e.target;
+            const email = form.querySelector('input[type="email"]').value;
+            const submitBtn = form.querySelector('button[type="submit"]');
+            
+            if (!email || !isValidEmail(email)) {
+                showNewsletterMessage('Please enter a valid email address.', 'error');
+                return;
+            }
+            
+            // Show loading state
+            const originalText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Subscribing...';
+            submitBtn.disabled = true;
+            
+            // Simulate API call (replace with actual newsletter service)
+            setTimeout(() => {
+                showNewsletterMessage('Thank you for subscribing! You\'ll receive our weekly automation insights.', 'success');
+                form.reset();
+                submitBtn.innerHTML = originalText;
+                submitBtn.disabled = false;
+            }, 1500);
+        }
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+        
+        function showNewsletterMessage(message, type) {
+            // Remove existing messages
+            const existingMessages = document.querySelectorAll('.newsletter-message');
+            existingMessages.forEach(msg => msg.remove());
+            
+            // Create new message
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `newsletter-message ${type}`;
+            messageDiv.innerHTML = `
+                <div style="
+                    background: ${type === 'success' ? 'rgba(0, 122, 77, 0.2)' : 'rgba(224, 60, 49, 0.2)'};
+                    border: 1px solid ${type === 'success' ? 'var(--primary-green)' : 'var(--primary-red)'};
+                    color: ${type === 'success' ? 'var(--primary-green)' : 'var(--primary-red)'};
+                    padding: 1rem;
+                    border-radius: 8px;
+                    margin-top: 1rem;
+                    text-align: center;
+                    font-weight: 500;
+                ">
+                    <i class="fas ${type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle'}"></i>
+                    ${message}
+                </div>
+            `;
+            
+            // Insert message after the form
+            const form = document.querySelector('.newsletter-form-hero, .newsletter-form');
+            if (form) {
+                form.parentNode.insertBefore(messageDiv, form.nextSibling);
+                
+                // Auto-remove after 5 seconds
+                setTimeout(() => {
+                    messageDiv.remove();
+                }, 5000);
+            }
+        }
+        
+        // Sticky Newsletter Functions
+        function showStickyNewsletter() {
+            const stickyNewsletter = document.getElementById('stickyNewsletter');
+            if (stickyNewsletter && window.innerWidth <= 768) {
+                // Show after 3 seconds on mobile
+                setTimeout(() => {
+                    stickyNewsletter.classList.add('show');
+                }, 3000);
+            }
+        }
+        
+        function closeStickyNewsletter() {
+            const stickyNewsletter = document.getElementById('stickyNewsletter');
+            if (stickyNewsletter) {
+                stickyNewsletter.classList.remove('show');
+                // Hide for session
+                sessionStorage.setItem('newsletterClosed', 'true');
+            }
+        }
+        
+        function setupStickyNewsletter() {
+            const stickyForm = document.getElementById('stickyNewsletterForm');
+            if (stickyForm) {
+                stickyForm.addEventListener('submit', handleNewsletterSubmit);
+            }
+            
+            // Check if user already closed it this session
+            if (!sessionStorage.getItem('newsletterClosed')) {
+                showStickyNewsletter();
+            }
+        }
+        
         // Initialize form
         document.addEventListener('DOMContentLoaded', function() {
+            setupNewsletterForms();
+            setupStickyNewsletter();
             // Scroll to explore functionality
             const heroScrollIndicator = document.getElementById('heroScrollIndicator');
             if (heroScrollIndicator) {
