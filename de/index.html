@@ -188,8 +188,7 @@
         .language-selector {
             position: relative;
             display: inline-block;
-            margin-left: auto;
-            margin-right: 2rem;
+            order: 3; /* Position after nav-links */
         }
         
         .language-current {
@@ -274,6 +273,15 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: relative;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            gap: 2rem;
         }
         
         .logo {
@@ -358,9 +366,9 @@
             }
             
             .language-selector {
+                order: 2; /* Position before mobile menu toggle */
                 margin-left: auto;
-                margin-right: 0;
-                margin-bottom: 1rem;
+                margin-right: 1rem;
             }
             
             .logo {
