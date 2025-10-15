@@ -2121,12 +2121,19 @@
         }
         
         /* Footer Sections */
+        .footer-section {
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        
         .footer-section h4 {
             color: var(--pure-white);
             font-size: 1.1rem;
             font-weight: 600;
             margin-bottom: 1.5rem;
             position: relative;
+            flex-shrink: 0;
         }
         
         .footer-section h4::after {
@@ -2346,8 +2353,9 @@
         .footer-grid {
             display: grid;
             grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
-            gap: 3rem;
+            gap: 2rem;
             margin-bottom: 3rem;
+            align-items: start;
         }
         
         /* Brand Section */
@@ -2971,6 +2979,128 @@
             
             .privacy-item {
                 padding: 1.5rem;
+            }
+        }
+        
+        /* Footer Map Section */
+        .footer-map-section {
+            background: var(--gradient-hero);
+            padding: 3rem 0;
+            color: var(--pure-white);
+        }
+        
+        .footer-map-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            text-align: center;
+        }
+        
+        .footer-map-container h3 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--pure-white);
+            margin-bottom: 0.5rem;
+        }
+        
+        .footer-map-container p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 1rem;
+            margin-bottom: 2rem;
+        }
+        
+        .footer-map-wrapper {
+            margin-bottom: 1.5rem;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .footer-map-info {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .footer-map-address {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            color: var(--pure-white);
+        }
+        
+        .footer-map-address i {
+            color: var(--primary-mint);
+            font-size: 1.2rem;
+        }
+        
+        .footer-map-address strong {
+            font-size: 1rem;
+            display: block;
+            margin-bottom: 0.25rem;
+        }
+        
+        .footer-map-actions {
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .footer-map-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary-mint);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            background: rgba(8, 145, 178, 0.2);
+            border: 1px solid rgba(8, 145, 178, 0.3);
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            font-size: 0.9rem;
+        }
+        
+        .footer-map-link:hover {
+            background: var(--primary-mint);
+            color: var(--pure-white);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(8, 145, 178, 0.4);
+        }
+        
+        .footer-map-link i {
+            font-size: 0.8rem;
+        }
+        
+        /* Footer Map Responsive */
+        @media (max-width: 768px) {
+            .footer-map-section {
+                padding: 2rem 0;
+            }
+            
+            .footer-map-container {
+                padding: 0 1rem;
+            }
+            
+            .footer-map-container h3 {
+                font-size: 1.5rem;
+            }
+            
+            .footer-map-info {
+                flex-direction: column;
+                text-align: center;
+                gap: 1rem;
+            }
+            
+            .footer-map-actions {
+                justify-content: center;
             }
         }
         
@@ -4321,6 +4451,47 @@
         </div>
     </section>
     
+    <!-- Footer Map Section -->
+    <section class="footer-map-section">
+        <div class="container">
+            <div class="footer-map-container">
+                <h3>Visit Our Office</h3>
+                <p>Located in the heart of Grenchen, Switzerland</p>
+                <div class="footer-map-wrapper">
+                    <iframe 
+                        src="https://www.openstreetmap.org/export/embed.html?bbox=7.3500%2C47.1900%2C7.3600%2C47.2000&layer=mapnik&marker=47.1950%2C7.3550"
+                        width="100%" 
+                        height="300" 
+                        style="border:0; border-radius: 8px;"
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Office Location - Keltenweg 4, 2540 Grenchen">
+                    </iframe>
+                </div>
+                <div class="footer-map-info">
+                    <div class="footer-map-address">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <div>
+                            <strong>Keltenweg 4</strong><br>
+                            2540 Grenchen, Switzerland
+                        </div>
+                    </div>
+                    <div class="footer-map-actions">
+                        <a href="https://www.openstreetmap.org/?mlat=47.1950&mlon=7.3550&zoom=16" target="_blank" rel="noopener" class="footer-map-link">
+                            <i class="fas fa-external-link-alt"></i>
+                            View on Map
+                        </a>
+                        <a href="https://maps.google.com/?q=Keltenweg+4,+2540+Grenchen,+Switzerland" target="_blank" rel="noopener" class="footer-map-link">
+                            <i class="fas fa-directions"></i>
+                            Get Directions
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    
     <!-- Professional Footer -->
     <footer class="footer">
         <div class="footer-container">
@@ -4347,10 +4518,10 @@
                             <i class="fas fa-phone"></i>
                             <span>+41 79 910 77 87</span>
                         </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Keltenweg 4, 2540 Grenchen, Switzerland</span>
-                    </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Keltenweg 4, 2540 Grenchen, Switzerland</span>
+                        </div>
                     </div>
                 </div>
 
@@ -4374,7 +4545,7 @@
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#contact">Contact</a></li>
                         <li><a href="https://www.handelsregister.ch" target="_blank" rel="noopener">Taxed GmbH</a></li>
-                        <li><a href="privacy.html">Privacy Policy</a></li>
+                        <li><a href="#privacy">Privacy Policy</a></li>
                     </ul>
                 </div>
 
