@@ -12,12 +12,72 @@
         <priority>1.0</priority>
     </url>
     
-    <!-- Main Pages -->
+    <!-- Multilingual Pages -->
     <url>
-        <loc>https://emanuelflury.com/index.html</loc>
-        <lastmod>2024-12-19</lastmod>
+        <loc>https://emanuelflury.com/en/</loc>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>weekly</changefreq>
-        <priority>1.0</priority>
+        <priority>0.9</priority>
+    </url>
+    <url>
+        <loc>https://emanuelflury.com/de/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emanuelflury.com/fr/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emanuelflury.com/it/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://emanuelflury.com/es/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://emanuelflury.com/pt/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://emanuelflury.com/ko/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://emanuelflury.com/hi/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://emanuelflury.com/nl/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://emanuelflury.com/cn/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://emanuelflury.com/jp/</loc>
+        <lastmod>2025-01-15</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
     </url>
     
     
@@ -36,44 +96,44 @@
     
     <!-- Section Anchors (for single-page navigation) -->
     <url>
-        <loc>https://emanuelflury.com/#about</loc>
-        <lastmod>2024-12-19</lastmod>
+        <loc>https://emanuelflury.com/en/#about</loc>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://emanuelflury.com/#services</loc>
-        <lastmod>2024-12-19</lastmod>
+        <loc>https://emanuelflury.com/en/#services</loc>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>https://emanuelflury.com/#testimonials</loc>
-        <lastmod>2024-12-19</lastmod>
+        <loc>https://emanuelflury.com/en/#testimonials</loc>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     
     <url>
-        <loc>https://emanuelflury.com/#portfolio</loc>
-        <lastmod>2024-12-19</lastmod>
+        <loc>https://emanuelflury.com/en/#portfolio</loc>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.8</priority>
     </url>
     
     
     <url>
-        <loc>https://emanuelflury.com/#faq</loc>
-        <lastmod>2024-12-19</lastmod>
+        <loc>https://emanuelflury.com/en/#faq</loc>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.6</priority>
     </url>
     
     <url>
-        <loc>https://emanuelflury.com/#contact</loc>
-        <lastmod>2024-12-19</lastmod>
+        <loc>https://emanuelflury.com/en/#contact</loc>
+        <lastmod>2025-01-15</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.9</priority>
     </url>
