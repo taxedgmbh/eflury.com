@@ -1047,6 +1047,134 @@
             opacity: 1;
         }
         
+        /* Privacy Policy Popup */
+        .privacy-popup {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            max-width: 350px;
+            background: var(--pure-white);
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+            z-index: 1001;
+            transform: translateX(100%);
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .privacy-popup.show {
+            transform: translateX(0);
+        }
+        
+        .privacy-popup-content {
+            padding: 0;
+        }
+        
+        .privacy-popup-header {
+            background: var(--gradient-hero);
+            color: var(--pure-white);
+            padding: 1rem;
+            border-radius: 12px 12px 0 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .privacy-popup-header h4 {
+            margin: 0;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+        
+        .privacy-popup-close {
+            background: none;
+            border: none;
+            color: var(--pure-white);
+            font-size: 1.2rem;
+            cursor: pointer;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+            padding: 0;
+            width: 24px;
+            height: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .privacy-popup-close:hover {
+            opacity: 1;
+        }
+        
+        .privacy-popup-body {
+            padding: 1rem;
+        }
+        
+        .privacy-popup-body p {
+            margin: 0 0 1rem 0;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            color: var(--charcoal);
+        }
+        
+        .privacy-popup-body a {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .privacy-popup-body a:hover {
+            text-decoration: underline;
+        }
+        
+        .privacy-popup-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .privacy-accept-btn,
+        .privacy-decline-btn {
+            flex: 1;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .privacy-accept-btn {
+            background: var(--primary-green);
+            color: var(--pure-white);
+        }
+        
+        .privacy-accept-btn:hover {
+            background: var(--primary-blue);
+            transform: translateY(-1px);
+        }
+        
+        .privacy-decline-btn {
+            background: var(--warm-gray);
+            color: var(--charcoal);
+            border: 1px solid rgba(0, 0, 0, 0.1);
+        }
+        
+        .privacy-decline-btn:hover {
+            background: var(--charcoal);
+            color: var(--pure-white);
+        }
+        
+        /* Mobile Privacy Popup */
+        @media (max-width: 768px) {
+            .privacy-popup {
+                bottom: 10px;
+                right: 10px;
+                left: 10px;
+                max-width: none;
+            }
+        }
+        
         /* Hero Visual */
         .hero-visual {
             position: relative;
@@ -4900,6 +5028,23 @@
         </div>
     </div>
     
+    <!-- Privacy Policy Popup -->
+    <div class="privacy-popup" id="privacyPopup">
+        <div class="privacy-popup-content">
+            <div class="privacy-popup-header">
+                <h4>Privacy & Cookie Notice</h4>
+                <button class="privacy-popup-close" onclick="closePrivacyPopup()">×</button>
+            </div>
+            <div class="privacy-popup-body">
+                <p>We use cookies and collect data to improve your experience. By continuing to use this site, you agree to our <a href="#privacy">Privacy Policy</a>.</p>
+                <div class="privacy-popup-actions">
+                    <button class="privacy-accept-btn" onclick="acceptPrivacy()">Accept</button>
+                    <button class="privacy-decline-btn" onclick="declinePrivacy()">Decline</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
     <script>
         // Scroll progress indicator
         window.addEventListener('scroll', () => {
@@ -5089,10 +5234,51 @@
             }
         }
         
+        // Privacy Popup Functions
+        function showPrivacyPopup() {
+            const privacyPopup = document.getElementById('privacyPopup');
+            if (privacyPopup && !localStorage.getItem('privacyAccepted')) {
+                // Show after 2 seconds
+                setTimeout(() => {
+                    privacyPopup.classList.add('show');
+                }, 2000);
+            }
+        }
+        
+        function closePrivacyPopup() {
+            const privacyPopup = document.getElementById('privacyPopup');
+            if (privacyPopup) {
+                privacyPopup.classList.remove('show');
+            }
+        }
+        
+        function acceptPrivacy() {
+            localStorage.setItem('privacyAccepted', 'true');
+            localStorage.setItem('privacyAcceptDate', new Date().toISOString());
+            closePrivacyPopup();
+        }
+        
+        function declinePrivacy() {
+            localStorage.setItem('privacyDeclined', 'true');
+            localStorage.setItem('privacyDeclineDate', new Date().toISOString());
+            closePrivacyPopup();
+        }
+        
+        function setupPrivacyPopup() {
+            // Check if user has already made a choice
+            const privacyAccepted = localStorage.getItem('privacyAccepted');
+            const privacyDeclined = localStorage.getItem('privacyDeclined');
+            
+            if (!privacyAccepted && !privacyDeclined) {
+                showPrivacyPopup();
+            }
+        }
+        
         // Initialize form
         document.addEventListener('DOMContentLoaded', function() {
             setupNewsletterForms();
             setupStickyNewsletter();
+            setupPrivacyPopup();
             // Scroll to explore functionality
             const heroScrollIndicator = document.getElementById('heroScrollIndicator');
             if (heroScrollIndicator) {
