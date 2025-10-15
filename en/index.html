@@ -2913,6 +2913,37 @@
             font-size: 0.9rem;
         }
         
+        /* Social Links in Brand Section */
+        .modern-saas-footer .footer-brand .social-links {
+            display: flex;
+            gap: 0.75rem;
+            margin: 1.5rem 0;
+            padding: 1rem 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .modern-saas-footer .footer-brand .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 36px;
+            height: 36px;
+            background: transparent;
+            color: rgba(255, 255, 255, 0.6);
+            border-radius: 6px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            font-size: 0.9rem;
+        }
+        
+        .modern-saas-footer .footer-brand .social-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--primary-yellow);
+            border-color: var(--primary-yellow);
+            transform: translateY(-1px);
+        }
+        
         /* Newsletter Section */
         .modern-saas-footer .newsletter-section {
             background: rgba(255, 255, 255, 0.05);
@@ -2920,6 +2951,7 @@
             border-radius: 12px;
             border: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
+            margin-top: 1rem;
         }
         
         .modern-saas-footer .newsletter-section h5 {
@@ -5209,6 +5241,19 @@
                         Bridging traditional finance with cutting-edge technology.
                     </p>
                     
+                    <!-- Social Links -->
+                    <div class="social-links">
+                        <a href="https://linkedin.com/in/emanuelflury" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="https://twitter.com/emanuelflury" target="_blank" rel="noopener" class="social-link" title="Twitter">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://github.com/emanuelflury" target="_blank" rel="noopener" class="social-link" title="GitHub">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                    
                     <!-- Contact Information -->
                     <div class="footer-contact-info">
                         <div class="contact-item">
@@ -5223,20 +5268,6 @@
                             <i class="fas fa-building"></i>
                             <span>Taxed GmbH</span>
                         </div>
-                    </div>
-                    
-                    <!-- Newsletter Signup -->
-                    <div class="newsletter-section">
-                        <h5>Get Automation Insights</h5>
-                        <p>Weekly tips on Swiss tax optimization and AI trends</p>
-                        <form class="newsletter-form" id="footerNewsletterForm">
-                            <div class="newsletter-input-group">
-                                <input type="email" id="footerNewsletterEmail" name="email" placeholder="Enter your email" required>
-                                <button type="submit" class="newsletter-btn">
-                                    <i class="fas fa-paper-plane"></i>
-                                </button>
-                            </div>
-                        </form>
                     </div>
                 </div>
                 
@@ -5264,6 +5295,23 @@
                     </ul>
                 </div>
                 
+                <!-- Newsletter Section -->
+                <div class="footer-section">
+                    <h4>Newsletter</h4>
+                    <div class="newsletter-section">
+                        <h5>Get Automation Insights</h5>
+                        <p>Weekly tips on Swiss tax optimization and AI trends</p>
+                        <form class="newsletter-form" id="footerNewsletterForm">
+                            <div class="newsletter-input-group">
+                                <input type="email" id="footerNewsletterEmail" name="email" placeholder="Enter your email" required>
+                                <button type="submit" class="newsletter-btn">
+                                    <i class="fas fa-paper-plane"></i>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                
                 <!-- Expertise Section -->
                 <div class="footer-section">
                     <h4>Expertise</h4>
@@ -5274,22 +5322,6 @@
                         <li><a href="#about">International Business</a></li>
                         <li><a href="#about">Financial Technology</a></li>
                     </ul>
-                </div>
-                
-                <!-- Social Section -->
-                <div class="footer-section">
-                    <h4>Connect</h4>
-                    <div class="social-links">
-                        <a href="https://linkedin.com/in/emanuelflury" target="_blank" rel="noopener" class="social-link" title="LinkedIn">
-                            <i class="fab fa-linkedin"></i>
-                        </a>
-                        <a href="https://twitter.com/emanuelflury" target="_blank" rel="noopener" class="social-link" title="Twitter">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="https://github.com/emanuelflury" target="_blank" rel="noopener" class="social-link" title="GitHub">
-                            <i class="fab fa-github"></i>
-                        </a>
-                    </div>
                 </div>
             </div>
             
