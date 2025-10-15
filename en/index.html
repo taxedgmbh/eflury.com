@@ -2800,6 +2800,333 @@
             }
         }
         
+        /* Modern SaaS Footer */
+        .modern-saas-footer {
+            background: linear-gradient(135deg, #0F172A 0%, #1E293B 50%, #334155 100%);
+            color: var(--pure-white);
+            padding: 4rem 0 2rem;
+            margin-top: 6rem;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .modern-saas-footer::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, var(--primary-yellow), transparent);
+        }
+        
+        .modern-saas-footer .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .modern-saas-footer .footer-main {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+        
+        /* Brand Section */
+        .modern-saas-footer .footer-brand {
+            max-width: 400px;
+        }
+        
+        .modern-saas-footer .brand-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .modern-saas-footer .brand-logo {
+            height: 50px;
+            width: auto;
+            object-fit: contain;
+            transition: all 0.3s ease;
+        }
+        
+        .modern-saas-footer .brand-logo:hover {
+            transform: scale(1.05);
+        }
+        
+        .modern-saas-footer .brand-info h3 {
+            color: var(--pure-white);
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin: 0;
+            background: linear-gradient(135deg, var(--pure-white) 0%, var(--primary-yellow) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .modern-saas-footer .brand-tagline {
+            color: var(--primary-yellow);
+            font-size: 0.9rem;
+            font-weight: 500;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .modern-saas-footer .brand-description {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.6;
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+        }
+        
+        /* Newsletter Section */
+        .modern-saas-footer .newsletter-section {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+        
+        .modern-saas-footer .newsletter-section h5 {
+            color: var(--pure-white);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .modern-saas-footer .newsletter-section p {
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+        
+        .modern-saas-footer .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .modern-saas-footer .newsletter-input-group {
+            display: flex;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            overflow: hidden;
+            flex: 1;
+        }
+        
+        .modern-saas-footer .newsletter-input-group input {
+            flex: 1;
+            padding: 0.75rem 1rem;
+            border: none;
+            background: transparent;
+            color: var(--pure-white);
+            font-size: 0.9rem;
+        }
+        
+        .modern-saas-footer .newsletter-input-group input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .modern-saas-footer .newsletter-btn {
+            padding: 0.75rem 1rem;
+            background: var(--primary-yellow);
+            color: var(--charcoal);
+            border: none;
+            border-radius: 0 8px 8px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-weight: 600;
+        }
+        
+        .modern-saas-footer .newsletter-btn:hover {
+            background: var(--primary-red);
+            color: var(--pure-white);
+            transform: scale(1.05);
+        }
+        
+        /* Footer Sections */
+        .modern-saas-footer .footer-section {
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .modern-saas-footer .footer-section h4 {
+            color: var(--pure-white);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+        
+        .modern-saas-footer .footer-section h4::after {
+            content: '';
+            position: absolute;
+            bottom: -0.5rem;
+            left: 0;
+            width: 30px;
+            height: 2px;
+            background: var(--primary-yellow);
+            border-radius: 1px;
+        }
+        
+        .modern-saas-footer .footer-links {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            flex: 1;
+        }
+        
+        .modern-saas-footer .footer-links li {
+            margin-bottom: 0.8rem;
+        }
+        
+        .modern-saas-footer .footer-links a {
+            color: rgba(255, 255, 255, 0.7);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            display: block;
+            padding: 0.25rem 0;
+        }
+        
+        .modern-saas-footer .footer-links a:hover {
+            color: var(--primary-yellow);
+            transform: translateX(5px);
+        }
+        
+        /* Contact Info */
+        .modern-saas-footer .contact-info {
+            margin-bottom: 1.5rem;
+        }
+        
+        .modern-saas-footer .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.8rem;
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+        }
+        
+        .modern-saas-footer .contact-item i {
+            color: var(--primary-yellow);
+            width: 16px;
+            text-align: center;
+        }
+        
+        /* Social Links */
+        .modern-saas-footer .social-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        
+        .modern-saas-footer .social-link {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(255, 255, 255, 0.1);
+            color: rgba(255, 255, 255, 0.7);
+            border-radius: 8px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .modern-saas-footer .social-link:hover {
+            background: var(--primary-yellow);
+            color: var(--charcoal);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 184, 28, 0.3);
+        }
+        
+        /* Footer Bottom */
+        .modern-saas-footer .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            padding-top: 2rem;
+        }
+        
+        .modern-saas-footer .footer-bottom-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        
+        .modern-saas-footer .copyright p {
+            color: rgba(255, 255, 255, 0.8);
+            font-size: 0.9rem;
+            margin: 0;
+        }
+        
+        .modern-saas-footer .company-info {
+            color: rgba(255, 255, 255, 0.6);
+            font-size: 0.8rem;
+            margin-top: 0.25rem;
+        }
+        
+        .modern-saas-footer .footer-legal {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .modern-saas-footer .footer-legal a {
+            color: rgba(255, 255, 255, 0.6);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+        
+        .modern-saas-footer .footer-legal a:hover {
+            color: var(--primary-yellow);
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .modern-saas-footer .footer-main {
+                grid-template-columns: 1fr 1fr 1fr;
+                gap: 2rem;
+            }
+            
+            .modern-saas-footer .footer-brand {
+                grid-column: 1 / -1;
+                max-width: none;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .modern-saas-footer {
+                padding: 3rem 0 2rem;
+            }
+            
+            .modern-saas-footer .footer-container {
+                padding: 0 1rem;
+            }
+            
+            .modern-saas-footer .footer-main {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .modern-saas-footer .footer-bottom-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            
+            .modern-saas-footer .footer-legal {
+                justify-content: center;
+            }
+        }
+        
         /* Clean Professional Footer */
         .footer {
             background: linear-gradient(135deg, var(--charcoal), var(--primary-blue));
@@ -4831,50 +5158,37 @@
         </div>
     </section>
     
-    <!-- Professional Footer -->
-    <footer class="footer">
+    <!-- Modern SaaS Footer -->
+    <footer class="modern-saas-footer">
         <div class="footer-container">
-            <!-- Main Footer Grid -->
-            <div class="footer-grid">
+            <!-- Main Footer Content -->
+            <div class="footer-main">
                 <!-- Brand Section -->
                 <div class="footer-brand">
-                    <div class="brand-logo">
-                        <img src="../assets/images/icons/emanuel-flury-logo.png" alt="Emanuel Flury" class="logo-img">
-                        <div class="brand-text">
-                        <h3>Emanuel Aaron Flury</h3>
+                    <div class="brand-header">
+                        <img src="../assets/images/icons/emanuel-flury-logo.png" alt="Emanuel Flury" class="brand-logo">
+                        <div class="brand-info">
+                            <h3>Emanuel Aaron Flury</h3>
                             <span class="brand-tagline">Automation Specialist</span>
+                        </div>
                     </div>
-                </div>
                     <p class="brand-description">
-                        Swiss automation expert specializing in AI-driven finance solutions for global teams and Swiss expatriates.
+                        Transforming Swiss businesses through AI automation and intelligent tax optimization. 
+                        Bridging traditional finance with cutting-edge technology.
                     </p>
                     
                     <!-- Newsletter Signup -->
-                    <div class="newsletter-signup">
-                        <h5>Stay Updated with Automation Insights</h5>
-                        <p>Get weekly tips on Swiss tax optimization and AI automation trends</p>
+                    <div class="newsletter-section">
+                        <h5>Get Automation Insights</h5>
+                        <p>Weekly tips on Swiss tax optimization and AI trends</p>
                         <form class="newsletter-form" id="footerNewsletterForm">
                             <div class="newsletter-input-group">
-                                <input type="email" id="footerNewsletterEmail" name="email" placeholder="Your email address" required>
+                                <input type="email" id="footerNewsletterEmail" name="email" placeholder="Enter your email" required>
                                 <button type="submit" class="newsletter-btn">
                                     <i class="fas fa-paper-plane"></i>
                                 </button>
-                    </div>
+                            </div>
                         </form>
-                </div>
-                    <div class="contact-info">
-                    <div class="contact-item">
-                            <i class="fas fa-envelope"></i>
-                            <a href="mailto:me@eflury.com">me@eflury.com</a>
-                    </div>
-                    <div class="contact-item">
-                            <i class="fas fa-phone"></i>
-                            <span>+41 79 910 77 87</span>
-                    </div>
-                    <div class="contact-item">
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Keltenweg 4, 2540 Grenchen, Switzerland</span>
-                    </div>
                     </div>
                 </div>
                 
@@ -4884,24 +5198,24 @@
                     <ul class="footer-links">
                         <li><a href="#services">AI Automation</a></li>
                         <li><a href="#services">Swiss Tax Optimization</a></li>
-                        <li><a href="#services">Financial Process Automation</a></li>
-                        <li><a href="#services">Swiss Expatriate Services</a></li>
-                        <li><a href="#services">Corporate Tax Planning</a></li>
+                        <li><a href="#services">Process Automation</a></li>
+                        <li><a href="#services">Financial Analytics</a></li>
+                        <li><a href="#services">Corporate Consulting</a></li>
                     </ul>
                 </div>
-
+                
                 <!-- Company Section -->
                 <div class="footer-section">
                     <h4>Company</h4>
                     <ul class="footer-links">
-                        <li><a href="#about">About Me</a></li>
+                        <li><a href="#about">About</a></li>
                         <li><a href="#portfolio">Portfolio</a></li>
                         <li><a href="#contact">Contact</a></li>
-                        <li><a href="https://www.handelsregister.ch" target="_blank" rel="noopener">Taxed GmbH</a></li>
-                        <li><a href="#privacy">Privacy Policy</a></li>
+                        <li><a href="#privacy">Privacy</a></li>
+                        <li><a href="#newsletter">Newsletter</a></li>
                     </ul>
                 </div>
-
+                
                 <!-- Expertise Section -->
                 <div class="footer-section">
                     <h4>Expertise</h4>
@@ -4913,22 +5227,35 @@
                         <li><a href="#about">Financial Technology</a></li>
                     </ul>
                 </div>
-
-                <!-- Connect Section -->
+                
+                <!-- Contact Section -->
                 <div class="footer-section">
-                    <h4>Connect</h4>
+                    <h4>Contact</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>me@eflury.com</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Keltenweg 4, 2540 Grenchen, Switzerland</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-building"></i>
+                            <span>Taxed GmbH</span>
+                        </div>
+                    </div>
+                    
+                    <!-- Social Links -->
                     <div class="social-links">
-                        <a href="https://www.linkedin.com/in/emanuelflury" target="_blank" rel="noopener" class="social-link" aria-label="LinkedIn">
-                            <i class="fab fa-linkedin-in"></i>
-                            <span>LinkedIn</span>
+                        <a href="https://linkedin.com/in/emanuelflury" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-linkedin"></i>
                         </a>
-                        <a href="https://www.instagram.com/taxedgmbh" target="_blank" rel="noopener" class="social-link" aria-label="Instagram">
-                            <i class="fab fa-instagram"></i>
-                            <span>Instagram</span>
+                        <a href="https://twitter.com/emanuelflury" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-twitter"></i>
                         </a>
-                        <a href="https://www.facebook.com/taxedgmbh" target="_blank" rel="noopener" class="social-link" aria-label="Facebook">
-                            <i class="fab fa-facebook-f"></i>
-                            <span>Facebook</span>
+                        <a href="https://github.com/emanuelflury" target="_blank" rel="noopener" class="social-link">
+                            <i class="fab fa-github"></i>
                         </a>
                     </div>
                 </div>
@@ -4938,11 +5265,13 @@
             <div class="footer-bottom">
                 <div class="footer-bottom-content">
                     <div class="copyright">
-                    <p>&copy; 2025 Emanuel Aaron Flury. All rights reserved.</p>
+                        <p>&copy; 2025 Emanuel Aaron Flury. All rights reserved.</p>
                         <p class="company-info">Taxed GmbH • CHE-123.456.789</p>
-                </div>
+                    </div>
                     <div class="footer-legal">
                         <a href="#privacy">Privacy Policy</a>
+                        <a href="#terms">Terms of Service</a>
+                        <a href="#cookies">Cookie Policy</a>
                     </div>
                 </div>
             </div>
