@@ -37,21 +37,6 @@
         <priority>0.8</priority>
     </url>
     
-    <!-- Services Page -->
-    <url>
-        <loc>https://emanuelflury.com/services.html</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    
-    <!-- Portfolio Page -->
-    <url>
-        <loc>https://emanuelflury.com/portfolio.html</loc>
-        <lastmod>2024-12-19</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.8</priority>
-    </url>
     
     
     <!-- Contact Page -->
