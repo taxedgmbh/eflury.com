@@ -1,0 +1,67 @@
+---
+// Dark Mode Toggle Component
+---
+
+<button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode">
+  <i class="fas fa-moon" id="darkModeIcon"></i>
+</button>
+
+<style>
+  .dark-mode-toggle {
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 122, 77, 0.2);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: var(--transition-smooth);
+    color: var(--text-primary);
+    font-size: 1.1rem;
+  }
+
+  .dark-mode-toggle:hover {
+    border-color: var(--primary-green);
+    box-shadow: var(--shadow-soft);
+    transform: scale(1.1);
+  }
+
+  .dark-mode-toggle:active {
+    transform: scale(0.95);
+  }
+</style>
+
+<script>
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const darkModeIcon = document.getElementById('darkModeIcon');
+  const htmlElement = document.documentElement;
+
+  // Get current theme from localStorage or default to light
+  const currentTheme = localStorage.getItem('theme') || 'light';
+
+  // Set initial icon
+  function updateIcon(theme: string) {
+    if (darkModeIcon) {
+      darkModeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
+    }
+  }
+
+  updateIcon(currentTheme);
+
+  // Toggle dark mode
+  darkModeToggle?.addEventListener('click', () => {
+    const theme = htmlElement.getAttribute('data-theme');
+    const newTheme = theme === 'light' ? 'dark' : 'light';
+
+    htmlElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
+    updateIcon(newTheme);
+
+    // Track in Google Analytics
+    if (window.trackEvent) {
+      window.trackEvent('User Interaction', 'theme_change', newTheme);
+    }
+  });
+</script>

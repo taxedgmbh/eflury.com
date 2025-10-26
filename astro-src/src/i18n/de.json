@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "title": "Emanuel Flury - Automatisierungsspezialist & Schweizer Steuerexperte",
+    "description": "Schweizer Automatisierungsexperte, spezialisiert auf KI-gesteuerte Finanzlösungen für globale Teams und Schweizer Expatriates. Nachweisliche Erfolge bei Johnson & Johnson und Taxed GmbH.",
+    "keywords": "Schweizer Automatisierungsexperte, KI-Finanzberater, Schweizer Steuerberater, Automatisierungsspezialist Schweiz, Schweizer Expat-Steuerberater, KI-Automatisierungsberater, Schweizer Geschäftsautomatisierung, Finanzautomatisierungsexperte"
+  },
+  "nav": {
+    "home": "Startseite",
+    "services": "Dienstleistungen",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Kontakt",
+    "language": "Sprache"
+  },
+  "hero": {
+    "greeting": "Hallo, ich bin Emanuel Flury",
+    "title": "Automatisierungsspezialist & Schweizer Steuerexperte",
+    "subtitle": "Transformation komplexer Finanzoperationen in optimierte, KI-gestützte Lösungen für globale Teams und Schweizer Expatriates.",
+    "cta_primary": "Dienstleistungen entdecken",
+    "cta_secondary": "Portfolio ansehen",
+    "scroll_hint": "Scrollen Sie, um mehr zu entdecken"
+  },
+  "services": {
+    "section_title": "Was ich mache",
+    "section_subtitle": "Umfassende Automatisierungs- und Steuerberatung",
+    "automation": {
+      "title": "Automatisierungsberatung",
+      "description": "Transformieren Sie Ihre Geschäftsprozesse mit modernster KI und Automatisierungslösungen. Von RPA bis zu intelligenten Workflows helfe ich Unternehmen, Zeit zu sparen und Kosten zu senken.",
+      "features": ["Prozessautomatisierung", "KI-Integration", "UiPath-Entwicklung", "Power Automate"]
+    },
+    "tax": {
+      "title": "Schweizer Steuerberatung",
+      "description": "Fachkundige Steuerberatung für Schweizer Einwohner und Expatriates. Navigieren Sie mit Zuversicht durch komplexe Schweizer Steuervorschriften und optimieren Sie Ihre Steuerstrategie.",
+      "features": ["Expat-Steuerplanung", "Schweizer Compliance", "Steueroptimierung", "Internationale Steuern"]
+    },
+    "analytics": {
+      "title": "Finanzanalyse",
+      "description": "Datengetriebene Erkenntnisse durch leistungsstarke Dashboards und Berichte. Verwandeln Sie Ihre Finanzdaten mit Power BI und fortgeschrittener Analytik in umsetzbare Intelligenz.",
+      "features": ["Power BI-Dashboards", "Finanzberichte", "Datenvisualisierung", "Prädiktive Analytik"]
+    },
+    "consulting": {
+      "title": "Unternehmensberatung",
+      "description": "Strategische Beratung für internationale Geschäftsabläufe. Nutzen Sie meine Fortune-500-Erfahrung zur Optimierung Ihrer Unternehmensprozesse und -strategie.",
+      "features": ["Prozessoptimierung", "Change Management", "Projektmanagement", "Strategieberatung"]
+    }
+  },
+  "statistics": {
+    "projects": {
+      "value": "150",
+      "label": "Abgeschlossene Projekte",
+      "suffix": "+"
+    },
+    "clients": {
+      "value": "50",
+      "label": "Zufriedene Kunden",
+      "suffix": "+"
+    },
+    "savings": {
+      "value": "2.5",
+      "label": "Millionen CHF gespart",
+      "suffix": "M"
+    },
+    "efficiency": {
+      "value": "85",
+      "label": "Effizienzsteigerung",
+      "suffix": "%"
+    }
+  },
+  "portfolio": {
+    "section_title": "Ausgewählte Projekte",
+    "section_subtitle": "Reale Auswirkungen in Automatisierung, Steuern und Analytik",
+    "filter_all": "Alle",
+    "filter_automation": "Automatisierung",
+    "filter_tax": "Steuern",
+    "filter_analytics": "Analytik",
+    "filter_ai": "KI",
+    "view_project": "Projekt ansehen"
+  },
+  "testimonials": {
+    "section_title": "Kundenstimmen",
+    "section_subtitle": "Was Kunden über die Zusammenarbeit mit mir sagen"
+  },
+  "clients": {
+    "section_title": "Vertrauen von"
+  },
+  "contact": {
+    "section_title": "Lassen Sie uns zusammenarbeiten",
+    "section_subtitle": "Bereit, Ihr Unternehmen zu transformieren? Nehmen Sie Kontakt auf.",
+    "form": {
+      "name": "Ihr Name",
+      "name_placeholder": "Max Mustermann",
+      "email": "E-Mail-Adresse",
+      "email_placeholder": "max@beispiel.ch",
+      "subject": "Betreff",
+      "subject_placeholder": "Projektanfrage",
+      "message": "Nachricht",
+      "message_placeholder": "Erzählen Sie mir von Ihrem Projekt...",
+      "captcha": "Sicherheitsprüfung",
+      "submit": "Nachricht senden",
+      "sending": "Wird gesendet...",
+      "success": "Nachricht erfolgreich gesendet! Ich melde mich bald bei Ihnen.",
+      "error": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt an me@eflury.com"
+    },
+    "info": {
+      "email": "me@eflury.com",
+      "phone": "+41 79 910 77 87",
+      "location": "Grenchen, Schweiz",
+      "availability": "Verfügbar für Projekte"
+    }
+  },
+  "footer": {
+    "tagline": "Automatisierungsspezialist & Schweizer Steuerexperte",
+    "description": "Transformation von Unternehmen durch intelligente Automatisierung und strategische Steueroptimierung.",
+    "sections": {
+      "quick_links": "Schnellzugriff",
+      "services": "Dienstleistungen",
+      "legal": "Rechtliches",
+      "connect": "Verbinden"
+    },
+    "links": {
+      "home": "Startseite",
+      "services": "Dienstleistungen",
+      "portfolio": "Portfolio",
+      "blog": "Blog",
+      "contact": "Kontakt",
+      "privacy": "Datenschutzerklärung",
+      "terms": "Nutzungsbedingungen",
+      "cookies": "Cookie-Richtlinie",
+      "data_protection": "Datenschutz"
+    },
+    "services_list": {
+      "automation": "Automatisierungsberatung",
+      "tax": "Schweizer Steuerberatung",
+      "analytics": "Finanzanalyse",
+      "consulting": "Unternehmensberatung"
+    },
+    "copyright": "© {year} Emanuel Flury. Alle Rechte vorbehalten.",
+    "made_with": "Mit ❤️ in der Schweiz gemacht"
+  },
+  "common": {
+    "read_more": "Mehr lesen",
+    "learn_more": "Mehr erfahren",
+    "get_started": "Loslegen",
+    "back_to_top": "Nach oben",
+    "loading": "Lädt...",
+    "error": "Ein Fehler ist aufgetreten",
+    "close": "Schliessen",
+    "menu": "Menü"
+  }
+}

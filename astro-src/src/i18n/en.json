@@ -1,0 +1,150 @@
+{
+  "meta": {
+    "title": "Emanuel Flury - Automation Specialist & Swiss Tax Expert",
+    "description": "Swiss automation expert specializing in AI-driven finance solutions for global teams and Swiss expatriates. Proven track record at Johnson & Johnson and Taxed GmbH.",
+    "keywords": "Swiss automation expert, AI finance consultant, Swiss tax advisor, automation specialist Switzerland, Swiss expat tax consultant, AI automation consultant, Swiss business automation, finance automation expert"
+  },
+  "nav": {
+    "home": "Home",
+    "services": "Services",
+    "portfolio": "Portfolio",
+    "blog": "Blog",
+    "contact": "Contact",
+    "language": "Language"
+  },
+  "hero": {
+    "greeting": "Hi, I'm Emanuel Flury",
+    "title": "Automation Specialist & Swiss Tax Expert",
+    "subtitle": "Transforming complex finance operations into streamlined, AI-powered solutions for global teams and Swiss expatriates.",
+    "cta_primary": "Explore My Services",
+    "cta_secondary": "View Portfolio",
+    "scroll_hint": "Scroll to discover more"
+  },
+  "services": {
+    "section_title": "What I Do",
+    "section_subtitle": "Comprehensive automation and tax consulting services",
+    "automation": {
+      "title": "Automation Consulting",
+      "description": "Transform your business processes with cutting-edge AI and automation solutions. From RPA to intelligent workflows, I help companies save time and reduce costs.",
+      "features": ["Process Automation", "AI Integration", "UiPath Development", "Power Automate"]
+    },
+    "tax": {
+      "title": "Swiss Tax Consulting",
+      "description": "Expert tax advice for Swiss residents and expatriates. Navigate complex Swiss tax regulations with confidence and optimize your tax strategy.",
+      "features": ["Expat Tax Planning", "Swiss Compliance", "Tax Optimization", "International Tax"]
+    },
+    "analytics": {
+      "title": "Financial Analytics",
+      "description": "Data-driven insights through powerful dashboards and reporting. Transform your financial data into actionable intelligence with Power BI and advanced analytics.",
+      "features": ["Power BI Dashboards", "Financial Reporting", "Data Visualization", "Predictive Analytics"]
+    },
+    "consulting": {
+      "title": "Corporate Consulting",
+      "description": "Strategic guidance for international business operations. Leverage my Fortune 500 experience to optimize your corporate processes and strategy.",
+      "features": ["Process Optimization", "Change Management", "Project Management", "Strategy Consulting"]
+    }
+  },
+  "statistics": {
+    "projects": {
+      "value": "150",
+      "label": "Projects Completed",
+      "suffix": "+"
+    },
+    "clients": {
+      "value": "50",
+      "label": "Happy Clients",
+      "suffix": "+"
+    },
+    "savings": {
+      "value": "2.5",
+      "label": "Million CHF Saved",
+      "suffix": "M"
+    },
+    "efficiency": {
+      "value": "85",
+      "label": "Efficiency Improvement",
+      "suffix": "%"
+    }
+  },
+  "portfolio": {
+    "section_title": "Featured Projects",
+    "section_subtitle": "Real-world impact across automation, tax, and analytics",
+    "filter_all": "All",
+    "filter_automation": "Automation",
+    "filter_tax": "Tax",
+    "filter_analytics": "Analytics",
+    "filter_ai": "AI",
+    "view_project": "View Project"
+  },
+  "testimonials": {
+    "section_title": "Client Testimonials",
+    "section_subtitle": "What clients say about working with me"
+  },
+  "clients": {
+    "section_title": "Trusted By"
+  },
+  "contact": {
+    "section_title": "Let's Work Together",
+    "section_subtitle": "Ready to transform your business? Get in touch.",
+    "form": {
+      "name": "Your Name",
+      "name_placeholder": "John Doe",
+      "email": "Email Address",
+      "email_placeholder": "john@example.com",
+      "subject": "Subject",
+      "subject_placeholder": "Project Inquiry",
+      "message": "Message",
+      "message_placeholder": "Tell me about your project...",
+      "captcha": "Security Check",
+      "submit": "Send Message",
+      "sending": "Sending...",
+      "success": "Message sent successfully! I'll get back to you soon.",
+      "error": "Failed to send message. Please try again or email me directly at me@eflury.com"
+    },
+    "info": {
+      "email": "me@eflury.com",
+      "phone": "+41 79 910 77 87",
+      "location": "Grenchen, Switzerland",
+      "availability": "Available for projects"
+    }
+  },
+  "footer": {
+    "tagline": "Automation Specialist & Swiss Tax Expert",
+    "description": "Transforming businesses through intelligent automation and strategic tax optimization.",
+    "sections": {
+      "quick_links": "Quick Links",
+      "services": "Services",
+      "legal": "Legal",
+      "connect": "Connect"
+    },
+    "links": {
+      "home": "Home",
+      "services": "Services",
+      "portfolio": "Portfolio",
+      "blog": "Blog",
+      "contact": "Contact",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Policy",
+      "data_protection": "Data Protection"
+    },
+    "services_list": {
+      "automation": "Automation Consulting",
+      "tax": "Swiss Tax Consulting",
+      "analytics": "Financial Analytics",
+      "consulting": "Corporate Consulting"
+    },
+    "copyright": "© {year} Emanuel Flury. All rights reserved.",
+    "made_with": "Made with ❤️ in Switzerland"
+  },
+  "common": {
+    "read_more": "Read More",
+    "learn_more": "Learn More",
+    "get_started": "Get Started",
+    "back_to_top": "Back to Top",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "close": "Close",
+    "menu": "Menu"
+  }
+}

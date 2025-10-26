@@ -1,0 +1,129 @@
+---
+import { type Language } from '../i18n/utils';
+import '../styles/global.css';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Language;
+  keywords?: string;
+}
+
+const { title, description, lang, keywords } = Astro.props;
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    {keywords && <meta name="keywords" content={keywords} />}
+    <link rel="canonical" href={canonicalURL} />
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+
+    <!-- Fonts - Preconnect for performance -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+
+    <!-- Icons - Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6320666588"></script>
+    <script is:inline>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-6320666588', {
+        'send_page_view': true,
+        'cookie_flags': 'SameSite=None;Secure'
+      });
+
+      // Track CTA clicks
+      window.trackEvent = function(category, action, label) {
+        gtag('event', action, {
+          'event_category': category,
+          'event_label': label
+        });
+      };
+    </script>
+
+    <!-- Schema Markup -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Person",
+      "name": "Emanuel Aaron Flury",
+      "jobTitle": "Automation Specialist",
+      "description": "Swiss automation expert specializing in AI-driven finance solutions for global teams and Swiss expatriates",
+      "url": "https://eflury.com",
+      "email": "me@eflury.com",
+      "telephone": "+41 79 910 77 87",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Grenchen",
+        "addressCountry": "Switzerland"
+      },
+      "worksFor": {
+        "@type": "Organization",
+        "name": "Johnson & Johnson"
+      },
+      "founder": {
+        "@type": "Organization",
+        "name": "Taxed GmbH"
+      },
+      "knowsAbout": ["AI Automation", "Swiss Tax Consulting", "Power BI", "UiPath", "Python", "Financial Analytics"],
+      "alumniOf": ["University of Aberdeen", "University of Wisconsin - La Crosse"],
+      "award": "Royal Yachting Association Day Skipper"
+    }
+    </script>
+
+    <!-- Dark Mode Script - Prevent Flash -->
+    <script is:inline>
+      // Initialize theme before page renders to prevent flash
+      const theme = localStorage.getItem('theme') || 'light';
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
+
+    <!-- Keyboard Navigation Detection -->
+    <script is:inline>
+      // Add class when user is tabbing for better accessibility
+      function handleFirstTab(e) {
+        if (e.key === 'Tab') {
+          document.body.classList.add('user-is-tabbing');
+          window.removeEventListener('keydown', handleFirstTab);
+          window.addEventListener('mousedown', handleMouseDownOnce);
+        }
+      }
+
+      function handleMouseDownOnce() {
+        document.body.classList.remove('user-is-tabbing');
+        window.removeEventListener('mousedown', handleMouseDownOnce);
+        window.addEventListener('keydown', handleFirstTab);
+      }
+
+      window.addEventListener('keydown', handleFirstTab);
+    </script>
+  </head>
+  <body>
+    <slot />
+  </body>
+</html>
