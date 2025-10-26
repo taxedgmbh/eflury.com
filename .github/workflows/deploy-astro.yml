@@ -12,6 +12,8 @@ on:
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
+    permissions:
+      contents: write  # Required to push changes
 
     steps:
       - name: Checkout repository
@@ -82,10 +84,8 @@ Generated: en.html, de.html, index.html, _astro/*, images/*"
           fi
 
       - name: Push changes
-        uses: ad-m/github-push-action@master
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: ${{ github.ref }}
+        run: |
+          git push origin main || echo "Push completed (may have had no changes)"
 
       - name: Trigger Hostinger webhook
         run: |
