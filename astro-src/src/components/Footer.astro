@@ -36,19 +36,7 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
 
-    <!-- Column 2: Quick Links -->
-    <div class="footer-section">
-      <h4>{t('footer.sections.quick_links')}</h4>
-      <ul class="footer-links">
-        <li><a href={currentRoutes.home}>{t('footer.links.home')}</a></li>
-        <li><a href={currentRoutes.services}>{t('footer.links.services')}</a></li>
-        <li><a href={currentRoutes.portfolio}>{t('footer.links.portfolio')}</a></li>
-        <li><a href={currentRoutes.blog}>{t('footer.links.blog')}</a></li>
-        <li><a href={currentRoutes.contact}>{t('footer.links.contact')}</a></li>
-      </ul>
-    </div>
-
-    <!-- Column 3: Services -->
+    <!-- Column 2: Services -->
     <div class="footer-section">
       <h4>{t('footer.sections.services')}</h4>
       <ul class="footer-links">
@@ -59,23 +47,33 @@ const currentYear = new Date().getFullYear();
       </ul>
     </div>
 
-    <!-- Column 4: Legal -->
+    <!-- Column 3: Contact -->
     <div class="footer-section">
-      <h4>{t('footer.sections.legal')}</h4>
+      <h4>{lang === 'en' ? 'Contact' : 'Kontakt'}</h4>
       <ul class="footer-links">
-        <li><a href={currentRoutes.privacy}>{t('footer.links.privacy')}</a></li>
-        <li><a href={currentRoutes.terms}>{t('footer.links.terms')}</a></li>
-        <li><a href={currentRoutes.cookies}>{t('footer.links.cookies')}</a></li>
-        <li><a href="https://www.edoeb.admin.ch" target="_blank" rel="noopener">{t('footer.links.data_protection')}</a></li>
+        <li><a href="mailto:me@eflury.com">me@eflury.com</a></li>
+        <li><a href="tel:+41799107787">+41 79 910 77 87</a></li>
+        <li><span>Grenchen, Switzerland</span></li>
       </ul>
     </div>
   </div>
 
   <!-- Bottom Bar -->
   <div class="footer-bottom">
-    <div class="footer-container">
-      <p>&copy; {currentYear} Emanuel Flury. {lang === 'en' ? 'All rights reserved.' : 'Alle Rechte vorbehalten.'}</p>
-      <p>{t('footer.made_with')}</p>
+    <div class="footer-bottom-container">
+      <p class="copyright">&copy; {currentYear} Emanuel Flury</p>
+
+      <!-- Small Legal Links (hidden style like big companies) -->
+      <nav class="legal-links" aria-label="Legal">
+        <a href={currentRoutes.privacy}>Privacy</a>
+        <a href={currentRoutes.terms}>Terms</a>
+        <a href={currentRoutes.cookies}>Cookies</a>
+        <a href="/disclaimer.html">Disclaimer</a>
+        <a href="/code-of-conduct.html">Code of Conduct</a>
+        <a href="https://www.edoeb.admin.ch/edoeb/en/home.html" target="_blank" rel="noopener">Data Protection</a>
+      </nav>
+
+      <p class="made-with">{t('footer.made_with')}</p>
     </div>
   </div>
 </footer>
@@ -176,20 +174,72 @@ const currentYear = new Date().getFullYear();
     margin-top: 3rem;
     padding: 1.5rem 0;
     border-top: 1px solid rgba(0, 122, 77, 0.1);
+    background: var(--bg-primary);
   }
 
-  .footer-bottom .footer-container {
+  .footer-bottom-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    grid-template-columns: 1fr;
+    flex-wrap: wrap;
     gap: 1rem;
   }
 
-  .footer-bottom p {
+  .copyright,
+  .made-with {
     color: var(--text-secondary);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     margin: 0;
+  }
+
+  /* Legal Links - Small & Hidden Style (like Apple, Google) */
+  .legal-links {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .legal-links a {
+    color: var(--text-secondary);
+    text-decoration: none;
+    font-size: 0.75rem;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+    padding: 0.25rem 0.5rem;
+    border-right: 1px solid rgba(107, 114, 128, 0.3);
+  }
+
+  .legal-links a:last-child {
+    border-right: none;
+  }
+
+  .legal-links a:hover {
+    opacity: 1;
+    text-decoration: underline;
+  }
+
+  @media (max-width: 1024px) {
+    .footer-bottom-container {
+      flex-direction: column;
+      text-align: center;
+      gap: 1.5rem;
+    }
+
+    .legal-links {
+      order: 2;
+    }
+
+    .copyright {
+      order: 1;
+    }
+
+    .made-with {
+      order: 3;
+    }
   }
 
   @media (max-width: 768px) {
@@ -198,9 +248,19 @@ const currentYear = new Date().getFullYear();
       gap: 2rem;
     }
 
-    .footer-bottom .footer-container {
+    .legal-links {
       flex-direction: column;
-      text-align: center;
+      gap: 0.75rem;
+    }
+
+    .legal-links a {
+      border-right: none;
+      border-bottom: 1px solid rgba(107, 114, 128, 0.2);
+      padding: 0.5rem 0;
+    }
+
+    .legal-links a:last-child {
+      border-bottom: none;
     }
   }
 </style>
