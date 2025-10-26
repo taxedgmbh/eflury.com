@@ -127,7 +127,7 @@ Email: me@eflury.com
 Phone: +41 79 910 77 87
 Website: https://eflury.com
 GitHub: https://github.com/taxedgmbh
-LinkedIn: https://linkedin.com/in/eflury
+LinkedIn: https://linkedin.com/in/emanuelflury
 
 ## Astro Migration Performance Metrics
 **Before (Vanilla HTML):**
