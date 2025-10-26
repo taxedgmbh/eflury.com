@@ -1,0 +1,49 @@
+<svg width="300" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="heroGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#0F766E;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#20B2AA;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4ECDC4;stop-opacity:1" />
+    </linearGradient>
+    <pattern id="grid" width="20" height="20" patternUnits="userSpaceOnUse">
+      <path d="M 20 0 L 0 0 0 20" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+    </pattern>
+    <filter id="shadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="10" stdDeviation="20" flood-color="rgba(32, 178, 170, 0.3)"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="300" height="400" fill="url(#heroGradient)" rx="20" ry="20"/>
+  
+  <!-- Grid Pattern -->
+  <rect width="300" height="400" fill="url(#grid)" rx="20" ry="20"/>
+  
+  <!-- Border -->
+  <rect x="3" y="3" width="294" height="394" fill="none" stroke="rgba(255,255,255,0.3)" stroke-width="3" rx="17" ry="17"/>
+  
+  <!-- Professional Icon -->
+  <circle cx="150" cy="140" r="50" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+  <circle cx="150" cy="140" r="35" fill="rgba(255,255,255,0.1)"/>
+  
+  <!-- User Icon -->
+  <g transform="translate(150, 140)">
+    <circle cx="0" cy="-8" r="12" fill="rgba(255,255,255,0.9)"/>
+    <ellipse cx="0" cy="8" rx="18" ry="12" fill="rgba(255,255,255,0.9)"/>
+  </g>
+  
+  <!-- Name -->
+  <text x="150" y="240" text-anchor="middle" fill="white" font-family="Inter, sans-serif" font-size="20" font-weight="700" text-shadow="0 2px 4px rgba(0,0,0,0.3)">Emanuel Aaron Flury</text>
+  
+  <!-- Title -->
+  <text x="150" y="270" text-anchor="middle" fill="rgba(255,255,255,0.8)" font-family="Inter, sans-serif" font-size="14" font-weight="400" text-shadow="0 1px 2px rgba(0,0,0,0.3)">AI-Native Automation Specialist</text>
+  
+  <!-- Professional Details -->
+  <text x="150" y="300" text-anchor="middle" fill="rgba(255,255,255,0.7)" font-family="Inter, sans-serif" font-size="12" font-weight="400">Swiss Tax Expert • Global Leader</text>
+  
+  <!-- Decorative Elements -->
+  <circle cx="50" cy="80" r="3" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="250" cy="120" r="2" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="80" cy="320" r="2" fill="rgba(255,255,255,0.2)"/>
+  <circle cx="220" cy="350" r="3" fill="rgba(255,255,255,0.3)"/>
+</svg>
