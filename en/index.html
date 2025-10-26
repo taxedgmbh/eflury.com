@@ -780,6 +780,39 @@
             0% { transform: translateX(0); }
             100% { transform: translateX(calc(-200px * 5 - 4rem * 5)); }
         }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeOut {
+            from {
+                opacity: 1;
+                transform: scale(1);
+            }
+            to {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+        }
+
+        @keyframes slideInFromBottom {
+            from {
+                transform: translateY(100px);
+                opacity: 0;
+            }
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
+        }
         
         /* Enhanced Hero Responsive */
         @media (max-width: 768px) {
@@ -4682,7 +4715,12 @@
 <body>
     <!-- Scroll Progress Indicator -->
     <div class="scroll-indicator" id="scrollIndicator"></div>
-    
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; border-radius: 50%; background: var(--gradient-primary); color: white; border: none; font-size: 1.5rem; cursor: pointer; box-shadow: var(--shadow-strong); opacity: 0; visibility: hidden; transition: all 0.3s ease; z-index: 1000;" aria-label="Back to top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
@@ -5112,8 +5150,28 @@
     <section id="portfolio" class="portfolio">
         <div class="container">
             <h2 class="section-title">Portfolio & Case Studies</h2>
+
+            <!-- Portfolio Filter Buttons -->
+            <div class="portfolio-filters" style="display: flex; justify-content: center; gap: 1rem; margin-bottom: 3rem; flex-wrap: wrap;">
+                <button class="filter-btn active" data-filter="all" style="padding: 0.75rem 1.5rem; border: 2px solid var(--primary-green); background: var(--primary-green); color: white; border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                    All Projects
+                </button>
+                <button class="filter-btn" data-filter="automation" style="padding: 0.75rem 1.5rem; border: 2px solid var(--primary-green); background: transparent; color: var(--primary-green); border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                    Automation
+                </button>
+                <button class="filter-btn" data-filter="tax" style="padding: 0.75rem 1.5rem; border: 2px solid var(--primary-green); background: transparent; color: var(--primary-green); border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                    Tax Consulting
+                </button>
+                <button class="filter-btn" data-filter="analytics" style="padding: 0.75rem 1.5rem; border: 2px solid var(--primary-green); background: transparent; color: var(--primary-green); border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                    Analytics
+                </button>
+                <button class="filter-btn" data-filter="ai" style="padding: 0.75rem 1.5rem; border: 2px solid var(--primary-green); background: transparent; color: var(--primary-green); border-radius: 50px; font-weight: 600; cursor: pointer; transition: all 0.3s ease;">
+                    AI & Innovation
+                </button>
+            </div>
+
             <div class="portfolio-grid">
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-category="automation analytics">
                     <div class="portfolio-header">
                         <h3>Corporate Finance Automation Solutions</h3>
                         <span class="portfolio-category">Corporate Automation</span>
@@ -5130,7 +5188,7 @@
                     </div>
                 </div>
                 
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-category="tax automation">
                     <div class="portfolio-header">
                         <h3>Taxed GmbH Client Success Stories</h3>
                         <span class="portfolio-category">Swiss Tax Consulting</span>
@@ -5147,7 +5205,7 @@
                     </div>
                 </div>
                 
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-category="analytics">
                     <div class="portfolio-header">
                         <h3>International Business Analytics</h3>
                         <span class="portfolio-category">Global Analytics</span>
@@ -5164,7 +5222,7 @@
                     </div>
                 </div>
                 
-                <div class="portfolio-item">
+                <div class="portfolio-item" data-category="ai automation">
                     <div class="portfolio-header">
                         <h3>Vector Database AI Integration</h3>
                         <span class="portfolio-category">AI Innovation</span>
@@ -6675,6 +6733,181 @@
         setInterval(() => {
             moveTestimonial(1);
         }, 7000);
+
+        // Portfolio Filtering System
+        document.querySelectorAll('.filter-btn').forEach(button => {
+            button.addEventListener('click', function() {
+                const filter = this.getAttribute('data-filter');
+
+                // Update active button
+                document.querySelectorAll('.filter-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    btn.style.background = 'transparent';
+                    btn.style.color = 'var(--primary-green)';
+                });
+                this.classList.add('active');
+                this.style.background = 'var(--primary-green)';
+                this.style.color = 'white';
+
+                // Filter portfolio items with animation
+                document.querySelectorAll('.portfolio-item').forEach(item => {
+                    const categories = item.getAttribute('data-category');
+
+                    if (filter === 'all' || categories.includes(filter)) {
+                        item.style.display = 'block';
+                        item.style.animation = 'fadeInUp 0.5s ease forwards';
+                    } else {
+                        item.style.animation = 'fadeOut 0.3s ease forwards';
+                        setTimeout(() => {
+                            item.style.display = 'none';
+                        }, 300);
+                    }
+                });
+
+                // Track in Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'portfolio_filter', {
+                        'event_category': 'Navigation',
+                        'event_label': filter
+                    });
+                }
+            });
+
+            // Add hover effect
+            button.addEventListener('mouseenter', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.background = 'var(--primary-green)';
+                    this.style.color = 'white';
+                    this.style.transform = 'translateY(-2px)';
+                    this.style.boxShadow = 'var(--shadow-medium)';
+                }
+            });
+
+            button.addEventListener('mouseleave', function() {
+                if (!this.classList.contains('active')) {
+                    this.style.background = 'transparent';
+                    this.style.color = 'var(--primary-green)';
+                    this.style.transform = 'translateY(0)';
+                    this.style.boxShadow = 'none';
+                }
+            });
+        });
+
+        // Back to Top Button Functionality
+        const backToTopButton = document.getElementById('backToTop');
+
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopButton.style.opacity = '1';
+                backToTopButton.style.visibility = 'visible';
+            } else {
+                backToTopButton.style.opacity = '0';
+                backToTopButton.style.visibility = 'hidden';
+            }
+        });
+
+        backToTopButton.addEventListener('click', () => {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+
+            // Track in Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'back_to_top_click', {
+                    'event_category': 'Navigation',
+                    'event_label': 'Back to Top Button'
+                });
+            }
+        });
+
+        // Add hover effect to back-to-top button
+        backToTopButton.addEventListener('mouseenter', function() {
+            this.style.transform = 'translateY(-5px) scale(1.1)';
+        });
+
+        backToTopButton.addEventListener('mouseleave', function() {
+            this.style.transform = 'translateY(0) scale(1)';
+        });
+
+        // Keyboard accessibility for back-to-top button
+        backToTopButton.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                backToTopButton.click();
+            }
+        });
+
+        // Enhanced CTA Tracking
+        document.querySelectorAll('.btn-primary, .btn-secondary, .hero-buttons a').forEach(button => {
+            button.addEventListener('click', function(e) {
+                const buttonText = this.textContent.trim();
+                const buttonHref = this.getAttribute('href');
+
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'cta_click', {
+                        'event_category': 'Conversion',
+                        'event_label': buttonText,
+                        'value': buttonHref
+                    });
+                }
+            });
+        });
+
+        // Enhanced Accessibility - Focus Visible
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Tab') {
+                document.body.classList.add('user-is-tabbing');
+            }
+        });
+
+        document.addEventListener('mousedown', () => {
+            document.body.classList.remove('user-is-tabbing');
+        });
+
+        // Image Lazy Loading (native)
+        if ('loading' in HTMLImageElement.prototype) {
+            const images = document.querySelectorAll('img[data-src]');
+            images.forEach(img => {
+                img.src = img.dataset.src;
+                img.removeAttribute('data-src');
+            });
+        } else {
+            // Fallback for browsers that don't support lazy loading
+            const lazyImages = document.querySelectorAll('img[data-src]');
+            const imageObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const img = entry.target;
+                        img.src = img.dataset.src;
+                        img.removeAttribute('data-src');
+                        imageObserver.unobserve(img);
+                    }
+                });
+            });
+
+            lazyImages.forEach(img => imageObserver.observe(img));
+        }
+
+        // Smooth Scroll for All Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    e.preventDefault();
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+
+                    // Update URL without jump
+                    history.pushState(null, null, targetId);
+                }
+            });
+        });
 
         // Initialize AOS (Animate On Scroll)
         AOS.init({
