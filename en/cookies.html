@@ -1,0 +1,516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Policy - Emanuel Flury</title>
+    <meta name="description" content="Cookie Policy for Emanuel Flury website.">
+    <meta name="robots" content="noindex, follow">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --primary-green: #007A4D;
+            --primary-yellow: #FFB81C;
+            --primary-red: #E03C31;
+            --pure-white: #FFFFFF;
+            --warm-gray: #F8FAFC;
+            --charcoal: #374151;
+            --text-secondary: #6B7280;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.8;
+            color: var(--charcoal);
+            background: var(--warm-gray);
+        }
+
+        .navbar {
+            background: white;
+            padding: 1rem 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-green);
+            text-decoration: none;
+        }
+
+        .back-link {
+            color: var(--primary-green);
+            text-decoration: none;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .back-link:hover {
+            color: var(--primary-red);
+            transform: translateX(-5px);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 3rem auto;
+            padding: 3rem;
+            background: white;
+            border-radius: 16px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            color: var(--charcoal);
+            margin-bottom: 1rem;
+            border-bottom: 3px solid var(--primary-green);
+            padding-bottom: 1rem;
+        }
+
+        .last-updated {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            color: var(--primary-green);
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        h3 {
+            font-size: 1.3rem;
+            color: var(--charcoal);
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+        }
+
+        p {
+            margin-bottom: 1.2rem;
+        }
+
+        ul, ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        li {
+            margin-bottom: 0.75rem;
+        }
+
+        .highlight-box {
+            background: #E6F7EF;
+            border-left: 4px solid var(--primary-green);
+            padding: 1.5rem;
+            margin: 2rem 0;
+            border-radius: 8px;
+        }
+
+        .contact-section {
+            background: var(--warm-gray);
+            padding: 2rem;
+            border-radius: 12px;
+            margin-top: 3rem;
+        }
+
+        .contact-section h3 {
+            margin-top: 0;
+        }
+
+        strong {
+            color: var(--primary-green);
+        }
+
+        a {
+            color: var(--primary-green);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        a:hover {
+            color: var(--primary-red);
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 2rem 0;
+            font-size: 0.95rem;
+        }
+
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        th {
+            background: var(--warm-gray);
+            font-weight: 600;
+            color: var(--primary-green);
+        }
+
+        .cookie-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-right: 0.5rem;
+        }
+
+        .badge-essential {
+            background: #E6F7EF;
+            color: var(--primary-green);
+        }
+
+        .badge-analytics {
+            background: #FFF9E6;
+            color: #D97706;
+        }
+
+        .badge-preference {
+            background: #EDE9FE;
+            color: #7C3AED;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            table {
+                font-size: 0.85rem;
+            }
+
+            th, td {
+                padding: 0.75rem 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="/en/" class="logo">Emanuel Flury</a>
+            <a href="/en/" class="back-link">
+                <i class="fas fa-arrow-left"></i>
+                Back to Home
+            </a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container">
+        <h1>Cookie Policy</h1>
+        <p class="last-updated">Last Updated: October 26, 2024</p>
+
+        <div class="highlight-box">
+            <strong>What Are Cookies?</strong> Cookies are small text files stored on your device when you visit our website. They help us provide you with a better experience and understand how you use our site.
+        </div>
+
+        <h2>1. Introduction</h2>
+        <p>This Cookie Policy explains how Emanuel Aaron Flury (Taxed GmbH) uses cookies and similar tracking technologies on emanuelflury.com. This policy should be read together with our <a href="/en/privacy.html">Privacy Policy</a>.</p>
+
+        <h2>2. Types of Cookies We Use</h2>
+
+        <h3>2.1 Essential Cookies <span class="cookie-badge badge-essential">Always Active</span></h3>
+        <p>These cookies are necessary for the website to function and cannot be switched off. They are usually only set in response to your actions such as setting privacy preferences, logging in, or filling in forms.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Cookie Name</th>
+                    <th>Purpose</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>session_id</td>
+                    <td>Maintains your session as you navigate the site</td>
+                    <td>Session</td>
+                </tr>
+                <tr>
+                    <td>csrf_token</td>
+                    <td>Security protection against cross-site request forgery</td>
+                    <td>Session</td>
+                </tr>
+                <tr>
+                    <td>cookieConsent</td>
+                    <td>Stores your cookie preferences</td>
+                    <td>12 months</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2.2 Preference Cookies <span class="cookie-badge badge-preference">Optional</span></h3>
+        <p>These cookies enable the website to remember choices you make (such as your preferred language or the region you're in) and provide enhanced, personalized features.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Cookie Name</th>
+                    <th>Purpose</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>theme</td>
+                    <td>Remembers your dark/light mode preference</td>
+                    <td>12 months</td>
+                </tr>
+                <tr>
+                    <td>language</td>
+                    <td>Stores your preferred language (EN/DE)</td>
+                    <td>12 months</td>
+                </tr>
+                <tr>
+                    <td>newsletterClosed</td>
+                    <td>Remembers if you closed the newsletter popup</td>
+                    <td>Session</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>2.3 Analytics Cookies <span class="cookie-badge badge-analytics">Optional</span></h3>
+        <p>These cookies collect information about how visitors use our website, such as which pages are visited most often. All information collected by these cookies is aggregated and anonymous.</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Service</th>
+                    <th>Cookie Names</th>
+                    <th>Purpose</th>
+                    <th>Duration</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Google Analytics</strong></td>
+                    <td>_ga, _gid, _gat</td>
+                    <td>
+                        <ul style="margin: 0;">
+                            <li>_ga: Distinguishes unique users</li>
+                            <li>_gid: Distinguishes unique users</li>
+                            <li>_gat: Throttles request rate</li>
+                        </ul>
+                    </td>
+                    <td>
+                        _ga: 2 years<br>
+                        _gid: 24 hours<br>
+                        _gat: 1 minute
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>Google Analytics Details:</strong></p>
+        <ul>
+            <li><strong>Provider:</strong> Google LLC</li>
+            <li><strong>Privacy Policy:</strong> <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></li>
+            <li><strong>Opt-out:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank">Google Analytics Opt-out Browser Add-on</a></li>
+            <li><strong>Data Location:</strong> USA (adequate protection under Swiss-US Data Privacy Framework)</li>
+        </ul>
+
+        <h2>3. Cookies We Do NOT Use</h2>
+        <p>We do <strong>not</strong> use:</p>
+        <ul>
+            <li>Advertising or marketing cookies</li>
+            <li>Third-party behavioral targeting cookies</li>
+            <li>Social media tracking pixels (beyond basic share buttons)</li>
+            <li>Affiliate tracking cookies</li>
+        </ul>
+
+        <h2>4. How to Control Cookies</h2>
+
+        <h3>4.1 Browser Settings</h3>
+        <p>Most web browsers allow you to control cookies through their settings. Here's how to manage cookies in popular browsers:</p>
+
+        <ul>
+            <li><strong>Google Chrome:</strong> Settings → Privacy and security → Cookies and other site data</li>
+            <li><strong>Mozilla Firefox:</strong> Options → Privacy & Security → Cookies and Site Data</li>
+            <li><strong>Safari:</strong> Preferences → Privacy → Cookies and website data</li>
+            <li><strong>Microsoft Edge:</strong> Settings → Cookies and site permissions → Cookies and site data</li>
+        </ul>
+
+        <p>Browser help resources:</p>
+        <ul>
+            <li><a href="https://support.google.com/chrome/answer/95647" target="_blank">Chrome Cookie Settings</a></li>
+            <li><a href="https://support.mozilla.org/en-US/kb/enhanced-tracking-protection-firefox-desktop" target="_blank">Firefox Cookie Settings</a></li>
+            <li><a href="https://support.apple.com/guide/safari/manage-cookies-sfri11471/mac" target="_blank">Safari Cookie Settings</a></li>
+            <li><a href="https://support.microsoft.com/en-us/microsoft-edge/delete-cookies-in-microsoft-edge-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank">Edge Cookie Settings</a></li>
+        </ul>
+
+        <h3>4.2 Impact of Blocking Cookies</h3>
+        <p>If you choose to block cookies:</p>
+        <ul>
+            <li>The website will still function for basic browsing</li>
+            <li>Your preferences (like dark mode) won't be saved</li>
+            <li>We won't be able to improve the website based on usage data</li>
+            <li>Some features may not work as expected</li>
+        </ul>
+
+        <h2>5. Third-Party Cookies</h2>
+        <p>Our website may contain embedded content from third parties, which may set their own cookies:</p>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Third Party</th>
+                    <th>Purpose</th>
+                    <th>Cookie Policy Link</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Google Analytics</td>
+                    <td>Website analytics</td>
+                    <td><a href="https://policies.google.com/technologies/cookies" target="_blank">Google Cookie Policy</a></td>
+                </tr>
+                <tr>
+                    <td>Google Fonts</td>
+                    <td>Website typography</td>
+                    <td><a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a></td>
+                </tr>
+                <tr>
+                    <td>Font Awesome CDN</td>
+                    <td>Website icons</td>
+                    <td><a href="https://fontawesome.com/privacy" target="_blank">Font Awesome Privacy</a></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>6. Local Storage and Similar Technologies</h2>
+        <p>In addition to cookies, we use <strong>Local Storage</strong> (HTML5) to:</p>
+        <ul>
+            <li>Store your dark mode preference (key: 'theme')</li>
+            <li>Remember if you've closed certain popups (key: 'newsletterClosed')</li>
+        </ul>
+
+        <p><strong>Key Differences from Cookies:</strong></p>
+        <ul>
+            <li>Local Storage data never expires automatically</li>
+            <li>Data is not sent to the server with every request</li>
+            <li>Larger storage capacity than cookies</li>
+            <li>Can be cleared through browser settings</li>
+        </ul>
+
+        <h2>7. Do Not Track (DNT)</h2>
+        <p>Some browsers have a "Do Not Track" (DNT) feature. When enabled:</p>
+        <ul>
+            <li>We respect DNT signals for analytics cookies</li>
+            <li>Essential cookies remain active (required for functionality)</li>
+            <li>Your preferences are still saved locally</li>
+        </ul>
+
+        <h2>8. Updates to This Cookie Policy</h2>
+        <p>We may update this Cookie Policy to reflect:</p>
+        <ul>
+            <li>Changes in our cookie usage</li>
+            <li>New technologies or features</li>
+            <li>Legal or regulatory requirements</li>
+        </ul>
+        <p>The "Last Updated" date indicates when changes were last made. Significant changes will be communicated via website notice.</p>
+
+        <h2>9. Children's Privacy</h2>
+        <p>Our website is not intended for children under 18. We do not knowingly collect data from children through cookies or any other means.</p>
+
+        <h2>10. Swiss Data Protection Compliance</h2>
+        <p>Our cookie practices comply with:</p>
+        <ul>
+            <li>Swiss Federal Data Protection Act (FADP)</li>
+            <li>Ordinance to the Federal Data Protection Act (OFADP)</li>
+            <li>Swiss telecommunications regulations</li>
+        </ul>
+
+        <h2>11. Your Rights</h2>
+        <p>Under Swiss data protection law, you have the right to:</p>
+        <ul>
+            <li><strong>Access:</strong> Know what cookies we use and why</li>
+            <li><strong>Control:</strong> Manage your cookie preferences</li>
+            <li><strong>Deletion:</strong> Clear cookies at any time</li>
+            <li><strong>Objection:</strong> Opt-out of non-essential cookies</li>
+        </ul>
+
+        <h2>12. Contact Information</h2>
+        <p>For questions about our cookie practices:</p>
+
+        <div class="contact-section">
+            <h3><i class="fas fa-cookie-bite"></i> Cookie Questions?</h3>
+            <p>
+                <strong>Emanuel Aaron Flury</strong><br>
+                Taxed GmbH<br>
+                Keltenweg 4<br>
+                2540 Grenchen<br>
+                Switzerland
+            </p>
+            <p>
+                <i class="fas fa-envelope"></i> Email: <a href="mailto:me@eflury.com">me@eflury.com</a><br>
+                <i class="fas fa-phone"></i> Phone: <a href="tel:+41799107787">+41 79 910 77 87</a>
+            </p>
+            <p><strong>Related Policies:</strong></p>
+            <ul style="margin-left: 0; list-style: none;">
+                <li><a href="/en/privacy.html"><i class="fas fa-shield-alt"></i> Privacy Policy</a></li>
+                <li><a href="/en/terms.html"><i class="fas fa-file-contract"></i> Terms of Service</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <script>
+        // Smooth scroll for internal links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
