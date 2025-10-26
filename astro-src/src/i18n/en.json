@@ -6,9 +6,9 @@
   },
   "nav": {
     "home": "Home",
+    "about": "About",
     "services": "Services",
     "portfolio": "Portfolio",
-    "blog": "Blog",
     "contact": "Contact",
     "language": "Language"
   },
@@ -67,8 +67,26 @@
     }
   },
   "portfolio": {
-    "section_title": "Featured Projects",
-    "section_subtitle": "Real-world impact across automation, tax, and analytics",
+    "title": "Featured Projects",
+    "subtitle": "Real-world impact across automation, tax, and analytics",
+    "project1": {
+      "title": "Johnson & Johnson Finance Automation",
+      "description": "Automated complex financial consolidation processes for global operations, reducing monthly close time by 70% and eliminating manual errors.",
+      "category": "Automation",
+      "technologies": "UiPath, Power BI, SQL Server, Python"
+    },
+    "project2": {
+      "title": "Swiss Expat Tax Platform",
+      "description": "Built comprehensive tax planning platform for Swiss expatriates, serving 200+ clients across 15 countries with automated compliance tracking.",
+      "category": "Tax Consulting",
+      "technologies": "Python, Django, PostgreSQL, Stripe"
+    },
+    "project3": {
+      "title": "Real-time Analytics Dashboard",
+      "description": "Developed executive dashboard providing real-time insights into operational KPIs, enabling data-driven decisions across C-suite.",
+      "category": "Analytics",
+      "technologies": "Power BI, Azure, DAX, Power Query"
+    },
     "filter_all": "All",
     "filter_automation": "Automation",
     "filter_tax": "Tax",
@@ -77,15 +95,52 @@
     "view_project": "View Project"
   },
   "testimonials": {
-    "section_title": "Client Testimonials",
-    "section_subtitle": "What clients say about working with me"
+    "title": "Client Testimonials",
+    "subtitle": "What clients say about working with me",
+    "testimonial1": {
+      "name": "Sarah Mitchell",
+      "role": "Finance Director",
+      "company": "Johnson & Johnson",
+      "text": "Emanuel's automation expertise transformed our month-end close process. What used to take 2 weeks now takes 3 days. His attention to detail and deep understanding of finance operations is exceptional."
+    },
+    "testimonial2": {
+      "name": "Andreas Weber",
+      "role": "CEO",
+      "company": "Taxed GmbH",
+      "text": "Working with Emanuel on our tax automation platform was a game-changer. He combines technical excellence with real-world business acumen. Highly recommended for any automation project."
+    },
+    "testimonial3": {
+      "name": "Jennifer Thompson",
+      "role": "VP of Operations",
+      "company": "Global Pharma Corp",
+      "text": "Emanuel delivered a Power BI solution that exceeded our expectations. The dashboards he built provide insights we never knew we needed. ROI was achieved within 3 months."
+    }
   },
   "clients": {
     "section_title": "Trusted By"
   },
+  "about": {
+    "title": "About Me",
+    "subtitle": "Swiss automation expert with a passion for transforming businesses",
+    "headline": "Bridging Technology and Business",
+    "bio1": "With over 8 years of experience in automation and tax consulting, I help organizations streamline their operations and navigate complex regulatory landscapes. My work at Johnson & Johnson and as co-founder of Taxed GmbH has given me deep expertise in enterprise-scale automation.",
+    "bio2": "I hold degrees from the University of Aberdeen and University of Wisconsin-La Crosse, and I'm passionate about using technology to solve real-world business challenges. When I'm not automating processes, you'll find me sailing—I'm a certified RYA Day Skipper.",
+    "highlight1": "8+ years in automation & consulting",
+    "highlight2": "Fortune 500 experience (J&J)",
+    "highlight3": "Co-founder of Taxed GmbH",
+    "highlight4": "UoA & UW-La Crosse alumni",
+    "skills_title": "Core Competencies",
+    "badge1": "UoA & UW-La Crosse",
+    "badge2": "J&J + Taxed GmbH"
+  },
   "contact": {
-    "section_title": "Let's Work Together",
-    "section_subtitle": "Ready to transform your business? Get in touch.",
+    "title": "Let's Work Together",
+    "subtitle": "Ready to transform your business? Get in touch.",
+    "info_title": "Get In Touch",
+    "info_description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
+    "email": "Email",
+    "phone": "Phone",
+    "location": "Location",
     "form": {
       "name": "Your Name",
       "name_placeholder": "John Doe",

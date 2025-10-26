@@ -1,0 +1,207 @@
+---
+import { type Language, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const projects = [
+  {
+    title: t('portfolio.project1.title'),
+    description: t('portfolio.project1.description'),
+    category: t('portfolio.project1.category'),
+    technologies: t('portfolio.project1.technologies').split(', '),
+    image: '/images/projects/project1.png',
+    link: '#'
+  },
+  {
+    title: t('portfolio.project2.title'),
+    description: t('portfolio.project2.description'),
+    category: t('portfolio.project2.category'),
+    technologies: t('portfolio.project2.technologies').split(', '),
+    image: '/images/projects/project2.png',
+    link: '#'
+  },
+  {
+    title: t('portfolio.project3.title'),
+    description: t('portfolio.project3.description'),
+    category: t('portfolio.project3.category'),
+    technologies: t('portfolio.project3.technologies').split(', '),
+    image: '/images/projects/project3.png',
+    link: '#'
+  }
+];
+---
+
+<section class="portfolio section-padding" id="portfolio">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{t('portfolio.title')}</h2>
+      <p class="section-subtitle">{t('portfolio.subtitle')}</p>
+    </div>
+
+    <div class="portfolio-grid">
+      {projects.map((project) => (
+        <div class="portfolio-card">
+          <div class="portfolio-image">
+            <div class="portfolio-overlay">
+              <a href={project.link} class="portfolio-link">
+                <i class="fas fa-external-link-alt"></i>
+              </a>
+            </div>
+          </div>
+          <div class="portfolio-content">
+            <span class="portfolio-category">{project.category}</span>
+            <h3 class="portfolio-title">{project.title}</h3>
+            <p class="portfolio-description">{project.description}</p>
+            <div class="portfolio-technologies">
+              {project.technologies.map((tech) => (
+                <span class="tech-tag">{tech}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .portfolio {
+    background: var(--bg-primary);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+  }
+
+  .portfolio-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid rgba(0, 122, 77, 0.1);
+    transition: var(--transition-smooth);
+  }
+
+  .portfolio-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--primary-green);
+  }
+
+  .portfolio-image {
+    height: 200px;
+    background: var(--gradient-hero);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 122, 77, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition-smooth);
+  }
+
+  .portfolio-card:hover .portfolio-overlay {
+    opacity: 1;
+  }
+
+  .portfolio-link {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-green);
+    font-size: 1.5rem;
+    text-decoration: none;
+    transition: var(--transition-bounce);
+  }
+
+  .portfolio-link:hover {
+    transform: scale(1.2);
+  }
+
+  .portfolio-content {
+    padding: 2rem;
+  }
+
+  .portfolio-category {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .portfolio-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .portfolio-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .portfolio-technologies {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .tech-tag {
+    padding: 0.4rem 0.8rem;
+    background: var(--bg-secondary);
+    border: 1px solid rgba(0, 122, 77, 0.2);
+    border-radius: 6px;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .portfolio-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

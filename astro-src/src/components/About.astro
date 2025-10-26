@@ -1,0 +1,270 @@
+---
+import { type Language, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const skills = [
+  { name: 'UiPath', level: 95 },
+  { name: 'Power BI', level: 90 },
+  { name: 'Python', level: 85 },
+  { name: 'Power Automate', level: 88 },
+  { name: 'Swiss Tax Law', level: 92 },
+  { name: 'Process Automation', level: 93 }
+];
+---
+
+<section class="about section-padding" id="about">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{t('about.title')}</h2>
+      <p class="section-subtitle">{t('about.subtitle')}</p>
+    </div>
+
+    <div class="about-content">
+      <div class="about-image">
+        <div class="image-placeholder">
+          <i class="fas fa-user"></i>
+        </div>
+        <div class="about-badges">
+          <div class="badge">
+            <i class="fas fa-graduation-cap"></i>
+            <span>{t('about.badge1')}</span>
+          </div>
+          <div class="badge">
+            <i class="fas fa-briefcase"></i>
+            <span>{t('about.badge2')}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-text">
+        <h3>{t('about.headline')}</h3>
+        <p>{t('about.bio1')}</p>
+        <p>{t('about.bio2')}</p>
+
+        <div class="about-highlights">
+          <div class="highlight">
+            <i class="fas fa-check-circle"></i>
+            <span>{t('about.highlight1')}</span>
+          </div>
+          <div class="highlight">
+            <i class="fas fa-check-circle"></i>
+            <span>{t('about.highlight2')}</span>
+          </div>
+          <div class="highlight">
+            <i class="fas fa-check-circle"></i>
+            <span>{t('about.highlight3')}</span>
+          </div>
+          <div class="highlight">
+            <i class="fas fa-check-circle"></i>
+            <span>{t('about.highlight4')}</span>
+          </div>
+        </div>
+
+        <div class="skills-section">
+          <h4>{t('about.skills_title')}</h4>
+          <div class="skills-grid">
+            {skills.map((skill) => (
+              <div class="skill-item">
+                <div class="skill-header">
+                  <span class="skill-name">{skill.name}</span>
+                  <span class="skill-percentage">{skill.level}%</span>
+                </div>
+                <div class="skill-bar">
+                  <div class="skill-progress" style={`width: ${skill.level}%`}></div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .about {
+    background: var(--bg-secondary);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .about-content {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 4rem;
+    align-items: start;
+  }
+
+  .about-image {
+    position: relative;
+  }
+
+  .image-placeholder {
+    width: 100%;
+    aspect-ratio: 1;
+    background: var(--gradient-hero);
+    border-radius: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 5rem;
+    color: rgba(255, 255, 255, 0.3);
+    box-shadow: var(--shadow-medium);
+  }
+
+  .about-badges {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .badge {
+    flex: 1;
+    background: var(--card-bg);
+    border: 1px solid rgba(0, 122, 77, 0.2);
+    border-radius: 12px;
+    padding: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    transition: var(--transition-smooth);
+  }
+
+  .badge:hover {
+    border-color: var(--primary-green);
+    box-shadow: var(--shadow-soft);
+  }
+
+  .badge i {
+    font-size: 1.5rem;
+    color: var(--primary-green);
+  }
+
+  .badge span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .about-text h3 {
+    font-size: 2rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .about-text p {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.5rem;
+  }
+
+  .about-highlights {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin: 2rem 0;
+  }
+
+  .highlight {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .highlight i {
+    color: var(--primary-green);
+    font-size: 1.2rem;
+  }
+
+  .highlight span {
+    color: var(--text-primary);
+    font-weight: 500;
+  }
+
+  .skills-section {
+    margin-top: 3rem;
+  }
+
+  .skills-section h4 {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .skills-grid {
+    display: grid;
+    gap: 1.25rem;
+  }
+
+  .skill-item {
+    width: 100%;
+  }
+
+  .skill-header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+  }
+
+  .skill-name {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .skill-percentage {
+    font-weight: 700;
+    color: var(--primary-green);
+  }
+
+  .skill-bar {
+    height: 8px;
+    background: var(--bg-primary);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .skill-progress {
+    height: 100%;
+    background: var(--gradient-primary);
+    border-radius: 10px;
+    transition: width 1.5s ease-in-out;
+  }
+
+  @media (max-width: 968px) {
+    .about-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .about-highlights {
+      grid-template-columns: 1fr;
+    }
+
+    .about-badges {
+      flex-direction: column;
+    }
+  }
+</style>

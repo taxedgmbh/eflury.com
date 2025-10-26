@@ -144,6 +144,10 @@ const stats = [
 <script>
   import { initAnimatedCounters } from '../scripts/animated-counters';
 
-  // Initialize animated counters when component mounts
-  initAnimatedCounters();
+  // Wait for DOM to be ready
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initAnimatedCounters);
+  } else {
+    initAnimatedCounters();
+  }
 </script>

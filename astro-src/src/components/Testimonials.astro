@@ -1,0 +1,171 @@
+---
+import { type Language, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const testimonials = [
+  {
+    name: t('testimonials.testimonial1.name'),
+    role: t('testimonials.testimonial1.role'),
+    company: t('testimonials.testimonial1.company'),
+    text: t('testimonials.testimonial1.text'),
+    rating: 5
+  },
+  {
+    name: t('testimonials.testimonial2.name'),
+    role: t('testimonials.testimonial2.role'),
+    company: t('testimonials.testimonial2.company'),
+    text: t('testimonials.testimonial2.text'),
+    rating: 5
+  },
+  {
+    name: t('testimonials.testimonial3.name'),
+    role: t('testimonials.testimonial3.role'),
+    company: t('testimonials.testimonial3.company'),
+    text: t('testimonials.testimonial3.text'),
+    rating: 5
+  }
+];
+---
+
+<section class="testimonials section-padding">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{t('testimonials.title')}</h2>
+      <p class="section-subtitle">{t('testimonials.subtitle')}</p>
+    </div>
+
+    <div class="testimonials-grid">
+      {testimonials.map((testimonial) => (
+        <div class="testimonial-card">
+          <div class="testimonial-rating">
+            {[...Array(testimonial.rating)].map(() => (
+              <i class="fas fa-star"></i>
+            ))}
+          </div>
+          <p class="testimonial-text">"{testimonial.text}"</p>
+          <div class="testimonial-author">
+            <div class="author-avatar">
+              {testimonial.name.charAt(0)}
+            </div>
+            <div class="author-info">
+              <h4>{testimonial.name}</h4>
+              <p>{testimonial.role}</p>
+              <p class="author-company">{testimonial.company}</p>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .testimonials {
+    background: var(--bg-primary);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .testimonial-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(0, 122, 77, 0.1);
+    transition: var(--transition-smooth);
+    position: relative;
+  }
+
+  .testimonial-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--primary-green);
+  }
+
+  .testimonial-rating {
+    color: var(--primary-yellow);
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    display: flex;
+    gap: 0.25rem;
+  }
+
+  .testimonial-text {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    font-size: 1.05rem;
+    margin-bottom: 1.5rem;
+    font-style: italic;
+  }
+
+  .testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .author-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  .author-info h4 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin-bottom: 0.25rem;
+  }
+
+  .author-info p {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .author-company {
+    font-weight: 600;
+    color: var(--primary-green);
+  }
+
+  @media (max-width: 768px) {
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
