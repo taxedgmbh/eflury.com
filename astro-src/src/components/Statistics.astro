@@ -1,0 +1,149 @@
+---
+import { type Language, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const stats = [
+  {
+    value: t('statistics.projects.value'),
+    label: t('statistics.projects.label'),
+    suffix: t('statistics.projects.suffix'),
+    icon: 'fas fa-project-diagram'
+  },
+  {
+    value: t('statistics.clients.value'),
+    label: t('statistics.clients.label'),
+    suffix: t('statistics.clients.suffix'),
+    icon: 'fas fa-users'
+  },
+  {
+    value: t('statistics.savings.value'),
+    label: t('statistics.savings.label'),
+    suffix: t('statistics.savings.suffix'),
+    icon: 'fas fa-coins'
+  },
+  {
+    value: t('statistics.efficiency.value'),
+    label: t('statistics.efficiency.label'),
+    suffix: t('statistics.efficiency.suffix'),
+    icon: 'fas fa-chart-line'
+  }
+];
+---
+
+<section class="statistics">
+  <div class="container">
+    <div class="stats-grid">
+      {stats.map((stat, index) => (
+        <div class="stat-card" style={`animation-delay: ${index * 0.1}s`}>
+          <div class="stat-icon">
+            <i class={stat.icon}></i>
+          </div>
+          <div class="stat-content">
+            <div class="stat-value" data-target={stat.value} data-suffix={stat.suffix}>
+              0{stat.suffix}
+            </div>
+            <div class="stat-label">{stat.label}</div>
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .statistics {
+    background: var(--bg-secondary);
+    padding: 3rem 0;
+    margin: 3rem 0;
+  }
+
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 2rem;
+  }
+
+  .stat-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    background: var(--card-bg);
+    border-radius: 12px;
+    border: 1px solid rgba(0, 122, 77, 0.1);
+    transition: var(--transition-smooth);
+    opacity: 0;
+    animation: fadeInUp 0.6s ease forwards;
+  }
+
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-soft);
+    border-color: var(--primary-green);
+  }
+
+  .stat-icon {
+    width: 60px;
+    height: 60px;
+    border-radius: 12px;
+    background: var(--gradient-primary);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .stat-content {
+    flex: 1;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+  }
+
+  .stat-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    font-weight: 500;
+  }
+
+  @media (max-width: 768px) {
+    .stats-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stat-card {
+      flex-direction: column;
+      text-align: center;
+    }
+
+    .stat-value {
+      font-size: 1.5rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .stats-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
+
+<script>
+  import { initAnimatedCounters } from '../scripts/animated-counters';
+
+  // Initialize animated counters when component mounts
+  initAnimatedCounters();
+</script>

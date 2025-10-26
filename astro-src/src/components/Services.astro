@@ -1,0 +1,204 @@
+---
+import { type Language, useTranslations } from '../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const services = [
+  {
+    icon: 'fas fa-robot',
+    title: t('services.automation.title'),
+    description: t('services.automation.description'),
+    features: [
+      t('services.automation.features.0'),
+      t('services.automation.features.1'),
+      t('services.automation.features.2'),
+      t('services.automation.features.3')
+    ],
+    gradient: 'var(--gradient-primary)'
+  },
+  {
+    icon: 'fas fa-coins',
+    title: t('services.tax.title'),
+    description: t('services.tax.description'),
+    features: [
+      t('services.tax.features.0'),
+      t('services.tax.features.1'),
+      t('services.tax.features.2'),
+      t('services.tax.features.3')
+    ],
+    gradient: 'var(--gradient-secondary)'
+  },
+  {
+    icon: 'fas fa-chart-line',
+    title: t('services.analytics.title'),
+    description: t('services.analytics.description'),
+    features: [
+      t('services.analytics.features.0'),
+      t('services.analytics.features.1'),
+      t('services.analytics.features.2'),
+      t('services.analytics.features.3')
+    ],
+    gradient: 'var(--gradient-hero)'
+  },
+  {
+    icon: 'fas fa-briefcase',
+    title: t('services.consulting.title'),
+    description: t('services.consulting.description'),
+    features: [
+      t('services.consulting.features.0'),
+      t('services.consulting.features.1'),
+      t('services.consulting.features.2'),
+      t('services.consulting.features.3')
+    ],
+    gradient: 'var(--gradient-aurora)'
+  }
+];
+---
+
+<section class="services section-padding" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{t('services.section_title')}</h2>
+      <p class="section-subtitle">{t('services.section_subtitle')}</p>
+    </div>
+
+    <div class="services-grid">
+      {services.map((service) => (
+        <div class="service-card">
+          <div class="service-icon" style={`background: ${service.gradient}`}>
+            <i class={service.icon}></i>
+          </div>
+          <h3 class="service-title">{service.title}</h3>
+          <p class="service-description">{service.description}</p>
+          <ul class="service-features">
+            {service.features.map((feature) => (
+              <li>
+                <i class="fas fa-check-circle"></i>
+                <span>{feature}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+      ))}
+    </div>
+  </div>
+</section>
+
+<style>
+  .services {
+    background: var(--bg-primary);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 4rem;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .section-subtitle {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+  }
+
+  .service-card {
+    background: var(--card-bg);
+    border-radius: 16px;
+    padding: 2rem;
+    border: 1px solid rgba(0, 122, 77, 0.1);
+    transition: var(--transition-smooth);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .service-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--gradient-primary);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-10px);
+    box-shadow: var(--shadow-medium);
+    border-color: var(--primary-green);
+  }
+
+  .service-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .service-icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    color: white;
+    font-size: 2rem;
+  }
+
+  .service-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .service-description {
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .service-features {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .service-features li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-secondary);
+  }
+
+  .service-features i {
+    color: var(--primary-green);
+    margin-top: 0.25rem;
+    flex-shrink: 0;
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

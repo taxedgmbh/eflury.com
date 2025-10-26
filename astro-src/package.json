@@ -13,5 +13,8 @@
     "@types/three": "^0.180.0",
     "astro": "^5.15.1",
     "three": "^0.180.0"
+  },
+  "devDependencies": {
+    "terser": "^5.44.0"
   }
 }
