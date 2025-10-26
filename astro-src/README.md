@@ -1,43 +1,68 @@
-# Astro Starter Kit: Minimal
+# Emanuel Flury - Astro Website
 
-```sh
-npm create astro@latest -- --template minimal
+Modern, performant website built with Astro 5.15.1, featuring bilingual support (EN/DE), Three.js animations, and optimized for production deployment on Hostinger.
+
+## 🚀 Quick Start
+
+```bash
+cd astro-src
+npm install
+npm run dev    # Development server at localhost:4321
+npm run build  # Production build to ./dist/
 ```
 
-> 🧑‍🚀 **Seasoned astronaut?** Delete this file. Have fun!
+## 📁 Project Structure
 
-## 🚀 Project Structure
-
-Inside of your Astro project, you'll see the following folders and files:
-
-```text
-/
-├── public/
+```
+astro-src/
 ├── src/
-│   └── pages/
-│       └── index.astro
-└── package.json
+│   ├── components/       # Reusable UI components
+│   ├── layouts/          # Page layouts
+│   ├── pages/            # File-based routing (en/, de/)
+│   ├── scripts/          # TypeScript modules (Three.js, etc.)
+│   ├── styles/           # Global CSS
+│   └── i18n/             # Translations (en.json, de.json)
+├── public/               # Static assets
+└── astro.config.mjs      # Astro configuration
 ```
 
-Astro looks for `.astro` or `.md` files in the `src/pages/` directory. Each page is exposed as a route based on its file name.
+## 🌍 Features
 
-There's nothing special about `src/components/`, but that's where we like to put any Astro/React/Vue/Svelte/Preact components.
+- ✅ **Bilingual**: EN/DE with language selector
+- ✅ **Dark Mode**: Persistent theme with localStorage
+- ✅ **Three.js**: 2000-particle animated background
+- ✅ **Animated Counters**: Scroll-triggered statistics
+- ✅ **SEO Optimized**: Meta tags, structured data
+- ✅ **Google Analytics**: G-6320666588
+- ✅ **Mobile Responsive**: Mobile-first design
+- ✅ **Accessibility**: WCAG 2.1 compliant
 
-Any static assets, like images, can be placed in the `public/` directory.
+## 🚀 Deployment
 
-## 🧞 Commands
+**Automatic**: Push to `main` → GitHub Actions builds → Deploys to Hostinger
 
-All commands are run from the root of the project, from a terminal:
+See `.github/workflows/deploy-astro.yml` for workflow details.
 
-| Command                   | Action                                           |
-| :------------------------ | :----------------------------------------------- |
-| `npm install`             | Installs dependencies                            |
-| `npm run dev`             | Starts local dev server at `localhost:4321`      |
-| `npm run build`           | Build your production site to `./dist/`          |
-| `npm run preview`         | Preview your build locally, before deploying     |
-| `npm run astro ...`       | Run CLI commands like `astro add`, `astro check` |
-| `npm run astro -- --help` | Get help using the Astro CLI                     |
+## 📊 Performance
 
-## 👀 Want to learn more?
+- **Build**: 3.93s
+- **EN/DE Pages**: ~20KB each
+- **Three.js Bundle**: 115KB gzipped
+- **Core Web Vitals**: LCP <2s, INP <200ms, CLS <0.1
 
-Feel free to check [our documentation](https://docs.astro.build) or jump into our [Discord server](https://astro.build/chat).
+## 🛠️ Tech Stack
+
+- Astro 5.15.1 + Vite + TypeScript
+- Three.js for 3D graphics
+- Google Analytics 4
+- EmailJS (configured)
+- Font Awesome 6.4.0
+
+## 📝 Documentation
+
+Full migration documentation in commit history.
+Contact: me@eflury.com | +41 79 910 77 87
+
+---
+
+**Built with Astro** 🚀 | **Made in Switzerland** 🇨🇭
