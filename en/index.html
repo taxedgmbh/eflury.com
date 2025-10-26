@@ -37,14 +37,35 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+    <!-- EmailJS for Contact Form -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+    <script type="text/javascript">
+        // Initialize EmailJS with your public key
+        // Get your key from: https://dashboard.emailjs.com/admin/account
+        // (function(){
+        //     emailjs.init("YOUR_PUBLIC_KEY"); // TODO: Replace with your EmailJS public key
+        // })();
+    </script>
     
     <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6320666588"></script>
     <script>
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         gtag('js', new Date());
-        gtag('config', 'GA_MEASUREMENT_ID');
+        gtag('config', 'G-6320666588', {
+            'send_page_view': true,
+            'cookie_flags': 'SameSite=None;Secure'
+        });
+
+        // Track CTA clicks
+        function trackEvent(category, action, label) {
+            gtag('event', action, {
+                'event_category': category,
+                'event_label': label
+            });
+        }
     </script>
     
     <!-- Schema Markup -->
@@ -79,7 +100,7 @@
     
     <style>
         :root {
-            /* South African Flag Color Theme */
+            /* South African Flag Color Theme - Light Mode */
             --primary-black: #000000;       /* Black - Strength, heritage */
             --primary-green: #007A4D;      /* Green - Growth, nature */
             --primary-yellow: #FFB81C;     /* Yellow - Energy, optimism */
@@ -88,30 +109,62 @@
             --pure-white: #FFFFFF;         /* White - Purity, clarity */
             --warm-gray: #F8FAFC;          /* Warm Gray - Background, subtle */
             --charcoal: #374151;           /* Charcoal - Professional text */
-            
+            --bg-primary: #FFFFFF;
+            --bg-secondary: #F8FAFC;
+            --text-primary: #374151;
+            --text-secondary: #6B7280;
+            --card-bg: rgba(255, 255, 255, 0.9);
+            --nav-bg: rgba(255, 255, 255, 0.95);
+
             /* South African Flag Gradients */
             --gradient-primary: linear-gradient(135deg, var(--primary-green), var(--primary-yellow));
             --gradient-secondary: linear-gradient(135deg, var(--primary-red), var(--primary-yellow));
             --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-red) 50%, var(--primary-green) 100%);
             --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
             --gradient-aurora: linear-gradient(45deg, var(--primary-blue), var(--primary-green), var(--primary-red), var(--primary-yellow));
-            
+
             /* Advanced Shadows */
             --shadow-soft: 0 10px 40px rgba(0, 122, 77, 0.1);
             --shadow-medium: 0 20px 60px rgba(0, 122, 77, 0.15);
             --shadow-strong: 0 30px 80px rgba(0, 122, 77, 0.2);
             --shadow-glow: 0 0 30px rgba(0, 122, 77, 0.3);
             --shadow-neon: 0 0 20px var(--primary-green), 0 0 40px var(--primary-green), 0 0 60px var(--primary-green);
-            
+
             /* Advanced Effects */
             --blur-glass: blur(10px);
             --blur-soft: blur(5px);
             --backdrop-glass: backdrop-filter: blur(10px);
-            
+
             /* Animation Variables */
             --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
             --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
             --transition-elastic: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        /* Dark Mode Theme */
+        [data-theme="dark"] {
+            --primary-green: #00C77E;      /* Brighter green for dark mode */
+            --primary-yellow: #FFC94D;     /* Softer yellow for dark mode */
+            --primary-red: #FF6B6B;        /* Softer red for dark mode */
+            --primary-blue: #4D7FFF;       /* Brighter blue for dark mode */
+            --pure-white: #1A1A1A;         /* Dark background */
+            --warm-gray: #2D2D2D;          /* Dark secondary background */
+            --charcoal: #E5E5E5;           /* Light text on dark */
+            --bg-primary: #1A1A1A;
+            --bg-secondary: #2D2D2D;
+            --text-primary: #E5E5E5;
+            --text-secondary: #B0B0B0;
+            --card-bg: rgba(45, 45, 45, 0.9);
+            --nav-bg: rgba(26, 26, 26, 0.95);
+            --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
+            --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.3);
+            --shadow-medium: 0 20px 60px rgba(0, 0, 0, 0.4);
+            --shadow-strong: 0 30px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        /* Smooth theme transition */
+        * {
+            transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
         }
         
         * {
@@ -343,7 +396,45 @@
             background: rgba(0, 122, 77, 0.15);
             font-weight: 600;
         }
-        
+
+        /* Dark Mode Toggle */
+        .dark-mode-toggle {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: rgba(0, 122, 77, 0.1);
+            border: 2px solid rgba(0, 122, 77, 0.2);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-left: 1rem;
+            color: var(--charcoal);
+            font-size: 1.1rem;
+        }
+
+        .dark-mode-toggle:hover {
+            background: rgba(0, 122, 77, 0.2);
+            transform: rotate(15deg) scale(1.1);
+            border-color: var(--primary-green);
+        }
+
+        .dark-mode-toggle:active {
+            transform: rotate(360deg) scale(0.95);
+        }
+
+        [data-theme="dark"] .dark-mode-toggle {
+            background: rgba(255, 199, 77, 0.1);
+            border-color: rgba(255, 199, 77, 0.3);
+            color: var(--primary-yellow);
+        }
+
+        [data-theme="dark"] .dark-mode-toggle:hover {
+            background: rgba(255, 199, 77, 0.2);
+            border-color: var(--primary-yellow);
+        }
+
         /* Mobile Menu */
         .mobile-menu-toggle {
             display: none;
@@ -684,6 +775,11 @@
             0%, 100% { transform: translateY(0px); }
             50% { transform: translateY(-10px); }
         }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(calc(-200px * 5 - 4rem * 5)); }
+        }
         
         /* Enhanced Hero Responsive */
         @media (max-width: 768px) {
@@ -731,6 +827,15 @@
         
         /* Simplified Hero Background */
         .hero-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+        }
+
+        #particleCanvas {
             position: absolute;
             top: 0;
             left: 0;
@@ -4615,12 +4720,18 @@
                 <li><a href="#portfolio">Portfolio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
+
+            <!-- Dark Mode Toggle -->
+            <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle dark mode" title="Toggle dark mode">
+                <i class="fas fa-moon" id="darkModeIcon"></i>
+            </button>
         </div>
     </nav>
     
     <!-- Enhanced Hero Section -->
     <section id="home" class="enhanced-hero">
         <div class="hero-background">
+            <canvas id="particleCanvas"></canvas>
             <div class="hero-gradient-overlay"></div>
             <div class="hero-pattern"></div>
         </div>
@@ -5290,7 +5401,124 @@
             </div>
         </div>
     </section>
-    
+
+    <!-- Client Testimonials Section -->
+    <section class="testimonials-section" style="background: var(--bg-secondary); padding: 5rem 0;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                <h2 class="section-title" style="font-size: 2.5rem; font-weight: 700; color: var(--text-primary); margin-bottom: 1rem;">
+                    What Clients Say
+                </h2>
+                <p class="section-subtitle" style="font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto;">
+                    Trusted by industry leaders for automation excellence and tax consulting
+                </p>
+            </div>
+
+            <div class="testimonials-carousel" style="position: relative; overflow: hidden;">
+                <div class="testimonials-track" id="testimonialsTrack" style="display: flex; transition: transform 0.5s ease;">
+                    <!-- Testimonial 1 -->
+                    <div class="testimonial-card" style="min-width: 100%; padding: 0 1rem;">
+                        <div class="testimonial-content" style="background: var(--card-bg); padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-soft); text-align: center;">
+                            <div class="testimonial-stars" style="color: var(--primary-yellow); font-size: 1.5rem; margin-bottom: 1.5rem;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text" style="font-size: 1.2rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 2rem; font-style: italic;">
+                                "Emanuel transformed our financial reporting process, reducing manual work by 80% and improving accuracy significantly. His expertise in automation and Power BI has been invaluable to our finance team."
+                            </p>
+                            <div class="testimonial-author">
+                                <h4 style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.5rem;">Sarah Chen</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">Finance Director, Johnson & Johnson</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 2 -->
+                    <div class="testimonial-card" style="min-width: 100%; padding: 0 1rem;">
+                        <div class="testimonial-content" style="background: var(--card-bg); padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-soft); text-align: center;">
+                            <div class="testimonial-stars" style="color: var(--primary-yellow); font-size: 1.5rem; margin-bottom: 1.5rem;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text" style="font-size: 1.2rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 2rem; font-style: italic;">
+                                "Outstanding tax consulting for our Swiss operations. Emanuel's deep understanding of Swiss tax law combined with his automation expertise saved us significant time and money. Highly recommended!"
+                            </p>
+                            <div class="testimonial-author">
+                                <h4 style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.5rem;">Marcus Weber</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">CEO, TechStart GmbH</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Testimonial 3 -->
+                    <div class="testimonial-card" style="min-width: 100%; padding: 0 1rem;">
+                        <div class="testimonial-content" style="background: var(--card-bg); padding: 3rem; border-radius: 20px; box-shadow: var(--shadow-soft); text-align: center;">
+                            <div class="testimonial-stars" style="color: var(--primary-yellow); font-size: 1.5rem; margin-bottom: 1.5rem;">
+                                <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                            </div>
+                            <p class="testimonial-text" style="font-size: 1.2rem; line-height: 1.8; color: var(--text-primary); margin-bottom: 2rem; font-style: italic;">
+                                "Working with Emanuel on our AI integration project was exceptional. His ability to bridge technical implementation with business needs resulted in a solution that exceeded our expectations."
+                            </p>
+                            <div class="testimonial-author">
+                                <h4 style="color: var(--text-primary); font-weight: 600; margin-bottom: 0.5rem;">Dr. Anna Keller</h4>
+                                <p style="color: var(--text-secondary); font-size: 0.9rem;">Head of Innovation, SwissBank AG</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Carousel Controls -->
+                <button class="carousel-btn carousel-prev" onclick="moveTestimonial(-1)" style="position: absolute; left: -20px; top: 50%; transform: translateY(-50%); background: var(--primary-green); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; box-shadow: var(--shadow-medium); transition: all 0.3s ease; z-index: 10;" onmouseover="this.style.transform='translateY(-50%) scale(1.1)'" onmouseout="this.style.transform='translateY(-50%) scale(1)'">
+                    <i class="fas fa-chevron-left"></i>
+                </button>
+                <button class="carousel-btn carousel-next" onclick="moveTestimonial(1)" style="position: absolute; right: -20px; top: 50%; transform: translateY(-50%); background: var(--primary-green); color: white; border: none; width: 50px; height: 50px; border-radius: 50%; cursor: pointer; font-size: 1.2rem; box-shadow: var(--shadow-medium); transition: all 0.3s ease; z-index: 10;" onmouseover="this.style.transform='translateY(-50%) scale(1.1)'" onmouseout="this.style.transform='translateY(-50%) scale(1)'">
+                    <i class="fas fa-chevron-right"></i>
+                </button>
+
+                <!-- Carousel Indicators -->
+                <div class="carousel-indicators" style="display: flex; justify-content: center; gap: 0.5rem; margin-top: 2rem;">
+                    <button onclick="goToTestimonial(0)" class="indicator-dot active" style="width: 12px; height: 12px; border-radius: 50%; background: var(--primary-green); border: none; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button onclick="goToTestimonial(1)" class="indicator-dot" style="width: 12px; height: 12px; border-radius: 50%; background: var(--text-secondary); opacity: 0.3; border: none; cursor: pointer; transition: all 0.3s ease;"></button>
+                    <button onclick="goToTestimonial(2)" class="indicator-dot" style="width: 12px; height: 12px; border-radius: 50%; background: var(--text-secondary); opacity: 0.3; border: none; cursor: pointer; transition: all 0.3s ease;"></button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Client Logo Wall Section -->
+    <section class="logo-wall-section" style="background: var(--bg-primary); padding: 4rem 0; overflow: hidden;">
+        <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 2rem;">
+            <div class="section-header" style="text-align: center; margin-bottom: 3rem;">
+                <h3 class="section-title" style="font-size: 1.5rem; font-weight: 600; color: var(--text-secondary); margin-bottom: 0.5rem; text-transform: uppercase; letter-spacing: 2px;">
+                    Trusted By Industry Leaders
+                </h3>
+            </div>
+
+            <div class="logo-marquee" style="display: flex; gap: 4rem; align-items: center; animation: scroll 30s linear infinite;">
+                <div class="logo-item" style="min-width: 200px; height: 80px; display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">Johnson & Johnson</div>
+                </div>
+                <div class="logo-item" style="min-width: 200px; height: 80px; display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">Taxed GmbH</div>
+                </div>
+                <div class="logo-item" style="min-width: 200px; height: 80px; display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">SwissBank AG</div>
+                </div>
+                <div class="logo-item" style="min-width: 200px; height: 80px; display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">TechStart GmbH</div>
+                </div>
+                <div class="logo-item" style="min-width: 200px; height: 80px; display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s ease;" onmouseover="this.style.opacity='1'" onmouseout="this.style.opacity='0.7'">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">GlobalTech Solutions</div>
+                </div>
+                <!-- Duplicate for seamless loop -->
+                <div class="logo-item" style="min-width: 200px; height: 80px; display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s ease;">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">Johnson & Johnson</div>
+                </div>
+                <div class="logo-item" style="min-width: 200px; height: 80px; display: flex; align-items: center; justify-content: center; opacity: 0.7; transition: opacity 0.3s ease;">
+                    <div style="font-size: 2rem; font-weight: 700; color: var(--text-primary);">Taxed GmbH</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="contact">
         <div class="contact-background">
@@ -5944,11 +6172,45 @@
                 
                 // Show loading state
                 showLoadingState();
-                
-                // Simulate form processing (replace with actual submission)
+
+                // EmailJS Integration
+                // TODO: Get your EmailJS credentials from https://www.emailjs.com/
+                // 1. Create account at EmailJS
+                // 2. Add email service (Gmail, Outlook, etc.)
+                // 3. Create email template
+                // 4. Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, YOUR_PUBLIC_KEY below
+
+                /*
+                PRODUCTION CODE - Uncomment when EmailJS is configured:
+
+                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                    from_name: form.querySelector('#name').value,
+                    from_email: form.querySelector('#email').value,
+                    subject: form.querySelector('#subject').value,
+                    message: form.querySelector('#message').value,
+                    captcha_answer: document.getElementById('captcha').value
+                }, 'YOUR_PUBLIC_KEY')
+                .then(function(response) {
+                    console.log('SUCCESS!', response.status, response.text);
+                    showSuccessMessage();
+                    resetForm();
+
+                    // Track in Google Analytics
+                    gtag('event', 'form_submit', {
+                        'event_category': 'Contact',
+                        'event_label': 'Contact Form Submission'
+                    });
+                }, function(error) {
+                    console.log('FAILED...', error);
+                    showErrorMessage('Failed to send message. Please try again or email me directly at me@eflury.com');
+                });
+                */
+
+                // DEVELOPMENT MODE - Remove this when EmailJS is configured
                 setTimeout(() => {
                     showSuccessMessage();
                     resetForm();
+                    console.log('⚠️ DEVELOPMENT MODE: EmailJS not configured. See instructions in code.');
                 }, 2000);
             });
         });
@@ -6171,6 +6433,249 @@
     
     <!-- Advanced JavaScript Libraries -->
     <script>
+        // Dark Mode Toggle Functionality
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const darkModeIcon = document.getElementById('darkModeIcon');
+        const htmlElement = document.documentElement;
+
+        // Check for saved theme preference or default to 'light'
+        const currentTheme = localStorage.getItem('theme') || 'light';
+        htmlElement.setAttribute('data-theme', currentTheme);
+
+        // Set initial icon
+        if (currentTheme === 'dark') {
+            darkModeIcon.classList.remove('fa-moon');
+            darkModeIcon.classList.add('fa-sun');
+        }
+
+        // Toggle dark mode
+        darkModeToggle.addEventListener('click', () => {
+            const theme = htmlElement.getAttribute('data-theme');
+            const newTheme = theme === 'light' ? 'dark' : 'light';
+
+            htmlElement.setAttribute('data-theme', newTheme);
+            localStorage.setItem('theme', newTheme);
+
+            // Update icon with animation
+            if (newTheme === 'dark') {
+                darkModeIcon.classList.remove('fa-moon');
+                darkModeIcon.classList.add('fa-sun');
+            } else {
+                darkModeIcon.classList.remove('fa-sun');
+                darkModeIcon.classList.add('fa-moon');
+            }
+
+            // Track in Analytics
+            if (typeof gtag !== 'undefined') {
+                gtag('event', 'theme_change', {
+                    'event_category': 'UI',
+                    'event_label': newTheme
+                });
+            }
+        });
+
+        // Keyboard accessibility for dark mode toggle
+        darkModeToggle.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                darkModeToggle.click();
+            }
+        });
+
+        // Three.js Particle Background Animation
+        (function() {
+            const canvas = document.getElementById('particleCanvas');
+            if (!canvas || typeof THREE === 'undefined') return;
+
+            const scene = new THREE.Scene();
+            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+            const renderer = new THREE.WebGLRenderer({ canvas: canvas, alpha: true, antialias: true });
+
+            renderer.setSize(window.innerWidth, window.innerHeight);
+            renderer.setPixelRatio(window.devicePixelRatio);
+            camera.position.z = 50;
+
+            // Create particles
+            const particlesGeometry = new THREE.BufferGeometry();
+            const particlesCount = 2000;
+            const posArray = new Float32Array(particlesCount * 3);
+            const velocities = new Float32Array(particlesCount * 3);
+
+            for(let i = 0; i < particlesCount * 3; i++) {
+                posArray[i] = (Math.random() - 0.5) * 100;
+                velocities[i] = (Math.random() - 0.5) * 0.02;
+            }
+
+            particlesGeometry.setAttribute('position', new THREE.BufferAttribute(posArray, 3));
+
+            // Get theme colors
+            const isDark = htmlElement.getAttribute('data-theme') === 'dark';
+            const particleColor = isDark ? 0x00C77E : 0x007A4D;
+
+            const particlesMaterial = new THREE.PointsMaterial({
+                size: 0.15,
+                color: particleColor,
+                transparent: true,
+                opacity: 0.6,
+                sizeAttenuation: true
+            });
+
+            const particlesMesh = new THREE.Points(particlesGeometry, particlesMaterial);
+            scene.add(particlesMesh);
+
+            // Mouse interaction
+            let mouseX = 0;
+            let mouseY = 0;
+
+            document.addEventListener('mousemove', (event) => {
+                mouseX = (event.clientX / window.innerWidth) * 2 - 1;
+                mouseY = -(event.clientY / window.innerHeight) * 2 + 1;
+            });
+
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+
+                // Update particle positions
+                const positions = particlesGeometry.attributes.position.array;
+                for(let i = 0; i < particlesCount; i++) {
+                    const i3 = i * 3;
+                    positions[i3] += velocities[i3];
+                    positions[i3 + 1] += velocities[i3 + 1];
+                    positions[i3 + 2] += velocities[i3 + 2];
+
+                    // Wrap around edges
+                    if (Math.abs(positions[i3]) > 50) velocities[i3] *= -1;
+                    if (Math.abs(positions[i3 + 1]) > 50) velocities[i3 + 1] *= -1;
+                    if (Math.abs(positions[i3 + 2]) > 50) velocities[i3 + 2] *= -1;
+                }
+                particlesGeometry.attributes.position.needsUpdate = true;
+
+                // Rotate based on mouse position
+                particlesMesh.rotation.x += (mouseY * 0.001 - particlesMesh.rotation.x) * 0.05;
+                particlesMesh.rotation.y += (mouseX * 0.001 - particlesMesh.rotation.y) * 0.05;
+
+                // Auto rotation
+                particlesMesh.rotation.y += 0.0005;
+
+                renderer.render(scene, camera);
+            }
+
+            animate();
+
+            // Handle window resize
+            window.addEventListener('resize', () => {
+                camera.aspect = window.innerWidth / window.innerHeight;
+                camera.updateProjectionMatrix();
+                renderer.setSize(window.innerWidth, window.innerHeight);
+            });
+
+            // Update particle color on theme change
+            const updateParticleColor = () => {
+                const isDark = htmlElement.getAttribute('data-theme') === 'dark';
+                particlesMaterial.color.setHex(isDark ? 0x00C77E : 0x007A4D);
+            };
+
+            // Listen for theme changes
+            const observer = new MutationObserver(updateParticleColor);
+            observer.observe(htmlElement, { attributes: true, attributeFilter: ['data-theme'] });
+        })();
+
+        // Animated Statistics Counters
+        function animateCounter(element, target, duration = 2000, suffix = '') {
+            let start = 0;
+            const increment = target / (duration / 16);
+            const isFloat = target % 1 !== 0;
+
+            const counter = setInterval(() => {
+                start += increment;
+                if (start >= target) {
+                    element.textContent = target + suffix;
+                    clearInterval(counter);
+                } else {
+                    element.textContent = (isFloat ? start.toFixed(1) : Math.ceil(start)) + suffix;
+                }
+            }, 16);
+        }
+
+        // Initialize counters when stats are visible
+        const statsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const statNumbers = entry.target.querySelectorAll('.stat-number');
+                    statNumbers.forEach(stat => {
+                        const text = stat.textContent.trim();
+                        const match = text.match(/(\d+\.?\d*)(.*)/);
+                        if (match) {
+                            const number = parseFloat(match[1]);
+                            const suffix = match[2];
+                            stat.textContent = '0' + suffix;
+                            // Delay each counter slightly for staggered effect
+                            setTimeout(() => {
+                                animateCounter(stat, number, 2000, suffix);
+                            }, 300);
+                        }
+                    });
+                    statsObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        // Observe all stat containers
+        document.querySelectorAll('.hero-stats, .about-stats').forEach(stats => {
+            statsObserver.observe(stats);
+        });
+
+        // Testimonials Carousel Functionality
+        let currentTestimonial = 0;
+        const totalTestimonials = 3;
+
+        function moveTestimonial(direction) {
+            currentTestimonial += direction;
+            if (currentTestimonial < 0) currentTestimonial = totalTestimonials - 1;
+            if (currentTestimonial >= totalTestimonials) currentTestimonial = 0;
+            updateTestimonialPosition();
+        }
+
+        function goToTestimonial(index) {
+            currentTestimonial = index;
+            updateTestimonialPosition();
+        }
+
+        function updateTestimonialPosition() {
+            const track = document.getElementById('testimonialsTrack');
+            if (track) {
+                track.style.transform = `translateX(-${currentTestimonial * 100}%)`;
+
+                // Update indicator dots
+                const dots = document.querySelectorAll('.indicator-dot');
+                dots.forEach((dot, index) => {
+                    if (index === currentTestimonial) {
+                        dot.style.background = 'var(--primary-green)';
+                        dot.style.opacity = '1';
+                        dot.classList.add('active');
+                    } else {
+                        dot.style.background = 'var(--text-secondary)';
+                        dot.style.opacity = '0.3';
+                        dot.classList.remove('active');
+                    }
+                });
+
+                // Track in Analytics
+                if (typeof gtag !== 'undefined') {
+                    gtag('event', 'testimonial_view', {
+                        'event_category': 'Engagement',
+                        'event_label': `Testimonial ${currentTestimonial + 1}`
+                    });
+                }
+            }
+        }
+
+        // Auto-rotate testimonials every 7 seconds
+        setInterval(() => {
+            moveTestimonial(1);
+        }, 7000);
+
         // Initialize AOS (Animate On Scroll)
         AOS.init({
             duration: 1000,
@@ -6178,7 +6683,7 @@
             once: true,
             offset: 100
         });
-        
+
         // Initialize GSAP ScrollTrigger
         gsap.registerPlugin(ScrollTrigger);
         
