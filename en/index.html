@@ -42,10 +42,9 @@
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
     <script type="text/javascript">
         // Initialize EmailJS with your public key
-        // Get your key from: https://dashboard.emailjs.com/admin/account
-        // (function(){
-        //     emailjs.init("YOUR_PUBLIC_KEY"); // TODO: Replace with your EmailJS public key
-        // })();
+        (function(){
+            emailjs.init("t1Qe1Zg5U3m8sqLGE");
+        })();
     </script>
     
     <!-- Google Analytics -->
@@ -6241,23 +6240,14 @@
                 // Show loading state
                 showLoadingState();
 
-                // EmailJS Integration
-                // TODO: Get your EmailJS credentials from https://www.emailjs.com/
-                // 1. Create account at EmailJS
-                // 2. Add email service (Gmail, Outlook, etc.)
-                // 3. Create email template
-                // 4. Replace YOUR_SERVICE_ID, YOUR_TEMPLATE_ID, YOUR_PUBLIC_KEY below
-
-                /*
-                PRODUCTION CODE - Uncomment when EmailJS is configured:
-
-                emailjs.send('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', {
+                // EmailJS Integration - PRODUCTION MODE
+                emailjs.send('service_7o5qkdh', 'template_yw4ehjl', {
                     from_name: form.querySelector('#name').value,
                     from_email: form.querySelector('#email').value,
                     subject: form.querySelector('#subject').value,
                     message: form.querySelector('#message').value,
                     captcha_answer: document.getElementById('captcha').value
-                }, 'YOUR_PUBLIC_KEY')
+                })
                 .then(function(response) {
                     console.log('SUCCESS!', response.status, response.text);
                     showSuccessMessage();
@@ -6272,14 +6262,6 @@
                     console.log('FAILED...', error);
                     showErrorMessage('Failed to send message. Please try again or email me directly at me@eflury.com');
                 });
-                */
-
-                // DEVELOPMENT MODE - Remove this when EmailJS is configured
-                setTimeout(() => {
-                    showSuccessMessage();
-                    resetForm();
-                    console.log('⚠️ DEVELOPMENT MODE: EmailJS not configured. See instructions in code.');
-                }, 2000);
             });
         });
         
