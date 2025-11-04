@@ -192,6 +192,44 @@
     "copyright": "© {year} Emanuel Flury. All rights reserved.",
     "made_with": "Made with ❤️ in Switzerland"
   },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Find answers to common questions about my services",
+    "questions": [
+      {
+        "question": "Do you work with international clients?",
+        "answer": "Yes! I work with clients globally, particularly those with operations in Switzerland or requiring Swiss tax expertise. My automation consulting services are available worldwide, and I have experience with multinational corporations and remote collaboration."
+      },
+      {
+        "question": "What's your typical project timeline?",
+        "answer": "Project timelines vary based on scope and complexity. A typical automation project ranges from 2-12 weeks, while tax consulting engagements can be ongoing. I provide detailed timelines during our initial consultation after understanding your specific requirements."
+      },
+      {
+        "question": "How do you charge for your services?",
+        "answer": "I offer flexible pricing models including hourly rates, fixed-price projects, and retainer agreements. Pricing depends on project complexity, timeline, and deliverables. Contact me for a custom quote tailored to your needs."
+      },
+      {
+        "question": "What automation platforms do you specialize in?",
+        "answer": "I specialize in UiPath, Power Automate, Python automation, and custom solutions. I have extensive experience with RPA (Robotic Process Automation), AI integration, workflow automation, and data analytics using Power BI."
+      },
+      {
+        "question": "Can you help with Swiss tax compliance for expatriates?",
+        "answer": "Absolutely! I specialize in Swiss tax consulting for expatriates, helping navigate complex Swiss tax regulations, optimize tax strategies, and ensure compliance across multiple jurisdictions. I'm co-founder of Taxed GmbH, which focuses specifically on this area."
+      },
+      {
+        "question": "Do you offer training or knowledge transfer?",
+        "answer": "Yes! I believe in empowering teams. Most projects include knowledge transfer sessions, documentation, and training to ensure your team can maintain and expand upon the solutions I deliver."
+      },
+      {
+        "question": "What industries do you serve?",
+        "answer": "I have experience across multiple industries including pharmaceuticals (Johnson & Johnson), finance, tax consulting, and enterprise operations. My expertise in automation and process optimization applies across sectors."
+      },
+      {
+        "question": "How do I get started?",
+        "answer": "Simply reach out via the contact form, email (me@eflury.com), or phone (+41 79 910 77 87). We'll schedule an initial consultation to discuss your needs, and I'll provide a proposal outlining scope, timeline, and pricing."
+      }
+    ]
+  },
   "common": {
     "read_more": "Read More",
     "learn_more": "Learn More",
