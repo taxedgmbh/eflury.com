@@ -27,9 +27,12 @@ const skills = [
 
     <div class="about-content">
       <div class="about-image">
-        <div class="image-placeholder">
-          <i class="fas fa-user"></i>
-        </div>
+        <img src="/images/portraits/emanuel-aaron-flury-portrait.png"
+             alt="Emanuel Flury - Automation Specialist & Swiss Tax Expert"
+             class="profile-photo"
+             width="400"
+             height="400"
+             loading="lazy" />
         <div class="about-badges">
           <div class="badge">
             <i class="fas fa-graduation-cap"></i>
@@ -122,17 +125,21 @@ const skills = [
     position: relative;
   }
 
-  .image-placeholder {
+  .profile-photo {
     width: 100%;
+    height: auto;
     aspect-ratio: 1;
-    background: var(--gradient-hero);
+    object-fit: cover;
     border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 5rem;
-    color: rgba(255, 255, 255, 0.3);
     box-shadow: var(--shadow-medium);
+    border: 3px solid rgba(0, 122, 77, 0.2);
+    transition: var(--transition-smooth);
+  }
+
+  .profile-photo:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-large);
+    border-color: var(--primary-green);
   }
 
   .about-badges {

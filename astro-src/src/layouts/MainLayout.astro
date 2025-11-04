@@ -66,11 +66,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       };
     </script>
 
-    <!-- Schema Markup -->
+    <!-- Schema Markup - Person/Professional Service -->
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
-      "@type": "Person",
+      "@type": ["Person", "ProfessionalService"],
       "name": "Emanuel Aaron Flury",
       "jobTitle": "Automation Specialist",
       "description": "Swiss automation expert specializing in AI-driven finance solutions for global teams and Swiss expatriates",
@@ -92,7 +92,163 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       },
       "knowsAbout": ["AI Automation", "Swiss Tax Consulting", "Power BI", "UiPath", "Python", "Financial Analytics"],
       "alumniOf": ["University of Aberdeen", "University of Wisconsin - La Crosse"],
-      "award": "Royal Yachting Association Day Skipper"
+      "award": "Royal Yachting Association Day Skipper",
+      "sameAs": [
+        "https://linkedin.com/in/emanuelflury",
+        "https://github.com/taxedgmbh"
+      ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Professional Services",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Automation Consulting",
+              "description": "Transform your business processes with cutting-edge AI and automation solutions. From RPA to intelligent workflows.",
+              "provider": {
+                "@type": "Person",
+                "name": "Emanuel Aaron Flury"
+              },
+              "serviceType": "Business Process Automation"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Swiss Tax Consulting",
+              "description": "Expert tax advice for Swiss residents and expatriates. Navigate complex Swiss tax regulations with confidence.",
+              "provider": {
+                "@type": "Person",
+                "name": "Emanuel Aaron Flury"
+              },
+              "serviceType": "Tax Consulting",
+              "areaServed": "Switzerland"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Financial Analytics",
+              "description": "Data-driven insights through powerful dashboards and reporting with Power BI and advanced analytics.",
+              "provider": {
+                "@type": "Person",
+                "name": "Emanuel Aaron Flury"
+              },
+              "serviceType": "Business Intelligence"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Corporate Consulting",
+              "description": "Strategic guidance for international business operations leveraging Fortune 500 experience.",
+              "provider": {
+                "@type": "Person",
+                "name": "Emanuel Aaron Flury"
+              },
+              "serviceType": "Management Consulting"
+            }
+          }
+        ]
+      },
+      "review": [
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Sarah Mitchell"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Emanuel's automation expertise transformed our month-end close process. What used to take 2 weeks now takes 3 days. His attention to detail and deep understanding of finance operations is exceptional.",
+          "datePublished": "2024-06-15"
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Andreas Weber"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Working with Emanuel on our tax automation platform was a game-changer. He combines technical excellence with real-world business acumen. Highly recommended for any automation project.",
+          "datePublished": "2024-08-20"
+        },
+        {
+          "@type": "Review",
+          "author": {
+            "@type": "Person",
+            "name": "Jennifer Thompson"
+          },
+          "reviewRating": {
+            "@type": "Rating",
+            "ratingValue": "5",
+            "bestRating": "5"
+          },
+          "reviewBody": "Emanuel delivered a Power BI solution that exceeded our expectations. The dashboards he built provide insights we never knew we needed. ROI was achieved within 3 months.",
+          "datePublished": "2024-09-10"
+        }
+      ],
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "5",
+        "reviewCount": "3",
+        "bestRating": "5",
+        "worstRating": "5"
+      }
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Do you work with international clients?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes! I work with clients globally, particularly those with operations in Switzerland or requiring Swiss tax expertise. My automation consulting services are available worldwide, and I have experience with multinational corporations and remote collaboration."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What's your typical project timeline?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Project timelines vary based on scope and complexity. A typical automation project ranges from 2-12 weeks, while tax consulting engagements can be ongoing. I provide detailed timelines during our initial consultation after understanding your specific requirements."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "How do you charge for your services?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I offer flexible pricing models including hourly rates, fixed-price projects, and retainer agreements. Pricing depends on project complexity, timeline, and deliverables. Contact me for a custom quote tailored to your needs."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What automation platforms do you specialize in?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "I specialize in UiPath, Power Automate, Python automation, and custom solutions. I have extensive experience with RPA (Robotic Process Automation), AI integration, workflow automation, and data analytics using Power BI."
+          }
+        }
+      ]
     }
     </script>
 
