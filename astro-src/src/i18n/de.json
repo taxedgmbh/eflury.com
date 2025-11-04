@@ -6,6 +6,7 @@
   },
   "nav": {
     "home": "Startseite",
+    "about": "Über mich",
     "services": "Dienstleistungen",
     "portfolio": "Portfolio",
     "blog": "Blog",
@@ -67,8 +68,26 @@
     }
   },
   "portfolio": {
-    "section_title": "Ausgewählte Projekte",
-    "section_subtitle": "Reale Auswirkungen in Automatisierung, Steuern und Analytik",
+    "title": "Ausgewählte Projekte",
+    "subtitle": "Reale Auswirkungen in Automatisierung, Steuern und Analytik",
+    "project1": {
+      "title": "Johnson & Johnson Finanzautomatisierung",
+      "description": "Automatisierung komplexer Finanzkonsolidierungsprozesse für globale Operationen, Reduzierung der monatlichen Abschlusszeit um 70% und Eliminierung manueller Fehler.",
+      "category": "Automatisierung",
+      "technologies": "UiPath, Power BI, SQL Server, Python"
+    },
+    "project2": {
+      "title": "Schweizer Expat-Steuerplattform",
+      "description": "Aufbau einer umfassenden Steuerplanungsplattform für Schweizer Expatriates, Betreuung von 200+ Kunden in 15 Ländern mit automatisierter Compliance-Verfolgung.",
+      "category": "Steuerberatung",
+      "technologies": "Python, Django, PostgreSQL, Stripe"
+    },
+    "project3": {
+      "title": "Echtzeit-Analytics-Dashboard",
+      "description": "Entwicklung eines Executive-Dashboards mit Echtzeit-Einblicken in operative KPIs, Ermöglichung datengesteuerter Entscheidungen auf C-Level.",
+      "category": "Analytik",
+      "technologies": "Power BI, Azure, DAX, Power Query"
+    },
     "filter_all": "Alle",
     "filter_automation": "Automatisierung",
     "filter_tax": "Steuern",
@@ -77,15 +96,52 @@
     "view_project": "Projekt ansehen"
   },
   "testimonials": {
-    "section_title": "Kundenstimmen",
-    "section_subtitle": "Was Kunden über die Zusammenarbeit mit mir sagen"
+    "title": "Kundenstimmen",
+    "subtitle": "Was Kunden über die Zusammenarbeit mit mir sagen",
+    "testimonial1": {
+      "name": "Sarah Mitchell",
+      "role": "Finanzdirektorin",
+      "company": "Johnson & Johnson",
+      "text": "Emanuels Automatisierungs-Expertise hat unseren Monatsabschlussprozess transformiert. Was früher 2 Wochen dauerte, dauert jetzt 3 Tage. Seine Detailgenauigkeit und sein tiefes Verständnis für Finanzoperationen ist aussergewöhnlich."
+    },
+    "testimonial2": {
+      "name": "Andreas Weber",
+      "role": "CEO",
+      "company": "Taxed GmbH",
+      "text": "Die Zusammenarbeit mit Emanuel an unserer Steuerautomatisierungsplattform war bahnbrechend. Er kombiniert technische Exzellenz mit praxisnahem Geschäftssinn. Sehr empfehlenswert für jedes Automatisierungsprojekt."
+    },
+    "testimonial3": {
+      "name": "Jennifer Thompson",
+      "role": "VP Operations",
+      "company": "Global Pharma Corp",
+      "text": "Emanuel lieferte eine Power BI-Lösung, die unsere Erwartungen übertraf. Die von ihm erstellten Dashboards bieten Einblicke, von denen wir nicht wussten, dass wir sie brauchen. ROI wurde innerhalb von 3 Monaten erreicht."
+    }
   },
   "clients": {
     "section_title": "Vertrauen von"
   },
+  "about": {
+    "title": "Über mich",
+    "subtitle": "Schweizer Automatisierungsexperte mit Leidenschaft für die Transformation von Unternehmen",
+    "headline": "Technologie und Business verbinden",
+    "bio1": "Mit über 8 Jahren Erfahrung in Automatisierung und Steuerberatung helfe ich Organisationen, ihre Abläufe zu optimieren und komplexe regulatorische Anforderungen zu meistern. Meine Arbeit bei Johnson & Johnson und als Mitgründer von Taxed GmbH hat mir tiefgreifende Expertise in unternehmensweiter Automatisierung verschafft.",
+    "bio2": "Ich habe Abschlüsse von der University of Aberdeen und der University of Wisconsin-La Crosse und bin leidenschaftlich daran interessiert, Technologie zur Lösung realer Geschäftsprobleme einzusetzen. Wenn ich nicht gerade Prozesse automatisiere, finden Sie mich beim Segeln – ich bin zertifizierter RYA Day Skipper.",
+    "highlight1": "8+ Jahre in Automatisierung & Beratung",
+    "highlight2": "Fortune-500-Erfahrung (J&J)",
+    "highlight3": "Mitgründer von Taxed GmbH",
+    "highlight4": "UoA & UW-La Crosse Alumni",
+    "skills_title": "Kernkompetenzen",
+    "badge1": "UoA & UW-La Crosse",
+    "badge2": "J&J + Taxed GmbH"
+  },
   "contact": {
-    "section_title": "Lassen Sie uns zusammenarbeiten",
-    "section_subtitle": "Bereit, Ihr Unternehmen zu transformieren? Nehmen Sie Kontakt auf.",
+    "title": "Lassen Sie uns zusammenarbeiten",
+    "subtitle": "Bereit, Ihr Unternehmen zu transformieren? Nehmen Sie Kontakt auf.",
+    "info_title": "Kontakt aufnehmen",
+    "info_description": "Ich bin immer offen für die Diskussion neuer Projekte, kreativer Ideen oder Möglichkeiten, Teil Ihrer Vision zu sein.",
+    "email": "E-Mail",
+    "phone": "Telefon",
+    "location": "Standort",
     "form": {
       "name": "Ihr Name",
       "name_placeholder": "Max Mustermann",
@@ -136,6 +192,44 @@
     },
     "copyright": "© {year} Emanuel Flury. Alle Rechte vorbehalten.",
     "made_with": "Mit ❤️ in der Schweiz gemacht"
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Finden Sie Antworten auf häufige Fragen zu meinen Dienstleistungen",
+    "questions": [
+      {
+        "question": "Arbeiten Sie mit internationalen Kunden?",
+        "answer": "Ja! Ich arbeite mit Kunden weltweit, insbesondere mit solchen, die Niederlassungen in der Schweiz haben oder Schweizer Steuerexpertise benötigen. Meine Automatisierungsberatung ist weltweit verfügbar, und ich habe Erfahrung mit multinationalen Unternehmen und Remote-Zusammenarbeit."
+      },
+      {
+        "question": "Wie lange dauert ein typisches Projekt?",
+        "answer": "Projektzeitpläne variieren je nach Umfang und Komplexität. Ein typisches Automatisierungsprojekt dauert 2-12 Wochen, während Steuerberatungsmandate fortlaufend sein können. Ich erstelle detaillierte Zeitpläne während unserer ersten Beratung, nachdem ich Ihre spezifischen Anforderungen verstanden habe."
+      },
+      {
+        "question": "Wie berechnen Sie Ihre Dienstleistungen?",
+        "answer": "Ich biete flexible Preismodelle an, einschliesslich Stundensätzen, Festpreisprojekten und Retainer-Vereinbarungen. Die Preisgestaltung hängt von der Projektkomplexität, dem Zeitplan und den Ergebnissen ab. Kontaktieren Sie mich für ein massgeschneidertes Angebot."
+      },
+      {
+        "question": "Auf welche Automatisierungsplattformen sind Sie spezialisiert?",
+        "answer": "Ich bin spezialisiert auf UiPath, Power Automate, Python-Automatisierung und massgeschneiderte Lösungen. Ich habe umfangreiche Erfahrung mit RPA (Robotic Process Automation), KI-Integration, Workflow-Automatisierung und Datenanalyse mit Power BI."
+      },
+      {
+        "question": "Können Sie bei der Schweizer Steuerkonformität für Expatriates helfen?",
+        "answer": "Absolut! Ich bin spezialisiert auf Schweizer Steuerberatung für Expatriates und helfe dabei, komplexe Schweizer Steuervorschriften zu navigieren, Steuerstrategien zu optimieren und Compliance über mehrere Jurisdiktionen hinweg sicherzustellen. Ich bin Mitgründer von Taxed GmbH, die sich speziell auf diesen Bereich fokussiert."
+      },
+      {
+        "question": "Bieten Sie Schulungen oder Wissenstransfer an?",
+        "answer": "Ja! Ich glaube an die Befähigung von Teams. Die meisten Projekte beinhalten Wissenstransfer-Sitzungen, Dokumentation und Schulungen, um sicherzustellen, dass Ihr Team die von mir gelieferten Lösungen pflegen und erweitern kann."
+      },
+      {
+        "question": "Welche Branchen bedienen Sie?",
+        "answer": "Ich habe Erfahrung in mehreren Branchen, einschliesslich Pharma (Johnson & Johnson), Finanzen, Steuerberatung und Unternehmensabläufen. Meine Expertise in Automatisierung und Prozessoptimierung ist branchenübergreifend anwendbar."
+      },
+      {
+        "question": "Wie fange ich an?",
+        "answer": "Kontaktieren Sie mich einfach über das Kontaktformular, per E-Mail (me@eflury.com) oder Telefon (+41 79 910 77 87). Wir vereinbaren eine erste Beratung, um Ihre Bedürfnisse zu besprechen, und ich erstelle einen Vorschlag mit Umfang, Zeitplan und Preisgestaltung."
+      }
+    ]
   },
   "common": {
     "read_more": "Mehr lesen",
