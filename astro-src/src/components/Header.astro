@@ -11,6 +11,11 @@ const t = useTranslations(lang);
 const currentRoutes = routes[lang];
 ---
 
+<!-- Skip to Content Link for Accessibility -->
+<a href="#main-content" class="skip-to-content">
+  {lang === 'en' ? 'Skip to main content' : 'Zum Hauptinhalt springen'}
+</a>
+
 <nav class="navbar" id="navbar">
   <div class="nav-container">
     <a href={currentRoutes.home} class="logo">Emanuel Flury</a>
@@ -58,6 +63,27 @@ const currentRoutes = routes[lang];
 </nav>
 
 <style>
+  /* Skip to Content Link for Accessibility */
+  .skip-to-content {
+    position: absolute;
+    top: -100px;
+    left: 0;
+    background: var(--primary-green);
+    color: white;
+    padding: 0.75rem 1.5rem;
+    text-decoration: none;
+    font-weight: 600;
+    z-index: 10000;
+    border-radius: 0 0 8px 0;
+    transition: top 0.3s ease;
+  }
+
+  .skip-to-content:focus {
+    top: 0;
+    outline: 3px solid var(--primary-red);
+    outline-offset: 2px;
+  }
+
   /* Navbar Styles */
   .navbar {
     position: fixed;
