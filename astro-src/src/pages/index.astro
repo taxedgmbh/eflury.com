@@ -1,5 +1,35 @@
 ---
-// Redirect root to English version
-const response = Astro.redirect('/en.html', 301);
-return response;
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import Statistics from '../components/Statistics.astro';
+import About from '../components/About.astro';
+import Services from '../components/Services.astro';
+import Portfolio from '../components/Portfolio.astro';
+import Testimonials from '../components/Testimonials.astro';
+import Contact from '../components/Contact.astro';
+import Footer from '../components/Footer.astro';
+import { useTranslations } from '../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
 ---
+
+<MainLayout
+  title={t('meta.title')}
+  description={t('meta.description')}
+  keywords={t('meta.keywords')}
+  lang={lang}
+>
+  <Header lang={lang} />
+  <main>
+    <Hero lang={lang} />
+    <Statistics lang={lang} />
+    <About lang={lang} />
+    <Services lang={lang} />
+    <Portfolio lang={lang} />
+    <Testimonials lang={lang} />
+    <Contact lang={lang} />
+  </main>
+  <Footer lang={lang} />
+</MainLayout>

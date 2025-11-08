@@ -53,10 +53,17 @@ jobs:
       - name: Verify build output
         run: |
           echo "Checking build output..."
-          if [ ! -f "en.html" ] || [ ! -f "de.html" ]; then
+          if [ ! -f "en.html" ] || [ ! -f "de.html" ] || [ ! -f "index.html" ]; then
             echo "ERROR: Required HTML files not found!"
             exit 1
           fi
+          
+          # Verify index.html is not the default Astro template
+          if grep -q "<title>Astro</title>" index.html && ! grep -q "Emanuel Flury" index.html; then
+            echo "ERROR: index.html appears to be the default Astro template!"
+            exit 1
+          fi
+          
           echo "✅ Build verification passed"
 
           # Show file sizes
