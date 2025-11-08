@@ -129,13 +129,24 @@ const stats = [
   }
 
   @media (max-width: 768px) {
+    .statistics {
+      padding: var(--spacing-2xl) 0;
+      margin: var(--spacing-2xl) 0;
+    }
+
     .stats-grid {
       grid-template-columns: repeat(2, 1fr);
+      gap: var(--spacing-md);
     }
 
     .stat-card {
       flex-direction: column;
       text-align: center;
+      padding: var(--spacing-lg);
+    }
+
+    .stat-icon {
+      margin: 0 auto var(--spacing-sm);
     }
 
     .stat-value {

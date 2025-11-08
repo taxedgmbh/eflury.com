@@ -169,20 +169,23 @@ const currentRoutes = routes[lang];
 
   @media (max-width: 768px) {
     .hero {
-      padding: 5rem 1rem 2rem;
+      padding: calc(80px + env(safe-area-inset-top)) max(var(--spacing-lg), env(safe-area-inset-left)) calc(80px + env(safe-area-inset-bottom)) max(var(--spacing-lg), env(safe-area-inset-right));
+      min-height: calc(100vh - 60px - env(safe-area-inset-top) - env(safe-area-inset-bottom));
     }
 
     .hero-cta {
       flex-direction: column;
+      gap: var(--spacing-md);
     }
 
     .btn {
       width: 100%;
       justify-content: center;
+      min-height: 44px;
     }
 
     .scroll-hint {
-      bottom: 1rem;
+      bottom: calc(80px + env(safe-area-inset-bottom));
     }
   }
 </style>
