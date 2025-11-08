@@ -10,12 +10,12 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 
 const skills = [
-  { name: 'UiPath', level: 95 },
+  { name: 'UiPath RPA', level: 95 },
   { name: 'Power BI', level: 90 },
   { name: 'Python', level: 85 },
-  { name: 'Power Automate', level: 88 },
+  { name: 'Alteryx', level: 88 },
   { name: 'Swiss Tax Law', level: 92 },
-  { name: 'Process Automation', level: 93 }
+  { name: 'Financial Analytics', level: 93 }
 ];
 ---
 
@@ -85,6 +85,11 @@ const skills = [
               </div>
             ))}
           </div>
+          {t('about.certifications') && (
+            <div class="certifications">
+              <p class="certifications-text">{t('about.certifications')}</p>
+            </div>
+          )}
         </div>
       </div>
     </div>
@@ -256,9 +261,25 @@ const skills = [
 
   .skill-progress {
     height: 100%;
-    background: var(--gradient-primary);
+    background: var(--primary);
     border-radius: 10px;
     transition: width 1.5s ease-in-out;
+  }
+
+  .certifications {
+    margin-top: 2rem;
+    padding: var(--spacing-lg);
+    background: var(--bg-primary);
+    border: 0.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+  }
+
+  .certifications-text {
+    color: var(--text-secondary);
+    font-size: 15px;
+    line-height: 1.6;
+    margin: 0;
+    text-align: center;
   }
 
   @media (max-width: 968px) {
