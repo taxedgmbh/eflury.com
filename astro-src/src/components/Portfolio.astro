@@ -15,7 +15,6 @@ const projects = [
     description: t('portfolio.project1.description'),
     category: t('portfolio.project1.category'),
     technologies: t('portfolio.project1.technologies').split(', '),
-    image: '/images/projects/project1.png',
     link: '#'
   },
   {
@@ -23,7 +22,6 @@ const projects = [
     description: t('portfolio.project2.description'),
     category: t('portfolio.project2.category'),
     technologies: t('portfolio.project2.technologies').split(', '),
-    image: '/images/projects/project2.png',
     link: '#'
   },
   {
@@ -31,7 +29,6 @@ const projects = [
     description: t('portfolio.project3.description'),
     category: t('portfolio.project3.category'),
     technologies: t('portfolio.project3.technologies').split(', '),
-    image: '/images/projects/project3.png',
     link: '#'
   }
 ];
@@ -117,7 +114,7 @@ const projects = [
 
   .portfolio-image {
     height: 200px;
-    background: var(--gradient-hero);
+    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
     position: relative;
     overflow: hidden;
   }
@@ -128,12 +125,14 @@ const projects = [
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 122, 77, 0.9);
+    background: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
-    transition: var(--transition-smooth);
+    transition: all var(--transition-base);
   }
 
   .portfolio-card:hover .portfolio-overlay {
@@ -141,21 +140,30 @@ const projects = [
   }
 
   .portfolio-link {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
-    background: white;
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    background: var(--apple-white);
     display: flex;
     align-items: center;
     justify-content: center;
-    color: var(--primary-green);
-    font-size: 1.5rem;
+    color: var(--primary);
     text-decoration: none;
-    transition: var(--transition-bounce);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-sm);
   }
 
   .portfolio-link:hover {
-    transform: scale(1.2);
+    transform: scale(1.1);
+    box-shadow: var(--shadow-md);
+  }
+  
+  .portfolio-link svg {
+    transition: transform var(--transition-fast);
+  }
+  
+  .portfolio-link:hover svg {
+    transform: rotate(-15deg);
   }
 
   .portfolio-content {
@@ -164,13 +172,14 @@ const projects = [
 
   .portfolio-category {
     display: inline-block;
-    padding: 0.25rem 0.75rem;
-    background: var(--gradient-primary);
-    color: white;
-    border-radius: 20px;
-    font-size: 0.85rem;
-    font-weight: 600;
-    margin-bottom: 1rem;
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--primary);
+    color: var(--apple-white);
+    border-radius: var(--radius-full);
+    font-size: 13px;
+    font-weight: 500;
+    margin-bottom: var(--spacing-md);
+    letter-spacing: 0.01em;
   }
 
   .portfolio-title {
@@ -193,12 +202,19 @@ const projects = [
   }
 
   .tech-tag {
-    padding: 0.4rem 0.8rem;
+    padding: var(--spacing-xs) var(--spacing-sm);
     background: var(--bg-secondary);
-    border: 1px solid rgba(0, 122, 77, 0.2);
-    border-radius: 6px;
-    font-size: 0.85rem;
+    border: 0.5px solid var(--border-color);
+    border-radius: var(--radius-sm);
+    font-size: 13px;
     color: var(--text-secondary);
+    transition: all var(--transition-fast);
+  }
+  
+  .tech-tag:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--primary);
+    color: var(--text-primary);
   }
 
   @media (max-width: 768px) {
