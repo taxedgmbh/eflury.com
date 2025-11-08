@@ -11,6 +11,7 @@ import FAQ from '../components/FAQ.astro';
 import Contact from '../components/Contact.astro';
 import Footer from '../components/Footer.astro';
 import AIChatbot from '../components/AIChatbot.astro';
+import MobileBottomNav from '../components/MobileBottomNav.astro';
 import { useTranslations } from '../i18n/utils';
 
 const lang = 'en';
@@ -35,5 +36,6 @@ const t = useTranslations(lang);
     <Contact lang={lang} />
   </main>
   <Footer lang={lang} />
+  <MobileBottomNav lang={lang} />
   <AIChatbot />
 </MainLayout>

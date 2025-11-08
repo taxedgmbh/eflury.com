@@ -317,27 +317,66 @@ const currentRoutes = routes[lang];
     transition: all 0.3s ease;
   }
 
-  /* Mobile Styles */
+  /* Mobile Styles - iOS Native */
   @media (max-width: 768px) {
+    .navbar {
+      padding-top: max(var(--spacing-md), env(safe-area-inset-top));
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+    }
+
+    .nav-container {
+      padding: 0 var(--spacing-lg);
+      padding-left: max(var(--spacing-lg), env(safe-area-inset-left));
+      padding-right: max(var(--spacing-lg), env(safe-area-inset-right));
+    }
+
     .nav-links {
-      position: absolute;
-      top: 100%;
+      position: fixed;
+      top: 0;
       left: 0;
       right: 0;
+      bottom: 0;
       flex-direction: column;
-      background: var(--nav-bg);
-      padding: 1rem;
-      gap: 1rem;
-      box-shadow: var(--shadow-medium);
+      background: var(--bg-primary);
+      backdrop-filter: blur(20px);
+      -webkit-backdrop-filter: blur(20px);
+      padding: calc(80px + env(safe-area-inset-top)) var(--spacing-lg) var(--spacing-5xl);
+      gap: 0;
+      box-shadow: none;
       display: none;
+      z-index: 999;
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .nav-links.active {
       display: flex;
     }
 
+    .nav-links li {
+      width: 100%;
+      border-bottom: 0.5px solid var(--border-color);
+    }
+
+    .nav-links a {
+      display: block;
+      padding: var(--spacing-lg);
+      font-size: 17px;
+      font-weight: 400;
+      color: var(--text-primary);
+      min-height: 44px;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .nav-links a:active {
+      background: var(--bg-secondary);
+      opacity: 0.7;
+    }
+
     .mobile-menu-toggle {
       display: flex;
+      z-index: 1001;
     }
 
     .mobile-menu-toggle.active span:nth-child(1) {
@@ -355,6 +394,16 @@ const currentRoutes = routes[lang];
     .nav-content {
       width: 100%;
       position: relative;
+    }
+
+    /* Hide desktop nav actions on mobile (bottom nav handles navigation) */
+    .nav-actions {
+      display: none;
+    }
+
+    .logo {
+      font-size: 20px;
+      font-weight: 600;
     }
   }
 </style>
