@@ -122,26 +122,28 @@ const currentRoutes = routes[lang];
   }
 
   .btn-primary {
-    background: var(--gradient-primary);
-    color: white;
-    box-shadow: var(--shadow-soft);
+    background: var(--primary);
+    color: var(--apple-white);
+    box-shadow: var(--shadow-xs);
   }
 
   .btn-primary:hover {
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-medium);
+    background: var(--primary-hover);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
   }
 
   .btn-secondary {
     background: transparent;
-    color: var(--primary-green);
-    border: 2px solid var(--primary-green);
+    color: var(--primary);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
   }
 
   .btn-secondary:hover {
-    background: var(--primary-green);
-    color: white;
-    transform: translateY(-3px);
+    background: var(--bg-secondary);
+    border-color: var(--primary);
+    transform: translateY(-1px);
   }
 
   .scroll-hint {
