@@ -408,6 +408,11 @@ input:focus, textarea:focus, select:focus {
     p, body { font-size: 17px; line-height: 1.47059; }
     small { font-size: 15px; line-height: 1.33337; }
     caption { font-size: 13px; line-height: 1.38462; }
+    
+    /* Ensure main content doesn't get hidden behind fixed elements */
+    main#main-content {
+        padding-top: calc(60px + env(safe-area-inset-top));
+    }
 }
 
 .text-center {
