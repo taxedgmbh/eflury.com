@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Emanuel Flury - AI-Native Automation Specialist & Swiss Tax Expert | Finance Analyst FP&A",
-    "description": "Finance Analyst FP&A at Johnson & Johnson (2017-present) | Automation leader since 2012 | Founder of Taxed GmbH | Specializing in AI-driven finance solutions, vector databases, LLM orchestration, and Swiss tax consulting for global teams and expatriates.",
-    "keywords": "AI automation specialist, Swiss tax expert, Finance Analyst FP&A, UiPath certified, Power BI expert, Alteryx certified, vector database, LLM orchestration, Swiss expat tax, fiduciary services Switzerland, Johnson Johnson automation, Taxed GmbH, Fortune 500 finance automation"
+    "title": "Emanuel Flury - Agentic AI & Business Automation Consultant | AI-Native Automation Expert",
+    "description": "Independent consultant specializing in agentic AI, business automation, and intelligent process transformation. 13+ years Fortune 500 automation leadership | Expert in AI agents, LLM orchestration, vector databases, and RPA | Helping businesses automate operations and drive digital transformation.",
+    "keywords": "agentic AI consultant, business automation consultant, AI automation expert, LLM orchestration, AI agents, vector database consultant, RPA consultant, UiPath certified, business process automation, digital transformation consultant, intelligent automation, AI workflow consultant, Fortune 500 automation"
   },
   "nav": {
     "home": "Home",
@@ -14,78 +14,78 @@
   },
   "hero": {
     "greeting": "Hi, I'm Emanuel Flury",
-    "title": "AI-Native Automation Specialist & Swiss Tax Expert",
-    "subtitle": "Finance Analyst FP&A at Johnson & Johnson | Founder of Taxed GmbH | 13+ years leading automation initiatives for global teams and Swiss expatriates with proven Fortune 500 results.",
-    "cta_primary": "Explore My Services",
-    "cta_secondary": "View Portfolio",
+    "title": "Agentic AI & Business Automation Consultant",
+    "subtitle": "I help businesses transform operations through intelligent automation and agentic AI. 13+ years Fortune 500 automation leadership | Expert in AI agents, LLM orchestration, and process automation | Delivering measurable ROI and operational excellence.",
+    "cta_primary": "Start Your Automation Journey",
+    "cta_secondary": "View Case Studies",
     "scroll_hint": "Scroll to discover more"
   },
   "services": {
-    "section_title": "What I Do",
-    "section_subtitle": "AI-Native Automation, Swiss Tax Expertise, and Financial Analytics",
+    "section_title": "Consulting Services",
+    "section_subtitle": "Agentic AI, Business Automation, and Intelligent Process Transformation",
     "automation": {
-      "title": "AI-Native Automation",
-      "description": "Transform business processes with next-generation AI workflows, vector databases, and LLM orchestration. Specialized in regulated environments, I bridge traditional finance with intelligent automation using UiPath, Python, and custom AI solutions. Proven track record at Fortune 500 level with significant ROI.",
-      "features": ["RPA & Process Automation", "Vector DB & AI Integration", "UiPath Certified Development", "LLM Orchestration & AI Agents"]
+      "title": "Agentic AI Consulting",
+      "description": "Transform your business with autonomous AI agents and intelligent automation. I design and implement agentic AI systems using LLM orchestration, vector databases, and custom AI workflows. Specialized in creating self-managing AI agents that handle complex business processes, make decisions, and drive operational efficiency. Proven Fortune 500 results with measurable ROI.",
+      "features": ["AI Agent Design & Development", "LLM Orchestration & Workflows", "Vector Database Integration", "Autonomous Process Automation"]
     },
-    "tax": {
-      "title": "Swiss Tax & Fiduciary Services",
-      "description": "Expert Swiss tax consulting through Taxed GmbH for residents and expatriates. Comprehensive fiduciary services including bookkeeping, VAT settlements, tax returns, and compliance. Serving SMEs across Switzerland with high client retention and satisfaction.",
-      "features": ["Expat Tax Planning", "Swiss Tax Compliance", "Fiduciary Services", "SME Bookkeeping & VAT"]
+    "business_automation": {
+      "title": "Business Automation Consulting",
+      "description": "End-to-end automation consulting to streamline operations and reduce costs. From process analysis to implementation, I help businesses automate repetitive tasks, integrate systems, and optimize workflows. Expert in RPA (UiPath certified), Python automation, and custom solutions. Delivering 70%+ time savings and significant cost reductions.",
+      "features": ["Process Automation Strategy", "RPA Implementation (UiPath)", "Workflow Optimization", "System Integration & APIs"]
     },
-    "analytics": {
-      "title": "Financial Analytics & FP&A",
-      "description": "Advanced financial analytics with 99.5% accuracy in cost calculations. Real-time inventory reporting, WW transfer pricing management, and predictive modeling. Expert in Power BI, Alteryx, and Python for data-driven decision making at enterprise scale.",
-      "features": ["Power BI Expert Dashboards", "FAA PII & Cost Calculations", "Real-time Inventory Analytics", "Transfer Pricing Management"]
+    "ai_workflows": {
+      "title": "AI-Powered Workflow Design",
+      "description": "Design intelligent workflows that combine AI capabilities with business logic. I create custom AI solutions using vector databases, semantic search, and LLM integration to enhance decision-making, automate complex tasks, and improve accuracy. Specialized in regulated environments with 99.5%+ accuracy requirements.",
+      "features": ["Custom AI Workflow Design", "Vector Database Solutions", "Semantic Search & RAG", "AI-Powered Decision Systems"]
     },
     "consulting": {
-      "title": "Finance & Process Optimization",
-      "description": "Strategic finance and process consulting leveraging 13+ years at Fortune 500 level. Specialized in affiliate gross profit optimization, spin-off calculations, cost-centre controlling, and global process standardization. Proven cost reduction and efficiency gains.",
-      "features": ["Finance Process Optimization", "Cost-Centre Controlling", "Global Process Standardization", "Strategic Spin-off Calculations"]
+      "title": "Digital Transformation Strategy",
+      "description": "Strategic consulting to guide your automation journey. I assess current processes, identify automation opportunities, and develop roadmaps for digital transformation. Leveraging 13+ years Fortune 500 experience to help businesses of all sizes achieve operational excellence through intelligent automation.",
+      "features": ["Automation Roadmap Development", "Process Assessment & Analysis", "ROI Analysis & Business Case", "Change Management Support"]
     }
   },
   "statistics": {
     "projects": {
       "value": "13",
-      "label": "Years Automation Leadership",
+      "label": "Years Automation Experience",
       "suffix": "+"
     },
     "clients": {
       "value": "99.5",
-      "label": "Cost Calculation Accuracy",
+      "label": "System Accuracy Delivered",
       "suffix": "%"
     },
     "savings": {
       "value": "70",
-      "label": "Process Time Reduction",
+      "label": "Average Time Reduction",
       "suffix": "%"
     },
     "efficiency": {
-      "value": "2012",
-      "label": "Automation Since",
+      "value": "Fortune 500",
+      "label": "Enterprise Experience",
       "suffix": ""
     }
   },
   "portfolio": {
-    "title": "Featured Projects & Achievements",
-    "subtitle": "Real-world impact at Fortune 500 level and entrepreneurial success",
+    "title": "Consulting Projects & Client Success",
+    "subtitle": "Real-world automation transformations delivering measurable business impact",
     "project1": {
-      "title": "FAA PII & Standard Cost Automation (J&J)",
-      "description": "Developed and maintained automated cost calculation systems achieving 99.5% accuracy for FAA PII & standard costs. Streamlined affiliate gross profit analysis, improving reporting efficiency and reducing manual processing time significantly across global operations.",
-      "category": "Finance Automation",
-      "technologies": "Power BI, Python, Alteryx, SQL Server, Excel"
+      "title": "Fortune 500 Finance Automation",
+      "description": "Led automation initiatives at Johnson & Johnson, developing AI-powered cost calculation systems achieving 99.5% accuracy. Automated affiliate gross profit analysis, reducing manual processing by 70%+ and enabling real-time reporting across global operations. Delivered significant ROI through intelligent workflow design.",
+      "category": "Enterprise Automation",
+      "technologies": "AI Agents, Power BI, Python, Alteryx, Vector Databases"
     },
     "project2": {
-      "title": "WW Transfer Pricing Management",
-      "description": "Managed worldwide transfer pricing maintenance across multiple countries, ensuring compliance and optimization. Automated real-time inventory reporting and days of supply calculations, enhancing inventory accuracy and supporting strategic decision-making.",
-      "category": "Global Finance",
-      "technologies": "Power BI, Python, SQL, Excel, Automation Tools"
+      "title": "Global Process Automation",
+      "description": "Designed and implemented automated systems for worldwide transfer pricing and inventory management. Created intelligent workflows that process complex multi-country data, ensuring compliance while reducing processing time by 70%. Enabled strategic decision-making through real-time analytics and AI-powered insights.",
+      "category": "Process Automation",
+      "technologies": "LLM Orchestration, Python, Power BI, RPA, Custom AI Workflows"
     },
     "project3": {
-      "title": "Taxed GmbH - Fiduciary Services",
-      "description": "Founded and operate Taxed GmbH (2021), providing comprehensive fiduciary, tax, and business consulting services. Strong revenue growth in first 2 years, serving multiple SME clients across Switzerland with high retention and satisfaction rates.",
-      "category": "Entrepreneurship",
-      "technologies": "Business Management, Tax Compliance, Fiduciary Services, Client Relations"
+      "title": "AI-Powered Business Solutions",
+      "description": "Consulting engagements helping businesses implement agentic AI and automation solutions. From initial assessment to full implementation, delivered custom AI workflows, vector database integrations, and intelligent automation systems. Clients achieved 60-80% time savings and improved accuracy across operations.",
+      "category": "AI Consulting",
+      "technologies": "Agentic AI, LLM Orchestration, Vector DB, RPA, Business Process Automation"
     },
     "filter_all": "All",
     "filter_automation": "Automation",
@@ -121,24 +121,24 @@
   },
   "about": {
     "title": "About Me",
-    "subtitle": "AI-Native Automation Specialist & Swiss Tax Expert with Fortune 500 Leadership Experience",
-    "headline": "Bridging Technology and Business Excellence",
-    "bio1": "I'm a Finance Analyst FP&A at DePuy Synthes GmbH (Johnson & Johnson) since 2017, where I've led automation initiatives since 2012. With over 13 years of combined experience in finance automation and tax consulting, I specialize in transforming complex business processes into intelligent, AI-powered solutions. My work spans global operations, managing WW transfer pricing, achieving 99.5% accuracy in FAA PII & standard cost calculations, and delivering substantial cost savings through automation.",
-    "bio2": "In 2021, I founded Taxed GmbH (100% ownership), a fiduciary services company serving SMEs across Switzerland and international markets. I hold a Master of Arts in Economics-Finance from the University of Aberdeen and completed an international exchange at the University of Wisconsin-La Crosse. Certified in UiPath RPA, Alteryx, and Power BI, I'm also a Royal Yachting Association Day Skipper. When I'm not automating processes, you'll find me sailing or contributing to community projects like the Weissenstein Hiking Trail.",
-    "highlight1": "13+ years automation leadership (J&J since 2012)",
-    "highlight2": "Finance Analyst FP&A at Fortune 500 (2017-present)",
-    "highlight3": "Founder & Owner of Taxed GmbH (2021)",
-    "highlight4": "Master's in Economics-Finance (UoA)",
-    "skills_title": "Core Competencies & Certifications",
-    "badge1": "UoA & UW-La Crosse",
-    "badge2": "J&J + Taxed GmbH",
-    "certifications": "UiPath RPA Developer • Alteryx Designer Core • Power BI Data Analyst • RYA Day Skipper"
+    "subtitle": "Independent Consultant Specializing in Agentic AI & Business Automation",
+    "headline": "Transforming Businesses Through Intelligent Automation",
+    "bio1": "I'm an independent consultant specializing in agentic AI and business automation, with 13+ years of Fortune 500 automation leadership experience. I help businesses transform operations through intelligent automation, AI agents, and process optimization. My consulting approach combines deep technical expertise with business acumen, delivering solutions that drive measurable ROI and operational excellence.",
+    "bio2": "Previously, I led automation initiatives at Johnson & Johnson (2012-2024), where I developed AI-powered systems achieving 99.5% accuracy and delivered 70%+ time savings. I hold a Master of Arts in Economics-Finance from the University of Aberdeen and am certified in UiPath RPA, Alteryx, and Power BI. I also founded Taxed GmbH (2021), bringing automation expertise to Swiss SMEs. When not consulting, you'll find me sailing or contributing to community projects.",
+    "highlight1": "13+ years automation & AI consulting experience",
+    "highlight2": "Fortune 500 automation leadership (J&J 2012-2024)",
+    "highlight3": "Expert in agentic AI, LLM orchestration & vector databases",
+    "highlight4": "Master's in Economics-Finance (University of Aberdeen)",
+    "skills_title": "Core Consulting Competencies & Certifications",
+    "badge1": "University of Aberdeen",
+    "badge2": "Fortune 500 Experience",
+    "certifications": "UiPath RPA Developer • Alteryx Designer Core • Power BI Data Analyst • Agentic AI Specialist"
   },
   "contact": {
-    "title": "Let's Work Together",
-    "subtitle": "Ready to transform your business? Get in touch.",
-    "info_title": "Get In Touch",
-    "info_description": "I'm always open to discussing new projects, creative ideas, or opportunities to be part of your vision.",
+    "title": "Let's Transform Your Business",
+    "subtitle": "Ready to automate operations and implement agentic AI? Let's discuss your automation goals.",
+    "info_title": "Consulting Inquiries",
+    "info_description": "I'm available for consulting engagements, automation assessments, and AI implementation projects. Let's discuss how intelligent automation can transform your business operations.",
     "email": "Email",
     "phone": "Phone",
     "location": "Location",
@@ -148,9 +148,9 @@
       "email": "Email Address",
       "email_placeholder": "john@example.com",
       "subject": "Subject",
-      "subject_placeholder": "Project Inquiry",
+      "subject_placeholder": "Automation Consulting Inquiry",
       "message": "Message",
-      "message_placeholder": "Tell me about your project...",
+      "message_placeholder": "Tell me about your automation needs and business goals...",
       "captcha": "Security Check",
       "submit": "Send Message",
       "sending": "Sending...",
@@ -165,8 +165,8 @@
     }
   },
   "footer": {
-    "tagline": "Automation Specialist & Swiss Tax Expert",
-    "description": "Transforming businesses through intelligent automation and strategic tax optimization.",
+    "tagline": "Agentic AI & Business Automation Consultant",
+    "description": "Transforming businesses through intelligent automation, AI agents, and process optimization.",
     "sections": {
       "quick_links": "Quick Links",
       "services": "Services",
@@ -185,10 +185,10 @@
       "data_protection": "Data Protection"
     },
     "services_list": {
-      "automation": "Automation Consulting",
-      "tax": "Swiss Tax Consulting",
-      "analytics": "Financial Analytics",
-      "consulting": "Corporate Consulting"
+      "automation": "Agentic AI Consulting",
+      "tax": "Business Automation",
+      "analytics": "AI Workflow Design",
+      "consulting": "Digital Transformation"
     },
     "copyright": "© {year} Emanuel Flury. All rights reserved.",
     "made_with": "Made with ❤️ in Switzerland"
@@ -198,36 +198,36 @@
     "subtitle": "Find answers to common questions about my services",
     "questions": [
       {
-        "question": "Do you work with international clients?",
-        "answer": "Yes! I work with clients globally, particularly those with operations in Switzerland or requiring Swiss tax expertise. My automation consulting services are available worldwide, and I have experience with multinational corporations and remote collaboration."
+        "question": "What is agentic AI and how can it help my business?",
+        "answer": "Agentic AI refers to autonomous AI agents that can make decisions, take actions, and manage complex workflows independently. I help businesses implement agentic AI systems that automate decision-making, handle multi-step processes, and adapt to changing conditions. This can reduce manual work by 60-80% while improving accuracy and enabling 24/7 operations."
       },
       {
-        "question": "What's your typical project timeline?",
-        "answer": "Project timelines vary based on scope and complexity. A typical automation project ranges from 2-12 weeks, while tax consulting engagements can be ongoing. I provide detailed timelines during our initial consultation after understanding your specific requirements."
+        "question": "What types of businesses do you work with?",
+        "answer": "I work with businesses of all sizes, from startups to Fortune 500 companies. My consulting services are particularly valuable for organizations with repetitive processes, data-intensive operations, or complex workflows that can benefit from automation. I have extensive experience in finance, healthcare, manufacturing, and professional services."
       },
       {
-        "question": "How do you charge for your services?",
-        "answer": "I offer flexible pricing models including hourly rates, fixed-price projects, and retainer agreements. Pricing depends on project complexity, timeline, and deliverables. Contact me for a custom quote tailored to your needs."
+        "question": "What's your typical consulting engagement?",
+        "answer": "Consulting engagements typically start with an automation assessment (1-2 weeks) to identify opportunities and develop a roadmap. Implementation projects range from 4-16 weeks depending on scope. I also offer ongoing retainer agreements for continuous optimization and support. Every engagement includes knowledge transfer and documentation."
       },
       {
-        "question": "What automation platforms do you specialize in?",
-        "answer": "I specialize in UiPath, Power Automate, Python automation, and custom solutions. I have extensive experience with RPA (Robotic Process Automation), AI integration, workflow automation, and data analytics using Power BI."
+        "question": "How do you charge for consulting services?",
+        "answer": "I offer flexible pricing models: hourly rates for assessments and advisory work, fixed-price projects for defined scopes, and retainer agreements for ongoing support. Pricing is tailored to project complexity, timeline, and deliverables. Contact me for a custom quote based on your specific automation goals."
       },
       {
-        "question": "Can you help with Swiss tax compliance for expatriates?",
-        "answer": "Absolutely! I specialize in Swiss tax consulting for expatriates, helping navigate complex Swiss tax regulations, optimize tax strategies, and ensure compliance across multiple jurisdictions. I'm co-founder of Taxed GmbH, which focuses specifically on this area."
+        "question": "What technologies do you specialize in?",
+        "answer": "I specialize in agentic AI (LLM orchestration, vector databases, AI agents), RPA platforms (UiPath certified), Python automation, and custom AI solutions. I also have extensive experience with Power BI, Alteryx, and workflow automation tools. I select the best technology stack based on your specific business needs."
       },
       {
-        "question": "Do you offer training or knowledge transfer?",
-        "answer": "Yes! I believe in empowering teams. Most projects include knowledge transfer sessions, documentation, and training to ensure your team can maintain and expand upon the solutions I deliver."
+        "question": "Do you provide training and knowledge transfer?",
+        "answer": "Absolutely! Every consulting engagement includes comprehensive knowledge transfer, detailed documentation, and training sessions. I ensure your team can maintain, expand, and optimize the automation solutions I deliver. This empowers your organization to continue driving automation independently."
       },
       {
-        "question": "What industries do you serve?",
-        "answer": "I have extensive experience in pharmaceuticals (Finance Analyst FP&A at DePuy Synthes/Johnson & Johnson since 2017), finance automation, tax consulting (Taxed GmbH), and enterprise operations. My expertise spans Fortune 500 multinational corporations, SMEs, and individual clients requiring Swiss tax expertise. My automation and process optimization skills apply across all sectors."
+        "question": "What results can I expect from automation consulting?",
+        "answer": "Typical results include 60-80% reduction in manual processing time, 99%+ accuracy improvements, significant cost savings, and enhanced scalability. I provide ROI analysis and business case development before implementation, ensuring clear expectations and measurable outcomes."
       },
       {
-        "question": "How do I get started?",
-        "answer": "Simply reach out via the contact form, email (me@eflury.com), or phone (+41 79 910 77 87). We'll schedule an initial consultation to discuss your needs, and I'll provide a proposal outlining scope, timeline, and pricing."
+        "question": "How do I get started with a consulting engagement?",
+        "answer": "Reach out via the contact form, email (me@eflury.com), or phone (+41 79 910 77 87). We'll schedule a complimentary initial consultation to discuss your automation goals, assess opportunities, and determine the best approach. I'll then provide a detailed proposal with scope, timeline, and investment."
       }
     ]
   },
