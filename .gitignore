@@ -57,3 +57,17 @@ owner/
 # Specific development files to exclude
 emanuel_flury_cv.md
 website_prd.md
+
+# Legacy folders (removed during migration to Astro)
+assets/
+en/
+de/
+cn/
+es/
+fr/
+hi/
+it/
+jp/
+ko/
+nl/
+pt/
