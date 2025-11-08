@@ -101,15 +101,21 @@ const projects = [
     background: var(--card-bg);
     border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 0.5px solid var(--border-color);
+    border: 0.5px solid var(--separator);
     transition: all var(--transition-base);
     box-shadow: var(--shadow-xs);
+    -webkit-tap-highlight-color: transparent;
   }
 
   .portfolio-card:hover {
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow: var(--shadow-md);
     border-color: var(--primary);
+  }
+
+  .portfolio-card:active {
+    transform: scale(0.98);
+    opacity: 0.9;
   }
 
   .portfolio-image {

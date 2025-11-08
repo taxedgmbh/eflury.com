@@ -97,6 +97,15 @@ const testimonials = [
   }
 
   .testimonial-card {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .testimonial-card:active {
+    transform: scale(0.98);
+    opacity: 0.9;
+  }
+
+  .testimonial-card {
     background: var(--card-bg);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
