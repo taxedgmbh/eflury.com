@@ -409,9 +409,14 @@ input:focus, textarea:focus, select:focus {
     small { font-size: 15px; line-height: 1.33337; }
     caption { font-size: 13px; line-height: 1.38462; }
     
-    /* Ensure main content doesn't get hidden behind fixed elements */
+    /* Ensure main content doesn't get hidden behind fixed header */
     main#main-content {
-        padding-top: calc(60px + env(safe-area-inset-top));
+        padding-top: 0; /* Hero section handles its own padding */
+    }
+    
+    /* First section (hero) should account for header */
+    main#main-content > section:first-child {
+        margin-top: calc(60px + env(safe-area-inset-top));
     }
 }
 
