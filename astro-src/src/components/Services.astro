@@ -127,17 +127,23 @@ const services = [
     background: var(--card-bg);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
-    border: 0.5px solid var(--border-color);
+    border: 0.5px solid var(--separator);
     transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
     box-shadow: var(--shadow-xs);
+    -webkit-tap-highlight-color: transparent;
   }
   
   .service-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
     border-color: var(--primary);
+  }
+
+  .service-card:active {
+    transform: scale(0.98);
+    opacity: 0.9;
   }
 
   .service-card::before {

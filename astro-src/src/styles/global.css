@@ -5,40 +5,51 @@
 
 /* CSS Variables - Light Mode (Apple Design) */
 :root {
-    /* Apple System Colors */
+    /* Apple System Colors - Exact iOS Colors */
     --apple-blue: #007AFF;          /* System Blue - Primary actions */
     --apple-blue-dark: #0051D5;     /* System Blue Dark */
-    --apple-gray-1: #F5F5F7;        /* Light Gray Background */
-    --apple-gray-2: #E5E5EA;       /* Light Gray Border */
-    --apple-gray-3: #D1D1D6;       /* Medium Gray */
-    --apple-gray-4: #8E8E93;       /* Text Secondary */
-    --apple-gray-5: #636366;       /* Text Tertiary */
-    --apple-gray-6: #48484A;       /* Text Primary */
-    --apple-black: #000000;        /* Pure Black */
-    --apple-white: #FFFFFF;        /* Pure White */
+    --apple-blue-light: #5AC8FA;    /* System Blue Light */
+    --apple-gray-1: #F2F2F7;        /* System Gray 6 Light (iOS) */
+    --apple-gray-2: #E5E5EA;        /* System Gray 5 Light */
+    --apple-gray-3: #D1D1D6;        /* System Gray 4 Light */
+    --apple-gray-4: #C7C7CC;        /* System Gray 3 Light */
+    --apple-gray-5: #AEAEB2;        /* System Gray 2 Light */
+    --apple-gray-6: #8E8E93;        /* System Gray Light */
+    --apple-black: #000000;          /* Pure Black */
+    --apple-white: #FFFFFF;         /* Pure White */
     
-    /* Semantic Colors */
+    /* iOS Semantic Colors */
     --primary: var(--apple-blue);
     --primary-hover: var(--apple-blue-dark);
+    --primary-light: var(--apple-blue-light);
     --bg-primary: var(--apple-white);
     --bg-secondary: var(--apple-gray-1);
     --bg-tertiary: #FAFAFA;
-    --text-primary: var(--apple-gray-6);
-    --text-secondary: var(--apple-gray-4);
-    --text-tertiary: var(--apple-gray-5);
-    --border-color: var(--apple-gray-2);
+    --bg-grouped: var(--apple-gray-1); /* iOS Grouped Background */
+    --text-primary: #000000;           /* iOS Label Color */
+    --text-secondary: var(--apple-gray-6); /* iOS Secondary Label */
+    --text-tertiary: var(--apple-gray-5);  /* iOS Tertiary Label */
+    --text-quaternary: var(--apple-gray-4); /* iOS Quaternary Label */
+    --separator: rgba(60, 60, 67, 0.29);   /* iOS Separator */
+    --border-color: var(--separator);
     --card-bg: var(--apple-white);
     --nav-bg: rgba(255, 255, 255, 0.8);
+    --sheet-bg: rgba(255, 255, 255, 0.95); /* iOS Sheet Background */
     
-    /* Apple Accent Colors (Swiss Professional) */
-    --accent-green: #34C759;        /* Success/Positive */
-    --accent-red: #FF3B30;          /* Error/Alert */
-    --accent-orange: #FF9500;       /* Warning */
-    --accent-purple: #AF52DE;       /* Creative */
+    /* iOS System Accent Colors */
+    --accent-green: #34C759;        /* System Green */
+    --accent-red: #FF3B30;          /* System Red */
+    --accent-orange: #FF9500;       /* System Orange */
+    --accent-yellow: #FFCC00;      /* System Yellow */
+    --accent-purple: #AF52DE;       /* System Purple */
+    --accent-pink: #FF2D55;         /* System Pink */
+    --accent-teal: #5AC8FA;         /* System Teal */
+    --accent-indigo: #5856D6;       /* System Indigo */
     
-    /* Minimal Gradients (Apple Style) */
+    /* iOS Gradients */
     --gradient-subtle: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
     --gradient-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
+    --gradient-ios: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
 
     /* Apple Shadows - Minimal & Subtle */
     --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
@@ -400,14 +411,49 @@ input:focus, textarea:focus, select:focus {
         padding-bottom: max(var(--spacing-3xl), calc(env(safe-area-inset-bottom) + var(--spacing-xl)));
     }
     
-    /* iOS Native Typography Scale for Mobile */
-    h1 { font-size: 34px; font-weight: 700; letter-spacing: -0.02em; }
-    h2 { font-size: 28px; font-weight: 700; letter-spacing: -0.018em; }
-    h3 { font-size: 22px; font-weight: 600; letter-spacing: -0.015em; }
-    h4 { font-size: 20px; font-weight: 600; letter-spacing: -0.013em; }
-    p, body { font-size: 17px; line-height: 1.47059; }
-    small { font-size: 15px; line-height: 1.33337; }
-    caption { font-size: 13px; line-height: 1.38462; }
+    /* iOS Native Typography Scale for Mobile - Exact HIG */
+    h1 { 
+      font-size: 34px; 
+      font-weight: 700; 
+      letter-spacing: -0.02em; 
+      line-height: 1.11765; /* iOS Large Title */
+    }
+    h2 { 
+      font-size: 28px; 
+      font-weight: 700; 
+      letter-spacing: -0.018em; 
+      line-height: 1.14286; /* iOS Title 1 */
+    }
+    h3 { 
+      font-size: 22px; 
+      font-weight: 700; 
+      letter-spacing: -0.015em; 
+      line-height: 1.27273; /* iOS Title 2 */
+    }
+    h4 { 
+      font-size: 20px; 
+      font-weight: 600; 
+      letter-spacing: -0.013em; 
+      line-height: 1.2; /* iOS Title 3 */
+    }
+    p, body { 
+      font-size: 17px; 
+      font-weight: 400;
+      letter-spacing: -0.011em;
+      line-height: 1.47059; /* iOS Body */
+    }
+    small { 
+      font-size: 15px; 
+      font-weight: 400;
+      letter-spacing: -0.009em;
+      line-height: 1.33337; /* iOS Subhead */
+    }
+    caption { 
+      font-size: 13px; 
+      font-weight: 400;
+      letter-spacing: -0.006em;
+      line-height: 1.38462; /* iOS Footnote */
+    }
     
     /* Ensure main content doesn't get hidden behind fixed header */
     main#main-content {

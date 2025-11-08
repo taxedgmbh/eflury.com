@@ -80,16 +80,22 @@ const stats = [
     padding: var(--spacing-xl);
     background: var(--card-bg);
     border-radius: var(--radius-lg);
-    border: 0.5px solid var(--border-color);
+    border: 0.5px solid var(--separator);
     transition: all var(--transition-base);
     opacity: 0;
     transform: translateY(20px);
+    -webkit-tap-highlight-color: transparent;
   }
 
   .stat-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
     border-color: var(--primary);
+  }
+
+  .stat-card:active {
+    transform: scale(0.98);
+    opacity: 0.9;
   }
   
   .stat-card[data-animate].animate-in {

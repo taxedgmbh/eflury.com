@@ -102,19 +102,19 @@ const currentRoutes = routes[lang];
     outline-offset: 2px;
   }
 
-  /* Apple Navbar Styles */
+  /* Apple Navbar Styles - iOS Native */
   .navbar {
     position: fixed;
     top: 0;
     width: 100%;
     background: var(--nav-bg);
-    backdrop-filter: var(--blur-light);
-    -webkit-backdrop-filter: var(--blur-light);
-    border-bottom: 0.5px solid var(--border-color);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 0.5px solid var(--separator);
     z-index: 1001;
     padding: var(--spacing-md) 0;
     transition: all var(--transition-base);
-    box-shadow: var(--shadow-xs);
+    box-shadow: 0 1px 0 var(--separator), 0 2px 8px rgba(0, 0, 0, 0.04);
   }
 
   .navbar.scrolled {

@@ -1,0 +1,60 @@
+/* Scroll Progress Indicator - iOS Style */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: var(--primary);
+  z-index: 10000;
+  transition: width 0.1s ease-out;
+  box-shadow: 0 0 4px var(--primary);
+}
+
+/* Back to Top Button - iOS Style */
+.back-to-top {
+  position: fixed;
+  bottom: calc(80px + env(safe-area-inset-bottom));
+  right: var(--spacing-lg);
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  background: var(--primary);
+  color: var(--apple-white);
+  border: none;
+  box-shadow: var(--shadow-lg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(20px) scale(0.8);
+  transition: all var(--transition-base);
+  z-index: 998;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+}
+
+.back-to-top:active {
+  transform: scale(0.9);
+  opacity: 0.8;
+}
+
+.back-to-top svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 768px) {
+  .back-to-top {
+    bottom: calc(80px + env(safe-area-inset-bottom));
+    right: var(--spacing-md);
+  }
+}
+
