@@ -417,6 +417,28 @@ h3 {
     transform: translateY(-2px);
 }
 
+/* Modern Animation Classes */
+[data-animate] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity var(--transition-base), transform var(--transition-base);
+}
+
+[data-animate].animate-in {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* GSAP Scroll Animations Support */
+.gsap-fade-in {
+    opacity: 0;
+}
+
+.gsap-slide-up {
+    transform: translateY(50px);
+    opacity: 0;
+}
+
 /* Responsive Design */
 @media (max-width: 768px) {
     .section-padding {
@@ -429,5 +451,23 @@ h3 {
     
     h2 {
         font-size: clamp(1.75rem, 6vw, 2.5rem);
+    }
+}
+
+/* Modern Scrollbar for WebKit browsers */
+@media (prefers-reduced-motion: no-preference) {
+    html {
+        scroll-behavior: smooth;
+    }
+}
+
+/* Print Styles */
+@media print {
+    .navbar,
+    .footer,
+    .dark-mode-toggle,
+    .language-selector,
+    .share-button-nav {
+        display: none !important;
     }
 }

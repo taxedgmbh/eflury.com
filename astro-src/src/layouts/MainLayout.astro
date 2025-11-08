@@ -41,8 +41,8 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <!-- Apple System Fonts - No external font loading needed -->
     <!-- Using -apple-system, BlinkMacSystemFont, SF Pro Display/Text -->
 
-    <!-- Icons - Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Icons - Now using Lucide (modern, tree-shakeable) -->
+    <!-- Font Awesome removed for better performance -->
 
     <!-- Google Analytics -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6320666588"></script>
@@ -275,6 +275,71 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
 
       window.addEventListener('keydown', handleFirstTab);
+    </script>
+
+    <!-- PWA Manifest -->
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#007AFF" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="Emanuel Flury" />
+
+    <!-- Service Worker Registration -->
+    <script is:inline>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+          navigator.serviceWorker.register('/sw.js')
+            .then((registration) => {
+              console.log('SW registered:', registration.scope);
+            })
+            .catch((error) => {
+              console.log('SW registration failed:', error);
+            });
+        });
+      }
+    </script>
+
+    <!-- Modern Web APIs -->
+    <script is:inline>
+      // Web Share API
+      if (navigator.share) {
+        window.sharePage = async function() {
+          try {
+            await navigator.share({
+              title: document.title,
+              text: document.querySelector('meta[name="description"]')?.content || '',
+              url: window.location.href
+            });
+          } catch (err) {
+            console.log('Share cancelled');
+          }
+        };
+      }
+
+      // Intersection Observer for animations
+      if ('IntersectionObserver' in window) {
+        const observerOptions = {
+          root: null,
+          rootMargin: '0px',
+          threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              entry.target.classList.add('animate-in');
+              observer.unobserve(entry.target);
+            }
+          });
+        }, observerOptions);
+
+        // Observe elements with data-animate attribute
+        document.addEventListener('DOMContentLoaded', () => {
+          document.querySelectorAll('[data-animate]').forEach(el => {
+            observer.observe(el);
+          });
+        });
+      }
     </script>
   </head>
   <body>

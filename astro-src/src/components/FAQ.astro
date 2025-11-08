@@ -1,5 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
+import { ChevronDown } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -24,7 +25,7 @@ const faqData = (t('faq.questions') as any) || [];
         <div class="faq-item" data-faq-index={index}>
           <button class="faq-question" aria-expanded="false" aria-controls={`faq-answer-${index}`}>
             <span class="question-text">{item.question}</span>
-            <i class="fas fa-chevron-down faq-icon"></i>
+            <ChevronDown size={20} class="faq-icon" />
           </button>
           <div class="faq-answer" id={`faq-answer-${index}`} role="region">
             <div class="answer-content">
@@ -59,14 +60,27 @@ const faqData = (t('faq.questions') as any) || [];
 
             otherQuestion?.setAttribute('aria-expanded', 'false');
             otherAnswer?.classList.remove('active');
-            otherIcon?.classList.remove('rotate');
+            if (otherIcon) {
+              otherIcon.classList.remove('rotate');
+              // Also rotate SVG if it exists
+              const svg = otherIcon.querySelector('svg');
+              if (svg) svg.style.transform = 'rotate(0deg)';
+            }
           }
         });
 
         // Toggle current item
         question.setAttribute('aria-expanded', (!isExpanded).toString());
         answer?.classList.toggle('active');
-        icon?.classList.toggle('rotate');
+        if (icon) {
+          icon.classList.toggle('rotate');
+          // Also rotate SVG
+          const svg = icon.querySelector('svg');
+          if (svg) {
+            svg.style.transition = 'transform var(--transition-base)';
+            svg.style.transform = isExpanded ? 'rotate(0deg)' : 'rotate(180deg)';
+          }
+        }
 
         // Track FAQ interaction
         if (window.trackEvent) {
@@ -153,14 +167,18 @@ const faqData = (t('faq.questions') as any) || [];
   }
 
   .faq-icon {
-    font-size: 1rem;
-    color: var(--primary-green);
-    transition: transform 0.3s ease;
+    color: var(--primary);
+    transition: transform var(--transition-base);
     flex-shrink: 0;
   }
 
   .faq-icon.rotate {
     transform: rotate(180deg);
+  }
+  
+  .faq-icon svg {
+    width: 20px;
+    height: 20px;
   }
 
   .faq-answer {

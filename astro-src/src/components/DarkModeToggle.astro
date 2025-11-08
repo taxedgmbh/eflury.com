@@ -1,54 +1,67 @@
 ---
+import { Moon, Sun } from 'lucide-astro';
 // Dark Mode Toggle Component
 ---
 
 <button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode">
-  <i class="fas fa-moon" id="darkModeIcon"></i>
+  <Moon id="darkModeIcon" size={20} class="icon-moon" />
+  <Sun id="darkModeIconSun" size={20} class="icon-sun" style="display: none;" />
 </button>
 
 <style>
   .dark-mode-toggle {
-    background: var(--card-bg);
-    border: 1px solid rgba(0, 122, 77, 0.2);
-    border-radius: 50%;
+    background: var(--bg-secondary);
+    border: 0.5px solid var(--border-color);
+    border-radius: var(--radius-full);
     width: 40px;
     height: 40px;
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
-    transition: var(--transition-smooth);
+    transition: all var(--transition-base);
     color: var(--text-primary);
-    font-size: 1.1rem;
+    position: relative;
   }
 
   .dark-mode-toggle:hover {
-    border-color: var(--primary-green);
-    box-shadow: var(--shadow-soft);
-    transform: scale(1.1);
+    background: var(--bg-tertiary);
+    border-color: var(--border-color);
+    box-shadow: var(--shadow-xs);
+    transform: scale(1.05);
   }
 
   .dark-mode-toggle:active {
     transform: scale(0.95);
   }
+  
+  .dark-mode-toggle svg {
+    transition: all var(--transition-base);
+  }
+  
+  [data-theme="dark"] .icon-moon {
+    display: none !important;
+  }
+  
+  [data-theme="dark"] .icon-sun {
+    display: block !important;
+  }
+  
+  [data-theme="light"] .icon-moon {
+    display: block !important;
+  }
+  
+  [data-theme="light"] .icon-sun {
+    display: none !important;
+  }
 </style>
 
 <script>
   const darkModeToggle = document.getElementById('darkModeToggle');
-  const darkModeIcon = document.getElementById('darkModeIcon');
   const htmlElement = document.documentElement;
 
   // Get current theme from localStorage or default to light
   const currentTheme = localStorage.getItem('theme') || 'light';
-
-  // Set initial icon
-  function updateIcon(theme: string) {
-    if (darkModeIcon) {
-      darkModeIcon.className = theme === 'dark' ? 'fas fa-sun' : 'fas fa-moon';
-    }
-  }
-
-  updateIcon(currentTheme);
 
   // Toggle dark mode
   darkModeToggle?.addEventListener('click', () => {
@@ -57,7 +70,6 @@
 
     htmlElement.setAttribute('data-theme', newTheme);
     localStorage.setItem('theme', newTheme);
-    updateIcon(newTheme);
 
     // Track in Google Analytics
     if (window.trackEvent) {

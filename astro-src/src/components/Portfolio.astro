@@ -1,5 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
+import { ExternalLink } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -49,7 +50,7 @@ const projects = [
           <div class="portfolio-image">
             <div class="portfolio-overlay">
               <a href={project.link} class="portfolio-link">
-                <i class="fas fa-external-link-alt"></i>
+                <ExternalLink size={24} />
               </a>
             </div>
           </div>
@@ -101,16 +102,17 @@ const projects = [
 
   .portfolio-card {
     background: var(--card-bg);
-    border-radius: 16px;
+    border-radius: var(--radius-lg);
     overflow: hidden;
-    border: 1px solid rgba(0, 122, 77, 0.1);
-    transition: var(--transition-smooth);
+    border: 0.5px solid var(--border-color);
+    transition: all var(--transition-base);
+    box-shadow: var(--shadow-xs);
   }
 
   .portfolio-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-medium);
-    border-color: var(--primary-green);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
   }
 
   .portfolio-image {

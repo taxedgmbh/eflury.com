@@ -1,5 +1,6 @@
 ---
 import { type Language, useTranslations, routes } from '../i18n/utils';
+import { Linkedin, Github, Mail, Phone } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -22,16 +23,16 @@ const currentYear = new Date().getFullYear();
       <!-- Social Media Links -->
       <div class="social-links">
         <a href="https://linkedin.com/in/emanuelflury" target="_blank" rel="noopener" title="LinkedIn" aria-label="Visit LinkedIn profile">
-          <i class="fab fa-linkedin"></i>
+          <Linkedin size={20} />
         </a>
         <a href="https://github.com/taxedgmbh" target="_blank" rel="noopener" title="GitHub" aria-label="Visit GitHub profile">
-          <i class="fab fa-github"></i>
+          <Github size={20} />
         </a>
         <a href="mailto:me@eflury.com" title="Email" aria-label="Send email">
-          <i class="fas fa-envelope"></i>
+          <Mail size={20} />
         </a>
         <a href="tel:+41799107787" title="Phone" aria-label="Call phone number">
-          <i class="fas fa-phone"></i>
+          <Phone size={20} />
         </a>
       </div>
     </div>
@@ -128,24 +129,31 @@ const currentYear = new Date().getFullYear();
   .social-links a {
     width: 40px;
     height: 40px;
-    border-radius: 50%;
-    background: var(--card-bg);
-    border: 1px solid rgba(0, 122, 77, 0.2);
+    border-radius: var(--radius-full);
+    background: var(--bg-secondary);
+    border: 0.5px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--text-primary);
     text-decoration: none;
-    transition: var(--transition-smooth);
-    font-size: 1.1rem;
+    transition: all var(--transition-base);
   }
 
   .social-links a:hover {
-    background: var(--gradient-primary);
-    color: white;
-    border-color: transparent;
-    transform: translateY(-3px);
-    box-shadow: var(--shadow-soft);
+    background: var(--primary);
+    color: var(--apple-white);
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-sm);
+  }
+  
+  .social-links a svg {
+    transition: transform var(--transition-fast);
+  }
+  
+  .social-links a:hover svg {
+    transform: scale(1.1);
   }
 
   .footer-links {
