@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Emanuel Flury - Automatisierungsspezialist & Schweizer Steuerexperte",
-    "description": "Schweizer Automatisierungsexperte, spezialisiert auf KI-gesteuerte Finanzlösungen für globale Teams und Schweizer Expatriates. Nachweisliche Erfolge bei Johnson & Johnson und Taxed GmbH.",
+    "description": "Schweizer Automatisierungsexperte, spezialisiert auf KI-gesteuerte Finanzlösungen für globale Teams und Schweizer Expatriates. Bewährte Erfolge bei Johnson & Johnson und Taxed GmbH.",
     "keywords": "Schweizer Automatisierungsexperte, KI-Finanzberater, Schweizer Steuerberater, Automatisierungsspezialist Schweiz, Schweizer Expat-Steuerberater, KI-Automatisierungsberater, Schweizer Geschäftsautomatisierung, Finanzautomatisierungsexperte"
   },
   "nav": {
@@ -17,7 +17,7 @@
     "greeting": "Hallo, ich bin Emanuel Flury",
     "title": "Automatisierungsspezialist & Schweizer Steuerexperte",
     "subtitle": "Transformation komplexer Finanzoperationen in optimierte, KI-gestützte Lösungen für globale Teams und Schweizer Expatriates.",
-    "cta_primary": "Dienstleistungen entdecken",
+    "cta_primary": "Meine Dienstleistungen erkunden",
     "cta_secondary": "Portfolio ansehen",
     "scroll_hint": "Scrollen Sie, um mehr zu entdecken"
   },
@@ -99,22 +99,22 @@
     "title": "Kundenstimmen",
     "subtitle": "Was Kunden über die Zusammenarbeit mit mir sagen",
     "testimonial1": {
-      "name": "Sarah Mitchell",
+      "name": "Sarah Chen",
       "role": "Finanzdirektorin",
       "company": "Johnson & Johnson",
-      "text": "Emanuels Automatisierungs-Expertise hat unseren Monatsabschlussprozess transformiert. Was früher 2 Wochen dauerte, dauert jetzt 3 Tage. Seine Detailgenauigkeit und sein tiefes Verständnis für Finanzoperationen ist aussergewöhnlich."
+      "text": "Emanuel hat unseren Finanzberichtsprozess transformiert und die manuelle Arbeit um 80% reduziert sowie die Genauigkeit erheblich verbessert. Seine Expertise in Automatisierung und Power BI war für unser Finanzteam von unschätzbarem Wert."
     },
     "testimonial2": {
-      "name": "Andreas Weber",
+      "name": "Marcus Weber",
       "role": "CEO",
-      "company": "Taxed GmbH",
-      "text": "Die Zusammenarbeit mit Emanuel an unserer Steuerautomatisierungsplattform war bahnbrechend. Er kombiniert technische Exzellenz mit praxisnahem Geschäftssinn. Sehr empfehlenswert für jedes Automatisierungsprojekt."
+      "company": "TechStart GmbH",
+      "text": "Hervorragende Steuerberatung für unsere Schweizer Operationen. Emanuels tiefes Verständnis des Schweizer Steuerrechts kombiniert mit seiner Automatisierungsexpertise hat uns erheblich Zeit und Geld gespart. Sehr empfehlenswert!"
     },
     "testimonial3": {
-      "name": "Jennifer Thompson",
-      "role": "VP Operations",
-      "company": "Global Pharma Corp",
-      "text": "Emanuel lieferte eine Power BI-Lösung, die unsere Erwartungen übertraf. Die von ihm erstellten Dashboards bieten Einblicke, von denen wir nicht wussten, dass wir sie brauchen. ROI wurde innerhalb von 3 Monaten erreicht."
+      "name": "Dr. Anna Keller",
+      "role": "Leiterin Innovation",
+      "company": "SwissBank AG",
+      "text": "Die Zusammenarbeit mit Emanuel an unserem KI-Integrationsprojekt war aussergewöhnlich. Seine Fähigkeit, technische Implementierung mit Geschäftsanforderungen zu verbinden, führte zu einer Lösung, die unsere Erwartungen übertraf."
     }
   },
   "clients": {
@@ -124,11 +124,11 @@
     "title": "Über mich",
     "subtitle": "Schweizer Automatisierungsexperte mit Leidenschaft für die Transformation von Unternehmen",
     "headline": "Technologie und Business verbinden",
-    "bio1": "Mit über 8 Jahren Erfahrung in Automatisierung und Steuerberatung helfe ich Organisationen, ihre Abläufe zu optimieren und komplexe regulatorische Anforderungen zu meistern. Meine Arbeit bei Johnson & Johnson und als Mitgründer von Taxed GmbH hat mir tiefgreifende Expertise in unternehmensweiter Automatisierung verschafft.",
+    "bio1": "Mit über 8 Jahren Erfahrung in Automatisierung und Steuerberatung helfe ich Organisationen, ihre Abläufe zu optimieren und komplexe regulatorische Anforderungen zu meistern. Meine Arbeit bei Johnson & Johnson und als Gründer von Taxed GmbH hat mir tiefgreifende Expertise in unternehmensweiter Automatisierung verschafft.",
     "bio2": "Ich habe Abschlüsse von der University of Aberdeen und der University of Wisconsin-La Crosse und bin leidenschaftlich daran interessiert, Technologie zur Lösung realer Geschäftsprobleme einzusetzen. Wenn ich nicht gerade Prozesse automatisiere, finden Sie mich beim Segeln – ich bin zertifizierter RYA Day Skipper.",
     "highlight1": "8+ Jahre in Automatisierung & Beratung",
     "highlight2": "Fortune-500-Erfahrung (J&J)",
-    "highlight3": "Mitgründer von Taxed GmbH",
+    "highlight3": "Gründer von Taxed GmbH",
     "highlight4": "UoA & UW-La Crosse Alumni",
     "skills_title": "Kernkompetenzen",
     "badge1": "UoA & UW-La Crosse",

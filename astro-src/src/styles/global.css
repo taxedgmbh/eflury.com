@@ -1,68 +1,145 @@
 /* ==========================================================================
-   Global Styles - eflury.com Astro Migration
+   Global Styles - Apple Design System
+   Based on Apple Human Interface Guidelines
    ========================================================================== */
 
-/* CSS Variables - Light Mode (Default) */
+/* CSS Variables - Light Mode (Apple Design) */
 :root {
-    /* South African Flag Color Theme - Light Mode */
-    --primary-black: #000000;       /* Black - Strength, heritage */
-    --primary-green: #007A4D;      /* Green - Growth, nature */
-    --primary-yellow: #FFB81C;     /* Yellow - Energy, optimism */
-    --primary-red: #E03C31;        /* Red - Passion, determination */
-    --primary-blue: #002395;       /* Blue - Trust, professionalism */
-    --pure-white: #FFFFFF;         /* White - Purity, clarity */
-    --warm-gray: #F8FAFC;          /* Warm Gray - Background, subtle */
-    --charcoal: #374151;           /* Charcoal - Professional text */
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #F8FAFC;
-    --text-primary: #374151;
-    --text-secondary: #6B7280;
-    --card-bg: rgba(255, 255, 255, 0.9);
-    --nav-bg: rgba(255, 255, 255, 0.95);
+    /* Apple System Colors */
+    --apple-blue: #007AFF;          /* System Blue - Primary actions */
+    --apple-blue-dark: #0051D5;     /* System Blue Dark */
+    --apple-gray-1: #F5F5F7;        /* Light Gray Background */
+    --apple-gray-2: #E5E5EA;       /* Light Gray Border */
+    --apple-gray-3: #D1D1D6;       /* Medium Gray */
+    --apple-gray-4: #8E8E93;       /* Text Secondary */
+    --apple-gray-5: #636366;       /* Text Tertiary */
+    --apple-gray-6: #48484A;       /* Text Primary */
+    --apple-black: #000000;        /* Pure Black */
+    --apple-white: #FFFFFF;        /* Pure White */
+    
+    /* Semantic Colors */
+    --primary: var(--apple-blue);
+    --primary-hover: var(--apple-blue-dark);
+    --bg-primary: var(--apple-white);
+    --bg-secondary: var(--apple-gray-1);
+    --bg-tertiary: #FAFAFA;
+    --text-primary: var(--apple-gray-6);
+    --text-secondary: var(--apple-gray-4);
+    --text-tertiary: var(--apple-gray-5);
+    --border-color: var(--apple-gray-2);
+    --card-bg: var(--apple-white);
+    --nav-bg: rgba(255, 255, 255, 0.8);
+    
+    /* Apple Accent Colors (Swiss Professional) */
+    --accent-green: #34C759;        /* Success/Positive */
+    --accent-red: #FF3B30;          /* Error/Alert */
+    --accent-orange: #FF9500;       /* Warning */
+    --accent-purple: #AF52DE;       /* Creative */
+    
+    /* Minimal Gradients (Apple Style) */
+    --gradient-subtle: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.8) 100%);
+    --gradient-overlay: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.3) 100%);
 
-    /* South African Flag Gradients */
-    --gradient-primary: linear-gradient(135deg, var(--primary-green), var(--primary-yellow));
-    --gradient-secondary: linear-gradient(135deg, var(--primary-red), var(--primary-yellow));
-    --gradient-hero: linear-gradient(135deg, var(--primary-blue) 0%, var(--primary-red) 50%, var(--primary-green) 100%);
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.1), rgba(255,255,255,0.05));
-    --gradient-aurora: linear-gradient(45deg, var(--primary-blue), var(--primary-green), var(--primary-red), var(--primary-yellow));
+    /* Apple Shadows - Minimal & Subtle */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.04);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.12);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.16);
+    --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.2);
+    
+    /* Legacy support */
+    --primary-green: var(--primary);
+    --primary-blue: var(--primary);
+    --pure-white: var(--apple-white);
+    --warm-gray: var(--apple-gray-1);
+    --charcoal: var(--apple-gray-6);
+    --shadow-soft: var(--shadow-sm);
+    --shadow-medium: var(--shadow-md);
+    --shadow-strong: var(--shadow-lg);
 
-    /* Advanced Shadows */
-    --shadow-soft: 0 10px 40px rgba(0, 122, 77, 0.1);
-    --shadow-medium: 0 20px 60px rgba(0, 122, 77, 0.15);
-    --shadow-strong: 0 30px 80px rgba(0, 122, 77, 0.2);
-    --shadow-glow: 0 0 30px rgba(0, 122, 77, 0.3);
-    --shadow-neon: 0 0 20px var(--primary-green), 0 0 40px var(--primary-green), 0 0 60px var(--primary-green);
+    /* Apple Blur Effects */
+    --blur-light: blur(20px);
+    --blur-medium: blur(40px);
+    --blur-heavy: blur(80px);
 
-    /* Advanced Effects */
-    --blur-glass: blur(10px);
-    --blur-soft: blur(5px);
-
+    /* Apple Animation Curves */
+    --ease-in-out: cubic-bezier(0.4, 0, 0.2, 1);
+    --ease-out: cubic-bezier(0, 0, 0.2, 1);
+    --ease-in: cubic-bezier(0.4, 0, 1, 1);
+    --spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    
     /* Animation Variables */
-    --transition-smooth: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-    --transition-bounce: all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-    --transition-elastic: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    --transition-fast: 150ms var(--ease-out);
+    --transition-base: 250ms var(--ease-out);
+    --transition-slow: 350ms var(--ease-out);
+    --transition-smooth: all var(--transition-base);
+    
+    /* Apple Spacing System */
+    --spacing-xs: 4px;
+    --spacing-sm: 8px;
+    --spacing-md: 16px;
+    --spacing-lg: 24px;
+    --spacing-xl: 32px;
+    --spacing-2xl: 48px;
+    --spacing-3xl: 64px;
+    --spacing-4xl: 80px;
+    --spacing-5xl: 120px;
+    
+    /* Apple Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-xl: 20px;
+    --radius-full: 9999px;
 }
 
-/* Dark Mode Theme */
+/* Dark Mode Theme (Apple Design) */
 [data-theme="dark"] {
-    --primary-green: #00C77E;      /* Brighter green for dark mode */
-    --primary-yellow: #FFC94D;     /* Softer yellow for dark mode */
-    --primary-red: #FF6B6B;        /* Softer red for dark mode */
-    --primary-blue: #4D7FFF;       /* Brighter blue for dark mode */
-    --pure-white: #1A1A1A;         /* Dark background */
-    --warm-gray: #2D2D2D;          /* Dark secondary background */
-    --charcoal: #E5E5E5;           /* Light text on dark */
-    --bg-primary: #1A1A1A;
-    --bg-secondary: #2D2D2D;
-    --text-primary: #E5E5E5;
-    --text-secondary: #B0B0B0;
-    --card-bg: rgba(45, 45, 45, 0.9);
-    --nav-bg: rgba(26, 26, 26, 0.95);
-    --gradient-glass: linear-gradient(135deg, rgba(255,255,255,0.05), rgba(255,255,255,0.02));
-    --shadow-soft: 0 10px 40px rgba(0, 0, 0, 0.3);
-    --shadow-medium: 0 20px 60px rgba(0, 0, 0, 0.4);
-    --shadow-strong: 0 30px 80px rgba(0, 0, 0, 0.5);
+    /* Apple Dark Mode Colors */
+    --apple-blue: #0A84FF;          /* System Blue Dark Mode */
+    --apple-blue-dark: #409CFF;     /* System Blue Dark Mode Hover */
+    --apple-gray-1: #1C1C1E;        /* Dark Background */
+    --apple-gray-2: #2C2C2E;       /* Dark Secondary Background */
+    --apple-gray-3: #3A3A3C;       /* Dark Border */
+    --apple-gray-4: #48484A;       /* Dark Text Secondary */
+    --apple-gray-5: #636366;       /* Dark Text Tertiary */
+    --apple-gray-6: #EBEBF5;       /* Dark Text Primary (60% opacity) */
+    
+    /* Semantic Colors Dark Mode */
+    --primary: var(--apple-blue);
+    --primary-hover: var(--apple-blue-dark);
+    --bg-primary: #000000;          /* Pure Black (Apple Style) */
+    --bg-secondary: var(--apple-gray-1);
+    --bg-tertiary: var(--apple-gray-2);
+    --text-primary: rgba(255, 255, 255, 0.9);
+    --text-secondary: rgba(255, 255, 255, 0.6);
+    --text-tertiary: rgba(255, 255, 255, 0.5);
+    --border-color: rgba(255, 255, 255, 0.1);
+    --card-bg: var(--apple-gray-1);
+    --nav-bg: rgba(0, 0, 0, 0.8);
+    
+    /* Accent Colors Dark Mode */
+    --accent-green: #30D158;
+    --accent-red: #FF453A;
+    --accent-orange: #FF9F0A;
+    --accent-purple: #BF5AF2;
+    
+    /* Shadows Dark Mode */
+    --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.5);
+    --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
+    --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.7);
+    
+    /* Legacy support */
+    --primary-green: var(--primary);
+    --primary-blue: var(--primary);
+    --pure-white: var(--bg-primary);
+    --warm-gray: var(--apple-gray-1);
+    --charcoal: var(--text-primary);
+    --shadow-soft: var(--shadow-sm);
+    --shadow-medium: var(--shadow-md);
+    --shadow-strong: var(--shadow-lg);
 }
 
 /* Smooth theme transition */
@@ -85,55 +162,88 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
-    line-height: 1.6;
+    /* Apple System Font Stack */
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 
+                 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    line-height: 1.47059;           /* Apple's standard line height */
+    font-weight: 400;
+    letter-spacing: -0.011em;       /* Apple's tight letter spacing */
     color: var(--text-primary);
     background: var(--bg-primary);
     overflow-x: hidden;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
 }
 
 /* ==========================================================================
    Custom Scrollbar
    ========================================================================== */
 
+/* Apple Style Scrollbar */
 ::-webkit-scrollbar {
     width: 8px;
+    height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--warm-gray);
+    background: transparent;
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--gradient-primary);
-    border-radius: 4px;
+    background: var(--apple-gray-3);
+    border-radius: var(--radius-full);
+    border: 2px solid transparent;
+    background-clip: padding-box;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--gradient-secondary);
+    background: var(--apple-gray-4);
+    background-clip: padding-box;
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb {
+    background: var(--apple-gray-3);
+}
+
+[data-theme="dark"] ::-webkit-scrollbar-thumb:hover {
+    background: var(--apple-gray-4);
 }
 
 /* ==========================================================================
    Selection Styling
    ========================================================================== */
 
+/* Apple Style Selection */
 ::selection {
-    background: var(--primary-green);
-    color: var(--pure-white);
+    background: var(--primary);
+    color: var(--apple-white);
 }
 
 ::-moz-selection {
-    background: var(--primary-green);
-    color: var(--pure-white);
+    background: var(--primary);
+    color: var(--apple-white);
+}
+
+[data-theme="dark"] ::selection {
+    background: var(--primary);
+    color: var(--apple-white);
+}
+
+[data-theme="dark"] ::-moz-selection {
+    background: var(--primary);
+    color: var(--apple-white);
 }
 
 /* ==========================================================================
    Accessibility - Keyboard Navigation
    ========================================================================== */
 
+/* Apple Accessibility - Keyboard Focus */
 .user-is-tabbing *:focus {
-    outline: 3px solid var(--primary-yellow);
+    outline: 2px solid var(--primary);
     outline-offset: 2px;
+    border-radius: var(--radius-sm);
 }
 
 /* ==========================================================================
@@ -143,11 +253,22 @@ body {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 var(--spacing-xl);
 }
 
+/* Apple Generous Spacing */
 .section-padding {
-    padding: 5rem 0;
+    padding: var(--spacing-5xl) 0;  /* 120px top/bottom */
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 var(--spacing-lg);
+    }
+    
+    .section-padding {
+        padding: var(--spacing-3xl) 0;  /* 64px on mobile */
+    }
 }
 
 .text-center {
@@ -213,12 +334,100 @@ body {
    Responsive Design
    ========================================================================== */
 
-@media (max-width: 768px) {
-    .container {
-        padding: 0 1rem;
-    }
+/* Apple Typography Scale */
+h1, h2, h3, h4, h5, h6 {
+    font-weight: 600;
+    letter-spacing: -0.015em;
+    line-height: 1.1;
+    color: var(--text-primary);
+}
 
+h1 {
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+}
+
+h2 {
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    font-weight: 600;
+}
+
+h3 {
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    font-weight: 600;
+}
+
+/* Apple Button Styles */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md) var(--spacing-xl);
+    border-radius: var(--radius-md);
+    font-weight: 500;
+    font-size: 17px;                /* Apple standard button text */
+    letter-spacing: -0.011em;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    cursor: pointer;
+    border: none;
+    background: var(--primary);
+    color: var(--apple-white);
+    box-shadow: var(--shadow-xs);
+}
+
+.btn:hover {
+    background: var(--primary-hover);
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-1px);
+}
+
+.btn:active {
+    transform: translateY(0);
+    box-shadow: var(--shadow-xs);
+}
+
+.btn-secondary {
+    background: transparent;
+    color: var(--primary);
+    border: 1px solid var(--border-color);
+    box-shadow: none;
+}
+
+.btn-secondary:hover {
+    background: var(--bg-secondary);
+    border-color: var(--primary);
+    transform: translateY(-1px);
+}
+
+/* Apple Card Style */
+.card {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--border-color);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-xs);
+    transition: all var(--transition-base);
+}
+
+.card:hover {
+    box-shadow: var(--shadow-sm);
+    transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
     .section-padding {
-        padding: 3rem 0;
+        padding: var(--spacing-3xl) 0;
+    }
+    
+    h1 {
+        font-size: clamp(2rem, 8vw, 3rem);
+    }
+    
+    h2 {
+        font-size: clamp(1.75rem, 6vw, 2.5rem);
     }
 }
