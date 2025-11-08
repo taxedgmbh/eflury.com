@@ -251,9 +251,18 @@ const currentYear = new Date().getFullYear();
   }
 
   @media (max-width: 768px) {
+    .footer {
+      padding-bottom: calc(80px + env(safe-area-inset-bottom)); /* Space for bottom nav */
+    }
+
     .footer-container {
       grid-template-columns: 1fr;
       gap: 2rem;
+      padding: 0 max(var(--spacing-lg), env(safe-area-inset-left)) 0 max(var(--spacing-lg), env(safe-area-inset-right));
+    }
+
+    .footer-bottom-container {
+      padding: 0 max(var(--spacing-lg), env(safe-area-inset-left)) 0 max(var(--spacing-lg), env(safe-area-inset-right));
     }
 
     .legal-links {

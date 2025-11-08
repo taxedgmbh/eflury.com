@@ -414,9 +414,9 @@ input:focus, textarea:focus, select:focus {
         padding-top: 0; /* Hero section handles its own padding */
     }
     
-    /* First section (hero) should account for header */
-    main#main-content > section:first-child {
-        margin-top: calc(60px + env(safe-area-inset-top));
+    /* Hero section handles its own padding, remove margin-top to avoid double spacing */
+    main#main-content > section.hero:first-child {
+        margin-top: 0;
     }
 }
 
