@@ -97,22 +97,19 @@ const testimonials = [
   }
 
   .testimonial-card {
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    border: 0.5px solid var(--separator);
+    transition: all var(--transition-base);
+    position: relative;
+    box-shadow: var(--shadow-xs);
     -webkit-tap-highlight-color: transparent;
   }
 
   .testimonial-card:active {
     transform: scale(0.98);
     opacity: 0.9;
-  }
-
-  .testimonial-card {
-    background: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
-    border: 0.5px solid var(--border-color);
-    transition: all var(--transition-base);
-    position: relative;
-    box-shadow: var(--shadow-xs);
   }
 
   .testimonial-card:hover {
