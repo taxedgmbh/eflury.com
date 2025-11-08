@@ -137,15 +137,21 @@
     --shadow-lg: 0 8px 24px rgba(0, 0, 0, 0.6);
     --shadow-xl: 0 12px 48px rgba(0, 0, 0, 0.7);
     
-    /* Legacy support */
+    /* Legacy support (aliases for backward compatibility) */
     --primary-green: var(--primary);
     --primary-blue: var(--primary);
+    --primary-red: var(--accent-red);
+    --primary-yellow: var(--accent-orange);
     --pure-white: var(--bg-primary);
     --warm-gray: var(--apple-gray-1);
     --charcoal: var(--text-primary);
     --shadow-soft: var(--shadow-sm);
     --shadow-medium: var(--shadow-md);
     --shadow-strong: var(--shadow-lg);
+    --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+    --gradient-hero: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
+    --gradient-secondary: linear-gradient(135deg, var(--accent-green) 0%, var(--primary) 100%);
+    --gradient-aurora: linear-gradient(135deg, var(--accent-orange) 0%, var(--accent-red) 100%);
 }
 
 /* Smooth theme transition */
