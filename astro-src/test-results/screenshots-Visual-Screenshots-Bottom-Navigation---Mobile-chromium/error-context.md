@@ -1,0 +1,449 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Skip to main content" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Emanuel Flury" [ref=e5] [cursor=pointer]:
+        - /url: /en.html
+      - button "Toggle Menu" [ref=e7] [cursor=pointer]
+  - main [ref=e11]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: Hi, I'm Emanuel Flury
+        - heading "Agentic AI & Business Automation Consultant" [level=1] [ref=e17]
+        - paragraph [ref=e18]: I help businesses transform operations through intelligent automation and agentic AI. 13+ years Fortune 500 automation leadership | Expert in AI agents, LLM orchestration, and process automation | Delivering measurable ROI and operational excellence.
+        - generic [ref=e19]:
+          - link "Start Your Automation Journey" [ref=e20] [cursor=pointer]:
+            - /url: /en.html#services
+            - text: Start Your Automation Journey
+            - img [ref=e21]
+          - link "View Case Studies" [ref=e23] [cursor=pointer]:
+            - /url: /en.html#portfolio
+            - text: View Case Studies
+            - img [ref=e24]
+      - generic [ref=e27]:
+        - generic [ref=e28]: Scroll to discover more
+        - img [ref=e29]
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - img [ref=e36]
+        - generic [ref=e41]:
+          - generic [ref=e42]: 0+
+          - generic [ref=e43]: Years Automation Experience
+      - generic [ref=e44]:
+        - img [ref=e46]
+        - generic [ref=e51]:
+          - generic [ref=e52]: 0%
+          - generic [ref=e53]: System Accuracy Delivered
+      - generic [ref=e54]:
+        - img [ref=e56]
+        - generic [ref=e61]:
+          - generic [ref=e62]: 0%
+          - generic [ref=e63]: Average Time Reduction
+      - generic [ref=e64]:
+        - img [ref=e66]
+        - generic [ref=e69]:
+          - generic [ref=e70]: "0"
+          - generic [ref=e71]: Enterprise Experience
+    - generic [ref=e73]:
+      - generic [ref=e74]:
+        - heading "About Me" [level=2] [ref=e75]
+        - paragraph [ref=e76]: Independent Consultant Specializing in Agentic AI & Business Automation
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - img "Emanuel Flury - Automation Specialist & Swiss Tax Expert" [ref=e79]
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - img [ref=e82]
+              - generic [ref=e85]: University of Aberdeen
+            - generic [ref=e86]:
+              - img [ref=e87]
+              - generic [ref=e90]: Fortune 500 Experience
+        - generic [ref=e91]:
+          - heading "Transforming Businesses Through Intelligent Automation" [level=3] [ref=e92]
+          - paragraph [ref=e93]: I'm an independent consultant specializing in agentic AI and business automation, with 13+ years of Fortune 500 automation leadership experience. I help businesses transform operations through intelligent automation, AI agents, and process optimization. My consulting approach combines deep technical expertise with business acumen, delivering solutions that drive measurable ROI and operational excellence.
+          - paragraph [ref=e94]: Previously, I led automation initiatives at Johnson & Johnson (2012-2024), where I developed AI-powered systems achieving 99.5% accuracy and delivered 70%+ time savings. I hold a Master of Arts in Economics-Finance from the University of Aberdeen and am certified in UiPath RPA, Alteryx, and Power BI. I also founded Taxed GmbH (2021), bringing automation expertise to Swiss SMEs. When not consulting, you'll find me sailing or contributing to community projects.
+          - generic [ref=e95]:
+            - generic [ref=e96]:
+              - img [ref=e97]
+              - generic [ref=e100]: 13+ years automation & AI consulting experience
+            - generic [ref=e101]:
+              - img [ref=e102]
+              - generic [ref=e105]: Fortune 500 automation leadership (J&J 2012-2024)
+            - generic [ref=e106]:
+              - img [ref=e107]
+              - generic [ref=e110]: Expert in agentic AI, LLM orchestration & vector databases
+            - generic [ref=e111]:
+              - img [ref=e112]
+              - generic [ref=e115]: Master's in Economics-Finance (University of Aberdeen)
+          - generic [ref=e116]:
+            - heading "Core Consulting Competencies & Certifications" [level=4] [ref=e117]
+            - generic [ref=e118]:
+              - generic [ref=e120]:
+                - generic [ref=e121]: UiPath RPA
+                - generic [ref=e122]: 95%
+              - generic [ref=e126]:
+                - generic [ref=e127]: Power BI
+                - generic [ref=e128]: 90%
+              - generic [ref=e132]:
+                - generic [ref=e133]: Python
+                - generic [ref=e134]: 85%
+              - generic [ref=e138]:
+                - generic [ref=e139]: Alteryx
+                - generic [ref=e140]: 88%
+              - generic [ref=e144]:
+                - generic [ref=e145]: Swiss Tax Law
+                - generic [ref=e146]: 92%
+              - generic [ref=e150]:
+                - generic [ref=e151]: Financial Analytics
+                - generic [ref=e152]: 93%
+            - paragraph [ref=e156]: UiPath RPA Developer • Alteryx Designer Core • Power BI Data Analyst • Agentic AI Specialist
+    - generic [ref=e158]:
+      - generic [ref=e159]:
+        - heading "Consulting Services" [level=2] [ref=e160]
+        - paragraph [ref=e161]: Agentic AI, Business Automation, and Intelligent Process Transformation
+      - generic [ref=e162]:
+        - generic [ref=e163]:
+          - img [ref=e165]
+          - heading "Agentic AI Consulting" [level=3] [ref=e168]
+          - paragraph [ref=e169]: Transform your business with autonomous AI agents and intelligent automation. I design and implement agentic AI systems using LLM orchestration, vector databases, and custom AI workflows. Specialized in creating self-managing AI agents that handle complex business processes, make decisions, and drive operational efficiency. Proven Fortune 500 results with measurable ROI.
+          - list [ref=e170]:
+            - listitem [ref=e171]:
+              - img [ref=e172]
+              - generic [ref=e175]: AI Agent Design & Development
+            - listitem [ref=e176]:
+              - img [ref=e177]
+              - generic [ref=e180]: LLM Orchestration & Workflows
+            - listitem [ref=e181]:
+              - img [ref=e182]
+              - generic [ref=e185]: Vector Database Integration
+            - listitem [ref=e186]:
+              - img [ref=e187]
+              - generic [ref=e190]: Autonomous Process Automation
+        - generic [ref=e191]:
+          - img [ref=e193]
+          - heading "Business Automation Consulting" [level=3] [ref=e196]
+          - paragraph [ref=e197]: End-to-end automation consulting to streamline operations and reduce costs. From process analysis to implementation, I help businesses automate repetitive tasks, integrate systems, and optimize workflows. Expert in RPA (UiPath certified), Python automation, and custom solutions. Delivering 70%+ time savings and significant cost reductions.
+          - list [ref=e198]:
+            - listitem [ref=e199]:
+              - img [ref=e200]
+              - generic [ref=e203]: Process Automation Strategy
+            - listitem [ref=e204]:
+              - img [ref=e205]
+              - generic [ref=e208]: RPA Implementation (UiPath)
+            - listitem [ref=e209]:
+              - img [ref=e210]
+              - generic [ref=e213]: Workflow Optimization
+            - listitem [ref=e214]:
+              - img [ref=e215]
+              - generic [ref=e218]: System Integration & APIs
+        - generic [ref=e219]:
+          - img [ref=e221]
+          - heading "AI-Powered Workflow Design" [level=3] [ref=e224]
+          - paragraph [ref=e225]: Design intelligent workflows that combine AI capabilities with business logic. I create custom AI solutions using vector databases, semantic search, and LLM integration to enhance decision-making, automate complex tasks, and improve accuracy. Specialized in regulated environments with 99.5%+ accuracy requirements.
+          - list [ref=e226]:
+            - listitem [ref=e227]:
+              - img [ref=e228]
+              - generic [ref=e231]: Custom AI Workflow Design
+            - listitem [ref=e232]:
+              - img [ref=e233]
+              - generic [ref=e236]: Vector Database Solutions
+            - listitem [ref=e237]:
+              - img [ref=e238]
+              - generic [ref=e241]: Semantic Search & RAG
+            - listitem [ref=e242]:
+              - img [ref=e243]
+              - generic [ref=e246]: AI-Powered Decision Systems
+        - generic [ref=e247]:
+          - img [ref=e249]
+          - heading "Digital Transformation Strategy" [level=3] [ref=e252]
+          - paragraph [ref=e253]: Strategic consulting to guide your automation journey. I assess current processes, identify automation opportunities, and develop roadmaps for digital transformation. Leveraging 13+ years Fortune 500 experience to help businesses of all sizes achieve operational excellence through intelligent automation.
+          - list [ref=e254]:
+            - listitem [ref=e255]:
+              - img [ref=e256]
+              - generic [ref=e259]: Automation Roadmap Development
+            - listitem [ref=e260]:
+              - img [ref=e261]
+              - generic [ref=e264]: Process Assessment & Analysis
+            - listitem [ref=e265]:
+              - img [ref=e266]
+              - generic [ref=e269]: ROI Analysis & Business Case
+            - listitem [ref=e270]:
+              - img [ref=e271]
+              - generic [ref=e274]: Change Management Support
+    - generic [ref=e276]:
+      - generic [ref=e277]:
+        - heading "Consulting Projects & Client Success" [level=2] [ref=e278]
+        - paragraph [ref=e279]: Real-world automation transformations delivering measurable business impact
+      - generic [ref=e280]:
+        - generic [ref=e281]:
+          - link [ref=e284] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e285]
+          - generic [ref=e289]:
+            - generic [ref=e290]: Enterprise Automation
+            - heading "Fortune 500 Finance Automation" [level=3] [ref=e291]
+            - paragraph [ref=e292]: Led automation initiatives at Johnson & Johnson, developing AI-powered cost calculation systems achieving 99.5% accuracy. Automated affiliate gross profit analysis, reducing manual processing by 70%+ and enabling real-time reporting across global operations. Delivered significant ROI through intelligent workflow design.
+            - generic [ref=e293]:
+              - generic [ref=e294]: AI Agents
+              - generic [ref=e295]: Power BI
+              - generic [ref=e296]: Python
+              - generic [ref=e297]: Alteryx
+              - generic [ref=e298]: Vector Databases
+        - generic [ref=e299]:
+          - link [ref=e302] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e303]
+          - generic [ref=e307]:
+            - generic [ref=e308]: Process Automation
+            - heading "Global Process Automation" [level=3] [ref=e309]
+            - paragraph [ref=e310]: Designed and implemented automated systems for worldwide transfer pricing and inventory management. Created intelligent workflows that process complex multi-country data, ensuring compliance while reducing processing time by 70%. Enabled strategic decision-making through real-time analytics and AI-powered insights.
+            - generic [ref=e311]:
+              - generic [ref=e312]: LLM Orchestration
+              - generic [ref=e313]: Python
+              - generic [ref=e314]: Power BI
+              - generic [ref=e315]: RPA
+              - generic [ref=e316]: Custom AI Workflows
+        - generic [ref=e317]:
+          - link [ref=e320] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e321]
+          - generic [ref=e325]:
+            - generic [ref=e326]: AI Consulting
+            - heading "AI-Powered Business Solutions" [level=3] [ref=e327]
+            - paragraph [ref=e328]: Consulting engagements helping businesses implement agentic AI and automation solutions. From initial assessment to full implementation, delivered custom AI workflows, vector database integrations, and intelligent automation systems. Clients achieved 60-80% time savings and improved accuracy across operations.
+            - generic [ref=e329]:
+              - generic [ref=e330]: Agentic AI
+              - generic [ref=e331]: LLM Orchestration
+              - generic [ref=e332]: Vector DB
+              - generic [ref=e333]: RPA
+              - generic [ref=e334]: Business Process Automation
+    - generic [ref=e336]:
+      - generic [ref=e337]:
+        - heading "Client Testimonials" [level=2] [ref=e338]
+        - paragraph [ref=e339]: What clients and colleagues say about working with me
+      - generic [ref=e340]:
+        - generic [ref=e341]:
+          - generic [ref=e342]:
+            - img [ref=e343]
+            - img [ref=e345]
+            - img [ref=e347]
+            - img [ref=e349]
+            - img [ref=e351]
+          - paragraph [ref=e353]: "\"Emanuel transformed our financial reporting process, reducing manual work by 80% and significantly improving accuracy. His expertise in automation and Power BI has been invaluable to our finance team. The 99.5% accuracy in cost calculations speaks to his attention to detail.\""
+          - generic [ref=e354]:
+            - generic [ref=e355]: S
+            - generic [ref=e356]:
+              - heading "Sarah Chen" [level=4] [ref=e357]
+              - paragraph [ref=e358]: Finance Director
+              - paragraph [ref=e359]: Johnson & Johnson
+        - generic [ref=e360]:
+          - generic [ref=e361]:
+            - img [ref=e362]
+            - img [ref=e364]
+            - img [ref=e366]
+            - img [ref=e368]
+            - img [ref=e370]
+          - paragraph [ref=e372]: "\"Excellent fiduciary services for our Swiss operations. Emanuel's deep understanding of Swiss tax law combined with his automation expertise has saved us considerable time and money. The service quality at Taxed GmbH is outstanding - highly recommended!\""
+          - generic [ref=e373]:
+            - generic [ref=e374]: M
+            - generic [ref=e375]:
+              - heading "Marcus Weber" [level=4] [ref=e376]
+              - paragraph [ref=e377]: CEO
+              - paragraph [ref=e378]: Swiss SME Client
+        - generic [ref=e379]:
+          - generic [ref=e380]:
+            - img [ref=e381]
+            - img [ref=e383]
+            - img [ref=e385]
+            - img [ref=e387]
+            - img [ref=e389]
+          - paragraph [ref=e391]: "\"Working with Emanuel on our AI integration project was exceptional. His ability to bridge technical implementation with business requirements led to solutions that exceeded expectations. His Fortune 500 experience and automation leadership since 2012 make him a trusted partner.\""
+          - generic [ref=e392]:
+            - generic [ref=e393]: D
+            - generic [ref=e394]:
+              - heading "Dr. Anna Keller" [level=4] [ref=e395]
+              - paragraph [ref=e396]: Operations Leader
+              - paragraph [ref=e397]: Multinational Corporation
+    - generic [ref=e399]:
+      - generic [ref=e400]:
+        - heading "Frequently Asked Questions" [level=2] [ref=e401]
+        - paragraph [ref=e402]: Find answers to common questions about my services
+      - generic [ref=e403]:
+        - generic [ref=e404]:
+          - button "What is agentic AI and how can it help my business?" [ref=e405] [cursor=pointer]:
+            - generic [ref=e406]: What is agentic AI and how can it help my business?
+            - img [ref=e407]
+          - region:
+            - paragraph [ref=e410]: Agentic AI refers to autonomous AI agents that can make decisions, take actions, and manage complex workflows independently. I help businesses implement agentic AI systems that automate decision-making, handle multi-step processes, and adapt to changing conditions. This can reduce manual work by 60-80% while improving accuracy and enabling 24/7 operations.
+        - generic [ref=e411]:
+          - button "What types of businesses do you work with?" [ref=e412] [cursor=pointer]:
+            - generic [ref=e413]: What types of businesses do you work with?
+            - img [ref=e414]
+          - region:
+            - paragraph [ref=e417]: I work with businesses of all sizes, from startups to Fortune 500 companies. My consulting services are particularly valuable for organizations with repetitive processes, data-intensive operations, or complex workflows that can benefit from automation. I have extensive experience in finance, healthcare, manufacturing, and professional services.
+        - generic [ref=e418]:
+          - button "What's your typical consulting engagement?" [ref=e419] [cursor=pointer]:
+            - generic [ref=e420]: What's your typical consulting engagement?
+            - img [ref=e421]
+          - region:
+            - paragraph [ref=e424]: Consulting engagements typically start with an automation assessment (1-2 weeks) to identify opportunities and develop a roadmap. Implementation projects range from 4-16 weeks depending on scope. I also offer ongoing retainer agreements for continuous optimization and support. Every engagement includes knowledge transfer and documentation.
+        - generic [ref=e425]:
+          - button "How do you charge for consulting services?" [ref=e426] [cursor=pointer]:
+            - generic [ref=e427]: How do you charge for consulting services?
+            - img [ref=e428]
+          - region:
+            - paragraph [ref=e431]: "I offer flexible pricing models: hourly rates for assessments and advisory work, fixed-price projects for defined scopes, and retainer agreements for ongoing support. Pricing is tailored to project complexity, timeline, and deliverables. Contact me for a custom quote based on your specific automation goals."
+        - generic [ref=e432]:
+          - button "What technologies do you specialize in?" [ref=e433] [cursor=pointer]:
+            - generic [ref=e434]: What technologies do you specialize in?
+            - img [ref=e435]
+          - region:
+            - paragraph [ref=e438]: I specialize in agentic AI (LLM orchestration, vector databases, AI agents), RPA platforms (UiPath certified), Python automation, and custom AI solutions. I also have extensive experience with Power BI, Alteryx, and workflow automation tools. I select the best technology stack based on your specific business needs.
+        - generic [ref=e439]:
+          - button "Do you provide training and knowledge transfer?" [ref=e440] [cursor=pointer]:
+            - generic [ref=e441]: Do you provide training and knowledge transfer?
+            - img [ref=e442]
+          - region:
+            - paragraph [ref=e445]: Absolutely! Every consulting engagement includes comprehensive knowledge transfer, detailed documentation, and training sessions. I ensure your team can maintain, expand, and optimize the automation solutions I deliver. This empowers your organization to continue driving automation independently.
+        - generic [ref=e446]:
+          - button "What results can I expect from automation consulting?" [ref=e447] [cursor=pointer]:
+            - generic [ref=e448]: What results can I expect from automation consulting?
+            - img [ref=e449]
+          - region:
+            - paragraph [ref=e452]: Typical results include 60-80% reduction in manual processing time, 99%+ accuracy improvements, significant cost savings, and enhanced scalability. I provide ROI analysis and business case development before implementation, ensuring clear expectations and measurable outcomes.
+        - generic [ref=e453]:
+          - button "How do I get started with a consulting engagement?" [ref=e454] [cursor=pointer]:
+            - generic [ref=e455]: How do I get started with a consulting engagement?
+            - img [ref=e456]
+          - region:
+            - paragraph [ref=e459]: Reach out via the contact form, email (me@eflury.com), or phone (+41 79 910 77 87). We'll schedule a complimentary initial consultation to discuss your automation goals, assess opportunities, and determine the best approach. I'll then provide a detailed proposal with scope, timeline, and investment.
+    - generic [ref=e461]:
+      - generic [ref=e462]:
+        - heading "Let's Transform Your Business" [level=2] [ref=e463]
+        - paragraph [ref=e464]: Ready to automate operations and implement agentic AI? Let's discuss your automation goals.
+      - generic [ref=e465]:
+        - generic [ref=e466]:
+          - heading "Consulting Inquiries" [level=3] [ref=e467]
+          - paragraph [ref=e468]: I'm available for consulting engagements, automation assessments, and AI implementation projects. Let's discuss how intelligent automation can transform your business operations.
+          - generic [ref=e469]:
+            - generic [ref=e470]:
+              - img [ref=e472]
+              - generic [ref=e475]:
+                - heading "Email" [level=4] [ref=e476]
+                - link "me@eflury.com" [ref=e477] [cursor=pointer]:
+                  - /url: mailto:me@eflury.com
+            - generic [ref=e478]:
+              - img [ref=e480]
+              - generic [ref=e482]:
+                - heading "Phone" [level=4] [ref=e483]
+                - link "+41 79 910 77 87" [ref=e484] [cursor=pointer]:
+                  - /url: tel:+41799107787
+            - generic [ref=e485]:
+              - img [ref=e487]
+              - generic [ref=e490]:
+                - heading "Location" [level=4] [ref=e491]
+                - paragraph [ref=e492]: Grenchen, Switzerland
+        - generic [ref=e493]:
+          - generic [ref=e494]:
+            - generic [ref=e495]: Your Name
+            - textbox "Your Name" [ref=e496]
+          - generic [ref=e497]:
+            - generic [ref=e498]: Email Address
+            - textbox "Email Address" [ref=e499]
+          - generic [ref=e500]:
+            - generic [ref=e501]: Subject
+            - textbox "Subject" [ref=e502]
+          - generic [ref=e503]:
+            - generic [ref=e504]: Message
+            - textbox "Message" [ref=e505]
+          - button "Send Message" [ref=e506] [cursor=pointer]:
+            - text: Send Message
+            - img [ref=e507]
+  - contentinfo [ref=e510]:
+    - generic [ref=e511]:
+      - generic [ref=e512]:
+        - heading "Emanuel Flury" [level=3] [ref=e513]
+        - paragraph [ref=e514]: Agentic AI & Business Automation Consultant
+        - paragraph [ref=e515]: Transforming businesses through intelligent automation, AI agents, and process optimization.
+        - generic [ref=e516]:
+          - link "Visit LinkedIn profile" [ref=e517] [cursor=pointer]:
+            - /url: https://linkedin.com/in/emanuelflury
+            - img [ref=e518]
+          - link "Visit GitHub profile" [ref=e522] [cursor=pointer]:
+            - /url: https://github.com/taxedgmbh
+            - img [ref=e523]
+          - link "Send email" [ref=e526] [cursor=pointer]:
+            - /url: mailto:me@eflury.com
+            - img [ref=e527]
+          - link "Call phone number" [ref=e530] [cursor=pointer]:
+            - /url: tel:+41799107787
+            - img [ref=e531]
+      - generic [ref=e533]:
+        - heading "Services" [level=4] [ref=e534]
+        - list [ref=e535]:
+          - listitem [ref=e536]:
+            - link "Agentic AI Consulting" [ref=e537] [cursor=pointer]:
+              - /url: /en.html#services
+          - listitem [ref=e538]:
+            - link "Business Automation" [ref=e539] [cursor=pointer]:
+              - /url: /en.html#services
+          - listitem [ref=e540]:
+            - link "AI Workflow Design" [ref=e541] [cursor=pointer]:
+              - /url: /en.html#services
+          - listitem [ref=e542]:
+            - link "Digital Transformation" [ref=e543] [cursor=pointer]:
+              - /url: /en.html#services
+      - generic [ref=e544]:
+        - heading "Contact" [level=4] [ref=e545]
+        - list [ref=e546]:
+          - listitem [ref=e547]:
+            - link "me@eflury.com" [ref=e548] [cursor=pointer]:
+              - /url: mailto:me@eflury.com
+          - listitem [ref=e549]:
+            - link "+41 79 910 77 87" [ref=e550] [cursor=pointer]:
+              - /url: tel:+41799107787
+          - listitem [ref=e551]: Grenchen, Switzerland
+    - generic [ref=e553]:
+      - paragraph [ref=e554]: © 2025 Emanuel Flury
+      - navigation "Legal" [ref=e555]:
+        - link "Privacy" [ref=e556] [cursor=pointer]:
+          - /url: /privacy.html
+        - link "Terms" [ref=e557] [cursor=pointer]:
+          - /url: /terms.html
+        - link "Cookies" [ref=e558] [cursor=pointer]:
+          - /url: /cookies.html
+        - link "Disclaimer" [ref=e559] [cursor=pointer]:
+          - /url: /disclaimer.html
+        - link "Code of Conduct" [ref=e560] [cursor=pointer]:
+          - /url: /code-of-conduct.html
+        - link "Data Protection" [ref=e561] [cursor=pointer]:
+          - /url: https://www.edoeb.admin.ch/edoeb/en/home.html
+      - paragraph [ref=e562]: Made with ❤️ in Switzerland
+  - navigation [ref=e563]:
+    - link "Home" [ref=e564] [cursor=pointer]:
+      - /url: /en.html
+      - img [ref=e566]
+      - generic [ref=e569]: Home
+    - link "About" [ref=e570] [cursor=pointer]:
+      - /url: /en.html#about
+      - img [ref=e572]
+      - generic [ref=e575]: About
+    - link "Services" [ref=e576] [cursor=pointer]:
+      - /url: /en.html#services
+      - img [ref=e578]
+      - generic [ref=e581]: Services
+    - link "Portfolio" [ref=e582] [cursor=pointer]:
+      - /url: /en.html#portfolio
+      - img [ref=e584]
+      - generic [ref=e586]: Portfolio
+    - link "Contact" [ref=e587] [cursor=pointer]:
+      - /url: /en.html#contact
+      - img [ref=e589]
+      - generic [ref=e592]: Contact
+  - button "Open AI chatbot" [ref=e593] [cursor=pointer]:
+    - img [ref=e594]
+```

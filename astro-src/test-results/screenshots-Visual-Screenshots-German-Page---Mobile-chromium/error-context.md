@@ -1,0 +1,448 @@
+# Page snapshot
+
+```yaml
+- generic [active] [ref=e1]:
+  - link "Zum Hauptinhalt springen" [ref=e2] [cursor=pointer]:
+    - /url: "#main-content"
+  - navigation [ref=e3]:
+    - generic [ref=e4]:
+      - link "Emanuel Flury" [ref=e5] [cursor=pointer]:
+        - /url: /de.html
+      - button "Toggle Menu" [ref=e7] [cursor=pointer]
+  - main [ref=e11]:
+    - generic [ref=e14]:
+      - generic [ref=e15]:
+        - paragraph [ref=e16]: Hallo, ich bin Emanuel Flury
+        - heading "KI-Native Automatisierungsspezialist & Schweizer Steuerexperte" [level=1] [ref=e17]
+        - paragraph [ref=e18]: Finance Analyst FP&A bei Johnson & Johnson | Gründer von Taxed GmbH | 13+ Jahre Automatisierungsinitiativen für globale Teams und Schweizer Expatriates mit bewährten Fortune-500-Ergebnissen.
+        - generic [ref=e19]:
+          - link "Meine Dienstleistungen erkunden" [ref=e20] [cursor=pointer]:
+            - /url: /de.html#services
+            - text: Meine Dienstleistungen erkunden
+            - img [ref=e21]
+          - link "Portfolio ansehen" [ref=e23] [cursor=pointer]:
+            - /url: /de.html#portfolio
+            - text: Portfolio ansehen
+            - img [ref=e24]
+      - generic [ref=e27]:
+        - generic [ref=e28]: Scrollen Sie, um mehr zu entdecken
+        - img [ref=e29]
+    - generic [ref=e33]:
+      - generic [ref=e34]:
+        - img [ref=e36]
+        - generic [ref=e41]:
+          - generic [ref=e42]: 0+
+          - generic [ref=e43]: Jahre Automatisierungsführung
+      - generic [ref=e44]:
+        - img [ref=e46]
+        - generic [ref=e51]:
+          - generic [ref=e52]: 0%
+          - generic [ref=e53]: Kostenberechnungsgenauigkeit
+      - generic [ref=e54]:
+        - img [ref=e56]
+        - generic [ref=e61]:
+          - generic [ref=e62]: 0%
+          - generic [ref=e63]: Prozesszeitreduzierung
+      - generic [ref=e64]:
+        - img [ref=e66]
+        - generic [ref=e69]:
+          - generic [ref=e70]: "0"
+          - generic [ref=e71]: Automatisierung seit
+    - generic [ref=e73]:
+      - generic [ref=e74]:
+        - heading "Über mich" [level=2] [ref=e75]
+        - paragraph [ref=e76]: KI-Native Automatisierungsspezialist & Schweizer Steuerexperte mit Fortune-500-Führungserfahrung
+      - generic [ref=e77]:
+        - generic [ref=e78]:
+          - img "Emanuel Flury - Automation Specialist & Swiss Tax Expert" [ref=e79]
+          - generic [ref=e80]:
+            - generic [ref=e81]:
+              - img [ref=e82]
+              - generic [ref=e85]: UoA & UW-La Crosse
+            - generic [ref=e86]:
+              - img [ref=e87]
+              - generic [ref=e90]: J&J + Taxed GmbH
+        - generic [ref=e91]:
+          - heading "Technologie und Business-Exzellenz verbinden" [level=3] [ref=e92]
+          - paragraph [ref=e93]: Ich bin Finance Analyst FP&A bei DePuy Synthes GmbH (Johnson & Johnson) seit 2017, wo ich seit 2012 Automatisierungsinitiativen leite. Mit über 13 Jahren kombinierter Erfahrung in Finanzautomatisierung und Steuerberatung spezialisiere ich mich auf die Transformation komplexer Geschäftsprozesse in intelligente, KI-gestützte Lösungen. Meine Arbeit umfasst globale Operationen, WW-Verrechnungspreismanagement, 99,5% Genauigkeit bei FAA PII & Standardkostenberechnungen und erhebliche Kosteneinsparungen durch Automatisierung.
+          - paragraph [ref=e94]: 2021 gründete ich Taxed GmbH (100% Eigentum), ein Treuhandunternehmen, das KMU in der gesamten Schweiz und auf internationalen Märkten betreut. Ich habe einen Master of Arts in Economics-Finance von der University of Aberdeen und absolvierte einen internationalen Austausch an der University of Wisconsin-La Crosse. Zertifiziert in UiPath RPA, Alteryx und Power BI, bin ich auch Royal Yachting Association Day Skipper. Wenn ich nicht gerade Prozesse automatisiere, finden Sie mich beim Segeln oder bei der Mitarbeit an Gemeinschaftsprojekten wie dem Weissenstein-Wanderweg.
+          - generic [ref=e95]:
+            - generic [ref=e96]:
+              - img [ref=e97]
+              - generic [ref=e100]: 13+ Jahre Automatisierungsführung (J&J seit 2012)
+            - generic [ref=e101]:
+              - img [ref=e102]
+              - generic [ref=e105]: Finance Analyst FP&A bei Fortune 500 (seit 2017)
+            - generic [ref=e106]:
+              - img [ref=e107]
+              - generic [ref=e110]: Gründer & Eigentümer von Taxed GmbH (2021)
+            - generic [ref=e111]:
+              - img [ref=e112]
+              - generic [ref=e115]: Master in Economics-Finance (UoA)
+          - generic [ref=e116]:
+            - heading "Kernkompetenzen & Zertifizierungen" [level=4] [ref=e117]
+            - generic [ref=e118]:
+              - generic [ref=e120]:
+                - generic [ref=e121]: UiPath RPA
+                - generic [ref=e122]: 95%
+              - generic [ref=e126]:
+                - generic [ref=e127]: Power BI
+                - generic [ref=e128]: 90%
+              - generic [ref=e132]:
+                - generic [ref=e133]: Python
+                - generic [ref=e134]: 85%
+              - generic [ref=e138]:
+                - generic [ref=e139]: Alteryx
+                - generic [ref=e140]: 88%
+              - generic [ref=e144]:
+                - generic [ref=e145]: Swiss Tax Law
+                - generic [ref=e146]: 92%
+              - generic [ref=e150]:
+                - generic [ref=e151]: Financial Analytics
+                - generic [ref=e152]: 93%
+            - paragraph [ref=e156]: UiPath RPA Developer • Alteryx Designer Core • Power BI Data Analyst • RYA Day Skipper
+    - generic [ref=e158]:
+      - generic [ref=e159]:
+        - heading "Was ich mache" [level=2] [ref=e160]
+        - paragraph [ref=e161]: KI-Native Automatisierung, Schweizer Steuerexpertise und Finanzanalytik
+      - generic [ref=e162]:
+        - generic [ref=e163]:
+          - img [ref=e165]
+          - heading "KI-Native Automatisierung" [level=3] [ref=e168]
+          - paragraph [ref=e169]: Transformieren Sie Geschäftsprozesse mit KI-Workflows der nächsten Generation, Vektordatenbanken und LLM-Orchestrierung. Spezialisiert auf regulierte Umgebungen, verbinde ich traditionelle Finanzen mit intelligenter Automatisierung mit UiPath, Python und maßgeschneiderten KI-Lösungen. Bewährte Erfolge auf Fortune-500-Niveau mit erheblichem ROI.
+          - list [ref=e170]:
+            - listitem [ref=e171]:
+              - img [ref=e172]
+              - generic [ref=e175]: RPA & Prozessautomatisierung
+            - listitem [ref=e176]:
+              - img [ref=e177]
+              - generic [ref=e180]: Vektor-DB & KI-Integration
+            - listitem [ref=e181]:
+              - img [ref=e182]
+              - generic [ref=e185]: UiPath zertifizierte Entwicklung
+            - listitem [ref=e186]:
+              - img [ref=e187]
+              - generic [ref=e190]: LLM-Orchestrierung & KI-Agenten
+        - generic [ref=e191]:
+          - img [ref=e193]
+          - heading "services.business_automation.title" [level=3] [ref=e196]
+          - paragraph [ref=e197]: services.business_automation.description
+          - list [ref=e198]:
+            - listitem [ref=e199]:
+              - img [ref=e200]
+              - generic [ref=e203]: services.business_automation.features.0
+            - listitem [ref=e204]:
+              - img [ref=e205]
+              - generic [ref=e208]: services.business_automation.features.1
+            - listitem [ref=e209]:
+              - img [ref=e210]
+              - generic [ref=e213]: services.business_automation.features.2
+            - listitem [ref=e214]:
+              - img [ref=e215]
+              - generic [ref=e218]: services.business_automation.features.3
+        - generic [ref=e219]:
+          - img [ref=e221]
+          - heading "services.ai_workflows.title" [level=3] [ref=e224]
+          - paragraph [ref=e225]: services.ai_workflows.description
+          - list [ref=e226]:
+            - listitem [ref=e227]:
+              - img [ref=e228]
+              - generic [ref=e231]: services.ai_workflows.features.0
+            - listitem [ref=e232]:
+              - img [ref=e233]
+              - generic [ref=e236]: services.ai_workflows.features.1
+            - listitem [ref=e237]:
+              - img [ref=e238]
+              - generic [ref=e241]: services.ai_workflows.features.2
+            - listitem [ref=e242]:
+              - img [ref=e243]
+              - generic [ref=e246]: services.ai_workflows.features.3
+        - generic [ref=e247]:
+          - img [ref=e249]
+          - heading "Finanz- & Prozessoptimierung" [level=3] [ref=e252]
+          - paragraph [ref=e253]: Strategische Finanz- und Prozessberatung mit 13+ Jahren Erfahrung auf Fortune-500-Niveau. Spezialisiert auf Affiliate-Bruttogewinnoptimierung, Spin-off-Berechnungen, Kostenstellencontrolling und globale Prozessstandardisierung. Bewährte Kostensenkung und Effizienzsteigerung.
+          - list [ref=e254]:
+            - listitem [ref=e255]:
+              - img [ref=e256]
+              - generic [ref=e259]: Finanzprozessoptimierung
+            - listitem [ref=e260]:
+              - img [ref=e261]
+              - generic [ref=e264]: Kostenstellencontrolling
+            - listitem [ref=e265]:
+              - img [ref=e266]
+              - generic [ref=e269]: Globale Prozessstandardisierung
+            - listitem [ref=e270]:
+              - img [ref=e271]
+              - generic [ref=e274]: Strategische Spin-off-Berechnungen
+    - generic [ref=e276]:
+      - generic [ref=e277]:
+        - heading "Ausgewählte Projekte & Erfolge" [level=2] [ref=e278]
+        - paragraph [ref=e279]: Reale Auswirkungen auf Fortune-500-Niveau und unternehmerischer Erfolg
+      - generic [ref=e280]:
+        - generic [ref=e281]:
+          - link [ref=e284] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e285]
+          - generic [ref=e289]:
+            - generic [ref=e290]: Finanzautomatisierung
+            - heading "FAA PII & Standardkosten-Automatisierung (J&J)" [level=3] [ref=e291]
+            - paragraph [ref=e292]: Entwicklung und Wartung automatisierter Kostenberechnungssysteme mit 99,5% Genauigkeit für FAA PII & Standardkosten. Optimierung der Affiliate-Bruttogewinnanalyse, Verbesserung der Berichtseffizienz und erhebliche Reduzierung der manuellen Bearbeitungszeit in globalen Operationen.
+            - generic [ref=e293]:
+              - generic [ref=e294]: Power BI
+              - generic [ref=e295]: Python
+              - generic [ref=e296]: Alteryx
+              - generic [ref=e297]: SQL Server
+              - generic [ref=e298]: Excel
+        - generic [ref=e299]:
+          - link [ref=e302] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e303]
+          - generic [ref=e307]:
+            - generic [ref=e308]: Globale Finanzen
+            - heading "WW-Verrechnungspreismanagement" [level=3] [ref=e309]
+            - paragraph [ref=e310]: Verwaltung der weltweiten Verrechnungspreispflege über mehrere Länder hinweg, Gewährleistung von Compliance und Optimierung. Automatisierte Echtzeit-Inventarberichte und Tage-Versorgung-Berechnungen, Verbesserung der Inventargenauigkeit und Unterstützung strategischer Entscheidungsfindung.
+            - generic [ref=e311]:
+              - generic [ref=e312]: Power BI
+              - generic [ref=e313]: Python
+              - generic [ref=e314]: SQL
+              - generic [ref=e315]: Excel
+              - generic [ref=e316]: Automatisierungstools
+        - generic [ref=e317]:
+          - link [ref=e320] [cursor=pointer]:
+            - /url: "#"
+            - img [ref=e321]
+          - generic [ref=e325]:
+            - generic [ref=e326]: Unternehmertum
+            - heading "Taxed GmbH - Treuhanddienstleistungen" [level=3] [ref=e327]
+            - paragraph [ref=e328]: Gründung und Betrieb von Taxed GmbH (2021), Bereitstellung umfassender Treuhand-, Steuer- und Unternehmensberatungsdienstleistungen. Starker Umsatzwachstum in den ersten 2 Jahren, Betreuung mehrerer KMU-Kunden in der gesamten Schweiz mit hoher Kundenbindung und Zufriedenheitsraten.
+            - generic [ref=e329]:
+              - generic [ref=e330]: Unternehmensführung
+              - generic [ref=e331]: Steuer-Compliance
+              - generic [ref=e332]: Treuhanddienstleistungen
+              - generic [ref=e333]: Kundenbeziehungen
+    - generic [ref=e335]:
+      - generic [ref=e336]:
+        - heading "Kundenstimmen" [level=2] [ref=e337]
+        - paragraph [ref=e338]: Was Kunden über die Zusammenarbeit mit mir sagen
+      - generic [ref=e339]:
+        - generic [ref=e340]:
+          - generic [ref=e341]:
+            - img [ref=e342]
+            - img [ref=e344]
+            - img [ref=e346]
+            - img [ref=e348]
+            - img [ref=e350]
+          - paragraph [ref=e352]: "\"Emanuel hat unseren Finanzberichtsprozess transformiert, die manuelle Arbeit um 80% reduziert und die Genauigkeit erheblich verbessert. Seine Expertise in Automatisierung und Power BI war für unser Finanzteam von unschätzbarem Wert. Die 99,5% Genauigkeit bei Kostenberechnungen spricht für seine Sorgfalt.\""
+          - generic [ref=e353]:
+            - generic [ref=e354]: S
+            - generic [ref=e355]:
+              - heading "Sarah Chen" [level=4] [ref=e356]
+              - paragraph [ref=e357]: Finanzdirektorin
+              - paragraph [ref=e358]: Johnson & Johnson
+        - generic [ref=e359]:
+          - generic [ref=e360]:
+            - img [ref=e361]
+            - img [ref=e363]
+            - img [ref=e365]
+            - img [ref=e367]
+            - img [ref=e369]
+          - paragraph [ref=e371]: "\"Hervorragende Treuhanddienstleistungen für unsere Schweizer Operationen. Emanuels tiefes Verständnis des Schweizer Steuerrechts kombiniert mit seiner Automatisierungsexpertise hat uns erheblich Zeit und Geld gespart. Die Servicequalität bei Taxed GmbH ist hervorragend - sehr empfehlenswert!\""
+          - generic [ref=e372]:
+            - generic [ref=e373]: M
+            - generic [ref=e374]:
+              - heading "Marcus Weber" [level=4] [ref=e375]
+              - paragraph [ref=e376]: CEO
+              - paragraph [ref=e377]: Schweizer KMU-Kunde
+        - generic [ref=e378]:
+          - generic [ref=e379]:
+            - img [ref=e380]
+            - img [ref=e382]
+            - img [ref=e384]
+            - img [ref=e386]
+            - img [ref=e388]
+          - paragraph [ref=e390]: "\"Die Zusammenarbeit mit Emanuel an unserem KI-Integrationsprojekt war aussergewöhnlich. Seine Fähigkeit, technische Implementierung mit Geschäftsanforderungen zu verbinden, führte zu Lösungen, die unsere Erwartungen übertrafen. Seine Fortune-500-Erfahrung und Automatisierungsführung seit 2012 machen ihn zu einem vertrauenswürdigen Partner.\""
+          - generic [ref=e391]:
+            - generic [ref=e392]: D
+            - generic [ref=e393]:
+              - heading "Dr. Anna Keller" [level=4] [ref=e394]
+              - paragraph [ref=e395]: Operations-Leiterin
+              - paragraph [ref=e396]: Multinationales Unternehmen
+    - generic [ref=e398]:
+      - generic [ref=e399]:
+        - heading "Häufig gestellte Fragen" [level=2] [ref=e400]
+        - paragraph [ref=e401]: Finden Sie Antworten auf häufige Fragen zu meinen Dienstleistungen
+      - generic [ref=e402]:
+        - generic [ref=e403]:
+          - button "Arbeiten Sie mit internationalen Kunden?" [ref=e404] [cursor=pointer]:
+            - generic [ref=e405]: Arbeiten Sie mit internationalen Kunden?
+            - img [ref=e406]
+          - region:
+            - paragraph [ref=e409]: Ja! Ich arbeite mit Kunden weltweit, insbesondere mit solchen, die Niederlassungen in der Schweiz haben oder Schweizer Steuerexpertise benötigen. Meine Automatisierungsberatung ist weltweit verfügbar, und ich habe Erfahrung mit multinationalen Unternehmen und Remote-Zusammenarbeit.
+        - generic [ref=e410]:
+          - button "Wie lange dauert ein typisches Projekt?" [ref=e411] [cursor=pointer]:
+            - generic [ref=e412]: Wie lange dauert ein typisches Projekt?
+            - img [ref=e413]
+          - region:
+            - paragraph [ref=e416]: Projektzeitpläne variieren je nach Umfang und Komplexität. Ein typisches Automatisierungsprojekt dauert 2-12 Wochen, während Steuerberatungsmandate fortlaufend sein können. Ich erstelle detaillierte Zeitpläne während unserer ersten Beratung, nachdem ich Ihre spezifischen Anforderungen verstanden habe.
+        - generic [ref=e417]:
+          - button "Wie berechnen Sie Ihre Dienstleistungen?" [ref=e418] [cursor=pointer]:
+            - generic [ref=e419]: Wie berechnen Sie Ihre Dienstleistungen?
+            - img [ref=e420]
+          - region:
+            - paragraph [ref=e423]: Ich biete flexible Preismodelle an, einschliesslich Stundensätzen, Festpreisprojekten und Retainer-Vereinbarungen. Die Preisgestaltung hängt von der Projektkomplexität, dem Zeitplan und den Ergebnissen ab. Kontaktieren Sie mich für ein massgeschneidertes Angebot.
+        - generic [ref=e424]:
+          - button "Auf welche Automatisierungsplattformen sind Sie spezialisiert?" [ref=e425] [cursor=pointer]:
+            - generic [ref=e426]: Auf welche Automatisierungsplattformen sind Sie spezialisiert?
+            - img [ref=e427]
+          - region:
+            - paragraph [ref=e430]: Ich bin zertifiziert als UiPath RPA Developer (2022), Alteryx Designer Core (2021) und Microsoft Power BI Data Analyst Associate (2021). Ich spezialisiere mich auf KI-native Automatisierung mit Vektordatenbanken, LLM-Orchestrierung, Python-Automatisierung und massgeschneiderten Lösungen. Mit 13+ Jahren Automatisierungsführung auf Fortune-500-Niveau habe ich umfangreiche Erfahrung mit RPA, KI-Integration, Workflow-Automatisierung und unternehmensweiter Datenanalyse.
+        - generic [ref=e431]:
+          - button "Können Sie bei der Schweizer Steuerkonformität für Expatriates helfen?" [ref=e432] [cursor=pointer]:
+            - generic [ref=e433]: Können Sie bei der Schweizer Steuerkonformität für Expatriates helfen?
+            - img [ref=e434]
+          - region:
+            - paragraph [ref=e437]: Absolut! Über Taxed GmbH, die ich 2021 gegründet habe, biete ich umfassende Schweizer Steuerberatung für Expatriates. Ich helfe dabei, komplexe Schweizer Steuervorschriften zu navigieren, Steuerstrategien zu optimieren und Compliance über mehrere Jurisdiktionen hinweg sicherzustellen. Dienstleistungen umfassen Buchhaltung, MWST-Abrechnungen, Steuererklärungen für Einzelpersonen und Unternehmen sowie Treuhanddienstleistungen für KMU in der gesamten Schweiz.
+        - generic [ref=e438]:
+          - button "Bieten Sie Schulungen oder Wissenstransfer an?" [ref=e439] [cursor=pointer]:
+            - generic [ref=e440]: Bieten Sie Schulungen oder Wissenstransfer an?
+            - img [ref=e441]
+          - region:
+            - paragraph [ref=e444]: Ja! Ich glaube an die Befähigung von Teams. Die meisten Projekte beinhalten Wissenstransfer-Sitzungen, Dokumentation und Schulungen, um sicherzustellen, dass Ihr Team die von mir gelieferten Lösungen pflegen und erweitern kann.
+        - generic [ref=e445]:
+          - button "Welche Branchen bedienen Sie?" [ref=e446] [cursor=pointer]:
+            - generic [ref=e447]: Welche Branchen bedienen Sie?
+            - img [ref=e448]
+          - region:
+            - paragraph [ref=e451]: Ich habe umfangreiche Erfahrung in der Pharmaindustrie (Finance Analyst FP&A bei DePuy Synthes/Johnson & Johnson seit 2017), Finanzautomatisierung, Steuerberatung (Taxed GmbH) und Unternehmensabläufen. Meine Expertise umfasst Fortune-500-Multinationale, KMU und Einzelkunden, die Schweizer Steuerexpertise benötigen. Meine Automatisierungs- und Prozessoptimierungsfähigkeiten sind branchenübergreifend anwendbar.
+        - generic [ref=e452]:
+          - button "Wie fange ich an?" [ref=e453] [cursor=pointer]:
+            - generic [ref=e454]: Wie fange ich an?
+            - img [ref=e455]
+          - region:
+            - paragraph [ref=e458]: Kontaktieren Sie mich einfach über das Kontaktformular, per E-Mail (me@eflury.com) oder Telefon (+41 79 910 77 87). Wir vereinbaren eine erste Beratung, um Ihre Bedürfnisse zu besprechen, und ich erstelle einen Vorschlag mit Umfang, Zeitplan und Preisgestaltung.
+    - generic [ref=e460]:
+      - generic [ref=e461]:
+        - heading "Lassen Sie uns zusammenarbeiten" [level=2] [ref=e462]
+        - paragraph [ref=e463]: Bereit, Ihr Unternehmen zu transformieren? Nehmen Sie Kontakt auf.
+      - generic [ref=e464]:
+        - generic [ref=e465]:
+          - heading "Kontakt aufnehmen" [level=3] [ref=e466]
+          - paragraph [ref=e467]: Ich bin immer offen für die Diskussion neuer Projekte, kreativer Ideen oder Möglichkeiten, Teil Ihrer Vision zu sein.
+          - generic [ref=e468]:
+            - generic [ref=e469]:
+              - img [ref=e471]
+              - generic [ref=e474]:
+                - heading "E-Mail" [level=4] [ref=e475]
+                - link "me@eflury.com" [ref=e476] [cursor=pointer]:
+                  - /url: mailto:me@eflury.com
+            - generic [ref=e477]:
+              - img [ref=e479]
+              - generic [ref=e481]:
+                - heading "Telefon" [level=4] [ref=e482]
+                - link "+41 79 910 77 87" [ref=e483] [cursor=pointer]:
+                  - /url: tel:+41799107787
+            - generic [ref=e484]:
+              - img [ref=e486]
+              - generic [ref=e489]:
+                - heading "Standort" [level=4] [ref=e490]
+                - paragraph [ref=e491]: Grenchen, Switzerland
+        - generic [ref=e492]:
+          - generic [ref=e493]:
+            - generic [ref=e494]: Ihr Name
+            - textbox "Ihr Name" [ref=e495]
+          - generic [ref=e496]:
+            - generic [ref=e497]: E-Mail-Adresse
+            - textbox "E-Mail-Adresse" [ref=e498]
+          - generic [ref=e499]:
+            - generic [ref=e500]: Betreff
+            - textbox "Betreff" [ref=e501]
+          - generic [ref=e502]:
+            - generic [ref=e503]: Nachricht
+            - textbox "Nachricht" [ref=e504]
+          - button "Nachricht senden" [ref=e505] [cursor=pointer]:
+            - text: Nachricht senden
+            - img [ref=e506]
+  - contentinfo [ref=e509]:
+    - generic [ref=e510]:
+      - generic [ref=e511]:
+        - heading "Emanuel Flury" [level=3] [ref=e512]
+        - paragraph [ref=e513]: Automatisierungsspezialist & Schweizer Steuerexperte
+        - paragraph [ref=e514]: Transformation von Unternehmen durch intelligente Automatisierung und strategische Steueroptimierung.
+        - generic [ref=e515]:
+          - link "Visit LinkedIn profile" [ref=e516] [cursor=pointer]:
+            - /url: https://linkedin.com/in/emanuelflury
+            - img [ref=e517]
+          - link "Visit GitHub profile" [ref=e521] [cursor=pointer]:
+            - /url: https://github.com/taxedgmbh
+            - img [ref=e522]
+          - link "Send email" [ref=e525] [cursor=pointer]:
+            - /url: mailto:me@eflury.com
+            - img [ref=e526]
+          - link "Call phone number" [ref=e529] [cursor=pointer]:
+            - /url: tel:+41799107787
+            - img [ref=e530]
+      - generic [ref=e532]:
+        - heading "Dienstleistungen" [level=4] [ref=e533]
+        - list [ref=e534]:
+          - listitem [ref=e535]:
+            - link "Automatisierungsberatung" [ref=e536] [cursor=pointer]:
+              - /url: /de.html#services
+          - listitem [ref=e537]:
+            - link "Schweizer Steuerberatung" [ref=e538] [cursor=pointer]:
+              - /url: /de.html#services
+          - listitem [ref=e539]:
+            - link "Finanzanalyse" [ref=e540] [cursor=pointer]:
+              - /url: /de.html#services
+          - listitem [ref=e541]:
+            - link "Unternehmensberatung" [ref=e542] [cursor=pointer]:
+              - /url: /de.html#services
+      - generic [ref=e543]:
+        - heading "Kontakt" [level=4] [ref=e544]
+        - list [ref=e545]:
+          - listitem [ref=e546]:
+            - link "me@eflury.com" [ref=e547] [cursor=pointer]:
+              - /url: mailto:me@eflury.com
+          - listitem [ref=e548]:
+            - link "+41 79 910 77 87" [ref=e549] [cursor=pointer]:
+              - /url: tel:+41799107787
+          - listitem [ref=e550]: Grenchen, Switzerland
+    - generic [ref=e552]:
+      - paragraph [ref=e553]: © 2025 Emanuel Flury
+      - navigation "Legal" [ref=e554]:
+        - link "Privacy" [ref=e555] [cursor=pointer]:
+          - /url: /privacy.html
+        - link "Terms" [ref=e556] [cursor=pointer]:
+          - /url: /terms.html
+        - link "Cookies" [ref=e557] [cursor=pointer]:
+          - /url: /cookies.html
+        - link "Disclaimer" [ref=e558] [cursor=pointer]:
+          - /url: /disclaimer.html
+        - link "Code of Conduct" [ref=e559] [cursor=pointer]:
+          - /url: /code-of-conduct.html
+        - link "Data Protection" [ref=e560] [cursor=pointer]:
+          - /url: https://www.edoeb.admin.ch/edoeb/en/home.html
+      - paragraph [ref=e561]: Mit ❤️ in der Schweiz gemacht
+  - navigation [ref=e562]:
+    - link "Startseite" [ref=e563] [cursor=pointer]:
+      - /url: /de.html
+      - img [ref=e565]
+      - generic [ref=e568]: Startseite
+    - link "Über mich" [ref=e569] [cursor=pointer]:
+      - /url: /de.html#about
+      - img [ref=e571]
+      - generic [ref=e574]: Über mich
+    - link "Dienstleistungen" [ref=e575] [cursor=pointer]:
+      - /url: /de.html#services
+      - img [ref=e577]
+      - generic [ref=e580]: Dienstleistungen
+    - link "Portfolio" [ref=e581] [cursor=pointer]:
+      - /url: /de.html#portfolio
+      - img [ref=e583]
+      - generic [ref=e585]: Portfolio
+    - link "Kontakt" [ref=e586] [cursor=pointer]:
+      - /url: /de.html#contact
+      - img [ref=e588]
+      - generic [ref=e591]: Kontakt
+  - button "Open AI chatbot" [ref=e592] [cursor=pointer]:
+    - img [ref=e593]
+```
