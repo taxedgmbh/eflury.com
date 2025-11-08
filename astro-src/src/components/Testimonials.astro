@@ -1,5 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
+import { Star } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -45,7 +46,7 @@ const testimonials = [
         <div class="testimonial-card">
           <div class="testimonial-rating">
             {[...Array(testimonial.rating)].map(() => (
-              <i class="fas fa-star"></i>
+              <Star size={18} fill="currentColor" />
             ))}
           </div>
           <p class="testimonial-text">"{testimonial.text}"</p>
@@ -97,25 +98,30 @@ const testimonials = [
 
   .testimonial-card {
     background: var(--card-bg);
-    border-radius: 16px;
-    padding: 2rem;
-    border: 1px solid rgba(0, 122, 77, 0.1);
-    transition: var(--transition-smooth);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    border: 0.5px solid var(--border-color);
+    transition: all var(--transition-base);
     position: relative;
+    box-shadow: var(--shadow-xs);
   }
 
   .testimonial-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-medium);
-    border-color: var(--primary-green);
+    transform: translateY(-6px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--primary);
   }
 
   .testimonial-rating {
-    color: var(--primary-yellow);
-    font-size: 1.2rem;
-    margin-bottom: 1rem;
     display: flex;
-    gap: 0.25rem;
+    gap: var(--spacing-xs);
+    margin-bottom: var(--spacing-md);
+    color: var(--accent-orange);
+  }
+  
+  .testimonial-rating svg {
+    width: 18px;
+    height: 18px;
   }
 
   .testimonial-text {

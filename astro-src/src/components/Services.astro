@@ -1,5 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
+import { Bot, Coins, TrendingUp, Briefcase, CheckCircle2 } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -10,7 +11,7 @@ const t = useTranslations(lang);
 
 const services = [
   {
-    icon: 'fas fa-robot',
+    icon: Bot,
     title: t('services.automation.title'),
     description: t('services.automation.description'),
     features: [
@@ -19,10 +20,10 @@ const services = [
       t('services.automation.features.2'),
       t('services.automation.features.3')
     ],
-    gradient: 'var(--gradient-primary)'
+    gradient: 'var(--primary)'
   },
   {
-    icon: 'fas fa-coins',
+    icon: Coins,
     title: t('services.tax.title'),
     description: t('services.tax.description'),
     features: [
@@ -31,10 +32,10 @@ const services = [
       t('services.tax.features.2'),
       t('services.tax.features.3')
     ],
-    gradient: 'var(--gradient-secondary)'
+    gradient: 'var(--accent-green)'
   },
   {
-    icon: 'fas fa-chart-line',
+    icon: TrendingUp,
     title: t('services.analytics.title'),
     description: t('services.analytics.description'),
     features: [
@@ -43,10 +44,10 @@ const services = [
       t('services.analytics.features.2'),
       t('services.analytics.features.3')
     ],
-    gradient: 'var(--gradient-hero)'
+    gradient: 'var(--accent-purple)'
   },
   {
-    icon: 'fas fa-briefcase',
+    icon: Briefcase,
     title: t('services.consulting.title'),
     description: t('services.consulting.description'),
     features: [
@@ -55,7 +56,7 @@ const services = [
       t('services.consulting.features.2'),
       t('services.consulting.features.3')
     ],
-    gradient: 'var(--gradient-aurora)'
+    gradient: 'var(--accent-orange)'
   }
 ];
 ---
@@ -68,23 +69,26 @@ const services = [
     </div>
 
     <div class="services-grid">
-      {services.map((service) => (
-        <div class="service-card">
-          <div class="service-icon" style={`background: ${service.gradient}`}>
-            <i class={service.icon}></i>
+      {services.map((service) => {
+        const IconComponent = service.icon;
+        return (
+          <div class="service-card">
+            <div class="service-icon" style={`background: ${service.gradient}`}>
+              <IconComponent size={32} color="white" />
+            </div>
+            <h3 class="service-title">{service.title}</h3>
+            <p class="service-description">{service.description}</p>
+            <ul class="service-features">
+              {service.features.map((feature) => (
+                <li>
+                  <CheckCircle2 size={18} />
+                  <span>{feature}</span>
+                </li>
+              ))}
+            </ul>
           </div>
-          <h3 class="service-title">{service.title}</h3>
-          <p class="service-description">{service.description}</p>
-          <ul class="service-features">
-            {service.features.map((feature) => (
-              <li>
-                <i class="fas fa-check-circle"></i>
-                <span>{feature}</span>
-              </li>
-            ))}
-          </ul>
-        </div>
-      ))}
+        );
+      })}
     </div>
   </div>
 </section>
@@ -121,12 +125,19 @@ const services = [
 
   .service-card {
     background: var(--card-bg);
-    border-radius: 16px;
-    padding: 2rem;
-    border: 1px solid rgba(0, 122, 77, 0.1);
-    transition: var(--transition-smooth);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    border: 0.5px solid var(--border-color);
+    transition: all var(--transition-base);
     position: relative;
     overflow: hidden;
+    box-shadow: var(--shadow-xs);
+  }
+  
+  .service-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--primary);
   }
 
   .service-card::before {
@@ -141,26 +152,24 @@ const services = [
     transition: transform 0.3s ease;
   }
 
-  .service-card:hover {
-    transform: translateY(-10px);
-    box-shadow: var(--shadow-medium);
-    border-color: var(--primary-green);
-  }
-
   .service-card:hover::before {
     transform: scaleX(1);
   }
 
   .service-icon {
-    width: 80px;
-    height: 80px;
-    border-radius: 16px;
+    width: 64px;
+    height: 64px;
+    border-radius: var(--radius-md);
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin-bottom: var(--spacing-lg);
     color: white;
-    font-size: 2rem;
+    transition: transform var(--transition-base);
+  }
+  
+  .service-card:hover .service-icon {
+    transform: scale(1.1) rotate(5deg);
   }
 
   .service-title {
@@ -185,14 +194,15 @@ const services = [
   .service-features li {
     display: flex;
     align-items: flex-start;
-    gap: 0.75rem;
-    margin-bottom: 0.75rem;
+    gap: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
     color: var(--text-secondary);
+    font-size: 15px;
   }
 
-  .service-features i {
-    color: var(--primary-green);
-    margin-top: 0.25rem;
+  .service-features li svg {
+    color: var(--primary);
+    margin-top: 2px;
     flex-shrink: 0;
   }
 

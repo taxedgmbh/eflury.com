@@ -1,6 +1,7 @@
 ---
 import { type Language, useTranslations, routes } from '../i18n/utils';
 import DarkModeToggle from './DarkModeToggle.astro';
+import { ChevronDown } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -32,12 +33,29 @@ const currentRoutes = routes[lang];
       <div class="nav-actions">
         <DarkModeToggle />
 
+        <!-- Share Button (Modern Web API) -->
+        <button 
+          class="share-button-nav" 
+          onclick="window.sharePage?.()"
+          aria-label="Share this page"
+          title="Share"
+          style="display: none;"
+        >
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="18" cy="5" r="3"></circle>
+            <circle cx="6" cy="12" r="3"></circle>
+            <circle cx="18" cy="19" r="3"></circle>
+            <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+            <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+          </svg>
+        </button>
+
         <!-- Language Selector -->
         <div class="language-selector">
           <button class="language-current" id="langToggle" aria-label="Language Selector">
             <img src={`/images/icons/${lang}.png`} alt={lang === 'en' ? 'English' : 'Deutsch'} class="flag-icon" />
             <span>{lang.toUpperCase()}</span>
-            <i class="fas fa-chevron-down"></i>
+            <ChevronDown size={16} class="chevron-icon" />
           </button>
           <div class="language-dropdown" id="langDropdown">
             <a href="/en.html" class="language-option">
@@ -169,6 +187,36 @@ const currentRoutes = routes[lang];
     display: flex;
     align-items: center;
     gap: 1rem;
+  }
+
+  .share-button-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: var(--bg-secondary);
+    border: 0.5px solid var(--border-color);
+    border-radius: var(--radius-full);
+    color: var(--text-primary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .share-button-nav:hover {
+    background: var(--bg-tertiary);
+    border-color: var(--primary);
+    transform: scale(1.05);
+  }
+
+  .share-button-nav:active {
+    transform: scale(0.95);
+  }
+
+  @media (min-width: 769px) {
+    .share-button-nav {
+      display: flex;
+    }
   }
 
   /* Language Selector */
@@ -367,4 +415,12 @@ const currentRoutes = routes[lang];
       }
     });
   });
+
+  // Show share button if Web Share API is available
+  if (navigator.share) {
+    const shareButton = document.querySelector('.share-button-nav') as HTMLElement;
+    if (shareButton) {
+      shareButton.style.display = 'flex';
+    }
+  }
 </script>

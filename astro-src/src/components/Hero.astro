@@ -1,5 +1,6 @@
 ---
 import { type Language, useTranslations, routes } from '../i18n/utils';
+import { ArrowRight, Briefcase, ChevronDown } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -23,11 +24,11 @@ const currentRoutes = routes[lang];
       <div class="hero-cta">
         <a href={currentRoutes.services} class="btn btn-primary" onclick="window.trackEvent?.('Conversion', 'cta_click', 'Hero - Explore Services')">
           {t('hero.cta_primary')}
-          <i class="fas fa-arrow-right"></i>
+          <ArrowRight size={18} />
         </a>
         <a href={currentRoutes.portfolio} class="btn btn-secondary" onclick="window.trackEvent?.('Conversion', 'cta_click', 'Hero - View Portfolio')">
           {t('hero.cta_secondary')}
-          <i class="fas fa-briefcase"></i>
+          <Briefcase size={18} />
         </a>
       </div>
     </div>
@@ -35,7 +36,7 @@ const currentRoutes = routes[lang];
     <!-- Scroll Hint -->
     <div class="scroll-hint">
       <span>{t('hero.scroll_hint')}</span>
-      <i class="fas fa-chevron-down"></i>
+      <ChevronDown size={20} />
     </div>
   </div>
 </section>
@@ -161,8 +162,9 @@ const currentRoutes = routes[lang];
     animation: pulse 2s ease-in-out infinite;
   }
 
-  .scroll-hint i {
-    font-size: 1.2rem;
+  .scroll-hint svg {
+    width: 20px;
+    height: 20px;
   }
 
   @media (max-width: 768px) {
@@ -187,12 +189,52 @@ const currentRoutes = routes[lang];
 
 <script>
   import { initThreeBackground } from '../scripts/three-background';
+  import { initWebGPUBackground } from '../scripts/webgpu-background';
 
-  // Initialize Three.js background
-  const cleanup = initThreeBackground('three-container');
+  // Try WebGPU first, fallback to Three.js
+  if (typeof window !== 'undefined') {
+    initWebGPUBackground('three-container').then((cleanup) => {
+      if (!cleanup) {
+        // WebGPU not available, use Three.js
+        const threeCleanup = initThreeBackground('three-container');
+        if (threeCleanup) {
+          (window as any).__threeCleanup = threeCleanup;
+        }
+      } else {
+        (window as any).__webgpuCleanup = cleanup;
+      }
+    });
+  }
 
-  // Store cleanup function for page navigation
-  if (cleanup) {
-    (window as any).__threeCleanup = cleanup;
+  // GSAP animations for hero content
+  if (typeof window !== 'undefined') {
+    import('gsap').then(({ gsap }) => {
+      const tl = gsap.timeline();
+      
+      tl.from('.hero-greeting', {
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        ease: 'power2.out'
+      })
+      .from('.hero-title', {
+        opacity: 0,
+        y: 30,
+        duration: 0.8,
+        ease: 'power3.out'
+      }, '-=0.3')
+      .from('.hero-subtitle', {
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.4')
+      .from('.hero-cta', {
+        opacity: 0,
+        y: 20,
+        duration: 0.6,
+        ease: 'power2.out'
+      }, '-=0.3');
+    });
   }
 </script>

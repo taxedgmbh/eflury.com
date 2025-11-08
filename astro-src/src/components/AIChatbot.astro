@@ -1,0 +1,243 @@
+---
+// AI-Powered Chatbot Component
+// Uses modern Web APIs and can integrate with OpenAI or local AI
+---
+
+<div id="aiChatbot" class="ai-chatbot" style="display: none;">
+  <div class="chatbot-header">
+    <h3>AI Assistant</h3>
+    <button class="chatbot-close" id="chatbotClose" aria-label="Close chatbot">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+  </div>
+  <div class="chatbot-messages" id="chatbotMessages">
+    <div class="message bot-message">
+      <p>Hello! I'm an AI assistant. How can I help you with automation or Swiss tax questions?</p>
+    </div>
+  </div>
+  <form class="chatbot-input" id="chatbotForm">
+    <input type="text" id="chatbotInput" placeholder="Ask me anything..." autocomplete="off" />
+    <button type="submit" aria-label="Send message">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="22" y1="2" x2="11" y2="13"></line>
+        <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+      </svg>
+    </button>
+  </form>
+</div>
+
+<button class="chatbot-toggle" id="chatbotToggle" aria-label="Open AI chatbot">
+  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+  </svg>
+</button>
+
+<style>
+  .chatbot-toggle {
+    position: fixed;
+    bottom: var(--spacing-xl);
+    right: var(--spacing-xl);
+    width: 56px;
+    height: 56px;
+    border-radius: var(--radius-full);
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--shadow-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    transition: all var(--transition-base);
+  }
+
+  .chatbot-toggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-xl);
+  }
+
+  .chatbot-toggle:active {
+    transform: scale(0.95);
+  }
+
+  .ai-chatbot {
+    position: fixed;
+    bottom: 100px;
+    right: var(--spacing-xl);
+    width: 380px;
+    max-height: 600px;
+    background: var(--card-bg);
+    border: 0.5px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+    backdrop-filter: var(--blur-light);
+    -webkit-backdrop-filter: var(--blur-light);
+  }
+
+  .chatbot-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--spacing-md);
+    border-bottom: 0.5px solid var(--border-color);
+  }
+
+  .chatbot-header h3 {
+    margin: 0;
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .chatbot-close {
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    cursor: pointer;
+    padding: var(--spacing-xs);
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+  }
+
+  .chatbot-close:hover {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+  }
+
+  .chatbot-messages {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+    max-height: 400px;
+  }
+
+  .message {
+    padding: var(--spacing-md);
+    border-radius: var(--radius-md);
+    max-width: 80%;
+    font-size: 15px;
+    line-height: 1.5;
+  }
+
+  .bot-message {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    align-self: flex-start;
+  }
+
+  .user-message {
+    background: var(--primary);
+    color: white;
+    align-self: flex-end;
+  }
+
+  .chatbot-input {
+    display: flex;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    border-top: 0.5px solid var(--border-color);
+  }
+
+  .chatbot-input input {
+    flex: 1;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border: 0.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    font-size: 15px;
+    outline: none;
+    transition: border-color var(--transition-fast);
+  }
+
+  .chatbot-input input:focus {
+    border-color: var(--primary);
+  }
+
+  .chatbot-input button {
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--primary);
+    color: white;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all var(--transition-fast);
+  }
+
+  .chatbot-input button:hover {
+    background: var(--primary-hover);
+    transform: scale(1.05);
+  }
+
+  @media (max-width: 768px) {
+    .ai-chatbot {
+      width: calc(100vw - var(--spacing-xl) * 2);
+      right: var(--spacing-xl);
+      left: var(--spacing-xl);
+      bottom: 100px;
+    }
+  }
+</style>
+
+<script>
+  const chatbot = document.getElementById('aiChatbot');
+  const chatbotToggle = document.getElementById('chatbotToggle');
+  const chatbotClose = document.getElementById('chatbotClose');
+  const chatbotForm = document.getElementById('chatbotForm');
+  const chatbotInput = document.getElementById('chatbotInput');
+  const chatbotMessages = document.getElementById('chatbotMessages');
+
+  chatbotToggle?.addEventListener('click', () => {
+    chatbot?.style.setProperty('display', 'flex');
+    chatbotToggle.style.display = 'none';
+    chatbotInput?.focus();
+  });
+
+  chatbotClose?.addEventListener('click', () => {
+    chatbot?.style.setProperty('display', 'none');
+    chatbotToggle.style.display = 'flex';
+  });
+
+  chatbotForm?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const message = chatbotInput?.value.trim();
+    if (!message) return;
+
+    // Add user message
+    const userMsg = document.createElement('div');
+    userMsg.className = 'message user-message';
+    userMsg.innerHTML = `<p>${message}</p>`;
+    chatbotMessages?.appendChild(userMsg);
+    chatbotInput.value = '';
+
+    // Scroll to bottom
+    chatbotMessages?.scrollTo(0, chatbotMessages.scrollHeight);
+
+    // Simulate AI response (replace with actual AI API call)
+    const botMsg = document.createElement('div');
+    botMsg.className = 'message bot-message';
+    botMsg.innerHTML = '<p>Thinking...</p>';
+    chatbotMessages?.appendChild(botMsg);
+    chatbotMessages?.scrollTo(0, chatbotMessages.scrollHeight);
+
+    // Simulate API delay
+    setTimeout(() => {
+      botMsg.innerHTML = '<p>I understand you\'re asking about: "' + message + '". This is a demo response. In production, this would connect to an AI service like OpenAI or a local model.</p>';
+    }, 1000);
+  });
+</script>
+

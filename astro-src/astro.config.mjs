@@ -25,6 +25,12 @@ export default defineConfig({
               if (id.includes('emailjs')) {
                 return 'emailjs';
               }
+              if (id.includes('gsap')) {
+                return 'gsap';
+              }
+              if (id.includes('lucide')) {
+                return 'lucide';
+              }
               return 'vendor';
             }
           }

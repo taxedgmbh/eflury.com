@@ -1,5 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
+import { Network, Users, Coins, TrendingUp } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -13,25 +14,25 @@ const stats = [
     value: t('statistics.projects.value'),
     label: t('statistics.projects.label'),
     suffix: t('statistics.projects.suffix'),
-    icon: 'fas fa-project-diagram'
+    icon: Network
   },
   {
     value: t('statistics.clients.value'),
     label: t('statistics.clients.label'),
     suffix: t('statistics.clients.suffix'),
-    icon: 'fas fa-users'
+    icon: Users
   },
   {
     value: t('statistics.savings.value'),
     label: t('statistics.savings.label'),
     suffix: t('statistics.savings.suffix'),
-    icon: 'fas fa-coins'
+    icon: Coins
   },
   {
     value: t('statistics.efficiency.value'),
     label: t('statistics.efficiency.label'),
     suffix: t('statistics.efficiency.suffix'),
-    icon: 'fas fa-chart-line'
+    icon: TrendingUp
   }
 ];
 ---
@@ -39,19 +40,22 @@ const stats = [
 <section class="statistics">
   <div class="container">
     <div class="stats-grid">
-      {stats.map((stat, index) => (
-        <div class="stat-card" style={`animation-delay: ${index * 0.1}s`}>
-          <div class="stat-icon">
-            <i class={stat.icon}></i>
-          </div>
-          <div class="stat-content">
-            <div class="stat-value" data-target={stat.value} data-suffix={stat.suffix}>
-              0{stat.suffix}
+      {stats.map((stat, index) => {
+        const IconComponent = stat.icon;
+        return (
+          <div class="stat-card" data-animate style={`animation-delay: ${index * 0.1}s`}>
+            <div class="stat-icon">
+              <IconComponent size={32} color="white" />
             </div>
-            <div class="stat-label">{stat.label}</div>
+            <div class="stat-content">
+              <div class="stat-value" data-target={stat.value} data-suffix={stat.suffix}>
+                0{stat.suffix}
+              </div>
+              <div class="stat-label">{stat.label}</div>
+            </div>
           </div>
-        </div>
-      ))}
+        );
+      })}
     </div>
   </div>
 </section>
@@ -72,32 +76,37 @@ const stats = [
   .stat-card {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    padding: 1.5rem;
+    gap: var(--spacing-lg);
+    padding: var(--spacing-xl);
     background: var(--card-bg);
-    border-radius: 12px;
-    border: 1px solid rgba(0, 122, 77, 0.1);
-    transition: var(--transition-smooth);
+    border-radius: var(--radius-lg);
+    border: 0.5px solid var(--border-color);
+    transition: all var(--transition-base);
     opacity: 0;
-    animation: fadeInUp 0.6s ease forwards;
+    transform: translateY(20px);
   }
 
   .stat-card:hover {
-    transform: translateY(-5px);
-    box-shadow: var(--shadow-soft);
-    border-color: var(--primary-green);
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-sm);
+    border-color: var(--primary);
+  }
+  
+  .stat-card[data-animate].animate-in {
+    opacity: 1;
+    transform: translateY(0);
   }
 
   .stat-icon {
     width: 60px;
     height: 60px;
-    border-radius: 12px;
-    background: var(--gradient-primary);
+    border-radius: var(--radius-md);
+    background: var(--primary);
     display: flex;
     align-items: center;
     justify-content: center;
     color: white;
-    font-size: 1.5rem;
+    flex-shrink: 0;
     flex-shrink: 0;
   }
 
@@ -142,12 +151,33 @@ const stats = [
 </style>
 
 <script>
-  import { initAnimatedCounters } from '../scripts/animated-counters';
-
-  // Wait for DOM to be ready
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initAnimatedCounters);
-  } else {
-    initAnimatedCounters();
+  // Modern GSAP counter animations
+  if (typeof window !== 'undefined') {
+    import('gsap').then(({ gsap }) => {
+      const counters = document.querySelectorAll('.stat-value');
+      
+      counters.forEach((counter) => {
+        const target = parseFloat(counter.getAttribute('data-target') || '0');
+        const suffix = counter.getAttribute('data-suffix') || '';
+        
+        gsap.fromTo(
+          { value: 0 },
+          {
+            value: target,
+            duration: 2,
+            ease: 'power2.out',
+            scrollTrigger: {
+              trigger: counter.closest('.stat-card'),
+              start: 'top 80%',
+              toggleActions: 'play none none reverse',
+            },
+            onUpdate: function() {
+              const val = this.targets()[0].value;
+              counter.textContent = (target % 1 !== 0 ? val.toFixed(1) : Math.round(val)) + suffix;
+            },
+          }
+        );
+      });
+    });
   }
 </script>

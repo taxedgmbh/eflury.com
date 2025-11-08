@@ -1,5 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
+import { GraduationCap, Briefcase, CheckCircle2 } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -35,11 +36,11 @@ const skills = [
              loading="lazy" />
         <div class="about-badges">
           <div class="badge">
-            <i class="fas fa-graduation-cap"></i>
+            <GraduationCap size={20} />
             <span>{t('about.badge1')}</span>
           </div>
           <div class="badge">
-            <i class="fas fa-briefcase"></i>
+            <Briefcase size={20} />
             <span>{t('about.badge2')}</span>
           </div>
         </div>
@@ -52,19 +53,19 @@ const skills = [
 
         <div class="about-highlights">
           <div class="highlight">
-            <i class="fas fa-check-circle"></i>
+            <CheckCircle2 size={20} />
             <span>{t('about.highlight1')}</span>
           </div>
           <div class="highlight">
-            <i class="fas fa-check-circle"></i>
+            <CheckCircle2 size={20} />
             <span>{t('about.highlight2')}</span>
           </div>
           <div class="highlight">
-            <i class="fas fa-check-circle"></i>
+            <CheckCircle2 size={20} />
             <span>{t('about.highlight3')}</span>
           </div>
           <div class="highlight">
-            <i class="fas fa-check-circle"></i>
+            <CheckCircle2 size={20} />
             <span>{t('about.highlight4')}</span>
           </div>
         </div>
