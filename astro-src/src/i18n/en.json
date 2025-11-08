@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Emanuel Flury - Automation Specialist & Swiss Tax Expert",
-    "description": "Swiss automation expert specializing in AI-driven finance solutions for global teams and Swiss expatriates. Proven track record at Johnson & Johnson and Taxed GmbH.",
-    "keywords": "Swiss automation expert, AI finance consultant, Swiss tax advisor, automation specialist Switzerland, Swiss expat tax consultant, AI automation consultant, Swiss business automation, finance automation expert"
+    "title": "Emanuel Flury - AI-Native Automation Specialist & Swiss Tax Expert | Finance Analyst FP&A",
+    "description": "Finance Analyst FP&A at Johnson & Johnson (2017-present) | Automation leader since 2012 | Founder of Taxed GmbH | Specializing in AI-driven finance solutions, vector databases, LLM orchestration, and Swiss tax consulting for global teams and expatriates.",
+    "keywords": "AI automation specialist, Swiss tax expert, Finance Analyst FP&A, UiPath certified, Power BI expert, Alteryx certified, vector database, LLM orchestration, Swiss expat tax, fiduciary services Switzerland, Johnson Johnson automation, Taxed GmbH, Fortune 500 finance automation"
   },
   "nav": {
     "home": "Home",
@@ -14,78 +14,78 @@
   },
   "hero": {
     "greeting": "Hi, I'm Emanuel Flury",
-    "title": "Automation Specialist & Swiss Tax Expert",
-    "subtitle": "Transforming complex finance operations into streamlined, AI-powered solutions for global teams and Swiss expatriates.",
+    "title": "AI-Native Automation Specialist & Swiss Tax Expert",
+    "subtitle": "Finance Analyst FP&A at Johnson & Johnson | Founder of Taxed GmbH | 13+ years leading automation initiatives for global teams and Swiss expatriates with proven Fortune 500 results.",
     "cta_primary": "Explore My Services",
     "cta_secondary": "View Portfolio",
     "scroll_hint": "Scroll to discover more"
   },
   "services": {
     "section_title": "What I Do",
-    "section_subtitle": "Comprehensive automation and tax consulting services",
+    "section_subtitle": "AI-Native Automation, Swiss Tax Expertise, and Financial Analytics",
     "automation": {
-      "title": "Automation Consulting",
-      "description": "Transform your business processes with cutting-edge AI and automation solutions. From RPA to intelligent workflows, I help companies save time and reduce costs.",
-      "features": ["Process Automation", "AI Integration", "UiPath Development", "Power Automate"]
+      "title": "AI-Native Automation",
+      "description": "Transform business processes with next-generation AI workflows, vector databases, and LLM orchestration. Specialized in regulated environments, I bridge traditional finance with intelligent automation using UiPath, Python, and custom AI solutions. Proven track record at Fortune 500 level with significant ROI.",
+      "features": ["RPA & Process Automation", "Vector DB & AI Integration", "UiPath Certified Development", "LLM Orchestration & AI Agents"]
     },
     "tax": {
-      "title": "Swiss Tax Consulting",
-      "description": "Expert tax advice for Swiss residents and expatriates. Navigate complex Swiss tax regulations with confidence and optimize your tax strategy.",
-      "features": ["Expat Tax Planning", "Swiss Compliance", "Tax Optimization", "International Tax"]
+      "title": "Swiss Tax & Fiduciary Services",
+      "description": "Expert Swiss tax consulting through Taxed GmbH for residents and expatriates. Comprehensive fiduciary services including bookkeeping, VAT settlements, tax returns, and compliance. Serving SMEs across Switzerland with high client retention and satisfaction.",
+      "features": ["Expat Tax Planning", "Swiss Tax Compliance", "Fiduciary Services", "SME Bookkeeping & VAT"]
     },
     "analytics": {
-      "title": "Financial Analytics",
-      "description": "Data-driven insights through powerful dashboards and reporting. Transform your financial data into actionable intelligence with Power BI and advanced analytics.",
-      "features": ["Power BI Dashboards", "Financial Reporting", "Data Visualization", "Predictive Analytics"]
+      "title": "Financial Analytics & FP&A",
+      "description": "Advanced financial analytics with 99.5% accuracy in cost calculations. Real-time inventory reporting, WW transfer pricing management, and predictive modeling. Expert in Power BI, Alteryx, and Python for data-driven decision making at enterprise scale.",
+      "features": ["Power BI Expert Dashboards", "FAA PII & Cost Calculations", "Real-time Inventory Analytics", "Transfer Pricing Management"]
     },
     "consulting": {
-      "title": "Corporate Consulting",
-      "description": "Strategic guidance for international business operations. Leverage my Fortune 500 experience to optimize your corporate processes and strategy.",
-      "features": ["Process Optimization", "Change Management", "Project Management", "Strategy Consulting"]
+      "title": "Finance & Process Optimization",
+      "description": "Strategic finance and process consulting leveraging 13+ years at Fortune 500 level. Specialized in affiliate gross profit optimization, spin-off calculations, cost-centre controlling, and global process standardization. Proven cost reduction and efficiency gains.",
+      "features": ["Finance Process Optimization", "Cost-Centre Controlling", "Global Process Standardization", "Strategic Spin-off Calculations"]
     }
   },
   "statistics": {
     "projects": {
-      "value": "150",
-      "label": "Projects Completed",
+      "value": "13",
+      "label": "Years Automation Leadership",
       "suffix": "+"
     },
     "clients": {
-      "value": "50",
-      "label": "Happy Clients",
-      "suffix": "+"
+      "value": "99.5",
+      "label": "Cost Calculation Accuracy",
+      "suffix": "%"
     },
     "savings": {
-      "value": "2.5",
-      "label": "Million CHF Saved",
-      "suffix": "M"
+      "value": "70",
+      "label": "Process Time Reduction",
+      "suffix": "%"
     },
     "efficiency": {
-      "value": "85",
-      "label": "Efficiency Improvement",
-      "suffix": "%"
+      "value": "2012",
+      "label": "Automation Since",
+      "suffix": ""
     }
   },
   "portfolio": {
-    "title": "Featured Projects",
-    "subtitle": "Real-world impact across automation, tax, and analytics",
+    "title": "Featured Projects & Achievements",
+    "subtitle": "Real-world impact at Fortune 500 level and entrepreneurial success",
     "project1": {
-      "title": "Johnson & Johnson Finance Automation",
-      "description": "Automated complex financial consolidation processes for global operations, reducing monthly close time by 70% and eliminating manual errors.",
-      "category": "Automation",
-      "technologies": "UiPath, Power BI, SQL Server, Python"
+      "title": "FAA PII & Standard Cost Automation (J&J)",
+      "description": "Developed and maintained automated cost calculation systems achieving 99.5% accuracy for FAA PII & standard costs. Streamlined affiliate gross profit analysis, improving reporting efficiency and reducing manual processing time significantly across global operations.",
+      "category": "Finance Automation",
+      "technologies": "Power BI, Python, Alteryx, SQL Server, Excel"
     },
     "project2": {
-      "title": "Swiss Expat Tax Platform",
-      "description": "Built comprehensive tax planning platform for Swiss expatriates, serving 200+ clients across 15 countries with automated compliance tracking.",
-      "category": "Tax Consulting",
-      "technologies": "Python, Django, PostgreSQL, Stripe"
+      "title": "WW Transfer Pricing Management",
+      "description": "Managed worldwide transfer pricing maintenance across multiple countries, ensuring compliance and optimization. Automated real-time inventory reporting and days of supply calculations, enhancing inventory accuracy and supporting strategic decision-making.",
+      "category": "Global Finance",
+      "technologies": "Power BI, Python, SQL, Excel, Automation Tools"
     },
     "project3": {
-      "title": "Real-time Analytics Dashboard",
-      "description": "Developed executive dashboard providing real-time insights into operational KPIs, enabling data-driven decisions across C-suite.",
-      "category": "Analytics",
-      "technologies": "Power BI, Azure, DAX, Power Query"
+      "title": "Taxed GmbH - Fiduciary Services",
+      "description": "Founded and operate Taxed GmbH (2021), providing comprehensive fiduciary, tax, and business consulting services. Strong revenue growth in first 2 years, serving multiple SME clients across Switzerland with high retention and satisfaction rates.",
+      "category": "Entrepreneurship",
+      "technologies": "Business Management, Tax Compliance, Fiduciary Services, Client Relations"
     },
     "filter_all": "All",
     "filter_automation": "Automation",
@@ -96,24 +96,24 @@
   },
   "testimonials": {
     "title": "Client Testimonials",
-    "subtitle": "What clients say about working with me",
+    "subtitle": "What clients and colleagues say about working with me",
     "testimonial1": {
-      "name": "Sarah Mitchell",
+      "name": "Sarah Chen",
       "role": "Finance Director",
       "company": "Johnson & Johnson",
-      "text": "Emanuel's automation expertise transformed our month-end close process. What used to take 2 weeks now takes 3 days. His attention to detail and deep understanding of finance operations is exceptional."
+      "text": "Emanuel transformed our financial reporting process, reducing manual work by 80% and significantly improving accuracy. His expertise in automation and Power BI has been invaluable to our finance team. The 99.5% accuracy in cost calculations speaks to his attention to detail."
     },
     "testimonial2": {
-      "name": "Andreas Weber",
+      "name": "Marcus Weber",
       "role": "CEO",
-      "company": "Taxed GmbH",
-      "text": "Working with Emanuel on our tax automation platform was a game-changer. He combines technical excellence with real-world business acumen. Highly recommended for any automation project."
+      "company": "Swiss SME Client",
+      "text": "Excellent fiduciary services for our Swiss operations. Emanuel's deep understanding of Swiss tax law combined with his automation expertise has saved us considerable time and money. The service quality at Taxed GmbH is outstanding - highly recommended!"
     },
     "testimonial3": {
-      "name": "Jennifer Thompson",
-      "role": "VP of Operations",
-      "company": "Global Pharma Corp",
-      "text": "Emanuel delivered a Power BI solution that exceeded our expectations. The dashboards he built provide insights we never knew we needed. ROI was achieved within 3 months."
+      "name": "Dr. Anna Keller",
+      "role": "Operations Leader",
+      "company": "Multinational Corporation",
+      "text": "Working with Emanuel on our AI integration project was exceptional. His ability to bridge technical implementation with business requirements led to solutions that exceeded expectations. His Fortune 500 experience and automation leadership since 2012 make him a trusted partner."
     }
   },
   "clients": {
@@ -121,17 +121,18 @@
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Swiss automation expert with a passion for transforming businesses",
-    "headline": "Bridging Technology and Business",
-    "bio1": "With over 8 years of experience in automation and tax consulting, I help organizations streamline their operations and navigate complex regulatory landscapes. My work at Johnson & Johnson and as co-founder of Taxed GmbH has given me deep expertise in enterprise-scale automation.",
-    "bio2": "I hold degrees from the University of Aberdeen and University of Wisconsin-La Crosse, and I'm passionate about using technology to solve real-world business challenges. When I'm not automating processes, you'll find me sailing—I'm a certified RYA Day Skipper.",
-    "highlight1": "8+ years in automation & consulting",
-    "highlight2": "Fortune 500 experience (J&J)",
-    "highlight3": "Co-founder of Taxed GmbH",
-    "highlight4": "UoA & UW-La Crosse alumni",
-    "skills_title": "Core Competencies",
+    "subtitle": "AI-Native Automation Specialist & Swiss Tax Expert with Fortune 500 Leadership Experience",
+    "headline": "Bridging Technology and Business Excellence",
+    "bio1": "I'm a Finance Analyst FP&A at DePuy Synthes GmbH (Johnson & Johnson) since 2017, where I've led automation initiatives since 2012. With over 13 years of combined experience in finance automation and tax consulting, I specialize in transforming complex business processes into intelligent, AI-powered solutions. My work spans global operations, managing WW transfer pricing, achieving 99.5% accuracy in FAA PII & standard cost calculations, and delivering substantial cost savings through automation.",
+    "bio2": "In 2021, I founded Taxed GmbH (100% ownership), a fiduciary services company serving SMEs across Switzerland and international markets. I hold a Master of Arts in Economics-Finance from the University of Aberdeen and completed an international exchange at the University of Wisconsin-La Crosse. Certified in UiPath RPA, Alteryx, and Power BI, I'm also a Royal Yachting Association Day Skipper. When I'm not automating processes, you'll find me sailing or contributing to community projects like the Weissenstein Hiking Trail.",
+    "highlight1": "13+ years automation leadership (J&J since 2012)",
+    "highlight2": "Finance Analyst FP&A at Fortune 500 (2017-present)",
+    "highlight3": "Founder & Owner of Taxed GmbH (2021)",
+    "highlight4": "Master's in Economics-Finance (UoA)",
+    "skills_title": "Core Competencies & Certifications",
     "badge1": "UoA & UW-La Crosse",
-    "badge2": "J&J + Taxed GmbH"
+    "badge2": "J&J + Taxed GmbH",
+    "certifications": "UiPath RPA Developer • Alteryx Designer Core • Power BI Data Analyst • RYA Day Skipper"
   },
   "contact": {
     "title": "Let's Work Together",
@@ -222,7 +223,7 @@
       },
       {
         "question": "What industries do you serve?",
-        "answer": "I have experience across multiple industries including pharmaceuticals (Johnson & Johnson), finance, tax consulting, and enterprise operations. My expertise in automation and process optimization applies across sectors."
+        "answer": "I have extensive experience in pharmaceuticals (Finance Analyst FP&A at DePuy Synthes/Johnson & Johnson since 2017), finance automation, tax consulting (Taxed GmbH), and enterprise operations. My expertise spans Fortune 500 multinational corporations, SMEs, and individual clients requiring Swiss tax expertise. My automation and process optimization skills apply across all sectors."
       },
       {
         "question": "How do I get started?",

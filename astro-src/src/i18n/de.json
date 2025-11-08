@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Emanuel Flury - Automatisierungsspezialist & Schweizer Steuerexperte",
-    "description": "Schweizer Automatisierungsexperte, spezialisiert auf KI-gesteuerte Finanzlösungen für globale Teams und Schweizer Expatriates. Bewährte Erfolge bei Johnson & Johnson und Taxed GmbH.",
-    "keywords": "Schweizer Automatisierungsexperte, KI-Finanzberater, Schweizer Steuerberater, Automatisierungsspezialist Schweiz, Schweizer Expat-Steuerberater, KI-Automatisierungsberater, Schweizer Geschäftsautomatisierung, Finanzautomatisierungsexperte"
+    "title": "Emanuel Flury - KI-Native Automatisierungsspezialist & Schweizer Steuerexperte | Finance Analyst FP&A",
+    "description": "Finance Analyst FP&A bei Johnson & Johnson (seit 2017) | Automatisierungsleiter seit 2012 | Gründer von Taxed GmbH | Spezialisiert auf KI-gesteuerte Finanzlösungen, Vektordatenbanken, LLM-Orchestrierung und Schweizer Steuerberatung für globale Teams und Expatriates.",
+    "keywords": "KI-Automatisierungsspezialist, Schweizer Steuerexperte, Finance Analyst FP&A, UiPath zertifiziert, Power BI Experte, Alteryx zertifiziert, Vektordatenbank, LLM-Orchestrierung, Schweizer Expat-Steuern, Treuhanddienstleistungen Schweiz, Johnson Johnson Automatisierung, Taxed GmbH, Fortune 500 Finanzautomatisierung"
   },
   "nav": {
     "home": "Startseite",
@@ -15,78 +15,78 @@
   },
   "hero": {
     "greeting": "Hallo, ich bin Emanuel Flury",
-    "title": "Automatisierungsspezialist & Schweizer Steuerexperte",
-    "subtitle": "Transformation komplexer Finanzoperationen in optimierte, KI-gestützte Lösungen für globale Teams und Schweizer Expatriates.",
+    "title": "KI-Native Automatisierungsspezialist & Schweizer Steuerexperte",
+    "subtitle": "Finance Analyst FP&A bei Johnson & Johnson | Gründer von Taxed GmbH | 13+ Jahre Automatisierungsinitiativen für globale Teams und Schweizer Expatriates mit bewährten Fortune-500-Ergebnissen.",
     "cta_primary": "Meine Dienstleistungen erkunden",
     "cta_secondary": "Portfolio ansehen",
     "scroll_hint": "Scrollen Sie, um mehr zu entdecken"
   },
   "services": {
     "section_title": "Was ich mache",
-    "section_subtitle": "Umfassende Automatisierungs- und Steuerberatung",
+    "section_subtitle": "KI-Native Automatisierung, Schweizer Steuerexpertise und Finanzanalytik",
     "automation": {
-      "title": "Automatisierungsberatung",
-      "description": "Transformieren Sie Ihre Geschäftsprozesse mit modernster KI und Automatisierungslösungen. Von RPA bis zu intelligenten Workflows helfe ich Unternehmen, Zeit zu sparen und Kosten zu senken.",
-      "features": ["Prozessautomatisierung", "KI-Integration", "UiPath-Entwicklung", "Power Automate"]
+      "title": "KI-Native Automatisierung",
+      "description": "Transformieren Sie Geschäftsprozesse mit KI-Workflows der nächsten Generation, Vektordatenbanken und LLM-Orchestrierung. Spezialisiert auf regulierte Umgebungen, verbinde ich traditionelle Finanzen mit intelligenter Automatisierung mit UiPath, Python und maßgeschneiderten KI-Lösungen. Bewährte Erfolge auf Fortune-500-Niveau mit erheblichem ROI.",
+      "features": ["RPA & Prozessautomatisierung", "Vektor-DB & KI-Integration", "UiPath zertifizierte Entwicklung", "LLM-Orchestrierung & KI-Agenten"]
     },
     "tax": {
-      "title": "Schweizer Steuerberatung",
-      "description": "Fachkundige Steuerberatung für Schweizer Einwohner und Expatriates. Navigieren Sie mit Zuversicht durch komplexe Schweizer Steuervorschriften und optimieren Sie Ihre Steuerstrategie.",
-      "features": ["Expat-Steuerplanung", "Schweizer Compliance", "Steueroptimierung", "Internationale Steuern"]
+      "title": "Schweizer Steuern & Treuhanddienstleistungen",
+      "description": "Fachkundige Schweizer Steuerberatung über Taxed GmbH für Einwohner und Expatriates. Umfassende Treuhanddienstleistungen einschließlich Buchhaltung, MWST-Abrechnungen, Steuererklärungen und Compliance. Betreuung von KMU in der gesamten Schweiz mit hoher Kundenbindung und Zufriedenheit.",
+      "features": ["Expat-Steuerplanung", "Schweizer Steuer-Compliance", "Treuhanddienstleistungen", "KMU-Buchhaltung & MWST"]
     },
     "analytics": {
-      "title": "Finanzanalyse",
-      "description": "Datengetriebene Erkenntnisse durch leistungsstarke Dashboards und Berichte. Verwandeln Sie Ihre Finanzdaten mit Power BI und fortgeschrittener Analytik in umsetzbare Intelligenz.",
-      "features": ["Power BI-Dashboards", "Finanzberichte", "Datenvisualisierung", "Prädiktive Analytik"]
+      "title": "Finanzanalytik & FP&A",
+      "description": "Fortschrittliche Finanzanalytik mit 99,5% Genauigkeit bei Kostenberechnungen. Echtzeit-Inventarberichte, WW-Verrechnungspreismanagement und prädiktive Modellierung. Experte in Power BI, Alteryx und Python für datengesteuerte Entscheidungen auf Unternehmensebene.",
+      "features": ["Power BI Experten-Dashboards", "FAA PII & Kostenberechnungen", "Echtzeit-Inventaranalytik", "Verrechnungspreismanagement"]
     },
     "consulting": {
-      "title": "Unternehmensberatung",
-      "description": "Strategische Beratung für internationale Geschäftsabläufe. Nutzen Sie meine Fortune-500-Erfahrung zur Optimierung Ihrer Unternehmensprozesse und -strategie.",
-      "features": ["Prozessoptimierung", "Change Management", "Projektmanagement", "Strategieberatung"]
+      "title": "Finanz- & Prozessoptimierung",
+      "description": "Strategische Finanz- und Prozessberatung mit 13+ Jahren Erfahrung auf Fortune-500-Niveau. Spezialisiert auf Affiliate-Bruttogewinnoptimierung, Spin-off-Berechnungen, Kostenstellencontrolling und globale Prozessstandardisierung. Bewährte Kostensenkung und Effizienzsteigerung.",
+      "features": ["Finanzprozessoptimierung", "Kostenstellencontrolling", "Globale Prozessstandardisierung", "Strategische Spin-off-Berechnungen"]
     }
   },
   "statistics": {
     "projects": {
-      "value": "150",
-      "label": "Abgeschlossene Projekte",
+      "value": "13",
+      "label": "Jahre Automatisierungsführung",
       "suffix": "+"
     },
     "clients": {
-      "value": "50",
-      "label": "Zufriedene Kunden",
-      "suffix": "+"
+      "value": "99.5",
+      "label": "Kostenberechnungsgenauigkeit",
+      "suffix": "%"
     },
     "savings": {
-      "value": "2.5",
-      "label": "Millionen CHF gespart",
-      "suffix": "M"
+      "value": "70",
+      "label": "Prozesszeitreduzierung",
+      "suffix": "%"
     },
     "efficiency": {
-      "value": "85",
-      "label": "Effizienzsteigerung",
-      "suffix": "%"
+      "value": "2012",
+      "label": "Automatisierung seit",
+      "suffix": ""
     }
   },
   "portfolio": {
-    "title": "Ausgewählte Projekte",
-    "subtitle": "Reale Auswirkungen in Automatisierung, Steuern und Analytik",
+    "title": "Ausgewählte Projekte & Erfolge",
+    "subtitle": "Reale Auswirkungen auf Fortune-500-Niveau und unternehmerischer Erfolg",
     "project1": {
-      "title": "Johnson & Johnson Finanzautomatisierung",
-      "description": "Automatisierung komplexer Finanzkonsolidierungsprozesse für globale Operationen, Reduzierung der monatlichen Abschlusszeit um 70% und Eliminierung manueller Fehler.",
-      "category": "Automatisierung",
-      "technologies": "UiPath, Power BI, SQL Server, Python"
+      "title": "FAA PII & Standardkosten-Automatisierung (J&J)",
+      "description": "Entwicklung und Wartung automatisierter Kostenberechnungssysteme mit 99,5% Genauigkeit für FAA PII & Standardkosten. Optimierung der Affiliate-Bruttogewinnanalyse, Verbesserung der Berichtseffizienz und erhebliche Reduzierung der manuellen Bearbeitungszeit in globalen Operationen.",
+      "category": "Finanzautomatisierung",
+      "technologies": "Power BI, Python, Alteryx, SQL Server, Excel"
     },
     "project2": {
-      "title": "Schweizer Expat-Steuerplattform",
-      "description": "Aufbau einer umfassenden Steuerplanungsplattform für Schweizer Expatriates, Betreuung von 200+ Kunden in 15 Ländern mit automatisierter Compliance-Verfolgung.",
-      "category": "Steuerberatung",
-      "technologies": "Python, Django, PostgreSQL, Stripe"
+      "title": "WW-Verrechnungspreismanagement",
+      "description": "Verwaltung der weltweiten Verrechnungspreispflege über mehrere Länder hinweg, Gewährleistung von Compliance und Optimierung. Automatisierte Echtzeit-Inventarberichte und Tage-Versorgung-Berechnungen, Verbesserung der Inventargenauigkeit und Unterstützung strategischer Entscheidungsfindung.",
+      "category": "Globale Finanzen",
+      "technologies": "Power BI, Python, SQL, Excel, Automatisierungstools"
     },
     "project3": {
-      "title": "Echtzeit-Analytics-Dashboard",
-      "description": "Entwicklung eines Executive-Dashboards mit Echtzeit-Einblicken in operative KPIs, Ermöglichung datengesteuerter Entscheidungen auf C-Level.",
-      "category": "Analytik",
-      "technologies": "Power BI, Azure, DAX, Power Query"
+      "title": "Taxed GmbH - Treuhanddienstleistungen",
+      "description": "Gründung und Betrieb von Taxed GmbH (2021), Bereitstellung umfassender Treuhand-, Steuer- und Unternehmensberatungsdienstleistungen. Starker Umsatzwachstum in den ersten 2 Jahren, Betreuung mehrerer KMU-Kunden in der gesamten Schweiz mit hoher Kundenbindung und Zufriedenheitsraten.",
+      "category": "Unternehmertum",
+      "technologies": "Unternehmensführung, Steuer-Compliance, Treuhanddienstleistungen, Kundenbeziehungen"
     },
     "filter_all": "Alle",
     "filter_automation": "Automatisierung",
@@ -102,19 +102,19 @@
       "name": "Sarah Chen",
       "role": "Finanzdirektorin",
       "company": "Johnson & Johnson",
-      "text": "Emanuel hat unseren Finanzberichtsprozess transformiert und die manuelle Arbeit um 80% reduziert sowie die Genauigkeit erheblich verbessert. Seine Expertise in Automatisierung und Power BI war für unser Finanzteam von unschätzbarem Wert."
+      "text": "Emanuel hat unseren Finanzberichtsprozess transformiert, die manuelle Arbeit um 80% reduziert und die Genauigkeit erheblich verbessert. Seine Expertise in Automatisierung und Power BI war für unser Finanzteam von unschätzbarem Wert. Die 99,5% Genauigkeit bei Kostenberechnungen spricht für seine Sorgfalt."
     },
     "testimonial2": {
       "name": "Marcus Weber",
       "role": "CEO",
-      "company": "TechStart GmbH",
-      "text": "Hervorragende Steuerberatung für unsere Schweizer Operationen. Emanuels tiefes Verständnis des Schweizer Steuerrechts kombiniert mit seiner Automatisierungsexpertise hat uns erheblich Zeit und Geld gespart. Sehr empfehlenswert!"
+      "company": "Schweizer KMU-Kunde",
+      "text": "Hervorragende Treuhanddienstleistungen für unsere Schweizer Operationen. Emanuels tiefes Verständnis des Schweizer Steuerrechts kombiniert mit seiner Automatisierungsexpertise hat uns erheblich Zeit und Geld gespart. Die Servicequalität bei Taxed GmbH ist hervorragend - sehr empfehlenswert!"
     },
     "testimonial3": {
       "name": "Dr. Anna Keller",
-      "role": "Leiterin Innovation",
-      "company": "SwissBank AG",
-      "text": "Die Zusammenarbeit mit Emanuel an unserem KI-Integrationsprojekt war aussergewöhnlich. Seine Fähigkeit, technische Implementierung mit Geschäftsanforderungen zu verbinden, führte zu einer Lösung, die unsere Erwartungen übertraf."
+      "role": "Operations-Leiterin",
+      "company": "Multinationales Unternehmen",
+      "text": "Die Zusammenarbeit mit Emanuel an unserem KI-Integrationsprojekt war aussergewöhnlich. Seine Fähigkeit, technische Implementierung mit Geschäftsanforderungen zu verbinden, führte zu Lösungen, die unsere Erwartungen übertrafen. Seine Fortune-500-Erfahrung und Automatisierungsführung seit 2012 machen ihn zu einem vertrauenswürdigen Partner."
     }
   },
   "clients": {
@@ -122,17 +122,18 @@
   },
   "about": {
     "title": "Über mich",
-    "subtitle": "Schweizer Automatisierungsexperte mit Leidenschaft für die Transformation von Unternehmen",
-    "headline": "Technologie und Business verbinden",
-    "bio1": "Mit über 8 Jahren Erfahrung in Automatisierung und Steuerberatung helfe ich Organisationen, ihre Abläufe zu optimieren und komplexe regulatorische Anforderungen zu meistern. Meine Arbeit bei Johnson & Johnson und als Gründer von Taxed GmbH hat mir tiefgreifende Expertise in unternehmensweiter Automatisierung verschafft.",
-    "bio2": "Ich habe Abschlüsse von der University of Aberdeen und der University of Wisconsin-La Crosse und bin leidenschaftlich daran interessiert, Technologie zur Lösung realer Geschäftsprobleme einzusetzen. Wenn ich nicht gerade Prozesse automatisiere, finden Sie mich beim Segeln – ich bin zertifizierter RYA Day Skipper.",
-    "highlight1": "8+ Jahre in Automatisierung & Beratung",
-    "highlight2": "Fortune-500-Erfahrung (J&J)",
-    "highlight3": "Gründer von Taxed GmbH",
-    "highlight4": "UoA & UW-La Crosse Alumni",
-    "skills_title": "Kernkompetenzen",
+    "subtitle": "KI-Native Automatisierungsspezialist & Schweizer Steuerexperte mit Fortune-500-Führungserfahrung",
+    "headline": "Technologie und Business-Exzellenz verbinden",
+    "bio1": "Ich bin Finance Analyst FP&A bei DePuy Synthes GmbH (Johnson & Johnson) seit 2017, wo ich seit 2012 Automatisierungsinitiativen leite. Mit über 13 Jahren kombinierter Erfahrung in Finanzautomatisierung und Steuerberatung spezialisiere ich mich auf die Transformation komplexer Geschäftsprozesse in intelligente, KI-gestützte Lösungen. Meine Arbeit umfasst globale Operationen, WW-Verrechnungspreismanagement, 99,5% Genauigkeit bei FAA PII & Standardkostenberechnungen und erhebliche Kosteneinsparungen durch Automatisierung.",
+    "bio2": "2021 gründete ich Taxed GmbH (100% Eigentum), ein Treuhandunternehmen, das KMU in der gesamten Schweiz und auf internationalen Märkten betreut. Ich habe einen Master of Arts in Economics-Finance von der University of Aberdeen und absolvierte einen internationalen Austausch an der University of Wisconsin-La Crosse. Zertifiziert in UiPath RPA, Alteryx und Power BI, bin ich auch Royal Yachting Association Day Skipper. Wenn ich nicht gerade Prozesse automatisiere, finden Sie mich beim Segeln oder bei der Mitarbeit an Gemeinschaftsprojekten wie dem Weissenstein-Wanderweg.",
+    "highlight1": "13+ Jahre Automatisierungsführung (J&J seit 2012)",
+    "highlight2": "Finance Analyst FP&A bei Fortune 500 (seit 2017)",
+    "highlight3": "Gründer & Eigentümer von Taxed GmbH (2021)",
+    "highlight4": "Master in Economics-Finance (UoA)",
+    "skills_title": "Kernkompetenzen & Zertifizierungen",
     "badge1": "UoA & UW-La Crosse",
-    "badge2": "J&J + Taxed GmbH"
+    "badge2": "J&J + Taxed GmbH",
+    "certifications": "UiPath RPA Developer • Alteryx Designer Core • Power BI Data Analyst • RYA Day Skipper"
   },
   "contact": {
     "title": "Lassen Sie uns zusammenarbeiten",
@@ -211,11 +212,11 @@
       },
       {
         "question": "Auf welche Automatisierungsplattformen sind Sie spezialisiert?",
-        "answer": "Ich bin spezialisiert auf UiPath, Power Automate, Python-Automatisierung und massgeschneiderte Lösungen. Ich habe umfangreiche Erfahrung mit RPA (Robotic Process Automation), KI-Integration, Workflow-Automatisierung und Datenanalyse mit Power BI."
+        "answer": "Ich bin zertifiziert als UiPath RPA Developer (2022), Alteryx Designer Core (2021) und Microsoft Power BI Data Analyst Associate (2021). Ich spezialisiere mich auf KI-native Automatisierung mit Vektordatenbanken, LLM-Orchestrierung, Python-Automatisierung und massgeschneiderten Lösungen. Mit 13+ Jahren Automatisierungsführung auf Fortune-500-Niveau habe ich umfangreiche Erfahrung mit RPA, KI-Integration, Workflow-Automatisierung und unternehmensweiter Datenanalyse."
       },
       {
         "question": "Können Sie bei der Schweizer Steuerkonformität für Expatriates helfen?",
-        "answer": "Absolut! Ich bin spezialisiert auf Schweizer Steuerberatung für Expatriates und helfe dabei, komplexe Schweizer Steuervorschriften zu navigieren, Steuerstrategien zu optimieren und Compliance über mehrere Jurisdiktionen hinweg sicherzustellen. Ich bin Mitgründer von Taxed GmbH, die sich speziell auf diesen Bereich fokussiert."
+        "answer": "Absolut! Über Taxed GmbH, die ich 2021 gegründet habe, biete ich umfassende Schweizer Steuerberatung für Expatriates. Ich helfe dabei, komplexe Schweizer Steuervorschriften zu navigieren, Steuerstrategien zu optimieren und Compliance über mehrere Jurisdiktionen hinweg sicherzustellen. Dienstleistungen umfassen Buchhaltung, MWST-Abrechnungen, Steuererklärungen für Einzelpersonen und Unternehmen sowie Treuhanddienstleistungen für KMU in der gesamten Schweiz."
       },
       {
         "question": "Bieten Sie Schulungen oder Wissenstransfer an?",
@@ -223,7 +224,7 @@
       },
       {
         "question": "Welche Branchen bedienen Sie?",
-        "answer": "Ich habe Erfahrung in mehreren Branchen, einschliesslich Pharma (Johnson & Johnson), Finanzen, Steuerberatung und Unternehmensabläufen. Meine Expertise in Automatisierung und Prozessoptimierung ist branchenübergreifend anwendbar."
+        "answer": "Ich habe umfangreiche Erfahrung in der Pharmaindustrie (Finance Analyst FP&A bei DePuy Synthes/Johnson & Johnson seit 2017), Finanzautomatisierung, Steuerberatung (Taxed GmbH) und Unternehmensabläufen. Meine Expertise umfasst Fortune-500-Multinationale, KMU und Einzelkunden, die Schweizer Steuerexpertise benötigen. Meine Automatisierungs- und Prozessoptimierungsfähigkeiten sind branchenübergreifend anwendbar."
       },
       {
         "question": "Wie fange ich an?",
