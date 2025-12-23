@@ -303,6 +303,9 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
       }
     </script>
 
+    <!-- Page-specific schema markup (named slot for child pages) -->
+    <slot name="head" />
+
     <!-- Modern Web APIs -->
     <script is:inline>
       // Web Share API

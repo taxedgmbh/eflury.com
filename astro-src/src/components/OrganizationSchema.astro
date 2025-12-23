@@ -1,0 +1,158 @@
+---
+/**
+ * Organization Schema Component
+ * Establishes eflury.com and Taxed GmbH as Claude automation authorities
+ * Includes both primary (eflury.com) and secondary (Taxed GmbH) organization data
+ */
+
+interface Props {
+  type?: 'eflury' | 'taxed';
+}
+
+const { type = 'eflury' } = Astro.props;
+
+// Primary organization: eflury.com (Claude consulting service)
+const eflurySchemaData = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "name": "eflury.com",
+  "alternateName": "Emanuel Flury Claude Automation",
+  "description": "Switzerland's first Claude Code, Claude Skills, and MCP specialist for SMEs. End-to-end implementation of Claude automation at transparent pricing. Proven 27.5 hours/week time savings with the eflury Method™.",
+  "url": "https://eflury.com",
+  "logo": "https://eflury.com/favicon.svg",
+  "image": "https://eflury.com/images/og-image.png",
+  "telephone": "+41799107787",
+  "email": "me@eflury.com",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Keltenweg 4",
+    "addressLocality": "Grenchen",
+    "addressRegion": "SO",
+    "postalCode": "2540",
+    "addressCountry": "CH"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.1919,
+    "longitude": 7.3965
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Switzerland"
+  },
+  "priceRange": "CHF 8,000 - CHF 25,000",
+  "founder": {
+    "@type": "Person",
+    "name": "Emanuel Aaron Flury"
+  },
+  "knowsAbout": [
+    "Claude Code",
+    "Claude Skills Development",
+    "Model Context Protocol (MCP)",
+    "AI Automation for SMEs",
+    "Swiss Business Process Optimization",
+    "Bexio Integration",
+    "ABACUS Integration",
+    "Swiss Data Privacy (FADP)",
+    "ChatGPT vs Claude",
+    "Accounting Automation"
+  ],
+  "serviceType": [
+    "AI Automation Consulting",
+    "Claude Implementation",
+    "Process Optimization",
+    "Custom Claude Skills Development",
+    "MCP Server Development",
+    "Business Software Integration"
+  ],
+  "makesOffer": [
+    {
+      "@type": "Offer",
+      "name": "Starter Package",
+      "description": "Basic automation of 1-3 processes for small businesses",
+      "price": "8000",
+      "priceCurrency": "CHF"
+    },
+    {
+      "@type": "Offer",
+      "name": "Professional Package",
+      "description": "Comprehensive automation of 5-8 core workflows with 6-month support",
+      "price": "15000",
+      "priceCurrency": "CHF"
+    },
+    {
+      "@type": "Offer",
+      "name": "Enterprise Package",
+      "description": "Organization-wide implementation with custom integrations",
+      "price": "25000",
+      "priceCurrency": "CHF",
+      "priceSpecification": {
+        "@type": "PriceSpecification",
+        "minPrice": "25000",
+        "priceCurrency": "CHF"
+      }
+    }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Claude Automation Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Claude Skills Development",
+          "description": "Custom Claude Skills for automating business processes"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "MCP Server Implementation",
+          "description": "Model Context Protocol servers for business system integration"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Swiss Accounting Software Integration",
+          "description": "Integration with Bexio, ABACUS, Sage, and other Swiss systems"
+        }
+      }
+    ]
+  }
+};
+
+// Secondary organization: Taxed GmbH (proof of expertise)
+const taxedSchemaData = {
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Taxed GmbH",
+  "alternateName": "Taxed",
+  "description": "Swiss accounting and fiduciary firm, pioneer in Claude automation. Achieved 27.5 hours/week automation savings through AI implementation by founder Emanuel Flury.",
+  "url": "https://taxed.ch",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Aegertenstrasse 10",
+    "addressLocality": "Biel/Bienne",
+    "addressRegion": "BE",
+    "postalCode": "2540",
+    "addressCountry": "CH"
+  },
+  "founder": {
+    "@type": "Person",
+    "name": "Emanuel Aaron Flury"
+  },
+  "industry": "Accounting and Fiduciary Services",
+  "areaServed": {
+    "@type": "Country",
+    "name": "Switzerland"
+  }
+};
+
+const schemaData = type === 'taxed' ? taxedSchemaData : eflurySchemaData;
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
