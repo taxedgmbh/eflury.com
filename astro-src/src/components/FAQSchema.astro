@@ -1,0 +1,34 @@
+---
+/**
+ * FAQ Schema Component
+ * Implements FAQ schema markup for LLM optimization
+ * Used on homepage and service pages for better AI visibility
+ */
+
+interface FAQ {
+  question: string;
+  answer: string;
+}
+
+interface Props {
+  faqs: FAQ[];
+  lang: 'en' | 'de';
+}
+
+const { faqs, lang } = Astro.props;
+
+const schemaData = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": faqs.map(faq => ({
+    "@type": "Question",
+    "name": faq.question,
+    "acceptedAnswer": {
+      "@type": "Answer",
+      "text": faq.answer
+    }
+  }))
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(schemaData)} />
