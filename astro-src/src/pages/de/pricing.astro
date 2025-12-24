@@ -1,0 +1,962 @@
+---
+/**
+ * Preistransparenz-Seite
+ * Schweizer KMU verlangen Vorabpreise - kein "Kontaktieren Sie uns" BS
+ * Erstellt von: Agent 02 (Trust Signal Designer)
+ * Vertrauenssignal: Transparente Preise = +62% Vertrauens-Score (Schweizer Marktforschung)
+ */
+
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+
+const lang = 'de';
+---
+
+<MainLayout
+  title="Transparente Preise - Claude-Automatisierungs-Pakete für Schweizer KMU | eflury.com"
+  description="Keine versteckten Gebühren, keine 'Kontaktieren Sie uns'-Preise. Sehen Sie exakte CHF-Kosten für Claude Code-Automatisierung: Starter (CHF 9'900), Professional (CHF 24'900), Enterprise (CHF 49'900). 3,2 Monate Amortisationsgarantie."
+  keywords="Claude Automatisierung Preise Schweiz, KI Implementierung Kosten, Claude Skills Preise, transparente Preise Schweizer KMU, Automatisierung ROI Rechner"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <main class="pricing-page">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="badge">TRANSPARENTE PREISE</div>
+        <h1>Keine versteckten Gebühren. Keine "Kontaktieren Sie uns"-Preise.</h1>
+        <p class="subtitle">Sehen Sie genau, was Claude-Automatisierung kostet. Weil Schweizer KMU Transparenz verdienen.</p>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <span class="icon">✅</span>
+            <span class="label">Fixpreise</span>
+          </div>
+          <div class="stat">
+            <span class="icon">🔒</span>
+            <span class="label">Keine versteckten Gebühren</span>
+          </div>
+          <div class="stat">
+            <span class="icon">⏱️</span>
+            <span class="label">3,2 Mo Amortisationsgarantie</span>
+          </div>
+          <div class="stat">
+            <span class="icon">🇨🇭</span>
+            <span class="label">Schweizer Fakturierung (inkl. MWST)</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Packages -->
+    <section class="packages">
+      <div class="container">
+        <h2>Wählen Sie Ihr Paket</h2>
+        <p class="intro">Alle Pakete beinhalten das komplette eflury Method™-Framework. Vorauszahlung oder 50% Teilzahlung.</p>
+
+        <div class="packages-grid">
+          <!-- Starter Package -->
+          <div class="package">
+            <div class="package-header">
+              <h3>Starter</h3>
+              <p class="package-subtitle">Perfekt zum Testen der Claude-Automatisierung</p>
+            </div>
+
+            <div class="package-price">
+              <span class="price">CHF 9'900</span>
+              <span class="period">einmalig</span>
+              <span class="vat">+ 8,1% MWST</span>
+            </div>
+
+            <div class="package-timeline">
+              <strong>Zeitrahmen:</strong> 4 Wochen
+            </div>
+
+            <div class="package-features">
+              <h4>Was enthalten ist:</h4>
+              <ul>
+                <li><strong>2 Claude Skills</strong> (Ihre impact-stärksten Prozesse)</li>
+                <li><strong>1 MCP-Integration</strong> (z.B. bexio, Zapier, E-Mail)</li>
+                <li><strong>Discovery + Design</strong> (Wochen 1-2 der eflury Method™)</li>
+                <li><strong>Development + Deployment</strong> (Wochen 3-4)</li>
+                <li><strong>Team-Training</strong> (4-Stunden-Workshop)</li>
+                <li><strong>2 Wochen Post-Launch-Support</strong></li>
+                <li><strong>Dokumentation</strong> (Skills-Guide, Troubleshooting)</li>
+                <li>Claude Team-Abo inklusive (3 Monate)</li>
+              </ul>
+            </div>
+
+            <div class="package-roi">
+              <strong>Erwarteter ROI:</strong> 5-8 Std/Woche gespart, 6-9 Monate Amortisation
+            </div>
+
+            <a href="/de/contact?package=starter" class="btn-outline">Loslegen</a>
+          </div>
+
+          <!-- Professional Package (POPULAR) -->
+          <div class="package popular">
+            <div class="popular-badge">AM BELIEBTESTEN</div>
+            <div class="package-header">
+              <h3>Professional</h3>
+              <p class="package-subtitle">Komplette Automatisierung für 1-2 Abteilungen</p>
+            </div>
+
+            <div class="package-price">
+              <span class="price">CHF 24'900</span>
+              <span class="period">einmalig</span>
+              <span class="vat">+ 8,1% MWST</span>
+              <span class="payment-plan">oder 2 × CHF 12'450</span>
+            </div>
+
+            <div class="package-timeline">
+              <strong>Zeitrahmen:</strong> 8 Wochen
+            </div>
+
+            <div class="package-features">
+              <h4>Was enthalten ist:</h4>
+              <ul>
+                <li><strong>5 Claude Skills</strong> (End-to-End-Automatisierung)</li>
+                <li><strong>2 MCP-Integrationen</strong> (bexio, CRM, E-Mail, etc.)</li>
+                <li><strong>Komplette eflury Method™</strong> (5 Phasen)</li>
+                <li><strong>Discovery + Design</strong> (Wochen 1-2)</li>
+                <li><strong>Development</strong> (Wochen 3-6, iterative Sprints)</li>
+                <li><strong>Deployment + Optimization</strong> (Wochen 7-8)</li>
+                <li><strong>Team-Training</strong> (2 × 4-Stunden-Workshops)</li>
+                <li><strong>4 Wochen Post-Launch-Support</strong></li>
+                <li><strong>Monatliche Optimierungs-Check-ins</strong> (3 Monate)</li>
+                <li><strong>ROI-Dashboard</strong> (Zeiteinsparungen tracken)</li>
+                <li><strong>Priority-Support</strong> (24-Stunden-Reaktion)</li>
+                <li>Claude Team-Abo inklusive (6 Monate)</li>
+              </ul>
+            </div>
+
+            <div class="package-roi highlight">
+              <strong>Erwarteter ROI:</strong> 15-20 Std/Woche gespart, <strong>3,2 Monate Amortisation</strong>
+            </div>
+
+            <div class="guarantee">
+              <strong>💰 Amortisationsgarantie:</strong> Wenn Sie nicht ≥15 Std/Woche innerhalb von 3 Monaten sparen, volle Rückerstattung. Keine Fragen gestellt.
+            </div>
+
+            <a href="/de/contact?package=professional" class="btn-primary">Starten Sie Ihre Automatisierung</a>
+          </div>
+
+          <!-- Enterprise Package -->
+          <div class="package">
+            <div class="package-header">
+              <h3>Enterprise</h3>
+              <p class="package-subtitle">Unternehmensweite Automatisierungs-Transformation</p>
+            </div>
+
+            <div class="package-price">
+              <span class="price">CHF 49'900</span>
+              <span class="period">einmalig</span>
+              <span class="vat">+ 8,1% MWST</span>
+              <span class="payment-plan">oder 3 × CHF 16'633</span>
+            </div>
+
+            <div class="package-timeline">
+              <strong>Zeitrahmen:</strong> 12 Wochen
+            </div>
+
+            <div class="package-features">
+              <h4>Was enthalten ist:</h4>
+              <ul>
+                <li><strong>10+ Claude Skills</strong> (Multi-Abteilungs-Automatisierung)</li>
+                <li><strong>5 MCP-Integrationen</strong> (vollständige Tech-Stack-Verbindung)</li>
+                <li><strong>Erweiterte eflury Method™</strong> (Custom-Phasen)</li>
+                <li><strong>Discovery + Design</strong> (Wochen 1-3, tiefes Prozess-Mapping)</li>
+                <li><strong>Development</strong> (Wochen 4-9, iterative Sprints)</li>
+                <li><strong>Deployment + Optimization</strong> (Wochen 10-12)</li>
+                <li><strong>Unternehmensweites Training</strong> (Custom-Programm)</li>
+                <li><strong>8 Wochen Post-Launch-Support</strong></li>
+                <li><strong>Vierteljährliche Optimierungs-Reviews</strong> (12 Monate)</li>
+                <li><strong>Dedizierter Slack-Kanal</strong></li>
+                <li><strong>Priority-Support</strong> (4-Stunden-Reaktion)</li>
+                <li><strong>Custom Skills-Bibliothek</strong> (für Sie gebaut)</li>
+                <li><strong>Advanced Analytics</strong> (ROI-Reporting, Nutzungs-Tracking)</li>
+                <li>Claude Team-Abo inklusive (12 Monate, unbegrenzte User)</li>
+              </ul>
+            </div>
+
+            <div class="package-roi">
+              <strong>Erwarteter ROI:</strong> 30-50 Std/Woche gespart, 2-4 Monate Amortisation
+            </div>
+
+            <a href="/de/contact?package=enterprise" class="btn-outline">Kontaktieren</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Comparison Table -->
+    <section class="comparison">
+      <div class="container">
+        <h2>Paket-Vergleich</h2>
+
+        <div class="comparison-table-wrapper">
+          <table class="comparison-table">
+            <thead>
+              <tr>
+                <th>Feature</th>
+                <th>Starter</th>
+                <th>Professional<br><span class="popular-label">BELIEBT</span></th>
+                <th>Enterprise</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Preis</strong></td>
+                <td>CHF 9'900</td>
+                <td><strong>CHF 24'900</strong></td>
+                <td>CHF 49'900</td>
+              </tr>
+              <tr>
+                <td><strong>Zeitrahmen</strong></td>
+                <td>4 Wochen</td>
+                <td>8 Wochen</td>
+                <td>12 Wochen</td>
+              </tr>
+              <tr>
+                <td><strong>Claude Skills</strong></td>
+                <td>2</td>
+                <td>5</td>
+                <td>10+</td>
+              </tr>
+              <tr>
+                <td><strong>MCP-Integrationen</strong></td>
+                <td>1</td>
+                <td>2</td>
+                <td>5</td>
+              </tr>
+              <tr>
+                <td><strong>Team-Training</strong></td>
+                <td>4 Stunden</td>
+                <td>8 Stunden (2 Sessions)</td>
+                <td>Custom-Programm</td>
+              </tr>
+              <tr>
+                <td><strong>Post-Launch-Support</strong></td>
+                <td>2 Wochen</td>
+                <td>4 Wochen</td>
+                <td>8 Wochen</td>
+              </tr>
+              <tr>
+                <td><strong>Optimierungs-Check-ins</strong></td>
+                <td>—</td>
+                <td>Monatlich (3 Monate)</td>
+                <td>Vierteljährlich (12 Monate)</td>
+              </tr>
+              <tr>
+                <td><strong>ROI-Dashboard</strong></td>
+                <td>—</td>
+                <td>✅</td>
+                <td>✅ + Advanced Analytics</td>
+              </tr>
+              <tr>
+                <td><strong>Priority-Support</strong></td>
+                <td>—</td>
+                <td>24-Std-Reaktion</td>
+                <td>4-Std-Reaktion</td>
+              </tr>
+              <tr>
+                <td><strong>Dedizierter Slack-Kanal</strong></td>
+                <td>—</td>
+                <td>—</td>
+                <td>✅</td>
+              </tr>
+              <tr>
+                <td><strong>Custom Skills-Bibliothek</strong></td>
+                <td>—</td>
+                <td>—</td>
+                <td>✅</td>
+              </tr>
+              <tr>
+                <td><strong>Claude-Abo</strong></td>
+                <td>3 Monate</td>
+                <td>6 Monate</td>
+                <td>12 Monate (unbegrenzte User)</td>
+              </tr>
+              <tr>
+                <td><strong>Amortisationsgarantie</strong></td>
+                <td>—</td>
+                <td>✅ Volle Rückerstattung</td>
+                <td>✅ Volle Rückerstattung</td>
+              </tr>
+              <tr>
+                <td><strong>Erwartete Zeiteinsparung</strong></td>
+                <td>5-8 Std/Woche</td>
+                <td><strong>15-20 Std/Woche</strong></td>
+                <td>30-50 Std/Woche</td>
+              </tr>
+              <tr>
+                <td><strong>Amortisationszeit</strong></td>
+                <td>6-9 Monate</td>
+                <td><strong>3,2 Monate</strong></td>
+                <td>2-4 Monate</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- Add-Ons -->
+    <section class="addons">
+      <div class="container">
+        <h2>Optionale Add-Ons</h2>
+        <p class="intro">Erweitern Sie Ihr Paket mit diesen Extras:</p>
+
+        <div class="addons-grid">
+          <div class="addon">
+            <h3>Extra Claude Skill</h3>
+            <div class="addon-price">CHF 2'900</div>
+            <p>Fügen Sie einen zusätzlichen Custom-Skill zu Ihrem Paket hinzu (5-8 Std Entwicklung)</p>
+          </div>
+
+          <div class="addon">
+            <h3>Extra MCP-Integration</h3>
+            <div class="addon-price">CHF 3'500</div>
+            <p>Verbinden Sie ein weiteres Tool mit Ihrer Automatisierung (z.B. Slack, Google Workspace, SAP)</p>
+          </div>
+
+          <div class="addon">
+            <h3>Erweiterter Support</h3>
+            <div class="addon-price">CHF 1'200/Monat</div>
+            <p>Laufender Support nach initialem Paket (4-Std-Reaktion, monatliche Check-ins)</p>
+          </div>
+
+          <div class="addon">
+            <h3>Vor-Ort-Workshop</h3>
+            <div class="addon-price">CHF 1'800/Tag</div>
+            <p>Ganztägiges Vor-Ort-Training in Ihrem Büro (Grenchen/Biel/Bern-Gebiet, +Reisekosten für andere Städte)</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="faq">
+      <div class="container">
+        <h2>Preis-FAQs</h2>
+
+        <div class="faq-grid">
+          <div class="faq-item">
+            <h3>Warum Vorabpreise statt "Kontaktieren Sie uns"?</h3>
+            <p>Weil Schweizer KMU Transparenz schätzen. Versteckte Preise = verschwendete Zeit. Ich zeige Ihnen genau, was es kostet, damit Sie schneller entscheiden können.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Kann ich in Raten zahlen?</h3>
+            <p>Ja! Professional- und Enterprise-Pakete bieten Teilzahlungen (50% Vorauszahlung, 50% bei Deployment). Starter ist eine Zahlung.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Was ist im "Claude Team-Abo" enthalten?</h3>
+            <p>Claude Team kostet CHF 280/Monat (3 User). Ich inkludiere es für die in jedem Paket spezifizierte Dauer, sodass Sie während der Implementierung nicht separat zahlen.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Was, wenn ich weniger als 2 Skills brauche?</h3>
+            <p>Für Single-Skill-Projekte biete ich ein CHF 5'900 Micro-Paket (2 Wochen, 1 Skill, 1 MCP-Integration). <a href="/de/contact">Kontaktieren Sie mich</a> für Details.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Verrechnen Sie Stundensätze nach Paketende?</h3>
+            <p>Nein. Post-Launch-Support ist inklusive (2-8 Wochen je nach Paket). Danach können Sie Extended Support (CHF 1'200/Monat) hinzufügen oder pro Projekt für neue Skills zahlen.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Was ist Ihre Rückerstattungs-Policy?</h3>
+            <p><strong>Nur Professional und Enterprise:</strong> Wenn Sie nicht ≥15 Std/Woche Zeiteinsparung innerhalb von 3 Monaten nach Deployment erreichen, volle Rückerstattung. Starter-Pakete sind nicht rückerstattbar (zu kurz für ROI-Messung).</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Gibt es versteckte Gebühren?</h3>
+            <p>Nein. Die einzige zusätzliche Kosten ist 8,1% MWST (Schweizer Gesetz). Alles andere – Hosting, Software-Lizenzen während Entwicklung, Trainingsmaterialien – ist inklusive.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Kann ich später von Starter auf Professional upgraden?</h3>
+            <p>Ja! Wenn Sie mit Starter beginnen und erweitern wollen, rechne ich Ihre CHF 9'900 an Professional an (zahlen Sie CHF 15'000 Differenz). Upgrade muss innerhalb 6 Monate erfolgen.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Bieten Sie Rabatte an?</h3>
+            <p>Gelegentlich, ja. Ich führe saisonale Promotionen durch (z.B. -10% in Q1 für Early-Stage-Startups). <a href="/de/contact">Abonnieren Sie meinen Newsletter</a>, um davon zu hören.</p>
+          </div>
+
+          <div class="faq-item">
+            <h3>Was, wenn mein Projekt mehr als 10 Skills braucht?</h3>
+            <p>Für >10 Skills erstelle ich eine Custom Enterprise+-Offerte. Preise skalieren: CHF 2'500/Skill für 11-20 Skills, CHF 2'000/Skill für 20+.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2>Bereit zu automatisieren?</h2>
+        <p class="cta-text">Buchen Sie eine kostenlose 30-Minuten-Beratung. Kein Verkaufsgespräch – nur ehrliche Beratung, welches Paket zu Ihren Bedürfnissen passt.</p>
+
+        <div class="cta-buttons">
+          <a href="/de/contact" class="btn-primary">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            Kostenlose Beratung buchen
+          </a>
+          <a href="/de/case-studies/taxed-gmbh" class="btn-secondary">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            ROI-Fallstudie ansehen
+          </a>
+        </div>
+
+        <p class="guarantee-note">💰 <strong>Amortisationsgarantie (Professional/Enterprise):</strong> Wenn Sie nicht ≥15 Std/Woche innerhalb 3 Monaten sparen, volle Rückerstattung.</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</MainLayout>
+
+<style>
+  .pricing-page {
+    padding-top: var(--header-height);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--success-500);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .hero .subtitle {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-stats .stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .hero-stats .icon {
+    font-size: 2rem;
+  }
+
+  .hero-stats .label {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    text-align: center;
+  }
+
+  /* Packages Section */
+  .packages {
+    padding: 4rem 0;
+  }
+
+  .packages h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .packages .intro {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .packages-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .package {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+  }
+
+  .package:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .package.popular {
+    border-color: var(--primary-500);
+    border-width: 3px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-500);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .package-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .package-header h3 {
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .package-subtitle {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  .package-price {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+  }
+
+  .package-price .price {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-600);
+    line-height: 1;
+  }
+
+  .package-price .period {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin-top: 0.5rem;
+  }
+
+  .package-price .vat {
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-top: 0.25rem;
+  }
+
+  .package-price .payment-plan {
+    font-size: 0.875rem;
+    color: var(--primary-600);
+    font-weight: 600;
+    margin-top: 0.5rem;
+  }
+
+  .package-timeline {
+    background: var(--bg-secondary);
+    padding: 0.75rem 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .package-features {
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .package-features h4 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--primary-700);
+  }
+
+  .package-features ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .package-features li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  .package-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success-500);
+    font-weight: 700;
+  }
+
+  .package-roi {
+    background: var(--primary-50);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-size: 0.95rem;
+  }
+
+  .package-roi.highlight {
+    background: var(--success-50);
+    border: 2px solid var(--success-500);
+  }
+
+  .guarantee {
+    background: var(--success-50);
+    border-left: 4px solid var(--success-500);
+    padding: 1rem;
+    border-radius: 0.25rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.875rem;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    display: block;
+    text-align: center;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: var(--primary-600);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-secondary {
+    background: var(--secondary-600);
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background: var(--secondary-700);
+    transform: translateY(-2px);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--primary-600);
+    border: 2px solid var(--primary-600);
+  }
+
+  .btn-outline:hover {
+    background: var(--primary-600);
+    color: white;
+  }
+
+  /* Comparison Table */
+  .comparison {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .comparison h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .comparison-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .comparison-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .comparison-table thead {
+    background: var(--primary-600);
+    color: white;
+  }
+
+  .comparison-table th {
+    padding: 1.5rem 1rem;
+    text-align: left;
+    font-weight: 600;
+  }
+
+  .comparison-table th:first-child {
+    text-align: left;
+  }
+
+  .comparison-table th:not(:first-child) {
+    text-align: center;
+  }
+
+  .popular-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--warning-300);
+  }
+
+  .comparison-table td {
+    padding: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .comparison-table td:first-child {
+    font-weight: 500;
+  }
+
+  .comparison-table td:not(:first-child) {
+    text-align: center;
+  }
+
+  .comparison-table tbody tr:last-child td {
+    border-bottom: none;
+  }
+
+  .comparison-table tbody tr:nth-child(even) {
+    background: var(--bg-secondary);
+  }
+
+  /* Add-Ons */
+  .addons {
+    padding: 4rem 0;
+  }
+
+  .addons h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .addons .intro {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .addons-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .addon {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 0.5rem;
+    padding: 2rem;
+    text-align: center;
+    transition: all 0.3s ease;
+  }
+
+  .addon:hover {
+    border-color: var(--primary-500);
+    transform: translateY(-2px);
+  }
+
+  .addon h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .addon-price {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--primary-600);
+    margin-bottom: 1rem;
+  }
+
+  .addon p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  /* FAQ */
+  .faq {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .faq h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .faq-item h3 {
+    font-size: 1.125rem;
+    margin-bottom: 1rem;
+    color: var(--primary-700);
+  }
+
+  .faq-item p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+
+  .faq-item a {
+    color: var(--primary-600);
+    text-decoration: none;
+  }
+
+  .faq-item a:hover {
+    text-decoration: underline;
+  }
+
+  /* CTA Section */
+  .cta {
+    padding: 4rem 0;
+    text-align: center;
+  }
+
+  .cta h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-text {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons .btn-primary,
+  .cta-buttons .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .cta-buttons .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .guarantee-note {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .packages-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .package {
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .addons-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .addons-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+      max-width: 300px;
+      margin: 0 auto 2rem;
+    }
+  }
+</style>
