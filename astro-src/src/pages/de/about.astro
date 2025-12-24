@@ -1,0 +1,754 @@
+---
+/**
+ * Über Emanuel Aaron Flury
+ * Vertrauenssignal-Seite - beantwortet "Wer ist diese Person und warum sollte ich ihm vertrauen?"
+ * Erstellt von: Agent 02 (Trust Signal Designer)
+ * 92% der B2B-Käufer besuchen die About-Seite vor dem Kauf
+ */
+
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import PersonSchema from '../../components/PersonSchema.astro';
+
+const lang = 'de';
+---
+
+<MainLayout
+  title="Über Emanuel Aaron Flury - Schweizer Claude-Automatisierungsspezialist"
+  description="Vom Buchhalter, der in Tabellen ertrinkt, zum führenden Claude Code-Experten der Schweiz. Wie ich 27,5 Stunden/Woche in meiner eigenen Firma automatisierte und jetzt Schweizer KMU dabei helfe."
+  keywords="Emanuel Flury, Claude Automatisierung Schweiz, KI-Automatisierungsspezialist, Taxed GmbH, Grenchen Schweiz"
+  lang={lang}
+>
+  <PersonSchema slot="head" />
+
+  <Header lang={lang} />
+
+  <main class="about-page">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="hero-content">
+          <div class="hero-text">
+            <h1>Emanuel Aaron Flury</h1>
+            <p class="subtitle">Schweizer Claude Code & KI-Automatisierungsspezialist für KMU</p>
+            <div class="location">
+              <svg class="icon" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M5.05 4.05a7 7 0 119.9 9.9L10 18.9l-4.95-4.95a7 7 0 010-9.9zM10 11a2 2 0 100-4 2 2 0 000 4z" clip-rule="evenodd"/>
+              </svg>
+              <span>Ansässig in Grenchen, Schweiz</span>
+            </div>
+            <p class="tagline">Gründer von Taxed GmbH | Claude-Automatisierungsberater</p>
+          </div>
+
+          <div class="hero-image">
+            <!-- Platzhalter für professionelles Porträt -->
+            <div class="headshot-placeholder">
+              <div class="avatar-circle">
+                <span class="initials">EF</span>
+              </div>
+              <p class="photo-note">Professionelles Porträt folgt bald</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Story Section -->
+    <section class="story">
+      <div class="container">
+        <h2>Vom Buchhalter zum KI-Automatisierungs-Pionier</h2>
+
+        <div class="story-content">
+          <p class="lead">Ich habe nicht als Techie angefangen. Ich startete als Buchhalter, der in Excel-Sheets versank.</p>
+
+          <p>2023 führte ich <strong>Taxed GmbH</strong>, meine Treuhandfirma in Biel/Bienne, und arbeitete 60-Stunden-Wochen. 20 dieser Stunden? Purer "Admin-BS" - Dateneingabe, Kunden-E-Mails, Report-Erstellung.</p>
+
+          <p>Ich wusste, es muss einen besseren Weg geben.</p>
+
+          <p>Dann entdeckte ich <strong>Claude Code</strong>. Nicht ChatGPT. Nicht Copilot. <strong>Claude.</strong></p>
+
+          <div class="highlight-box">
+            <h3>Der Wendepunkt</h3>
+            <p>Innerhalb von 3 Monaten automatisierte ich <strong>27,5 Stunden pro Woche</strong> Arbeit bei Taxed.</p>
+            <ul class="results-list">
+              <li><strong>CHF 24'000/Jahr</strong> Kosteneinsparungen</li>
+              <li><strong>3,2 Monate</strong> Amortisationszeit</li>
+              <li><strong>99,7%</strong> Genauigkeit bei automatisierten Aufgaben</li>
+            </ul>
+          </div>
+
+          <p>Aber hier ist, was ich realisierte: <strong>Schweizer KMU brauchen keinen weiteren KI-Berater, der Versprechungen verkauft. Sie brauchen jemanden, der es getan hat. In ihrer Sprache. In ihrem Markt.</strong></p>
+
+          <p class="mission">Also machte ich es zu meiner Mission: Bis 2026 100 Schweizer KMU bei der Claude-Automatisierung helfen. Transparente Preise. Kein BS. Nur bewährte Resultate.</p>
+
+          <p><strong>Das ist der eflury.com-Unterschied.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section class="expertise">
+      <div class="container">
+        <h2>Was ich kann (und was nicht)</h2>
+
+        <div class="expertise-grid">
+          <!-- Was ich mache -->
+          <div class="expertise-box do">
+            <div class="box-header">
+              <svg class="icon-check" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+              </svg>
+              <h3>Ich spezialisiere mich auf:</h3>
+            </div>
+            <ul>
+              <li><strong>Claude Code-Implementierung</strong> (nicht ChatGPT, nicht andere Modelle - nur Claude)</li>
+              <li><strong>Claude Skills-Entwicklung</strong> (ich habe 50+ Custom Skills gebaut)</li>
+              <li><strong>Model Context Protocol (MCP)</strong> Integration</li>
+              <li><strong>Schweizer KMU-Prozessautomatisierung</strong> (10-50 Mitarbeiter)</li>
+              <li><strong>Buchhaltungs-/Finanzautomatisierung</strong> (mein Background)</li>
+              <li><strong>Zweisprachiger Support</strong> (Deutsch/Englisch)</li>
+            </ul>
+          </div>
+
+          <!-- Was ich nicht mache -->
+          <div class="expertise-box dont">
+            <div class="box-header">
+              <svg class="icon-x" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+              </svg>
+              <h3>Ich mache nicht:</h3>
+            </div>
+            <ul>
+              <li><strong>Generisches "KI-Strategie-Consulting"</strong> (zu vage)</li>
+              <li><strong>Multi-Modell-Implementierungen</strong> (ich bin Claude-exklusiv aus gutem Grund)</li>
+              <li><strong>Enterprise >250 Mitarbeiter</strong> (das ist nicht meine Spezialität)</li>
+              <li><strong>Marketing-KI-Tools</strong> (mein Fokus ist Operations/Finanzen)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="why-claude">
+          <h3>Warum Claude-exklusiv?</h3>
+          <p>Weil Schweizer KMU nicht 10 Tools brauchen. Sie brauchen EIN Tool, perfekt implementiert.</p>
+          <p><strong>Claude Code + Claude Skills + MCP = Alles, was Sie für 90% der KMU-Automatisierung brauchen.</strong></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- eflury Method™ Summary -->
+    <section class="method-summary">
+      <div class="container">
+        <h2>Wie wir arbeiten: Die eflury Method™</h2>
+        <p class="intro">Jeder Kunde durchläuft dasselbe bewährte 5-Phasen-Framework:</p>
+
+        <div class="phases">
+          <div class="phase">
+            <div class="phase-number">1</div>
+            <h3>Discovery</h3>
+            <p class="phase-time">(Woche 1)</p>
+            <p>Wir kartieren Ihre Prozesse, identifizieren Automatisierungsmöglichkeiten, setzen ROI-Ziele</p>
+          </div>
+
+          <div class="phase">
+            <div class="phase-number">2</div>
+            <h3>Design</h3>
+            <p class="phase-time">(Woche 2)</p>
+            <p>Wir entwerfen Ihre Claude-Lösung, noch kein Code - nur Blueprints</p>
+          </div>
+
+          <div class="phase">
+            <div class="phase-number">3</div>
+            <h3>Development</h3>
+            <p class="phase-time">(Wochen 3-5)</p>
+            <p>Wir bauen Ihre Skills, integrieren mit Ihren Tools, testen alles</p>
+          </div>
+
+          <div class="phase">
+            <div class="phase-number">4</div>
+            <h3>Deployment</h3>
+            <p class="phase-time">(Woche 6)</p>
+            <p>Wir schulen Ihr Team, gehen live in Produktion, überwachen eng</p>
+          </div>
+
+          <div class="phase">
+            <div class="phase-number">5</div>
+            <h3>Optimization</h3>
+            <p class="phase-time">(Laufend)</p>
+            <p>Wir tracken Resultate, verfeinern, skalieren was funktioniert</p>
+          </div>
+        </div>
+
+        <p class="method-cta">
+          <strong>Gesamtdauer: 4-12 Wochen (je nach Paket)</strong><br>
+          <a href="/de/process">Mehr über den kompletten Prozess erfahren →</a><br>
+          <a href="/de/services/packages">Service-Pakete ansehen →</a>
+        </p>
+      </div>
+    </section>
+
+    <!-- Social Proof Section -->
+    <section class="proof">
+      <div class="container">
+        <h2>Beweise, keine Versprechen</h2>
+
+        <div class="case-study-highlight">
+          <h3>Taxed GmbH <span class="badge">Meine eigene Firma</span></h3>
+          <div class="metrics">
+            <div class="metric">
+              <span class="value">27,5</span>
+              <span class="label">Std/Woche automatisiert</span>
+            </div>
+            <div class="metric">
+              <span class="value">CHF 24K</span>
+              <span class="label">jährliche Kosteneinsparungen</span>
+            </div>
+            <div class="metric">
+              <span class="value">99,7%</span>
+              <span class="label">Genauigkeit bei automatisierten Aufgaben</span>
+            </div>
+            <div class="metric">
+              <span class="value">3,2</span>
+              <span class="label">Monate Amortisationszeit</span>
+            </div>
+          </div>
+          <a href="/de/case-studies/taxed-gmbh" class="btn-primary">Vollständige Fallstudie lesen →</a>
+        </div>
+
+        <div class="compliance">
+          <h3>Schweizer Compliance</h3>
+          <ul>
+            <li>✅ DSG (Schweizer Datenschutz) konform</li>
+            <li>✅ In der Schweiz ansässig (Grenchen, SO)</li>
+            <li>✅ Zweisprachiger Service (DE/EN)</li>
+            <li>✅ Transparente Preise (<a href="/de/pricing">Pakete ansehen</a>)</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Personal Touch Section -->
+    <section class="personal">
+      <div class="container">
+        <h2>Leben ausserhalb von Claude</h2>
+
+        <p>Wenn ich nicht gerade Prozesse automatisiere, finden Sie mich in <strong>Grenchen</strong> - der Uhrenhauptstadt der Schweiz.</p>
+
+        <p>Warum Grenchen? Weil es der Ort ist, wo Präzisions-Engineering auf Schweizer Tradition trifft. Das ist exakt mein Ansatz bei Claude-Automatisierung: <strong>Präzise, zuverlässig, Swiss-Quality.</strong></p>
+
+        <div class="connect">
+          <h3>Kontaktieren Sie mich:</h3>
+          <div class="contact-links">
+            <a href="https://www.linkedin.com/in/emanuelflury" target="_blank" class="contact-link linkedin">
+              <svg class="icon" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M6.29 18.251c7.547 0 11.675-6.253 11.675-11.675 0-.178 0-.355-.012-.53A8.348 8.348 0 0020 3.92a8.19 8.19 0 01-2.357.646 4.118 4.118 0 001.804-2.27 8.224 8.224 0 01-2.605.996 4.107 4.107 0 00-6.993 3.743 11.65 11.65 0 01-8.457-4.287 4.106 4.106 0 001.27 5.477A4.073 4.073 0 01.8 7.713v.052a4.105 4.105 0 003.292 4.022 4.095 4.095 0 01-1.853.07 4.108 4.108 0 003.834 2.85A8.233 8.233 0 010 16.407a11.616 11.616 0 006.29 1.84"/>
+              </svg>
+              LinkedIn: Emanuel Flury
+            </a>
+            <a href="mailto:me@eflury.com" class="contact-link email">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              me@eflury.com
+            </a>
+            <a href="tel:+41799107787" class="contact-link phone">
+              <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+              </svg>
+              +41 79 910 77 87
+              <span class="response-time">(Antwort: <24 Stunden)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Final CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2>Sprechen wir über Ihre Automatisierung</h2>
+        <p class="cta-text">Kostenlose 30-Minuten-Beratung. Kein Verkaufsgespräch. Nur ehrliche Beratung, ob Claude das Richtige für Sie ist.</p>
+        <div class="cta-buttons">
+          <a href="/de/contact" class="btn-primary">Kostenlose Beratung buchen</a>
+          <a href="/de/pricing" class="btn-secondary">Preise ansehen</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</MainLayout>
+
+<style>
+  .about-page {
+    padding-top: var(--header-height);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .subtitle {
+    font-size: clamp(1.25rem, 2.5vw, 1.5rem);
+    color: var(--primary-600);
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .location {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .location .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .tagline {
+    color: var(--text-secondary);
+    font-size: 1.125rem;
+  }
+
+  .headshot-placeholder {
+    text-align: center;
+  }
+
+  .avatar-circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+
+  .initials {
+    font-size: 4rem;
+    font-weight: 700;
+    color: white;
+  }
+
+  .photo-note {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    font-style: italic;
+  }
+
+  /* Story Section */
+  .story {
+    padding: 4rem 0;
+  }
+
+  .story h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .story-content {
+    max-width: 800px;
+    margin: 0 auto;
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+
+  .story-content .lead {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-700);
+    margin-bottom: 1.5rem;
+  }
+
+  .highlight-box {
+    background: var(--primary-50);
+    border-left: 4px solid var(--primary-500);
+    padding: 2rem;
+    margin: 2rem 0;
+    border-radius: 0.5rem;
+  }
+
+  .highlight-box h3 {
+    margin-top: 0;
+    color: var(--primary-700);
+  }
+
+  .results-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .results-list li {
+    padding: 0.5rem 0;
+    font-size: 1.125rem;
+  }
+
+  .mission {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--primary-700);
+    margin: 2rem 0;
+  }
+
+  /* Expertise Section */
+  .expertise {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .expertise h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .expertise-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1000px;
+    margin: 0 auto 3rem;
+  }
+
+  .expertise-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+
+  .expertise-box.do {
+    border-top: 4px solid var(--success-500);
+  }
+
+  .expertise-box.dont {
+    border-top: 4px solid var(--error-500);
+  }
+
+  .box-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+  }
+
+  .box-header .icon-check,
+  .box-header .icon-x {
+    width: 32px;
+    height: 32px;
+  }
+
+  .expertise-box.do .icon-check {
+    color: var(--success-500);
+  }
+
+  .expertise-box.dont .icon-x {
+    color: var(--error-500);
+  }
+
+  .expertise-box ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .expertise-box ul li {
+    padding: 0.5rem 0;
+    line-height: 1.6;
+  }
+
+  .why-claude {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    padding: 2rem;
+    background: var(--primary-50);
+    border-radius: 1rem;
+  }
+
+  /* Method Summary */
+  .method-summary {
+    padding: 4rem 0;
+  }
+
+  .method-summary h2 {
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .method-summary .intro {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .phases {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .phase {
+    text-align: center;
+  }
+
+  .phase-number {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: var(--primary-500);
+    color: white;
+    font-size: 2rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 1rem;
+  }
+
+  .phase h3 {
+    font-size: 1.25rem;
+    margin-bottom: 0.25rem;
+  }
+
+  .phase-time {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin-bottom: 0.5rem;
+  }
+
+  .method-cta {
+    text-align: center;
+    margin-top: 3rem;
+  }
+
+  /* Proof Section */
+  .proof {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .proof h2 {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .case-study-highlight {
+    background: white;
+    padding: 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .case-study-highlight h3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--primary-500);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-left: 0.5rem;
+  }
+
+  .metrics {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+
+  .metric {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .metric .value {
+    font-size: 3rem;
+    font-weight: 800;
+    color: var(--primary-600);
+    line-height: 1;
+  }
+
+  .metric .label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+  }
+
+  /* Personal Section */
+  .personal {
+    padding: 4rem 0;
+  }
+
+  .personal h2 {
+    text-align: center;
+    margin-bottom: 2rem;
+  }
+
+  .personal p {
+    max-width: 800px;
+    margin: 1rem auto;
+    text-align: center;
+    font-size: 1.125rem;
+    line-height: 1.8;
+  }
+
+  .connect {
+    max-width: 600px;
+    margin: 3rem auto 0;
+  }
+
+  .connect h3 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary);
+    border-radius: 0.5rem;
+    text-decoration: none;
+    color: var(--text-primary);
+    transition: all 0.3s ease;
+  }
+
+  .contact-link:hover {
+    background: var(--primary-50);
+    transform: translateX(4px);
+  }
+
+  .contact-link .icon {
+    width: 24px;
+    height: 24px;
+    color: var(--primary-500);
+  }
+
+  .response-time {
+    margin-left: auto;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+  }
+
+  /* CTA Section */
+  .cta {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+    color: white;
+    text-align: center;
+  }
+
+  .cta h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .cta-text {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: white;
+    color: var(--primary-600);
+  }
+
+  .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-secondary {
+    background: transparent;
+    color: white;
+    border: 2px solid white;
+  }
+
+  .btn-secondary:hover {
+    background: white;
+    color: var(--primary-600);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      text-align: center;
+    }
+
+    .expertise-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .phases {
+      grid-template-columns: 1fr;
+    }
+
+    .metrics {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+  }
+</style>

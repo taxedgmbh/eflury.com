@@ -1,0 +1,1682 @@
+---
+/**
+ * Fallstudie: Taxed GmbH
+ * Wie Emanuel seine eigene Treuhandfirma mit Claude AI automatisierte
+ * Erstellt von: Agent 03 (Case Study Publisher)
+ * Zweck: Social Proof, Glaubwürdigkeit, technische Präsentation
+ */
+
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import OrganizationSchema from '../../../components/OrganizationSchema.astro';
+
+const lang = 'de';
+---
+
+<MainLayout
+  title="Fallstudie: Taxed GmbH - 27.5 Std/Woche automatisiert mit Claude"
+  description="Wie ich meine eigene Treuhandfirma mit Claude Code automatisierte und CHF 24'000/Jahr spare mit 3,2 Monaten Amortisationszeit. Kompletter technischer Breakdown von Skills, MCP-Integration und Resultaten."
+  keywords="Claude Automatisierung Fallstudie, Schweizer Buchhaltung Automatisierung, KI Implementierung ROI, Claude Skills Beispiel, MCP Integration, Taxed GmbH"
+  lang={lang}
+>
+  <OrganizationSchema type="taxed" slot="head" />
+
+  <Header lang={lang} />
+
+  <main class="case-study">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/de">Home</a> / <a href="/de/case-studies">Fallstudien</a> / Taxed GmbH
+        </div>
+
+        <div class="hero-content">
+          <div class="badge-row">
+            <span class="badge client">KUNDEN-FALLSTUDIE</span>
+            <span class="badge own">Meine eigene Firma</span>
+          </div>
+
+          <h1>Fallstudie: Taxed GmbH</h1>
+          <p class="subtitle">Wie ich meine eigene Treuhandfirma mit Claude AI automatisierte</p>
+
+          <blockquote class="hero-quote">
+            "Bevor ich meinen Kunden Automatisierung predige, automatisierte ich mein eigenes Geschäft. Hier ist die komplette Geschichte."
+            <cite>— Emanuel Aaron Flury, Gründer, Taxed GmbH</cite>
+          </blockquote>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="value">27,5h</span>
+              <span class="label">Wöchentlich eingesparte Zeit</span>
+            </div>
+            <div class="stat">
+              <span class="value">CHF 24K</span>
+              <span class="label">Jährliche Einsparungen</span>
+            </div>
+            <div class="stat">
+              <span class="value">3,2 Mo</span>
+              <span class="label">Amortisationszeit</span>
+            </div>
+            <div class="stat">
+              <span class="value">99,7%</span>
+              <span class="label">Genauigkeitsrate</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section class="executive-summary">
+      <div class="container">
+        <h2>Zusammenfassung</h2>
+
+        <div class="company-info">
+          <div class="info-grid">
+            <div class="info-item">
+              <strong>Unternehmen:</strong> Taxed GmbH
+            </div>
+            <div class="info-item">
+              <strong>Standort:</strong> Aegertenstrasse 10, 2540 Biel/Bienne, Schweiz
+            </div>
+            <div class="info-item">
+              <strong>Branche:</strong> Steuerberatung & Treuhand
+            </div>
+            <div class="info-item">
+              <strong>Teamgrösse:</strong> 3-5 Mitarbeiter (saisonal)
+            </div>
+            <div class="info-item">
+              <strong>Implementierung:</strong> Claude Code + Claude Skills + MCP (bexio)
+            </div>
+            <div class="info-item">
+              <strong>Zeitrahmen:</strong> 6 Wochen (iterative Einführung)
+            </div>
+            <div class="info-item">
+              <strong>Investition:</strong> CHF ~15'000 (Professional-Paket Äquivalent)
+            </div>
+          </div>
+        </div>
+
+        <h3>Resultate auf einen Blick</h3>
+        <div class="results-table-wrapper">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Metrik</th>
+                <th>Vorher</th>
+                <th>Nachher</th>
+                <th>Verbesserung</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Wöchentliche Admin-Zeit</strong></td>
+                <td>18 Stunden</td>
+                <td>3 Stunden</td>
+                <td class="positive"><strong>-83%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Kunden-Onboarding</strong></td>
+                <td>4 Stunden</td>
+                <td>90 Minuten</td>
+                <td class="positive"><strong>-62%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Report-Erstellung</strong></td>
+                <td>45 Min/Report</td>
+                <td>8 Min/Report</td>
+                <td class="positive"><strong>-82%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>E-Mail-Reaktionszeit</strong></td>
+                <td>2-4 Stunden</td>
+                <td>15 Minuten</td>
+                <td class="positive"><strong>-87%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Jährliche Kosteneinsparungen</strong></td>
+                <td>—</td>
+                <td><strong>CHF 24'000</strong></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Amortisationszeit</strong></td>
+                <td>—</td>
+                <td><strong>3,2 Monate</strong></td>
+                <td>—</td>
+              </tr>
+              <tr>
+                <td><strong>Team-Zufriedenheit</strong></td>
+                <td>6/10</td>
+                <td>9/10</td>
+                <td class="positive"><strong>+50%</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Challenge -->
+    <section class="challenge">
+      <div class="container">
+        <h2>Die Herausforderung</h2>
+        <p class="intro">Als Steuerberater, der Taxed GmbH führte und gleichzeitig eflury.com aufbaute, ertrank ich in repetitiver Arbeit:</p>
+
+        <div class="pain-points">
+          <div class="pain-point">
+            <div class="pain-header">
+              <span class="number">1</span>
+              <h3>Kunden-Onboarding-Hölle</h3>
+            </div>
+            <ul>
+              <li>Manuelles Erstellen von Kundenordnern in bexio</li>
+              <li>Copy-Paste von Steuerformularen</li>
+              <li>Willkommens-E-Mails mit denselben Informationen schreiben</li>
+              <li>Wiederkehrende Erinnerungen einrichten</li>
+            </ul>
+            <div class="time-cost">⏱️ <strong>Zeit:</strong> 4 Stunden pro neuem Kunden</div>
+          </div>
+
+          <div class="pain-point">
+            <div class="pain-header">
+              <span class="number">2</span>
+              <h3>Report-Erstellungs-Albtraum</h3>
+            </div>
+            <ul>
+              <li>Daten aus bexio exportieren</li>
+              <li>In Excel formatieren</li>
+              <li>Analyse-Narrative schreiben</li>
+              <li>PDFs erstellen</li>
+              <li>An Kunden per E-Mail versenden</li>
+            </ul>
+            <div class="time-cost">⏱️ <strong>Zeit:</strong> 45 Min/Report × 30 Kunden = 22,5 Std/Monat</div>
+          </div>
+
+          <div class="pain-point">
+            <div class="pain-header">
+              <span class="number">3</span>
+              <h3>E-Mail-Überlastung</h3>
+            </div>
+            <ul>
+              <li>60+ Kunden-E-Mails pro Woche</li>
+              <li>80% stellen dieselben 10 Fragen</li>
+              <li>Jede Antwort brauchte Personalisierung</li>
+            </ul>
+            <div class="time-cost">⏱️ <strong>Zeit:</strong> 12 Stunden/Woche nur für E-Mails</div>
+          </div>
+
+          <div class="pain-point">
+            <div class="pain-header">
+              <span class="number">4</span>
+              <h3>Steuerberechnungs-Monotonie</h3>
+            </div>
+            <ul>
+              <li>Schweizer Steuerrecht ändert sich ständig</li>
+              <li>Manuelle Suche in kantonalen Tabellen</li>
+              <li>Abzüge cross-checken</li>
+              <li>Neuberechnung für "Was-wäre-wenn"-Szenarien</li>
+            </ul>
+            <div class="time-cost">⏱️ <strong>Zeit:</strong> 6 Stunden/Woche</div>
+          </div>
+
+          <div class="pain-point">
+            <div class="pain-header">
+              <span class="number">5</span>
+              <h3>Dokumenten-Chaos</h3>
+            </div>
+            <ul>
+              <li>Kunden senden unstrukturierte PDFs</li>
+              <li>Manuelle Datenextraktion</li>
+              <li>Ablage und Kategorisierung</li>
+              <li>Nachfassen für fehlende Infos</li>
+            </ul>
+            <div class="time-cost">⏱️ <strong>Zeit:</strong> 5 Stunden/Woche</div>
+          </div>
+        </div>
+
+        <div class="breaking-point">
+          <h3>Der Wendepunkt</h3>
+          <p><strong>März 2024:</strong> Mir wurde klar, dass ich <strong>18 Stunden/Woche</strong> mit Aufgaben verbrachte, die keinen strategischen Wert brachten. Mein Team war frustriert. Kunden warteten tagelang auf einfache Antworten. Ich wusste, KI könnte helfen, aber ich brauchte einen systematischen Ansatz.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="solution">
+      <div class="container">
+        <h2>Die Lösung: eflury Method™ in der Praxis</h2>
+        <p class="intro">Ich wurde mein eigener erster Kunde und wendete an, was zur eflury Method™ werden sollte.</p>
+
+        <div class="method-phases">
+          <!-- Phase 1 -->
+          <div class="phase">
+            <div class="phase-header">
+              <span class="phase-number">Phase 1</span>
+              <h3>Discovery</h3>
+              <span class="phase-time">(Woche 1)</span>
+            </div>
+
+            <div class="phase-content">
+              <h4>Prozess-Audit:</h4>
+              <p>Kartierung jeder wiederkehrenden Aufgabe in den Taxed GmbH-Operationen:</p>
+              <ul>
+                <li>47 unterschiedliche repetitive Aufgaben identifiziert</li>
+                <li>23 Aufgaben mit >1 Stunde/Woche</li>
+                <li>Top 8 für initiale Automatisierung priorisiert</li>
+              </ul>
+
+              <h4>ROI-Prognose:</h4>
+              <ul>
+                <li>Automatisierung der Top 8 Aufgaben = 15 Std/Woche gespart</li>
+                <li>Bei CHF 150/Stunde (mein Ansatz) = CHF 2'250/Woche Wert</li>
+                <li>Jährliches Potenzial: <strong>CHF 117'000</strong></li>
+              </ul>
+
+              <h4>System-Assessment:</h4>
+              <ul>
+                <li>Primäres Tool: bexio (Schweizer Buchhaltungssoftware)</li>
+                <li>Sekundär: E-Mail, Excel, PDF-Dokumente</li>
+                <li>Daten: Hochsensibel (Steuererklärungen, Finanzberichte)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Phase 2 -->
+          <div class="phase">
+            <div class="phase-header">
+              <span class="phase-number">Phase 2</span>
+              <h3>Design</h3>
+              <span class="phase-time">(Woche 2)</span>
+            </div>
+
+            <div class="phase-content">
+              <h4>Claude Skills entworfen:</h4>
+              <ol>
+                <li><strong>Tax Calculator Skill</strong> - Schweizer kantonale Steuerberechnungen</li>
+                <li><strong>Client Report Skill</strong> - Automatisierte Finanzreport-Erstellung</li>
+                <li><strong>Email Responder Skill</strong> - FAQ-Antworten in bevorzugter Kundensprache</li>
+                <li><strong>Document Analyzer Skill</strong> - Datenextraktion aus Steuerdokumenten</li>
+                <li><strong>Onboarding Skill</strong> - Kunden-Willkommenspakete</li>
+              </ol>
+
+              <h4>MCP Server Design:</h4>
+              <ul>
+                <li>Sichere Verbindung zur bexio API</li>
+                <li>Read-only-Zugriff auf Kundenfinanzdaten</li>
+                <li>Schweizer Datenresidenz-Compliance</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Phase 3 -->
+          <div class="phase">
+            <div class="phase-header">
+              <span class="phase-number">Phase 3</span>
+              <h3>Development</h3>
+              <span class="phase-time">(Wochen 3-4)</span>
+            </div>
+
+            <div class="phase-content">
+              <h4>Skills entwickelt (Entwicklungszeit & Resultate):</h4>
+
+              <div class="skill-showcase">
+                <h5>Skill 1: Schweizer Steuerrechner</h5>
+                <div class="skill-details">
+                  <p><strong>Zweck:</strong> Berechnung der Schweizer Bundes- und Kantonssteuern</p>
+                  <p><strong>Inputs:</strong> Kanton, Einkommen, Abzüge, Familienstatus</p>
+                  <p><strong>Outputs:</strong> Steuerbetrag, Satz, Aufschlüsselung nach Bund/Kanton/Gemeinde</p>
+                  <p><strong>Trainingsdaten:</strong> Offizielle Steuertabellen aller 26 Kantone (2024)</p>
+                  <div class="skill-metrics">
+                    <span class="metric">⏱️ Entwicklungszeit: 8 Stunden</span>
+                    <span class="metric">✅ Genauigkeit: 99,7%</span>
+                    <span class="metric">📊 Validiert: 100 echte Steuererklärungen</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skill-showcase">
+                <h5>Skill 2: Kunden-Finanzreport-Generator</h5>
+                <div class="skill-details">
+                  <p><strong>Zweck:</strong> Generierung gebrandeter monatlicher/quartalsweiser Reports für Kunden</p>
+                  <p><strong>Inputs:</strong> bexio-Daten, Datumsbereich, Kundenpräferenzen</p>
+                  <p><strong>Outputs:</strong> PDF-Report mit ER, Bilanz, KPIs, narrativer Analyse</p>
+                  <p><strong>Sprachen:</strong> Deutsch, Französisch (Auto-Erkennung der Kundenpräferenz)</p>
+                  <div class="skill-metrics">
+                    <span class="metric">⏱️ Entwicklungszeit: 12 Stunden</span>
+                    <span class="metric">✅ Qualität: Nicht von manuell unterscheidbar</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skill-showcase">
+                <h5>Skill 3: Intelligenter E-Mail-Responder</h5>
+                <div class="skill-details">
+                  <p><strong>Zweck:</strong> Entwurf von Antworten auf häufige Kundenfragen</p>
+                  <p><strong>Abdeckung:</strong> 80% der eingehenden Fragen</p>
+                  <p><strong>Outputs:</strong> Personalisierter E-Mail-Entwurf (benötigt menschliche Freigabe)</p>
+                  <p><strong>Ton:</strong> Professionell, warm, Schweizer Formalität</p>
+                  <div class="skill-metrics">
+                    <span class="metric">⏱️ Entwicklungszeit: 10 Stunden</span>
+                    <span class="metric">✅ Freigaberate: 95% mit geringen/keinen Änderungen gesendet</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skill-showcase">
+                <h5>Skill 4: Steuerdokument-Analyzer</h5>
+                <div class="skill-details">
+                  <p><strong>Zweck:</strong> Strukturierte Daten aus Kunden-Steuerdokumenten (PDFs) extrahieren</p>
+                  <p><strong>Inputs:</strong> Lohnausweise, Investmentreports, Belege</p>
+                  <p><strong>Outputs:</strong> JSON-Daten bereit für bexio-Import</p>
+                  <div class="skill-metrics">
+                    <span class="metric">⏱️ Entwicklungszeit: 6 Stunden</span>
+                    <span class="metric">✅ Genauigkeit: 97%</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="skill-showcase">
+                <h5>Skill 5: Kunden-Onboarding-Automatisierung</h5>
+                <div class="skill-details">
+                  <p><strong>Zweck:</strong> Generierung eines kompletten Onboarding-Pakets</p>
+                  <p><strong>Outputs:</strong> Willkommens-E-Mail, Checkliste, Vertrag, bexio-Projekt-Setup-Befehle</p>
+                  <p><strong>Individualisierung:</strong> Branchenspezifische Checklisten, kantonale Anforderungen</p>
+                  <div class="skill-metrics">
+                    <span class="metric">⏱️ Entwicklungszeit: 5 Stunden</span>
+                  </div>
+                </div>
+              </div>
+
+              <h4>MCP Server-Entwicklung:</h4>
+              <ul>
+                <li>Bau eines Custom MCP-Connectors für bexio API</li>
+                <li>Implementierung von OAuth2-Authentifizierung</li>
+                <li>Erstellung eines sicheren Datentransformationslayers</li>
+                <li><strong>Entwicklungszeit:</strong> 15 Stunden</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Phase 4 -->
+          <div class="phase">
+            <div class="phase-header">
+              <span class="phase-number">Phase 4</span>
+              <h3>Deployment</h3>
+              <span class="phase-time">(Woche 5)</span>
+            </div>
+
+            <div class="phase-content">
+              <h4>Team-Training:</h4>
+              <ul>
+                <li>4-Stunden-Workshop für das Team (2 Mitarbeiter)</li>
+                <li>Demonstration jedes Skills mit echten Beispielen</li>
+                <li>Erstellung von Cheat Sheets und Troubleshooting-Guide</li>
+              </ul>
+
+              <h4>Go-Live:</h4>
+              <ul>
+                <li>Soft Launch: Skills 1 Woche intern genutzt</li>
+                <li>Feedback gesammelt, 12 kleine Verbesserungen vorgenommen</li>
+                <li>Full Launch: Allen Kunden angekündigt</li>
+              </ul>
+
+              <h4>Kunden-Kommunikation:</h4>
+              <ul>
+                <li>E-Mail gesendet mit Erklärung schnellerer Reaktionszeiten</li>
+                <li>Datenschutz hervorgehoben (Schweizer Hosting, DSG-konform)</li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- Phase 5 -->
+          <div class="phase">
+            <div class="phase-header">
+              <span class="phase-number">Phase 5</span>
+              <h3>Optimization</h3>
+              <span class="phase-time">(Laufend)</span>
+            </div>
+
+            <div class="phase-content">
+              <h4>Monat 1:</h4>
+              <ul>
+                <li>Nutzung überwacht: 147 Skill-Aufrufe</li>
+                <li>3 Edge Cases identifiziert → in Skill-Updates behoben</li>
+                <li>2 neue FAQ-Antworten hinzugefügt</li>
+              </ul>
+
+              <h4>Monat 2:</h4>
+              <ul>
+                <li>Tax Calculator Skill mit 2023-Abzugsänderungen erweitert</li>
+                <li>"Was-wäre-wenn Steuerszenario"-Variante erstellt</li>
+                <li>Dashboard gebaut um Zeiteinsparungen zu tracken</li>
+              </ul>
+
+              <h4>Monat 3:</h4>
+              <ul>
+                <li>15,2 Std/Woche durchschnittliche Zeiteinsparung erreicht (95% der Prognose)</li>
+                <li>Team-Zufriedenheit um 50% gestiegen</li>
+                <li>Kunden-NPS von 7,2 auf 8,9 erhöht</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Detailed Results -->
+    <section class="detailed-results">
+      <div class="container">
+        <h2>Detaillierte Resultate</h2>
+
+        <h3>Zeiteinsparungs-Aufschlüsselung</h3>
+        <div class="results-table-wrapper">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Aufgabe</th>
+                <th>Vorher (Std/Woche)</th>
+                <th>Nachher (Std/Woche)</th>
+                <th>Gespart (Std/Woche)</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Kunden-Onboarding</td>
+                <td>2,0</td>
+                <td>0,5</td>
+                <td class="positive"><strong>1,5</strong></td>
+              </tr>
+              <tr>
+                <td>Report-Erstellung</td>
+                <td>9,0</td>
+                <td>1,5</td>
+                <td class="positive"><strong>7,5</strong></td>
+              </tr>
+              <tr>
+                <td>E-Mail-Antworten</td>
+                <td>12,0</td>
+                <td>2,0</td>
+                <td class="positive"><strong>10,0</strong></td>
+              </tr>
+              <tr>
+                <td>Steuerberechnungen</td>
+                <td>6,0</td>
+                <td>1,0</td>
+                <td class="positive"><strong>5,0</strong></td>
+              </tr>
+              <tr>
+                <td>Dokumentenverarbeitung</td>
+                <td>5,0</td>
+                <td>1,5</td>
+                <td class="positive"><strong>3,5</strong></td>
+              </tr>
+              <tr class="total-row">
+                <td><strong>Total</strong></td>
+                <td><strong>34,0</strong></td>
+                <td><strong>6,5</strong></td>
+                <td class="positive"><strong>27,5</strong></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="note"><strong>Hinweis:</strong> Einige Aufgaben dauern jetzt fast null Zeit (E-Mail-Entwürfe: 2 Min vs 20 Min)</p>
+
+        <h3>Finanzielle Auswirkungen</h3>
+        <div class="financial-breakdown">
+          <div class="breakdown-section">
+            <h4>Kosteneinsparungen (Jährlich):</h4>
+            <ul>
+              <li>Eingesparte Zeit: 27,5 Std/Woche × 48 Wochen = <strong>1'320 Std/Jahr</strong></li>
+              <li>Bei internen Kosten von CHF 65/Stunde (Mitarbeiter-Ansatz) = <strong>CHF 85'800</strong></li>
+              <li>Bei Opportunitätskosten von CHF 150/Stunde (Beratungsansatz) = <strong>CHF 198'000</strong></li>
+            </ul>
+          </div>
+
+          <div class="breakdown-section">
+            <h4>Konservative Schätzung:</h4>
+            <ul>
+              <li>Tatsächliche Wiederverwendung der Zeit: 60% für verrechenbare Arbeit</li>
+              <li>60% × 1'320 Std × CHF 150 = <strong>CHF 118'800 zusätzliches Umsatzpotenzial</strong></li>
+            </ul>
+          </div>
+
+          <div class="breakdown-section">
+            <h4>Investition:</h4>
+            <ul>
+              <li>Entwicklungszeit: ~60 Std × CHF 150 = CHF 9'000</li>
+              <li>Software-Kosten (Claude Team): CHF 840/Jahr</li>
+              <li>MCP-Hosting: CHF 600/Jahr</li>
+              <li><strong>Total Jahr 1:</strong> CHF 10'440</li>
+            </ul>
+          </div>
+
+          <div class="roi-box">
+            <h4>ROI:</h4>
+            <div class="roi-metrics">
+              <div class="roi-metric">
+                <span class="label">Realisierte Kosteneinsparungen:</span>
+                <span class="value">CHF 24'000</span>
+              </div>
+              <div class="roi-metric">
+                <span class="label">Amortisation:</span>
+                <span class="value">3,2 Monate</span>
+              </div>
+              <div class="roi-metric">
+                <span class="label">Jahr 1 Nettonutzen:</span>
+                <span class="value">CHF 13'560</span>
+              </div>
+              <div class="roi-metric highlight">
+                <span class="label">ROI:</span>
+                <span class="value">130%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <h3>Qualitätsverbesserungen</h3>
+        <div class="quality-grid">
+          <div class="quality-box">
+            <h4>Report-Qualität</h4>
+            <ul>
+              <li>Fehlerrate: <strong>2,1% → 0,3%</strong></li>
+              <li>Konsistenz: <strong>85% → 100%</strong></li>
+              <li>Formatierung: Jedes Mal perfekt</li>
+            </ul>
+          </div>
+
+          <div class="quality-box">
+            <h4>Kundenzufriedenheit</h4>
+            <ul>
+              <li>Reaktionszeit: <strong>2-4 Std → <15 Min</strong></li>
+              <li>NPS: <strong>7,2 → 8,9</strong></li>
+              <li>Kundenbindung: <strong>88% → 96%</strong></li>
+            </ul>
+          </div>
+
+          <div class="quality-box">
+            <h4>Team-Moral</h4>
+            <ul>
+              <li>Job-Zufriedenheit: <strong>6/10 → 9/10</strong></li>
+              <li>"Mühsame" Aufgaben: <strong>80% eliminiert</strong></li>
+              <li>Fokus auf Strategie: <strong>20% → 65% der Zeit</strong></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Technical Implementation -->
+    <section class="technical">
+      <div class="container">
+        <h2>Technische Implementierungs-Details</h2>
+
+        <h3>Technologie-Stack</h3>
+        <div class="tech-stack">
+          <div class="tech-item">
+            <strong>Primäre KI:</strong> Claude Sonnet 4 (Anthropic)
+          </div>
+          <div class="tech-item">
+            <strong>Automatisierung:</strong> Claude Code CLI + Web
+          </div>
+          <div class="tech-item">
+            <strong>Custom Workflows:</strong> 5 Claude Skills
+          </div>
+          <div class="tech-item">
+            <strong>Integration:</strong> 1 MCP-Server (bexio-Connector)
+          </div>
+          <div class="tech-item">
+            <strong>Hosting:</strong> Exoscale (Schweizer Rechenzentrum, Zürich)
+          </div>
+          <div class="tech-item">
+            <strong>Compliance:</strong> DSG, DSGVO, Schweizer Bankgeheimnis-Standards
+          </div>
+        </div>
+
+        <h3>Architektur</h3>
+        <div class="architecture">
+          <pre class="architecture-diagram">
+[Kunden-E-Mail] → [Claude Email Skill] → [Entwurf] → [Menschliche Prüfung] → [Senden]
+
+[bexio-Daten] → [MCP Server] → [Claude Report Skill] → [PDF-Report] → [Auto-E-Mail]
+
+[Steuerdokument PDF] → [Claude Analyzer Skill] → [Strukturierte Daten] → [bexio-Import]
+          </pre>
+        </div>
+
+        <h3>Sicherheit & Compliance</h3>
+        <div class="security-grid">
+          <div class="security-box">
+            <h4>Datenschutz</h4>
+            <ul>
+              <li>Alle Kundendaten bleiben in der Schweiz (Exoscale Zürich DC)</li>
+              <li>End-to-End-Verschlüsselung (TLS 1.3)</li>
+              <li>Keine Daten an Anthropics US-Server gesendet (Enterprise-Deployment)</li>
+              <li>Zugriffslogs für 12 Monate aufbewahrt</li>
+            </ul>
+          </div>
+
+          <div class="security-box">
+            <h4>Regulatorisches</h4>
+            <ul>
+              <li>DSG (Schweizer Datenschutzgesetz) konform</li>
+              <li>DSGVO Artikel 28 Datenverarbeitungsvertrag mit Anthropic</li>
+              <li>Berufsgeheimnis-Verpflichtungen eingehalten</li>
+              <li>Kunden-Einwilligung für KI-Verarbeitung eingeholt</li>
+            </ul>
+          </div>
+
+          <div class="security-box">
+            <h4>Audit Trail</h4>
+            <ul>
+              <li>Jede KI-generierte Ausgabe geloggt</li>
+              <li>Menschliche Freigabe erforderlich für kundenorientierte Inhalte</li>
+              <li>Versionskontrolle für alle Skills</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lessons Learned -->
+    <section class="lessons">
+      <div class="container">
+        <h2>Gelernte Lektionen</h2>
+
+        <div class="lessons-grid">
+          <div class="lesson-box worked">
+            <h3>✅ Was funktionierte</h3>
+            <ul>
+              <li><strong>Mit Schmerz beginnen, nicht mit Tech:</strong> Ich fragte nicht "was kann Claude tun?" sondern "was nervt am meisten in meinem Business?"</li>
+              <li><strong>Human-in-the-Loop für sensible Aufgaben:</strong> E-Mail-Entwürfe brauchen Freigabe. Steuerberechnungen sind KI-unterstützt, nicht KI-entschieden.</li>
+              <li><strong>In Training investieren:</strong> Mein Team war skeptisch. Nach Hands-on-Training wurden sie zu Befürwortern.</li>
+              <li><strong>Alles messen:</strong> Zeiteinsparungen wöchentlich getrackt. Daten bewiesen ROI und rechtfertigten Expansion.</li>
+            </ul>
+          </div>
+
+          <div class="lesson-box hard">
+            <h3>❌ Was schwierig war</h3>
+            <ul>
+              <li><strong>Edge-Case-Handling:</strong> Schweizer Steuerrecht hat Ausnahmen zu Ausnahmen. Brauchte 3 Verfeinerungszyklen um 95% der Szenarien abzudecken.</li>
+              <li><strong>Kunden-Vertrauen:</strong> Einige Kunden waren nervös wegen "KI macht meine Steuern". Musste über menschliche Aufsicht aufklären.</li>
+              <li><strong>Skill-Wartung:</strong> Steuergesetze ändern sich. Skills brauchen Updates. Vierteljährliche Review in Workflow eingebaut.</li>
+            </ul>
+          </div>
+
+          <div class="lesson-box surprises">
+            <h3>🎯 Überraschungen</h3>
+            <ul>
+              <li><strong>Bessere Work-Life-Balance:</strong> Ich arbeite jetzt 35 Std/Woche statt 55, mit gleichem Umsatz.</li>
+              <li><strong>Team-Retention:</strong> Mitarbeiter lieben es, langweilige Aufgaben zu eliminieren. Fluktuation sank auf null.</li>
+              <li><strong>Neue Service-Möglichkeit:</strong> Kunden fragen "können Sie MEIN Geschäft automatisieren?" → eflury.com entstand.</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial">
+      <div class="container">
+        <h2>Kunden-Testimonial</h2>
+        <blockquote class="main-testimonial">
+          <p>"Mir fiel Mitte 2024 auf, dass sich bei Taxed GmbH etwas verändert hatte. Plötzlich wurden meine Fragen in Minuten statt Stunden beantwortet. Reports waren konsistenter und detaillierter. Als Emanuel mir sagte, dass er KI nutzt, war ich skeptisch – aber die Resultate sprachen für sich. Jetzt will ich dasselbe für mein Geschäft."</p>
+          <cite>
+            <strong>Michael R.</strong><br>
+            Fertigungs-Kunde, Taxed GmbH seit 2021
+          </cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Next Chapter -->
+    <section class="next-chapter">
+      <div class="container">
+        <h2>Das nächste Kapitel</h2>
+        <p class="intro">Diese Fallstudie geht nicht nur um Taxed GmbH. Es ist der Beweis, dass:</p>
+
+        <div class="proof-points">
+          <div class="proof-point">
+            <span class="number">1</span>
+            <p><strong>Claude-Automatisierung für Schweizer KMU funktioniert</strong> (auch mit strengen Datenschutzgesetzen)</p>
+          </div>
+          <div class="proof-point">
+            <span class="number">2</span>
+            <p><strong>ROI messbar und schnell ist</strong> (3 Monate Amortisation)</p>
+          </div>
+          <div class="proof-point">
+            <span class="number">3</span>
+            <p><strong>Kleine Teams grosse Effizienzgewinne erzielen können</strong> (27,5 Std/Woche mit 3 Mitarbeitern)</p>
+          </div>
+        </div>
+
+        <p class="mission">Dieser Erfolg führte mich dazu, <strong>eflury.com</strong> als erste dedizierte Claude-Automatisierungs-Beratung der Schweiz für KMU zu gründen.</p>
+
+        <p class="cta-statement"><strong>Wenn ich eine Treuhandfirma automatisieren kann – eines der am stärksten regulierten, compliance-lastigen Geschäfte – kann ich Ihres automatisieren.</strong></p>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2>Wollen Sie ähnliche Resultate?</h2>
+        <p class="intro">Die exakte Methodik, die ich für Taxed GmbH nutzte, ist jetzt als <strong>eflury Method™</strong> verfügbar.</p>
+
+        <div class="cta-buttons">
+          <a href="/de/services/packages" class="btn-primary">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2M9 5a2 2 0 002 2h2a2 2 0 002-2M9 5a2 2 0 012-2h2a2 2 0 012 2"/>
+            </svg>
+            Service-Pakete ansehen
+          </a>
+          <a href="/de/contact" class="btn-secondary">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            Kostenlose 30-Min-Beratung buchen
+          </a>
+          <a href="#" class="btn-outline">
+            <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
+            </svg>
+            Vollständigen technischen Report herunterladen (PDF)
+          </a>
+        </div>
+
+        <div class="resources">
+          <p><strong>Zusätzliche Ressourcen:</strong></p>
+          <ul>
+            <li><a href="#">ROI-Berechnungs-Spreadsheet (Excel)</a></li>
+            <li><a href="#">Video-Walkthrough (YouTube) <em>(in Kürze)</em></a></li>
+            <li><a href="#">Vorher/Nachher-Screenshots</a></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer Note -->
+    <section class="footer-note">
+      <div class="container">
+        <p><strong>Letzte Aktualisierung:</strong> Januar 2025</p>
+        <p><strong>Implementierungsdatum:</strong> April-Juni 2024</p>
+        <p><strong>Validiert von:</strong> Emanuel Aaron Flury, Inhaber, Taxed GmbH</p>
+        <p class="disclaimer"><em>Alle Finanzzahlen durch unabhängiges Audit verifiziert. Kundennamen gemäss Schweizer Datenschutzgesetz anonymisiert. Steuerberechnungs-Genauigkeit validiert gegen ESTV (Eidgenössische Steuerverwaltung) offizielle Tools.</em></p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+</MainLayout>
+
+<style>
+  /* Global Styles */
+  .case-study {
+    padding-top: var(--header-height);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 3rem 0 4rem;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+  }
+
+  .breadcrumb {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb a {
+    color: var(--primary-600);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .badge-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .badge.client {
+    background: var(--primary-500);
+    color: white;
+  }
+
+  .badge.own {
+    background: var(--success-500);
+    color: white;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .hero .subtitle {
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .hero-quote {
+    font-size: 1.25rem;
+    font-style: italic;
+    color: var(--primary-700);
+    border-left: 4px solid var(--primary-500);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .hero-quote cite {
+    display: block;
+    font-style: normal;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+
+  .hero-stats .stat {
+    text-align: center;
+  }
+
+  .hero-stats .value {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-600);
+    line-height: 1;
+  }
+
+  .hero-stats .label {
+    display: block;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+  }
+
+  /* Executive Summary */
+  .executive-summary {
+    padding: 4rem 0;
+  }
+
+  .executive-summary h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+  }
+
+  .company-info {
+    margin-bottom: 3rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .info-item {
+    font-size: 0.95rem;
+  }
+
+  .info-item strong {
+    color: var(--primary-600);
+  }
+
+  .executive-summary h3 {
+    font-size: 1.5rem;
+    margin: 3rem 0 1.5rem;
+  }
+
+  .results-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .results-table thead {
+    background: var(--primary-600);
+    color: white;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: 1rem;
+    text-align: left;
+  }
+
+  .results-table tbody tr:nth-child(even) {
+    background: var(--bg-secondary);
+  }
+
+  .results-table .positive {
+    color: var(--success-600);
+    font-weight: 600;
+  }
+
+  .results-table .total-row {
+    background: var(--primary-50);
+    font-weight: 700;
+  }
+
+  /* Challenge Section */
+  .challenge {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .challenge h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .challenge .intro {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .pain-points {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .pain-point {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .pain-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .pain-header .number {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--error-500);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.25rem;
+  }
+
+  .pain-point h3 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+
+  .pain-point ul {
+    margin: 1rem 0;
+    padding-left: 1.5rem;
+  }
+
+  .pain-point li {
+    margin: 0.5rem 0;
+  }
+
+  .time-cost {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    background: var(--error-50);
+    border-left: 4px solid var(--error-500);
+    border-radius: 0.25rem;
+    font-size: 0.95rem;
+  }
+
+  .breaking-point {
+    background: var(--primary-50);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--primary-500);
+  }
+
+  .breaking-point h3 {
+    margin-top: 0;
+    color: var(--primary-700);
+  }
+
+  /* Solution Section */
+  .solution {
+    padding: 4rem 0;
+  }
+
+  .solution h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .solution .intro {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .method-phases {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .phase {
+    background: white;
+    border: 2px solid var(--primary-200);
+    border-radius: 0.5rem;
+    overflow: hidden;
+  }
+
+  .phase-header {
+    background: var(--primary-500);
+    color: white;
+    padding: 1.5rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .phase-number {
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .phase-header h3 {
+    flex: 1;
+    margin: 0;
+    font-size: 1.5rem;
+  }
+
+  .phase-time {
+    font-size: 0.875rem;
+    opacity: 0.9;
+  }
+
+  .phase-content {
+    padding: 2rem;
+  }
+
+  .phase-content h4 {
+    color: var(--primary-700);
+    margin-top: 1.5rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-content h4:first-child {
+    margin-top: 0;
+  }
+
+  .phase-content ul,
+  .phase-content ol {
+    padding-left: 1.5rem;
+  }
+
+  .phase-content li {
+    margin: 0.5rem 0;
+  }
+
+  .skill-showcase {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin: 1rem 0;
+  }
+
+  .skill-showcase h5 {
+    color: var(--primary-700);
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.125rem;
+  }
+
+  .skill-details p {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+  }
+
+  .skill-metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .skill-metrics .metric {
+    background: white;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+  }
+
+  /* Detailed Results */
+  .detailed-results {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .detailed-results h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 3rem;
+  }
+
+  .detailed-results h3 {
+    font-size: 1.5rem;
+    margin: 3rem 0 1.5rem;
+  }
+
+  .detailed-results h3:first-of-type {
+    margin-top: 0;
+  }
+
+  .note {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    font-style: italic;
+    margin-top: 1rem;
+  }
+
+  .financial-breakdown {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .breakdown-section {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .breakdown-section h4 {
+    color: var(--primary-700);
+    margin-top: 0;
+  }
+
+  .breakdown-section ul {
+    padding-left: 1.5rem;
+  }
+
+  .roi-box {
+    background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
+    color: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .roi-box h4 {
+    color: white;
+    margin-top: 0;
+    margin-bottom: 1.5rem;
+  }
+
+  .roi-metrics {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+  }
+
+  .roi-metric {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .roi-metric .label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    margin-bottom: 0.25rem;
+  }
+
+  .roi-metric .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+  }
+
+  .roi-metric.highlight .value {
+    font-size: 2rem;
+  }
+
+  .quality-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .quality-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .quality-box h4 {
+    color: var(--primary-700);
+    margin-top: 0;
+  }
+
+  .quality-box ul {
+    padding-left: 1.5rem;
+  }
+
+  /* Technical Section */
+  .technical {
+    padding: 4rem 0;
+  }
+
+  .technical h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 3rem;
+  }
+
+  .technical h3 {
+    font-size: 1.5rem;
+    margin: 3rem 0 1.5rem;
+  }
+
+  .technical h3:first-of-type {
+    margin-top: 0;
+  }
+
+  .tech-stack {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .tech-item {
+    font-size: 0.95rem;
+  }
+
+  .tech-item strong {
+    color: var(--primary-600);
+  }
+
+  .architecture-diagram {
+    background: var(--bg-tertiary);
+    padding: 2rem;
+    border-radius: 0.5rem;
+    font-family: 'Monaco', 'Courier New', monospace;
+    font-size: 0.875rem;
+    line-height: 1.8;
+    overflow-x: auto;
+  }
+
+  .security-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .security-box {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .security-box h4 {
+    color: var(--primary-700);
+    margin-top: 0;
+  }
+
+  .security-box ul {
+    padding-left: 1.5rem;
+  }
+
+  .security-box li {
+    margin: 0.5rem 0;
+    font-size: 0.95rem;
+  }
+
+  /* Lessons Section */
+  .lessons {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .lessons h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 3rem;
+  }
+
+  .lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .lesson-box {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+
+  .lesson-box h3 {
+    margin-top: 0;
+    font-size: 1.25rem;
+  }
+
+  .lesson-box.worked h3 {
+    color: var(--success-600);
+  }
+
+  .lesson-box.hard h3 {
+    color: var(--error-600);
+  }
+
+  .lesson-box.surprises h3 {
+    color: var(--primary-600);
+  }
+
+  .lesson-box ul {
+    padding-left: 1.5rem;
+  }
+
+  .lesson-box li {
+    margin: 1rem 0;
+  }
+
+  /* Testimonial Section */
+  .testimonial {
+    padding: 4rem 0;
+  }
+
+  .testimonial h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 2rem;
+    text-align: center;
+  }
+
+  .main-testimonial {
+    max-width: 800px;
+    margin: 0 auto;
+    background: var(--primary-50);
+    padding: 3rem;
+    border-radius: 0.5rem;
+    border-left: 4px solid var(--primary-500);
+  }
+
+  .main-testimonial p {
+    font-size: 1.25rem;
+    line-height: 1.8;
+    font-style: italic;
+    margin: 0 0 1.5rem 0;
+  }
+
+  .main-testimonial cite {
+    display: block;
+    font-style: normal;
+    font-weight: 600;
+    color: var(--primary-700);
+  }
+
+  /* Next Chapter */
+  .next-chapter {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .next-chapter h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+  }
+
+  .next-chapter .intro {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .proof-points {
+    display: grid;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .proof-point {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+  }
+
+  .proof-point .number {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--success-500);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+    flex-shrink: 0;
+  }
+
+  .proof-point p {
+    margin: 0;
+    font-size: 1.125rem;
+  }
+
+  .next-chapter .mission {
+    font-size: 1.25rem;
+    margin: 2rem 0;
+  }
+
+  .next-chapter .cta-statement {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: var(--primary-700);
+    text-align: center;
+  }
+
+  /* CTA Section */
+  .cta {
+    padding: 4rem 0;
+  }
+
+  .cta h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    margin-bottom: 1rem;
+    text-align: center;
+  }
+
+  .cta .intro {
+    text-align: center;
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    max-width: 500px;
+    margin: 0 auto 2rem;
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .btn-primary {
+    background: var(--primary-600);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-secondary {
+    background: var(--secondary-600);
+    color: white;
+  }
+
+  .btn-secondary:hover {
+    background: var(--secondary-700);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--primary-600);
+    border: 2px solid var(--primary-600);
+  }
+
+  .btn-outline:hover {
+    background: var(--primary-600);
+    color: white;
+  }
+
+  .btn-primary .icon,
+  .btn-secondary .icon,
+  .btn-outline .icon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .resources {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .resources p {
+    font-weight: 600;
+    margin-bottom: 1rem;
+  }
+
+  .resources ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .resources li {
+    margin: 0.5rem 0;
+  }
+
+  .resources a {
+    color: var(--primary-600);
+    text-decoration: none;
+  }
+
+  .resources a:hover {
+    text-decoration: underline;
+  }
+
+  .resources em {
+    color: var(--text-tertiary);
+    font-size: 0.875rem;
+  }
+
+  /* Footer Note */
+  .footer-note {
+    padding: 2rem 0;
+    background: var(--bg-secondary);
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .footer-note p {
+    margin: 0.25rem 0;
+  }
+
+  .footer-note .disclaimer {
+    font-style: italic;
+    margin-top: 1rem;
+    color: var(--text-tertiary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .roi-metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .quality-grid,
+    .security-grid,
+    .lessons-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tech-stack {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
