@@ -1,6 +1,6 @@
 ---
 import { type Language, useTranslations, routes } from '../i18n/utils';
-import { Linkedin, Github, Mail, Phone, Shield, FileText, Cookie, AlertCircle, Users, Scale, ExternalLink } from 'lucide-astro';
+import { Linkedin, Github, Mail, Phone } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -11,16 +11,8 @@ const t = useTranslations(lang);
 const currentRoutes = routes[lang];
 const currentYear = new Date().getFullYear();
 
-// Legal section translations
-const legalTitle = lang === 'en' ? 'Legal & Compliance' : 'Rechtliches & Compliance';
-const legalLinks = {
-  privacy: { label: lang === 'en' ? 'Privacy Policy' : 'Datenschutz', desc: lang === 'en' ? 'How we protect your data' : 'Wie wir Ihre Daten schützen' },
-  terms: { label: lang === 'en' ? 'Terms of Service' : 'Nutzungsbedingungen', desc: lang === 'en' ? 'Service agreement' : 'Servicevereinbarung' },
-  cookies: { label: lang === 'en' ? 'Cookie Policy' : 'Cookie-Richtlinie', desc: lang === 'en' ? 'Cookie usage info' : 'Cookie-Nutzungsinfo' },
-  disclaimer: { label: lang === 'en' ? 'Disclaimer' : 'Haftungsausschluss', desc: lang === 'en' ? 'Legal notices' : 'Rechtliche Hinweise' },
-  conduct: { label: lang === 'en' ? 'Code of Conduct' : 'Verhaltenskodex', desc: lang === 'en' ? 'Professional standards' : 'Professionelle Standards' },
-  dataProtection: { label: lang === 'en' ? 'Swiss Data Protection' : 'Schweizer Datenschutz', desc: lang === 'en' ? 'FDPIC guidelines' : 'EDÖB-Richtlinien' },
-};
+// Legal section title
+const legalTitle = lang === 'en' ? 'Legal' : 'Rechtliches';
 ---
 
 <footer class="footer">
@@ -69,65 +61,25 @@ const legalLinks = {
       </ul>
     </div>
 
-    <!-- Column 4: Legal & Compliance -->
+    <!-- Column 4: Legal (Simplified Apple/Google Style) -->
     <div class="footer-section footer-legal">
       <h4>{legalTitle}</h4>
-      <ul class="footer-links legal-list">
-        <li>
-          <a href={currentRoutes.privacy} class="legal-link">
-            <Shield size={16} class="legal-icon" />
-            <div class="legal-text">
-              <span class="legal-label">{legalLinks.privacy.label}</span>
-              <span class="legal-desc">{legalLinks.privacy.desc}</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href={currentRoutes.terms} class="legal-link">
-            <FileText size={16} class="legal-icon" />
-            <div class="legal-text">
-              <span class="legal-label">{legalLinks.terms.label}</span>
-              <span class="legal-desc">{legalLinks.terms.desc}</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href={currentRoutes.cookies} class="legal-link">
-            <Cookie size={16} class="legal-icon" />
-            <div class="legal-text">
-              <span class="legal-label">{legalLinks.cookies.label}</span>
-              <span class="legal-desc">{legalLinks.cookies.desc}</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="/disclaimer.html" class="legal-link">
-            <AlertCircle size={16} class="legal-icon" />
-            <div class="legal-text">
-              <span class="legal-label">{legalLinks.disclaimer.label}</span>
-              <span class="legal-desc">{legalLinks.disclaimer.desc}</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="/code-of-conduct.html" class="legal-link">
-            <Users size={16} class="legal-icon" />
-            <div class="legal-text">
-              <span class="legal-label">{legalLinks.conduct.label}</span>
-              <span class="legal-desc">{legalLinks.conduct.desc}</span>
-            </div>
-          </a>
-        </li>
-        <li>
-          <a href="https://www.edoeb.admin.ch/edoeb/en/home.html" target="_blank" rel="noopener" class="legal-link external">
-            <Scale size={16} class="legal-icon" />
-            <div class="legal-text">
-              <span class="legal-label">{legalLinks.dataProtection.label} <ExternalLink size={12} class="external-icon" /></span>
-              <span class="legal-desc">{legalLinks.dataProtection.desc}</span>
-            </div>
-          </a>
-        </li>
-      </ul>
+      <div class="legal-links-compact">
+        <a href={currentRoutes.privacy}>{lang === 'en' ? 'Privacy' : 'Datenschutz'}</a>
+        <span class="separator">·</span>
+        <a href={currentRoutes.terms}>{lang === 'en' ? 'Terms' : 'AGB'}</a>
+        <span class="separator">·</span>
+        <a href={currentRoutes.cookies}>Cookies</a>
+      </div>
+      <div class="legal-links-compact">
+        <a href={currentRoutes.disclaimer}>{lang === 'en' ? 'Disclaimer' : 'Haftung'}</a>
+        <span class="separator">·</span>
+        <a href={currentRoutes.codeOfConduct}>{lang === 'en' ? 'Code of Conduct' : 'Verhaltenskodex'}</a>
+      </div>
+      <a href={lang === 'en' ? 'https://www.edoeb.admin.ch/edoeb/en/home.html' : 'https://www.edoeb.admin.ch/edoeb/de/home.html'}
+         target="_blank" rel="noopener" class="external-legal-link">
+        {lang === 'en' ? 'Swiss Data Protection' : 'CH Datenschutz'} ↗
+      </a>
     </div>
   </div>
 
@@ -153,7 +105,7 @@ const legalLinks = {
     margin: 0 auto;
     padding: 0 2rem;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 3rem;
   }
 
@@ -208,11 +160,11 @@ const legalLinks = {
     transform: translateY(-2px);
     box-shadow: var(--shadow-sm);
   }
-  
+
   .social-links a svg {
     transition: transform var(--transition-fast);
   }
-  
+
   .social-links a:hover svg {
     transform: scale(1.1);
   }
@@ -264,124 +216,62 @@ const legalLinks = {
     margin: 0;
   }
 
-  /* Legal Links - Small & Hidden Style (like Apple, Google) */
-  .legal-links {
+  /* Legal Links - Compact Style (Apple/Google inspired) */
+  .footer-legal h4 {
+    margin-bottom: 1rem;
+  }
+
+  .legal-links-compact {
     display: flex;
-    gap: 0.5rem;
     flex-wrap: wrap;
-    justify-content: center;
+    align-items: center;
+    gap: 0.375rem;
+    margin-bottom: 0.5rem;
   }
 
-  .legal-links a {
+  .legal-links-compact a {
     color: var(--text-secondary);
+    font-size: 0.875rem;
     text-decoration: none;
-    font-size: 0.75rem;
-    opacity: 0.7;
-    transition: opacity 0.2s ease;
-    padding: 0.25rem 0.5rem;
-    border-right: 1px solid rgba(107, 114, 128, 0.3);
+    transition: color var(--transition-fast);
   }
 
-  .legal-links a:last-child {
-    border-right: none;
+  .legal-links-compact a:hover {
+    color: var(--primary);
   }
 
-  .legal-links a:hover {
-    opacity: 1;
-    text-decoration: underline;
+  .separator {
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    opacity: 0.5;
+  }
+
+  .external-legal-link {
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    margin-top: 0.5rem;
+    transition: color var(--transition-fast);
+  }
+
+  .external-legal-link:hover {
+    color: var(--primary);
   }
 
   @media (max-width: 1024px) {
     .footer-bottom-container {
       flex-direction: column;
       text-align: center;
-      gap: 1.5rem;
+      gap: 1rem;
     }
-
-    .legal-links {
-      order: 2;
-    }
-
-    .copyright {
-      order: 1;
-    }
-
-    .made-with {
-      order: 3;
-    }
-  }
-
-  /* Legal Links - Professional Style with Icons */
-  .footer-legal h4 {
-    margin-bottom: 1.25rem;
-  }
-
-  .legal-list {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-
-  .legal-list li {
-    margin-bottom: 0;
-  }
-
-  .legal-link {
-    display: flex;
-    align-items: flex-start;
-    gap: 0.75rem;
-    padding: 0.75rem;
-    border-radius: 8px;
-    background: transparent;
-    border: 1px solid transparent;
-    transition: all var(--transition-base);
-    text-decoration: none;
-  }
-
-  .legal-link:hover {
-    background: var(--bg-secondary);
-    border-color: var(--border-color);
-    transform: translateX(0);
-  }
-
-  .legal-icon {
-    color: var(--primary);
-    flex-shrink: 0;
-    margin-top: 2px;
-  }
-
-  .legal-text {
-    display: flex;
-    flex-direction: column;
-    gap: 0.125rem;
-  }
-
-  .legal-label {
-    font-size: 0.9rem;
-    font-weight: 500;
-    color: var(--text-primary);
-    display: flex;
-    align-items: center;
-    gap: 0.375rem;
-  }
-
-  .legal-desc {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    opacity: 0.8;
-  }
-
-  .external-icon {
-    opacity: 0.6;
-  }
-
-  .legal-link.external .legal-label {
-    color: var(--text-primary);
   }
 
   @media (max-width: 768px) {
     .footer {
-      padding-bottom: calc(80px + env(safe-area-inset-bottom)); /* Space for bottom nav */
+      padding-bottom: calc(80px + env(safe-area-inset-bottom));
     }
 
     .footer-container {
@@ -394,34 +284,14 @@ const legalLinks = {
       padding: 0 max(var(--spacing-lg), env(safe-area-inset-left)) 0 max(var(--spacing-lg), env(safe-area-inset-right));
     }
 
-    .legal-links {
-      flex-direction: column;
-      gap: 0.75rem;
-    }
-
-    .legal-links a {
-      border-right: none;
-      border-bottom: 1px solid rgba(107, 114, 128, 0.2);
-      padding: 0.5rem 0;
-    }
-
-    .legal-links a:last-child {
-      border-bottom: none;
-    }
-
-    /* Legal section mobile adjustments */
-    .legal-link {
-      padding: 0.625rem 0.5rem;
-    }
-
-    .legal-desc {
-      display: none; /* Hide descriptions on mobile for cleaner look */
-    }
-
     .footer-legal {
       margin-top: 1rem;
       padding-top: 1.5rem;
       border-top: 1px solid var(--border-color);
+    }
+
+    .legal-links-compact {
+      gap: 0.5rem;
     }
   }
 </style>

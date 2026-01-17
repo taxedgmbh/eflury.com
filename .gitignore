@@ -62,10 +62,9 @@ owner/
 emanuel_flury_cv.md
 website_prd.md
 
-# Legacy folders (removed during migration to Astro)
+# Legacy language folders (removed during migration to Astro)
+# Note: en/ and de/ are NOT ignored - they contain new Astro-generated legal pages
 assets/
-en/
-de/
 cn/
 es/
 fr/

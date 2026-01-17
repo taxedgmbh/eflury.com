@@ -1,0 +1,183 @@
+---
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import MobileBottomNav from '../components/MobileBottomNav.astro';
+import { type Language, routes } from '../i18n/utils';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Language;
+  lastUpdated?: string;
+}
+
+const { title, description, lang, lastUpdated } = Astro.props;
+const currentRoutes = routes[lang];
+---
+
+<!DOCTYPE html>
+<html lang={lang}>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{title} - Emanuel Flury</title>
+  <meta name="description" content={description}>
+  <meta name="robots" content="noindex, follow">
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles/apple-components.css">
+</head>
+<body>
+  <Header lang={lang} />
+
+  <main class="legal-page">
+    <div class="legal-container">
+      <a href={currentRoutes.home} class="back-link">
+        ← {lang === 'en' ? 'Back to Home' : 'Zurück zur Startseite'}
+      </a>
+      <h1>{title}</h1>
+      {lastUpdated && (
+        <p class="last-updated">
+          {lang === 'en' ? 'Last updated:' : 'Zuletzt aktualisiert:'} {lastUpdated}
+        </p>
+      )}
+      <div class="legal-content">
+        <slot />
+      </div>
+    </div>
+  </main>
+
+  <Footer lang={lang} />
+  <MobileBottomNav lang={lang} />
+</body>
+</html>
+
+<style>
+  .legal-page {
+    padding-top: 100px;
+    min-height: 100vh;
+    background: var(--bg-primary);
+  }
+
+  .legal-container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem var(--spacing-lg);
+  }
+
+  .back-link {
+    display: inline-block;
+    color: var(--primary);
+    text-decoration: none;
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+    transition: opacity var(--transition-fast);
+  }
+
+  .back-link:hover {
+    opacity: 0.8;
+  }
+
+  .legal-container h1 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  .last-updated {
+    font-size: 0.9rem;
+    color: var(--text-muted);
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+
+  .legal-content :global(h2) {
+    font-size: 1.5rem;
+    color: var(--text-primary);
+    margin-top: 2.5rem;
+    margin-bottom: 1rem;
+    font-weight: 600;
+  }
+
+  .legal-content :global(h3) {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+    font-weight: 600;
+  }
+
+  .legal-content :global(p) {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.2rem;
+  }
+
+  .legal-content :global(ul),
+  .legal-content :global(ol) {
+    color: var(--text-secondary);
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .legal-content :global(li) {
+    margin-bottom: 0.5rem;
+    line-height: 1.7;
+  }
+
+  .legal-content :global(a) {
+    color: var(--primary);
+    text-decoration: underline;
+  }
+
+  .legal-content :global(a:hover) {
+    opacity: 0.8;
+  }
+
+  .legal-content :global(strong) {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  .legal-content :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.5rem 0;
+    font-size: 0.9rem;
+  }
+
+  .legal-content :global(th),
+  .legal-content :global(td) {
+    padding: 12px;
+    text-align: left;
+    border: 1px solid var(--border-color);
+  }
+
+  .legal-content :global(th) {
+    background-color: var(--bg-secondary);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .legal-content :global(td) {
+    color: var(--text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .legal-container {
+      padding: 1.5rem var(--spacing-md);
+    }
+
+    .legal-content :global(table) {
+      font-size: 0.8rem;
+    }
+
+    .legal-content :global(th),
+    .legal-content :global(td) {
+      padding: 8px;
+    }
+  }
+</style>
