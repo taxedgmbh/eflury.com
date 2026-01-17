@@ -1,0 +1,83 @@
+# Emanuel Flury - Agentic AI & Business Automation Consultant
+
+> Independent consultant specializing in agentic AI, business automation, and intelligent process transformation. Based in Switzerland with 13+ years Fortune 500 automation leadership experience. Clients achieve 5x-10x ROI, 70%+ time savings, and 99.5% accuracy rates.
+
+## About
+
+Emanuel Flury is an independent consultant helping businesses transform operations through intelligent automation, AI agents, and process optimization. Previously led automation initiatives at Johnson & Johnson (2012-2024), achieving 99.5% accuracy, 70%+ time savings, and 30% reduction in fulfillment time. Also founded Taxed GmbH (2021) for Swiss fiduciary services.
+
+## Consulting Services
+
+### Agentic AI Consulting
+Agentic AI represents the next evolution of AI - autonomous systems that plan, reason, and execute multi-step workflows independently. With 40% of enterprise applications embedding AI agents by 2026 (Gartner), businesses moving now gain significant competitive advantage.
+- Multi-Agent System Architecture
+- LLM Orchestration (LangChain, CrewAI, AutoGen, Claude Agent SDK)
+- Model Context Protocol (MCP) Integration
+- Human-in-the-Loop Design
+- Production-Ready Deployment
+
+### Business Automation Consulting
+Transform enterprise operations with intelligent automation delivering measurable results. The RPA market is growing to $247 billion by 2035 with average 240% ROI.
+- Process Discovery & Analysis
+- RPA Implementation (UiPath Certified)
+- Intelligent Document Processing (99%+ accuracy)
+- Enterprise System Integration (SAP, Oracle, Salesforce)
+- Governance & Compliance Frameworks
+
+### AI-Powered Workflow Design
+RAG powers over 60% of production AI applications. Design intelligent workflows using vector databases, hybrid search strategies, and LLM orchestration.
+- RAG Architecture Design
+- Vector Database Strategy (Pinecone, Weaviate, Qdrant, Chroma)
+- Intelligent Document Processing
+- Enterprise Semantic Search
+- LLM-Agnostic Architecture
+
+### Digital Transformation Strategy
+While 90% of enterprises launch digital initiatives, only 30% achieve sustained impact (McKinsey). The difference lies in combining AI, data strategy, and execution discipline.
+- Process Discovery & Assessment
+- Automation Roadmap Development
+- ROI Analysis & Business Case
+- Change Management Planning
+- Center of Excellence Design
+
+## Credentials & Certifications
+
+- UiPath RPA Developer (2022)
+- Alteryx Designer Core (2021)
+- Microsoft Power BI Data Analyst Associate (2021)
+- Master of Arts in Economics-Finance, University of Aberdeen
+
+## Results & Expertise
+
+- 13+ years automation & AI consulting experience
+- Fortune 500 automation leadership (Johnson & Johnson 2012-2024)
+- 99.5% system accuracy delivered
+- 70% average time reduction achieved
+- Expert in agentic AI, LLM orchestration, and vector databases
+
+## Contact
+
+- Website: https://eflury.com
+- Email: me@eflury.com
+- Phone: +41 79 910 77 87
+- Location: Grenchen, Switzerland
+- LinkedIn: https://linkedin.com/in/emanuelflury
+
+## Languages
+
+- English (Primary)
+- German (Deutsch)
+
+## Website Structure
+
+- /en.html - English homepage
+- /de.html - German homepage (Deutsch)
+- /en/about.html - About page (English)
+- /de/about.html - About page (German)
+- /en/pricing.html - Pricing (English)
+- /de/pricing.html - Pricing (German)
+- /sitemap.xml - Full sitemap
+
+## Keywords
+
+agentic AI consultant, business automation consultant, AI automation expert, LLM orchestration, AI agents, vector database consultant, RPA consultant, UiPath certified, business process automation, digital transformation consultant, intelligent automation, Switzerland automation expert, Swiss AI consultant
