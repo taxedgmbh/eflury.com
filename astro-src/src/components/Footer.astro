@@ -1,6 +1,6 @@
 ---
 import { type Language, useTranslations, routes } from '../i18n/utils';
-import { Linkedin, Github, Mail, Phone } from 'lucide-astro';
+import { Linkedin, Github, Mail, Phone, Shield, FileText, Cookie, AlertCircle, Users, Scale, ExternalLink } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -10,12 +10,23 @@ const { lang } = Astro.props;
 const t = useTranslations(lang);
 const currentRoutes = routes[lang];
 const currentYear = new Date().getFullYear();
+
+// Legal section translations
+const legalTitle = lang === 'en' ? 'Legal & Compliance' : 'Rechtliches & Compliance';
+const legalLinks = {
+  privacy: { label: lang === 'en' ? 'Privacy Policy' : 'Datenschutz', desc: lang === 'en' ? 'How we protect your data' : 'Wie wir Ihre Daten schützen' },
+  terms: { label: lang === 'en' ? 'Terms of Service' : 'Nutzungsbedingungen', desc: lang === 'en' ? 'Service agreement' : 'Servicevereinbarung' },
+  cookies: { label: lang === 'en' ? 'Cookie Policy' : 'Cookie-Richtlinie', desc: lang === 'en' ? 'Cookie usage info' : 'Cookie-Nutzungsinfo' },
+  disclaimer: { label: lang === 'en' ? 'Disclaimer' : 'Haftungsausschluss', desc: lang === 'en' ? 'Legal notices' : 'Rechtliche Hinweise' },
+  conduct: { label: lang === 'en' ? 'Code of Conduct' : 'Verhaltenskodex', desc: lang === 'en' ? 'Professional standards' : 'Professionelle Standards' },
+  dataProtection: { label: lang === 'en' ? 'Swiss Data Protection' : 'Schweizer Datenschutz', desc: lang === 'en' ? 'FDPIC guidelines' : 'EDÖB-Richtlinien' },
+};
 ---
 
 <footer class="footer">
   <div class="footer-container">
     <!-- Column 1: Brand & Description -->
-    <div class="footer-section">
+    <div class="footer-section footer-brand">
       <h3 class="footer-logo">Emanuel Flury</h3>
       <p class="footer-tagline">{t('footer.tagline')}</p>
       <p class="footer-description">{t('footer.description')}</p>
@@ -57,23 +68,73 @@ const currentYear = new Date().getFullYear();
         <li><span>Grenchen, Switzerland</span></li>
       </ul>
     </div>
+
+    <!-- Column 4: Legal & Compliance -->
+    <div class="footer-section footer-legal">
+      <h4>{legalTitle}</h4>
+      <ul class="footer-links legal-list">
+        <li>
+          <a href={currentRoutes.privacy} class="legal-link">
+            <Shield size={16} class="legal-icon" />
+            <div class="legal-text">
+              <span class="legal-label">{legalLinks.privacy.label}</span>
+              <span class="legal-desc">{legalLinks.privacy.desc}</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href={currentRoutes.terms} class="legal-link">
+            <FileText size={16} class="legal-icon" />
+            <div class="legal-text">
+              <span class="legal-label">{legalLinks.terms.label}</span>
+              <span class="legal-desc">{legalLinks.terms.desc}</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href={currentRoutes.cookies} class="legal-link">
+            <Cookie size={16} class="legal-icon" />
+            <div class="legal-text">
+              <span class="legal-label">{legalLinks.cookies.label}</span>
+              <span class="legal-desc">{legalLinks.cookies.desc}</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/disclaimer.html" class="legal-link">
+            <AlertCircle size={16} class="legal-icon" />
+            <div class="legal-text">
+              <span class="legal-label">{legalLinks.disclaimer.label}</span>
+              <span class="legal-desc">{legalLinks.disclaimer.desc}</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="/code-of-conduct.html" class="legal-link">
+            <Users size={16} class="legal-icon" />
+            <div class="legal-text">
+              <span class="legal-label">{legalLinks.conduct.label}</span>
+              <span class="legal-desc">{legalLinks.conduct.desc}</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a href="https://www.edoeb.admin.ch/edoeb/en/home.html" target="_blank" rel="noopener" class="legal-link external">
+            <Scale size={16} class="legal-icon" />
+            <div class="legal-text">
+              <span class="legal-label">{legalLinks.dataProtection.label} <ExternalLink size={12} class="external-icon" /></span>
+              <span class="legal-desc">{legalLinks.dataProtection.desc}</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </div>
   </div>
 
   <!-- Bottom Bar -->
   <div class="footer-bottom">
     <div class="footer-bottom-container">
-      <p class="copyright">&copy; {currentYear} Emanuel Flury</p>
-
-      <!-- Small Legal Links (hidden style like big companies) -->
-      <nav class="legal-links" aria-label="Legal">
-        <a href={currentRoutes.privacy}>Privacy</a>
-        <a href={currentRoutes.terms}>Terms</a>
-        <a href={currentRoutes.cookies}>Cookies</a>
-        <a href="/disclaimer.html">Disclaimer</a>
-        <a href="/code-of-conduct.html">Code of Conduct</a>
-        <a href="https://www.edoeb.admin.ch/edoeb/en/home.html" target="_blank" rel="noopener">Data Protection</a>
-      </nav>
-
+      <p class="copyright">&copy; {currentYear} Emanuel Flury. {lang === 'en' ? 'All rights reserved.' : 'Alle Rechte vorbehalten.'}</p>
       <p class="made-with">{t('footer.made_with')}</p>
     </div>
   </div>
@@ -250,6 +311,74 @@ const currentYear = new Date().getFullYear();
     }
   }
 
+  /* Legal Links - Professional Style with Icons */
+  .footer-legal h4 {
+    margin-bottom: 1.25rem;
+  }
+
+  .legal-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .legal-list li {
+    margin-bottom: 0;
+  }
+
+  .legal-link {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    padding: 0.75rem;
+    border-radius: 8px;
+    background: transparent;
+    border: 1px solid transparent;
+    transition: all var(--transition-base);
+    text-decoration: none;
+  }
+
+  .legal-link:hover {
+    background: var(--bg-secondary);
+    border-color: var(--border-color);
+    transform: translateX(0);
+  }
+
+  .legal-icon {
+    color: var(--primary);
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .legal-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .legal-label {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .legal-desc {
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    opacity: 0.8;
+  }
+
+  .external-icon {
+    opacity: 0.6;
+  }
+
+  .legal-link.external .legal-label {
+    color: var(--text-primary);
+  }
+
   @media (max-width: 768px) {
     .footer {
       padding-bottom: calc(80px + env(safe-area-inset-bottom)); /* Space for bottom nav */
@@ -278,6 +407,21 @@ const currentYear = new Date().getFullYear();
 
     .legal-links a:last-child {
       border-bottom: none;
+    }
+
+    /* Legal section mobile adjustments */
+    .legal-link {
+      padding: 0.625rem 0.5rem;
+    }
+
+    .legal-desc {
+      display: none; /* Hide descriptions on mobile for cleaner look */
+    }
+
+    .footer-legal {
+      margin-top: 1rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid var(--border-color);
     }
   }
 </style>
