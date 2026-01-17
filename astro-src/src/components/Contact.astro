@@ -120,7 +120,21 @@ const t = useTranslations(lang);
           <div id="message-error" class="field-error" role="alert" aria-live="polite"></div>
         </div>
 
-        <button type="submit" class="btn btn-primary" aria-label={t('contact.form.submit')}>
+        <!-- Cloudflare Turnstile Anti-Bot Protection -->
+        <div class="turnstile-wrapper">
+          <div
+            id="turnstile-widget"
+            class="cf-turnstile"
+            data-sitekey="YOUR_TURNSTILE_SITE_KEY"
+            data-theme="auto"
+            data-language={lang}
+            data-callback="onTurnstileSuccess"
+            data-expired-callback="onTurnstileExpired"
+          ></div>
+          <div id="turnstile-error" class="field-error" role="alert" aria-live="polite"></div>
+        </div>
+
+        <button type="submit" class="btn btn-primary" id="submitBtn" disabled aria-label={t('contact.form.submit')}>
           <span class="btn-text">{t('contact.form.submit')}</span>
           <Send size={18} class="btn-icon" />
           <span class="btn-loader" aria-hidden="true"></span>
@@ -414,6 +428,35 @@ const t = useTranslations(lang);
     border: 1px solid var(--primary-red);
   }
 
+  /* Turnstile Anti-Bot Widget */
+  .turnstile-wrapper {
+    margin-bottom: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .turnstile-wrapper .field-error {
+    text-align: center;
+  }
+
+  .cf-turnstile {
+    margin: 0 auto;
+  }
+
+  /* Disabled submit button state */
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
+  .btn-primary:disabled:hover {
+    transform: none;
+    box-shadow: var(--shadow-sm);
+  }
+
   @media (max-width: 768px) {
     .contact-wrapper {
       grid-template-columns: 1fr;
@@ -426,6 +469,9 @@ const t = useTranslations(lang);
   }
 </style>
 
+<!-- Cloudflare Turnstile Script -->
+<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 <script>
   import emailjs from '@emailjs/browser';
 
@@ -434,14 +480,54 @@ const t = useTranslations(lang);
 
   const form = document.getElementById('contactForm') as HTMLFormElement;
   const formStatus = document.getElementById('formStatus') as HTMLDivElement;
+  const submitButton = document.getElementById('submitBtn') as HTMLButtonElement;
+  const turnstileError = document.getElementById('turnstile-error') as HTMLDivElement;
+  const lang = document.documentElement.lang || 'en';
+
+  // Turnstile token storage
+  let turnstileToken: string | null = null;
+
+  // Global callbacks for Turnstile
+  (window as any).onTurnstileSuccess = (token: string) => {
+    turnstileToken = token;
+    if (submitButton) {
+      submitButton.disabled = false;
+    }
+    if (turnstileError) {
+      turnstileError.textContent = '';
+      turnstileError.style.opacity = '0';
+    }
+  };
+
+  (window as any).onTurnstileExpired = () => {
+    turnstileToken = null;
+    if (submitButton) {
+      submitButton.disabled = true;
+    }
+    if (turnstileError) {
+      turnstileError.textContent = lang === 'de'
+        ? 'Verifizierung abgelaufen. Bitte erneut bestätigen.'
+        : 'Verification expired. Please verify again.';
+      turnstileError.style.opacity = '1';
+    }
+  };
 
   if (form) {
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
-      const btnText = submitButton.querySelector('.btn-text') as HTMLSpanElement;
-      const lang = document.documentElement.lang || 'en';
+      // Check Turnstile verification
+      if (!turnstileToken) {
+        if (turnstileError) {
+          turnstileError.textContent = lang === 'de'
+            ? 'Bitte bestätigen Sie, dass Sie kein Roboter sind.'
+            : 'Please verify that you are not a robot.';
+          turnstileError.style.opacity = '1';
+        }
+        return;
+      }
+
+      const btnText = submitButton?.querySelector('.btn-text') as HTMLSpanElement;
       const originalText = btnText?.textContent || (lang === 'de' ? 'Nachricht senden' : 'Send Message');
 
       submitButton.disabled = true;
@@ -463,6 +549,12 @@ const t = useTranslations(lang);
           : 'Message sent successfully! I\'ll get back to you soon.';
         form.reset();
 
+        // Reset Turnstile after successful submission
+        if ((window as any).turnstile) {
+          (window as any).turnstile.reset();
+        }
+        turnstileToken = null;
+
         // Track conversion
         if ((window as any).trackEvent) {
           (window as any).trackEvent('Conversion', 'contact_form_submit', 'Contact Form');
@@ -470,12 +562,10 @@ const t = useTranslations(lang);
       } catch (error: any) {
         console.error('EmailJS Error:', error);
 
-        // Show detailed error for debugging
         let errorMessage = lang === 'de'
           ? 'Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt an me@eflury.com'
           : 'Failed to send message. Please try again or email me directly at me@eflury.com';
 
-        // Log specific error details
         if (error?.text) {
           console.error('EmailJS Error Details:', error.text);
         }
@@ -483,7 +573,7 @@ const t = useTranslations(lang);
         formStatus.className = 'form-status error';
         formStatus.textContent = errorMessage;
       } finally {
-        submitButton.disabled = false;
+        submitButton.disabled = !turnstileToken;
         submitButton.classList.remove('loading');
         if (btnText) btnText.textContent = originalText;
       }
