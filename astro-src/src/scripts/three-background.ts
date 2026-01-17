@@ -36,9 +36,9 @@ export function initThreeBackground(containerId: string) {
     new THREE.BufferAttribute(posArray, 3)
   );
 
-  // Check current theme for particle color
+  // Check current theme for particle color - eFlury Brand Colors
   const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-  const particleColor = isDark ? 0x00C77E : 0x007A4D;
+  const particleColor = isDark ? 0x1490D0 : 0x0d9488; // Blue (dark) / Teal (light)
 
   const particlesMaterial = new THREE.PointsMaterial({
     size: 0.15,
@@ -65,7 +65,7 @@ export function initThreeBackground(containerId: string) {
     mutations.forEach((mutation) => {
       if (mutation.attributeName === 'data-theme') {
         const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
-        particlesMaterial.color.setHex(isDark ? 0x00C77E : 0x007A4D);
+        particlesMaterial.color.setHex(isDark ? 0x1490D0 : 0x0d9488); // eFlury Blue/Teal
       }
     });
   });
