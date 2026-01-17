@@ -22,27 +22,27 @@
     "scroll_hint": "Scrollen Sie, um mehr zu entdecken"
   },
   "services": {
-    "section_title": "Was ich mache",
-    "section_subtitle": "KI-Native Automatisierung, Schweizer Steuerexpertise und Finanzanalytik",
+    "section_title": "Beratungsleistungen",
+    "section_subtitle": "Agentic AI, Geschäftsautomatisierung und intelligente Prozesstransformation",
     "automation": {
-      "title": "KI-Native Automatisierung",
-      "description": "Transformieren Sie Geschäftsprozesse mit KI-Workflows der nächsten Generation, Vektordatenbanken und LLM-Orchestrierung. Spezialisiert auf regulierte Umgebungen, verbinde ich traditionelle Finanzen mit intelligenter Automatisierung mit UiPath, Python und maßgeschneiderten KI-Lösungen. Bewährte Erfolge auf Fortune-500-Niveau mit erheblichem ROI.",
-      "features": ["RPA & Prozessautomatisierung", "Vektor-DB & KI-Integration", "UiPath zertifizierte Entwicklung", "LLM-Orchestrierung & KI-Agenten"]
+      "title": "Agentic AI Beratung",
+      "description": "Agentic AI ist die nächste Evolution der künstlichen Intelligenz - autonome Systeme, die mehrstufige Workflows selbstständig planen, analysieren und ausführen. Mit 40% der Unternehmensanwendungen, die bis 2026 KI-Agenten integrieren, und Organisationen, die 5x-10x ROI erzielen, verschaffen sich Unternehmen, die jetzt handeln, erhebliche Wettbewerbsvorteile. Ich entwickle produktionsreife Agentensysteme mit LangChain, CrewAI, AutoGen und Claude Agent SDK.",
+      "features": ["Multi-Agenten-System-Architektur", "LLM-Orchestrierung (LangChain/CrewAI)", "Model Context Protocol (MCP)", "Human-in-the-Loop Design"]
     },
-    "tax": {
-      "title": "Schweizer Steuern & Treuhanddienstleistungen",
-      "description": "Fachkundige Schweizer Steuerberatung über Taxed GmbH für Einwohner und Expatriates. Umfassende Treuhanddienstleistungen einschließlich Buchhaltung, MWST-Abrechnungen, Steuererklärungen und Compliance. Betreuung von KMU in der gesamten Schweiz mit hoher Kundenbindung und Zufriedenheit.",
-      "features": ["Expat-Steuerplanung", "Schweizer Steuer-Compliance", "Treuhanddienstleistungen", "KMU-Buchhaltung & MWST"]
+    "business_automation": {
+      "title": "Geschäftsautomatisierungsberatung",
+      "description": "Transformieren Sie Ihre Unternehmensabläufe mit intelligenter Automatisierung und messbaren Ergebnissen. Als UiPath-zertifizierter Experte mit Fortune-500-Erfahrung helfe ich Organisationen, 70%+ Zeitersparnis und 99,5% Genauigkeit zu erreichen. In einem Markt, der bis 2035 auf 247 Milliarden Dollar wächst, verschaffen sich Unternehmen mit Automatisierung entscheidende Wettbewerbsvorteile.",
+      "features": ["Prozessentdeckung & Analyse", "RPA-Implementierung (UiPath)", "Intelligente Dokumentenverarbeitung", "Enterprise-Systemintegration"]
     },
-    "analytics": {
-      "title": "Finanzanalytik & FP&A",
-      "description": "Fortschrittliche Finanzanalytik mit 99,5% Genauigkeit bei Kostenberechnungen. Echtzeit-Inventarberichte, WW-Verrechnungspreismanagement und prädiktive Modellierung. Experte in Power BI, Alteryx und Python für datengesteuerte Entscheidungen auf Unternehmensebene.",
-      "features": ["Power BI Experten-Dashboards", "FAA PII & Kostenberechnungen", "Echtzeit-Inventaranalytik", "Verrechnungspreismanagement"]
+    "ai_workflows": {
+      "title": "KI-gestützte Workflow-Gestaltung",
+      "description": "Verwandeln Sie das Wissen Ihrer Organisation in verwertbare Intelligenz. RAG treibt über 60% der produktiven KI-Anwendungen an, doch die meisten Implementierungen erreichen ihr Potenzial nicht. Ich entwickle intelligente Workflows mit Vektordatenbanken (Pinecone, Weaviate, Qdrant), hybriden Suchstrategien und LLM-Orchestrierung für 99%+ Datenextraktionsgenauigkeit.",
+      "features": ["RAG-Architektur-Design", "Vektordatenbank-Strategie", "Intelligente Dokumentenverarbeitung", "Enterprise Semantic Search"]
     },
     "consulting": {
-      "title": "Finanz- & Prozessoptimierung",
-      "description": "Strategische Finanz- und Prozessberatung mit 13+ Jahren Erfahrung auf Fortune-500-Niveau. Spezialisiert auf Affiliate-Bruttogewinnoptimierung, Spin-off-Berechnungen, Kostenstellencontrolling und globale Prozessstandardisierung. Bewährte Kostensenkung und Effizienzsteigerung.",
-      "features": ["Finanzprozessoptimierung", "Kostenstellencontrolling", "Globale Prozessstandardisierung", "Strategische Spin-off-Berechnungen"]
+      "title": "Digitale Transformationsstrategie",
+      "description": "Während 90% der Unternehmen digitale Initiativen starten, erzielen nur 30% nachhaltige Wirkung. Der Unterschied liegt in der Kombination von KI, Datenstrategie und Umsetzungsdisziplin mit einer klaren, ROI-gesteuerten Roadmap. Mit Fortune-500-Erfahrung bei Johnson & Johnson, wo Automatisierung die Durchlaufzeit um 30% und Kosten um 25% senkte, bringe ich Enterprise-Methodik in Unternehmen jeder Grösse.",
+      "features": ["Prozessentdeckung & Bewertung", "Automatisierungs-Roadmap", "ROI-Analyse & Business Case", "Change Management Planung"]
     }
   },
   "statistics": {

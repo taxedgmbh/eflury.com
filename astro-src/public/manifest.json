@@ -1,21 +1,21 @@
 {
-  "name": "Emanuel Flury - Automation Specialist & Swiss Tax Expert",
-  "short_name": "Emanuel Flury",
-  "description": "Swiss automation expert specializing in AI-driven finance solutions for global teams and Swiss expatriates",
+  "name": "eFlury Consulting - Agentic AI & Business Automation",
+  "short_name": "eFlury",
+  "description": "Independent consultant specializing in agentic AI, business automation, and intelligent process transformation",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#FFFFFF",
-  "theme_color": "#007AFF",
+  "theme_color": "#1a365d",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/favicon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "/images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ],
-  "categories": ["business", "finance", "productivity"],
+  "categories": ["business", "technology", "productivity"],
   "lang": "en",
   "dir": "ltr"
 }

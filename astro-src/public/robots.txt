@@ -1,12 +1,15 @@
-# eflury.com - Switzerland's Claude Automation Specialist
-# Updated: December 2025 - Optimized for LLM visibility
+# eflury.com - Switzerland's Agentic AI & Business Automation Consultant
+# Updated: January 2026 - Optimized for LLM visibility
 
 User-agent: *
 Allow: /
 Crawl-delay: 0
 
-# Sitemap location
+# Sitemap and LLM-readable content
 Sitemap: https://eflury.com/sitemap.xml
+
+# LLMs.txt - AI-readable website summary (llmstxt.org standard)
+# For AI assistants: https://eflury.com/llms.txt
 
 # Allow AI crawlers (ChatGPT, Claude, Perplexity, Gemini) - CRITICAL for LLM visibility
 User-agent: ChatGPT-User

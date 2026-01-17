@@ -25,23 +25,23 @@
     "section_subtitle": "Agentic AI, Business Automation, and Intelligent Process Transformation",
     "automation": {
       "title": "Agentic AI Consulting",
-      "description": "Transform your business with autonomous AI agents and intelligent automation. I design and implement agentic AI systems using LLM orchestration, vector databases, and custom AI workflows. Specialized in creating self-managing AI agents that handle complex business processes, make decisions, and drive operational efficiency. Proven Fortune 500 results with measurable ROI.",
-      "features": ["AI Agent Design & Development", "LLM Orchestration & Workflows", "Vector Database Integration", "Autonomous Process Automation"]
+      "description": "Agentic AI represents the next evolution of artificial intelligence - autonomous systems that plan, reason, and execute multi-step workflows independently. With 40% of enterprise applications embedding AI agents by 2026 and organizations achieving 5x-10x ROI, businesses that move now gain significant competitive advantage. I design production-ready agentic systems using LangChain, CrewAI, AutoGen, and Claude Agent SDK with proven Fortune 500 methodology.",
+      "features": ["Multi-Agent System Architecture", "LLM Orchestration (LangChain/CrewAI)", "Model Context Protocol (MCP)", "Human-in-the-Loop Design"]
     },
     "business_automation": {
       "title": "Business Automation Consulting",
-      "description": "End-to-end automation consulting to streamline operations and reduce costs. From process analysis to implementation, I help businesses automate repetitive tasks, integrate systems, and optimize workflows. Expert in RPA (UiPath certified), Python automation, and custom solutions. Delivering 70%+ time savings and significant cost reductions.",
-      "features": ["Process Automation Strategy", "RPA Implementation (UiPath)", "Workflow Optimization", "System Integration & APIs"]
+      "description": "Transform your enterprise operations with intelligent automation delivering measurable results. As a UiPath-certified expert with Fortune 500 experience, I help organizations achieve 70%+ time savings and 99.5% accuracy rates. In a market growing to $247 billion by 2035, businesses embracing automation now gain decisive competitive advantages through reduced costs, improved compliance, and freed-up human capital.",
+      "features": ["Process Discovery & Analysis", "RPA Implementation (UiPath)", "Intelligent Document Processing", "Enterprise System Integration"]
     },
     "ai_workflows": {
       "title": "AI-Powered Workflow Design",
-      "description": "Design intelligent workflows that combine AI capabilities with business logic. I create custom AI solutions using vector databases, semantic search, and LLM integration to enhance decision-making, automate complex tasks, and improve accuracy. Specialized in regulated environments with 99.5%+ accuracy requirements.",
-      "features": ["Custom AI Workflow Design", "Vector Database Solutions", "Semantic Search & RAG", "AI-Powered Decision Systems"]
+      "description": "Transform your organization's knowledge into actionable intelligence. RAG powers over 60% of production AI applications, yet most implementations fail to achieve their potential. I design intelligent workflows using vector databases (Pinecone, Weaviate, Qdrant), hybrid search strategies, and LLM orchestration that deliver 99%+ data extraction accuracy and 30-50% reductions in zero-result search rates.",
+      "features": ["RAG Architecture Design", "Vector Database Strategy", "Intelligent Document Processing", "Enterprise Semantic Search"]
     },
     "consulting": {
       "title": "Digital Transformation Strategy",
-      "description": "Strategic consulting to guide your automation journey. I assess current processes, identify automation opportunities, and develop roadmaps for digital transformation. Leveraging 13+ years Fortune 500 experience to help businesses of all sizes achieve operational excellence through intelligent automation.",
-      "features": ["Automation Roadmap Development", "Process Assessment & Analysis", "ROI Analysis & Business Case", "Change Management Support"]
+      "description": "While 90% of enterprises launch digital initiatives, only 30% achieve sustained impact. The difference lies in combining AI, data strategy, and execution discipline with a clear, ROI-driven roadmap. Drawing from Fortune 500 experience at Johnson & Johnson where automation reduced fulfillment time by 30% and costs by 25%, I bring enterprise-grade methodology to businesses of every size.",
+      "features": ["Process Discovery & Assessment", "Automation Roadmap Development", "ROI Analysis & Business Case", "Change Management Planning"]
     }
   },
   "statistics": {
