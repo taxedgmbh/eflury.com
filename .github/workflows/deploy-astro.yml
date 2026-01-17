@@ -76,7 +76,7 @@ jobs:
           git config --local user.name "github-actions[bot]"
 
           # Add all built files
-          git add -f *.html _astro/ images/ favicon.svg robots.txt 2>/dev/null || true
+          git add -f *.html _astro/ images/ api/ favicon.svg robots.txt manifest.json llms.txt sw.js 2>/dev/null || true
 
           # Check if there are changes to commit
           if git diff --staged --quiet; then
