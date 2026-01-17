@@ -17,6 +17,10 @@ out/
 .env.test.local
 .env.production.local
 
+# API configuration (contains secrets)
+**/api/config.php
+config.php
+
 # IDE files
 .vscode/
 .idea/

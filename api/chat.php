@@ -2,6 +2,9 @@
 /**
  * AI Chat API Proxy for eflury.com
  * Securely proxies requests to DeepSeek API
+ *
+ * SECURITY: API key must be set via environment variable or config file
+ * See README.md for deployment instructions
  */
 
 // CORS headers
@@ -24,7 +27,26 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
 }
 
 // DeepSeek API Configuration
-$API_KEY = 'sk-182780cd7e184d8887f9d20360f3718b';
+// Priority: 1. Environment variable, 2. Config file, 3. Error
+$API_KEY = getenv('DEEPSEEK_API_KEY');
+
+// Fallback to config file if environment variable not set
+if (!$API_KEY) {
+    $configFile = __DIR__ . '/config.php';
+    if (file_exists($configFile)) {
+        $config = require $configFile;
+        $API_KEY = $config['DEEPSEEK_API_KEY'] ?? null;
+    }
+}
+
+// Validate API key exists
+if (!$API_KEY) {
+    http_response_code(500);
+    echo json_encode(['error' => 'API configuration error. Please contact the administrator.']);
+    error_log('DEEPSEEK_API_KEY not configured. Set via environment variable or api/config.php');
+    exit;
+}
+
 $API_URL = 'https://api.deepseek.com/v1/chat/completions';
 
 // Get request body
