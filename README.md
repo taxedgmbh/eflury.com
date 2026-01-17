@@ -53,6 +53,39 @@ Automated via GitHub Actions:
 - Files deployed to Hostinger via webhook
 - Live at: https://eflury.com
 
+## 🔐 API Configuration
+
+The AI chatbot requires a DeepSeek API key. **Never commit API keys to version control.**
+
+### Option 1: Environment Variable (Recommended for Production)
+
+Set the environment variable in your server configuration:
+
+```bash
+# Apache (.htaccess or httpd.conf)
+SetEnv DEEPSEEK_API_KEY your-api-key-here
+
+# Nginx (fastcgi_params or nginx.conf)
+fastcgi_param DEEPSEEK_API_KEY your-api-key-here;
+
+# cPanel / Hostinger
+# Set via "Environment Variables" in hosting control panel
+```
+
+### Option 2: Config File (Alternative)
+
+```bash
+cd astro-src/public/api
+cp config.example.php config.php
+# Edit config.php with your actual API key
+```
+
+**Important:** The `config.php` file is gitignored and must be created manually on each deployment environment.
+
+### Getting API Keys
+
+- **DeepSeek API**: https://platform.deepseek.com/
+
 ## 📧 Contact
 
 - **Email**: me@eflury.com
