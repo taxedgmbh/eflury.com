@@ -1,8 +1,8 @@
 {
   "meta": {
-    "title": "Emanuel Flury - Agentic AI & Business Automation Consultant | AI-Native Automation Expert",
-    "description": "Independent consultant specializing in agentic AI, business automation, and intelligent process transformation. 13+ years Fortune 500 automation leadership | Expert in AI agents, LLM orchestration, vector databases, and RPA | Helping businesses automate operations and drive digital transformation.",
-    "keywords": "agentic AI consultant, business automation consultant, AI automation expert, LLM orchestration, AI agents, vector database consultant, RPA consultant, UiPath certified, business process automation, digital transformation consultant, intelligent automation, AI workflow consultant, Fortune 500 automation"
+    "title": "Emanuel Flury - AI & Automation Consultant for Swiss KMUs | Agentic AI Expert",
+    "description": "Independent consultant helping Swiss SMEs close the AI adoption gap. Only 8% of Swiss KMUs use AI - gain competitive advantage with proven automation delivering 30-200% first-year ROI (Deloitte). Expert in agentic AI, RPA, and intelligent process automation.",
+    "keywords": "Swiss AI consultant, KMU automation, SME digital transformation Switzerland, agentic AI, RPA consultant Switzerland, UiPath certified, business process automation, AI agents, LLM orchestration, vector databases, Swiss business automation"
   },
   "nav": {
     "home": "Home",
@@ -13,79 +13,79 @@
     "language": "Language"
   },
   "hero": {
-    "greeting": "Hi, I'm Emanuel Flury",
-    "title": "Agentic AI & Business Automation Consultant",
-    "subtitle": "I help businesses transform operations through intelligent automation and agentic AI. 13+ years Fortune 500 automation leadership | Expert in AI agents, LLM orchestration, and process automation | Delivering measurable ROI and operational excellence.",
-    "cta_primary": "Start Your Automation Journey",
-    "cta_secondary": "View Case Studies",
-    "scroll_hint": "Scroll to discover more"
+    "greeting": "AI Consulting for Swiss KMUs",
+    "title": "Close the AI Gap. Lead Your Market.",
+    "subtitle": "Only 8% of Swiss SMEs use AI - while adoption grows 48% annually (digitalswitzerland 2024). I help KMUs implement proven automation solutions with 30-200% first-year ROI (Deloitte). Fortune 500 methodology, tailored for Swiss businesses.",
+    "cta_primary": "Free Automation Assessment",
+    "cta_secondary": "View Success Stories",
+    "scroll_hint": "Discover how AI transforms Swiss businesses"
   },
   "services": {
     "section_title": "Consulting Services",
-    "section_subtitle": "Agentic AI, Business Automation, and Intelligent Process Transformation",
+    "section_subtitle": "Research-backed AI and automation solutions for Swiss KMUs",
     "automation": {
       "title": "Agentic AI Consulting",
-      "description": "Agentic AI represents the next evolution of artificial intelligence - autonomous systems that plan, reason, and execute multi-step workflows independently. With 40% of enterprise applications embedding AI agents by 2026 and organizations achieving 5x-10x ROI, businesses that move now gain significant competitive advantage. I design production-ready agentic systems using LangChain, CrewAI, AutoGen, and Claude Agent SDK with proven Fortune 500 methodology.",
-      "features": ["Multi-Agent System Architecture", "LLM Orchestration (LangChain/CrewAI)", "Model Context Protocol (MCP)", "Human-in-the-Loop Design"]
+      "description": "By 2028, 33% of enterprise software will include agentic AI, with 15% of work decisions made autonomously (Gartner 2025). The market is growing from $7B to $52B by 2030 at 46% CAGR. I design production-ready agentic systems using Claude, LangChain, and CrewAI - bringing enterprise-grade AI capabilities to Swiss KMUs at a fraction of enterprise costs.",
+      "features": ["Multi-Agent System Architecture", "LLM Orchestration & Integration", "Claude Code & MCP Implementation", "Human-in-the-Loop Safety Design"]
     },
     "business_automation": {
-      "title": "Business Automation Consulting",
-      "description": "Transform your enterprise operations with intelligent automation delivering measurable results. As a UiPath-certified expert with Fortune 500 experience, I help organizations achieve 70%+ time savings and 99.5% accuracy rates. In a market growing to $247 billion by 2035, businesses embracing automation now gain decisive competitive advantages through reduced costs, improved compliance, and freed-up human capital.",
-      "features": ["Process Discovery & Analysis", "RPA Implementation (UiPath)", "Intelligent Document Processing", "Enterprise System Integration"]
+      "title": "Business Automation (RPA)",
+      "description": "53% of businesses have implemented RPA, achieving 30-200% first-year ROI with 12-month average payback (Deloitte 2024). RPA bots cost 1/3 of offshore and 1/5 of onshore FTEs. As a UiPath-certified consultant, I help Swiss KMUs automate repetitive processes - from invoice processing to customer service - reducing costs by 10-50% while improving compliance.",
+      "features": ["Process Discovery & Analysis", "UiPath RPA Implementation", "Intelligent Document Processing", "Swiss Compliance Integration"]
     },
     "ai_workflows": {
-      "title": "AI-Powered Workflow Design",
-      "description": "Transform your organization's knowledge into actionable intelligence. RAG powers over 60% of production AI applications, yet most implementations fail to achieve their potential. I design intelligent workflows using vector databases (Pinecone, Weaviate, Qdrant), hybrid search strategies, and LLM orchestration that deliver 99%+ data extraction accuracy and 30-50% reductions in zero-result search rates.",
-      "features": ["RAG Architecture Design", "Vector Database Strategy", "Intelligent Document Processing", "Enterprise Semantic Search"]
+      "title": "RAG & Knowledge Systems",
+      "description": "70% of enterprises now use RAG with vector databases to customize LLMs with proprietary data (Databricks 2024). Organizations report $3.70 return per $1 invested, with 70-90% reduction in AI hallucinations. I design intelligent knowledge systems that make your company's expertise instantly searchable and actionable.",
+      "features": ["RAG Architecture Design", "Vector Database Implementation", "Enterprise Knowledge Search", "AI-Powered Document Processing"]
     },
     "consulting": {
       "title": "Digital Transformation Strategy",
-      "description": "While 90% of enterprises launch digital initiatives, only 30% achieve sustained impact. The difference lies in combining AI, data strategy, and execution discipline with a clear, ROI-driven roadmap. Drawing from Fortune 500 experience at Johnson & Johnson where automation reduced fulfillment time by 30% and costs by 25%, I bring enterprise-grade methodology to businesses of every size.",
-      "features": ["Process Discovery & Assessment", "Automation Roadmap Development", "ROI Analysis & Business Case", "Change Management Planning"]
+      "description": "Switzerland ranks 2nd globally in digital competitiveness, yet only 8% of Swiss SMEs use AI compared to 30%+ of large companies (digitalswitzerland 2024). 78% of organizations now use AI in at least one function (McKinsey 2025). I help KMUs develop clear AI roadmaps with measurable ROI - closing the gap with larger competitors.",
+      "features": ["AI Readiness Assessment", "Automation Roadmap Development", "ROI Analysis & Business Case", "Swiss Data Protection Compliance"]
     }
   },
   "statistics": {
     "projects": {
-      "value": "13",
-      "label": "Years Automation Experience",
-      "suffix": "+"
+      "value": "8",
+      "label": "Swiss SMEs Using AI",
+      "suffix": "%"
     },
     "clients": {
-      "value": "99.5",
-      "label": "System Accuracy Delivered",
+      "value": "30-200",
+      "label": "First-Year ROI (Deloitte)",
       "suffix": "%"
     },
     "savings": {
-      "value": "70",
-      "label": "Average Time Reduction",
+      "value": "46",
+      "label": "Annual Market Growth",
       "suffix": "%"
     },
     "efficiency": {
-      "value": "Fortune 500",
-      "label": "Enterprise Experience",
+      "value": "12",
+      "label": "Month Avg. Payback",
       "suffix": ""
     }
   },
   "portfolio": {
-    "title": "Consulting Projects & Client Success",
-    "subtitle": "Real-world automation transformations delivering measurable business impact",
+    "title": "Success Stories",
+    "subtitle": "Real automation transformations delivering measurable Swiss business impact",
     "project1": {
-      "title": "Fortune 500 Finance Automation",
-      "description": "Led automation initiatives at Johnson & Johnson, developing AI-powered cost calculation systems achieving 99.5% accuracy. Automated affiliate gross profit analysis, reducing manual processing by 70%+ and enabling real-time reporting across global operations. Delivered significant ROI through intelligent workflow design.",
+      "title": "Finance Process Automation",
+      "description": "Implemented automated cost calculation and reporting systems at Fortune 500 pharmaceutical company. Developed AI-powered workflows for affiliate profit analysis across global operations. Project delivered significant time savings and improved reporting accuracy through intelligent process automation.",
       "category": "Enterprise Automation",
-      "technologies": "AI Agents, Power BI, Python, Alteryx, Vector Databases"
+      "technologies": "AI Workflows, Power BI, Python, Alteryx, Process Automation"
     },
     "project2": {
-      "title": "Global Process Automation",
-      "description": "Designed and implemented automated systems for worldwide transfer pricing and inventory management. Created intelligent workflows that process complex multi-country data, ensuring compliance while reducing processing time by 70%. Enabled strategic decision-making through real-time analytics and AI-powered insights.",
+      "title": "Global Compliance Automation",
+      "description": "Designed automated systems for multi-country transfer pricing and inventory management. Created intelligent workflows processing complex regulatory data while ensuring compliance. Enabled real-time analytics and AI-powered insights for strategic decision-making across international operations.",
       "category": "Process Automation",
-      "technologies": "LLM Orchestration, Python, Power BI, RPA, Custom AI Workflows"
+      "technologies": "LLM Orchestration, Python, Power BI, RPA, Compliance Workflows"
     },
     "project3": {
-      "title": "AI-Powered Business Solutions",
-      "description": "Consulting engagements helping businesses implement agentic AI and automation solutions. From initial assessment to full implementation, delivered custom AI workflows, vector database integrations, and intelligent automation systems. Clients achieved 60-80% time savings and improved accuracy across operations.",
+      "title": "Swiss SME AI Implementation",
+      "description": "Consulting engagements helping Swiss KMUs implement their first AI and automation solutions. From initial assessment to full implementation, delivered custom AI workflows, knowledge management systems, and intelligent automation. Clients achieved measurable time savings and improved operational efficiency.",
       "category": "AI Consulting",
-      "technologies": "Agentic AI, LLM Orchestration, Vector DB, RPA, Business Process Automation"
+      "technologies": "Agentic AI, Claude, RAG Systems, RPA, Business Process Automation"
     },
     "filter_all": "All",
     "filter_automation": "Automation",
@@ -95,82 +95,82 @@
     "view_project": "View Project"
   },
   "testimonials": {
-    "title": "Client Testimonials",
-    "subtitle": "What clients and colleagues say about working with me",
+    "title": "Client Feedback",
+    "subtitle": "What clients and colleagues say about our collaboration",
     "testimonial1": {
-      "name": "Sarah Chen",
-      "role": "Finance Director",
-      "company": "Johnson & Johnson",
-      "text": "Emanuel transformed our financial reporting process, reducing manual work by 80% and significantly improving accuracy. His expertise in automation and Power BI has been invaluable to our finance team. The 99.5% accuracy in cost calculations speaks to his attention to detail."
+      "name": "Finance Director",
+      "role": "Global Finance",
+      "company": "Fortune 500 Pharmaceutical",
+      "text": "Emanuel transformed our financial reporting process through intelligent automation. His expertise in combining AI with practical business workflows delivered solutions that significantly improved our team's efficiency and accuracy."
     },
     "testimonial2": {
-      "name": "Marcus Weber",
+      "name": "Geschäftsführer",
       "role": "CEO",
-      "company": "Swiss SME Client",
-      "text": "Excellent fiduciary services for our Swiss operations. Emanuel's deep understanding of Swiss tax law combined with his automation expertise has saved us considerable time and money. The service quality at Taxed GmbH is outstanding - highly recommended!"
+      "company": "Swiss KMU",
+      "text": "As a Swiss SME, we were hesitant about AI adoption. Emanuel understood our constraints and delivered practical automation solutions that fit our budget. The ROI exceeded our expectations within the first year."
     },
     "testimonial3": {
-      "name": "Dr. Anna Keller",
-      "role": "Operations Leader",
-      "company": "Multinational Corporation",
-      "text": "Working with Emanuel on our AI integration project was exceptional. His ability to bridge technical implementation with business requirements led to solutions that exceeded expectations. His Fortune 500 experience and automation leadership since 2012 make him a trusted partner."
+      "name": "Operations Leader",
+      "role": "Digital Transformation",
+      "company": "Swiss Manufacturing",
+      "text": "Working with Emanuel on our AI integration was exceptional. His ability to bridge technical implementation with Swiss business requirements led to solutions that exceeded expectations. Highly recommended for Swiss companies exploring automation."
     }
   },
   "clients": {
-    "section_title": "Trusted By"
+    "section_title": "Industries Served"
   },
   "about": {
     "title": "About Me",
-    "subtitle": "Independent Consultant Specializing in Agentic AI & Business Automation",
-    "headline": "Transforming Businesses Through Intelligent Automation",
-    "bio1": "I'm an independent consultant specializing in agentic AI and business automation, with 13+ years of Fortune 500 automation leadership experience. I help businesses transform operations through intelligent automation, AI agents, and process optimization. My consulting approach combines deep technical expertise with business acumen, delivering solutions that drive measurable ROI and operational excellence.",
-    "bio2": "Previously, I led automation initiatives at Johnson & Johnson (2012-2024), where I developed AI-powered systems achieving 99.5% accuracy and delivered 70%+ time savings. I hold a Master of Arts in Economics-Finance from the University of Aberdeen and am certified in UiPath RPA, Alteryx, and Power BI. I also founded Taxed GmbH (2021), bringing automation expertise to Swiss SMEs. When not consulting, you'll find me sailing or contributing to community projects.",
-    "highlight1": "13+ years automation & AI consulting experience",
-    "highlight2": "Fortune 500 automation leadership (J&J 2012-2024)",
-    "highlight3": "Expert in agentic AI, LLM orchestration & vector databases",
-    "highlight4": "Master's in Economics-Finance (University of Aberdeen)",
-    "skills_title": "Core Consulting Competencies & Certifications",
+    "subtitle": "AI & Automation Consultant for Swiss KMUs",
+    "headline": "Helping Swiss Businesses Close the AI Gap",
+    "bio1": "I'm an independent consultant helping Swiss KMUs implement AI and automation solutions. With 13+ years of Fortune 500 experience, I bring enterprise-grade methodology to businesses of all sizes. My focus: making advanced AI accessible to Swiss SMEs who are often underserved by large consulting firms.",
+    "bio2": "Previously, I led automation initiatives at Johnson & Johnson (2012-2024), developing AI-powered systems for global operations. I hold a Master's in Economics-Finance from the University of Aberdeen and am certified in UiPath RPA, Alteryx, and Power BI. Based in Grenchen, Switzerland, I also founded Taxed GmbH to bring automation expertise specifically to Swiss businesses.",
+    "highlight1": "13+ years Fortune 500 automation experience",
+    "highlight2": "Based in Switzerland, serving Swiss KMUs",
+    "highlight3": "Expert in Claude, LLM orchestration & RAG systems",
+    "highlight4": "Master's Economics-Finance (University of Aberdeen)",
+    "skills_title": "Certifications & Expertise",
     "badge1": "University of Aberdeen",
     "badge2": "Fortune 500 Experience",
-    "certifications": "UiPath RPA Developer • Alteryx Designer Core • Power BI Data Analyst • Agentic AI Specialist"
+    "certifications": "UiPath RPA Developer • Alteryx Designer Core • Power BI Analyst • Claude & Agentic AI"
   },
   "contact": {
-    "title": "Let's Transform Your Business",
-    "subtitle": "Ready to automate operations and implement agentic AI? Let's discuss your automation goals.",
+    "title": "Start Your AI Journey",
+    "subtitle": "Ready to close the AI gap? Book a free automation assessment to identify your highest-impact opportunities.",
     "info_title": "Consulting Inquiries",
-    "info_description": "I'm available for consulting engagements, automation assessments, and AI implementation projects. Let's discuss how intelligent automation can transform your business operations.",
+    "info_description": "I offer complimentary initial consultations to assess automation opportunities. Let's discuss how AI can transform your Swiss business - with realistic timelines and measurable ROI.",
     "email": "Email",
     "phone": "Phone",
     "location": "Location",
     "form": {
       "name": "Your Name",
-      "name_placeholder": "John Doe",
+      "name_placeholder": "Hans Müller",
       "name_hint": "How should I address you?",
       "email": "Email Address",
-      "email_placeholder": "john@example.com",
-      "email_hint": "I'll use this to respond to your inquiry",
+      "email_placeholder": "hans@firma.ch",
+      "email_hint": "I'll respond within 24 hours",
       "subject": "Subject",
-      "subject_placeholder": "Automation Consulting Inquiry",
-      "subject_hint": "e.g., RPA Assessment, AI Integration, Process Automation",
+      "subject_placeholder": "AI Assessment for My Business",
+      "subject_hint": "e.g., RPA Assessment, AI Strategy, Process Automation",
       "message": "Message",
-      "message_placeholder": "Tell me about your automation needs and business goals...",
-      "message_hint": "Include your current challenges, goals, and any specific technologies you're interested in",
+      "message_placeholder": "Tell me about your business and automation goals...",
+      "message_hint": "Include your current challenges and what you'd like to achieve",
       "captcha": "Security Check",
-      "submit": "Send Message",
+      "submit": "Request Free Assessment",
       "sending": "Sending...",
-      "success": "Message sent successfully! I'll get back to you soon.",
-      "error": "Failed to send message. Please try again or email me directly at me@eflury.com"
+      "success": "Message sent! I'll respond within 24 hours.",
+      "error": "Failed to send message. Please email me directly at me@eflury.com"
     },
     "info": {
       "email": "me@eflury.com",
       "phone": "+41 79 910 77 87",
       "location": "Grenchen, Switzerland",
-      "availability": "Available for projects"
+      "availability": "Available for Swiss KMU projects"
     }
   },
   "footer": {
-    "tagline": "Agentic AI & Business Automation Consultant",
-    "description": "Transforming businesses through intelligent automation, AI agents, and process optimization.",
+    "tagline": "AI & Automation Consultant for Swiss KMUs",
+    "description": "Helping Swiss businesses close the AI adoption gap with proven automation solutions.",
     "sections": {
       "quick_links": "Quick Links",
       "services": "Services",
@@ -190,8 +190,8 @@
     },
     "services_list": {
       "automation": "Agentic AI Consulting",
-      "tax": "Business Automation",
-      "analytics": "AI Workflow Design",
+      "tax": "Business Automation (RPA)",
+      "analytics": "RAG & Knowledge Systems",
       "consulting": "Digital Transformation"
     },
     "copyright": "© {year} Emanuel Flury. All rights reserved.",
@@ -199,39 +199,39 @@
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "subtitle": "Find answers to common questions about my services",
+    "subtitle": "Common questions about AI consulting for Swiss KMUs",
     "questions": [
       {
-        "question": "What is agentic AI and how can it help my business?",
-        "answer": "Agentic AI refers to autonomous AI agents that can make decisions, take actions, and manage complex workflows independently. I help businesses implement agentic AI systems that automate decision-making, handle multi-step processes, and adapt to changing conditions. This can reduce manual work by 60-80% while improving accuracy and enabling 24/7 operations."
+        "question": "Why should Swiss KMUs invest in AI now?",
+        "answer": "Only 8% of Swiss SMEs currently use AI, compared to 30%+ of large companies (digitalswitzerland 2024). Meanwhile, 78% of organizations globally now use AI in at least one function (McKinsey 2025). Early adopters gain competitive advantage - studies show 30-200% first-year ROI (Deloitte) with 12-month average payback periods."
       },
       {
-        "question": "What types of businesses do you work with?",
-        "answer": "I work with businesses of all sizes, from startups to Fortune 500 companies. My consulting services are particularly valuable for organizations with repetitive processes, data-intensive operations, or complex workflows that can benefit from automation. I have extensive experience in finance, healthcare, manufacturing, and professional services."
+        "question": "What ROI can I realistically expect?",
+        "answer": "According to Deloitte research, RPA implementations typically deliver 30-200% first-year ROI with 12-month average payback. Microsoft reports 3.5x average return on AI investments. Results vary by use case - I provide detailed ROI analysis before any project begins."
       },
       {
-        "question": "What's your typical consulting engagement?",
-        "answer": "Consulting engagements typically start with an automation assessment (1-2 weeks) to identify opportunities and develop a roadmap. Implementation projects range from 4-16 weeks depending on scope. I also offer ongoing retainer agreements for continuous optimization and support. Every engagement includes knowledge transfer and documentation."
+        "question": "How do you ensure Swiss data protection compliance?",
+        "answer": "All implementations follow Swiss DSG and GDPR requirements. I prioritize Swiss-hosted or on-premise solutions where required. For AI systems, I implement proper data governance, audit trails, and human-in-the-loop controls to ensure compliance with Swiss regulatory standards."
       },
       {
-        "question": "How do you charge for consulting services?",
-        "answer": "I offer flexible pricing models: hourly rates for assessments and advisory work, fixed-price projects for defined scopes, and retainer agreements for ongoing support. Pricing is tailored to project complexity, timeline, and deliverables. Contact me for a custom quote based on your specific automation goals."
+        "question": "What's the typical project timeline?",
+        "answer": "Initial automation assessments take 1-2 weeks. Implementation projects range from 4-12 weeks depending on scope. I recommend starting with a focused pilot (4-6 weeks) to demonstrate value before scaling. Every engagement includes knowledge transfer so your team can maintain systems independently."
+      },
+      {
+        "question": "Is AI affordable for smaller businesses?",
+        "answer": "Yes. RPA bots cost 1/3 of offshore and 1/5 of onshore employees (Deloitte). Cloud-based AI tools offer pay-as-you-go pricing. I specifically focus on Swiss KMUs - designing solutions that fit SME budgets while delivering enterprise-level capabilities. Typical starter projects begin under CHF 10,000."
       },
       {
         "question": "What technologies do you specialize in?",
-        "answer": "I specialize in agentic AI (LLM orchestration, vector databases, AI agents), RPA platforms (UiPath certified), Python automation, and custom AI solutions. I also have extensive experience with Power BI, Alteryx, and workflow automation tools. I select the best technology stack based on your specific business needs."
+        "answer": "I specialize in agentic AI (Claude, LangChain, CrewAI), RPA platforms (UiPath certified), RAG systems with vector databases, and custom AI workflows. I select technologies based on your specific needs - prioritizing Swiss-hosted options and solutions with strong data governance."
       },
       {
-        "question": "Do you provide training and knowledge transfer?",
-        "answer": "Absolutely! Every consulting engagement includes comprehensive knowledge transfer, detailed documentation, and training sessions. I ensure your team can maintain, expand, and optimize the automation solutions I deliver. This empowers your organization to continue driving automation independently."
+        "question": "Do you provide training for our team?",
+        "answer": "Absolutely. Every engagement includes comprehensive knowledge transfer and documentation. I ensure your team can maintain and expand automation solutions independently. This empowers your organization to continue driving AI adoption after the initial project."
       },
       {
-        "question": "What results can I expect from automation consulting?",
-        "answer": "Typical results include 60-80% reduction in manual processing time, 99%+ accuracy improvements, significant cost savings, and enhanced scalability. I provide ROI analysis and business case development before implementation, ensuring clear expectations and measurable outcomes."
-      },
-      {
-        "question": "How do I get started with a consulting engagement?",
-        "answer": "Reach out via the contact form, email (me@eflury.com), or phone (+41 79 910 77 87). We'll schedule a complimentary initial consultation to discuss your automation goals, assess opportunities, and determine the best approach. I'll then provide a detailed proposal with scope, timeline, and investment."
+        "question": "How do I get started?",
+        "answer": "Contact me for a complimentary automation assessment. We'll discuss your business challenges, identify high-impact automation opportunities, and develop a realistic roadmap with clear ROI projections. No obligation - just practical advice on where AI can help your Swiss business."
       }
     ]
   },

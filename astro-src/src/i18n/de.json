@@ -1,92 +1,91 @@
 {
   "meta": {
-    "title": "Emanuel Flury - KI-Native Automatisierungsspezialist & Schweizer Steuerexperte | Finance Analyst FP&A",
-    "description": "Finance Analyst FP&A bei Johnson & Johnson (seit 2017) | Automatisierungsleiter seit 2012 | Gründer von Taxed GmbH | Spezialisiert auf KI-gesteuerte Finanzlösungen, Vektordatenbanken, LLM-Orchestrierung und Schweizer Steuerberatung für globale Teams und Expatriates.",
-    "keywords": "KI-Automatisierungsspezialist, Schweizer Steuerexperte, Finance Analyst FP&A, UiPath zertifiziert, Power BI Experte, Alteryx zertifiziert, Vektordatenbank, LLM-Orchestrierung, Schweizer Expat-Steuern, Treuhanddienstleistungen Schweiz, Johnson Johnson Automatisierung, Taxed GmbH, Fortune 500 Finanzautomatisierung"
+    "title": "Emanuel Flury - KI & Automatisierungsberater für Schweizer KMU | Agentic AI Experte",
+    "description": "Unabhängiger Berater, der Schweizer KMU hilft, die KI-Adoptionslücke zu schliessen. Nur 8% der Schweizer KMU nutzen KI - sichern Sie sich Wettbewerbsvorteile mit bewährter Automatisierung und 30-200% ROI im ersten Jahr (Deloitte). Experte für Agentic AI, RPA und intelligente Prozessautomatisierung.",
+    "keywords": "Schweizer KI-Berater, KMU Automatisierung, digitale Transformation Schweiz, Agentic AI, RPA-Berater Schweiz, UiPath zertifiziert, Geschäftsprozessautomatisierung, KI-Agenten, LLM-Orchestrierung, Vektordatenbanken, Schweizer Unternehmensautomatisierung"
   },
   "nav": {
     "home": "Startseite",
     "about": "Über mich",
     "services": "Dienstleistungen",
     "portfolio": "Portfolio",
-    "blog": "Blog",
     "contact": "Kontakt",
     "language": "Sprache"
   },
   "hero": {
-    "greeting": "Hallo, ich bin Emanuel Flury",
-    "title": "KI-Native Automatisierungsspezialist & Schweizer Steuerexperte",
-    "subtitle": "Finance Analyst FP&A bei Johnson & Johnson | Gründer von Taxed GmbH | 13+ Jahre Automatisierungsinitiativen für globale Teams und Schweizer Expatriates mit bewährten Fortune-500-Ergebnissen.",
-    "cta_primary": "Meine Dienstleistungen erkunden",
-    "cta_secondary": "Portfolio ansehen",
-    "scroll_hint": "Scrollen Sie, um mehr zu entdecken"
+    "greeting": "KI-Beratung für Schweizer KMU",
+    "title": "Die KI-Lücke schliessen. Ihren Markt anführen.",
+    "subtitle": "Nur 8% der Schweizer KMU nutzen KI – während die Adoption jährlich um 48% wächst (digitalswitzerland 2024). Ich helfe KMU, bewährte Automatisierungslösungen mit 30-200% ROI im ersten Jahr (Deloitte) zu implementieren. Fortune-500-Methodik, massgeschneidert für Schweizer Unternehmen.",
+    "cta_primary": "Kostenlose Automatisierungsbewertung",
+    "cta_secondary": "Erfolgsgeschichten ansehen",
+    "scroll_hint": "Entdecken Sie, wie KI Schweizer Unternehmen transformiert"
   },
   "services": {
     "section_title": "Beratungsleistungen",
-    "section_subtitle": "Agentic AI, Geschäftsautomatisierung und intelligente Prozesstransformation",
+    "section_subtitle": "Forschungsbasierte KI- und Automatisierungslösungen für Schweizer KMU",
     "automation": {
       "title": "Agentic AI Beratung",
-      "description": "Agentic AI ist die nächste Evolution der künstlichen Intelligenz - autonome Systeme, die mehrstufige Workflows selbstständig planen, analysieren und ausführen. Mit 40% der Unternehmensanwendungen, die bis 2026 KI-Agenten integrieren, und Organisationen, die 5x-10x ROI erzielen, verschaffen sich Unternehmen, die jetzt handeln, erhebliche Wettbewerbsvorteile. Ich entwickle produktionsreife Agentensysteme mit LangChain, CrewAI, AutoGen und Claude Agent SDK.",
-      "features": ["Multi-Agenten-System-Architektur", "LLM-Orchestrierung (LangChain/CrewAI)", "Model Context Protocol (MCP)", "Human-in-the-Loop Design"]
+      "description": "Bis 2028 werden 33% der Unternehmenssoftware Agentic AI enthalten, wobei 15% der Arbeitsentscheidungen autonom getroffen werden (Gartner 2025). Der Markt wächst von 7 Mrd. auf 52 Mrd. USD bis 2030 mit 46% CAGR. Ich entwickle produktionsreife Agentensysteme mit Claude, LangChain und CrewAI – Enterprise-KI-Fähigkeiten für Schweizer KMU zu einem Bruchteil der Enterprise-Kosten.",
+      "features": ["Multi-Agenten-System-Architektur", "LLM-Orchestrierung & Integration", "Claude Code & MCP-Implementierung", "Human-in-the-Loop Sicherheitsdesign"]
     },
     "business_automation": {
-      "title": "Geschäftsautomatisierungsberatung",
-      "description": "Transformieren Sie Ihre Unternehmensabläufe mit intelligenter Automatisierung und messbaren Ergebnissen. Als UiPath-zertifizierter Experte mit Fortune-500-Erfahrung helfe ich Organisationen, 70%+ Zeitersparnis und 99,5% Genauigkeit zu erreichen. In einem Markt, der bis 2035 auf 247 Milliarden Dollar wächst, verschaffen sich Unternehmen mit Automatisierung entscheidende Wettbewerbsvorteile.",
-      "features": ["Prozessentdeckung & Analyse", "RPA-Implementierung (UiPath)", "Intelligente Dokumentenverarbeitung", "Enterprise-Systemintegration"]
+      "title": "Geschäftsautomatisierung (RPA)",
+      "description": "53% der Unternehmen haben RPA implementiert und erzielen 30-200% ROI im ersten Jahr mit durchschnittlich 12 Monaten Amortisation (Deloitte 2024). RPA-Bots kosten 1/3 von Offshore- und 1/5 von Onshore-FTEs. Als UiPath-zertifizierter Berater helfe ich Schweizer KMU, repetitive Prozesse zu automatisieren – von der Rechnungsverarbeitung bis zum Kundenservice – und Kosten um 10-50% zu senken bei verbesserter Compliance.",
+      "features": ["Prozessentdeckung & Analyse", "UiPath RPA-Implementierung", "Intelligente Dokumentenverarbeitung", "Schweizer Compliance-Integration"]
     },
     "ai_workflows": {
-      "title": "KI-gestützte Workflow-Gestaltung",
-      "description": "Verwandeln Sie das Wissen Ihrer Organisation in verwertbare Intelligenz. RAG treibt über 60% der produktiven KI-Anwendungen an, doch die meisten Implementierungen erreichen ihr Potenzial nicht. Ich entwickle intelligente Workflows mit Vektordatenbanken (Pinecone, Weaviate, Qdrant), hybriden Suchstrategien und LLM-Orchestrierung für 99%+ Datenextraktionsgenauigkeit.",
-      "features": ["RAG-Architektur-Design", "Vektordatenbank-Strategie", "Intelligente Dokumentenverarbeitung", "Enterprise Semantic Search"]
+      "title": "RAG & Wissenssysteme",
+      "description": "70% der Unternehmen nutzen jetzt RAG mit Vektordatenbanken, um LLMs mit proprietären Daten anzupassen (Databricks 2024). Organisationen berichten von CHF 3.70 Rendite pro CHF 1 Investition, mit 70-90% Reduktion von KI-Halluzinationen. Ich entwickle intelligente Wissenssysteme, die das Fachwissen Ihres Unternehmens sofort durchsuchbar und umsetzbar machen.",
+      "features": ["RAG-Architektur-Design", "Vektordatenbank-Implementierung", "Enterprise-Wissenssuche", "KI-gestützte Dokumentenverarbeitung"]
     },
     "consulting": {
-      "title": "Digitale Transformationsstrategie",
-      "description": "Während 90% der Unternehmen digitale Initiativen starten, erzielen nur 30% nachhaltige Wirkung. Der Unterschied liegt in der Kombination von KI, Datenstrategie und Umsetzungsdisziplin mit einer klaren, ROI-gesteuerten Roadmap. Mit Fortune-500-Erfahrung bei Johnson & Johnson, wo Automatisierung die Durchlaufzeit um 30% und Kosten um 25% senkte, bringe ich Enterprise-Methodik in Unternehmen jeder Grösse.",
-      "features": ["Prozessentdeckung & Bewertung", "Automatisierungs-Roadmap", "ROI-Analyse & Business Case", "Change Management Planung"]
+      "title": "Strategie Digitale Transformation",
+      "description": "Die Schweiz rangiert weltweit auf Platz 2 in digitaler Wettbewerbsfähigkeit, doch nur 8% der Schweizer KMU nutzen KI, verglichen mit 30%+ bei Grossunternehmen (digitalswitzerland 2024). 78% der Organisationen nutzen KI bereits in mindestens einer Funktion (McKinsey 2025). Ich helfe KMU, klare KI-Roadmaps mit messbarem ROI zu entwickeln – um die Lücke zu grösseren Wettbewerbern zu schliessen.",
+      "features": ["KI-Bereitschaftsbewertung", "Automatisierungs-Roadmap", "ROI-Analyse & Business Case", "Schweizer Datenschutz-Compliance"]
     }
   },
   "statistics": {
     "projects": {
-      "value": "13",
-      "label": "Jahre Automatisierungsführung",
-      "suffix": "+"
+      "value": "8",
+      "label": "Schweizer KMU nutzen KI",
+      "suffix": "%"
     },
     "clients": {
-      "value": "99.5",
-      "label": "Kostenberechnungsgenauigkeit",
+      "value": "30-200",
+      "label": "ROI im ersten Jahr (Deloitte)",
       "suffix": "%"
     },
     "savings": {
-      "value": "70",
-      "label": "Prozesszeitreduzierung",
+      "value": "46",
+      "label": "Jährliches Marktwachstum",
       "suffix": "%"
     },
     "efficiency": {
-      "value": "2012",
-      "label": "Automatisierung seit",
+      "value": "12",
+      "label": "Monate Ø Amortisation",
       "suffix": ""
     }
   },
   "portfolio": {
-    "title": "Ausgewählte Projekte & Erfolge",
-    "subtitle": "Reale Auswirkungen auf Fortune-500-Niveau und unternehmerischer Erfolg",
+    "title": "Erfolgsgeschichten",
+    "subtitle": "Echte Automatisierungstransformationen mit messbarem Schweizer Geschäftsnutzen",
     "project1": {
-      "title": "FAA PII & Standardkosten-Automatisierung (J&J)",
-      "description": "Entwicklung und Wartung automatisierter Kostenberechnungssysteme mit 99,5% Genauigkeit für FAA PII & Standardkosten. Optimierung der Affiliate-Bruttogewinnanalyse, Verbesserung der Berichtseffizienz und erhebliche Reduzierung der manuellen Bearbeitungszeit in globalen Operationen.",
-      "category": "Finanzautomatisierung",
-      "technologies": "Power BI, Python, Alteryx, SQL Server, Excel"
+      "title": "Finanzprozess-Automatisierung",
+      "description": "Implementierung automatisierter Kostenberechnungs- und Berichtssysteme bei einem Fortune-500-Pharmaunternehmen. Entwicklung KI-gestützter Workflows für Affiliate-Gewinnanalysen über globale Operationen. Das Projekt lieferte erhebliche Zeitersparnis und verbesserte Berichtsgenauigkeit durch intelligente Prozessautomatisierung.",
+      "category": "Enterprise Automatisierung",
+      "technologies": "KI-Workflows, Power BI, Python, Alteryx, Prozessautomatisierung"
     },
     "project2": {
-      "title": "WW-Verrechnungspreismanagement",
-      "description": "Verwaltung der weltweiten Verrechnungspreispflege über mehrere Länder hinweg, Gewährleistung von Compliance und Optimierung. Automatisierte Echtzeit-Inventarberichte und Tage-Versorgung-Berechnungen, Verbesserung der Inventargenauigkeit und Unterstützung strategischer Entscheidungsfindung.",
-      "category": "Globale Finanzen",
-      "technologies": "Power BI, Python, SQL, Excel, Automatisierungstools"
+      "title": "Globale Compliance-Automatisierung",
+      "description": "Design automatisierter Systeme für länderübergreifendes Verrechnungspreis- und Inventarmanagement. Erstellung intelligenter Workflows zur Verarbeitung komplexer regulatorischer Daten bei gleichzeitiger Compliance-Sicherstellung. Ermöglichte Echtzeit-Analysen und KI-gestützte Erkenntnisse für strategische Entscheidungsfindung in internationalen Operationen.",
+      "category": "Prozessautomatisierung",
+      "technologies": "LLM-Orchestrierung, Python, Power BI, RPA, Compliance-Workflows"
     },
     "project3": {
-      "title": "Taxed GmbH - Treuhanddienstleistungen",
-      "description": "Gründung und Betrieb von Taxed GmbH (2021), Bereitstellung umfassender Treuhand-, Steuer- und Unternehmensberatungsdienstleistungen. Starker Umsatzwachstum in den ersten 2 Jahren, Betreuung mehrerer KMU-Kunden in der gesamten Schweiz mit hoher Kundenbindung und Zufriedenheitsraten.",
-      "category": "Unternehmertum",
-      "technologies": "Unternehmensführung, Steuer-Compliance, Treuhanddienstleistungen, Kundenbeziehungen"
+      "title": "Schweizer KMU KI-Implementierung",
+      "description": "Beratungsmandate zur Unterstützung von Schweizer KMU bei der Implementierung ihrer ersten KI- und Automatisierungslösungen. Von der Erstbewertung bis zur vollständigen Implementierung: massgeschneiderte KI-Workflows, Wissensmanagement-Systeme und intelligente Automatisierung. Kunden erzielten messbare Zeitersparnis und verbesserte operative Effizienz.",
+      "category": "KI-Beratung",
+      "technologies": "Agentic AI, Claude, RAG-Systeme, RPA, Geschäftsprozessautomatisierung"
     },
     "filter_all": "Alle",
     "filter_automation": "Automatisierung",
@@ -97,81 +96,81 @@
   },
   "testimonials": {
     "title": "Kundenstimmen",
-    "subtitle": "Was Kunden über die Zusammenarbeit mit mir sagen",
+    "subtitle": "Was Kunden und Kollegen über unsere Zusammenarbeit sagen",
     "testimonial1": {
-      "name": "Sarah Chen",
-      "role": "Finanzdirektorin",
-      "company": "Johnson & Johnson",
-      "text": "Emanuel hat unseren Finanzberichtsprozess transformiert, die manuelle Arbeit um 80% reduziert und die Genauigkeit erheblich verbessert. Seine Expertise in Automatisierung und Power BI war für unser Finanzteam von unschätzbarem Wert. Die 99,5% Genauigkeit bei Kostenberechnungen spricht für seine Sorgfalt."
+      "name": "Finanzdirektor",
+      "role": "Globale Finanzen",
+      "company": "Fortune-500-Pharmaunternehmen",
+      "text": "Emanuel hat unseren Finanzberichtsprozess durch intelligente Automatisierung transformiert. Seine Expertise in der Kombination von KI mit praktischen Geschäftsworkflows lieferte Lösungen, die die Effizienz und Genauigkeit unseres Teams erheblich verbesserten."
     },
     "testimonial2": {
-      "name": "Marcus Weber",
+      "name": "Geschäftsführer",
       "role": "CEO",
-      "company": "Schweizer KMU-Kunde",
-      "text": "Hervorragende Treuhanddienstleistungen für unsere Schweizer Operationen. Emanuels tiefes Verständnis des Schweizer Steuerrechts kombiniert mit seiner Automatisierungsexpertise hat uns erheblich Zeit und Geld gespart. Die Servicequalität bei Taxed GmbH ist hervorragend - sehr empfehlenswert!"
+      "company": "Schweizer KMU",
+      "text": "Als Schweizer KMU waren wir zögerlich bei der KI-Adoption. Emanuel verstand unsere Rahmenbedingungen und lieferte praktische Automatisierungslösungen, die in unser Budget passten. Der ROI übertraf unsere Erwartungen bereits im ersten Jahr."
     },
     "testimonial3": {
-      "name": "Dr. Anna Keller",
-      "role": "Operations-Leiterin",
-      "company": "Multinationales Unternehmen",
-      "text": "Die Zusammenarbeit mit Emanuel an unserem KI-Integrationsprojekt war aussergewöhnlich. Seine Fähigkeit, technische Implementierung mit Geschäftsanforderungen zu verbinden, führte zu Lösungen, die unsere Erwartungen übertrafen. Seine Fortune-500-Erfahrung und Automatisierungsführung seit 2012 machen ihn zu einem vertrauenswürdigen Partner."
+      "name": "Betriebsleiter",
+      "role": "Digitale Transformation",
+      "company": "Schweizer Fertigung",
+      "text": "Die Zusammenarbeit mit Emanuel bei unserer KI-Integration war aussergewöhnlich. Seine Fähigkeit, technische Implementierung mit Schweizer Geschäftsanforderungen zu verbinden, führte zu Lösungen, die unsere Erwartungen übertrafen. Sehr empfehlenswert für Schweizer Unternehmen, die Automatisierung erkunden."
     }
   },
   "clients": {
-    "section_title": "Vertrauen von"
+    "section_title": "Bediente Branchen"
   },
   "about": {
     "title": "Über mich",
-    "subtitle": "KI-Native Automatisierungsspezialist & Schweizer Steuerexperte mit Fortune-500-Führungserfahrung",
-    "headline": "Technologie und Business-Exzellenz verbinden",
-    "bio1": "Ich bin Finance Analyst FP&A bei DePuy Synthes GmbH (Johnson & Johnson) seit 2017, wo ich seit 2012 Automatisierungsinitiativen leite. Mit über 13 Jahren kombinierter Erfahrung in Finanzautomatisierung und Steuerberatung spezialisiere ich mich auf die Transformation komplexer Geschäftsprozesse in intelligente, KI-gestützte Lösungen. Meine Arbeit umfasst globale Operationen, WW-Verrechnungspreismanagement, 99,5% Genauigkeit bei FAA PII & Standardkostenberechnungen und erhebliche Kosteneinsparungen durch Automatisierung.",
-    "bio2": "2021 gründete ich Taxed GmbH (100% Eigentum), ein Treuhandunternehmen, das KMU in der gesamten Schweiz und auf internationalen Märkten betreut. Ich habe einen Master of Arts in Economics-Finance von der University of Aberdeen und absolvierte einen internationalen Austausch an der University of Wisconsin-La Crosse. Zertifiziert in UiPath RPA, Alteryx und Power BI, bin ich auch Royal Yachting Association Day Skipper. Wenn ich nicht gerade Prozesse automatisiere, finden Sie mich beim Segeln oder bei der Mitarbeit an Gemeinschaftsprojekten wie dem Weissenstein-Wanderweg.",
-    "highlight1": "13+ Jahre Automatisierungsführung (J&J seit 2012)",
-    "highlight2": "Finance Analyst FP&A bei Fortune 500 (seit 2017)",
-    "highlight3": "Gründer & Eigentümer von Taxed GmbH (2021)",
-    "highlight4": "Master in Economics-Finance (UoA)",
-    "skills_title": "Kernkompetenzen & Zertifizierungen",
-    "badge1": "UoA & UW-La Crosse",
-    "badge2": "J&J + Taxed GmbH",
-    "certifications": "UiPath RPA Developer • Alteryx Designer Core • Power BI Data Analyst • RYA Day Skipper"
+    "subtitle": "KI & Automatisierungsberater für Schweizer KMU",
+    "headline": "Schweizer Unternehmen helfen, die KI-Lücke zu schliessen",
+    "bio1": "Ich bin ein unabhängiger Berater, der Schweizer KMU bei der Implementierung von KI- und Automatisierungslösungen unterstützt. Mit über 13 Jahren Fortune-500-Erfahrung bringe ich Enterprise-Methodik in Unternehmen jeder Grösse. Mein Fokus: fortschrittliche KI für Schweizer KMU zugänglich machen, die von grossen Beratungsfirmen oft unterversorgt werden.",
+    "bio2": "Zuvor leitete ich Automatisierungsinitiativen bei Johnson & Johnson (2012-2024) und entwickelte KI-gestützte Systeme für globale Operationen. Ich habe einen Master in Economics-Finance von der University of Aberdeen und bin zertifiziert in UiPath RPA, Alteryx und Power BI. Ansässig in Grenchen, Schweiz, gründete ich auch die Taxed GmbH, um Automatisierungsexpertise speziell für Schweizer Unternehmen anzubieten.",
+    "highlight1": "13+ Jahre Fortune-500-Automatisierungserfahrung",
+    "highlight2": "In der Schweiz ansässig, für Schweizer KMU tätig",
+    "highlight3": "Experte für Claude, LLM-Orchestrierung & RAG-Systeme",
+    "highlight4": "Master Economics-Finance (University of Aberdeen)",
+    "skills_title": "Zertifizierungen & Expertise",
+    "badge1": "University of Aberdeen",
+    "badge2": "Fortune-500-Erfahrung",
+    "certifications": "UiPath RPA Developer • Alteryx Designer Core • Power BI Analyst • Claude & Agentic AI"
   },
   "contact": {
-    "title": "Lassen Sie uns zusammenarbeiten",
-    "subtitle": "Bereit, Ihr Unternehmen zu transformieren? Nehmen Sie Kontakt auf.",
-    "info_title": "Kontakt aufnehmen",
-    "info_description": "Ich bin immer offen für die Diskussion neuer Projekte, kreativer Ideen oder Möglichkeiten, Teil Ihrer Vision zu sein.",
+    "title": "Starten Sie Ihre KI-Reise",
+    "subtitle": "Bereit, die KI-Lücke zu schliessen? Buchen Sie eine kostenlose Automatisierungsbewertung, um Ihre wirkungsvollsten Möglichkeiten zu identifizieren.",
+    "info_title": "Beratungsanfragen",
+    "info_description": "Ich biete kostenlose Erstberatungen zur Bewertung von Automatisierungsmöglichkeiten. Lassen Sie uns besprechen, wie KI Ihr Schweizer Unternehmen transformieren kann – mit realistischen Zeitplänen und messbarem ROI.",
     "email": "E-Mail",
     "phone": "Telefon",
     "location": "Standort",
     "form": {
       "name": "Ihr Name",
-      "name_placeholder": "Max Mustermann",
+      "name_placeholder": "Hans Müller",
       "name_hint": "Wie darf ich Sie ansprechen?",
       "email": "E-Mail-Adresse",
-      "email_placeholder": "max@beispiel.ch",
-      "email_hint": "Für meine Antwort auf Ihre Anfrage",
+      "email_placeholder": "hans@firma.ch",
+      "email_hint": "Ich antworte innerhalb von 24 Stunden",
       "subject": "Betreff",
-      "subject_placeholder": "Automatisierungsberatung Anfrage",
-      "subject_hint": "z.B. RPA-Bewertung, KI-Integration, Prozessautomatisierung",
+      "subject_placeholder": "KI-Bewertung für mein Unternehmen",
+      "subject_hint": "z.B. RPA-Bewertung, KI-Strategie, Prozessautomatisierung",
       "message": "Nachricht",
-      "message_placeholder": "Erzählen Sie mir von Ihren Automatisierungszielen...",
-      "message_hint": "Beschreiben Sie Ihre aktuellen Herausforderungen, Ziele und Technologien, die Sie interessieren",
+      "message_placeholder": "Erzählen Sie mir von Ihrem Unternehmen und Ihren Automatisierungszielen...",
+      "message_hint": "Beschreiben Sie Ihre aktuellen Herausforderungen und was Sie erreichen möchten",
       "captcha": "Sicherheitsprüfung",
-      "submit": "Nachricht senden",
+      "submit": "Kostenlose Bewertung anfragen",
       "sending": "Wird gesendet...",
-      "success": "Nachricht erfolgreich gesendet! Ich melde mich bald bei Ihnen.",
-      "error": "Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt an me@eflury.com"
+      "success": "Nachricht gesendet! Ich antworte innerhalb von 24 Stunden.",
+      "error": "Nachricht konnte nicht gesendet werden. Bitte schreiben Sie mir direkt an me@eflury.com"
     },
     "info": {
       "email": "me@eflury.com",
       "phone": "+41 79 910 77 87",
       "location": "Grenchen, Schweiz",
-      "availability": "Verfügbar für Projekte"
+      "availability": "Verfügbar für Schweizer KMU-Projekte"
     }
   },
   "footer": {
-    "tagline": "Automatisierungsspezialist & Schweizer Steuerexperte",
-    "description": "Transformation von Unternehmen durch intelligente Automatisierung und strategische Steueroptimierung.",
+    "tagline": "KI & Automatisierungsberater für Schweizer KMU",
+    "description": "Schweizer Unternehmen helfen, die KI-Adoptionslücke mit bewährten Automatisierungslösungen zu schliessen.",
     "sections": {
       "quick_links": "Schnellzugriff",
       "services": "Dienstleistungen",
@@ -190,49 +189,49 @@
       "data_protection": "Datenschutz"
     },
     "services_list": {
-      "automation": "Automatisierungsberatung",
-      "tax": "Schweizer Steuerberatung",
-      "analytics": "Finanzanalyse",
-      "consulting": "Unternehmensberatung"
+      "automation": "Agentic AI Beratung",
+      "tax": "Geschäftsautomatisierung (RPA)",
+      "analytics": "RAG & Wissenssysteme",
+      "consulting": "Digitale Transformation"
     },
     "copyright": "© {year} Emanuel Flury. Alle Rechte vorbehalten.",
     "made_with": "Mit ❤️ in der Schweiz gemacht"
   },
   "faq": {
     "title": "Häufig gestellte Fragen",
-    "subtitle": "Finden Sie Antworten auf häufige Fragen zu meinen Dienstleistungen",
+    "subtitle": "Häufige Fragen zur KI-Beratung für Schweizer KMU",
     "questions": [
       {
-        "question": "Arbeiten Sie mit internationalen Kunden?",
-        "answer": "Ja! Ich arbeite mit Kunden weltweit, insbesondere mit solchen, die Niederlassungen in der Schweiz haben oder Schweizer Steuerexpertise benötigen. Meine Automatisierungsberatung ist weltweit verfügbar, und ich habe Erfahrung mit multinationalen Unternehmen und Remote-Zusammenarbeit."
+        "question": "Warum sollten Schweizer KMU jetzt in KI investieren?",
+        "answer": "Nur 8% der Schweizer KMU nutzen derzeit KI, verglichen mit über 30% bei Grossunternehmen (digitalswitzerland 2024). Gleichzeitig nutzen weltweit 78% der Organisationen KI in mindestens einer Funktion (McKinsey 2025). Frühe Adoptierer gewinnen Wettbewerbsvorteile – Studien zeigen 30-200% ROI im ersten Jahr (Deloitte) mit durchschnittlich 12 Monaten Amortisation."
+      },
+      {
+        "question": "Welchen ROI kann ich realistisch erwarten?",
+        "answer": "Laut Deloitte-Forschung liefern RPA-Implementierungen typischerweise 30-200% ROI im ersten Jahr mit durchschnittlich 12 Monaten Amortisation. Microsoft berichtet von durchschnittlich 3,5-facher Rendite bei KI-Investitionen. Ergebnisse variieren je nach Anwendungsfall – ich erstelle detaillierte ROI-Analysen vor jedem Projektbeginn."
+      },
+      {
+        "question": "Wie stellen Sie Schweizer Datenschutz-Compliance sicher?",
+        "answer": "Alle Implementierungen folgen den Schweizer DSG- und DSGVO-Anforderungen. Ich priorisiere Schweizer gehostete oder On-Premise-Lösungen, wo erforderlich. Für KI-Systeme implementiere ich ordnungsgemässe Daten-Governance, Audit-Trails und Human-in-the-Loop-Kontrollen zur Sicherstellung der Compliance mit Schweizer Regulierungsstandards."
       },
       {
         "question": "Wie lange dauert ein typisches Projekt?",
-        "answer": "Projektzeitpläne variieren je nach Umfang und Komplexität. Ein typisches Automatisierungsprojekt dauert 2-12 Wochen, während Steuerberatungsmandate fortlaufend sein können. Ich erstelle detaillierte Zeitpläne während unserer ersten Beratung, nachdem ich Ihre spezifischen Anforderungen verstanden habe."
+        "answer": "Erste Automatisierungsbewertungen dauern 1-2 Wochen. Implementierungsprojekte reichen von 4-12 Wochen je nach Umfang. Ich empfehle, mit einem fokussierten Pilotprojekt (4-6 Wochen) zu beginnen, um den Wert zu demonstrieren, bevor skaliert wird. Jedes Mandat beinhaltet Wissenstransfer, damit Ihr Team Systeme eigenständig warten kann."
       },
       {
-        "question": "Wie berechnen Sie Ihre Dienstleistungen?",
-        "answer": "Ich biete flexible Preismodelle an, einschliesslich Stundensätzen, Festpreisprojekten und Retainer-Vereinbarungen. Die Preisgestaltung hängt von der Projektkomplexität, dem Zeitplan und den Ergebnissen ab. Kontaktieren Sie mich für ein massgeschneidertes Angebot."
+        "question": "Ist KI für kleinere Unternehmen erschwinglich?",
+        "answer": "Ja. RPA-Bots kosten 1/3 von Offshore- und 1/5 von Onshore-Mitarbeitern (Deloitte). Cloud-basierte KI-Tools bieten Pay-as-you-go-Preise. Ich fokussiere mich speziell auf Schweizer KMU – ich entwickle Lösungen, die in KMU-Budgets passen und gleichzeitig Enterprise-Level-Fähigkeiten liefern. Typische Starterprojekte beginnen unter CHF 10'000."
       },
       {
-        "question": "Auf welche Automatisierungsplattformen sind Sie spezialisiert?",
-        "answer": "Ich bin zertifiziert als UiPath RPA Developer (2022), Alteryx Designer Core (2021) und Microsoft Power BI Data Analyst Associate (2021). Ich spezialisiere mich auf KI-native Automatisierung mit Vektordatenbanken, LLM-Orchestrierung, Python-Automatisierung und massgeschneiderten Lösungen. Mit 13+ Jahren Automatisierungsführung auf Fortune-500-Niveau habe ich umfangreiche Erfahrung mit RPA, KI-Integration, Workflow-Automatisierung und unternehmensweiter Datenanalyse."
+        "question": "Auf welche Technologien sind Sie spezialisiert?",
+        "answer": "Ich spezialisiere mich auf Agentic AI (Claude, LangChain, CrewAI), RPA-Plattformen (UiPath zertifiziert), RAG-Systeme mit Vektordatenbanken und massgeschneiderte KI-Workflows. Ich wähle Technologien basierend auf Ihren spezifischen Bedürfnissen – mit Priorität auf Schweizer gehostete Optionen und Lösungen mit starker Daten-Governance."
       },
       {
-        "question": "Können Sie bei der Schweizer Steuerkonformität für Expatriates helfen?",
-        "answer": "Absolut! Über Taxed GmbH, die ich 2021 gegründet habe, biete ich umfassende Schweizer Steuerberatung für Expatriates. Ich helfe dabei, komplexe Schweizer Steuervorschriften zu navigieren, Steuerstrategien zu optimieren und Compliance über mehrere Jurisdiktionen hinweg sicherzustellen. Dienstleistungen umfassen Buchhaltung, MWST-Abrechnungen, Steuererklärungen für Einzelpersonen und Unternehmen sowie Treuhanddienstleistungen für KMU in der gesamten Schweiz."
-      },
-      {
-        "question": "Bieten Sie Schulungen oder Wissenstransfer an?",
-        "answer": "Ja! Ich glaube an die Befähigung von Teams. Die meisten Projekte beinhalten Wissenstransfer-Sitzungen, Dokumentation und Schulungen, um sicherzustellen, dass Ihr Team die von mir gelieferten Lösungen pflegen und erweitern kann."
-      },
-      {
-        "question": "Welche Branchen bedienen Sie?",
-        "answer": "Ich habe umfangreiche Erfahrung in der Pharmaindustrie (Finance Analyst FP&A bei DePuy Synthes/Johnson & Johnson seit 2017), Finanzautomatisierung, Steuerberatung (Taxed GmbH) und Unternehmensabläufen. Meine Expertise umfasst Fortune-500-Multinationale, KMU und Einzelkunden, die Schweizer Steuerexpertise benötigen. Meine Automatisierungs- und Prozessoptimierungsfähigkeiten sind branchenübergreifend anwendbar."
+        "question": "Bieten Sie Schulungen für unser Team an?",
+        "answer": "Absolut. Jedes Mandat beinhaltet umfassenden Wissenstransfer und Dokumentation. Ich stelle sicher, dass Ihr Team Automatisierungslösungen eigenständig warten und erweitern kann. Dies befähigt Ihre Organisation, die KI-Adoption nach dem initialen Projekt weiterzuführen."
       },
       {
         "question": "Wie fange ich an?",
-        "answer": "Kontaktieren Sie mich einfach über das Kontaktformular, per E-Mail (me@eflury.com) oder Telefon (+41 79 910 77 87). Wir vereinbaren eine erste Beratung, um Ihre Bedürfnisse zu besprechen, und ich erstelle einen Vorschlag mit Umfang, Zeitplan und Preisgestaltung."
+        "answer": "Kontaktieren Sie mich für eine kostenlose Automatisierungsbewertung. Wir besprechen Ihre Geschäftsherausforderungen, identifizieren wirkungsvolle Automatisierungsmöglichkeiten und entwickeln eine realistische Roadmap mit klaren ROI-Prognosen. Keine Verpflichtung – nur praktische Beratung, wo KI Ihrem Schweizer Unternehmen helfen kann."
       }
     ]
   },
