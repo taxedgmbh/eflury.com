@@ -4,6 +4,13 @@ export function initThreeBackground(containerId: string) {
   const container = document.getElementById(containerId);
   if (!container) return;
 
+  // Detect mobile/iOS for performance optimization
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+  const isIOS = /iPhone|iPad|iPod/i.test(navigator.userAgent);
+
+  // Add CSS fallback background for mobile/iOS
+  container.style.background = 'radial-gradient(ellipse at 30% 20%, rgba(13, 148, 136, 0.08) 0%, transparent 50%), radial-gradient(ellipse at 70% 80%, rgba(20, 144, 208, 0.06) 0%, transparent 50%)';
+
   // Scene setup
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(
@@ -14,13 +21,32 @@ export function initThreeBackground(containerId: string) {
   );
   camera.position.z = 50;
 
-  const renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+  // Try to create WebGL renderer with fallback
+  let renderer: THREE.WebGLRenderer;
+  try {
+    renderer = new THREE.WebGLRenderer({
+      alpha: true,
+      antialias: !isMobile, // Disable antialiasing on mobile for performance
+      powerPreference: isMobile ? 'low-power' : 'high-performance',
+      failIfMajorPerformanceCaveat: false
+    });
+  } catch (error) {
+    console.log('WebGL not available, using CSS fallback');
+    return null;
+  }
+
+  // Check if WebGL context was created successfully
+  if (!renderer.getContext()) {
+    console.log('WebGL context failed, using CSS fallback');
+    return null;
+  }
+
   renderer.setSize(container.clientWidth, container.clientHeight);
-  renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, isMobile ? 1.5 : 2));
   container.appendChild(renderer.domElement);
 
-  // Particle system
-  const particlesCount = 2000;
+  // Reduce particle count on mobile for better performance
+  const particlesCount = isMobile ? 500 : 2000;
   const posArray = new Float32Array(particlesCount * 3);
   const velocities: number[] = [];
 
