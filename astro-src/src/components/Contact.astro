@@ -413,36 +413,52 @@ const t = useTranslations(lang);
       e.preventDefault();
 
       const submitButton = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+      const btnText = submitButton.querySelector('.btn-text') as HTMLSpanElement;
+      const lang = document.documentElement.lang || 'en';
+      const originalText = btnText?.textContent || (lang === 'de' ? 'Nachricht senden' : 'Send Message');
+
       submitButton.disabled = true;
       submitButton.classList.add('loading');
-      const btnText = submitButton.querySelector('.btn-text');
-      const lang = document.documentElement.lang || 'en';
       if (btnText) btnText.textContent = lang === 'de' ? 'Wird gesendet...' : 'Sending...';
 
       try {
-        await emailjs.sendForm(
+        const result = await emailjs.sendForm(
           'service_7o5qkdh',  // Service ID
           'template_yw4ehjl', // Template ID
           form
         );
 
+        console.log('EmailJS Success:', result);
+
         formStatus.className = 'form-status success';
-        formStatus.textContent = 'Message sent successfully! I\'ll get back to you soon.';
+        formStatus.textContent = lang === 'de'
+          ? 'Nachricht erfolgreich gesendet! Ich melde mich bald bei Ihnen.'
+          : 'Message sent successfully! I\'ll get back to you soon.';
         form.reset();
 
         // Track conversion
-        if (window.trackEvent) {
-          window.trackEvent('Conversion', 'contact_form_submit', 'Contact Form');
+        if ((window as any).trackEvent) {
+          (window as any).trackEvent('Conversion', 'contact_form_submit', 'Contact Form');
         }
-      } catch (error) {
-        formStatus.className = 'form-status error';
-        formStatus.textContent = 'Failed to send message. Please try again or email me directly.';
+      } catch (error: any) {
         console.error('EmailJS Error:', error);
+
+        // Show detailed error for debugging
+        let errorMessage = lang === 'de'
+          ? 'Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt an me@eflury.com'
+          : 'Failed to send message. Please try again or email me directly at me@eflury.com';
+
+        // Log specific error details
+        if (error?.text) {
+          console.error('EmailJS Error Details:', error.text);
+        }
+
+        formStatus.className = 'form-status error';
+        formStatus.textContent = errorMessage;
       } finally {
         submitButton.disabled = false;
         submitButton.classList.remove('loading');
-        const btnText = submitButton.querySelector('.btn-text');
-        if (btnText) btnText.textContent = t('contact.form.submit');
+        if (btnText) btnText.textContent = originalText;
       }
     });
   }
