@@ -415,8 +415,36 @@ const currentRoutes = routes[lang];
       position: relative;
     }
 
-    /* Hide desktop nav actions on mobile (bottom nav handles navigation) */
+    /* Hide share button and dark mode on mobile, but keep language selector */
     .nav-actions {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    .nav-actions .share-button-nav,
+    .nav-actions :global(.dark-mode-toggle) {
+      display: none;
+    }
+
+    .language-selector {
+      margin-left: auto;
+    }
+
+    .language-current {
+      padding: 6px 10px;
+      font-size: 14px;
+    }
+
+    .language-current span {
+      display: none;
+    }
+
+    .flag-icon {
+      width: 24px;
+      height: 18px;
+    }
+
+    .chevron-icon {
       display: none;
     }
 
