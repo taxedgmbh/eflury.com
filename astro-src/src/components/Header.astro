@@ -19,7 +19,10 @@ const currentRoutes = routes[lang];
 
 <nav class="navbar" id="navbar">
   <div class="nav-container">
-    <a href={currentRoutes.home} class="logo">Emanuel Flury</a>
+    <a href={currentRoutes.home} class="logo">
+      <img src="/images/favicon.png" alt="eFlury Consulting" class="logo-icon" />
+      <span class="logo-text">eFlury</span>
+    </a>
 
     <div class="nav-content">
       <ul class="nav-links" id="navLinks">
@@ -139,16 +142,32 @@ const currentRoutes = routes[lang];
   }
 
   .logo {
-    font-size: 1.25rem;
-    font-weight: 600;
-    letter-spacing: -0.015em;
-    color: var(--text-primary);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
     text-decoration: none;
-    transition: color var(--transition-base);
+    transition: opacity var(--transition-base);
   }
 
   .logo:hover {
-    color: var(--primary);
+    opacity: 0.8;
+  }
+
+  .logo-icon {
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
+  }
+
+  .logo-text {
+    font-size: 1.25rem;
+    font-weight: 700;
+    letter-spacing: -0.015em;
+    color: var(--text-primary);
+    background: linear-gradient(135deg, #1a365d 0%, #2563eb 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .nav-content {
@@ -401,9 +420,13 @@ const currentRoutes = routes[lang];
       display: none;
     }
 
-    .logo {
-      font-size: 20px;
-      font-weight: 600;
+    .logo-icon {
+      width: 28px;
+      height: 28px;
+    }
+
+    .logo-text {
+      font-size: 18px;
     }
   }
 </style>
