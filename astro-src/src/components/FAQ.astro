@@ -1,6 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
-import { ChevronDown } from 'lucide-astro';
+import { ChevronDown, Search, X } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -11,6 +11,11 @@ const t = useTranslations(lang);
 
 // Get FAQ data from translations
 const faqData = (t('faq.questions') as any) || [];
+
+// Search placeholder text
+const searchPlaceholder = lang === 'en' ? 'Search questions...' : 'Fragen durchsuchen...';
+const noResultsText = lang === 'en' ? 'No matching questions found. Try different keywords.' : 'Keine passenden Fragen gefunden. Versuchen Sie andere Suchbegriffe.';
+const clearSearchText = lang === 'en' ? 'Clear search' : 'Suche löschen';
 ---
 
 <section class="faq section-padding" id="faq">
@@ -18,6 +23,34 @@ const faqData = (t('faq.questions') as any) || [];
     <div class="section-header">
       <h2 class="section-title">{t('faq.title')}</h2>
       <p class="section-subtitle">{t('faq.subtitle')}</p>
+    </div>
+
+    <!-- FAQ Search Input -->
+    <div class="faq-search-container">
+      <div class="faq-search-wrapper">
+        <Search size={20} class="search-icon" />
+        <input
+          type="text"
+          id="faq-search"
+          class="faq-search-input"
+          placeholder={searchPlaceholder}
+          aria-label={searchPlaceholder}
+        />
+        <button
+          id="faq-search-clear"
+          class="search-clear-btn"
+          aria-label={clearSearchText}
+          style="display: none;"
+        >
+          <X size={18} />
+        </button>
+      </div>
+      <p id="faq-results-count" class="faq-results-count" style="display: none;"></p>
+    </div>
+
+    <!-- No Results Message -->
+    <div id="faq-no-results" class="faq-no-results" style="display: none;">
+      <p>{noResultsText}</p>
     </div>
 
     <div class="faq-container">
@@ -39,10 +72,15 @@ const faqData = (t('faq.questions') as any) || [];
 </section>
 
 <script>
-  // FAQ Accordion functionality
+  // FAQ Accordion and Search functionality
   document.addEventListener('DOMContentLoaded', () => {
     const faqItems = document.querySelectorAll('.faq-item');
+    const searchInput = document.getElementById('faq-search') as HTMLInputElement;
+    const clearBtn = document.getElementById('faq-search-clear') as HTMLButtonElement;
+    const resultsCount = document.getElementById('faq-results-count') as HTMLParagraphElement;
+    const noResults = document.getElementById('faq-no-results') as HTMLDivElement;
 
+    // FAQ Accordion functionality
     faqItems.forEach((item) => {
       const question = item.querySelector('.faq-question') as HTMLButtonElement;
       const answer = item.querySelector('.faq-answer') as HTMLDivElement;
@@ -62,7 +100,6 @@ const faqData = (t('faq.questions') as any) || [];
             otherAnswer?.classList.remove('active');
             if (otherIcon) {
               otherIcon.classList.remove('rotate');
-              // Also rotate SVG if it exists
               const svg = otherIcon.querySelector('svg');
               if (svg) svg.style.transform = 'rotate(0deg)';
             }
@@ -74,7 +111,6 @@ const faqData = (t('faq.questions') as any) || [];
         answer?.classList.toggle('active');
         if (icon) {
           icon.classList.toggle('rotate');
-          // Also rotate SVG
           const svg = icon.querySelector('svg');
           if (svg) {
             svg.style.transition = 'transform var(--transition-base)';
@@ -88,6 +124,77 @@ const faqData = (t('faq.questions') as any) || [];
         }
       });
     });
+
+    // FAQ Search functionality
+    function filterFAQs(searchTerm: string) {
+      const term = searchTerm.toLowerCase().trim();
+      let visibleCount = 0;
+
+      faqItems.forEach((item) => {
+        const questionText = item.querySelector('.question-text')?.textContent?.toLowerCase() || '';
+        const answerText = item.querySelector('.answer-content p')?.textContent?.toLowerCase() || '';
+        const matches = term === '' || questionText.includes(term) || answerText.includes(term);
+
+        if (matches) {
+          (item as HTMLElement).style.display = '';
+          (item as HTMLElement).classList.remove('faq-hidden');
+          visibleCount++;
+        } else {
+          (item as HTMLElement).style.display = 'none';
+          (item as HTMLElement).classList.add('faq-hidden');
+        }
+      });
+
+      // Update UI based on results
+      if (term !== '') {
+        clearBtn.style.display = 'flex';
+
+        if (visibleCount === 0) {
+          noResults.style.display = 'block';
+          resultsCount.style.display = 'none';
+        } else {
+          noResults.style.display = 'none';
+          resultsCount.style.display = 'block';
+          const countText = document.documentElement.lang === 'de'
+            ? `${visibleCount} Ergebnis${visibleCount !== 1 ? 'se' : ''} gefunden`
+            : `${visibleCount} result${visibleCount !== 1 ? 's' : ''} found`;
+          resultsCount.textContent = countText;
+        }
+      } else {
+        clearBtn.style.display = 'none';
+        noResults.style.display = 'none';
+        resultsCount.style.display = 'none';
+      }
+
+      // Track search
+      if (term !== '' && window.trackEvent) {
+        window.trackEvent('User Interaction', 'faq_search', term);
+      }
+    }
+
+    // Debounce function for search
+    let searchTimeout: number;
+    searchInput?.addEventListener('input', (e) => {
+      clearTimeout(searchTimeout);
+      searchTimeout = window.setTimeout(() => {
+        filterFAQs((e.target as HTMLInputElement).value);
+      }, 200);
+    });
+
+    // Clear search button
+    clearBtn?.addEventListener('click', () => {
+      searchInput.value = '';
+      filterFAQs('');
+      searchInput.focus();
+    });
+
+    // Keyboard support: Escape to clear search
+    searchInput?.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        searchInput.value = '';
+        filterFAQs('');
+      }
+    });
   });
 </script>
 
@@ -98,7 +205,101 @@ const faqData = (t('faq.questions') as any) || [];
 
   .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
+  }
+
+  /* FAQ Search Styles */
+  .faq-search-container {
+    max-width: 500px;
+    margin: 0 auto 2rem;
+  }
+
+  .faq-search-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 1rem;
+    color: var(--text-secondary);
+    pointer-events: none;
+    z-index: 1;
+  }
+
+  .faq-search-input {
+    width: 100%;
+    padding: 1rem 3rem;
+    font-size: 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    background: var(--card-bg);
+    color: var(--text-primary);
+    transition: all var(--transition-base);
+  }
+
+  .faq-search-input::placeholder {
+    color: var(--text-secondary);
+  }
+
+  .faq-search-input:focus {
+    outline: none;
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.1);
+  }
+
+  .search-clear-btn {
+    position: absolute;
+    right: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 28px;
+    border: none;
+    border-radius: 50%;
+    background: var(--bg-secondary);
+    color: var(--text-secondary);
+    cursor: pointer;
+    transition: all var(--transition-base);
+  }
+
+  .search-clear-btn:hover {
+    background: var(--bg-tertiary);
+    color: var(--text-primary);
+  }
+
+  .faq-results-count {
+    text-align: center;
+    margin-top: 0.75rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .faq-no-results {
+    max-width: 500px;
+    margin: 0 auto 2rem;
+    padding: 2rem;
+    text-align: center;
+    background: var(--bg-secondary);
+    border-radius: 12px;
+    border: 1px dashed var(--border-color);
+  }
+
+  .faq-no-results p {
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  /* Animation for filtering */
+  .faq-item {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .faq-item.faq-hidden {
+    opacity: 0;
+    transform: scale(0.95);
   }
 
   .section-title {
@@ -202,6 +403,19 @@ const faqData = (t('faq.questions') as any) || [];
   }
 
   @media (max-width: 768px) {
+    .faq-search-container {
+      padding: 0 1rem;
+    }
+
+    .faq-search-input {
+      padding: 0.875rem 2.75rem;
+      font-size: 16px; /* Prevents iOS zoom on focus */
+    }
+
+    .search-icon {
+      left: 0.875rem;
+    }
+
     .faq-question {
       padding: 1.25rem 1.5rem;
     }
@@ -212,6 +426,11 @@ const faqData = (t('faq.questions') as any) || [];
 
     .answer-content {
       padding: 0 1.5rem 1.25rem 1.5rem;
+    }
+
+    .faq-no-results {
+      margin: 0 1rem 2rem;
+      padding: 1.5rem;
     }
   }
 </style>
