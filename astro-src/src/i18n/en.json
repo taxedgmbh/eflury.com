@@ -1,176 +1,230 @@
 {
   "meta": {
-    "title": "Emanuel Flury - AI & Automation Consultant for Swiss KMUs | Agentic AI Expert",
-    "description": "Independent consultant helping Swiss SMEs close the AI adoption gap. Only 8% of Swiss KMUs use AI - gain competitive advantage with proven automation delivering 30-200% first-year ROI (Deloitte). Expert in agentic AI, RPA, and intelligent process automation.",
-    "keywords": "Swiss AI consultant, KMU automation, SME digital transformation Switzerland, agentic AI, RPA consultant Switzerland, UiPath certified, business process automation, AI agents, LLM orchestration, vector databases, Swiss business automation"
+    "title": "Emanuel Flury - Agentic AI Training & Setup for Swiss SMEs",
+    "description": "I help Swiss SMEs implement AI in their business. Hands-on training and setup of AI agents and workflows using tools like Claude Code.",
+    "keywords": "AI training Switzerland, Agentic AI setup, Claude Code consultant, Swiss SME AI, business automation Switzerland"
   },
   "nav": {
     "home": "Home",
     "about": "About",
     "services": "Services",
-    "portfolio": "Portfolio",
     "contact": "Contact",
     "language": "Language"
   },
   "hero": {
-    "greeting": "AI Consulting for Swiss KMUs",
-    "title": "Close the AI Gap. Lead Your Market.",
-    "subtitle": "Only 8% of Swiss SMEs use AI - while adoption grows 48% annually (digitalswitzerland 2024). I help KMUs implement proven automation solutions with 30-200% first-year ROI (Deloitte). Fortune 500 methodology, tailored for Swiss businesses.",
-    "cta_primary": "Free Automation Assessment",
-    "cta_secondary": "View Success Stories",
-    "scroll_hint": "Discover how AI transforms Swiss businesses"
+    "badge": "Enterprise Methods · SME Prices",
+    "title": "AI Automation for Swiss SMEs. Strategically planned. Practically implemented.",
+    "subtitle": "I bring the automation strategies of Fortune 100 companies to your SME — without the enterprise budget.",
+    "cta_primary": "Book Your Free Strategy Call",
+    "cta_secondary": "Discover my method",
+    "secondary_cta": "Discover the Method ↓",
+    "risk_reducer": "No obligation · 30 minutes · Confidential",
+    "trust_bar": "Powered by: Claude/Anthropic · Make · Microsoft 365"
+  },
+  "method": {
+    "section_title": "The eFlury Method™",
+    "section_subtitle": "A proven 5-phase framework for successful AI implementation",
+    "phases": [
+      {
+        "title": "Analyse",
+        "description": "Workflow mapping, identifying automation potential",
+        "duration": "Week 1"
+      },
+      {
+        "title": "Architect",
+        "description": "Design technical solution, tool selection",
+        "duration": "Week 1-2"
+      },
+      {
+        "title": "Build",
+        "description": "Hands-on implementation with your team",
+        "duration": "Week 2-3"
+      },
+      {
+        "title": "Activate",
+        "description": "Training, go-live, handover",
+        "duration": "Week 3-4"
+      },
+      {
+        "title": "Amplify",
+        "description": "Optimization, new use cases, ongoing support",
+        "duration": "Ongoing"
+      }
+    ]
+  },
+  "process": {
+    "section_title": "How I Work",
+    "section_subtitle": "Transparent process, clear expectations",
+    "steps": [
+      {
+        "number": "1",
+        "title": "Discovery Call",
+        "description": "Free 30-minute call. I learn your workflows, you learn if I can help. No pitch, just conversation."
+      },
+      {
+        "number": "2",
+        "title": "Opportunity Report",
+        "description": "Within 48 hours, you receive a written summary: what to automate, expected time savings, and honest assessment of fit."
+      },
+      {
+        "number": "3",
+        "title": "Clear Proposal",
+        "description": "Fixed-price quote. No hourly surprises. You know exactly what you get and what it costs."
+      },
+      {
+        "number": "4",
+        "title": "Hands-On Implementation",
+        "description": "I work alongside your team. Not a report that sits in a drawer — actual working automation."
+      },
+      {
+        "number": "5",
+        "title": "30-Day Support",
+        "description": "Questions after go-live? I'm available. Your success is my reputation."
+      }
+    ],
+    "cta": "Start with a Free Discovery Call"
   },
   "services": {
-    "section_title": "Consulting Services",
-    "section_subtitle": "Research-backed AI and automation solutions for Swiss KMUs",
-    "automation": {
-      "title": "Agentic AI Consulting",
-      "description": "By 2028, 33% of enterprise software will include agentic AI, with 15% of work decisions made autonomously (Gartner 2025). The market is growing from $7B to $52B by 2030 at 46% CAGR. I design production-ready agentic systems using Claude, LangChain, and CrewAI - bringing enterprise-grade AI capabilities to Swiss KMUs at a fraction of enterprise costs.",
-      "features": ["Multi-Agent System Architecture", "LLM Orchestration & Integration", "Claude Code & MCP Implementation", "Human-in-the-Loop Safety Design"]
+    "section_title": "What I Offer",
+    "section_subtitle": "Practical AI implementation for Swiss businesses",
+    "training": {
+      "title": "AI Training",
+      "description": "Hands-on workshops teaching your team to use AI tools like Claude Code effectively. Learn to build agents, automate tasks, and integrate AI into daily workflows.",
+      "features": ["Team workshops", "Claude Code & AI tools", "Practical exercises", "Ongoing support"],
+      "outcome": "Result: Your team uses AI independently within 4 weeks",
+      "ideal_for": "Teams wanting to use AI daily",
+      "duration": "2-4 weeks",
+      "price": "From CHF 2,500",
+      "link": "#contact"
     },
-    "business_automation": {
-      "title": "Business Automation (RPA)",
-      "description": "53% of businesses have implemented RPA, achieving 30-200% first-year ROI with 12-month average payback (Deloitte 2024). RPA bots cost 1/3 of offshore and 1/5 of onshore FTEs. As a UiPath-certified consultant, I help Swiss KMUs automate repetitive processes - from invoice processing to customer service - reducing costs by 10-50% while improving compliance.",
-      "features": ["Process Discovery & Analysis", "UiPath RPA Implementation", "Intelligent Document Processing", "Swiss Compliance Integration"]
+    "setup": {
+      "title": "Workflow Setup",
+      "description": "Custom AI agents and automated workflows designed for your specific business processes. From concept to production-ready implementation.",
+      "features": ["Process analysis", "Custom AI agents", "Workflow automation", "Integration with your tools"],
+      "outcome": "Result: Working automation from day one",
+      "ideal_for": "Businesses with repetitive document processes",
+      "duration": "3-6 weeks",
+      "price": "From CHF 5,000",
+      "link": "#contact"
     },
-    "ai_workflows": {
-      "title": "RAG & Knowledge Systems",
-      "description": "70% of enterprises now use RAG with vector databases to customize LLMs with proprietary data (Databricks 2024). Organizations report $3.70 return per $1 invested, with 70-90% reduction in AI hallucinations. I design intelligent knowledge systems that make your company's expertise instantly searchable and actionable.",
-      "features": ["RAG Architecture Design", "Vector Database Implementation", "Enterprise Knowledge Search", "AI-Powered Document Processing"]
+    "support": {
+      "title": "Ongoing Support",
+      "description": "Continued guidance as your AI capabilities grow. Regular check-ins, troubleshooting, and help expanding to new use cases.",
+      "features": ["Regular check-ins", "Troubleshooting help", "New use case development", "Knowledge transfer"],
+      "outcome": "Result: Continuous improvement and new use cases",
+      "ideal_for": "Companies wanting long-term AI partnership",
+      "duration": "Ongoing",
+      "price": "From CHF 500/month",
+      "link": "#contact"
     },
-    "consulting": {
-      "title": "Digital Transformation Strategy",
-      "description": "Switzerland ranks 2nd globally in digital competitiveness, yet only 8% of Swiss SMEs use AI compared to 30%+ of large companies (digitalswitzerland 2024). 78% of organizations now use AI in at least one function (McKinsey 2025). I help KMUs develop clear AI roadmaps with measurable ROI - closing the gap with larger competitors.",
-      "features": ["AI Readiness Assessment", "Automation Roadmap Development", "ROI Analysis & Business Case", "Swiss Data Protection Compliance"]
+    "outcome_label": "Outcome",
+    "ideal_for_label": "Ideal for",
+    "duration_label": "Duration",
+    "learn_more": "Learn more"
+  },
+  "tech_partners": {
+    "section_title": "Technologies I Work With",
+    "categories": {
+      "ai": {
+        "name": "AI",
+        "tools": ["Claude/Anthropic"]
+      },
+      "automation": {
+        "name": "Automation",
+        "tools": ["Make", "Zapier", "n8n"]
+      },
+      "business": {
+        "name": "Business",
+        "tools": ["Microsoft 365", "Google Workspace", "Notion"]
+      }
     }
   },
-  "statistics": {
-    "projects": {
-      "value": "8",
-      "label": "Swiss SMEs Using AI",
-      "suffix": "%"
-    },
-    "clients": {
-      "value": "30-200",
-      "label": "First-Year ROI (Deloitte)",
-      "suffix": "%"
-    },
-    "savings": {
-      "value": "46",
-      "label": "Annual Market Growth",
-      "suffix": "%"
-    },
-    "efficiency": {
-      "value": "12",
-      "label": "Month Avg. Payback",
-      "suffix": ""
-    }
-  },
-  "portfolio": {
-    "title": "Success Stories",
-    "subtitle": "Real automation transformations delivering measurable Swiss business impact",
-    "project1": {
-      "title": "Finance Process Automation",
-      "description": "Implemented automated cost calculation and reporting systems at Fortune 500 pharmaceutical company. Developed AI-powered workflows for affiliate profit analysis across global operations. Project delivered significant time savings and improved reporting accuracy through intelligent process automation.",
-      "category": "Enterprise Automation",
-      "technologies": "AI Workflows, Power BI, Python, Alteryx, Process Automation"
-    },
-    "project2": {
-      "title": "Global Compliance Automation",
-      "description": "Designed automated systems for multi-country transfer pricing and inventory management. Created intelligent workflows processing complex regulatory data while ensuring compliance. Enabled real-time analytics and AI-powered insights for strategic decision-making across international operations.",
-      "category": "Process Automation",
-      "technologies": "LLM Orchestration, Python, Power BI, RPA, Compliance Workflows"
-    },
-    "project3": {
-      "title": "Swiss SME AI Implementation",
-      "description": "Consulting engagements helping Swiss KMUs implement their first AI and automation solutions. From initial assessment to full implementation, delivered custom AI workflows, knowledge management systems, and intelligent automation. Clients achieved measurable time savings and improved operational efficiency.",
-      "category": "AI Consulting",
-      "technologies": "Agentic AI, Claude, RAG Systems, RPA, Business Process Automation"
-    },
-    "filter_all": "All",
-    "filter_automation": "Automation",
-    "filter_tax": "Tax",
-    "filter_analytics": "Analytics",
-    "filter_ai": "AI",
-    "view_project": "View Project"
-  },
-  "testimonials": {
-    "title": "Client Feedback",
-    "subtitle": "What clients and colleagues say about our collaboration",
-    "testimonial1": {
-      "name": "Finance Director",
-      "role": "Global Finance",
-      "company": "Fortune 500 Pharmaceutical",
-      "text": "Emanuel transformed our financial reporting process through intelligent automation. His expertise in combining AI with practical business workflows delivered solutions that significantly improved our team's efficiency and accuracy."
-    },
-    "testimonial2": {
-      "name": "Geschäftsführer",
-      "role": "CEO",
-      "company": "Swiss KMU",
-      "text": "As a Swiss SME, we were hesitant about AI adoption. Emanuel understood our constraints and delivered practical automation solutions that fit our budget. The ROI exceeded our expectations within the first year."
-    },
-    "testimonial3": {
-      "name": "Operations Leader",
-      "role": "Digital Transformation",
-      "company": "Swiss Manufacturing",
-      "text": "Working with Emanuel on our AI integration was exceptional. His ability to bridge technical implementation with Swiss business requirements led to solutions that exceeded expectations. Highly recommended for Swiss companies exploring automation."
-    }
-  },
-  "clients": {
-    "section_title": "Industries Served"
+  "ideal_client": {
+    "section_title": "Who I Work With",
+    "suitable": [
+      "Swiss SMEs with 5-50 employees",
+      "Businesses wanting to automate repetitive processes",
+      "Companies without internal IT resources for AI",
+      "Those seeking practical implementation, not theory",
+      "Organizations valuing Swiss quality and data protection"
+    ],
+    "not_suitable": [
+      "Companies just wanting to 'have a look'",
+      "Projects without a dedicated contact person",
+      "Budgets under CHF 2,000"
+    ]
   },
   "about": {
-    "title": "About Me",
-    "subtitle": "AI & Automation Consultant for Swiss KMUs",
-    "headline": "Helping Swiss Businesses Close the AI Gap",
-    "bio1": "I'm an independent consultant helping Swiss KMUs implement AI and automation solutions. With 13+ years of Fortune 500 experience, I bring enterprise-grade methodology to businesses of all sizes. My focus: making advanced AI accessible to Swiss SMEs who are often underserved by large consulting firms.",
-    "bio2": "Previously, I led automation initiatives at Johnson & Johnson (2012-2024), developing AI-powered systems for global operations. I hold a Master's in Economics-Finance from the University of Aberdeen and am certified in UiPath RPA, Alteryx, and Power BI. Based in Grenchen, Switzerland, I also founded Taxed GmbH to bring automation expertise specifically to Swiss businesses.",
-    "highlight1": "13+ years Fortune 500 automation experience",
-    "highlight2": "Based in Switzerland, serving Swiss KMUs",
-    "highlight3": "Expert in Claude, LLM orchestration & RAG systems",
-    "highlight4": "Master's Economics-Finance (University of Aberdeen)",
-    "skills_title": "Certifications & Expertise",
-    "badge1": "University of Aberdeen",
-    "badge2": "Fortune 500 Experience",
-    "certifications": "UiPath RPA Developer • Alteryx Designer Core • Power BI Analyst • Claude & Agentic AI"
+    "title": "About",
+    "subtitle": "AI consultant based in Switzerland",
+    "headline": "Making AI Practical for Swiss Businesses",
+    "bio1": "I've spent 13 years automating workflows at companies like Johnson & Johnson — processes that saved hundreds of hours monthly.",
+    "bio2": "I saw how powerful this was. I also saw how inaccessible it was to smaller businesses. That's why I started eFlury: to bring enterprise-grade AI automation to Swiss SMEs. Same methods, practical approach, honest pricing.",
+    "bio3": "Based in Grenchen, Switzerland. I work hands-on with your team — no consultants sending reports. Just results.",
+    "achievement": "Implemented automations saving 200+ hours monthly",
+    "highlight1": "13 years Fortune 100 experience",
+    "highlight2": "Based in Switzerland",
+    "highlight3": "Hands-on implementation",
+    "highlight4": "Fixed-price projects",
+    "skills_title": "Expertise",
+    "badge1": "Swiss-based",
+    "badge2": "Fortune 100 Background",
+    "certifications": "Claude Code, AI Agents, Process Automation",
+    "credential1": "13+ Years Enterprise Experience",
+    "credential2": "Fortune 100 Background",
+    "credential3": "Swiss Quality"
   },
   "contact": {
-    "title": "Start Your AI Journey",
-    "subtitle": "Ready to close the AI gap? Book a free automation assessment to identify your highest-impact opportunities.",
-    "info_title": "Consulting Inquiries",
-    "info_description": "I offer complimentary initial consultations to assess automation opportunities. Let's discuss how AI can transform your Swiss business - with realistic timelines and measurable ROI.",
+    "title": "Book Your Free Strategy Call",
+    "subtitle": "In 30 minutes, you'll know if AI automation fits your business, which process to automate first, and realistic timeline and budget.",
+    "info_title": "What You'll Learn",
+    "info_description": "No sales pitch. No obligation. Just practical advice from someone who's done this at enterprise scale.",
+    "form_title": "Book Your Strategy Call",
+    "response_guarantee": "Response within 24 hours",
+    "benefits": {
+      "ai_fit": "If AI automation fits your business",
+      "process": "Which process to automate first",
+      "timeline": "Realistic timeline and budget"
+    },
+    "response_time": "I respond within 24 hours · Most calls scheduled within 3 days",
+    "calendly_text": "Or book directly",
+    "calendly_url": "https://calendly.com/eflury",
+    "whatsapp": "Prefer a quick message?",
+    "whatsapp_number": "+41 79 910 77 87",
     "email": "Email",
     "phone": "Phone",
     "location": "Location",
     "form": {
       "name": "Your Name",
-      "name_placeholder": "Hans Müller",
+      "name_placeholder": "Hans Muller",
       "name_hint": "How should I address you?",
       "email": "Email Address",
-      "email_placeholder": "hans@firma.ch",
+      "email_placeholder": "hans@company.ch",
       "email_hint": "I'll respond within 24 hours",
       "subject": "Subject",
-      "subject_placeholder": "AI Assessment for My Business",
-      "subject_hint": "e.g., RPA Assessment, AI Strategy, Process Automation",
+      "subject_placeholder": "AI implementation for my business",
+      "subject_hint": "What would you like to discuss?",
       "message": "Message",
-      "message_placeholder": "Tell me about your business and automation goals...",
-      "message_hint": "Include your current challenges and what you'd like to achieve",
+      "message_placeholder": "Tell me about your business and what you'd like to achieve with AI...",
+      "message_hint": "The more detail, the better I can help",
       "captcha": "Security Check",
-      "submit": "Request Free Assessment",
+      "submit": "Send Message",
       "sending": "Sending...",
       "success": "Message sent! I'll respond within 24 hours.",
-      "error": "Failed to send message. Please email me directly at me@eflury.com"
+      "error": "Failed to send. Please email me directly at me@eflury.com"
     },
     "info": {
       "email": "me@eflury.com",
       "phone": "+41 79 910 77 87",
       "location": "Grenchen, Switzerland",
-      "availability": "Available for Swiss KMU projects"
+      "availability": "Available for Swiss projects"
     }
   },
   "footer": {
-    "tagline": "AI & Automation Consultant for Swiss KMUs",
-    "description": "Helping Swiss businesses close the AI adoption gap with proven automation solutions.",
+    "tagline": "Agentic AI Training & Setup",
+    "description": "Helping Swiss SMEs implement AI that works.",
+    "company_details": "eFlury Consulting · Sole Proprietorship",
+    "swiss_quality": "Swiss Quality",
     "sections": {
       "quick_links": "Quick Links",
       "services": "Services",
@@ -180,60 +234,24 @@
     "links": {
       "home": "Home",
       "services": "Services",
-      "portfolio": "Portfolio",
-      "blog": "Blog",
       "contact": "Contact",
       "privacy": "Privacy Policy",
       "terms": "Terms of Service",
-      "cookies": "Cookie Policy",
-      "data_protection": "Data Protection"
+      "cookies": "Cookie Policy"
     },
     "services_list": {
-      "automation": "Agentic AI Consulting",
-      "tax": "Business Automation (RPA)",
-      "analytics": "RAG & Knowledge Systems",
-      "consulting": "Digital Transformation"
+      "training": "AI Training",
+      "setup": "Workflow Setup",
+      "support": "Ongoing Support"
     },
     "copyright": "© {year} Emanuel Flury. All rights reserved.",
-    "made_with": "Made with ❤️ in Switzerland"
-  },
-  "faq": {
-    "title": "Frequently Asked Questions",
-    "subtitle": "Common questions about AI consulting for Swiss KMUs",
-    "questions": [
-      {
-        "question": "Why should Swiss KMUs invest in AI now?",
-        "answer": "Only 8% of Swiss SMEs currently use AI, compared to 30%+ of large companies (digitalswitzerland 2024). Meanwhile, 78% of organizations globally now use AI in at least one function (McKinsey 2025). Early adopters gain competitive advantage - studies show 30-200% first-year ROI (Deloitte) with 12-month average payback periods."
-      },
-      {
-        "question": "What ROI can I realistically expect?",
-        "answer": "According to Deloitte research, RPA implementations typically deliver 30-200% first-year ROI with 12-month average payback. Microsoft reports 3.5x average return on AI investments. Results vary by use case - I provide detailed ROI analysis before any project begins."
-      },
-      {
-        "question": "How do you ensure Swiss data protection compliance?",
-        "answer": "All implementations follow Swiss DSG and GDPR requirements. I prioritize Swiss-hosted or on-premise solutions where required. For AI systems, I implement proper data governance, audit trails, and human-in-the-loop controls to ensure compliance with Swiss regulatory standards."
-      },
-      {
-        "question": "What's the typical project timeline?",
-        "answer": "Initial automation assessments take 1-2 weeks. Implementation projects range from 4-12 weeks depending on scope. I recommend starting with a focused pilot (4-6 weeks) to demonstrate value before scaling. Every engagement includes knowledge transfer so your team can maintain systems independently."
-      },
-      {
-        "question": "Is AI affordable for smaller businesses?",
-        "answer": "Yes. RPA bots cost 1/3 of offshore and 1/5 of onshore employees (Deloitte). Cloud-based AI tools offer pay-as-you-go pricing. I specifically focus on Swiss KMUs - designing solutions that fit SME budgets while delivering enterprise-level capabilities. Typical starter projects begin under CHF 10,000."
-      },
-      {
-        "question": "What technologies do you specialize in?",
-        "answer": "I specialize in agentic AI (Claude, LangChain, CrewAI), RPA platforms (UiPath certified), RAG systems with vector databases, and custom AI workflows. I select technologies based on your specific needs - prioritizing Swiss-hosted options and solutions with strong data governance."
-      },
-      {
-        "question": "Do you provide training for our team?",
-        "answer": "Absolutely. Every engagement includes comprehensive knowledge transfer and documentation. I ensure your team can maintain and expand automation solutions independently. This empowers your organization to continue driving AI adoption after the initial project."
-      },
-      {
-        "question": "How do I get started?",
-        "answer": "Contact me for a complimentary automation assessment. We'll discuss your business challenges, identify high-impact automation opportunities, and develop a realistic roadmap with clear ROI projections. No obligation - just practical advice on where AI can help your Swiss business."
-      }
-    ]
+    "made_with": "Made in Switzerland",
+    "newsletter": {
+      "title": "AI Tips for SMEs",
+      "subtitle": "Monthly, free",
+      "placeholder": "your@email.com",
+      "button": "Subscribe"
+    }
   },
   "common": {
     "read_more": "Read More",

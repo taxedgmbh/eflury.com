@@ -1,6 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
-import { Mail, Phone, MapPin, Send } from 'lucide-astro';
+import { Mail, Phone, MapPin, Send, MessageCircle, Calendar } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -52,10 +52,34 @@ const t = useTranslations(lang);
               <p>Grenchen, Switzerland</p>
             </div>
           </div>
+
+          <div class="contact-method whatsapp-method">
+            <div class="method-icon">
+              <MessageCircle size={24} />
+            </div>
+            <div class="method-content">
+              <h4>{t('contact.whatsapp') || 'WhatsApp'}</h4>
+              <a href="https://wa.me/41799107787">{t('contact.whatsapp_number') || '+41 79 910 77 87'}</a>
+            </div>
+          </div>
         </div>
       </div>
 
       <form class="contact-form" id="contactForm" novalidate>
+        <div class="form-header">
+          <img src="/images/portraits/emanuel-aaron-flury-portrait.png" alt="Emanuel Flury" class="form-avatar" />
+          <div>
+            <h3>{t('contact.form_title') || 'Book Your Strategy Call'}</h3>
+            <p class="response-guarantee">{t('contact.response_guarantee') || 'Response within 24 hours'}</p>
+          </div>
+        </div>
+
+        <ul class="contact-benefits">
+          <li>{t('contact.benefits.ai_fit') || 'If AI automation fits your business'}</li>
+          <li>{t('contact.benefits.process') || 'Which process to automate first'}</li>
+          <li>{t('contact.benefits.timeline') || 'Realistic timeline and budget'}</li>
+        </ul>
+
         <div class="form-group">
           <label for="name">{t('contact.form.name')}</label>
           <input
@@ -87,22 +111,6 @@ const t = useTranslations(lang);
           />
           <span class="field-hint">{t('contact.form.email_hint')}</span>
           <div id="email-error" class="field-error" role="alert" aria-live="polite"></div>
-        </div>
-
-        <div class="form-group">
-          <label for="subject">{t('contact.form.subject')}</label>
-          <input
-            type="text"
-            id="subject"
-            name="subject"
-            placeholder={t('contact.form.subject_placeholder')}
-            autocomplete="off"
-            aria-required="true"
-            aria-describedby="subject-error"
-            required
-          />
-          <span class="field-hint">{t('contact.form.subject_hint')}</span>
-          <div id="subject-error" class="field-error" role="alert" aria-live="polite"></div>
         </div>
 
         <div class="form-group">
@@ -141,6 +149,14 @@ const t = useTranslations(lang);
         </button>
 
         <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
+
+        <div class="calendly-option">
+          <span class="divider-text">{lang === 'de' ? 'oder' : 'or'}</span>
+          <a href="https://calendly.com/eflury" target="_blank" rel="noopener" class="calendly-link">
+            <Calendar size={18} />
+            {t('contact.calendly_text') || 'Direkt Termin buchen'}
+          </a>
+        </div>
       </form>
     </div>
   </div>
@@ -148,25 +164,48 @@ const t = useTranslations(lang);
 
 <style>
   .contact {
-    background: var(--bg-secondary);
+    background: linear-gradient(
+      135deg,
+      var(--bg-secondary) 0%,
+      rgba(13, 148, 136, 0.03) 50%,
+      var(--bg-secondary) 100%
+    );
+    padding: 6rem 2rem;
+    position: relative;
+  }
+
+  .contact::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(
+      ellipse at 70% 20%,
+      rgba(13, 148, 136, 0.05) 0%,
+      transparent 50%
+    );
+    pointer-events: none;
   }
 
   .section-header {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
   }
 
   .section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
   }
 
   .section-subtitle {
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: 1.125rem;
     color: var(--text-secondary);
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
   }
 
@@ -206,7 +245,7 @@ const t = useTranslations(lang);
     width: 50px;
     height: 50px;
     border-radius: 12px;
-    background: var(--gradient-primary);
+    background: var(--eflury-teal);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -237,10 +276,61 @@ const t = useTranslations(lang);
   }
 
   .contact-form {
-    background: var(--card-bg);
+    background: linear-gradient(
+      145deg,
+      var(--card-bg) 0%,
+      rgba(13, 148, 136, 0.02) 100%
+    );
     padding: 2.5rem;
     border-radius: 16px;
     border: 1px solid var(--border-color);
+    box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+  }
+
+  /* Form header with avatar */
+  .form-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .form-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--eflury-teal);
+    box-shadow: 0 4px 12px rgba(13, 148, 136, 0.2);
+  }
+
+  .form-header h3 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+    font-weight: 700;
+  }
+
+  .response-guarantee {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0.35rem 0.75rem;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.1), rgba(13, 148, 136, 0.05));
+    border-radius: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    color: var(--eflury-teal);
+    border: 1px solid rgba(13, 148, 136, 0.2);
+  }
+
+  .response-guarantee::before {
+    content: '\2713';
+    font-size: 11px;
+    font-weight: 700;
   }
 
   .form-group {
@@ -274,11 +364,17 @@ const t = useTranslations(lang);
     appearance: none;
   }
 
+  .form-group input::placeholder,
+  .form-group textarea::placeholder {
+    color: var(--text-secondary);
+    opacity: 0.8;
+  }
+
   .form-group input:focus,
   .form-group textarea:focus {
     outline: none;
-    border-color: var(--primary);
-    box-shadow: 0 0 0 3px rgba(0, 122, 255, 0.1);
+    border-color: var(--eflury-teal);
+    box-shadow: 0 0 0 3px rgba(13, 148, 136, 0.15);
     transform: translateY(-1px);
   }
 
@@ -359,20 +455,42 @@ const t = useTranslations(lang);
   }
 
   .btn-primary {
-    background: var(--primary);
-    color: var(--apple-white);
-    box-shadow: var(--shadow-sm);
+    background: linear-gradient(135deg, var(--eflury-navy) 0%, #1a365d 100%);
+    color: white;
+    box-shadow: 0 4px 14px rgba(15, 23, 42, 0.25);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .btn-primary::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent
+    );
+    transition: left 0.5s ease;
   }
 
   .btn-primary:hover {
-    background: var(--primary-hover);
-    transform: translateY(-1px);
-    box-shadow: var(--shadow-md);
+    background: linear-gradient(135deg, var(--eflury-teal) 0%, #0d7377 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.35);
+  }
+
+  .btn-primary:hover::before {
+    left: 100%;
   }
 
   .btn-primary:active {
-    transform: scale(0.98);
-    opacity: 0.9;
+    transform: scale(0.98) translateY(0);
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.25);
   }
 
   .btn.loading {
@@ -457,14 +575,262 @@ const t = useTranslations(lang);
     box-shadow: var(--shadow-sm);
   }
 
+  /* WhatsApp method styling */
+  .whatsapp-method .method-icon {
+    background: #25D366;
+  }
+
+  .whatsapp-method .method-content a {
+    color: #25D366;
+  }
+
+  .whatsapp-method .method-content a:hover {
+    color: #128C7E;
+  }
+
+  /* Contact benefits list */
+  .contact-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 1.5rem 0;
+    background: rgba(13, 148, 136, 0.08);
+    border-radius: 12px;
+    padding: 1.25rem 1.5rem;
+    border: 1px solid rgba(13, 148, 136, 0.15);
+  }
+
+  .contact-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-primary);
+    font-size: 15px;
+    line-height: 1.5;
+    padding: 0.4rem 0;
+  }
+
+  .contact-benefits li::before {
+    content: '\2713';
+    color: var(--eflury-teal);
+    font-weight: 700;
+    font-size: 14px;
+    flex-shrink: 0;
+  }
+
+  /* Calendly option */
+  .calendly-option {
+    text-align: center;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .divider-text {
+    display: block;
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .calendly-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    border: 2px solid var(--eflury-teal);
+    color: var(--eflury-teal);
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 15px;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .calendly-link:hover {
+    background: var(--eflury-teal);
+    color: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 16px rgba(13, 148, 136, 0.3);
+  }
+
+  .calendly-link:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.2);
+  }
+
   @media (max-width: 768px) {
+    /* Section padding */
+    .contact {
+      padding: 4rem 1.5rem;
+    }
+
+    /* Stack layout vertically */
     .contact-wrapper {
       grid-template-columns: 1fr;
       gap: 2rem;
     }
 
+    /* Contact info section */
+    .contact-info {
+      order: -1;
+    }
+
+    .contact-info h3 {
+      font-size: 1.5rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .contact-info p {
+      font-size: 0.95rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Center contact methods on mobile */
+    .contact-methods {
+      gap: 1.25rem;
+    }
+
+    .contact-method {
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      flex-direction: column;
+    }
+
+    .method-icon {
+      width: 44px;
+      height: 44px;
+    }
+
+    .method-content h4 {
+      font-size: 0.95rem;
+    }
+
+    .method-content a {
+      font-size: 0.95rem;
+    }
+
+    /* Form styling for mobile */
     .contact-form {
       padding: 1.5rem;
+      border-radius: 12px;
+    }
+
+    /* Form header adjustments */
+    .form-header {
+      flex-direction: column;
+      gap: 0.75rem;
+      margin-bottom: 1.25rem;
+      padding-bottom: 1.25rem;
+      align-items: center;
+      text-align: center;
+    }
+
+    .form-avatar {
+      width: 44px;
+      height: 44px;
+      flex-shrink: 0;
+    }
+
+    .form-header h3 {
+      font-size: 1.05rem;
+      margin: 0;
+    }
+
+    .response-guarantee {
+      font-size: 11px;
+      padding: 0.25rem 0.5rem;
+    }
+
+    /* Contact benefits list */
+    .contact-benefits {
+      padding: 0.875rem 1rem;
+      margin: 0 0 1.25rem 0;
+      border-radius: 10px;
+    }
+
+    .contact-benefits li {
+      font-size: 13px;
+      line-height: 1.4;
+      padding: 0.35rem 0;
+    }
+
+    /* Form groups */
+    .form-group {
+      margin-bottom: 1.25rem;
+    }
+
+    .form-group label {
+      font-size: 15px;
+      margin-bottom: 0.4rem;
+    }
+
+    .form-group input,
+    .form-group textarea {
+      padding: 12px 14px;
+      font-size: 16px;
+      min-height: 48px;
+      border-radius: var(--radius-md);
+    }
+
+    .form-group textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    /* Submit button */
+    .btn {
+      min-height: 48px;
+      padding: 12px 20px;
+      font-size: 15px;
+      width: 100%;
+    }
+
+    .btn-icon {
+      display: none;
+    }
+
+    /* Turnstile widget */
+    .turnstile-wrapper {
+      margin-bottom: 1.25rem;
+    }
+
+    /* Calendly button */
+    .calendly-option {
+      margin-top: 1.25rem;
+      padding-top: 1.25rem;
+    }
+
+    .divider-text {
+      font-size: 0.75rem;
+      margin-bottom: 0.625rem;
+    }
+
+    .calendly-link {
+      display: flex;
+      width: 100%;
+      justify-content: center;
+      padding: 0.75rem 1rem;
+      font-size: 14px;
+      min-height: 48px;
+      align-items: center;
+    }
+
+    /* Section header */
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3.5vw, 2rem);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
     }
   }
 </style>

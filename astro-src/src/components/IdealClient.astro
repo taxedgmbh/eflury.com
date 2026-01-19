@@ -1,0 +1,211 @@
+---
+import { type Language, useTranslations } from '../i18n/utils';
+import { CheckCircle2, XCircle } from 'lucide-astro';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+// Get arrays from translations - filter out any undefined/missing keys
+const suitable = [
+  t('ideal_client.suitable.0'),
+  t('ideal_client.suitable.1'),
+  t('ideal_client.suitable.2'),
+  t('ideal_client.suitable.3'),
+  t('ideal_client.suitable.4')
+].filter(item => !item.includes('ideal_client.'));
+
+const notSuitable = [
+  t('ideal_client.not_suitable.0'),
+  t('ideal_client.not_suitable.1'),
+  t('ideal_client.not_suitable.2')
+].filter(item => !item.includes('ideal_client.'));
+
+const suitableTitle = lang === 'de' ? 'Ideal fuer Schweizer KMU, die:' : 'Ideal for Swiss SMEs who:';
+const notSuitableTitle = lang === 'de' ? 'Nicht geeignet fuer:' : 'Not a good fit for:';
+---
+
+<section class="ideal-client" id="ideal-client">
+  <div class="container">
+    <h2 class="section-title">{t('ideal_client.section_title')}</h2>
+    <div class="client-grid">
+      <div class="suitable-card">
+        <h3 class="card-title suitable-title">{suitableTitle}</h3>
+        <ul class="client-list">
+          {suitable.map((item) => (
+            <li class="client-item suitable-item">
+              <span class="icon-wrapper suitable-icon">
+                <CheckCircle2 size={20} />
+              </span>
+              <span class="item-text">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div class="not-suitable-card">
+        <h3 class="card-title not-suitable-title">{notSuitableTitle}</h3>
+        <ul class="client-list">
+          {notSuitable.map((item) => (
+            <li class="client-item not-suitable-item">
+              <span class="icon-wrapper not-suitable-icon">
+                <XCircle size={20} />
+              </span>
+              <span class="item-text">{item}</span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .ideal-client {
+    background: linear-gradient(180deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    padding: 6rem 2rem;
+    position: relative;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 3rem;
+    letter-spacing: -0.02em;
+    text-align: center;
+  }
+
+  .client-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
+
+  .suitable-card,
+  .not-suitable-card {
+    background: var(--bg-primary);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+    transition: all 0.3s ease;
+  }
+
+  .suitable-card:hover,
+  .not-suitable-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.1);
+  }
+
+  :global([data-theme="dark"]) .suitable-card,
+  :global([data-theme="dark"]) .not-suitable-card {
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  :global([data-theme="dark"]) .suitable-card:hover,
+  :global([data-theme="dark"]) .not-suitable-card:hover {
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+  }
+
+  .suitable-card {
+    border-top: 4px solid var(--eflury-teal);
+  }
+
+  .not-suitable-card {
+    border-top: 4px solid #dc6b6b;
+  }
+
+  .card-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .suitable-title {
+    color: var(--eflury-teal);
+  }
+
+  .not-suitable-title {
+    color: #b85454;
+  }
+
+  :global([data-theme="dark"]) .not-suitable-title {
+    color: #dc6b6b;
+  }
+
+  .client-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .client-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+
+  .client-item:last-child {
+    margin-bottom: 0;
+  }
+
+  .icon-wrapper {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .suitable-icon {
+    color: var(--eflury-teal);
+  }
+
+  .not-suitable-icon {
+    color: #b85454;
+    opacity: 0.85;
+  }
+
+  :global([data-theme="dark"]) .not-suitable-icon {
+    color: #dc6b6b;
+    opacity: 0.9;
+  }
+
+  .item-text {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+  }
+
+  @media (max-width: 768px) {
+    .ideal-client {
+      padding: 4rem 1.5rem;
+    }
+
+    .client-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .suitable-card,
+    .not-suitable-card {
+      padding: 1.5rem;
+    }
+
+    .card-title {
+      font-size: 1.125rem;
+    }
+
+    .section-title {
+      margin-bottom: 2rem;
+    }
+  }
+</style>
