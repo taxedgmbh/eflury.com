@@ -1,6 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
-import { Bot, Coins, TrendingUp, Briefcase, CheckCircle2 } from 'lucide-astro';
+import { GraduationCap, Cog, Headphones, CheckCircle2, ArrowRight } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -11,54 +11,59 @@ const t = useTranslations(lang);
 
 const services = [
   {
-    icon: Bot,
-    title: t('services.automation.title'),
-    description: t('services.automation.description'),
+    icon: GraduationCap,
+    title: t('services.training.title'),
+    description: t('services.training.description'),
     features: [
-      t('services.automation.features.0'),
-      t('services.automation.features.1'),
-      t('services.automation.features.2'),
-      t('services.automation.features.3')
+      t('services.training.features.0'),
+      t('services.training.features.1'),
+      t('services.training.features.2'),
+      t('services.training.features.3')
     ],
-    gradient: 'var(--primary)'
+    outcome: t('services.training.outcome'),
+    idealFor: t('services.training.ideal_for'),
+    duration: t('services.training.duration'),
+    price: t('services.training.price'),
+    link: t('services.training.link')
   },
   {
-    icon: Briefcase,
-    title: t('services.business_automation.title'),
-    description: t('services.business_automation.description'),
+    icon: Cog,
+    title: t('services.setup.title'),
+    description: t('services.setup.description'),
     features: [
-      t('services.business_automation.features.0'),
-      t('services.business_automation.features.1'),
-      t('services.business_automation.features.2'),
-      t('services.business_automation.features.3')
+      t('services.setup.features.0'),
+      t('services.setup.features.1'),
+      t('services.setup.features.2'),
+      t('services.setup.features.3')
     ],
-    gradient: 'var(--accent-green)'
+    outcome: t('services.setup.outcome'),
+    idealFor: t('services.setup.ideal_for'),
+    duration: t('services.setup.duration'),
+    price: t('services.setup.price'),
+    link: t('services.setup.link')
   },
   {
-    icon: TrendingUp,
-    title: t('services.ai_workflows.title'),
-    description: t('services.ai_workflows.description'),
+    icon: Headphones,
+    title: t('services.support.title'),
+    description: t('services.support.description'),
     features: [
-      t('services.ai_workflows.features.0'),
-      t('services.ai_workflows.features.1'),
-      t('services.ai_workflows.features.2'),
-      t('services.ai_workflows.features.3')
+      t('services.support.features.0'),
+      t('services.support.features.1'),
+      t('services.support.features.2'),
+      t('services.support.features.3')
     ],
-    gradient: 'var(--accent-purple)'
-  },
-  {
-    icon: Briefcase,
-    title: t('services.consulting.title'),
-    description: t('services.consulting.description'),
-    features: [
-      t('services.consulting.features.0'),
-      t('services.consulting.features.1'),
-      t('services.consulting.features.2'),
-      t('services.consulting.features.3')
-    ],
-    gradient: 'var(--accent-orange)'
+    outcome: t('services.support.outcome'),
+    idealFor: t('services.support.ideal_for'),
+    duration: t('services.support.duration'),
+    price: t('services.support.price'),
+    link: t('services.support.link')
   }
 ];
+
+const outcomeLabel = t('services.outcome_label');
+const idealForLabel = t('services.ideal_for_label');
+const durationLabel = t('services.duration_label');
+const learnMore = t('services.learn_more');
 ---
 
 <section class="services section-padding" id="services">
@@ -73,19 +78,34 @@ const services = [
         const IconComponent = service.icon;
         return (
           <div class="service-card">
-            <div class="service-icon" style={`background: ${service.gradient}`}>
-              <IconComponent size={32} color="white" />
+            <div class="service-icon">
+              <IconComponent size={32} />
             </div>
             <h3 class="service-title">{service.title}</h3>
             <p class="service-description">{service.description}</p>
             <ul class="service-features">
               {service.features.map((feature) => (
                 <li>
-                  <CheckCircle2 size={18} />
+                  <CheckCircle2 size={16} />
                   <span>{feature}</span>
                 </li>
               ))}
             </ul>
+            <div class="service-outcome">
+              <span class="outcome-label">{outcomeLabel}:</span> {service.outcome}
+            </div>
+            <div class="service-ideal">
+              <span class="ideal-label">{idealForLabel}:</span> {service.idealFor}
+            </div>
+            <div class="service-meta">
+              <span>{durationLabel}: {service.duration}</span>
+              <span class="meta-separator">|</span>
+              <span>{service.price}</span>
+            </div>
+            <a href={service.link} class="service-link">
+              {learnMore}
+              <ArrowRight size={16} />
+            </a>
           </div>
         );
       })}
@@ -95,7 +115,9 @@ const services = [
 
 <style>
   .services {
-    background: var(--bg-primary);
+    background: var(--bg-secondary);
+    padding: 6rem 2rem;
+    position: relative;
   }
 
   .section-header {
@@ -104,117 +126,335 @@ const services = [
   }
 
   .section-title {
-    font-size: clamp(2rem, 4vw, 3rem);
-    font-weight: 800;
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
   }
 
   .section-subtitle {
-    font-size: clamp(1rem, 2vw, 1.2rem);
+    font-size: 1.125rem;
     color: var(--text-secondary);
-    max-width: 600px;
+    max-width: 500px;
     margin: 0 auto;
   }
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
   }
 
   .service-card {
-    background: var(--card-bg);
-    border-radius: var(--radius-lg);
-    padding: var(--spacing-xl);
-    border: 0.5px solid var(--separator);
-    transition: all var(--transition-base);
+    background: linear-gradient(135deg, var(--bg-primary) 0%, var(--bg-secondary) 100%);
+    border-radius: 20px;
+    padding: 2rem;
+    border: 1px solid var(--border-color);
+    transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: var(--shadow-xs);
-    -webkit-tap-highlight-color: transparent;
+    display: flex;
+    flex-direction: column;
   }
-  
+
   .service-card:hover {
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
-    border-color: var(--primary);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    border-color: var(--eflury-teal);
   }
 
-  .service-card:active {
-    transform: scale(0.98);
-    opacity: 0.9;
-  }
-
-  .service-card::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: var(--gradient-primary);
-    transform: scaleX(0);
-    transition: transform 0.3s ease;
-  }
-
-  .service-card:hover::before {
-    transform: scaleX(1);
+  :global([data-theme="dark"]) .service-card:hover {
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
   }
 
   .service-icon {
     width: 64px;
     height: 64px;
-    border-radius: var(--radius-md);
+    border-radius: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: var(--spacing-lg);
+    margin-bottom: 1.5rem;
+    background: var(--eflury-teal);
     color: white;
-    transition: transform var(--transition-base);
-  }
-  
-  .service-card:hover .service-icon {
-    transform: scale(1.1) rotate(5deg);
+    box-shadow: 0 8px 20px rgba(0, 128, 128, 0.25);
   }
 
   .service-title {
-    font-size: 1.5rem;
+    font-size: 1.35rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin-bottom: 1rem;
+    margin-bottom: 0.75rem;
+  }
+
+  :global([data-theme="dark"]) .service-title {
+    color: var(--text-primary);
   }
 
   .service-description {
     color: var(--text-secondary);
-    line-height: 1.6;
+    line-height: 1.7;
     margin-bottom: 1.5rem;
+    font-size: 0.95rem;
   }
 
   .service-features {
     list-style: none;
     padding: 0;
-    margin: 0;
+    margin: 0 0 1.5rem 0;
   }
 
   .service-features li {
     display: flex;
-    align-items: flex-start;
-    gap: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
+    align-items: center;
+    gap: 0.625rem;
+    margin-bottom: 0.625rem;
     color: var(--text-secondary);
-    font-size: 15px;
+    font-size: 0.875rem;
+  }
+
+  .service-features li:last-child {
+    margin-bottom: 0;
   }
 
   .service-features li svg {
-    color: var(--primary);
-    margin-top: 2px;
+    color: var(--eflury-teal);
     flex-shrink: 0;
   }
 
+  .service-outcome {
+    color: var(--eflury-teal);
+    font-weight: 600;
+    margin-top: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+  }
+
+  .outcome-label {
+    color: var(--eflury-teal);
+  }
+
+  .service-ideal {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin-top: 0.75rem;
+    line-height: 1.5;
+  }
+
+  .ideal-label {
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .service-meta {
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+    border-top: 1px solid var(--border-color);
+    padding-top: 1rem;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
+
+  .meta-separator {
+    color: var(--border-color);
+  }
+
+  .service-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--eflury-teal);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    margin-top: auto;
+    padding-top: 1.25rem;
+    transition: gap 0.2s ease;
+  }
+
+  .service-link:hover {
+    gap: 0.75rem;
+  }
+
+  .service-link svg {
+    transition: transform 0.2s ease;
+  }
+
+  .service-link:hover svg {
+    transform: translateX(2px);
+  }
+
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: 1fr 1fr;
+      max-width: 800px;
+    }
+  }
+
   @media (max-width: 768px) {
+    .services {
+      padding: 4rem 1.5rem;
+    }
+
+    .section-header {
+      margin-bottom: 2.5rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.5rem, 3vw, 2rem);
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+    }
+
     .services-grid {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
+      max-width: 450px;
+    }
+
+    .service-card {
+      padding: 1.5rem;
+    }
+
+    .service-icon {
+      width: 48px;
+      height: 48px;
+      margin-bottom: 1rem;
+    }
+
+    .service-icon svg {
+      width: 24px;
+      height: 24px;
+    }
+
+    .service-title {
+      font-size: 1.125rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .service-description {
+      font-size: 0.9rem;
+      margin-bottom: 1rem;
+    }
+
+    .service-features li {
+      font-size: 0.8125rem;
+      margin-bottom: 0.5rem;
+      gap: 0.5rem;
+    }
+
+    .service-outcome {
+      font-size: 0.875rem;
+      margin-top: 0.75rem;
+    }
+
+    .service-ideal {
+      font-size: 0.8125rem;
+      margin-top: 0.5rem;
+    }
+
+    .service-meta {
+      font-size: 0.75rem;
+      padding-top: 0.75rem;
+      margin-top: 0.75rem;
+      gap: 0.375rem;
+    }
+
+    .service-link {
+      font-size: 0.875rem;
+      padding-top: 1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .services {
+      padding: 3rem 1rem;
+    }
+
+    .section-header {
+      margin-bottom: 2rem;
+    }
+
+    .section-title {
+      font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    }
+
+    .section-subtitle {
+      font-size: 0.9375rem;
+    }
+
+    .services-grid {
+      gap: 1rem;
+      max-width: 100%;
+    }
+
+    .service-card {
+      padding: 1.25rem;
+      border-radius: 16px;
+    }
+
+    .service-icon {
+      width: 40px;
+      height: 40px;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-icon svg {
+      width: 20px;
+      height: 20px;
+    }
+
+    .service-title {
+      font-size: 1rem;
+      margin-bottom: 0.375rem;
+    }
+
+    .service-description {
+      font-size: 0.8125rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .service-features li {
+      font-size: 0.75rem;
+      margin-bottom: 0.375rem;
+    }
+
+    .service-features li svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    .service-outcome {
+      font-size: 0.8rem;
+      margin-top: 0.5rem;
+    }
+
+    .service-ideal {
+      font-size: 0.75rem;
+      margin-top: 0.375rem;
+    }
+
+    .service-meta {
+      font-size: 0.7rem;
+      padding-top: 0.5rem;
+      margin-top: 0.5rem;
+    }
+
+    .meta-separator {
+      margin: 0 0.25rem;
+    }
+
+    .service-link {
+      font-size: 0.8125rem;
+      padding-top: 0.75rem;
     }
   }
 </style>

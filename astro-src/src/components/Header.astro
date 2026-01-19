@@ -26,23 +26,21 @@ const currentRoutes = routes[lang];
 
     <div class="nav-content">
       <ul class="nav-links" id="navLinks">
-        <li><a href={currentRoutes.home}>{t('nav.home')}</a></li>
-        <li><a href={currentRoutes.about}>{t('nav.about')}</a></li>
-        <li><a href={currentRoutes.services}>{t('nav.services')}</a></li>
-        <li><a href={currentRoutes.portfolio}>{t('nav.portfolio')}</a></li>
-        <li><a href={currentRoutes.contact}>{t('nav.contact')}</a></li>
+        <li><a href="#home">{t('nav.home')}</a></li>
+        <li><a href="#services">{t('nav.services')}</a></li>
+        <li><a href="#about">{t('nav.about')}</a></li>
+        <li><a href="#contact">{t('nav.contact')}</a></li>
       </ul>
 
       <div class="nav-actions">
         <DarkModeToggle />
 
         <!-- Share Button (Modern Web API) -->
-        <button 
-          class="share-button-nav" 
+        <button
+          class="share-button-nav"
           onclick="window.sharePage?.()"
           aria-label="Share this page"
           title="Share"
-          style="display: none;"
         >
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
             <circle cx="18" cy="5" r="3"></circle>
@@ -209,7 +207,7 @@ const currentRoutes = routes[lang];
   }
 
   .share-button-nav {
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: center;
     width: 40px;
@@ -411,28 +409,32 @@ const currentRoutes = routes[lang];
     }
 
     .nav-content {
-      width: 100%;
-      position: relative;
+      display: flex;
+      align-items: center;
+      margin-left: auto;
+      gap: 0.5rem;
     }
 
     /* Hide share button and dark mode on mobile, but keep language selector */
     .nav-actions {
       display: flex;
+      align-items: center;
       gap: 0.5rem;
     }
 
-    .nav-actions .share-button-nav,
     .nav-actions :global(.dark-mode-toggle) {
       display: none;
     }
 
     .language-selector {
-      margin-left: auto;
+      display: flex;
+      align-items: center;
     }
 
     .language-current {
       padding: 6px 10px;
       font-size: 14px;
+      white-space: nowrap;
     }
 
     .language-current span {
@@ -442,10 +444,16 @@ const currentRoutes = routes[lang];
     .flag-icon {
       width: 24px;
       height: 18px;
+      flex-shrink: 0;
     }
 
     .chevron-icon {
       display: none;
+    }
+
+    .logo {
+      flex-shrink: 0;
+      gap: 0.375rem;
     }
 
     .logo-icon {
@@ -516,8 +524,8 @@ const currentRoutes = routes[lang];
     });
   });
 
-  // Show share button if Web Share API is available
-  if (navigator.share) {
+  // Show share button if Web Share API is available (desktop only)
+  if (navigator.share && window.innerWidth >= 769) {
     const shareButton = document.querySelector('.share-button-nav') as HTMLElement;
     if (shareButton) {
       shareButton.style.display = 'flex';

@@ -2,23 +2,15 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
-import Statistics from '../../components/Statistics.astro';
-import About from '../../components/About.astro';
+import EfluryMethod from '../../components/EfluryMethod.astro';
 import Services from '../../components/Services.astro';
-import Portfolio from '../../components/Portfolio.astro';
-import Testimonials from '../../components/Testimonials.astro';
-import FAQ from '../../components/FAQ.astro';
+import HowIWork from '../../components/HowIWork.astro';
+import TechPartners from '../../components/TechPartners.astro';
+import IdealClient from '../../components/IdealClient.astro';
+import About from '../../components/About.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
-import AIChatbot from '../../components/AIChatbot.astro';
-import MobileBottomNav from '../../components/MobileBottomNav.astro';
 import { useTranslations } from '../../i18n/utils';
-
-// SEO Schema Components - LLM Optimized
-import FAQSchema from '../../components/FAQSchema.astro';
-import PersonSchema from '../../components/PersonSchema.astro';
-import OrganizationSchema from '../../components/OrganizationSchema.astro';
-import { faqsDE } from '../../data/faqs';
 
 const lang = 'de';
 const t = useTranslations(lang);
@@ -30,23 +22,16 @@ const t = useTranslations(lang);
   keywords={t('meta.keywords')}
   lang={lang}
 >
-  <!-- SEO Schema Markup - Optimized for LLM visibility (German) -->
-  <FAQSchema faqs={faqsDE} lang={lang} slot="head" />
-  <PersonSchema slot="head" />
-  <OrganizationSchema type="eflury" slot="head" />
-
   <Header lang={lang} />
   <main id="main-content">
     <Hero lang={lang} />
-    <Statistics lang={lang} />
-    <About lang={lang} />
+    <EfluryMethod lang={lang} />
     <Services lang={lang} />
-    <Portfolio lang={lang} />
-    <Testimonials lang={lang} />
-    <FAQ lang={lang} />
+    <HowIWork lang={lang} />
+    <TechPartners lang={lang} />
+    <IdealClient lang={lang} />
+    <About lang={lang} />
     <Contact lang={lang} />
   </main>
   <Footer lang={lang} />
-  <MobileBottomNav lang={lang} />
-  <AIChatbot />
 </MainLayout>
