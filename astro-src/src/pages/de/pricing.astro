@@ -947,18 +947,589 @@ const lang = 'de';
   }
 
   @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 0;
+    }
+
     .hero-stats {
       grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .hero-stats .stat {
+      padding: 1rem;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 0.75rem;
+      min-height: 80px;
+    }
+
+    .packages {
+      padding: 3rem 0;
+    }
+
+    .packages .intro {
+      margin-bottom: 2rem;
+    }
+
+    .packages-grid {
+      gap: 1.5rem;
+    }
+
+    .package {
+      padding: 1.75rem;
     }
 
     .addons-grid {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .addon {
+      padding: 1.75rem;
+      /* Improve touch targets */
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .faq {
+      padding: 3rem 0;
+    }
+
+    .faq-item {
+      padding: 1.75rem;
+    }
+
+    .faq-item h3 {
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .cta {
+      padding: 3rem 0;
     }
 
     .cta-buttons {
       flex-direction: column;
-      max-width: 300px;
+      max-width: 320px;
       margin: 0 auto 2rem;
+    }
+
+    .cta-buttons .btn-primary,
+    .cta-buttons .btn-secondary {
+      /* Touch-friendly targets (44px minimum) */
+      min-height: 48px;
+      padding: 1rem 1.5rem;
+      justify-content: center;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+      /* Better touch targets */
+      min-height: 48px;
+      padding: 1rem 1.5rem;
+    }
+
+    .comparison {
+      padding: 3rem 0;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.875rem 0.75rem;
+      font-size: 0.9rem;
+    }
+  }
+
+  /* Small tablets and large phones */
+  @media (max-width: 600px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .hero {
+      padding: 3rem 1rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 6vw, 2.25rem);
+      line-height: 1.2;
+      margin-bottom: 0.875rem;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1rem, 3vw, 1.125rem);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
+    .hero-stats {
+      gap: 1rem;
+    }
+
+    .hero-stats .stat {
+      padding: 0.875rem;
+      min-height: 70px;
+    }
+
+    .hero-stats .icon {
+      font-size: 1.5rem;
+    }
+
+    .hero-stats .label {
+      font-size: 0.8rem;
+      line-height: 1.3;
+    }
+
+    .packages {
+      padding: 3rem 1rem;
+    }
+
+    .packages h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .packages .intro {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .package {
+      padding: 1.5rem;
+    }
+
+    .package-header h3 {
+      font-size: 1.5rem;
+    }
+
+    .package-subtitle {
+      font-size: 0.875rem;
+    }
+
+    .package-price .price {
+      font-size: clamp(2rem, 7vw, 2.5rem);
+    }
+
+    .package-price .period,
+    .package-price .vat,
+    .package-price .payment-plan {
+      font-size: 0.8rem;
+    }
+
+    .package-features li {
+      font-size: 0.875rem;
+      padding: 0.4rem 0;
+      padding-left: 1.25rem;
+    }
+
+    .package-roi,
+    .guarantee {
+      font-size: 0.85rem;
+      padding: 0.875rem;
+    }
+
+    .popular-badge {
+      font-size: 0.7rem;
+      padding: 0.4rem 1rem;
+    }
+
+    /* Comparison table: horizontal scroll with sticky first column */
+    .comparison {
+      padding: 3rem 1rem;
+    }
+
+    .comparison h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      margin-bottom: 2rem;
+    }
+
+    .comparison-table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -1rem;
+      padding: 0 1rem;
+      /* Visual hint for scrolling */
+      background:
+        linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)),
+        linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%,
+        radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)),
+        radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)) 0 100%;
+      background-repeat: no-repeat;
+      background-color: white;
+      background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+      background-position: 0 0, 100%, 0 0, 100%;
+      background-attachment: local, local, scroll, scroll;
+    }
+
+    .comparison-table {
+      min-width: 600px;
+    }
+
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+      position: sticky;
+      left: 0;
+      background: white;
+      z-index: 1;
+      min-width: 140px;
+      box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .comparison-table thead th:first-child {
+      background: var(--primary-600);
+    }
+
+    .comparison-table tbody tr:nth-child(even) td:first-child {
+      background: var(--bg-secondary);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.75rem 0.625rem;
+      font-size: 0.8rem;
+    }
+
+    .popular-label {
+      font-size: 0.65rem;
+    }
+
+    /* Add-ons */
+    .addons {
+      padding: 3rem 1rem;
+    }
+
+    .addons h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .addons .intro {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .addon {
+      padding: 1.5rem;
+    }
+
+    .addon h3 {
+      font-size: 1.125rem;
+    }
+
+    .addon-price {
+      font-size: 1.5rem;
+    }
+
+    .addon p {
+      font-size: 0.875rem;
+    }
+
+    /* FAQ */
+    .faq {
+      padding: 3rem 1rem;
+    }
+
+    .faq h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      margin-bottom: 2rem;
+    }
+
+    .faq-grid {
+      gap: 1rem;
+    }
+
+    .faq-item {
+      padding: 1.5rem;
+    }
+
+    .faq-item h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-item p {
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 3rem 1rem;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .cta-text {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .guarantee-note {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+  }
+
+  /* Small phones */
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .hero {
+      padding: 2.5rem 1rem;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 0.35rem 0.75rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.5rem, 7vw, 1.875rem);
+    }
+
+    .hero .subtitle {
+      font-size: 0.95rem;
+    }
+
+    .hero-stats {
+      gap: 0.75rem;
+    }
+
+    .hero-stats .stat {
+      padding: 0.75rem 0.5rem;
+      min-height: 65px;
+    }
+
+    .hero-stats .icon {
+      font-size: 1.25rem;
+    }
+
+    .hero-stats .label {
+      font-size: 0.7rem;
+    }
+
+    .packages {
+      padding: 2.5rem 1rem;
+    }
+
+    .packages h2 {
+      font-size: clamp(1.375rem, 6vw, 1.625rem);
+    }
+
+    .packages .intro {
+      font-size: 0.9rem;
+    }
+
+    .packages-grid {
+      gap: 1.25rem;
+    }
+
+    .package {
+      padding: 1.25rem;
+    }
+
+    .package.popular {
+      margin-top: 0.5rem;
+    }
+
+    .popular-badge {
+      top: -12px;
+      font-size: 0.65rem;
+      padding: 0.35rem 0.875rem;
+    }
+
+    .package-header {
+      margin-bottom: 1rem;
+    }
+
+    .package-header h3 {
+      font-size: 1.375rem;
+    }
+
+    .package-subtitle {
+      font-size: 0.8rem;
+    }
+
+    .package-price {
+      padding: 1.25rem 0;
+      margin-bottom: 1.25rem;
+    }
+
+    .package-price .price {
+      font-size: clamp(1.75rem, 8vw, 2.25rem);
+    }
+
+    .package-timeline {
+      padding: 0.625rem 0.75rem;
+      font-size: 0.85rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .package-features {
+      margin-bottom: 1.25rem;
+    }
+
+    .package-features h4 {
+      font-size: 0.9rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .package-features li {
+      font-size: 0.825rem;
+      line-height: 1.5;
+    }
+
+    .package-roi {
+      font-size: 0.8rem;
+      margin-bottom: 1rem;
+    }
+
+    .guarantee {
+      font-size: 0.8rem;
+      padding: 0.75rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Full-width CTA buttons */
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+      width: 100%;
+      padding: 1rem 1rem;
+      font-size: 0.95rem;
+      min-height: 52px;
+    }
+
+    /* Comparison table */
+    .comparison {
+      padding: 2.5rem 1rem;
+    }
+
+    .comparison h2 {
+      font-size: clamp(1.375rem, 6vw, 1.625rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+      min-width: 120px;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.625rem 0.5rem;
+      font-size: 0.75rem;
+    }
+
+    /* Add-ons */
+    .addons {
+      padding: 2.5rem 1rem;
+    }
+
+    .addons h2 {
+      font-size: clamp(1.375rem, 6vw, 1.625rem);
+    }
+
+    .addons .intro {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .addons-grid {
+      gap: 1rem;
+    }
+
+    .addon {
+      padding: 1.25rem;
+      min-height: 160px;
+    }
+
+    .addon h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .addon-price {
+      font-size: 1.375rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .addon p {
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    /* FAQ */
+    .faq {
+      padding: 2.5rem 1rem;
+    }
+
+    .faq h2 {
+      font-size: clamp(1.375rem, 6vw, 1.625rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-grid {
+      gap: 0.875rem;
+    }
+
+    .faq-item {
+      padding: 1.25rem;
+    }
+
+    .faq-item h3 {
+      font-size: 0.95rem;
+      line-height: 1.35;
+    }
+
+    .faq-item p {
+      font-size: 0.85rem;
+    }
+
+    /* CTA */
+    .cta {
+      padding: 2.5rem 1rem;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.375rem, 6vw, 1.625rem);
+    }
+
+    .cta-text {
+      font-size: 0.9rem;
+    }
+
+    .cta-buttons {
+      max-width: 100%;
+      gap: 0.875rem;
+    }
+
+    .cta-buttons .btn-primary,
+    .cta-buttons .btn-secondary {
+      width: 100%;
+      font-size: 0.9rem;
+    }
+
+    .cta-buttons .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .guarantee-note {
+      font-size: 0.8rem;
+      padding: 0 0.5rem;
     }
   }
 </style>

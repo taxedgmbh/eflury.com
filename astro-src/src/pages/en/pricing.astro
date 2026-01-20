@@ -926,7 +926,7 @@ const lang = 'en';
     color: var(--text-secondary);
   }
 
-  /* Responsive */
+  /* Responsive - Tablet (1024px) */
   @media (max-width: 1024px) {
     .packages-grid {
       grid-template-columns: 1fr;
@@ -944,21 +944,573 @@ const lang = 'en';
     .faq-grid {
       grid-template-columns: 1fr;
     }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1rem 0.75rem;
+      font-size: 0.9rem;
+    }
   }
 
+  /* Responsive - Small Tablet / Large Mobile (768px) */
   @media (max-width: 768px) {
+    .hero {
+      padding: 3.5rem 0;
+    }
+
     .hero-stats {
       grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .hero-stats .stat {
+      padding: 0.75rem;
+      background: rgba(255, 255, 255, 0.5);
+      border-radius: 0.75rem;
+    }
+
+    .hero-stats .icon {
+      font-size: 1.75rem;
+    }
+
+    .hero-stats .label {
+      font-size: 0.875rem;
+    }
+
+    .packages,
+    .addons,
+    .faq,
+    .cta {
+      padding: 3.5rem 0;
+    }
+
+    .comparison {
+      padding: 3.5rem 0;
+    }
+
+    .package {
+      padding: 1.75rem;
+    }
+
+    .package-features li {
+      font-size: 0.9rem;
+      padding: 0.4rem 0;
+      padding-left: 1.25rem;
     }
 
     .addons-grid {
       grid-template-columns: 1fr;
     }
 
+    .addon {
+      padding: 1.5rem;
+    }
+
+    .faq-item {
+      padding: 1.5rem;
+    }
+
+    .faq-item h3 {
+      font-size: 1rem;
+    }
+
     .cta-buttons {
       flex-direction: column;
       max-width: 300px;
       margin: 0 auto 2rem;
+    }
+
+    .cta-buttons .btn-primary,
+    .cta-buttons .btn-secondary {
+      width: 100%;
+      justify-content: center;
+      padding: 1rem 1.5rem;
+      min-height: 48px;
+    }
+
+    /* Comparison table - better touch targets */
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.875rem 0.5rem;
+      font-size: 0.85rem;
+    }
+
+    .comparison-table td:first-child {
+      font-size: 0.8rem;
+    }
+  }
+
+  /* Responsive - Mobile (600px) */
+  @media (max-width: 600px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .hero {
+      padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 7vw, 2.5rem);
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1rem, 3.5vw, 1.25rem);
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.4rem 0.875rem;
+      margin-bottom: 1rem;
+    }
+
+    .hero-stats {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      max-width: 280px;
+    }
+
+    .hero-stats .stat {
+      flex-direction: row;
+      justify-content: flex-start;
+      gap: 1rem;
+      padding: 0.875rem 1rem;
+    }
+
+    .hero-stats .icon {
+      font-size: 1.5rem;
+    }
+
+    .hero-stats .label {
+      text-align: left;
+    }
+
+    .packages,
+    .addons,
+    .cta {
+      padding: 3rem 1rem;
+    }
+
+    .faq,
+    .comparison {
+      padding: 3rem 1rem;
+    }
+
+    .packages h2,
+    .addons h2,
+    .faq h2,
+    .cta h2,
+    .comparison h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      margin-bottom: 0.75rem;
+    }
+
+    .packages .intro,
+    .addons .intro {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .package {
+      max-width: 100%;
+      padding: 1.5rem;
+    }
+
+    .package-header h3 {
+      font-size: 1.5rem;
+    }
+
+    .package-subtitle {
+      font-size: 0.9rem;
+    }
+
+    .package-price {
+      padding: 1.25rem 0;
+    }
+
+    .package-price .price {
+      font-size: clamp(2rem, 8vw, 2.5rem);
+    }
+
+    .package-price .period,
+    .package-price .payment-plan {
+      font-size: 0.8rem;
+    }
+
+    .package-price .vat {
+      font-size: 0.7rem;
+    }
+
+    .package-timeline {
+      padding: 0.6rem 0.875rem;
+      font-size: 0.875rem;
+    }
+
+    .package-features h4 {
+      font-size: 0.9rem;
+    }
+
+    .package-features li {
+      font-size: 0.85rem;
+      padding: 0.35rem 0;
+      padding-left: 1.25rem;
+      line-height: 1.5;
+    }
+
+    .package-roi {
+      padding: 0.875rem;
+      font-size: 0.875rem;
+    }
+
+    .guarantee {
+      padding: 0.875rem;
+      font-size: 0.8rem;
+    }
+
+    .popular-badge {
+      top: -12px;
+      font-size: 0.65rem;
+      padding: 0.4rem 1rem;
+    }
+
+    /* Comparison table - horizontal scroll with sticky first column */
+    .comparison-table-wrapper {
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+      margin: 0 -1rem;
+      padding: 0 1rem;
+    }
+
+    .comparison-table {
+      min-width: 600px;
+      font-size: 0.8rem;
+    }
+
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+      position: sticky;
+      left: 0;
+      background: white;
+      z-index: 1;
+      min-width: 140px;
+      box-shadow: 2px 0 4px rgba(0, 0, 0, 0.05);
+    }
+
+    .comparison-table thead th:first-child {
+      background: var(--primary-600);
+    }
+
+    .comparison-table tbody tr:nth-child(even) td:first-child {
+      background: var(--bg-secondary);
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.75rem 0.5rem;
+    }
+
+    .popular-label {
+      font-size: 0.65rem;
+    }
+
+    /* Add-ons */
+    .addon {
+      padding: 1.25rem;
+    }
+
+    .addon h3 {
+      font-size: 1.1rem;
+    }
+
+    .addon-price {
+      font-size: 1.5rem;
+    }
+
+    .addon p {
+      font-size: 0.875rem;
+    }
+
+    /* FAQ */
+    .faq h2 {
+      margin-bottom: 2rem;
+    }
+
+    .faq-grid {
+      gap: 1rem;
+    }
+
+    .faq-item {
+      padding: 1.25rem;
+    }
+
+    .faq-item h3 {
+      font-size: 0.95rem;
+      line-height: 1.4;
+    }
+
+    .faq-item p {
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    /* CTA */
+    .cta-text {
+      font-size: 1rem;
+    }
+
+    .cta-buttons {
+      max-width: 100%;
+      padding: 0;
+    }
+
+    .guarantee-note {
+      font-size: 0.85rem;
+      line-height: 1.5;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+      padding: 0.875rem 1.5rem;
+      font-size: 0.95rem;
+    }
+  }
+
+  /* Responsive - Small Mobile (480px) */
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .hero {
+      padding: 2.5rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.5rem, 8vw, 2rem);
+      line-height: 1.2;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(0.9rem, 4vw, 1.1rem);
+      line-height: 1.5;
+      margin-bottom: 1.75rem;
+    }
+
+    .badge {
+      font-size: 0.7rem;
+      padding: 0.35rem 0.75rem;
+      letter-spacing: 0.5px;
+    }
+
+    .hero-stats {
+      max-width: 100%;
+    }
+
+    .hero-stats .stat {
+      padding: 0.75rem;
+    }
+
+    .hero-stats .icon {
+      font-size: 1.25rem;
+    }
+
+    .hero-stats .label {
+      font-size: 0.8rem;
+    }
+
+    .packages,
+    .addons,
+    .cta {
+      padding: 2.5rem 1rem;
+    }
+
+    .faq,
+    .comparison {
+      padding: 2.5rem 1rem;
+    }
+
+    .packages h2,
+    .addons h2,
+    .faq h2,
+    .cta h2,
+    .comparison h2 {
+      font-size: clamp(1.35rem, 6vw, 1.75rem);
+    }
+
+    .packages .intro,
+    .addons .intro {
+      font-size: 0.9rem;
+      margin-bottom: 1.75rem;
+    }
+
+    .package {
+      padding: 1.25rem;
+    }
+
+    .package.popular {
+      margin-top: 0.75rem;
+    }
+
+    .popular-badge {
+      top: -10px;
+      font-size: 0.6rem;
+      padding: 0.35rem 0.875rem;
+      white-space: nowrap;
+    }
+
+    .package-header {
+      margin-bottom: 1.25rem;
+    }
+
+    .package-header h3 {
+      font-size: 1.35rem;
+    }
+
+    .package-subtitle {
+      font-size: 0.85rem;
+    }
+
+    .package-price {
+      padding: 1rem 0;
+      margin-bottom: 1.25rem;
+    }
+
+    .package-price .price {
+      font-size: clamp(1.75rem, 10vw, 2.25rem);
+    }
+
+    .package-timeline {
+      padding: 0.5rem 0.75rem;
+      font-size: 0.8rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .package-features {
+      margin-bottom: 1.25rem;
+    }
+
+    .package-features h4 {
+      font-size: 0.85rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .package-features li {
+      font-size: 0.8rem;
+      padding: 0.3rem 0;
+      padding-left: 1.1rem;
+    }
+
+    .package-roi {
+      padding: 0.75rem;
+      font-size: 0.8rem;
+      margin-bottom: 1.25rem;
+    }
+
+    .guarantee {
+      padding: 0.75rem;
+      font-size: 0.75rem;
+      margin-bottom: 1.25rem;
+    }
+
+    /* Full-width CTA buttons */
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+      width: 100%;
+      padding: 1rem;
+      font-size: 0.9rem;
+      min-height: 52px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Comparison table - small mobile */
+    .comparison-table {
+      min-width: 550px;
+      font-size: 0.75rem;
+    }
+
+    .comparison-table th:first-child,
+    .comparison-table td:first-child {
+      min-width: 120px;
+      font-size: 0.7rem;
+    }
+
+    .comparison-table th,
+    .comparison-table td {
+      padding: 0.6rem 0.4rem;
+    }
+
+    .popular-label {
+      font-size: 0.6rem;
+    }
+
+    /* Add-ons */
+    .addons-grid {
+      gap: 1rem;
+    }
+
+    .addon {
+      padding: 1rem;
+    }
+
+    .addon h3 {
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .addon-price {
+      font-size: 1.35rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .addon p {
+      font-size: 0.8rem;
+      line-height: 1.5;
+    }
+
+    /* FAQ */
+    .faq h2 {
+      margin-bottom: 1.75rem;
+    }
+
+    .faq-item {
+      padding: 1rem;
+    }
+
+    .faq-item h3 {
+      font-size: 0.875rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .faq-item p {
+      font-size: 0.8rem;
+      line-height: 1.55;
+    }
+
+    /* CTA */
+    .cta-text {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .cta-buttons {
+      gap: 0.75rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .cta-buttons .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .guarantee-note {
+      font-size: 0.8rem;
+      padding: 0 0.5rem;
     }
   }
 </style>
