@@ -730,27 +730,730 @@ const lang = 'de';
     color: var(--primary-600);
   }
 
-  /* Responsive */
+  /* Responsive - Tablet breakpoint */
   @media (max-width: 768px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .hero {
+      padding: 3rem 0;
+    }
+
     .hero-content {
       grid-template-columns: 1fr;
       text-align: center;
+      gap: 2rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 6vw, 2.5rem);
+    }
+
+    .subtitle {
+      font-size: clamp(1.1rem, 3vw, 1.25rem);
+    }
+
+    .location {
+      justify-content: center;
+    }
+
+    .avatar-circle {
+      width: 160px;
+      height: 160px;
+    }
+
+    .initials {
+      font-size: 3rem;
+    }
+
+    .story {
+      padding: 3rem 0;
+    }
+
+    .story h2 {
+      font-size: clamp(1.75rem, 5vw, 2rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .story-content {
+      font-size: 1rem;
+    }
+
+    .story-content .lead {
+      font-size: 1.25rem;
+    }
+
+    .highlight-box {
+      padding: 1.5rem;
+      margin: 1.5rem 0;
+    }
+
+    .mission {
+      font-size: 1.125rem;
+    }
+
+    .expertise {
+      padding: 3rem 0;
+    }
+
+    .expertise h2 {
+      margin-bottom: 2rem;
     }
 
     .expertise-grid {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+
+    .expertise-box {
+      padding: 1.5rem;
+    }
+
+    .expertise-box ul li {
+      padding: 0.625rem 0;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+    }
+
+    .why-claude {
+      padding: 1.5rem;
+    }
+
+    .method-summary {
+      padding: 3rem 0;
+    }
+
+    .method-summary .intro {
+      font-size: 1rem;
+      margin-bottom: 2rem;
     }
 
     .phases {
       grid-template-columns: 1fr;
+      gap: 2rem;
+    }
+
+    .phase {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .phase-number {
+      width: 50px;
+      height: 50px;
+      font-size: 1.5rem;
+    }
+
+    .phase h3 {
+      font-size: 1.125rem;
+    }
+
+    .phase p {
+      max-width: 300px;
+    }
+
+    .method-cta {
+      margin-top: 2rem;
+    }
+
+    .proof {
+      padding: 3rem 0;
+    }
+
+    .proof h2 {
+      margin-bottom: 2rem;
+    }
+
+    .case-study-highlight {
+      padding: 2rem 1.5rem;
+    }
+
+    .case-study-highlight h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .badge {
+      display: block;
+      margin: 0.5rem auto 0;
     }
 
     .metrics {
       grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+
+    .metric .value {
+      font-size: 2.25rem;
+    }
+
+    .metric .label {
+      font-size: 0.8125rem;
+    }
+
+    .personal {
+      padding: 3rem 0;
+    }
+
+    .personal p {
+      font-size: 1rem;
+    }
+
+    .connect {
+      margin: 2rem auto 0;
+    }
+
+    .contact-link {
+      padding: 1rem;
+      min-height: 44px;
+      width: 100%;
+    }
+
+    .contact-link:hover {
+      transform: none;
+    }
+
+    .response-time {
+      display: block;
+      margin-left: 0;
+      margin-top: 0.25rem;
+    }
+
+    .cta {
+      padding: 3rem 0;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.75rem, 5vw, 2rem);
+    }
+
+    .cta-text {
+      font-size: 1.0625rem;
     }
 
     .cta-buttons {
       flex-direction: column;
+      gap: 0.75rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      padding: 1rem 1.5rem;
+      min-height: 44px;
+      text-align: center;
+    }
+  }
+
+  /* Responsive - Small mobile breakpoint */
+  @media (max-width: 600px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .hero {
+      padding: 3rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 7vw, 2rem);
+    }
+
+    .subtitle {
+      font-size: clamp(1rem, 3.5vw, 1.1rem);
+    }
+
+    .tagline {
+      font-size: 1rem;
+    }
+
+    .avatar-circle {
+      width: 140px;
+      height: 140px;
+    }
+
+    .initials {
+      font-size: 2.5rem;
+    }
+
+    .story {
+      padding: 3rem 1rem;
+    }
+
+    .story h2 {
+      font-size: clamp(1.5rem, 6vw, 1.75rem);
+    }
+
+    .story-content {
+      font-size: 0.9375rem;
+      line-height: 1.7;
+    }
+
+    .story-content .lead {
+      font-size: 1.125rem;
+    }
+
+    .highlight-box {
+      padding: 1.25rem;
+    }
+
+    .highlight-box h3 {
+      font-size: 1.125rem;
+    }
+
+    .results-list li {
+      font-size: 1rem;
+    }
+
+    .mission {
+      font-size: 1rem;
+    }
+
+    .expertise {
+      padding: 3rem 1rem;
+    }
+
+    .expertise h2 {
+      font-size: clamp(1.5rem, 6vw, 1.75rem);
+    }
+
+    .expertise-box {
+      padding: 1.25rem;
+    }
+
+    .box-header h3 {
+      font-size: 1.0625rem;
+    }
+
+    .expertise-box ul li {
+      font-size: 0.9375rem;
+    }
+
+    .why-claude {
+      padding: 1.25rem;
+    }
+
+    .why-claude h3 {
+      font-size: 1.125rem;
+    }
+
+    .why-claude p {
+      font-size: 0.9375rem;
+    }
+
+    .method-summary {
+      padding: 3rem 1rem;
+    }
+
+    .method-summary h2 {
+      font-size: clamp(1.5rem, 6vw, 1.75rem);
+    }
+
+    .method-summary .intro {
+      font-size: 0.9375rem;
+    }
+
+    .phase h3 {
+      font-size: 1rem;
+    }
+
+    .phase p {
+      font-size: 0.875rem;
+    }
+
+    .proof {
+      padding: 3rem 1rem;
+    }
+
+    .proof h2 {
+      font-size: clamp(1.5rem, 6vw, 1.75rem);
+    }
+
+    .case-study-highlight {
+      padding: 1.5rem 1rem;
+    }
+
+    .case-study-highlight h3 {
+      font-size: 1.25rem;
+    }
+
+    .metrics {
+      gap: 1rem;
+    }
+
+    .metric .value {
+      font-size: 1.875rem;
+    }
+
+    .metric .label {
+      font-size: 0.75rem;
+    }
+
+    .compliance h3 {
+      font-size: 1.125rem;
+    }
+
+    .compliance ul {
+      font-size: 0.9375rem;
+    }
+
+    .personal {
+      padding: 3rem 1rem;
+    }
+
+    .personal h2 {
+      font-size: clamp(1.5rem, 6vw, 1.75rem);
+    }
+
+    .personal p {
+      font-size: 0.9375rem;
+    }
+
+    .connect h3 {
+      font-size: 1.125rem;
+    }
+
+    .contact-link {
+      font-size: 0.9375rem;
+    }
+
+    .cta {
+      padding: 3rem 1rem;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.5rem, 6vw, 1.75rem);
+    }
+
+    .cta-text {
+      font-size: 1rem;
+    }
+  }
+
+  /* Responsive - Extra small mobile breakpoint */
+  @media (max-width: 480px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .hero {
+      padding: 2.5rem 1rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.5rem, 8vw, 1.75rem);
+      line-height: 1.2;
+    }
+
+    .subtitle {
+      font-size: clamp(0.9375rem, 4vw, 1rem);
+      line-height: 1.4;
+    }
+
+    .location {
+      flex-wrap: wrap;
+      gap: 0.375rem;
+    }
+
+    .location .icon {
+      width: 18px;
+      height: 18px;
+    }
+
+    .location span {
+      font-size: 0.875rem;
+    }
+
+    .tagline {
+      font-size: 0.9375rem;
+    }
+
+    .avatar-circle {
+      width: 120px;
+      height: 120px;
+    }
+
+    .initials {
+      font-size: 2rem;
+    }
+
+    .photo-note {
+      font-size: 0.75rem;
+    }
+
+    .story {
+      padding: 2.5rem 1rem;
+    }
+
+    .story h2 {
+      font-size: clamp(1.375rem, 7vw, 1.5rem);
+      line-height: 1.3;
+    }
+
+    .story-content {
+      font-size: 0.875rem;
+    }
+
+    .story-content .lead {
+      font-size: 1rem;
+      line-height: 1.5;
+    }
+
+    .highlight-box {
+      padding: 1rem;
+      margin: 1.25rem 0;
+      border-radius: 0.375rem;
+    }
+
+    .highlight-box h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight-box p {
+      font-size: 0.875rem;
+    }
+
+    .results-list li {
+      font-size: 0.875rem;
+      padding: 0.375rem 0;
+    }
+
+    .mission {
+      font-size: 0.9375rem;
+      margin: 1.5rem 0;
+    }
+
+    .expertise {
+      padding: 2.5rem 1rem;
+    }
+
+    .expertise h2 {
+      font-size: clamp(1.375rem, 7vw, 1.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .expertise-grid {
+      gap: 1rem;
+    }
+
+    .expertise-box {
+      padding: 1rem;
+      border-radius: 0.75rem;
+    }
+
+    .box-header {
+      gap: 0.5rem;
+    }
+
+    .box-header .icon-check,
+    .box-header .icon-x {
+      width: 28px;
+      height: 28px;
+    }
+
+    .box-header h3 {
+      font-size: 1rem;
+    }
+
+    .expertise-box ul li {
+      font-size: 0.875rem;
+      padding: 0.5rem 0;
+      line-height: 1.5;
+    }
+
+    .why-claude {
+      padding: 1rem;
+      border-radius: 0.75rem;
+    }
+
+    .why-claude h3 {
+      font-size: 1rem;
+    }
+
+    .why-claude p {
+      font-size: 0.875rem;
+    }
+
+    .method-summary {
+      padding: 2.5rem 1rem;
+    }
+
+    .method-summary h2 {
+      font-size: clamp(1.375rem, 7vw, 1.5rem);
+    }
+
+    .method-summary .intro {
+      font-size: 0.875rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .phases {
+      gap: 1.5rem;
+    }
+
+    .phase-number {
+      width: 44px;
+      height: 44px;
+      font-size: 1.25rem;
+    }
+
+    .phase h3 {
+      font-size: 0.9375rem;
+    }
+
+    .phase-time {
+      font-size: 0.75rem;
+    }
+
+    .phase p {
+      font-size: 0.8125rem;
+      max-width: 260px;
+    }
+
+    .method-cta {
+      margin-top: 1.5rem;
+      font-size: 0.875rem;
+    }
+
+    .method-cta a {
+      display: block;
+      margin-top: 0.5rem;
+    }
+
+    .proof {
+      padding: 2.5rem 1rem;
+    }
+
+    .proof h2 {
+      font-size: clamp(1.375rem, 7vw, 1.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .case-study-highlight {
+      padding: 1.25rem 1rem;
+      border-radius: 0.75rem;
+    }
+
+    .case-study-highlight h3 {
+      font-size: 1.125rem;
+      line-height: 1.3;
+    }
+
+    .badge {
+      font-size: 0.75rem;
+      padding: 0.1875rem 0.5rem;
+    }
+
+    .metrics {
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+    }
+
+    .metric .value {
+      font-size: clamp(1.5rem, 8vw, 1.75rem);
+    }
+
+    .metric .label {
+      font-size: 0.6875rem;
+      line-height: 1.3;
+    }
+
+    .case-study-highlight .btn-primary {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      font-size: 0.875rem;
+    }
+
+    .compliance {
+      margin-top: 1.5rem;
+    }
+
+    .compliance h3 {
+      font-size: 1rem;
+    }
+
+    .compliance ul {
+      font-size: 0.875rem;
+      padding-left: 0;
+      list-style: none;
+    }
+
+    .compliance ul li {
+      padding: 0.375rem 0;
+    }
+
+    .personal {
+      padding: 2.5rem 1rem;
+    }
+
+    .personal h2 {
+      font-size: clamp(1.375rem, 7vw, 1.5rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .personal p {
+      font-size: 0.875rem;
+      line-height: 1.6;
+    }
+
+    .connect {
+      margin: 1.5rem auto 0;
+    }
+
+    .connect h3 {
+      font-size: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .contact-links {
+      gap: 0.75rem;
+    }
+
+    .contact-link {
+      padding: 0.875rem 1rem;
+      font-size: 0.875rem;
+      border-radius: 0.375rem;
+    }
+
+    .contact-link .icon {
+      width: 20px;
+      height: 20px;
+      flex-shrink: 0;
+    }
+
+    .response-time {
+      font-size: 0.75rem;
+    }
+
+    .cta {
+      padding: 2.5rem 1rem;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.375rem, 7vw, 1.5rem);
+      line-height: 1.3;
+    }
+
+    .cta-text {
+      font-size: 0.9375rem;
+      margin-bottom: 1.5rem;
+      line-height: 1.5;
+    }
+
+    .cta-buttons {
+      gap: 0.625rem;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      padding: 0.875rem 1rem;
+      font-size: 0.9375rem;
+      border-radius: 0.375rem;
     }
   }
 </style>
