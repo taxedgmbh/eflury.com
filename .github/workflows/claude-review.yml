@@ -30,24 +30,38 @@ jobs:
         id: review
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          PR_DIFF: ${{ steps.diff.outputs.diff }}
         run: |
-          # Escape the diff for JSON
-          ESCAPED_DIFF=$(echo '${{ steps.diff.outputs.diff }}' | jq -Rs .)
-
-          RESPONSE=$(curl -s https://api.anthropic.com/v1/messages \
-            -H "Content-Type: application/json" \
-            -H "x-api-key: $ANTHROPIC_API_KEY" \
-            -H "anthropic-version: 2023-06-01" \
-            -d '{
-              "model": "claude-sonnet-4-20250514",
-              "max_tokens": 4096,
-              "messages": [{
-                "role": "user",
-                "content": "Review this PR diff for code quality, security issues, and best practices. Be concise. Provide actionable feedback. Format with markdown.\n\nDiff:\n'"$ESCAPED_DIFF"'"
+          # Build JSON payload using jq to handle escaping properly
+          PAYLOAD=$(jq -n \
+            --arg diff "$PR_DIFF" \
+            '{
+              model: "claude-sonnet-4-20250514",
+              max_tokens: 4096,
+              messages: [{
+                role: "user",
+                content: ("Review this PR diff for code quality, security issues, and best practices. Be concise. Provide actionable feedback. Format with markdown.\n\nDiff:\n" + $diff)
               }]
             }')
 
-          REVIEW=$(echo "$RESPONSE" | jq -r '.content[0].text // "Review failed - check API key"')
+          RESPONSE=$(curl -s -w "\n%{http_code}" https://api.anthropic.com/v1/messages \
+            -H "Content-Type: application/json" \
+            -H "x-api-key: $ANTHROPIC_API_KEY" \
+            -H "anthropic-version: 2023-06-01" \
+            -d "$PAYLOAD")
+
+          HTTP_CODE=$(echo "$RESPONSE" | tail -1)
+          BODY=$(echo "$RESPONSE" | sed '$d')
+
+          echo "API response status: $HTTP_CODE"
+
+          if [ "$HTTP_CODE" != "200" ]; then
+            echo "API error response: $BODY"
+            REVIEW="Review failed (HTTP $HTTP_CODE). Check API key and billing."
+          else
+            REVIEW=$(echo "$BODY" | jq -r '.content[0].text // "Review failed - unexpected response format"')
+          fi
+
           echo "review<<EOF" >> $GITHUB_OUTPUT
           echo "$REVIEW" >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
