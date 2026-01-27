@@ -3,7 +3,7 @@ import { Moon, Sun } from 'lucide-astro';
 // Dark Mode Toggle Component
 ---
 
-<button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode">
+<button id="darkModeToggle" class="dark-mode-toggle" aria-label="Toggle Dark Mode" title="Toggle dark mode">
   <Moon id="darkModeIcon" size={20} class="icon-moon" />
   <Sun id="darkModeIconSun" size={20} class="icon-sun" style="display: none;" />
 </button>
@@ -34,7 +34,28 @@ import { Moon, Sun } from 'lucide-astro';
   .dark-mode-toggle:active {
     transform: scale(0.95);
   }
-  
+
+  .dark-mode-toggle::after {
+    content: 'Toggle theme';
+    position: absolute;
+    bottom: -32px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--text-primary);
+    color: var(--bg-primary);
+    font-size: 0.7rem;
+    padding: 4px 8px;
+    border-radius: var(--radius-sm);
+    white-space: nowrap;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity var(--transition-fast);
+  }
+
+  .dark-mode-toggle:hover::after {
+    opacity: 1;
+  }
+
   .dark-mode-toggle svg {
     transition: all var(--transition-base);
   }

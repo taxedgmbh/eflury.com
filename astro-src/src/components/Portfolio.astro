@@ -123,6 +123,29 @@ const projects = [
     background: linear-gradient(135deg, var(--primary) 0%, var(--accent-purple) 100%);
     position: relative;
     overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .portfolio-image::before {
+    content: '';
+    width: 80px;
+    height: 80px;
+    background: rgba(255,255,255,0.15);
+    border-radius: 50%;
+  }
+
+  .portfolio-card:nth-child(1) .portfolio-image {
+    background: linear-gradient(135deg, #022554 0%, #0d9488 100%);
+  }
+
+  .portfolio-card:nth-child(2) .portfolio-image {
+    background: linear-gradient(135deg, #0d9488 0%, #1490D0 100%);
+  }
+
+  .portfolio-card:nth-child(3) .portfolio-image {
+    background: linear-gradient(135deg, #1490D0 0%, #022554 100%);
   }
 
   .portfolio-overlay {

@@ -262,5 +262,49 @@
     "error": "An error occurred",
     "close": "Close",
     "menu": "Menu"
+  },
+  "testimonials": {
+    "title": "What Clients Say",
+    "subtitle": "Real results from real businesses",
+    "testimonial1": {
+      "name": "Thomas R.",
+      "role": "VP Finance & Controlling",
+      "company": "Global Finance",
+      "text": "Emanuel automated our month-end reporting process, saving our team 40+ hours every month. The ROI was clear within the first quarter."
+    },
+    "testimonial2": {
+      "name": "Sarah M.",
+      "role": "Managing Director",
+      "company": "Swiss KMU, Manufacturing",
+      "text": "We went from manual data entry to fully automated workflows in just 3 weeks. Emanuel made the whole process feel effortless."
+    },
+    "testimonial3": {
+      "name": "Martin K.",
+      "role": "Head of Operations",
+      "company": "Swiss Manufacturing, 120 employees",
+      "text": "The AI training was exactly what our team needed. Practical, hands-on, and immediately applicable. We now use AI tools daily."
+    }
+  },
+  "portfolio": {
+    "title": "Success Stories",
+    "subtitle": "Real results from real implementations",
+    "project1": {
+      "title": "Finance Process Automation",
+      "description": "Automated month-end reporting and reconciliation for a global finance team, reducing processing time by 80%.",
+      "category": "Finance Automation",
+      "technologies": "Make, Microsoft 365, Claude AI"
+    },
+    "project2": {
+      "title": "Global Compliance Automation",
+      "description": "Built automated compliance workflows across multiple jurisdictions, ensuring consistent regulatory reporting.",
+      "category": "Compliance",
+      "technologies": "n8n, Document AI, Microsoft 365"
+    },
+    "project3": {
+      "title": "Swiss SME AI Implementation",
+      "description": "End-to-end AI implementation for a Swiss manufacturing company, from strategy to daily operations.",
+      "category": "AI Implementation",
+      "technologies": "Claude Code, Make, Custom Agents"
+    }
   }
 }

@@ -106,10 +106,15 @@ const t = useTranslations(lang);
     position: relative;
     border-radius: 24px;
     overflow: hidden;
-    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    box-shadow: var(--shadow-lg), 0 0 0 4px var(--eflury-teal);
     border: 3px solid var(--eflury-navy);
     outline: 3px solid var(--eflury-teal);
     outline-offset: 3px;
+    transition: transform var(--transition-base);
+  }
+
+  .image-wrapper:hover {
+    transform: scale(1.02);
   }
 
   :global([data-theme="dark"]) .about {

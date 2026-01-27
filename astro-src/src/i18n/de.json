@@ -276,5 +276,49 @@
     "error": "Ein Fehler ist aufgetreten",
     "close": "Schliessen",
     "menu": "Menü"
+  },
+  "testimonials": {
+    "title": "Was Kunden sagen",
+    "subtitle": "Echte Ergebnisse von echten Unternehmen",
+    "testimonial1": {
+      "name": "Thomas R.",
+      "role": "VP Finance & Controlling",
+      "company": "Global Finance",
+      "text": "Emanuel hat unseren Monatsabschlussprozess automatisiert und spart unserem Team jeden Monat über 40 Stunden. Der ROI war innerhalb des ersten Quartals klar."
+    },
+    "testimonial2": {
+      "name": "Sarah M.",
+      "role": "Geschäftsführerin",
+      "company": "Schweizer KMU, Fertigung",
+      "text": "Von manueller Dateneingabe zu vollautomatisierten Workflows in nur 3 Wochen. Emanuel hat den ganzen Prozess mühelos gestaltet."
+    },
+    "testimonial3": {
+      "name": "Martin K.",
+      "role": "Leiter Betrieb",
+      "company": "Schweizer Fertigung, 120 Mitarbeiter",
+      "text": "Das KI-Training war genau das, was unser Team brauchte. Praktisch, hands-on und sofort anwendbar. Wir nutzen jetzt täglich KI-Tools."
+    }
+  },
+  "portfolio": {
+    "title": "Erfolgsgeschichten",
+    "subtitle": "Echte Ergebnisse aus echten Implementierungen",
+    "project1": {
+      "title": "Finanzprozess-Automatisierung",
+      "description": "Automatisierung von Monatsabschluss-Reporting und Abstimmung für ein globales Finanzteam. Verarbeitungszeit um 80% reduziert.",
+      "category": "Finanz-Automatisierung",
+      "technologies": "Make, Microsoft 365, Claude AI"
+    },
+    "project2": {
+      "title": "Globale Compliance-Automatisierung",
+      "description": "Automatisierte Compliance-Workflows über mehrere Jurisdiktionen hinweg für konsistentes regulatorisches Reporting.",
+      "category": "Compliance",
+      "technologies": "n8n, Document AI, Microsoft 365"
+    },
+    "project3": {
+      "title": "KI-Implementierung für Schweizer KMU",
+      "description": "End-to-End KI-Implementierung für ein Schweizer Fertigungsunternehmen, von der Strategie bis zum täglichen Betrieb.",
+      "category": "KI-Implementierung",
+      "technologies": "Claude Code, Make, Custom Agents"
+    }
   }
 }
