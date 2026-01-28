@@ -1,26 +1,31 @@
 ---
-import LegalLayout from '../../layouts/LegalLayout.astro';
+import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
 
 const lang = 'en';
 ---
 
-<LegalLayout
-  title="Privacy Policy"
-  description="Privacy Policy for Emanuel Flury - How we collect, use, and protect your personal data."
+<ContentPageLayout
+  title="Privacy Policy - Emanuel Flury"
+  description="Privacy Policy for Emanuel Flury - How we collect, use, and protect your personal data under Swiss and EU law."
   lang={lang}
+  heroTitle="Privacy Policy"
+  heroSubtitle="How we collect, use, and protect your personal data"
   lastUpdated="January 4, 2025"
+  keywords="privacy policy, data protection, GDPR, Swiss DSG, personal data"
 >
   <h2>1. Introduction</h2>
   <p>Emanuel Flury ("we", "us", or "our") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website eflury.com (the "Site").</p>
 
   <h2>2. Data Controller</h2>
   <p>The data controller responsible for your personal data is:</p>
-  <ul>
-    <li><strong>Name:</strong> Emanuel Flury</li>
-    <li><strong>Address:</strong> Grenchen, Switzerland</li>
-    <li><strong>Email:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-    <li><strong>Phone:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-  </ul>
+  <div class="info-box">
+    <ul>
+      <li><strong>Name:</strong> Emanuel Flury</li>
+      <li><strong>Address:</strong> Grenchen, Switzerland</li>
+      <li><strong>Email:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
+      <li><strong>Phone:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
+    </ul>
+  </div>
 
   <h2>3. Data We Collect</h2>
   <h3>Information You Provide</h3>
@@ -74,19 +79,21 @@ const lang = 'en';
 
   <h2>9. Your Rights</h2>
   <p>Under Swiss and EU data protection laws, you have the right to:</p>
-  <ul>
-    <li>Access your personal data</li>
-    <li>Correct inaccurate data</li>
-    <li>Request deletion of your data</li>
-    <li>Restrict processing</li>
-    <li>Data portability</li>
-    <li>Object to processing</li>
-    <li>Withdraw consent</li>
-  </ul>
+  <div class="info-box">
+    <ul>
+      <li>Access your personal data</li>
+      <li>Correct inaccurate data</li>
+      <li>Request deletion of your data</li>
+      <li>Restrict processing</li>
+      <li>Data portability</li>
+      <li>Object to processing</li>
+      <li>Withdraw consent</li>
+    </ul>
+  </div>
   <p>To exercise these rights, contact us at <a href="mailto:me@eflury.com">me@eflury.com</a>.</p>
 
   <h2>10. Cookies</h2>
-  <p>Our website uses cookies. For detailed information, please see our <a href="/en/cookies">Cookie Policy</a>.</p>
+  <p>Our website uses cookies. For detailed information, please see our <a href="/en/cookies/">Cookie Policy</a>.</p>
 
   <h2>11. Security</h2>
   <p>We implement appropriate technical and organizational measures to protect your personal data, including encryption, secure servers, and regular security assessments.</p>
@@ -96,12 +103,14 @@ const lang = 'en';
 
   <h2>13. Contact Us</h2>
   <p>For questions about this privacy policy or our data practices:</p>
-  <ul>
-    <li><strong>Email:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-    <li><strong>Phone:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-    <li><strong>Address:</strong> Grenchen, Switzerland</li>
-  </ul>
+  <div class="info-box">
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
+      <li><strong>Phone:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
+      <li><strong>Address:</strong> Grenchen, Switzerland</li>
+    </ul>
+  </div>
 
   <h2>14. Supervisory Authority</h2>
   <p>You have the right to lodge a complaint with the Federal Data Protection and Information Commissioner (FDPIC) in Switzerland or your local data protection authority.</p>
-</LegalLayout>
+</ContentPageLayout>

@@ -1,26 +1,31 @@
 ---
-import LegalLayout from '../../layouts/LegalLayout.astro';
+import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
 
 const lang = 'de';
 ---
 
-<LegalLayout
-  title="Datenschutzerklärung"
+<ContentPageLayout
+  title="Datenschutzerklärung - Emanuel Flury"
   description="Datenschutzerklärung für Emanuel Flury - Wie wir Ihre persönlichen Daten sammeln, verwenden und schützen."
   lang={lang}
+  heroTitle="Datenschutzerklärung"
+  heroSubtitle="Wie wir Ihre persönlichen Daten sammeln, verwenden und schützen"
   lastUpdated="4. Januar 2025"
+  keywords="Datenschutz, DSGVO, DSG, persönliche Daten, Schweiz"
 >
   <h2>1. Einleitung</h2>
   <p>Emanuel Flury ("wir", "uns" oder "unser") respektiert Ihre Privatsphäre und verpflichtet sich zum Schutz Ihrer persönlichen Daten. Diese Datenschutzerklärung erläutert, wie wir Ihre Informationen sammeln, verwenden und schützen, wenn Sie unsere Website eflury.com (die "Website") besuchen.</p>
 
   <h2>2. Verantwortlicher</h2>
   <p>Der für Ihre persönlichen Daten verantwortliche Datenverantwortliche ist:</p>
-  <ul>
-    <li><strong>Name:</strong> Emanuel Flury</li>
-    <li><strong>Adresse:</strong> Grenchen, Schweiz</li>
-    <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-    <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-  </ul>
+  <div class="info-box">
+    <ul>
+      <li><strong>Name:</strong> Emanuel Flury</li>
+      <li><strong>Adresse:</strong> Grenchen, Schweiz</li>
+      <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
+      <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
+    </ul>
+  </div>
 
   <h2>3. Daten, die wir sammeln</h2>
   <h3>Von Ihnen bereitgestellte Informationen</h3>
@@ -74,19 +79,21 @@ const lang = 'de';
 
   <h2>9. Ihre Rechte</h2>
   <p>Gemäss dem Schweizer und EU-Datenschutzrecht haben Sie das Recht auf:</p>
-  <ul>
-    <li>Zugang zu Ihren persönlichen Daten</li>
-    <li>Berichtigung unrichtiger Daten</li>
-    <li>Löschung Ihrer Daten</li>
-    <li>Einschränkung der Verarbeitung</li>
-    <li>Datenübertragbarkeit</li>
-    <li>Widerspruch gegen die Verarbeitung</li>
-    <li>Widerruf der Einwilligung</li>
-  </ul>
+  <div class="info-box">
+    <ul>
+      <li>Zugang zu Ihren persönlichen Daten</li>
+      <li>Berichtigung unrichtiger Daten</li>
+      <li>Löschung Ihrer Daten</li>
+      <li>Einschränkung der Verarbeitung</li>
+      <li>Datenübertragbarkeit</li>
+      <li>Widerspruch gegen die Verarbeitung</li>
+      <li>Widerruf der Einwilligung</li>
+    </ul>
+  </div>
   <p>Um diese Rechte auszuüben, kontaktieren Sie uns unter <a href="mailto:me@eflury.com">me@eflury.com</a>.</p>
 
   <h2>10. Cookies</h2>
-  <p>Unsere Website verwendet Cookies. Detaillierte Informationen finden Sie in unserer <a href="/de/cookies">Cookie-Richtlinie</a>.</p>
+  <p>Unsere Website verwendet Cookies. Detaillierte Informationen finden Sie in unserer <a href="/de/cookies/">Cookie-Richtlinie</a>.</p>
 
   <h2>11. Sicherheit</h2>
   <p>Wir implementieren angemessene technische und organisatorische Massnahmen zum Schutz Ihrer persönlichen Daten, einschliesslich Verschlüsselung, sicherer Server und regelmässiger Sicherheitsbewertungen.</p>
@@ -96,12 +103,14 @@ const lang = 'de';
 
   <h2>13. Kontakt</h2>
   <p>Bei Fragen zu dieser Datenschutzerklärung oder unseren Datenpraktiken:</p>
-  <ul>
-    <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-    <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-    <li><strong>Adresse:</strong> Grenchen, Schweiz</li>
-  </ul>
+  <div class="info-box">
+    <ul>
+      <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
+      <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
+      <li><strong>Adresse:</strong> Grenchen, Schweiz</li>
+    </ul>
+  </div>
 
   <h2>14. Aufsichtsbehörde</h2>
   <p>Sie haben das Recht, eine Beschwerde beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) in der Schweiz oder bei Ihrer lokalen Datenschutzbehörde einzureichen.</p>
-</LegalLayout>
+</ContentPageLayout>

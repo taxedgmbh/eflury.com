@@ -1,0 +1,361 @@
+---
+/**
+ * ContentPageLayout - Modern layout for legal and content pages
+ * Features: Hero section, optional TOC sidebar, info boxes
+ * Uses MainLayout for full SEO/dark mode/analytics support
+ */
+import MainLayout from './MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import AIChatbot from '../components/AIChatbot.astro';
+import { type Language, routes } from '../i18n/utils';
+import { ChevronLeft, Calendar } from 'lucide-astro';
+
+interface Props {
+  title: string;
+  description: string;
+  lang: Language;
+  heroTitle: string;
+  heroSubtitle?: string;
+  lastUpdated?: string;
+  keywords?: string;
+}
+
+const { title, description, lang, heroTitle, heroSubtitle, lastUpdated, keywords } = Astro.props;
+const currentRoutes = routes[lang];
+---
+
+<MainLayout
+  title={title}
+  description={description}
+  lang={lang}
+  keywords={keywords}
+>
+  <Header lang={lang} />
+
+  <main class="content-page">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <a href={currentRoutes.home} class="back-link">
+          <ChevronLeft size={18} />
+          {lang === 'en' ? 'Back to Home' : 'Zurück zur Startseite'}
+        </a>
+        <h1>{heroTitle}</h1>
+        {heroSubtitle && <p class="subtitle">{heroSubtitle}</p>}
+        {lastUpdated && (
+          <div class="last-updated">
+            <Calendar size={14} />
+            <span>{lang === 'en' ? 'Last updated:' : 'Zuletzt aktualisiert:'} {lastUpdated}</span>
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- Content Section -->
+    <section class="content-section">
+      <div class="container">
+        <div class="content-wrapper">
+          <article class="content-body">
+            <slot />
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot lang={lang} />
+</MainLayout>
+
+<style>
+  .content-page {
+    padding-top: 80px;
+    min-height: 100vh;
+  }
+
+  /* Hero Section */
+  .hero {
+    background: linear-gradient(
+      135deg,
+      rgba(2, 37, 84, 0.03) 0%,
+      rgba(13, 148, 136, 0.05) 50%,
+      rgba(2, 37, 84, 0.03) 100%
+    );
+    padding: 3rem 0 4rem;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .hero .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
+    color: var(--eflury-teal);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+    transition: all var(--transition-base);
+  }
+
+  .back-link:hover {
+    color: var(--eflury-navy);
+    transform: translateX(-4px);
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+    line-height: 1.2;
+  }
+
+  .hero .subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+
+  .last-updated {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--bg-secondary);
+    border-radius: var(--radius-full);
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    border: 1px solid var(--border-color);
+  }
+
+  /* Content Section */
+  .content-section {
+    padding: 4rem 0;
+    background: var(--bg-primary);
+  }
+
+  .content-section .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .content-wrapper {
+    display: block;
+  }
+
+  .content-body {
+    width: 100%;
+  }
+
+  /* Content Typography */
+  .content-body :global(h2) {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--eflury-teal);
+    letter-spacing: -0.01em;
+  }
+
+  .content-body :global(h2:first-child) {
+    margin-top: 0;
+  }
+
+  .content-body :global(h3) {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-top: 2rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .content-body :global(p) {
+    color: var(--text-secondary);
+    line-height: 1.8;
+    margin-bottom: 1.25rem;
+    font-size: 1.0625rem;
+  }
+
+  .content-body :global(ul),
+  .content-body :global(ol) {
+    color: var(--text-secondary);
+    padding-left: 1.5rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+  }
+
+  .content-body :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .content-body :global(li::marker) {
+    color: var(--eflury-teal);
+  }
+
+  .content-body :global(a) {
+    color: var(--eflury-teal);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all var(--transition-base);
+  }
+
+  .content-body :global(a:hover) {
+    color: var(--eflury-navy);
+    text-decoration: underline;
+  }
+
+  .content-body :global(strong) {
+    color: var(--text-primary);
+    font-weight: 600;
+  }
+
+  /* Info Box - for contact details, important notices */
+  .content-body :global(.info-box) {
+    background: linear-gradient(
+      135deg,
+      rgba(13, 148, 136, 0.08) 0%,
+      rgba(13, 148, 136, 0.04) 100%
+    );
+    border-left: 4px solid var(--eflury-teal);
+    padding: 1.5rem;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin: 2rem 0;
+  }
+
+  .content-body :global(.info-box p) {
+    margin-bottom: 0.5rem;
+  }
+
+  .content-body :global(.info-box p:last-child) {
+    margin-bottom: 0;
+  }
+
+  .content-body :global(.info-box ul) {
+    margin-bottom: 0;
+  }
+
+  /* Warning Box */
+  .content-body :global(.warning-box) {
+    background: rgba(245, 158, 11, 0.1);
+    border-left: 4px solid #f59e0b;
+    padding: 1.5rem;
+    border-radius: 0 var(--radius-md) var(--radius-md) 0;
+    margin: 2rem 0;
+  }
+
+  /* Table Styling */
+  .content-body :global(table) {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 2rem 0;
+    font-size: 0.95rem;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+  }
+
+  .content-body :global(th),
+  .content-body :global(td) {
+    padding: 1rem;
+    text-align: left;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .content-body :global(th) {
+    background: var(--bg-secondary);
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .content-body :global(td) {
+    color: var(--text-secondary);
+  }
+
+  .content-body :global(tr:last-child td) {
+    border-bottom: none;
+  }
+
+  .content-body :global(tr:hover td) {
+    background: var(--bg-secondary);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .hero {
+      padding: 2rem 0 3rem;
+    }
+
+    .hero .container,
+    .content-section .container {
+      padding: 0 1.5rem;
+    }
+
+    .hero h1 {
+      font-size: 1.75rem;
+    }
+
+    .hero .subtitle {
+      font-size: 1.1rem;
+    }
+
+    .content-section {
+      padding: 2.5rem 0 4rem;
+    }
+
+    .content-body :global(h2) {
+      font-size: 1.5rem;
+      margin-top: 2.5rem;
+    }
+
+    .content-body :global(h3) {
+      font-size: 1.125rem;
+    }
+
+    .content-body :global(p) {
+      font-size: 1rem;
+    }
+
+    .content-body :global(table) {
+      font-size: 0.85rem;
+    }
+
+    .content-body :global(th),
+    .content-body :global(td) {
+      padding: 0.75rem;
+    }
+  }
+
+  /* Dark mode adjustments */
+  :global([data-theme="dark"]) .hero {
+    background: linear-gradient(
+      135deg,
+      rgba(13, 148, 136, 0.08) 0%,
+      rgba(2, 37, 84, 0.1) 50%,
+      rgba(13, 148, 136, 0.08) 100%
+    );
+  }
+
+  :global([data-theme="dark"]) .content-body :global(.info-box) {
+    background: linear-gradient(
+      135deg,
+      rgba(13, 148, 136, 0.15) 0%,
+      rgba(13, 148, 136, 0.08) 100%
+    );
+  }
+
+  :global([data-theme="dark"]) .content-body :global(tr:hover td) {
+    background: rgba(255, 255, 255, 0.05);
+  }
+</style>

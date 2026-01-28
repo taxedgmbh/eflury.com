@@ -1,28 +1,33 @@
 ---
-import LegalLayout from '../../layouts/LegalLayout.astro';
+import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
 
 const lang = 'en';
 ---
 
-<LegalLayout
-  title="Code of Conduct"
+<ContentPageLayout
+  title="Code of Conduct - Emanuel Flury"
   description="Code of Conduct for Emanuel Flury - Professional standards and ethical guidelines."
   lang={lang}
+  heroTitle="Code of Conduct"
+  heroSubtitle="Professional standards and ethical guidelines"
   lastUpdated="January 4, 2025"
+  keywords="code of conduct, professional standards, ethics, business conduct"
 >
   <h2>Our Pledge</h2>
   <p>In the interest of fostering an open and welcoming environment, Emanuel Flury pledges to make participation in our projects and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.</p>
 
   <h2>Our Standards</h2>
   <p>Examples of behavior that contributes to a positive environment include:</p>
-  <ul>
-    <li>Using welcoming and inclusive language</li>
-    <li>Being respectful of differing viewpoints and experiences</li>
-    <li>Gracefully accepting constructive criticism</li>
-    <li>Focusing on what is best for the community and clients</li>
-    <li>Showing empathy towards other community members</li>
-    <li>Maintaining professional conduct in all interactions</li>
-  </ul>
+  <div class="info-box">
+    <ul>
+      <li>Using welcoming and inclusive language</li>
+      <li>Being respectful of differing viewpoints and experiences</li>
+      <li>Gracefully accepting constructive criticism</li>
+      <li>Focusing on what is best for the community and clients</li>
+      <li>Showing empathy towards other community members</li>
+      <li>Maintaining professional conduct in all interactions</li>
+    </ul>
+  </div>
 
   <p>Examples of unacceptable behavior include:</p>
   <ul>
@@ -54,7 +59,7 @@ const lang = 'en';
   </ul>
 
   <h2>Data Protection & Privacy</h2>
-  <p>We are committed to protecting the privacy and security of all data entrusted to us in full compliance with the Swiss Data Protection Act (DSG) and other applicable regulations. See our <a href="/en/privacy">Privacy Policy</a> for details.</p>
+  <p>We are committed to protecting the privacy and security of all data entrusted to us in full compliance with the Swiss Data Protection Act (DSG) and other applicable regulations. See our <a href="/en/privacy/">Privacy Policy</a> for details.</p>
 
   <h2>Intellectual Property</h2>
   <p>We respect intellectual property rights and expect the same from others. All work products are delivered according to agreed-upon terms and ownership agreements.</p>
@@ -63,18 +68,22 @@ const lang = 'en';
   <p>Instances of unacceptable behavior may be reported by contacting us at <a href="mailto:me@eflury.com">me@eflury.com</a>. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances.</p>
 
   <h2>Swiss Professional Standards</h2>
-  <p>Our conduct aligns with Swiss professional standards and business ethics, including compliance with:</p>
-  <ul>
-    <li>Swiss Data Protection Act (DSG)</li>
-    <li>Swiss Code of Obligations</li>
-    <li>Professional standards for tax and financial advisors in Switzerland</li>
-  </ul>
+  <div class="info-box">
+    <p>Our conduct aligns with Swiss professional standards and business ethics, including compliance with:</p>
+    <ul>
+      <li>Swiss Data Protection Act (DSG)</li>
+      <li>Swiss Code of Obligations</li>
+      <li>Professional standards for tax and financial advisors in Switzerland</li>
+    </ul>
+  </div>
 
   <h2>Contact</h2>
   <p>For questions or concerns about this Code of Conduct:</p>
-  <ul>
-    <li><strong>Email:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-    <li><strong>Phone:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-    <li><strong>Address:</strong> Grenchen, Switzerland</li>
-  </ul>
-</LegalLayout>
+  <div class="info-box">
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
+      <li><strong>Phone:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
+      <li><strong>Address:</strong> Grenchen, Switzerland</li>
+    </ul>
+  </div>
+</ContentPageLayout>

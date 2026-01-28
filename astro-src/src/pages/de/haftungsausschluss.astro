@@ -1,26 +1,33 @@
 ---
-import LegalLayout from '../../layouts/LegalLayout.astro';
+import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
 
 const lang = 'de';
 ---
 
-<LegalLayout
-  title="Haftungsausschluss"
+<ContentPageLayout
+  title="Haftungsausschluss - Emanuel Flury"
   description="Haftungsausschluss für eflury.com - Rechtliche Hinweise zu den auf dieser Website bereitgestellten Informationen."
   lang={lang}
+  heroTitle="Haftungsausschluss"
+  heroSubtitle="Rechtliche Hinweise zu den auf dieser Website bereitgestellten Informationen"
   lastUpdated="4. Januar 2025"
+  keywords="Haftungsausschluss, rechtliche Hinweise, Haftung, professionelle Beratung"
 >
   <h2>1. Informationszweck</h2>
   <p>Die von Emanuel Flury ("wir", "uns" oder "unser") auf https://eflury.com (die "Website") bereitgestellten Informationen dienen nur allgemeinen Informationszwecken. Alle Informationen auf der Website werden in gutem Glauben bereitgestellt, jedoch geben wir keine Zusicherung oder Gewährleistung jeglicher Art, ausdrücklich oder stillschweigend, bezüglich der Genauigkeit, Angemessenheit, Gültigkeit, Zuverlässigkeit, Verfügbarkeit oder Vollständigkeit der Informationen auf der Website.</p>
 
   <h2>2. Berufsrechtlicher Haftungsausschluss</h2>
-  <p>Die Website bietet professionelle Beratungsdienstleistungen in den Bereichen Automatisierung und Schweizer Steuerfragen an. Nichts auf dieser Website stellt jedoch eine professionelle Beratung dar. Sie sollten nicht auf die auf dieser Website enthaltenen Informationen vertrauen, ohne professionellen Rat von einem zugelassenen Fachmann in Ihrer Gerichtsbarkeit einzuholen.</p>
+  <div class="warning-box">
+    <p>Die Website bietet professionelle Beratungsdienstleistungen in den Bereichen Automatisierung und Schweizer Steuerfragen an. <strong>Nichts auf dieser Website stellt jedoch eine professionelle Beratung dar.</strong> Sie sollten nicht auf die auf dieser Website enthaltenen Informationen vertrauen, ohne professionellen Rat von einem zugelassenen Fachmann in Ihrer Gerichtsbarkeit einzuholen.</p>
+  </div>
 
   <h2>3. Steuer- und Rechtsberatungs-Haftungsausschluss</h2>
   <p>Inhalte zu Steuer- und Rechtsangelegenheiten dienen nur der allgemeinen Information und stellen keine Steuerberatung, Rechtsberatung oder professionelle Beratung dar. Steuergesetze und -vorschriften variieren je nach Gerichtsbarkeit und ändern sich häufig. Konsultieren Sie immer einen qualifizierten Steuerberater oder Rechtsberater für Ratschläge, die auf Ihre Situation zugeschnitten sind.</p>
 
   <h2>4. Keine Gewährleistung</h2>
-  <p>UNTER KEINEN UMSTÄNDEN HAFTEN WIR IHNEN GEGENÜBER FÜR VERLUSTE ODER SCHÄDEN JEGLICHER ART, DIE DURCH DIE NUTZUNG DER WEBSITE ODER DAS VERTRAUEN AUF DIE AUF DER WEBSITE BEREITGESTELLTEN INFORMATIONEN ENTSTEHEN. IHRE NUTZUNG DER WEBSITE UND IHR VERTRAUEN AUF INFORMATIONEN AUF DER WEBSITE ERFOLGT AUSSCHLIESSLICH AUF EIGENES RISIKO.</p>
+  <div class="info-box">
+    <p>UNTER KEINEN UMSTÄNDEN HAFTEN WIR IHNEN GEGENÜBER FÜR VERLUSTE ODER SCHÄDEN JEGLICHER ART, DIE DURCH DIE NUTZUNG DER WEBSITE ODER DAS VERTRAUEN AUF DIE AUF DER WEBSITE BEREITGESTELLTEN INFORMATIONEN ENTSTEHEN. IHRE NUTZUNG DER WEBSITE UND IHR VERTRAUEN AUF INFORMATIONEN AUF DER WEBSITE ERFOLGT AUSSCHLIESSLICH AUF EIGENES RISIKO.</p>
+  </div>
 
   <h2>5. Haftungsausschluss für externe Links</h2>
   <p>Die Website kann Links zu anderen Websites oder Inhalten enthalten (oder Sie können über die Website zu diesen weitergeleitet werden), die Dritten gehören oder von Dritten stammen, oder Links zu Websites und Funktionen in Bannern oder anderen Werbemitteln. Solche externen Links werden von uns nicht auf Genauigkeit, Angemessenheit, Gültigkeit, Zuverlässigkeit, Verfügbarkeit oder Vollständigkeit untersucht, überwacht oder überprüft.</p>
@@ -29,13 +36,17 @@ const lang = 'de';
   <p>Die Website kann Erfahrungsberichte von Nutzern unserer Dienstleistungen enthalten. Diese Erfahrungsberichte spiegeln die realen Erfahrungen und Meinungen dieser Nutzer wider. Die Erfahrungen sind jedoch persönlich für diese bestimmten Nutzer und müssen nicht unbedingt repräsentativ für alle Nutzer unserer Dienstleistungen sein. Wir behaupten nicht, und Sie sollten nicht davon ausgehen, dass alle Nutzer die gleichen Erfahrungen machen werden.</p>
 
   <h2>7. Schweizer Gerichtsbarkeit</h2>
-  <p>Dieser Haftungsausschluss unterliegt dem schweizerischen Recht. Streitigkeiten aus diesem Haftungsausschluss unterliegen der ausschliesslichen Gerichtsbarkeit der Gerichte der Schweiz.</p>
+  <div class="info-box">
+    <p>Dieser Haftungsausschluss unterliegt dem <strong>schweizerischen Recht</strong>. Streitigkeiten aus diesem Haftungsausschluss unterliegen der ausschliesslichen Gerichtsbarkeit der Gerichte der Schweiz.</p>
+  </div>
 
   <h2>8. Kontakt</h2>
   <p>Bei Fragen zu diesem Haftungsausschluss kontaktieren Sie uns bitte:</p>
-  <ul>
-    <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-    <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-    <li><strong>Adresse:</strong> Grenchen, Schweiz</li>
-  </ul>
-</LegalLayout>
+  <div class="info-box">
+    <ul>
+      <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
+      <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
+      <li><strong>Adresse:</strong> Grenchen, Schweiz</li>
+    </ul>
+  </div>
+</ContentPageLayout>

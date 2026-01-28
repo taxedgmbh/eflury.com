@@ -1,14 +1,17 @@
 ---
-import LegalLayout from '../../layouts/LegalLayout.astro';
+import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
 
 const lang = 'de';
 ---
 
-<LegalLayout
-  title="Cookie-Richtlinie"
+<ContentPageLayout
+  title="Cookie-Richtlinie - Emanuel Flury"
   description="Cookie-Richtlinie für eflury.com - Wie wir Cookies und ähnliche Technologien auf unserer Website verwenden."
   lang={lang}
+  heroTitle="Cookie-Richtlinie"
+  heroSubtitle="Wie wir Cookies und ähnliche Technologien auf unserer Website verwenden"
   lastUpdated="4. Januar 2025"
+  keywords="Cookie-Richtlinie, Cookies, Tracking, Datenschutz, DSGVO"
 >
   <p>Diese Cookie-Richtlinie erläutert, wie Emanuel Flury ("wir", "uns" oder "unser") Cookies und ähnliche Technologien auf eflury.com (die "Website") verwendet.</p>
 
@@ -73,8 +76,10 @@ const lang = 'de';
     <li>Worauf Sie geklickt haben</li>
   </ul>
   <p>Diese Informationen werden verwendet, um Berichte zu erstellen und unsere Website zu verbessern. Die Informationen werden in anonymer Form gesammelt.</p>
-  <p><strong>Google Analytics Datenschutzerklärung:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
-  <p><strong>Opt-out:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser-Add-on</a></p>
+  <div class="info-box">
+    <p><strong>Google Analytics Datenschutzerklärung:</strong> <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">https://policies.google.com/privacy</a></p>
+    <p><strong>Opt-out:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser-Add-on</a></p>
+  </div>
 
   <h2>5. Lokaler Speicher</h2>
   <p>Zusätzlich zu Cookies verwenden wir den lokalen Speicher des Browsers, um:</p>
@@ -103,7 +108,9 @@ const lang = 'de';
     <li><strong>Edge:</strong> <a href="https://support.microsoft.com/de-de/microsoft-edge/cookies-in-microsoft-edge-loeschen-63947406-40ac-c3b8-57b9-2a946a29ae09" target="_blank" rel="noopener">Cookie-Einstellungen in Edge</a></li>
   </ul>
 
-  <p><strong>Wichtig:</strong> Das Blockieren oder Löschen von Cookies kann Ihre Fähigkeit beeinträchtigen, bestimmte Funktionen unserer Website zu nutzen.</p>
+  <div class="warning-box">
+    <p><strong>Wichtig:</strong> Das Blockieren oder Löschen von Cookies kann Ihre Fähigkeit beeinträchtigen, bestimmte Funktionen unserer Website zu nutzen.</p>
+  </div>
 
   <h2>7. Do Not Track</h2>
   <p>Einige Browser verfügen über eine "Do Not Track" (DNT) Funktion, die Websites signalisiert, dass Sie nicht verfolgt werden möchten. Wir respektieren DNT-Signale und werden Benutzer, die DNT in ihren Browsern aktiviert haben, nicht verfolgen.</p>
@@ -126,54 +133,21 @@ const lang = 'de';
   <p>Durch die Nutzung unserer Website stimmen Sie unserer Verwendung von Cookies gemäss dieser Cookie-Richtlinie zu. Wenn Sie mit unserer Verwendung von Cookies nicht einverstanden sind, sollten Sie Ihre Browser-Einstellungen entsprechend anpassen oder unsere Website nicht nutzen.</p>
 
   <h2>11. Weitere Informationen</h2>
-  <p>Weitere Informationen darüber, wie wir Ihre personenbezogenen Daten verarbeiten, finden Sie in unserer <a href="/de/datenschutz">Datenschutzerklärung</a>.</p>
+  <p>Weitere Informationen darüber, wie wir Ihre personenbezogenen Daten verarbeiten, finden Sie in unserer <a href="/de/datenschutz/">Datenschutzerklärung</a>.</p>
 
   <h2>12. Kontakt</h2>
   <p>Bei Fragen zur Verwendung von Cookies kontaktieren Sie uns bitte:</p>
-  <ul>
-    <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-    <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-    <li><strong>Adresse:</strong> Grenchen, Schweiz</li>
-  </ul>
+  <div class="info-box">
+    <ul>
+      <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
+      <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
+      <li><strong>Adresse:</strong> Grenchen, Schweiz</li>
+    </ul>
+  </div>
 
   <h2>13. Nützliche Ressourcen</h2>
   <ul>
     <li><a href="https://www.allaboutcookies.org/" target="_blank" rel="noopener">All About Cookies</a> - Unabhängige Informationen über Cookies</li>
     <li><a href="https://www.youronlinechoices.com/" target="_blank" rel="noopener">Your Online Choices</a> - Informationen über verhaltensbasierte Werbung und Online-Datenschutz</li>
   </ul>
-</LegalLayout>
-
-<style>
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5rem 0;
-    font-size: 0.9rem;
-  }
-
-  th, td {
-    padding: 12px;
-    text-align: left;
-    border: 1px solid var(--border-color);
-  }
-
-  th {
-    background-color: var(--bg-secondary);
-    font-weight: 600;
-    color: var(--text-primary);
-  }
-
-  td {
-    color: var(--text-secondary);
-  }
-
-  @media (max-width: 768px) {
-    table {
-      font-size: 0.8rem;
-    }
-
-    th, td {
-      padding: 8px;
-    }
-  }
-</style>
+</ContentPageLayout>

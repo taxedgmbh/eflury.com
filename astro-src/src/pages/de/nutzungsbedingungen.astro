@@ -1,14 +1,17 @@
 ---
-import LegalLayout from '../../layouts/LegalLayout.astro';
+import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
 
 const lang = 'de';
 ---
 
-<LegalLayout
-  title="Nutzungsbedingungen"
+<ContentPageLayout
+  title="Nutzungsbedingungen - Emanuel Flury"
   description="Nutzungsbedingungen für eflury.com - Rechtliche Bedingungen für die Nutzung unserer Website und Dienstleistungen."
   lang={lang}
+  heroTitle="Nutzungsbedingungen"
+  heroSubtitle="Rechtliche Bedingungen für die Nutzung unserer Website und Dienstleistungen"
   lastUpdated="4. Januar 2025"
+  keywords="Nutzungsbedingungen, AGB, rechtliche Bedingungen, Website-Nutzung"
 >
   <p>Bitte lesen Sie diese Nutzungsbedingungen ("Bedingungen") sorgfältig durch, bevor Sie die Website eflury.com (der "Dienst") von Emanuel Flury ("uns", "wir" oder "unser") nutzen.</p>
 
@@ -19,7 +22,6 @@ const lang = 'de';
   <p>eflury.com bietet Informationen über Automatisierungsberatung, Schweizer Steuerberatung, Finanzanalyse und Unternehmensberatung. Die Website dient als professionelles Portfolio und Kontaktpunkt für potenzielle Kunden.</p>
 
   <h2>3. Nutzung des Dienstes</h2>
-
   <h3>Erlaubte Nutzung</h3>
   <p>Sie dürfen unseren Dienst nur für rechtmässige Zwecke nutzen. Sie verpflichten sich, nicht:</p>
   <ul>
@@ -36,7 +38,6 @@ const lang = 'de';
   <p>Derzeit erfordert unser Dienst keine Kontoregistrierung. Sollten wir solche Funktionen in Zukunft einführen, können zusätzliche Bedingungen gelten.</p>
 
   <h2>4. Geistiges Eigentum</h2>
-
   <h3>Website-Inhalte</h3>
   <p>Der Dienst und seine ursprünglichen Inhalte, Funktionen und Funktionalität sind Eigentum von Emanuel Flury und durch internationale Urheberrechts-, Marken- und andere geistige Eigentumsgesetze geschützt.</p>
 
@@ -44,9 +45,10 @@ const lang = 'de';
   <p>Durch das Einreichen von Inhalten über unser Kontaktformular oder auf andere Weise gewähren Sie uns eine nicht-exklusive, weltweite, gebührenfreie Lizenz zur Nutzung, Vervielfältigung und Anzeige solcher Inhalte zum Zweck der Bereitstellung und Verbesserung unseres Dienstes.</p>
 
   <h2>5. Professionelle Dienstleistungen</h2>
-
-  <h3>Kein Kundenverhältnis</h3>
-  <p>Die Nutzung dieser Website begründet kein Kunde-Berater-Verhältnis. Jede professionelle Beauftragung erfordert eine separate schriftliche Vereinbarung.</p>
+  <div class="info-box">
+    <h3>Kein Kundenverhältnis</h3>
+    <p>Die Nutzung dieser Website begründet kein Kunde-Berater-Verhältnis. Jede professionelle Beauftragung erfordert eine separate schriftliche Vereinbarung.</p>
+  </div>
 
   <h3>Keine professionelle Beratung</h3>
   <p>Die Informationen auf dieser Website dienen nur allgemeinen Informationszwecken und stellen keine professionelle Beratung dar. Verlassen Sie sich nicht auf Website-Inhalte für spezifische Geschäfts- oder Steuerentscheidungen, ohne einen qualifizierten Fachmann zu konsultieren.</p>
@@ -80,8 +82,10 @@ const lang = 'de';
   <p>Sie erklären sich bereit, Emanuel Flury von allen Ansprüchen, Verbindlichkeiten, Schäden, Verlusten und Ausgaben, einschliesslich angemessener Anwaltskosten, freizustellen und schadlos zu halten, die aus oder in irgendeiner Weise mit Ihrem Zugriff auf oder Ihrer Nutzung des Dienstes oder Ihrer Verletzung dieser Bedingungen zusammenhängen.</p>
 
   <h2>10. Anwendbares Recht</h2>
-  <p>Diese Bedingungen unterliegen dem schweizerischen Recht und sind entsprechend auszulegen, ohne Berücksichtigung von Kollisionsnormen.</p>
-  <p>Streitigkeiten aus diesen Bedingungen oder der Nutzung des Dienstes unterliegen der ausschliesslichen Gerichtsbarkeit der Gerichte der Schweiz.</p>
+  <div class="info-box">
+    <p>Diese Bedingungen unterliegen dem <strong>schweizerischen Recht</strong> und sind entsprechend auszulegen, ohne Berücksichtigung von Kollisionsnormen.</p>
+    <p>Streitigkeiten aus diesen Bedingungen oder der Nutzung des Dienstes unterliegen der ausschliesslichen Gerichtsbarkeit der Gerichte der Schweiz.</p>
+  </div>
 
   <h2>11. Änderungen der Bedingungen</h2>
   <p>Wir behalten uns das Recht vor, diese Bedingungen jederzeit zu ändern oder zu ersetzen. Wenn eine Änderung wesentlich ist, werden wir auf unserer Website darauf hinweisen. Ihre fortgesetzte Nutzung des Dienstes nach solchen Änderungen gilt als Annahme der aktualisierten Bedingungen.</p>
@@ -96,16 +100,18 @@ const lang = 'de';
   <p>Kein Verzicht auf eine Bestimmung dieser Bedingungen gilt als weiterer oder fortdauernder Verzicht auf diese oder eine andere Bestimmung, und unser Versäumnis, ein Recht oder eine Bestimmung nach diesen Bedingungen geltend zu machen, stellt keinen Verzicht auf dieses Recht oder diese Bestimmung dar.</p>
 
   <h2>15. Gesamte Vereinbarung</h2>
-  <p>Diese Bedingungen bilden zusammen mit unserer Datenschutzerklärung und Cookie-Richtlinie die gesamte Vereinbarung zwischen Ihnen und Emanuel Flury bezüglich der Nutzung des Dienstes.</p>
+  <p>Diese Bedingungen bilden zusammen mit unserer <a href="/de/datenschutz/">Datenschutzerklärung</a> und <a href="/de/cookies/">Cookie-Richtlinie</a> die gesamte Vereinbarung zwischen Ihnen und Emanuel Flury bezüglich der Nutzung des Dienstes.</p>
 
   <h2>16. Kontakt</h2>
   <p>Bei Fragen zu diesen Bedingungen kontaktieren Sie uns bitte:</p>
-  <ul>
-    <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-    <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-    <li><strong>Adresse:</strong> Grenchen, Schweiz</li>
-  </ul>
+  <div class="info-box">
+    <ul>
+      <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
+      <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
+      <li><strong>Adresse:</strong> Grenchen, Schweiz</li>
+    </ul>
+  </div>
 
   <h2>17. Sprache</h2>
   <p>Diese Bedingungen werden auf Deutsch bereitgestellt. Bei Unstimmigkeiten zwischen der deutschen Version und einer Übersetzung hat die deutsche Version Vorrang.</p>
-</LegalLayout>
+</ContentPageLayout>
