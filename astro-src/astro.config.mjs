@@ -6,9 +6,9 @@ export default defineConfig({
   site: 'https://eflury.com',
   output: 'static',
   build: {
-    format: 'file', // Generates /about.html instead of /about/index.html
+    format: 'directory', // Generates /en/index.html for proper i18n routing
   },
-  trailingSlash: 'never',
+  trailingSlash: 'always',
   compressHTML: true,
   vite: {
     build: {
