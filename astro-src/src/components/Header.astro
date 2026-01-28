@@ -379,6 +379,13 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     height: 100%;
   }
 
+  /* Mobile-only elements - hidden on desktop by default */
+  .mobile-dark-toggle,
+  .mobile-menu-section,
+  .mobile-language-options {
+    display: none;
+  }
+
   /* Mobile Styles - iOS Native */
   @media (max-width: 768px) {
     .navbar {
