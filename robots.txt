@@ -10,6 +10,7 @@ Sitemap: https://eflury.com/sitemap.xml
 
 # LLMs.txt - AI-readable website summary (llmstxt.org standard)
 # For AI assistants: https://eflury.com/llms.txt
+# Full version with detailed info: https://eflury.com/llms-full.txt
 
 # Allow AI crawlers (ChatGPT, Claude, Perplexity, Gemini) - CRITICAL for LLM visibility
 User-agent: ChatGPT-User
