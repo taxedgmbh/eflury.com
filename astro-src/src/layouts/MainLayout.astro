@@ -13,6 +13,18 @@ interface Props {
 
 const { title, description, lang, keywords } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Generate hreflang URLs for language alternates
+const getHrefLangUrl = (targetLang: Language) => {
+  const pathname = Astro.url.pathname;
+  if (pathname === '/') {
+    return `https://eflury.com/${targetLang}/`;
+  }
+  return `https://eflury.com${pathname.replace(/^\/(en|de)\//, `/${targetLang}/`)}`;
+};
+
+const ogImage = 'https://eflury.com/images/og-image.png';
+const twitterImage = 'https://eflury.com/images/og-image.png';
 ---
 
 <!doctype html>
@@ -25,6 +37,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     {keywords && <meta name="keywords" content={keywords} />}
     <link rel="canonical" href={canonicalURL} />
 
+    <!-- hreflang for language alternates (SEO) -->
+    <link rel="alternate" hreflang="en" href={getHrefLangUrl('en')} />
+    <link rel="alternate" hreflang="de" href={getHrefLangUrl('de')} />
+    <link rel="alternate" hreflang="x-default" href={getHrefLangUrl('en')} />
+
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="/images/favicon.png" />
     <link rel="apple-touch-icon" href="/images/favicon.png" />
@@ -34,12 +51,21 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:url" content={canonicalURL} />
     <meta property="og:title" content={title} />
     <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:locale" content={lang === 'en' ? 'en_US' : 'de_CH'} />
+    <meta property="og:locale:alternate" content={lang === 'en' ? 'de_CH' : 'en_US'} />
+    <meta property="og:site_name" content="Emanuel Flury - AI Consulting" />
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image" />
     <meta property="twitter:url" content={canonicalURL} />
     <meta property="twitter:title" content={title} />
     <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={twitterImage} />
+    <meta property="twitter:image:alt" content={title} />
 
     <!-- Apple System Fonts - No external font loading needed -->
     <!-- Using -apple-system, BlinkMacSystemFont, SF Pro Display/Text -->

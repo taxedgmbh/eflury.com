@@ -1,68 +1,67 @@
 /**
  * Sitemap XML Generator for eflury.com
- * Generates dynamic sitemap with priority scores and change frequencies
- * Optimized for SEO and LLM visibility
+ * Generates dynamic sitemap with hreflang, priority scores and change frequencies
+ * Optimized for SEO and international visibility
  */
 
 import type { APIRoute } from 'astro';
+
+interface Page {
+  en: string;
+  de: string;
+  priority: string;
+  changefreq: string;
+}
 
 export const GET: APIRoute = async () => {
   const baseUrl = 'https://eflury.com';
   const lastmod = new Date().toISOString().split('T')[0]; // YYYY-MM-DD format
 
-  const pages = [
-    // Priority 1.0 - Most important pages (Homepage)
-    { url: '/en', priority: '1.0', changefreq: 'weekly' },
-    { url: '/de', priority: '1.0', changefreq: 'weekly' },
+  // Pages with their EN/DE equivalents for hreflang
+  const pages: Page[] = [
+    // Priority 1.0 - Homepage
+    { en: '/en/', de: '/de/', priority: '1.0', changefreq: 'weekly' },
 
-    // Priority 0.9 - Core service pages
-    { url: '/en/services/claude-automation', priority: '0.9', changefreq: 'monthly' },
-    { url: '/de/services/claude-automation', priority: '0.9', changefreq: 'monthly' },
+    // Priority 0.8 - Core content pages
+    { en: '/en/about/', de: '/de/about/', priority: '0.8', changefreq: 'monthly' },
+    { en: '/en/pricing/', de: '/de/pricing/', priority: '0.8', changefreq: 'monthly' },
 
-    // Priority 0.8 - Package and case study pages
-    { url: '/en/services/packages', priority: '0.8', changefreq: 'monthly' },
-    { url: '/de/services/packages', priority: '0.8', changefreq: 'monthly' },
-    { url: '/en/case-studies/taxed-gmbh', priority: '0.8', changefreq: 'monthly' },
-    { url: '/de/case-studies/taxed-gmbh', priority: '0.8', changefreq: 'monthly' },
+    // Priority 0.7 - Case studies
+    { en: '/en/case-studies/taxed-gmbh/', de: '/de/case-studies/taxed-gmbh/', priority: '0.7', changefreq: 'monthly' },
 
-    // Priority 0.7 - About, process, and tool pages
-    { url: '/en/about', priority: '0.7', changefreq: 'monthly' },
-    { url: '/de/about', priority: '0.7', changefreq: 'monthly' },
-    { url: '/en/process', priority: '0.7', changefreq: 'monthly' },
-    { url: '/de/process', priority: '0.7', changefreq: 'monthly' },
-    { url: '/en/tools/roi-calculator', priority: '0.7', changefreq: 'monthly' },
-    { url: '/de/tools/roi-calculator', priority: '0.7', changefreq: 'monthly' },
-    { url: '/en/tools/assessment', priority: '0.7', changefreq: 'monthly' },
-    { url: '/de/tools/assessment', priority: '0.7', changefreq: 'monthly' },
-
-    // Priority 0.6 - Blog hub pages
-    { url: '/en/blog', priority: '0.6', changefreq: 'weekly' },
-    { url: '/de/blog', priority: '0.6', changefreq: 'weekly' },
-
-    // Priority 0.5 - Contact and resources
-    { url: '/en/contact', priority: '0.5', changefreq: 'monthly' },
-    { url: '/de/contact', priority: '0.5', changefreq: 'monthly' },
-    { url: '/en/resources', priority: '0.5', changefreq: 'monthly' },
-    { url: '/de/resources', priority: '0.5', changefreq: 'monthly' },
-
-    // Priority 0.3 - Legal pages (low priority but required)
-    { url: '/en/legal/privacy', priority: '0.3', changefreq: 'yearly' },
-    { url: '/de/legal/privacy', priority: '0.3', changefreq: 'yearly' },
-    { url: '/en/legal/terms', priority: '0.3', changefreq: 'yearly' },
-    { url: '/de/legal/terms', priority: '0.3', changefreq: 'yearly' },
-    { url: '/en/legal/cookies', priority: '0.3', changefreq: 'yearly' },
-    { url: '/de/legal/cookies', priority: '0.3', changefreq: 'yearly' },
+    // Priority 0.4 - Legal pages (low priority but required)
+    { en: '/en/privacy/', de: '/de/datenschutz/', priority: '0.4', changefreq: 'yearly' },
+    { en: '/en/terms/', de: '/de/nutzungsbedingungen/', priority: '0.4', changefreq: 'yearly' },
+    { en: '/en/cookies/', de: '/de/cookies/', priority: '0.4', changefreq: 'yearly' },
+    { en: '/en/disclaimer/', de: '/de/haftungsausschluss/', priority: '0.4', changefreq: 'yearly' },
+    { en: '/en/code-of-conduct/', de: '/de/verhaltenskodex/', priority: '0.4', changefreq: 'yearly' },
   ];
 
-  // Generate XML sitemap
-  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-${pages.map(page => `  <url>
-    <loc>${baseUrl}${page.url}</loc>
+  // Generate URL entries with hreflang
+  const generateUrlEntry = (page: Page, lang: 'en' | 'de') => {
+    const url = lang === 'en' ? page.en : page.de;
+    return `  <url>
+    <loc>${baseUrl}${url}</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="${baseUrl}${page.en}"/>
+    <xhtml:link rel="alternate" hreflang="de" href="${baseUrl}${page.de}"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="${baseUrl}${page.en}"/>
     <lastmod>${lastmod}</lastmod>
     <changefreq>${page.changefreq}</changefreq>
     <priority>${page.priority}</priority>
-  </url>`).join('\n')}
+  </url>`;
+  };
+
+  // Generate all URL entries
+  const urlEntries = pages.flatMap(page => [
+    generateUrlEntry(page, 'en'),
+    generateUrlEntry(page, 'de')
+  ]).join('\n');
+
+  // Generate XML sitemap with xhtml namespace for hreflang
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+${urlEntries}
 </urlset>`;
 
   return new Response(sitemap, {
