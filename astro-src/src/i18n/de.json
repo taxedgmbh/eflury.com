@@ -141,18 +141,47 @@
   },
   "ideal_client": {
     "section_title": "Für wen ich arbeite",
+    "section_subtitle": "Ich wähle Projekte sorgfältig aus, um die besten Ergebnisse für meine Kunden zu erzielen",
+    "suitable_title": "Wir passen gut zusammen, wenn Sie...",
     "suitable": [
-      "Schweizer KMU mit 5-50 Mitarbeitern",
-      "Unternehmen, die repetitive Prozesse automatisieren wollen",
-      "Firmen ohne interne IT-Ressourcen für KI",
-      "Wer praktische Umsetzung statt Theorie sucht",
-      "Organisationen, die Schweizer Qualität und Datenschutz schätzen"
+      {
+        "title": "Ein Schweizer KMU sind",
+        "description": "5-50 Mitarbeiter, bereit für mehr Effizienz"
+      },
+      {
+        "title": "Repetitive Prozesse haben",
+        "description": "Dateneingabe, Reporting, Dokumentenverarbeitung, die Stunden frisst"
+      },
+      {
+        "title": "Externe KI-Expertise brauchen",
+        "description": "Kein internes IT-Team für KI? Genau dafür bin ich da"
+      },
+      {
+        "title": "Resultate wollen, keine Berichte",
+        "description": "Funktionierende Automatisierung, keine PowerPoint-Präsentationen"
+      },
+      {
+        "title": "Schweizer Standards schätzen",
+        "description": "Datenschutz, Qualität und Zuverlässigkeit sind Ihnen wichtig"
+      }
     ],
+    "not_suitable_title": "Wahrscheinlich nicht ideal, wenn...",
     "not_suitable": [
-      "Unternehmen, die 'nur mal schauen' wollen",
-      "Projekte ohne dedizierte Ansprechperson",
-      "Budgets unter CHF 2'000"
-    ]
+      {
+        "title": "Nur am Erkunden",
+        "description": "Noch unsicher, ob KI das Richtige ist? Lassen Sie uns zuerst sprechen"
+      },
+      {
+        "title": "Kein Projektverantwortlicher",
+        "description": "Erfolgreiche KI braucht intern jemanden, der das Projekt vorantreibt"
+      },
+      {
+        "title": "Sehr begrenztes Budget",
+        "description": "Projekte unter CHF 2'000 erzielen selten nachhaltigen Impact"
+      }
+    ],
+    "cta_text": "Unsicher, ob wir zusammenpassen?",
+    "cta_button": "Kostenloses 15-Min-Gespräch buchen"
   },
   "about": {
     "title": "Über mich",

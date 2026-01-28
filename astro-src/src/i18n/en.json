@@ -141,18 +141,47 @@
   },
   "ideal_client": {
     "section_title": "Who I Work With",
+    "section_subtitle": "I'm selective about projects to ensure the best results for my clients",
+    "suitable_title": "We're a Great Fit If You...",
     "suitable": [
-      "Swiss SMEs with 5-50 employees",
-      "Businesses wanting to automate repetitive processes",
-      "Companies without internal IT resources for AI",
-      "Those seeking practical implementation, not theory",
-      "Organizations valuing Swiss quality and data protection"
+      {
+        "title": "Are a Swiss SME",
+        "description": "5-50 employees, ready to scale efficiency"
+      },
+      {
+        "title": "Have Repetitive Processes",
+        "description": "Data entry, reporting, document handling that eats up hours"
+      },
+      {
+        "title": "Need External AI Expertise",
+        "description": "No internal IT team for AI? That's exactly why I'm here"
+      },
+      {
+        "title": "Want Results, Not Reports",
+        "description": "Looking for working automation, not PowerPoint decks"
+      },
+      {
+        "title": "Value Swiss Standards",
+        "description": "Data protection, quality, and reliability matter to you"
+      }
     ],
+    "not_suitable_title": "Probably Not the Right Fit If...",
     "not_suitable": [
-      "Companies just wanting to 'have a look'",
-      "Projects without a dedicated contact person",
-      "Budgets under CHF 2,000"
-    ]
+      {
+        "title": "Just Exploring",
+        "description": "Still deciding if AI is right for you? Let's chat first — no pressure"
+      },
+      {
+        "title": "No Project Owner",
+        "description": "Successful AI needs someone internally to champion it"
+      },
+      {
+        "title": "Very Limited Budget",
+        "description": "Projects under CHF 2,000 rarely achieve meaningful impact"
+      }
+    ],
+    "cta_text": "Not sure if we're a fit?",
+    "cta_button": "Book a Free 15-Min Call"
   },
   "about": {
     "title": "About",
