@@ -81,22 +81,26 @@ const legalTitle = lang === 'en' ? 'Legal' : 'Rechtliches';
       </a>
     </div>
 
-    <!-- Column 5: Newsletter (placeholder) -->
+    <!-- Column 5: Newsletter -->
     <div class="footer-section footer-newsletter">
       <h4>{t('footer.newsletter.title')}</h4>
       <p class="newsletter-subtitle">{t('footer.newsletter.subtitle')}</p>
-      <form class="newsletter-form" onsubmit="return false;">
+      <form class="newsletter-form" id="newsletterForm">
         <input
           type="email"
+          id="newsletter-email"
+          name="email"
           placeholder={t('footer.newsletter.placeholder')}
           class="newsletter-input"
-          disabled
+          autocomplete="email"
+          inputmode="email"
+          required
         />
-        <button type="submit" class="newsletter-button" disabled>
+        <button type="submit" class="newsletter-button" id="newsletter-submit">
           {t('footer.newsletter.button')}
         </button>
       </form>
-      <p class="newsletter-note">{lang === 'en' ? 'Coming soon' : 'Demnächst verfügbar'}</p>
+      <div id="newsletter-status" class="newsletter-status" role="status" aria-live="polite"></div>
     </div>
   </div>
 
@@ -292,11 +296,32 @@ const legalTitle = lang === 'en' ? 'Legal' : 'Rechtliches';
     cursor: not-allowed;
   }
 
-  .newsletter-note {
-    font-size: 0.75rem;
-    color: var(--text-tertiary);
+  .newsletter-status {
+    font-size: 0.8rem;
     margin-top: 0.5rem;
-    font-style: italic;
+    padding: 0.5rem 0.75rem;
+    border-radius: var(--radius-md, 8px);
+    display: none;
+    text-align: center;
+  }
+
+  .newsletter-status.success {
+    display: block;
+    background: rgba(13, 148, 136, 0.1);
+    color: var(--eflury-teal, #0d9488);
+    border: 1px solid rgba(13, 148, 136, 0.3);
+  }
+
+  .newsletter-status.error {
+    display: block;
+    background: rgba(224, 60, 49, 0.1);
+    color: #dc2626;
+    border: 1px solid rgba(224, 60, 49, 0.3);
+  }
+
+  .newsletter-button.loading {
+    opacity: 0.7;
+    pointer-events: none;
   }
 
   /* Footer Bottom */
@@ -533,9 +558,10 @@ const legalTitle = lang === 'en' ? 'Legal' : 'Rechtliches';
       font-size: 0.8rem;
     }
 
-    .newsletter-note {
+    .newsletter-status {
       font-size: 0.7rem;
-      margin-top: 0.375rem;
+      padding: 0.375rem 0.5rem;
+      margin-top: 0.5rem;
     }
 
     .legal-links-compact {
@@ -604,3 +630,75 @@ const legalTitle = lang === 'en' ? 'Legal' : 'Rechtliches';
     }
   }
 </style>
+
+<script>
+  import emailjs from '@emailjs/browser';
+
+  // Initialize EmailJS with public key
+  emailjs.init('t1Qe1Zg5U3m8sqLGE');
+
+  const newsletterForm = document.getElementById('newsletterForm') as HTMLFormElement;
+  const newsletterStatus = document.getElementById('newsletter-status') as HTMLDivElement;
+  const newsletterSubmit = document.getElementById('newsletter-submit') as HTMLButtonElement;
+  const newsletterEmail = document.getElementById('newsletter-email') as HTMLInputElement;
+  const lang = document.documentElement.lang || 'en';
+
+  if (newsletterForm) {
+    newsletterForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const email = newsletterEmail?.value?.trim();
+
+      // Basic email validation
+      if (!email || !email.includes('@') || !email.includes('.')) {
+        newsletterStatus.className = 'newsletter-status error';
+        newsletterStatus.textContent = lang === 'de'
+          ? 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
+          : 'Please enter a valid email address.';
+        return;
+      }
+
+      const originalText = newsletterSubmit?.textContent || (lang === 'de' ? 'Abonnieren' : 'Subscribe');
+      newsletterSubmit.disabled = true;
+      newsletterSubmit.classList.add('loading');
+      newsletterSubmit.textContent = lang === 'de' ? '...' : '...';
+
+      try {
+        // Send newsletter subscription via EmailJS
+        const result = await emailjs.send(
+          'service_7o5qkdh',    // Service ID
+          'template_yw4ehjl',   // Template ID (reuse contact template)
+          {
+            name: 'Newsletter Subscriber',
+            email: email,
+            message: `New newsletter subscription request from: ${email}`
+          }
+        );
+
+        console.log('Newsletter EmailJS Success:', result);
+
+        newsletterStatus.className = 'newsletter-status success';
+        newsletterStatus.textContent = lang === 'de'
+          ? 'Erfolgreich abonniert! Vielen Dank.'
+          : 'Successfully subscribed! Thank you.';
+        newsletterForm.reset();
+
+        // Track conversion
+        if ((window as any).trackEvent) {
+          (window as any).trackEvent('Conversion', 'newsletter_subscribe', 'Newsletter');
+        }
+      } catch (error: any) {
+        console.error('Newsletter EmailJS Error:', error);
+
+        newsletterStatus.className = 'newsletter-status error';
+        newsletterStatus.textContent = lang === 'de'
+          ? 'Fehler beim Abonnieren. Bitte versuchen Sie es erneut.'
+          : 'Failed to subscribe. Please try again.';
+      } finally {
+        newsletterSubmit.disabled = false;
+        newsletterSubmit.classList.remove('loading');
+        newsletterSubmit.textContent = originalText;
+      }
+    });
+  }
+</script>
