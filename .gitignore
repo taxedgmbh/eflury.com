@@ -4,22 +4,16 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-# Production builds
-dist/
-build/
-.next/
-out/
+# Astro build output (in astro-src/)
+astro-src/dist/
 
 # Environment variables
 .env
 .env.local
-.env.development.local
-.env.test.local
-.env.production.local
+.env.*
 
 # API configuration (contains secrets)
 **/api/config.php
-config.php
 
 # IDE files
 .vscode/
@@ -30,47 +24,16 @@ config.php
 
 # OS generated files
 .DS_Store
-.DS_Store?
 ._*
-.Spotlight-V100
-.Trashes
-ehthumbs.db
 Thumbs.db
 
 # Logs
-logs
 *.log
 
-# Runtime data
-pids
-*.pid
-*.seed
-*.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage/
+# Test reports
+astro-src/playwright-report/
+astro-src/test-results/
 
 # Temporary folders
 tmp/
 temp/
-
-# Development files (keep only production website)
-development/
-owner/
-
-# Specific development files to exclude
-emanuel_flury_cv.md
-website_prd.md
-
-# Legacy language folders (removed during migration to Astro)
-# Note: en/ and de/ are NOT ignored - they contain new Astro-generated legal pages
-assets/
-cn/
-es/
-fr/
-hi/
-it/
-jp/
-ko/
-nl/
-pt/
