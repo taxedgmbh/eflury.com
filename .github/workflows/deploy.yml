@@ -45,7 +45,18 @@ jobs:
           fi
 
       - name: Trigger Hostinger deployment
+        env:
+          WEBHOOK_URL: ${{ secrets.HOSTINGER_WEBHOOK_URL }}
         run: |
-          curl -sS -X POST "${{ secrets.HOSTINGER_WEBHOOK_URL }}" \
+          # Trim whitespace from URL
+          CLEAN_URL=$(echo "$WEBHOOK_URL" | tr -d '[:space:]')
+          echo "Calling Hostinger webhook..."
+          HTTP_CODE=$(curl -sS -X POST "$CLEAN_URL" \
             -H "Content-Type: application/json" \
-            -o /dev/null -w "Webhook response: %{http_code}\n"
+            -o /dev/null -w "%{http_code}")
+          echo "Webhook response: $HTTP_CODE"
+          if [ "$HTTP_CODE" -ge 200 ] && [ "$HTTP_CODE" -lt 300 ]; then
+            echo "Deployment triggered successfully"
+          else
+            echo "Warning: Webhook returned $HTTP_CODE"
+          fi
