@@ -1,6 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
-import { Mail, Phone, MapPin, Send, MessageCircle, Calendar } from 'lucide-astro';
+import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -149,14 +149,6 @@ const t = useTranslations(lang);
         </button>
 
         <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
-
-        <div class="calendly-option">
-          <span class="divider-text">{lang === 'de' ? 'oder' : 'or'}</span>
-          <a href="https://calendly.com/eflury" target="_blank" rel="noopener" class="calendly-link">
-            <Calendar size={18} />
-            {t('contact.calendly_text') || 'Direkt Termin buchen'}
-          </a>
-        </div>
       </form>
     </div>
   </div>
@@ -302,6 +294,7 @@ const t = useTranslations(lang);
     height: 60px;
     border-radius: 50%;
     object-fit: cover;
+    object-position: top;
     border: 3px solid var(--eflury-teal);
     box-shadow: 0 4px 12px rgba(13, 148, 136, 0.2);
   }
@@ -617,50 +610,6 @@ const t = useTranslations(lang);
     flex-shrink: 0;
   }
 
-  /* Calendly option */
-  .calendly-option {
-    text-align: center;
-    margin-top: 1.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid var(--border-color);
-  }
-
-  .divider-text {
-    display: block;
-    color: var(--text-tertiary);
-    font-size: 0.85rem;
-    margin-bottom: 0.75rem;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-  }
-
-  .calendly-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    background: transparent;
-    border: 2px solid var(--eflury-teal);
-    color: var(--eflury-teal);
-    border-radius: 8px;
-    font-weight: 600;
-    font-size: 15px;
-    text-decoration: none;
-    transition: all 0.25s ease;
-  }
-
-  .calendly-link:hover {
-    background: var(--eflury-teal);
-    color: white;
-    transform: translateY(-2px);
-    box-shadow: 0 4px 16px rgba(13, 148, 136, 0.3);
-  }
-
-  .calendly-link:active {
-    transform: translateY(0);
-    box-shadow: 0 2px 8px rgba(13, 148, 136, 0.2);
-  }
-
   @media (max-width: 768px) {
     /* Section padding */
     .contact {
@@ -796,27 +745,6 @@ const t = useTranslations(lang);
     /* Turnstile widget */
     .turnstile-wrapper {
       margin-bottom: 1.25rem;
-    }
-
-    /* Calendly button */
-    .calendly-option {
-      margin-top: 1.25rem;
-      padding-top: 1.25rem;
-    }
-
-    .divider-text {
-      font-size: 0.75rem;
-      margin-bottom: 0.625rem;
-    }
-
-    .calendly-link {
-      display: flex;
-      width: 100%;
-      justify-content: center;
-      padding: 0.75rem 1rem;
-      font-size: 14px;
-      min-height: 48px;
-      align-items: center;
     }
 
     /* Section header */
