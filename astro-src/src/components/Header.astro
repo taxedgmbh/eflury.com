@@ -41,6 +41,27 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
         <li><a href="#services">{t('nav.services')}</a></li>
         <li><a href="#about">{t('nav.about')}</a></li>
         <li><a href="#contact">{t('nav.contact')}</a></li>
+
+        <!-- Mobile-only: Dark Mode Toggle -->
+        <li class="mobile-dark-toggle">
+          <span>{lang === 'en' ? 'Dark Mode' : 'Dunkelmodus'}</span>
+          <button class="mobile-dark-toggle-btn" id="mobileDarkToggle" aria-label="Toggle dark mode"></button>
+        </li>
+
+        <!-- Mobile-only: Language Section -->
+        <li class="mobile-menu-section">{t('nav.language')}</li>
+        <li class="mobile-language-options">
+          <a href={getLanguageSwitchUrl('en')}>
+            <img src="/images/icons/en.png" alt="English" class="flag-icon" />
+            <span class="lang-label">English</span>
+            {lang === 'en' && <span class="lang-check">✓</span>}
+          </a>
+          <a href={getLanguageSwitchUrl('de')}>
+            <img src="/images/icons/de.png" alt="Deutsch" class="flag-icon" />
+            <span class="lang-label">Deutsch</span>
+            {lang === 'de' && <span class="lang-check">✓</span>}
+          </a>
+        </li>
       </ul>
 
       <div class="nav-actions">
@@ -330,19 +351,32 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
   .mobile-menu-toggle {
     display: none;
     flex-direction: column;
-    gap: 4px;
+    gap: 5px;
     background: none;
     border: none;
     cursor: pointer;
     padding: 0.5rem;
+    width: 44px;
+    height: 44px;
+    justify-content: center;
+    align-items: center;
   }
 
   .mobile-menu-toggle span {
-    width: 25px;
-    height: 3px;
+    width: 22px;
+    height: 2px;
     background: var(--text-primary);
     border-radius: 2px;
     transition: all 0.3s ease;
+    transform-origin: center;
+  }
+
+  /* Body scroll lock when menu is open */
+  :global(body.menu-open) {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
   }
 
   /* Mobile Styles - iOS Native */
@@ -363,13 +397,14 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
       position: fixed;
       top: 0;
       left: 0;
-      right: 0;
-      bottom: 0;
+      width: 100%;
+      height: 100vh;
+      height: 100dvh;
       flex-direction: column;
-      background: var(--bg-primary);
-      backdrop-filter: blur(20px);
-      -webkit-backdrop-filter: blur(20px);
-      padding: calc(80px + env(safe-area-inset-top)) var(--spacing-lg) var(--spacing-5xl);
+      background-color: var(--bg-primary, #ffffff);
+      padding: 0;
+      padding-top: calc(70px + env(safe-area-inset-top));
+      padding-bottom: env(safe-area-inset-bottom);
       gap: 0;
       box-shadow: none;
       display: none;
@@ -387,19 +422,39 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
       border-bottom: 0.5px solid var(--border-color);
     }
 
+    .nav-links li:first-child {
+      border-top: 0.5px solid var(--border-color);
+    }
+
     .nav-links a {
-      display: block;
-      padding: var(--spacing-lg);
+      display: flex;
+      align-items: center;
+      padding: 1rem 1.5rem;
       font-size: 17px;
-      font-weight: 400;
+      font-weight: 500;
       color: var(--text-primary);
-      min-height: 44px;
+      min-height: 56px;
       -webkit-tap-highlight-color: transparent;
+      text-decoration: none;
     }
 
     .nav-links a:active {
       background: var(--bg-secondary);
-      opacity: 0.7;
+    }
+
+    /* Mobile menu footer with dark mode and language */
+    .mobile-menu-footer {
+      display: none;
+      margin-top: auto;
+      padding: 1.5rem;
+      padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
+      border-top: 0.5px solid var(--border-color);
+      background: var(--bg-secondary);
+    }
+
+    .nav-links.active ~ .mobile-menu-footer,
+    .mobile-menu-footer.active {
+      display: block;
     }
 
     .mobile-menu-toggle {
@@ -413,10 +468,11 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
 
     .mobile-menu-toggle.active span:nth-child(2) {
       opacity: 0;
+      transform: translateX(-10px);
     }
 
     .mobile-menu-toggle.active span:nth-child(3) {
-      transform: rotate(-45deg) translate(7px, -6px);
+      transform: rotate(-45deg) translate(5px, -5px);
     }
 
     .nav-content {
@@ -426,7 +482,7 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
       gap: 0.5rem;
     }
 
-    /* Hide share button and dark mode on mobile, but keep language selector */
+    /* Hide share button and dark mode on mobile header, but keep language selector */
     .nav-actions {
       display: flex;
       align-items: center;
@@ -476,6 +532,114 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
       font-size: 18px;
       display: none;
     }
+
+    /* Mobile menu language options */
+    .mobile-language-options {
+      display: none;
+      padding: 0.5rem 0;
+    }
+
+    .nav-links.active .mobile-language-options {
+      display: block;
+    }
+
+    .mobile-language-options a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      padding: 1rem 1.5rem;
+      font-size: 15px;
+      font-weight: 400;
+      color: var(--text-secondary);
+      text-decoration: none;
+      min-height: 48px;
+    }
+
+    .mobile-language-options a:active {
+      background: var(--bg-secondary);
+    }
+
+    .mobile-language-options .flag-icon {
+      width: 24px;
+      height: 18px;
+    }
+
+    .mobile-language-options .lang-label {
+      flex: 1;
+    }
+
+    .mobile-language-options .lang-check {
+      color: var(--eflury-teal);
+      font-weight: 600;
+    }
+
+    /* Mobile dark mode toggle in menu */
+    .mobile-dark-toggle {
+      display: none;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 1.5rem;
+      border-bottom: 0.5px solid var(--border-color);
+      min-height: 56px;
+    }
+
+    .nav-links.active .mobile-dark-toggle {
+      display: flex;
+    }
+
+    .mobile-dark-toggle span {
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    .mobile-dark-toggle-btn {
+      width: 51px;
+      height: 31px;
+      background: var(--bg-tertiary);
+      border: none;
+      border-radius: 15.5px;
+      position: relative;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .mobile-dark-toggle-btn::after {
+      content: '';
+      position: absolute;
+      top: 2px;
+      left: 2px;
+      width: 27px;
+      height: 27px;
+      background: white;
+      border-radius: 50%;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.2);
+      transition: transform 0.3s ease;
+    }
+
+    [data-theme="dark"] .mobile-dark-toggle-btn {
+      background: var(--eflury-teal);
+    }
+
+    [data-theme="dark"] .mobile-dark-toggle-btn::after {
+      transform: translateX(20px);
+    }
+
+    /* Section divider in mobile menu */
+    .mobile-menu-section {
+      display: none;
+      padding: 0.75rem 1.5rem 0.5rem;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-tertiary);
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: var(--bg-secondary);
+    }
+
+    .nav-links.active .mobile-menu-section {
+      display: block;
+    }
   }
 </style>
 
@@ -511,13 +675,42 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     }
   });
 
-  // Mobile menu toggle
+  // Mobile menu toggle with body scroll lock
   const mobileMenuToggle = document.getElementById('mobileMenuToggle');
   const navLinks = document.getElementById('navLinks');
+  let scrollPosition = 0;
+
+  function openMobileMenu() {
+    scrollPosition = window.pageYOffset;
+    document.body.classList.add('menu-open');
+    document.body.style.top = `-${scrollPosition}px`;
+    navLinks?.classList.add('active');
+    mobileMenuToggle?.classList.add('active');
+  }
+
+  function closeMobileMenu() {
+    document.body.classList.remove('menu-open');
+    document.body.style.top = '';
+    window.scrollTo(0, scrollPosition);
+    navLinks?.classList.remove('active');
+    mobileMenuToggle?.classList.remove('active');
+  }
 
   mobileMenuToggle?.addEventListener('click', () => {
-    navLinks?.classList.toggle('active');
-    mobileMenuToggle?.classList.toggle('active');
+    if (navLinks?.classList.contains('active')) {
+      closeMobileMenu();
+    } else {
+      openMobileMenu();
+    }
+  });
+
+  // Mobile dark mode toggle
+  const mobileDarkToggle = document.getElementById('mobileDarkToggle');
+  mobileDarkToggle?.addEventListener('click', () => {
+    const currentTheme = document.documentElement.getAttribute('data-theme');
+    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', newTheme);
+    localStorage.setItem('theme', newTheme);
   });
 
   // Smooth scroll for anchor links
@@ -526,12 +719,16 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
       e.preventDefault();
       const href = this.getAttribute('href');
       if (href && href !== '#') {
-        const target = document.querySelector(href);
-        target?.scrollIntoView({ behavior: 'smooth' });
+        // Close mobile menu first (restores scroll position)
+        if (navLinks?.classList.contains('active')) {
+          closeMobileMenu();
+        }
 
-        // Close mobile menu after click
-        navLinks?.classList.remove('active');
-        mobileMenuToggle?.classList.remove('active');
+        // Then scroll to target
+        setTimeout(() => {
+          const target = document.querySelector(href);
+          target?.scrollIntoView({ behavior: 'smooth' });
+        }, 50);
       }
     });
   });
