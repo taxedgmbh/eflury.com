@@ -347,5 +347,59 @@
       "category": "KI-Implementierung",
       "technologies": "Claude Code, Make, Custom Agents"
     }
+  },
+  "faq": {
+    "title": "Häufig gestellte Fragen",
+    "subtitle": "Häufige Fragen zur KI-Implementierung und Zusammenarbeit",
+    "questions": [
+      {
+        "question": "Wie lange dauert eine typische KI-Implementierung?",
+        "answer": "Die meisten Projekte dauern 3-6 Wochen von der ersten Beratung bis zum Go-Live. Die eFlury-Methode umfasst 4 Wochen strukturierte Implementierung plus laufenden Support. Einfache Workflow-Automatisierungen können in 2-3 Wochen umgesetzt werden, komplexere KI-Agenten-Setups benötigen 4-6 Wochen."
+      },
+      {
+        "question": "Was ist die Mindestinvestition für den Start?",
+        "answer": "KI-Training beginnt bei CHF 2'500, Workflow-Setup-Projekte ab CHF 5'000. Ich empfehle ein Mindestbudget von CHF 5'000 für nachhaltige Geschäftswirkung. Projekte unter CHF 2'000 liefern selten langfristige Ergebnisse."
+      },
+      {
+        "question": "Arbeiten Sie auch mit Unternehmen ausserhalb der Schweiz?",
+        "answer": "Mein Fokus liegt auf Schweizer KMU, aber ich arbeite auch mit Unternehmen in der DACH-Region (Deutschland, Österreich, Schweiz). Für Kunden ausserhalb dieser Region biete ich Remote-Beratung im Einzelfall an."
+      },
+      {
+        "question": "Wie gewährleisten Sie Datenschutz und DSGVO-Konformität?",
+        "answer": "Datenschutz steht im Zentrum jeder Implementierung. Wo möglich nutze ich in der Schweiz gehostete Lösungen, implementiere Datenminimierungsprinzipien und stelle sicher, dass alle KI-Tools DSGVO/nDSG-konform sind. Für Ihr Compliance-Team kann ich detaillierte Dokumentation bereitstellen."
+      },
+      {
+        "question": "Was passiert, wenn die KI Fehler macht?",
+        "answer": "Jede Automatisierung, die ich baue, enthält menschliche Kontrollpunkte für kritische Entscheidungen. Wir beginnen mit weniger kritischen Prozessen und erweitern schrittweise. Ich implementiere auch Monitoring und Alerting, damit Probleme schnell erkannt werden. Das Ziel ist, Ihr Team zu unterstützen, nicht menschliches Urteilsvermögen zu ersetzen."
+      },
+      {
+        "question": "Brauche ich technisches Wissen, um KI-Tools zu nutzen?",
+        "answer": "Nein, kein technischer Hintergrund erforderlich. Meine Schulungsprogramme sind für Geschäftsanwender konzipiert. Ich fokussiere auf praktisches, hands-on Lernen mit Tools wie Claude, die natürliche Sprache verwenden. Innerhalb von 2-4 Wochen nutzen die meisten Teams KI selbstständig."
+      },
+      {
+        "question": "Mit welchen Tools und Technologien arbeiten Sie?",
+        "answer": "Ich spezialisiere mich auf Claude (Anthropic), Make.com, Microsoft 365 und individuelle KI-Agenten. Ich habe auch Erfahrung mit n8n, Zapier, Google Workspace und verschiedenen Dokumentenverarbeitungs-Tools. Ich empfehle das beste Tool für Ihre spezifischen Bedürfnisse, nicht nur was ich kenne."
+      },
+      {
+        "question": "Wie berechnen Sie den ROI für KI-Projekte?",
+        "answer": "Ich messe Zeitersparnis in Stunden pro Woche und rechne diese in CHF-Wert um. Beispiel: Wenn Automatisierung 10 Stunden/Woche bei CHF 75/Stunde spart, sind das CHF 39'000/Jahr an zurückgewonnener Zeit. Die meisten Projekte erreichen Amortisationszeiten von 3-6 Monaten."
+      },
+      {
+        "question": "Was ist im laufenden Support enthalten?",
+        "answer": "Laufender Support (ab CHF 500/Monat) umfasst regelmässige Check-ins, Fehlerbehebung, Updates bei Tool-Änderungen und Beratung zur Erweiterung auf neue Anwendungsfälle. Sie erhalten auch prioritäre Reaktionszeiten und Dokumentations-Updates."
+      },
+      {
+        "question": "Können Sie mit unseren bestehenden IT-Systemen arbeiten?",
+        "answer": "Ja. Ich spezialisiere mich auf die Integration von KI in bestehende Workflows ohne Störung aktueller Systeme. Ob Sie SAP, Microsoft 365, Google Workspace oder individuelle Software nutzen – ich konzipiere Lösungen, die mit dem arbeiten, was Sie bereits haben."
+      },
+      {
+        "question": "Was unterscheidet Sie von Beratungsfirmen?",
+        "answer": "Ich liefere funktionierende Automatisierung, keine PowerPoint-Berichte. Ich arbeite hands-on mit Ihrem Team, biete Festpreisprojekte (keine Stundenüberraschungen) und bleibe involviert, bis die Lösung funktioniert. Meine Fortune-100-Erfahrung bedeutet Enterprise-Qualität zu KMU-freundlichen Preisen."
+      },
+      {
+        "question": "Wie weiss ich, ob KI für mein Unternehmen geeignet ist?",
+        "answer": "Buchen Sie ein kostenloses 30-minütiges Strategiegespräch. Ich frage nach Ihren Workflows, identifiziere Automatisierungspotenzial und gebe Ihnen eine ehrliche Einschätzung. Wenn KI nicht passt, sage ich es Ihnen – kein Verkaufsgespräch, nur praktische Beratung."
+      }
+    ]
   }
 }

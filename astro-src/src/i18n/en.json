@@ -333,5 +333,59 @@
       "category": "AI Implementation",
       "technologies": "Claude Code, Make, Custom Agents"
     }
+  },
+  "faq": {
+    "title": "Frequently Asked Questions",
+    "subtitle": "Common questions about AI implementation and working with me",
+    "questions": [
+      {
+        "question": "How long does a typical AI implementation take?",
+        "answer": "Most projects take 3-6 weeks from initial consultation to go-live. The eFlury Method includes 4 weeks of structured implementation plus ongoing support. Simple workflow automations can be done in 2-3 weeks, while more complex AI agent setups may take 4-6 weeks."
+      },
+      {
+        "question": "What's the minimum investment to get started?",
+        "answer": "AI Training starts at CHF 2,500, and Workflow Setup projects start at CHF 5,000. I recommend a minimum budget of CHF 5,000 to achieve meaningful business impact. Projects under CHF 2,000 rarely deliver sustainable results."
+      },
+      {
+        "question": "Do you work with companies outside Switzerland?",
+        "answer": "My focus is Swiss SMEs, but I do work with companies in the DACH region (Germany, Austria, Switzerland). For clients outside this region, I offer remote consulting on a case-by-case basis."
+      },
+      {
+        "question": "How do you ensure data protection and GDPR compliance?",
+        "answer": "Data protection is central to every implementation. I use Swiss-hosted solutions where possible, implement data minimization principles, and ensure all AI tools comply with GDPR/nDSG requirements. I can provide detailed documentation for your compliance team."
+      },
+      {
+        "question": "What happens if the AI makes mistakes?",
+        "answer": "Every automation I build includes human oversight checkpoints for critical decisions. We start with lower-stakes processes and gradually expand. I also implement monitoring and alerting so issues are caught quickly. The goal is augmenting your team, not replacing human judgment."
+      },
+      {
+        "question": "Do I need technical knowledge to use AI tools?",
+        "answer": "No technical background required. My training programs are designed for business users. I focus on practical, hands-on learning with tools like Claude that use natural language. Within 2-4 weeks, most teams are using AI independently."
+      },
+      {
+        "question": "What tools and technologies do you work with?",
+        "answer": "I specialize in Claude (Anthropic), Make.com, Microsoft 365, and custom AI agents. I'm also experienced with n8n, Zapier, Google Workspace, and various document processing tools. I recommend the best tool for your specific needs, not just what I know."
+      },
+      {
+        "question": "How do you calculate ROI for AI projects?",
+        "answer": "I measure time savings in hours per week, then convert to CHF value. For example, if automation saves 10 hours/week at CHF 75/hour, that's CHF 39,000/year in recaptured time. Most projects achieve 3-6 month payback periods."
+      },
+      {
+        "question": "What's included in ongoing support?",
+        "answer": "Ongoing support (from CHF 500/month) includes regular check-ins, troubleshooting help, updates as tools evolve, and guidance on expanding to new use cases. You also get priority response times and documentation updates."
+      },
+      {
+        "question": "Can you work with our existing IT systems?",
+        "answer": "Yes. I specialize in integrating AI into existing workflows without disrupting current systems. Whether you use SAP, Microsoft 365, Google Workspace, or custom software, I design solutions that work alongside what you already have."
+      },
+      {
+        "question": "What makes you different from consulting firms?",
+        "answer": "I deliver working automation, not PowerPoint reports. I work hands-on with your team, offer fixed-price projects (no hourly surprises), and stay involved until the solution works. My Fortune 100 experience means enterprise-quality methods at SME-friendly prices."
+      },
+      {
+        "question": "How do I know if AI is right for my business?",
+        "answer": "Book a free 30-minute strategy call. I'll ask about your workflows, identify automation potential, and give you an honest assessment. If AI isn't the right fit, I'll tell you—no sales pitch, just practical advice."
+      }
+    ]
   }
 }
