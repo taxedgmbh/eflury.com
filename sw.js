@@ -1,15 +1,18 @@
 // Service Worker for PWA functionality
-const CACHE_NAME = 'eflury-v1';
-const RUNTIME_CACHE = 'eflury-runtime-v1';
+const CACHE_NAME = 'eflury-v2';
+const RUNTIME_CACHE = 'eflury-runtime-v2';
 
 // Assets to cache on install
 const PRECACHE_ASSETS = [
   '/',
-  '/en.html',
-  '/de.html',
+  '/en/',
+  '/de/',
+  '/en/about/',
+  '/de/about/',
+  '/en/pricing/',
+  '/de/pricing/',
   '/favicon.svg',
-  '/images/icons/en.png',
-  '/images/icons/de.png',
+  '/manifest.json',
   '/images/portraits/emanuel-aaron-flury-portrait.png',
 ];
 

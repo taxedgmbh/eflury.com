@@ -46,6 +46,13 @@ const twitterImage = 'https://eflury.com/images/og-image.png';
     <link rel="icon" type="image/png" href="/images/favicon.png" />
     <link rel="apple-touch-icon" href="/images/favicon.png" />
 
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://www.googletagmanager.com" />
+    <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/images/portraits/emanuel-aaron-flury-portrait.png" as="image" type="image/png" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />

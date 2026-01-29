@@ -1,22 +1,40 @@
 {
-  "name": "eFlury Consulting - Agentic AI & Business Automation",
+  "name": "eFlury Consulting - AI Automation for Swiss SMEs",
   "short_name": "eFlury",
-  "description": "Independent consultant specializing in agentic AI, business automation, and intelligent process transformation",
+  "description": "AI automation consultant helping Swiss SMEs implement Claude, Make, and workflow automation with enterprise methods at SME prices.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#FFFFFF",
-  "theme_color": "#1a365d",
+  "background_color": "#ffffff",
+  "theme_color": "#022554",
   "orientation": "portrait-primary",
   "icons": [
     {
       "src": "/images/favicon.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/images/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    },
+    {
+      "src": "/images/favicon.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/favicon.png",
+      "sizes": "384x384",
+      "type": "image/png"
     }
   ],
   "categories": ["business", "technology", "productivity"],
   "lang": "en",
-  "dir": "ltr"
+  "dir": "ltr",
+  "scope": "/",
+  "prefer_related_applications": false
 }
 
