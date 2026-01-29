@@ -2,6 +2,7 @@
 import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
+import TrustSignals from '../../components/TrustSignals.astro';
 import EfluryMethod from '../../components/EfluryMethod.astro';
 import Services from '../../components/Services.astro';
 import HowIWork from '../../components/HowIWork.astro';
@@ -9,6 +10,7 @@ import TechPartners from '../../components/TechPartners.astro';
 import IdealClient from '../../components/IdealClient.astro';
 import About from '../../components/About.astro';
 import Testimonials from '../../components/Testimonials.astro';
+import LeadMagnet from '../../components/LeadMagnet.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
 import AIChatbot from '../../components/AIChatbot.astro';
@@ -27,6 +29,7 @@ const t = useTranslations(lang);
   <Header lang={lang} />
   <main id="main-content">
     <Hero lang={lang} />
+    <TrustSignals lang={lang} />
     <EfluryMethod lang={lang} />
     <Services lang={lang} />
     <HowIWork lang={lang} />
@@ -34,6 +37,7 @@ const t = useTranslations(lang);
     <IdealClient lang={lang} />
     <About lang={lang} />
     <Testimonials lang={lang} />
+    <LeadMagnet lang={lang} />
     <Contact lang={lang} />
   </main>
   <Footer lang={lang} />

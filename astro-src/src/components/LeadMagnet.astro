@@ -1,0 +1,272 @@
+---
+import { type Language, useTranslations } from '../i18n/utils';
+import { Download, FileText, CheckCircle, ArrowRight } from 'lucide-astro';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const benefits = [
+  'benefit1',
+  'benefit2',
+  'benefit3',
+  'benefit4'
+];
+---
+
+<section class="lead-magnet" id="free-guide">
+  <div class="container">
+    <div class="magnet-content">
+      <div class="magnet-info">
+        <span class="magnet-badge">
+          <FileText size={16} />
+          {t('lead_magnet.badge')}
+        </span>
+        <h2 class="magnet-title">{t('lead_magnet.title')}</h2>
+        <p class="magnet-subtitle">{t('lead_magnet.subtitle')}</p>
+
+        <ul class="benefits-list">
+          {benefits.map((key) => (
+            <li class="benefit-item">
+              <CheckCircle size={18} class="benefit-icon" />
+              <span>{t(`lead_magnet.benefits.${key}`)}</span>
+            </li>
+          ))}
+        </ul>
+
+        <a
+          href={`/downloads/eflury-ai-implementation-guide-${lang}.pdf`}
+          class="download-btn"
+          download
+          onclick="window.trackEvent?.('Conversion', 'lead_magnet_download', 'AI Implementation Guide')"
+        >
+          <Download size={18} />
+          {t('lead_magnet.cta')}
+          <ArrowRight size={16} class="arrow-icon" />
+        </a>
+
+        <p class="no-email">{t('lead_magnet.no_email')}</p>
+      </div>
+
+      <div class="magnet-visual">
+        <div class="guide-preview">
+          <div class="preview-header">
+            <div class="preview-dots">
+              <span></span><span></span><span></span>
+            </div>
+          </div>
+          <div class="preview-content">
+            <FileText size={48} class="preview-icon" />
+            <span class="preview-title">{t('lead_magnet.preview_title')}</span>
+            <span class="preview-pages">PDF · 12 {lang === 'de' ? 'Seiten' : 'Pages'}</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .lead-magnet {
+    background: linear-gradient(135deg, var(--eflury-navy) 0%, #0a1628 100%);
+    padding: 5rem 2rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .lead-magnet::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(ellipse at 20% 50%, rgba(13, 148, 136, 0.15) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 80%, rgba(20, 144, 208, 0.1) 0%, transparent 40%);
+    pointer-events: none;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .magnet-content {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 4rem;
+    align-items: center;
+  }
+
+  .magnet-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(13, 148, 136, 0.2);
+    border: 1px solid rgba(13, 148, 136, 0.3);
+    border-radius: var(--radius-full);
+    color: var(--eflury-teal);
+    font-size: 0.85rem;
+    font-weight: 500;
+    margin-bottom: 1.5rem;
+  }
+
+  .magnet-title {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    font-weight: 700;
+    color: white;
+    margin-bottom: 1rem;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+  }
+
+  .magnet-subtitle {
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .benefits-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .benefit-item {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+  }
+
+  .benefit-icon {
+    color: var(--eflury-teal);
+    flex-shrink: 0;
+  }
+
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: var(--eflury-teal);
+    color: white;
+    font-weight: 600;
+    font-size: 1rem;
+    border-radius: var(--radius-lg);
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .download-btn:hover {
+    background: #0f766e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.3);
+  }
+
+  .arrow-icon {
+    transition: transform 0.2s ease;
+  }
+
+  .download-btn:hover .arrow-icon {
+    transform: translateX(4px);
+  }
+
+  .no-email {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .magnet-visual {
+    display: flex;
+    justify-content: center;
+  }
+
+  .guide-preview {
+    background: white;
+    border-radius: var(--radius-lg);
+    width: 280px;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    transform: rotate(3deg);
+    transition: transform 0.3s ease;
+  }
+
+  .guide-preview:hover {
+    transform: rotate(0deg) scale(1.02);
+  }
+
+  .preview-header {
+    background: #f1f5f9;
+    padding: 0.75rem 1rem;
+    border-bottom: 1px solid #e2e8f0;
+  }
+
+  .preview-dots {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .preview-dots span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: #cbd5e1;
+  }
+
+  .preview-dots span:first-child { background: #f87171; }
+  .preview-dots span:nth-child(2) { background: #fbbf24; }
+  .preview-dots span:last-child { background: #4ade80; }
+
+  .preview-content {
+    padding: 3rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .preview-icon {
+    color: var(--eflury-teal);
+  }
+
+  .preview-title {
+    font-weight: 600;
+    color: var(--eflury-navy);
+    font-size: 0.95rem;
+  }
+
+  .preview-pages {
+    font-size: 0.8rem;
+    color: #64748b;
+  }
+
+  @media (max-width: 768px) {
+    .magnet-content {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .magnet-visual {
+      order: -1;
+    }
+
+    .guide-preview {
+      width: 240px;
+      transform: rotate(0deg);
+    }
+  }
+</style>

@@ -1,0 +1,203 @@
+---
+import { type Language, useTranslations } from '../i18n/utils';
+import { Building2, Factory, Briefcase, Users, Shield, Award } from 'lucide-astro';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+
+const industries = [
+  { icon: Building2, key: 'finance' },
+  { icon: Factory, key: 'manufacturing' },
+  { icon: Briefcase, key: 'professional_services' },
+  { icon: Users, key: 'healthcare' }
+];
+
+const stats = [
+  { value: '200+', key: 'hours_saved' },
+  { value: '15+', key: 'projects' },
+  { value: '100%', key: 'swiss_based' }
+];
+---
+
+<section class="trust-signals">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{t('trust_signals.title')}</h2>
+      <p class="section-subtitle">{t('trust_signals.subtitle')}</p>
+    </div>
+
+    <div class="industries-grid">
+      {industries.map(({ icon: Icon, key }) => (
+        <div class="industry-card">
+          <div class="industry-icon">
+            <Icon size={28} />
+          </div>
+          <span class="industry-name">{t(`trust_signals.industries.${key}`)}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="stats-row">
+      {stats.map(({ value, key }) => (
+        <div class="stat-item">
+          <span class="stat-value">{value}</span>
+          <span class="stat-label">{t(`trust_signals.stats.${key}`)}</span>
+        </div>
+      ))}
+    </div>
+
+    <div class="trust-badges">
+      <div class="badge">
+        <Shield size={18} />
+        <span>{t('trust_signals.badges.data_protection')}</span>
+      </div>
+      <div class="badge">
+        <Award size={18} />
+        <span>{t('trust_signals.badges.enterprise_experience')}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .trust-signals {
+    background: var(--bg-secondary);
+    padding: 5rem 2rem;
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .section-title {
+    font-size: clamp(1.75rem, 3.5vw, 2.25rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.02em;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 500px;
+    margin: 0 auto;
+  }
+
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .industry-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.5rem 1rem;
+    background: var(--card-bg);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--separator);
+    transition: all 0.2s ease;
+  }
+
+  .industry-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: var(--shadow-md);
+  }
+
+  .industry-icon {
+    color: var(--eflury-teal);
+  }
+
+  .industry-name {
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+    text-align: center;
+  }
+
+  .stats-row {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 2.5rem;
+    padding: 2rem 0;
+    border-top: 1px solid var(--separator);
+    border-bottom: 1px solid var(--separator);
+  }
+
+  .stat-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.25rem;
+  }
+
+  .stat-value {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--eflury-teal);
+    letter-spacing: -0.02em;
+  }
+
+  .stat-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1.25rem;
+    background: var(--card-bg);
+    border-radius: var(--radius-full);
+    border: 1px solid var(--separator);
+    font-size: 0.9rem;
+    font-weight: 500;
+    color: var(--text-primary);
+  }
+
+  .badge svg {
+    color: var(--eflury-teal);
+  }
+
+  @media (max-width: 768px) {
+    .industries-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .stats-row {
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .trust-badges {
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+</style>

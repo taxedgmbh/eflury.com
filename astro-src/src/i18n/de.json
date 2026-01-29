@@ -425,5 +425,38 @@
         "answer": "Buchen Sie ein kostenloses 30-minütiges Strategiegespräch. Ich frage nach Ihren Workflows, identifiziere Automatisierungspotenzial und gebe Ihnen eine ehrliche Einschätzung. Wenn KI nicht passt, sage ich es Ihnen – kein Verkaufsgespräch, nur praktische Beratung."
       }
     ]
+  },
+  "trust_signals": {
+    "title": "Vertraut von Schweizer KMU",
+    "subtitle": "Unterstützung von Unternehmen verschiedener Branchen bei der Automatisierung",
+    "industries": {
+      "finance": "Finanzen & Buchhaltung",
+      "manufacturing": "Produktion",
+      "professional_services": "Dienstleistungen",
+      "healthcare": "Gesundheitswesen"
+    },
+    "stats": {
+      "hours_saved": "Stunden gespart / Monat",
+      "projects": "Projekte umgesetzt",
+      "swiss_based": "In der Schweiz"
+    },
+    "badges": {
+      "data_protection": "Schweizer Datenschutz",
+      "enterprise_experience": "Fortune 100 Erfahrung"
+    }
+  },
+  "lead_magnet": {
+    "badge": "Kostenloser Download",
+    "title": "Das KI-Implementierungs-Playbook für Schweizer KMU",
+    "subtitle": "Lernen Sie das 5-Phasen-Framework, das ich nutze, um Schweizer Unternehmen bei der erfolgreichen KI-Implementierung zu helfen—ohne Enterprise-Budget.",
+    "benefits": {
+      "benefit1": "Die eFlury-Methode Schritt für Schritt erklärt",
+      "benefit2": "Echte ROI-Berechnungen und Beispiele",
+      "benefit3": "Tool-Empfehlungen für Schweizer Compliance",
+      "benefit4": "Häufige Fallstricke und wie Sie diese vermeiden"
+    },
+    "cta": "Kostenlosen Guide herunterladen",
+    "no_email": "Keine E-Mail erforderlich. Sofortiger Download.",
+    "preview_title": "KI-Implementierungs-Playbook"
   }
 }

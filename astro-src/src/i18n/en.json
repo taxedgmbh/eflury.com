@@ -411,5 +411,38 @@
         "answer": "Book a free 30-minute strategy call. I'll ask about your workflows, identify automation potential, and give you an honest assessment. If AI isn't the right fit, I'll tell you—no sales pitch, just practical advice."
       }
     ]
+  },
+  "trust_signals": {
+    "title": "Trusted by Swiss SMEs",
+    "subtitle": "Helping businesses across industries automate and grow",
+    "industries": {
+      "finance": "Finance & Accounting",
+      "manufacturing": "Manufacturing",
+      "professional_services": "Professional Services",
+      "healthcare": "Healthcare"
+    },
+    "stats": {
+      "hours_saved": "Hours Saved Monthly",
+      "projects": "Projects Delivered",
+      "swiss_based": "Swiss-Based"
+    },
+    "badges": {
+      "data_protection": "Swiss Data Protection",
+      "enterprise_experience": "Fortune 100 Experience"
+    }
+  },
+  "lead_magnet": {
+    "badge": "Free Download",
+    "title": "The AI Implementation Playbook for Swiss SMEs",
+    "subtitle": "Learn the exact 5-phase framework I use to help Swiss businesses implement AI successfully—without the enterprise budget.",
+    "benefits": {
+      "benefit1": "The eFlury Method explained step-by-step",
+      "benefit2": "Real ROI calculations and examples",
+      "benefit3": "Tool recommendations for Swiss compliance",
+      "benefit4": "Common pitfalls and how to avoid them"
+    },
+    "cta": "Download Free Guide",
+    "no_email": "No email required. Instant download.",
+    "preview_title": "AI Implementation Playbook"
   }
 }
