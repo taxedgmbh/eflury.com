@@ -310,6 +310,30 @@
       "role": "Head of Operations",
       "company": "Swiss Manufacturing, 120 employees",
       "text": "The AI training was exactly what our team needed. Practical, hands-on, and immediately applicable. We now use AI tools daily."
+    },
+    "testimonial4": {
+      "name": "Claudia B.",
+      "role": "Office Manager",
+      "company": "Legal Services Firm, Zurich",
+      "text": "Our document processing went from 3 hours to 15 minutes per batch. Emanuel understood our compliance requirements and built a solution that actually works within Swiss regulations."
+    },
+    "testimonial5": {
+      "name": "Andreas W.",
+      "role": "CEO",
+      "company": "Tech Startup, 25 employees",
+      "text": "We couldn't afford a full-time AI specialist, but Emanuel's fixed-price approach gave us enterprise-level automation at a fraction of the cost. Best investment we made this year."
+    },
+    "testimonial6": {
+      "name": "Petra H.",
+      "role": "HR Director",
+      "company": "Healthcare Services, Basel",
+      "text": "Skeptical at first about AI handling sensitive HR data, but Emanuel's approach to data protection convinced me. Now our onboarding process runs automatically while staying fully GDPR compliant."
+    },
+    "testimonial7": {
+      "name": "Marco F.",
+      "role": "Financial Controller",
+      "company": "Import/Export Business, Geneva",
+      "text": "The ROI calculator Emanuel provided showed we'd save CHF 45,000/year. Six months in, we're actually saving more. No consultant-speak, just results."
     }
   },
   "portfolio": {

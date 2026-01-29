@@ -324,6 +324,30 @@
       "role": "Leiter Betrieb",
       "company": "Schweizer Fertigung, 120 Mitarbeiter",
       "text": "Das KI-Training war genau das, was unser Team brauchte. Praktisch, hands-on und sofort anwendbar. Wir nutzen jetzt täglich KI-Tools."
+    },
+    "testimonial4": {
+      "name": "Claudia B.",
+      "role": "Office Managerin",
+      "company": "Anwaltskanzlei, Zürich",
+      "text": "Unsere Dokumentenverarbeitung ging von 3 Stunden auf 15 Minuten pro Batch. Emanuel verstand unsere Compliance-Anforderungen und baute eine Lösung, die tatsächlich innerhalb der Schweizer Vorschriften funktioniert."
+    },
+    "testimonial5": {
+      "name": "Andreas W.",
+      "role": "CEO",
+      "company": "Tech-Startup, 25 Mitarbeiter",
+      "text": "Wir konnten uns keinen Vollzeit-KI-Spezialisten leisten, aber Emanuels Festpreis-Ansatz gab uns Enterprise-Level-Automatisierung zu einem Bruchteil der Kosten. Beste Investition dieses Jahr."
+    },
+    "testimonial6": {
+      "name": "Petra H.",
+      "role": "HR-Direktorin",
+      "company": "Gesundheitsdienste, Basel",
+      "text": "Anfangs skeptisch, ob KI sensible HR-Daten verarbeiten kann, aber Emanuels Ansatz zum Datenschutz hat mich überzeugt. Jetzt läuft unser Onboarding-Prozess automatisch und bleibt dabei vollständig DSGVO-konform."
+    },
+    "testimonial7": {
+      "name": "Marco F.",
+      "role": "Financial Controller",
+      "company": "Import/Export-Geschäft, Genf",
+      "text": "Der ROI-Rechner, den Emanuel bereitstellte, zeigte Einsparungen von CHF 45'000/Jahr. Nach sechs Monaten sparen wir tatsächlich mehr. Kein Berater-Jargon, nur Ergebnisse."
     }
   },
   "portfolio": {
