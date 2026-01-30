@@ -37,11 +37,12 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
 
     <div class="nav-content">
       <ul class="nav-links" id="navLinks">
-        <li><a href="#home">{t('nav.home')}</a></li>
-        <li><a href="#services">{t('nav.services')}</a></li>
-        <li><a href="#about">{t('nav.about')}</a></li>
+        <li><a href={`/${lang}/#home`}>{t('nav.home')}</a></li>
+        <li><a href={`/${lang}/#services`}>{t('nav.services')}</a></li>
+        <li><a href={`/${lang}/skopaai`} class="nav-skopaai">{t('nav.skopaai')}<span class="nav-badge">{t('nav.new')}</span></a></li>
+        <li><a href={`/${lang}/#about`}>{t('nav.about')}</a></li>
         <li><a href={`/${lang}/blog`}>{t('nav.blog')}</a></li>
-        <li><a href="#contact">{t('nav.contact')}</a></li>
+        <li><a href={`/${lang}/#contact`}>{t('nav.contact')}</a></li>
 
         <!-- Mobile-only: Dark Mode Toggle -->
         <li class="mobile-dark-toggle">
@@ -228,9 +229,28 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
   .nav-links a:hover {
     color: var(--text-primary);
   }
-  
+
   .nav-links a:active {
     color: var(--primary);
+  }
+
+  .nav-skopaai {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+  }
+
+  .nav-badge {
+    display: inline-block;
+    background: var(--eflury-teal);
+    color: white;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    vertical-align: middle;
   }
 
   .nav-actions {
