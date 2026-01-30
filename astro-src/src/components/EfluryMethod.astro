@@ -321,7 +321,7 @@ const phasesData = [
 
     .phase {
       flex-direction: row;
-      align-items: flex-start;
+      align-items: stretch; /* KEY FIX: stretch to fill height */
       text-align: left;
       width: 100%;
       gap: 1.25rem;
@@ -333,12 +333,14 @@ const phasesData = [
       align-items: center;
       flex-shrink: 0;
       margin-bottom: 0;
+      /* Removed fixed alignment - now stretches with parent */
     }
 
     .phase-number {
       width: 48px;
       height: 48px;
       font-size: 1.25rem;
+      flex-shrink: 0; /* Prevent number from shrinking */
       box-shadow:
         0 4px 12px rgba(2, 37, 84, 0.2),
         0 0 0 3px rgba(255, 255, 255, 0.9),
@@ -352,14 +354,15 @@ const phasesData = [
     .phase-connector {
       display: block;
       width: 2px;
-      flex-grow: 1;
-      min-height: 40px;
+      flex: 1 1 auto; /* Grow AND shrink as needed */
+      min-height: 20px; /* Minimum visible line */
       background: linear-gradient(
         to bottom,
         var(--eflury-teal) 0%,
         var(--border-color) 100%
       );
       margin-top: 0.5rem;
+      margin-bottom: 0.5rem; /* Add bottom spacing for visual balance */
     }
 
     .phase:last-child .phase-connector {
@@ -369,7 +372,7 @@ const phasesData = [
     .phase-content {
       max-width: none;
       flex-grow: 1;
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem; /* Reduced margin - connector handles spacing */
       border-radius: 16px;
       padding: 1.5rem;
     }
@@ -407,10 +410,16 @@ const phasesData = [
       width: 44px;
       height: 44px;
       font-size: 1.125rem;
+      flex-shrink: 0;
+    }
+
+    .phase-connector {
+      min-height: 15px; /* Slightly smaller on small screens */
     }
 
     .phase-content {
       padding: 1.25rem;
+      margin-bottom: 0.75rem;
     }
 
     .phase-title {
