@@ -456,8 +456,11 @@
       "benefit3": "Tool-Empfehlungen für Schweizer Compliance",
       "benefit4": "Häufige Fallstricke und wie Sie diese vermeiden"
     },
-    "cta": "Kostenlosen Guide herunterladen",
-    "no_email": "Keine E-Mail erforderlich. Sofortiger Download.",
+    "cta": "Kostenlosen Guide erhalten",
+    "email_placeholder": "Ihre E-Mail-Adresse eingeben",
+    "success_message": "Prüfen Sie Ihren Posteingang! Ihr Download ist bereit.",
+    "download_now": "Jetzt herunterladen",
+    "privacy_note": "Ihre E-Mail ist sicher. Kein Spam, jederzeit abmelden.",
     "preview_title": "KI-Implementierungs-Playbook"
   }
 }

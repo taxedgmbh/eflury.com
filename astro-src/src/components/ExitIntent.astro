@@ -1,0 +1,382 @@
+---
+import { type Language, useTranslations } from '../i18n/utils';
+import { X, Gift, ArrowRight, Clock } from 'lucide-astro';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const t = useTranslations(lang);
+---
+
+<!-- Exit Intent Popup -->
+<div id="exit-intent-overlay" class="exit-overlay" aria-hidden="true">
+  <div class="exit-popup" role="dialog" aria-labelledby="exit-title" aria-modal="true">
+    <button class="exit-close" aria-label={lang === 'de' ? 'Schliessen' : 'Close'}>
+      <X size={24} />
+    </button>
+
+    <div class="exit-content">
+      <div class="exit-icon">
+        <Gift size={32} />
+      </div>
+
+      <h2 id="exit-title" class="exit-title">
+        {lang === 'de' ? 'Warten Sie!' : 'Wait!'}
+      </h2>
+
+      <p class="exit-subtitle">
+        {lang === 'de'
+          ? 'Bevor Sie gehen — holen Sie sich unseren kostenlosen AI-Implementierungs-Guide'
+          : 'Before you go — grab our free AI Implementation Guide'}
+      </p>
+
+      <ul class="exit-benefits">
+        <li>
+          <Clock size={16} />
+          {lang === 'de' ? '5-Phasen Framework erklärt' : '5-Phase Framework explained'}
+        </li>
+        <li>
+          <Clock size={16} />
+          {lang === 'de' ? 'ROI-Berechnungen & Beispiele' : 'ROI calculations & examples'}
+        </li>
+        <li>
+          <Clock size={16} />
+          {lang === 'de' ? 'Schweizer Compliance-Tipps' : 'Swiss compliance tips'}
+        </li>
+      </ul>
+
+      <div class="exit-actions">
+        <a href="#free-guide" class="exit-btn primary" data-action="guide">
+          {lang === 'de' ? 'Kostenlosen Guide holen' : 'Get Free Guide'}
+          <ArrowRight size={16} />
+        </a>
+        <a href="#contact" class="exit-btn secondary" data-action="contact">
+          {lang === 'de' ? 'Lieber direkt sprechen' : 'Prefer to talk directly'}
+        </a>
+      </div>
+
+      <button class="exit-dismiss">
+        {lang === 'de' ? 'Nein danke, ich gehe' : 'No thanks, I\'m leaving'}
+      </button>
+    </div>
+  </div>
+</div>
+
+<style>
+  .exit-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+  }
+
+  .exit-overlay.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .exit-popup {
+    background: white;
+    border-radius: var(--radius-xl, 1rem);
+    max-width: 480px;
+    width: 100%;
+    padding: 2.5rem;
+    position: relative;
+    transform: scale(0.9) translateY(20px);
+    transition: transform 0.3s ease;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+  }
+
+  .exit-overlay.active .exit-popup {
+    transform: scale(1) translateY(0);
+  }
+
+  .exit-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: #64748b;
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s ease;
+  }
+
+  .exit-close:hover {
+    background: #f1f5f9;
+    color: #1e293b;
+  }
+
+  .exit-content {
+    text-align: center;
+  }
+
+  .exit-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, var(--eflury-teal, #0d9488) 0%, #14b8a6 100%);
+    border-radius: 50%;
+    color: white;
+    margin-bottom: 1.5rem;
+  }
+
+  .exit-title {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--eflury-navy, #0f172a);
+    margin: 0 0 0.75rem 0;
+  }
+
+  .exit-subtitle {
+    font-size: 1.1rem;
+    color: #475569;
+    margin: 0 0 1.5rem 0;
+    line-height: 1.5;
+  }
+
+  .exit-benefits {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 2rem 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    text-align: left;
+  }
+
+  .exit-benefits li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: #334155;
+    font-size: 0.95rem;
+  }
+
+  .exit-benefits li :global(svg) {
+    color: var(--eflury-teal, #0d9488);
+    flex-shrink: 0;
+  }
+
+  .exit-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .exit-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 1rem 1.5rem;
+    border-radius: var(--radius-lg, 0.5rem);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .exit-btn.primary {
+    background: var(--eflury-teal, #0d9488);
+    color: white;
+  }
+
+  .exit-btn.primary:hover {
+    background: #0f766e;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.3);
+  }
+
+  .exit-btn.secondary {
+    background: #f1f5f9;
+    color: var(--eflury-navy, #0f172a);
+  }
+
+  .exit-btn.secondary:hover {
+    background: #e2e8f0;
+  }
+
+  .exit-dismiss {
+    background: none;
+    border: none;
+    color: #94a3b8;
+    font-size: 0.85rem;
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: color 0.2s ease;
+  }
+
+  .exit-dismiss:hover {
+    color: #64748b;
+  }
+
+  @media (max-width: 640px) {
+    .exit-popup {
+      padding: 2rem 1.5rem;
+    }
+
+    .exit-title {
+      font-size: 1.5rem;
+    }
+
+    .exit-subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>
+
+<script>
+  const overlay = document.getElementById('exit-intent-overlay');
+  const popup = overlay?.querySelector('.exit-popup');
+  const closeBtn = overlay?.querySelector('.exit-close');
+  const dismissBtn = overlay?.querySelector('.exit-dismiss');
+  const actionBtns = overlay?.querySelectorAll('[data-action]');
+
+  const STORAGE_KEY = 'eflury_exit_shown';
+  const COOLDOWN_HOURS = 24;
+
+  // Check if popup was shown recently
+  function wasRecentlyShown(): boolean {
+    const lastShown = localStorage.getItem(STORAGE_KEY);
+    if (!lastShown) return false;
+
+    const hoursSince = (Date.now() - parseInt(lastShown)) / (1000 * 60 * 60);
+    return hoursSince < COOLDOWN_HOURS;
+  }
+
+  // Mark popup as shown
+  function markAsShown() {
+    localStorage.setItem(STORAGE_KEY, Date.now().toString());
+  }
+
+  // Show popup
+  function showPopup() {
+    if (wasRecentlyShown()) return;
+
+    overlay?.classList.add('active');
+    overlay?.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+
+    // Track event
+    window.trackEvent?.('Engagement', 'exit_intent_shown', 'Exit Intent Popup');
+
+    markAsShown();
+  }
+
+  // Hide popup
+  function hidePopup() {
+    overlay?.classList.remove('active');
+    overlay?.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Desktop: Detect mouse leaving viewport (toward top)
+  let exitIntentTriggered = false;
+
+  document.addEventListener('mouseout', (e) => {
+    if (exitIntentTriggered) return;
+    if (wasRecentlyShown()) return;
+
+    // Check if mouse left from top of viewport
+    if (e.clientY <= 0 && e.relatedTarget === null) {
+      exitIntentTriggered = true;
+      showPopup();
+    }
+  });
+
+  // Mobile: Show after 45 seconds of engagement or scroll up
+  let mobileTimeout: ReturnType<typeof setTimeout>;
+  let lastScrollY = 0;
+  let scrollUpCount = 0;
+
+  if ('ontouchstart' in window) {
+    // Time-based trigger for mobile
+    mobileTimeout = setTimeout(() => {
+      if (!exitIntentTriggered && !wasRecentlyShown()) {
+        exitIntentTriggered = true;
+        showPopup();
+      }
+    }, 45000);
+
+    // Scroll-up trigger for mobile
+    window.addEventListener('scroll', () => {
+      const currentScrollY = window.scrollY;
+
+      if (currentScrollY < lastScrollY && currentScrollY > 500) {
+        scrollUpCount++;
+        if (scrollUpCount > 3 && !exitIntentTriggered && !wasRecentlyShown()) {
+          exitIntentTriggered = true;
+          showPopup();
+        }
+      } else {
+        scrollUpCount = 0;
+      }
+
+      lastScrollY = currentScrollY;
+    }, { passive: true });
+  }
+
+  // Close handlers
+  closeBtn?.addEventListener('click', () => {
+    hidePopup();
+    window.trackEvent?.('Engagement', 'exit_intent_closed', 'Close Button');
+  });
+
+  dismissBtn?.addEventListener('click', () => {
+    hidePopup();
+    window.trackEvent?.('Engagement', 'exit_intent_dismissed', 'No Thanks');
+  });
+
+  // Close on overlay click
+  overlay?.addEventListener('click', (e) => {
+    if (e.target === overlay) {
+      hidePopup();
+      window.trackEvent?.('Engagement', 'exit_intent_closed', 'Overlay Click');
+    }
+  });
+
+  // Close on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && overlay?.classList.contains('active')) {
+      hidePopup();
+      window.trackEvent?.('Engagement', 'exit_intent_closed', 'Escape Key');
+    }
+  });
+
+  // Track CTA clicks
+  actionBtns?.forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const action = (btn as HTMLElement).dataset.action;
+      window.trackEvent?.('Conversion', 'exit_intent_cta_click', action);
+      hidePopup();
+    });
+  });
+
+  // Cleanup
+  window.addEventListener('beforeunload', () => {
+    if (mobileTimeout) clearTimeout(mobileTimeout);
+  });
+
+  // Type declaration
+  declare global {
+    interface Window {
+      trackEvent?: (category: string, action: string, label?: string) => void;
+    }
+  }
+</script>

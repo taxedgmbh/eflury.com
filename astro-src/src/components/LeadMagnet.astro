@@ -1,6 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
-import { Download, FileText, CheckCircle, ArrowRight } from 'lucide-astro';
+import { Download, FileText, CheckCircle, ArrowRight, Mail, Loader2, Check } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -15,6 +15,8 @@ const benefits = [
   'benefit3',
   'benefit4'
 ];
+
+const downloadUrl = `/downloads/eflury-ai-implementation-guide-${lang}.pdf`;
 ---
 
 <section class="lead-magnet" id="free-guide">
@@ -37,18 +39,53 @@ const benefits = [
           ))}
         </ul>
 
-        <a
-          href={`/downloads/eflury-ai-implementation-guide-${lang}.pdf`}
-          class="download-btn"
-          download
-          onclick="window.trackEvent?.('Conversion', 'lead_magnet_download', 'AI Implementation Guide')"
-        >
-          <Download size={18} />
-          {t('lead_magnet.cta')}
-          <ArrowRight size={16} class="arrow-icon" />
-        </a>
+        <!-- Email Capture Form -->
+        <form id="lead-magnet-form" class="lead-form" data-download-url={downloadUrl}>
+          <div class="form-group">
+            <div class="input-wrapper">
+              <Mail size={18} class="input-icon" />
+              <input
+                type="email"
+                id="lead-email"
+                name="email"
+                placeholder={t('lead_magnet.email_placeholder')}
+                required
+                autocomplete="email"
+              />
+            </div>
+            <button type="submit" class="download-btn">
+              <span class="btn-text">
+                <Download size={18} />
+                {t('lead_magnet.cta')}
+                <ArrowRight size={16} class="arrow-icon" />
+              </span>
+              <span class="btn-loading" style="display: none;">
+                <Loader2 size={18} class="spinner" />
+                {lang === 'de' ? 'Wird gesendet...' : 'Sending...'}
+              </span>
+            </button>
+          </div>
+          <p class="form-error" style="display: none;"></p>
+        </form>
 
-        <p class="no-email">{t('lead_magnet.no_email')}</p>
+        <!-- Success State (hidden by default) -->
+        <div id="lead-success" class="success-state" style="display: none;">
+          <div class="success-icon">
+            <Check size={24} />
+          </div>
+          <p class="success-message">{t('lead_magnet.success_message')}</p>
+          <a
+            href={downloadUrl}
+            class="download-btn download-now"
+            download
+            onclick="window.trackEvent?.('Conversion', 'lead_magnet_download', 'AI Implementation Guide')"
+          >
+            <Download size={18} />
+            {t('lead_magnet.download_now')}
+          </a>
+        </div>
+
+        <p class="privacy-note">{t('lead_magnet.privacy_note')}</p>
       </div>
 
       <div class="magnet-visual">
@@ -183,10 +220,116 @@ const benefits = [
     transform: translateX(4px);
   }
 
-  .no-email {
-    margin-top: 1rem;
-    font-size: 0.85rem;
+  /* Email Form Styles */
+  .lead-form {
+    width: 100%;
+    max-width: 480px;
+  }
+
+  .form-group {
+    display: flex;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .input-wrapper {
+    flex: 1;
+    min-width: 200px;
+    position: relative;
+  }
+
+  .input-icon {
+    position: absolute;
+    left: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    color: rgba(255, 255, 255, 0.4);
+    pointer-events: none;
+  }
+
+  .lead-form input {
+    width: 100%;
+    padding: 1rem 1rem 1rem 2.75rem;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: var(--radius-lg);
+    color: white;
+    font-size: 1rem;
+    transition: all 0.2s ease;
+  }
+
+  .lead-form input::placeholder {
     color: rgba(255, 255, 255, 0.5);
+  }
+
+  .lead-form input:focus {
+    outline: none;
+    border-color: var(--eflury-teal);
+    background: rgba(255, 255, 255, 0.15);
+  }
+
+  .lead-form input:invalid:not(:placeholder-shown) {
+    border-color: #f87171;
+  }
+
+  .form-error {
+    color: #fca5a5;
+    font-size: 0.85rem;
+    margin-top: 0.5rem;
+  }
+
+  .btn-loading {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .spinner {
+    animation: spin 1s linear infinite;
+  }
+
+  @keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+  }
+
+  /* Success State */
+  .success-state {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: rgba(13, 148, 136, 0.15);
+    border: 1px solid rgba(13, 148, 136, 0.3);
+    border-radius: var(--radius-lg);
+  }
+
+  .success-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: var(--eflury-teal);
+    border-radius: 50%;
+    color: white;
+  }
+
+  .success-message {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1rem;
+    margin: 0;
+  }
+
+  .download-now {
+    margin-top: 0.5rem;
+  }
+
+  .privacy-note {
+    margin-top: 1rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.4);
   }
 
   .magnet-visual {
@@ -268,5 +411,122 @@ const benefits = [
       width: 240px;
       transform: rotate(0deg);
     }
+
+    .form-group {
+      flex-direction: column;
+    }
+
+    .input-wrapper {
+      min-width: 100%;
+    }
+
+    .download-btn {
+      width: 100%;
+      justify-content: center;
+    }
   }
 </style>
+
+<script>
+  import emailjs from '@emailjs/browser';
+
+  // Initialize EmailJS
+  emailjs.init(import.meta.env.PUBLIC_EMAILJS_KEY);
+
+  const form = document.getElementById('lead-magnet-form') as HTMLFormElement;
+  const successState = document.getElementById('lead-success');
+  const errorMsg = form?.querySelector('.form-error') as HTMLElement;
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    const emailInput = form.querySelector('#lead-email') as HTMLInputElement;
+    const email = emailInput?.value?.trim();
+    const downloadUrl = form.dataset.downloadUrl;
+
+    if (!email) {
+      showError('Please enter your email address');
+      return;
+    }
+
+    // Show loading state
+    const btnText = form.querySelector('.btn-text') as HTMLElement;
+    const btnLoading = form.querySelector('.btn-loading') as HTMLElement;
+    const submitBtn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+
+    if (btnText) btnText.style.display = 'none';
+    if (btnLoading) btnLoading.style.display = 'flex';
+    if (submitBtn) submitBtn.disabled = true;
+    hideError();
+
+    try {
+      // Send email notification via EmailJS
+      await emailjs.send(
+        import.meta.env.PUBLIC_EMAILJS_SERVICE_ID,
+        import.meta.env.PUBLIC_EMAILJS_LEAD_TEMPLATE_ID || 'template_lead_magnet',
+        {
+          subscriber_email: email,
+          download_type: 'AI Implementation Playbook',
+          timestamp: new Date().toISOString(),
+        }
+      );
+
+      // Track conversion
+      window.trackEvent?.('Conversion', 'lead_magnet_email_captured', email);
+
+      // Show success state and hide form
+      form.style.display = 'none';
+      if (successState) {
+        successState.style.display = 'flex';
+      }
+
+      // Auto-trigger download after short delay
+      setTimeout(() => {
+        if (downloadUrl) {
+          const link = document.createElement('a');
+          link.href = downloadUrl;
+          link.download = '';
+          link.click();
+          window.trackEvent?.('Conversion', 'lead_magnet_download', 'AI Implementation Guide');
+        }
+      }, 500);
+
+    } catch (error) {
+      console.error('Lead magnet form error:', error);
+      // Still allow download even if email fails (graceful degradation)
+      showError('Email notification failed, but here\'s your download!');
+
+      setTimeout(() => {
+        if (downloadUrl) {
+          window.open(downloadUrl, '_blank');
+          window.trackEvent?.('Conversion', 'lead_magnet_download_fallback', 'AI Implementation Guide');
+        }
+      }, 1500);
+    } finally {
+      // Reset button state
+      if (btnText) btnText.style.display = 'flex';
+      if (btnLoading) btnLoading.style.display = 'none';
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+
+  function showError(message: string) {
+    if (errorMsg) {
+      errorMsg.textContent = message;
+      errorMsg.style.display = 'block';
+    }
+  }
+
+  function hideError() {
+    if (errorMsg) {
+      errorMsg.style.display = 'none';
+    }
+  }
+
+  // Declare trackEvent on window
+  declare global {
+    interface Window {
+      trackEvent?: (category: string, action: string, label?: string) => void;
+    }
+  }
+</script>

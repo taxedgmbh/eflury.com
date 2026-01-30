@@ -3,6 +3,7 @@ import { type Language } from '../i18n/utils';
 import '../styles/global.css';
 import '../styles/apple-components.css';
 import '../styles/scroll-indicator.css';
+import ExitIntent from '../components/ExitIntent.astro';
 
 interface Props {
   title: string;
@@ -386,5 +387,6 @@ const twitterImage = 'https://eflury.com/images/og-image.png';
   </head>
   <body>
     <slot />
+    <ExitIntent lang={lang} />
   </body>
 </html>

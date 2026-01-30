@@ -442,8 +442,11 @@
       "benefit3": "Tool recommendations for Swiss compliance",
       "benefit4": "Common pitfalls and how to avoid them"
     },
-    "cta": "Download Free Guide",
-    "no_email": "No email required. Instant download.",
+    "cta": "Get Free Guide",
+    "email_placeholder": "Enter your email address",
+    "success_message": "Check your inbox! Your download is ready.",
+    "download_now": "Download Now",
+    "privacy_note": "Your email is safe. No spam, unsubscribe anytime.",
     "preview_title": "AI Implementation Playbook"
   }
 }
