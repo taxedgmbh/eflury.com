@@ -494,14 +494,12 @@ const downloadUrl = `/downloads/eflury-ai-implementation-guide-${lang}.pdf`;
     } catch (error) {
       console.error('Lead magnet form error:', error);
       // Still allow download even if email fails (graceful degradation)
-      showError('Email notification failed, but here\'s your download!');
-
-      setTimeout(() => {
-        if (downloadUrl) {
-          window.open(downloadUrl, '_blank');
-          window.trackEvent?.('Conversion', 'lead_magnet_download_fallback', 'AI Implementation Guide');
-        }
-      }, 1500);
+      // Show success state with download button - don't use window.open (blocked by popup blockers)
+      form.style.display = 'none';
+      if (successState) {
+        successState.style.display = 'flex';
+      }
+      window.trackEvent?.('Conversion', 'lead_magnet_download_fallback', 'AI Implementation Guide');
     } finally {
       // Reset button state
       if (btnText) btnText.style.display = 'flex';
