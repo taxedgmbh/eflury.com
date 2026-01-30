@@ -634,8 +634,12 @@ const legalTitle = lang === 'en' ? 'Legal' : 'Rechtliches';
 <script>
   import emailjs from '@emailjs/browser';
 
-  // Initialize EmailJS with public key
-  emailjs.init('t1Qe1Zg5U3m8sqLGE');
+  // Initialize EmailJS with public key from environment
+  const emailjsKey = import.meta.env.PUBLIC_EMAILJS_KEY || 't1Qe1Zg5U3m8sqLGE';
+  const emailjsServiceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID || 'service_7o5qkdh';
+  const emailjsTemplateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID || 'template_yw4ehjl';
+
+  emailjs.init(emailjsKey);
 
   const newsletterForm = document.getElementById('newsletterForm') as HTMLFormElement;
   const newsletterStatus = document.getElementById('newsletter-status') as HTMLDivElement;
@@ -666,8 +670,8 @@ const legalTitle = lang === 'en' ? 'Legal' : 'Rechtliches';
       try {
         // Send newsletter subscription via EmailJS
         const result = await emailjs.send(
-          'service_7o5qkdh',    // Service ID
-          'template_yw4ehjl',   // Template ID (reuse contact template)
+          emailjsServiceId,
+          emailjsTemplateId,
           {
             name: 'Newsletter Subscriber',
             email: email,

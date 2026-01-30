@@ -8,6 +8,9 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+
+// Environment variables for third-party services
+const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAACNCvv3pA4hrcbKM';
 ---
 
 <section class="contact section-padding" id="contact">
@@ -133,7 +136,7 @@ const t = useTranslations(lang);
           <div
             id="turnstile-widget"
             class="cf-turnstile"
-            data-sitekey="0x4AAAAAACNCvv3pA4hrcbKM"
+            data-sitekey={turnstileSitekey}
             data-theme="auto"
             data-language={lang}
             data-callback="onTurnstileSuccess"
@@ -769,8 +772,12 @@ const t = useTranslations(lang);
 <script>
   import emailjs from '@emailjs/browser';
 
-  // Initialize EmailJS with your public key
-  emailjs.init('t1Qe1Zg5U3m8sqLGE');
+  // Initialize EmailJS with public key from environment
+  const emailjsKey = import.meta.env.PUBLIC_EMAILJS_KEY || 't1Qe1Zg5U3m8sqLGE';
+  const emailjsServiceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID || 'service_7o5qkdh';
+  const emailjsTemplateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID || 'template_yw4ehjl';
+
+  emailjs.init(emailjsKey);
 
   const form = document.getElementById('contactForm') as HTMLFormElement;
   const formStatus = document.getElementById('formStatus') as HTMLDivElement;
@@ -830,8 +837,8 @@ const t = useTranslations(lang);
 
       try {
         const result = await emailjs.sendForm(
-          'service_7o5qkdh',  // Service ID
-          'template_yw4ehjl', // Template ID
+          emailjsServiceId,
+          emailjsTemplateId,
           form
         );
 
