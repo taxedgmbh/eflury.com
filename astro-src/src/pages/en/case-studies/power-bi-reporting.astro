@@ -1,0 +1,1281 @@
+---
+/**
+ * Case Study: Power BI Executive Dashboard
+ * Real-Time Business Intelligence for Professional Services
+ */
+
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import AIChatbot from '../../../components/AIChatbot.astro';
+import { ArrowRight, Clock, TrendingUp, CheckCircle2, AlertCircle, BarChart3 } from 'lucide-astro';
+
+const lang = 'en';
+---
+
+<MainLayout
+  title="Case Study: Power BI Dashboard - 15 Hours/Week Saved | Emanuel Flury"
+  description="How a professional services firm transformed reporting with Power BI, connecting 7 data sources for real-time KPIs and saving CHF 36,000/year."
+  keywords="Power BI case study, executive dashboard, business intelligence, Swiss professional services, KPI reporting automation"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <main class="case-study">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/en">Home</a> / <a href="/en/case-studies">Case Studies</a> / Power BI Dashboard
+        </div>
+
+        <div class="hero-content">
+          <div class="badge-row">
+            <span class="badge client">Client Project</span>
+            <span class="badge industry">Professional Services</span>
+          </div>
+
+          <h1>Power BI Executive Dashboard</h1>
+          <p class="subtitle">Real-Time Business Intelligence for a Growing Firm</p>
+
+          <blockquote class="hero-quote">
+            "For the first time in 15 years, I know exactly where we stand—right now, not last month."
+            <cite>— Managing Partner, Professional Services Firm</cite>
+          </blockquote>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="value">15h</span>
+              <span class="label">Weekly time saved</span>
+            </div>
+            <div class="stat">
+              <span class="value">CHF 36K</span>
+              <span class="label">Annual savings</span>
+            </div>
+            <div class="stat">
+              <span class="value">2.8mo</span>
+              <span class="label">Payback period</span>
+            </div>
+            <div class="stat">
+              <span class="value">7</span>
+              <span class="label">Data sources unified</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section class="executive-summary">
+      <div class="container">
+        <h2>Executive Summary</h2>
+
+        <div class="company-info">
+          <div class="info-grid">
+            <div class="info-item">
+              <strong>Industry:</strong> Professional Services (Legal/Consulting)
+            </div>
+            <div class="info-item">
+              <strong>Location:</strong> Canton of Bern, Switzerland
+            </div>
+            <div class="info-item">
+              <strong>Company Size:</strong> 45 professionals, CHF 12M revenue
+            </div>
+            <div class="info-item">
+              <strong>Leadership:</strong> 4 Partners, 1 Operations Manager
+            </div>
+            <div class="info-item">
+              <strong>Data Sources:</strong> 7 systems (ERP, CRM, HR, Time Tracking, etc.)
+            </div>
+            <div class="info-item">
+              <strong>Implementation:</strong> Power BI Premium + Claude AI for insights
+            </div>
+          </div>
+        </div>
+
+        <h3>Results at a Glance</h3>
+        <div class="results-table-wrapper">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Before</th>
+                <th>After</th>
+                <th>Improvement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Report Preparation</strong></td>
+                <td>15 hours/week</td>
+                <td>2 hours/week</td>
+                <td class="positive"><strong>-87%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Data Freshness</strong></td>
+                <td>2-4 weeks old</td>
+                <td>Real-time</td>
+                <td class="positive"><strong>Instant</strong></td>
+              </tr>
+              <tr>
+                <td><strong>KPI Visibility</strong></td>
+                <td>12 metrics (manual)</td>
+                <td>48 metrics (automated)</td>
+                <td class="positive"><strong>+300%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Client Reporting</strong></td>
+                <td>3 hours/client</td>
+                <td>15 min/client</td>
+                <td class="positive"><strong>-92%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Partner Meeting Prep</strong></td>
+                <td>Full day</td>
+                <td>30 minutes</td>
+                <td class="positive"><strong>-94%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Annual Cost Savings</strong></td>
+                <td>—</td>
+                <td><strong>CHF 36,000</strong></td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Challenge -->
+    <section class="challenge">
+      <div class="container">
+        <h2>The Challenge</h2>
+        <p class="intro">A mid-sized professional services firm with 15 years of history was drowning in spreadsheets:</p>
+
+        <div class="pain-points">
+          <div class="pain-point">
+            <div class="pain-header">
+              <AlertCircle size={24} />
+              <h3>Data Silos Everywhere</h3>
+            </div>
+            <p>Financial data in Abacus, time tracking in Toggl, CRM in HubSpot, HR in BambooHR, projects in Monday.com, billing in custom Access database, client feedback in Google Forms. No single source of truth.</p>
+            <div class="time-cost">7 different systems, 7 different logins, 7 different exports</div>
+          </div>
+
+          <div class="pain-point">
+            <div class="pain-header">
+              <AlertCircle size={24} />
+              <h3>Excel Report Factory</h3>
+            </div>
+            <p>The Operations Manager spent every Friday creating reports: exporting from each system, cleaning data, building pivot tables, creating charts, and emailing PDFs. By the time partners received reports, the data was already stale.</p>
+            <div class="time-cost">15 hours/week on manual reporting</div>
+          </div>
+
+          <div class="pain-point">
+            <div class="pain-header">
+              <AlertCircle size={24} />
+              <h3>Client Reporting Burden</h3>
+            </div>
+            <p>For each major client, the team created custom monthly reports showing project status, billable hours, budget utilization, and deliverables. Each report took 3 hours to compile from multiple systems.</p>
+            <div class="time-cost">3 hours per client × 12 key clients = 36 hours/month</div>
+          </div>
+
+          <div class="pain-point">
+            <div class="pain-header">
+              <AlertCircle size={24} />
+              <h3>Flying Blind</h3>
+            </div>
+            <p>Partners made decisions based on gut feeling because data was too hard to access. Utilization rates, pipeline health, and profitability by service line were mysteries until quarterly reviews.</p>
+            <div class="time-cost">Decisions delayed by weeks due to data gaps</div>
+          </div>
+        </div>
+
+        <div class="breaking-point">
+          <h3>The Wake-Up Call</h3>
+          <p>The firm lost a major client because they couldn't provide real-time project visibility. The client's feedback: "We never knew where we stood until invoices arrived." The partners decided data visibility was now a competitive necessity, not a luxury.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="solution">
+      <div class="container">
+        <h2>The Solution</h2>
+        <p class="intro">We implemented a comprehensive Power BI solution over 6 weeks, using the eflury Method™.</p>
+
+        <div class="solution-phases">
+          <div class="phase">
+            <div class="phase-marker">
+              <span class="phase-number">1</span>
+            </div>
+            <div class="phase-content">
+              <h3>Data Integration Layer</h3>
+              <p>Built automated connections to all 7 data sources:</p>
+              <ul>
+                <li><strong>Abacus ERP:</strong> Direct SQL connection for financials</li>
+                <li><strong>Toggl:</strong> API integration for time tracking</li>
+                <li><strong>HubSpot CRM:</strong> REST API for pipeline and clients</li>
+                <li><strong>BambooHR:</strong> HR data via API (headcount, capacity)</li>
+                <li><strong>Monday.com:</strong> Project status and milestones</li>
+                <li><strong>Access DB:</strong> Legacy billing data migration</li>
+                <li><strong>Google Forms:</strong> Client satisfaction surveys</li>
+              </ul>
+              <div class="phase-result">
+                <CheckCircle2 size={18} />
+                <span>All 7 sources connected, refreshing every 15 minutes</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phase">
+            <div class="phase-marker">
+              <span class="phase-number">2</span>
+            </div>
+            <div class="phase-content">
+              <h3>Executive Dashboard</h3>
+              <p>Created a comprehensive partner-level dashboard with:</p>
+              <ul>
+                <li><strong>Financial Overview:</strong> Revenue, margins, cash flow, AR aging</li>
+                <li><strong>Utilization Metrics:</strong> Billable vs. non-billable by team member</li>
+                <li><strong>Pipeline Health:</strong> Weighted pipeline, conversion rates, velocity</li>
+                <li><strong>Client Profitability:</strong> Revenue and margin by client with trends</li>
+                <li><strong>Team Performance:</strong> Utilization, realization, efficiency rates</li>
+              </ul>
+              <div class="phase-result">
+                <CheckCircle2 size={18} />
+                <span>48 KPIs tracked automatically (vs. 12 manually before)</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phase">
+            <div class="phase-marker">
+              <span class="phase-number">3</span>
+            </div>
+            <div class="phase-content">
+              <h3>Client Portal Reports</h3>
+              <p>Automated client-facing reports:</p>
+              <ul>
+                <li>Self-service portal for key clients to view their project status</li>
+                <li>Automated monthly PDF generation with executive summary</li>
+                <li>Claude AI generates narrative insights for each report</li>
+                <li>Alerts when budget utilization exceeds thresholds</li>
+              </ul>
+              <div class="phase-result">
+                <CheckCircle2 size={18} />
+                <span>Client reporting reduced from 3 hours to 15 minutes</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phase">
+            <div class="phase-marker">
+              <span class="phase-number">4</span>
+            </div>
+            <div class="phase-content">
+              <h3>AI-Powered Insights</h3>
+              <p>Added Claude-powered analysis layer:</p>
+              <ul>
+                <li>Weekly email digest with AI-generated commentary on trends</li>
+                <li>Anomaly detection for unusual patterns (sudden drops, spikes)</li>
+                <li>Natural language Q&A: "Why did Q3 margins drop?"</li>
+                <li>Predictive alerts for at-risk projects based on patterns</li>
+              </ul>
+              <div class="phase-result">
+                <CheckCircle2 size={18} />
+                <span>Partners now receive proactive insights, not just data</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard Preview -->
+    <section class="dashboard-preview">
+      <div class="container">
+        <h2>Dashboard Highlights</h2>
+        <p class="intro">Key visualizations that transformed decision-making:</p>
+
+        <div class="dashboard-grid">
+          <div class="dashboard-card">
+            <BarChart3 size={32} />
+            <h3>Revenue Waterfall</h3>
+            <p>Monthly revenue breakdown by service line with variance analysis against budget and prior year.</p>
+          </div>
+
+          <div class="dashboard-card">
+            <BarChart3 size={32} />
+            <h3>Utilization Heatmap</h3>
+            <p>Team member utilization by week with color coding: green (optimal), yellow (low), red (overloaded).</p>
+          </div>
+
+          <div class="dashboard-card">
+            <BarChart3 size={32} />
+            <h3>Pipeline Funnel</h3>
+            <p>Sales pipeline stages with conversion rates, average deal size, and velocity metrics.</p>
+          </div>
+
+          <div class="dashboard-card">
+            <BarChart3 size={32} />
+            <h3>Client Profitability Matrix</h3>
+            <p>Revenue vs. margin by client, sized by total value, identifying high-value and problem accounts.</p>
+          </div>
+
+          <div class="dashboard-card">
+            <BarChart3 size={32} />
+            <h3>Project Health Scorecard</h3>
+            <p>Active projects with budget burn, timeline status, and risk indicators at a glance.</p>
+          </div>
+
+          <div class="dashboard-card">
+            <BarChart3 size={32} />
+            <h3>Cash Flow Forecast</h3>
+            <p>12-week forward view of expected cash inflows and outflows based on AR aging and committed costs.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="results">
+      <div class="container">
+        <h2>Detailed Results</h2>
+
+        <div class="results-grid">
+          <div class="result-card">
+            <h3>Time Savings</h3>
+            <div class="result-metric">
+              <span class="big-number">15</span>
+              <span class="unit">hours/week</span>
+            </div>
+            <p>Operations Manager now focuses on analysis and process improvement instead of report generation.</p>
+          </div>
+
+          <div class="result-card">
+            <h3>Financial Impact</h3>
+            <div class="result-metric">
+              <span class="big-number">CHF 36K</span>
+              <span class="unit">annual savings</span>
+            </div>
+            <p>Reduced time costs plus avoided hiring a dedicated reporting analyst.</p>
+          </div>
+
+          <div class="result-card">
+            <h3>Client Satisfaction</h3>
+            <div class="result-metric">
+              <span class="big-number">+28%</span>
+              <span class="unit">NPS increase</span>
+            </div>
+            <p>Clients love the transparency. Self-service portal became a competitive differentiator.</p>
+          </div>
+
+          <div class="result-card">
+            <h3>Decision Speed</h3>
+            <div class="result-metric">
+              <span class="big-number">Real-time</span>
+              <span class="unit">data access</span>
+            </div>
+            <p>Partners check dashboard daily instead of waiting for monthly reports.</p>
+          </div>
+        </div>
+
+        <div class="roi-summary">
+          <h3>Return on Investment</h3>
+          <div class="roi-grid">
+            <div class="roi-item">
+              <span class="label">Implementation Cost</span>
+              <span class="value">CHF 8,400</span>
+            </div>
+            <div class="roi-item">
+              <span class="label">Annual Savings</span>
+              <span class="value">CHF 36,000</span>
+            </div>
+            <div class="roi-item">
+              <span class="label">Payback Period</span>
+              <span class="value">2.8 months</span>
+            </div>
+            <div class="roi-item highlight">
+              <span class="label">Year 1 ROI</span>
+              <span class="value">329%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial">
+      <div class="container">
+        <blockquote class="main-testimonial">
+          <p>"I used to spend my entire Friday building reports that were outdated by Monday. Now I spend 30 minutes reviewing insights that are always current. The partners actually read the dashboards because they're useful, not just compliance exercises."</p>
+          <cite>
+            <strong>Operations Manager</strong><br>
+            Professional Services Firm
+          </cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Technical Details -->
+    <section class="technical">
+      <div class="container">
+        <h2>Technical Implementation</h2>
+
+        <div class="tech-stack">
+          <div class="tech-item">
+            <strong>BI Platform:</strong> Microsoft Power BI Premium (per-user licensing)
+          </div>
+          <div class="tech-item">
+            <strong>Data Warehouse:</strong> Azure SQL Database for centralized data
+          </div>
+          <div class="tech-item">
+            <strong>ETL Pipeline:</strong> Power Query + Azure Data Factory for complex transforms
+          </div>
+          <div class="tech-item">
+            <strong>AI Layer:</strong> Claude Sonnet 4 for narrative generation and anomaly detection
+          </div>
+          <div class="tech-item">
+            <strong>Refresh Rate:</strong> 15-minute incremental refresh during business hours
+          </div>
+          <div class="tech-item">
+            <strong>Hosting:</strong> Azure Switzerland West (data residency compliant)
+          </div>
+        </div>
+
+        <div class="security-note">
+          <h3>Data Governance</h3>
+          <p>Row-level security ensures partners only see data relevant to their practice areas. Client data is accessible only to assigned team members. All access is logged for compliance. The solution meets Swiss data protection requirements (FADP) and GDPR standards.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Lessons -->
+    <section class="lessons">
+      <div class="container">
+        <h2>Lessons Learned</h2>
+
+        <div class="lessons-grid">
+          <div class="lesson-card success">
+            <h3>What Worked</h3>
+            <ul>
+              <li><strong>Start with partner buy-in:</strong> Executive sponsorship ensured adoption</li>
+              <li><strong>Mobile-first design:</strong> Partners check dashboards on phones constantly</li>
+              <li><strong>Iterative rollout:</strong> Started with 2 dashboards, expanded based on feedback</li>
+              <li><strong>Training investment:</strong> 2-hour workshop made partners self-sufficient</li>
+            </ul>
+          </div>
+
+          <div class="lesson-card challenge">
+            <h3>Challenges Overcome</h3>
+            <ul>
+              <li><strong>Legacy Access DB:</strong> Required custom migration scripts</li>
+              <li><strong>Data quality issues:</strong> Inconsistent naming conventions across systems</li>
+              <li><strong>Resistance to change:</strong> Some team members preferred "their" spreadsheets</li>
+              <li><strong>API rate limits:</strong> Had to implement smart caching for HubSpot data</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to See Your Business in Real-Time?</h2>
+        <p>If you're still waiting weeks for data that should be at your fingertips, we can help.</p>
+        <div class="cta-buttons">
+          <a href="/en#contact" class="btn-primary">
+            Book Free Assessment
+            <ArrowRight size={18} />
+          </a>
+          <a href="/en/case-studies" class="btn-secondary">
+            View More Case Studies
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .case-study {
+    padding-top: var(--header-height);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 3rem 0 4rem;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+  }
+
+  .breadcrumb {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb a {
+    color: var(--primary-600);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .badge-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .badge.client {
+    background: var(--eflury-navy, #022554);
+    color: white;
+  }
+
+  .badge.industry {
+    background: var(--eflury-teal, #0d9488);
+    color: white;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .hero .subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .hero-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--eflury-navy, #022554);
+    border-left: 4px solid var(--eflury-teal, #0d9488);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .hero-quote cite {
+    display: block;
+    font-style: normal;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .hero-stats .stat {
+    text-align: center;
+    background: white;
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .hero-stats .value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--eflury-teal, #0d9488);
+    line-height: 1;
+  }
+
+  .hero-stats .label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+  }
+
+  /* Executive Summary */
+  .executive-summary {
+    padding: 4rem 0;
+  }
+
+  .executive-summary h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 2rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .company-info {
+    margin-bottom: 3rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-item {
+    font-size: 0.9rem;
+  }
+
+  .info-item strong {
+    color: var(--eflury-teal, #0d9488);
+  }
+
+  .executive-summary h3 {
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .results-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .results-table thead {
+    background: var(--eflury-navy, #022554);
+    color: white;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: 1rem;
+    text-align: left;
+  }
+
+  .results-table tbody tr:nth-child(even) {
+    background: var(--bg-secondary);
+  }
+
+  .results-table .positive {
+    color: var(--eflury-teal, #0d9488);
+    font-weight: 600;
+  }
+
+  /* Challenge Section */
+  .challenge {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .challenge h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 1rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .challenge .intro {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .pain-points {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .pain-point {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #ef4444;
+  }
+
+  .pain-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .pain-header :global(svg) {
+    color: #ef4444;
+    flex-shrink: 0;
+  }
+
+  .pain-header h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .pain-point p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .time-cost {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ef4444;
+  }
+
+  .breaking-point {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    border-left: 4px solid var(--eflury-teal, #0d9488);
+  }
+
+  .breaking-point h3 {
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 0.5rem;
+  }
+
+  .breaking-point p {
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  /* Solution Section */
+  .solution {
+    padding: 4rem 0;
+  }
+
+  .solution h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 1rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .solution .intro {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .solution-phases {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .phase {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .phase-marker {
+    flex-shrink: 0;
+  }
+
+  .phase-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--eflury-navy, #022554);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .phase-content {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    flex-grow: 1;
+  }
+
+  .phase-content h3 {
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-content p {
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-content ul {
+    margin: 0 0 1rem 1.25rem;
+    color: var(--text-secondary);
+  }
+
+  .phase-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .phase-result {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(13, 148, 136, 0.1);
+    border-radius: 8px;
+    color: var(--eflury-teal, #0d9488);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .phase-result :global(svg) {
+    flex-shrink: 0;
+  }
+
+  /* Dashboard Preview Section */
+  .dashboard-preview {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .dashboard-preview h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 0.5rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .dashboard-preview .intro {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .dashboard-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+
+  .dashboard-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .dashboard-card :global(svg) {
+    color: var(--eflury-teal, #0d9488);
+    margin-bottom: 1rem;
+  }
+
+  .dashboard-card h3 {
+    font-size: 1rem;
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 0.5rem;
+  }
+
+  .dashboard-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  /* Results Section */
+  .results {
+    padding: 4rem 0;
+  }
+
+  .results h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 2rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .result-card {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .result-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+  }
+
+  .result-metric {
+    margin-bottom: 1rem;
+  }
+
+  .result-metric .big-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--eflury-teal, #0d9488);
+    line-height: 1;
+  }
+
+  .result-metric .unit {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+  }
+
+  .result-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .roi-summary {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .roi-summary h3 {
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .roi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .roi-item {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--bg-secondary);
+  }
+
+  .roi-item .label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .roi-item .value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .roi-item.highlight {
+    background: var(--eflury-teal, #0d9488);
+  }
+
+  .roi-item.highlight .label,
+  .roi-item.highlight .value {
+    color: white;
+  }
+
+  /* Testimonial Section */
+  .testimonial {
+    padding: 4rem 0;
+    background: var(--eflury-navy, #022554);
+  }
+
+  .main-testimonial {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: white;
+    line-height: 1.8;
+  }
+
+  .main-testimonial cite {
+    display: block;
+    font-style: normal;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .main-testimonial cite strong {
+    display: block;
+    color: white;
+  }
+
+  /* Technical Section */
+  .technical {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .technical h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 2rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .tech-stack {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .tech-item {
+    padding: 1rem;
+    background: white;
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+
+  .tech-item strong {
+    color: var(--eflury-teal, #0d9488);
+  }
+
+  .security-note {
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    border-left: 4px solid var(--eflury-teal, #0d9488);
+  }
+
+  .security-note h3 {
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 0.5rem;
+  }
+
+  .security-note p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* Lessons Section */
+  .lessons {
+    padding: 4rem 0;
+  }
+
+  .lessons h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 2rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .lessons-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .lesson-card {
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .lesson-card.success {
+    background: rgba(13, 148, 136, 0.1);
+    border-left: 4px solid var(--eflury-teal, #0d9488);
+  }
+
+  .lesson-card.challenge {
+    background: rgba(234, 179, 8, 0.1);
+    border-left: 4px solid #eab308;
+  }
+
+  .lesson-card h3 {
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 1rem;
+  }
+
+  .lesson-card ul {
+    margin: 0;
+    padding-left: 1.25rem;
+    color: var(--text-secondary);
+  }
+
+  .lesson-card li {
+    margin-bottom: 0.75rem;
+  }
+
+  /* CTA Section */
+  .cta {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+    text-align: center;
+  }
+
+  .cta h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--eflury-teal, #0d9488);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background: #0f766e;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: white;
+    color: var(--eflury-navy, #022554);
+    border: 2px solid var(--eflury-navy, #022554);
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    background: var(--eflury-navy, #022554);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .results-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .roi-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .dashboard-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .hero {
+      padding: 2rem 0 3rem;
+    }
+
+    .hero-stats {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .hero-stats .stat {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .phase {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .results-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .roi-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .dashboard-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tech-stack {
+      grid-template-columns: 1fr;
+    }
+
+    .lessons-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      justify-content: center;
+    }
+  }
+</style>

@@ -1,0 +1,1091 @@
+---
+/**
+ * Case Study: Finance Process Automation
+ * Month-End Close Optimization for Swiss Manufacturing
+ */
+
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import AIChatbot from '../../../components/AIChatbot.astro';
+import { ArrowRight, Clock, TrendingUp, CheckCircle2, AlertCircle } from 'lucide-astro';
+
+const lang = 'en';
+---
+
+<MainLayout
+  title="Case Study: Finance Automation - 40 Hours/Month Saved | Emanuel Flury"
+  description="How a Swiss manufacturing company reduced month-end close from 12 days to 5 days, saving CHF 48,000/year with AI-powered reconciliation and reporting automation."
+  keywords="finance automation case study, month-end close automation, Swiss manufacturing, AI reconciliation, ERP automation"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <main class="case-study">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/en">Home</a> / <a href="/en/case-studies">Case Studies</a> / Finance Automation
+        </div>
+
+        <div class="hero-content">
+          <div class="badge-row">
+            <span class="badge client">Client Project</span>
+            <span class="badge industry">Manufacturing</span>
+          </div>
+
+          <h1>Finance Process Automation</h1>
+          <p class="subtitle">Month-End Close Optimization for Swiss Manufacturing</p>
+
+          <blockquote class="hero-quote">
+            "We went from dreading month-end to actually having it done before week one ended."
+            <cite>— CFO, Swiss Manufacturing Company</cite>
+          </blockquote>
+
+          <div class="hero-stats">
+            <div class="stat">
+              <span class="value">40h</span>
+              <span class="label">Monthly time saved</span>
+            </div>
+            <div class="stat">
+              <span class="value">CHF 48K</span>
+              <span class="label">Annual savings</span>
+            </div>
+            <div class="stat">
+              <span class="value">4.1mo</span>
+              <span class="label">Payback period</span>
+            </div>
+            <div class="stat">
+              <span class="value">58%</span>
+              <span class="label">Close time reduction</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Executive Summary -->
+    <section class="executive-summary">
+      <div class="container">
+        <h2>Executive Summary</h2>
+
+        <div class="company-info">
+          <div class="info-grid">
+            <div class="info-item">
+              <strong>Industry:</strong> Precision Manufacturing
+            </div>
+            <div class="info-item">
+              <strong>Location:</strong> Canton of Zürich, Switzerland
+            </div>
+            <div class="info-item">
+              <strong>Company Size:</strong> 85 employees, CHF 18M revenue
+            </div>
+            <div class="info-item">
+              <strong>Finance Team:</strong> 4 people (1 CFO, 2 accountants, 1 controller)
+            </div>
+            <div class="info-item">
+              <strong>ERP System:</strong> SAP Business One
+            </div>
+            <div class="info-item">
+              <strong>Implementation:</strong> Claude AI + Custom Python Scripts + Power BI
+            </div>
+          </div>
+        </div>
+
+        <h3>Results at a Glance</h3>
+        <div class="results-table-wrapper">
+          <table class="results-table">
+            <thead>
+              <tr>
+                <th>Metric</th>
+                <th>Before</th>
+                <th>After</th>
+                <th>Improvement</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Month-End Close</strong></td>
+                <td>12 days</td>
+                <td>5 days</td>
+                <td class="positive"><strong>-58%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Reconciliation Time</strong></td>
+                <td>16 hours</td>
+                <td>4 hours</td>
+                <td class="positive"><strong>-75%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Variance Analysis</strong></td>
+                <td>8 hours</td>
+                <td>1.5 hours</td>
+                <td class="positive"><strong>-81%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Report Generation</strong></td>
+                <td>6 hours</td>
+                <td>30 min</td>
+                <td class="positive"><strong>-92%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Error Rate</strong></td>
+                <td>4.2%</td>
+                <td>0.3%</td>
+                <td class="positive"><strong>-93%</strong></td>
+              </tr>
+              <tr>
+                <td><strong>Annual Cost Savings</strong></td>
+                <td>—</td>
+                <td><strong>CHF 48,000</strong></td>
+                <td>—</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Challenge -->
+    <section class="challenge">
+      <div class="container">
+        <h2>The Challenge</h2>
+        <p class="intro">A precision manufacturing company with 40+ years of history was struggling with outdated month-end processes:</p>
+
+        <div class="pain-points">
+          <div class="pain-point">
+            <div class="pain-header">
+              <AlertCircle size={24} />
+              <h3>Manual Reconciliation</h3>
+            </div>
+            <p>Bank reconciliation across 3 accounts, AP/AR matching with 200+ vendors and customers, inventory reconciliation against physical counts—all done in Excel with manual cross-referencing.</p>
+            <div class="time-cost">16 hours/month just on reconciliation</div>
+          </div>
+
+          <div class="pain-point">
+            <div class="pain-header">
+              <AlertCircle size={24} />
+              <h3>Variance Analysis Bottleneck</h3>
+            </div>
+            <p>Budget vs. actual analysis required exporting data from SAP, reformatting in Excel, manually identifying variances, and writing explanations. The controller spent days on this alone.</p>
+            <div class="time-cost">8 hours/month with frequent errors</div>
+          </div>
+
+          <div class="pain-point">
+            <div class="pain-header">
+              <AlertCircle size={24} />
+              <h3>Report Assembly Chaos</h3>
+            </div>
+            <p>Executive reports were assembled from 7 different data sources. Each month, the CFO manually created P&L, balance sheet, cash flow, and KPI reports in PowerPoint.</p>
+            <div class="time-cost">6 hours/month of copy-paste work</div>
+          </div>
+
+          <div class="pain-point">
+            <div class="pain-header">
+              <AlertCircle size={24} />
+              <h3>Late Financial Insights</h3>
+            </div>
+            <p>By the time financials were ready (day 12), the data was stale. Management decisions were based on 6-week-old information. Competitors with faster closes were more agile.</p>
+            <div class="time-cost">12 days average close time</div>
+          </div>
+        </div>
+
+        <div class="breaking-point">
+          <h3>The Tipping Point</h3>
+          <p>When the controller announced her retirement, the CFO realized the institutional knowledge locked in Excel macros and manual processes would be lost. They needed to systematize and automate before it was too late.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- The Solution -->
+    <section class="solution">
+      <div class="container">
+        <h2>The Solution</h2>
+        <p class="intro">Using the eflury Method™, we implemented a phased automation approach over 8 weeks.</p>
+
+        <div class="solution-phases">
+          <div class="phase">
+            <div class="phase-marker">
+              <span class="phase-number">1</span>
+            </div>
+            <div class="phase-content">
+              <h3>Automated Reconciliation Engine</h3>
+              <p>Built a Claude-powered reconciliation system that:</p>
+              <ul>
+                <li>Imports bank statements automatically via SWIFT/MT940</li>
+                <li>Matches transactions against SAP entries using fuzzy logic</li>
+                <li>Flags exceptions for human review instead of manual matching</li>
+                <li>Generates reconciliation reports with variance explanations</li>
+              </ul>
+              <div class="phase-result">
+                <CheckCircle2 size={18} />
+                <span>Reconciliation time reduced from 16 hours to 4 hours</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phase">
+            <div class="phase-marker">
+              <span class="phase-number">2</span>
+            </div>
+            <div class="phase-content">
+              <h3>Intelligent Variance Analysis</h3>
+              <p>Created a Claude Skill that:</p>
+              <ul>
+                <li>Pulls budget and actual data from SAP automatically</li>
+                <li>Calculates variances by cost center, project, and GL account</li>
+                <li>Generates natural language explanations for significant variances</li>
+                <li>Suggests investigation priorities based on materiality</li>
+              </ul>
+              <div class="phase-result">
+                <CheckCircle2 size={18} />
+                <span>Variance analysis reduced from 8 hours to 1.5 hours</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phase">
+            <div class="phase-marker">
+              <span class="phase-number">3</span>
+            </div>
+            <div class="phase-content">
+              <h3>Executive Reporting Dashboard</h3>
+              <p>Implemented Power BI with AI-assisted narrative generation:</p>
+              <ul>
+                <li>Real-time connection to SAP Business One</li>
+                <li>Automated P&L, balance sheet, and cash flow statements</li>
+                <li>KPI dashboard with drill-down capability</li>
+                <li>Claude-generated executive summary for each report</li>
+              </ul>
+              <div class="phase-result">
+                <CheckCircle2 size={18} />
+                <span>Report generation reduced from 6 hours to 30 minutes</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="phase">
+            <div class="phase-marker">
+              <span class="phase-number">4</span>
+            </div>
+            <div class="phase-content">
+              <h3>Close Calendar Automation</h3>
+              <p>Built a workflow orchestration system:</p>
+              <ul>
+                <li>Automated task scheduling and dependencies</li>
+                <li>Slack notifications for task completion and blockers</li>
+                <li>Progress tracking dashboard for CFO visibility</li>
+                <li>Historical close metrics for continuous improvement</li>
+              </ul>
+              <div class="phase-result">
+                <CheckCircle2 size={18} />
+                <span>Month-end close reduced from 12 days to 5 days</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Results -->
+    <section class="results">
+      <div class="container">
+        <h2>Detailed Results</h2>
+
+        <div class="results-grid">
+          <div class="result-card">
+            <h3>Time Savings</h3>
+            <div class="result-metric">
+              <span class="big-number">40</span>
+              <span class="unit">hours/month</span>
+            </div>
+            <p>Team now focuses on analysis and strategy instead of data entry and reconciliation.</p>
+          </div>
+
+          <div class="result-card">
+            <h3>Financial Impact</h3>
+            <div class="result-metric">
+              <span class="big-number">CHF 48K</span>
+              <span class="unit">annual savings</span>
+            </div>
+            <p>Reduced overtime, eliminated temp staff during close, avoided backfill for retiring controller.</p>
+          </div>
+
+          <div class="result-card">
+            <h3>Data Quality</h3>
+            <div class="result-metric">
+              <span class="big-number">93%</span>
+              <span class="unit">error reduction</span>
+            </div>
+            <p>From 4.2% error rate to 0.3%. Auditors noted "significantly improved controls" in annual review.</p>
+          </div>
+
+          <div class="result-card">
+            <h3>Decision Speed</h3>
+            <div class="result-metric">
+              <span class="big-number">7</span>
+              <span class="unit">days faster</span>
+            </div>
+            <p>Management now receives financial data by day 5 instead of day 12—enabling faster strategic decisions.</p>
+          </div>
+        </div>
+
+        <div class="roi-summary">
+          <h3>Return on Investment</h3>
+          <div class="roi-grid">
+            <div class="roi-item">
+              <span class="label">Implementation Cost</span>
+              <span class="value">CHF 16,500</span>
+            </div>
+            <div class="roi-item">
+              <span class="label">Annual Savings</span>
+              <span class="value">CHF 48,000</span>
+            </div>
+            <div class="roi-item">
+              <span class="label">Payback Period</span>
+              <span class="value">4.1 months</span>
+            </div>
+            <div class="roi-item highlight">
+              <span class="label">Year 1 ROI</span>
+              <span class="value">191%</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Testimonial -->
+    <section class="testimonial">
+      <div class="container">
+        <blockquote class="main-testimonial">
+          <p>"The transformation has been remarkable. Our finance team went from firefighting every month to actually having time for strategic analysis. When our controller retired, we didn't need to replace her—the automation handles what used to require a full-time person."</p>
+          <cite>
+            <strong>CFO</strong><br>
+            Swiss Precision Manufacturing Company
+          </cite>
+        </blockquote>
+      </div>
+    </section>
+
+    <!-- Technical Details -->
+    <section class="technical">
+      <div class="container">
+        <h2>Technical Implementation</h2>
+
+        <div class="tech-stack">
+          <div class="tech-item">
+            <strong>AI Engine:</strong> Claude Sonnet 4 for variance analysis and narrative generation
+          </div>
+          <div class="tech-item">
+            <strong>Data Pipeline:</strong> Python scripts for SAP data extraction and transformation
+          </div>
+          <div class="tech-item">
+            <strong>Visualization:</strong> Power BI Premium for real-time dashboards
+          </div>
+          <div class="tech-item">
+            <strong>Orchestration:</strong> Microsoft Power Automate for workflow management
+          </div>
+          <div class="tech-item">
+            <strong>Hosting:</strong> Azure Switzerland North (data residency compliant)
+          </div>
+        </div>
+
+        <div class="security-note">
+          <h3>Data Security</h3>
+          <p>All financial data remains within Swiss borders (Azure Switzerland North). The implementation complies with Swiss FADP, GDPR, and industry-standard SOC 2 controls. No financial data is sent to external AI providers—Claude processes only anonymized variance descriptions.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2>Ready to Transform Your Finance Operations?</h2>
+        <p>If your finance team spends more time on data entry than analysis, we can help.</p>
+        <div class="cta-buttons">
+          <a href="/en#contact" class="btn-primary">
+            Book Free Assessment
+            <ArrowRight size={18} />
+          </a>
+          <a href="/en/case-studies" class="btn-secondary">
+            View More Case Studies
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .case-study {
+    padding-top: var(--header-height);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 3rem 0 4rem;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+  }
+
+  .breadcrumb {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb a {
+    color: var(--primary-600);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .badge-row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .badge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .badge.client {
+    background: var(--eflury-navy, #022554);
+    color: white;
+  }
+
+  .badge.industry {
+    background: var(--eflury-teal, #0d9488);
+    color: white;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+    color: var(--text-primary);
+  }
+
+  .hero .subtitle {
+    font-size: clamp(1.1rem, 2.5vw, 1.5rem);
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .hero-quote {
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--eflury-navy, #022554);
+    border-left: 4px solid var(--eflury-teal, #0d9488);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+  }
+
+  .hero-quote cite {
+    display: block;
+    font-style: normal;
+    font-size: 0.875rem;
+    margin-top: 0.5rem;
+    color: var(--text-secondary);
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .hero-stats .stat {
+    text-align: center;
+    background: white;
+    padding: 1.25rem;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .hero-stats .value {
+    display: block;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--eflury-teal, #0d9488);
+    line-height: 1;
+  }
+
+  .hero-stats .label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-top: 0.5rem;
+  }
+
+  /* Executive Summary */
+  .executive-summary {
+    padding: 4rem 0;
+  }
+
+  .executive-summary h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 2rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .company-info {
+    margin-bottom: 3rem;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+  }
+
+  .info-item {
+    font-size: 0.9rem;
+  }
+
+  .info-item strong {
+    color: var(--eflury-teal, #0d9488);
+  }
+
+  .executive-summary h3 {
+    font-size: 1.25rem;
+    margin: 2rem 0 1rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .results-table-wrapper {
+    overflow-x: auto;
+  }
+
+  .results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .results-table thead {
+    background: var(--eflury-navy, #022554);
+    color: white;
+  }
+
+  .results-table th,
+  .results-table td {
+    padding: 1rem;
+    text-align: left;
+  }
+
+  .results-table tbody tr:nth-child(even) {
+    background: var(--bg-secondary);
+  }
+
+  .results-table .positive {
+    color: var(--eflury-teal, #0d9488);
+    font-weight: 600;
+  }
+
+  /* Challenge Section */
+  .challenge {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .challenge h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 1rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .challenge .intro {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .pain-points {
+    display: grid;
+    gap: 1.5rem;
+  }
+
+  .pain-point {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    border-left: 4px solid #ef4444;
+  }
+
+  .pain-header {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .pain-header :global(svg) {
+    color: #ef4444;
+    flex-shrink: 0;
+  }
+
+  .pain-header h3 {
+    font-size: 1.1rem;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .pain-point p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0.75rem;
+  }
+
+  .time-cost {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #ef4444;
+  }
+
+  .breaking-point {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 12px;
+    border-left: 4px solid var(--eflury-teal, #0d9488);
+  }
+
+  .breaking-point h3 {
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 0.5rem;
+  }
+
+  .breaking-point p {
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  /* Solution Section */
+  .solution {
+    padding: 4rem 0;
+  }
+
+  .solution h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 1rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .solution .intro {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .solution-phases {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+
+  .phase {
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .phase-marker {
+    flex-shrink: 0;
+  }
+
+  .phase-number {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    background: var(--eflury-navy, #022554);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.25rem;
+    font-weight: 700;
+  }
+
+  .phase-content {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 12px;
+    flex-grow: 1;
+  }
+
+  .phase-content h3 {
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-content p {
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .phase-content ul {
+    margin: 0 0 1rem 1.25rem;
+    color: var(--text-secondary);
+  }
+
+  .phase-content li {
+    margin-bottom: 0.5rem;
+  }
+
+  .phase-result {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem;
+    background: rgba(13, 148, 136, 0.1);
+    border-radius: 8px;
+    color: var(--eflury-teal, #0d9488);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .phase-result :global(svg) {
+    flex-shrink: 0;
+  }
+
+  /* Results Section */
+  .results {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .results h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 2rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .results-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .result-card {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  .result-card h3 {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 1rem;
+  }
+
+  .result-metric {
+    margin-bottom: 1rem;
+  }
+
+  .result-metric .big-number {
+    display: block;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--eflury-teal, #0d9488);
+    line-height: 1;
+  }
+
+  .result-metric .unit {
+    display: block;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 0.25rem;
+  }
+
+  .result-card p {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+  }
+
+  .roi-summary {
+    background: white;
+    padding: 2rem;
+    border-radius: 12px;
+  }
+
+  .roi-summary h3 {
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 1.5rem;
+    text-align: center;
+  }
+
+  .roi-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .roi-item {
+    text-align: center;
+    padding: 1rem;
+    border-radius: 8px;
+    background: var(--bg-secondary);
+  }
+
+  .roi-item .label {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .roi-item .value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .roi-item.highlight {
+    background: var(--eflury-teal, #0d9488);
+  }
+
+  .roi-item.highlight .label,
+  .roi-item.highlight .value {
+    color: white;
+  }
+
+  /* Testimonial Section */
+  .testimonial {
+    padding: 4rem 0;
+    background: var(--eflury-navy, #022554);
+  }
+
+  .main-testimonial {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.25rem;
+    font-style: italic;
+    color: white;
+    line-height: 1.8;
+  }
+
+  .main-testimonial cite {
+    display: block;
+    font-style: normal;
+    font-size: 1rem;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .main-testimonial cite strong {
+    display: block;
+    color: white;
+  }
+
+  /* Technical Section */
+  .technical {
+    padding: 4rem 0;
+  }
+
+  .technical h2 {
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    margin-bottom: 2rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .tech-stack {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .tech-item {
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    font-size: 0.9rem;
+  }
+
+  .tech-item strong {
+    color: var(--eflury-teal, #0d9488);
+  }
+
+  .security-note {
+    padding: 1.5rem;
+    background: rgba(13, 148, 136, 0.1);
+    border-radius: 12px;
+    border-left: 4px solid var(--eflury-teal, #0d9488);
+  }
+
+  .security-note h3 {
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 0.5rem;
+  }
+
+  .security-note p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    margin: 0;
+  }
+
+  /* CTA Section */
+  .cta {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+    text-align: center;
+  }
+
+  .cta h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 0.75rem;
+  }
+
+  .cta p {
+    color: var(--text-secondary);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--eflury-teal, #0d9488);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background: #0f766e;
+    transform: translateY(-2px);
+  }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: white;
+    color: var(--eflury-navy, #022554);
+    border: 2px solid var(--eflury-navy, #022554);
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-secondary:hover {
+    background: var(--eflury-navy, #022554);
+    color: white;
+    transform: translateY(-2px);
+  }
+
+  /* Responsive */
+  @media (max-width: 1024px) {
+    .hero-stats {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .results-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .roi-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .hero {
+      padding: 2rem 0 3rem;
+    }
+
+    .hero-stats {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .hero-stats .stat {
+      flex-direction: row;
+      justify-content: space-between;
+      text-align: left;
+    }
+
+    .info-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .phase {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .results-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .roi-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .tech-stack {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      justify-content: center;
+    }
+  }
+</style>

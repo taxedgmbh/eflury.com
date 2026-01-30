@@ -1,0 +1,325 @@
+---
+/**
+ * Blog Post Layout
+ * Layout for individual blog posts
+ */
+
+import MainLayout from './MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import AIChatbot from '../components/AIChatbot.astro';
+import { ArrowLeft, Calendar, User, Clock, Tag } from 'lucide-astro';
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author: string;
+  image?: string;
+  imageAlt?: string;
+  tags?: string[];
+  lang: 'en' | 'de';
+}
+
+const { title, description, pubDate, updatedDate, author, image, imageAlt, tags = [], lang } = Astro.props;
+
+const formattedPubDate = pubDate.toLocaleDateString(lang === 'de' ? 'de-CH' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+const formattedUpdatedDate = updatedDate?.toLocaleDateString(lang === 'de' ? 'de-CH' : 'en-US', {
+  year: 'numeric',
+  month: 'long',
+  day: 'numeric'
+});
+
+const backLabel = lang === 'de' ? 'Zurück zum Blog' : 'Back to Blog';
+const updatedLabel = lang === 'de' ? 'Aktualisiert' : 'Updated';
+const readingTimeLabel = lang === 'de' ? 'Lesezeit' : 'Reading time';
+---
+
+<MainLayout
+  title={`${title} | Emanuel Flury Blog`}
+  description={description}
+  keywords={tags.join(', ')}
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <article class="blog-post">
+    <div class="container">
+      <a href={`/${lang}/blog`} class="back-link">
+        <ArrowLeft size={18} />
+        {backLabel}
+      </a>
+
+      <header class="post-header">
+        <div class="meta">
+          <span class="date">
+            <Calendar size={16} />
+            {formattedPubDate}
+          </span>
+          <span class="author">
+            <User size={16} />
+            {author}
+          </span>
+          <span class="reading-time">
+            <Clock size={16} />
+            ~5 min {readingTimeLabel}
+          </span>
+        </div>
+
+        <h1>{title}</h1>
+        <p class="description">{description}</p>
+
+        {tags.length > 0 && (
+          <div class="tags">
+            <Tag size={14} />
+            {tags.map((tag) => (
+              <span class="tag">{tag}</span>
+            ))}
+          </div>
+        )}
+      </header>
+
+      {image && (
+        <div class="featured-image">
+          <img src={image} alt={imageAlt || title} loading="eager" />
+        </div>
+      )}
+
+      <div class="post-content">
+        <slot />
+      </div>
+
+      {updatedDate && (
+        <p class="updated-notice">
+          {updatedLabel}: {formattedUpdatedDate}
+        </p>
+      )}
+
+      <div class="post-footer">
+        <a href={`/${lang}/blog`} class="back-link">
+          <ArrowLeft size={18} />
+          {backLabel}
+        </a>
+      </div>
+    </div>
+  </article>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .blog-post {
+    padding-top: var(--header-height);
+    padding-bottom: 4rem;
+  }
+
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--eflury-teal, #0d9488);
+    text-decoration: none;
+    font-weight: 500;
+    margin: 2rem 0;
+    transition: gap 0.2s ease;
+  }
+
+  .back-link:hover {
+    gap: 0.75rem;
+  }
+
+  .post-header {
+    margin-bottom: 2rem;
+  }
+
+  .meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .meta :global(svg) {
+    color: var(--eflury-teal, #0d9488);
+  }
+
+  .post-header h1 {
+    font-size: clamp(2rem, 5vw, 3rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    line-height: 1.2;
+    margin-bottom: 1rem;
+  }
+
+  .post-header .description {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--text-secondary);
+  }
+
+  .tag {
+    padding: 0.25rem 0.75rem;
+    background: var(--bg-secondary);
+    border-radius: 1rem;
+    font-size: 0.8rem;
+    color: var(--eflury-navy, #022554);
+  }
+
+  .featured-image {
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .featured-image img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .post-content {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: var(--text-primary);
+  }
+
+  .post-content :global(h2) {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--eflury-navy, #022554);
+    margin: 2.5rem 0 1rem;
+  }
+
+  .post-content :global(h3) {
+    font-size: 1.35rem;
+    font-weight: 600;
+    color: var(--eflury-navy, #022554);
+    margin: 2rem 0 0.75rem;
+  }
+
+  .post-content :global(p) {
+    margin-bottom: 1.5rem;
+  }
+
+  .post-content :global(ul),
+  .post-content :global(ol) {
+    margin-bottom: 1.5rem;
+    padding-left: 1.5rem;
+  }
+
+  .post-content :global(li) {
+    margin-bottom: 0.5rem;
+  }
+
+  .post-content :global(a) {
+    color: var(--eflury-teal, #0d9488);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .post-content :global(a:hover) {
+    color: #0f766e;
+  }
+
+  .post-content :global(blockquote) {
+    border-left: 4px solid var(--eflury-teal, #0d9488);
+    padding-left: 1.5rem;
+    margin: 2rem 0;
+    font-style: italic;
+    color: var(--text-secondary);
+  }
+
+  .post-content :global(code) {
+    background: var(--bg-secondary);
+    padding: 0.2rem 0.5rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+  }
+
+  .post-content :global(pre) {
+    background: var(--eflury-navy, #022554);
+    color: white;
+    padding: 1.5rem;
+    border-radius: 12px;
+    overflow-x: auto;
+    margin: 2rem 0;
+  }
+
+  .post-content :global(pre code) {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+  }
+
+  .post-content :global(img) {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 1.5rem 0;
+  }
+
+  .post-content :global(hr) {
+    border: none;
+    border-top: 1px solid var(--border-color);
+    margin: 3rem 0;
+  }
+
+  .updated-notice {
+    margin-top: 2rem;
+    padding: 1rem;
+    background: var(--bg-secondary);
+    border-radius: 8px;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .post-footer {
+    margin-top: 3rem;
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .meta {
+      gap: 1rem;
+    }
+
+    .post-content {
+      font-size: 1rem;
+    }
+  }
+</style>

@@ -1,0 +1,332 @@
+---
+/**
+ * Blog Index Page (German)
+ * Lists all blog posts
+ */
+
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import AIChatbot from '../../../components/AIChatbot.astro';
+import { getCollection } from 'astro:content';
+import { ArrowRight, Calendar, Clock, Tag } from 'lucide-astro';
+
+const lang = 'de';
+
+// Get all German blog posts, sorted by date
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.lang === 'de' && !data.draft;
+});
+
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+---
+
+<MainLayout
+  title="Blog - KI-Automatisierung Insights | Emanuel Flury"
+  description="Experten-Einblicke zu KI-Automatisierung, Power BI und Geschäftsprozessoptimierung für Schweizer KMU. Praktische Anleitungen und Branchenanalysen."
+  keywords="KI-Automatisierung Blog, Claude AI Tutorials, Power BI Anleitungen, Schweizer Geschäftsautomatisierung, RPA Insights"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <main class="blog-page">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="breadcrumb">
+          <a href="/de">Startseite</a> / Blog
+        </div>
+
+        <h1>Blog</h1>
+        <p class="subtitle">Einblicke zu KI-Automatisierung, Power BI und Geschäftsprozessoptimierung</p>
+      </div>
+    </section>
+
+    <!-- Blog Posts Grid -->
+    <section class="blog-grid">
+      <div class="container">
+        {posts.length === 0 ? (
+          <div class="no-posts">
+            <p>Noch keine Blog-Beiträge. Schauen Sie bald wieder vorbei!</p>
+          </div>
+        ) : (
+          <div class="posts-grid">
+            {posts.map((post) => (
+              <a href={`/de/blog/${post.id}`} class="post-card">
+                {post.data.image && (
+                  <div class="post-image">
+                    <img src={post.data.image} alt={post.data.imageAlt || post.data.title} loading="lazy" />
+                  </div>
+                )}
+                <div class="post-content">
+                  <div class="post-meta">
+                    <span class="date">
+                      <Calendar size={14} />
+                      {post.data.pubDate.toLocaleDateString('de-CH', {
+                        year: 'numeric',
+                        month: 'short',
+                        day: 'numeric'
+                      })}
+                    </span>
+                    <span class="reading-time">
+                      <Clock size={14} />
+                      ~5 Min. Lesezeit
+                    </span>
+                  </div>
+
+                  <h2>{post.data.title}</h2>
+                  <p class="description">{post.data.description}</p>
+
+                  {post.data.tags && post.data.tags.length > 0 && (
+                    <div class="tags">
+                      {post.data.tags.slice(0, 3).map((tag: string) => (
+                        <span class="tag">{tag}</span>
+                      ))}
+                    </div>
+                  )}
+
+                  <div class="read-more">
+                    Artikel lesen <ArrowRight size={16} />
+                  </div>
+                </div>
+              </a>
+            ))}
+          </div>
+        )}
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta">
+      <div class="container">
+        <h2>Bleiben Sie informiert</h2>
+        <p>Erhalten Sie die neuesten Einblicke zur KI-Automatisierung direkt in Ihren Posteingang.</p>
+        <a href="/de#contact" class="btn-primary">
+          Newsletter abonnieren
+          <ArrowRight size={18} />
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .blog-page {
+    padding-top: var(--header-height);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 3rem 0 4rem;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+  }
+
+  .breadcrumb {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  .breadcrumb a {
+    color: var(--primary-600);
+    text-decoration: none;
+  }
+
+  .breadcrumb a:hover {
+    text-decoration: underline;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .hero .subtitle {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+  }
+
+  /* Blog Grid */
+  .blog-grid {
+    padding: 4rem 0;
+  }
+
+  .no-posts {
+    text-align: center;
+    padding: 4rem 0;
+    color: var(--text-secondary);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+  }
+
+  .post-card {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    text-decoration: none;
+    color: inherit;
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.12);
+    border-color: var(--eflury-teal);
+  }
+
+  .post-image {
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+  }
+
+  .post-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
+  }
+
+  .post-card:hover .post-image img {
+    transform: scale(1.05);
+  }
+
+  .post-content {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+
+  .post-meta {
+    display: flex;
+    gap: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+  }
+
+  .post-meta :global(svg) {
+    color: var(--eflury-teal);
+  }
+
+  .post-card h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+  }
+
+  .post-card .description {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+    flex-grow: 1;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .tag {
+    padding: 0.2rem 0.6rem;
+    background: var(--bg-secondary);
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    color: var(--eflury-navy);
+  }
+
+  .read-more {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--eflury-teal);
+    font-weight: 600;
+    font-size: 0.9rem;
+    margin-top: auto;
+  }
+
+  .post-card:hover .read-more {
+    gap: 0.75rem;
+  }
+
+  /* CTA Section */
+  .cta {
+    padding: 4rem 0;
+    background: var(--eflury-navy);
+    text-align: center;
+  }
+
+  .cta h2 {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: white;
+    margin-bottom: 0.75rem;
+  }
+
+  .cta p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--eflury-teal);
+    color: white;
+    border-radius: 12px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    background: #0f766e;
+    transform: translateY(-2px);
+  }
+
+  /* Responsive */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .hero {
+      padding: 2rem 0 3rem;
+    }
+
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
