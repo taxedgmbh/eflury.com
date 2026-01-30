@@ -1,0 +1,1075 @@
+---
+/**
+ * SkopaAI Product Landing Page
+ * Pre-configured Mac Mini with AI assistant - First in Switzerland
+ * Brand: SkopaAI (skopa.ai)
+ */
+
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import AIChatbot from '../../components/AIChatbot.astro';
+import { useTranslations } from '../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+---
+
+<MainLayout
+  title={t('skopaai.meta.title')}
+  description={t('skopaai.meta.description')}
+  keywords="SkopaAI, AI assistant hardware, Mac Mini AI, pre-configured AI agent, WhatsApp AI bot, Swiss AI automation, Moltbot setup, AI employee Switzerland"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <main class="skopaai-page">
+    <!-- Hero Section -->
+    <section class="hero">
+      <div class="container">
+        <div class="badge">{t('skopaai.hero.badge')}</div>
+        <h1>{t('skopaai.hero.title')}</h1>
+        <p class="subtitle">{t('skopaai.hero.subtitle')}</p>
+
+        <div class="hero-visual">
+          <div class="mac-mini-mockup">
+            <div class="device">
+              <div class="device-top"></div>
+              <div class="device-body">
+                <div class="led"></div>
+              </div>
+            </div>
+            <div class="chat-bubbles">
+              <div class="bubble incoming">
+                <span class="app-icon">💬</span>
+                "Schedule a meeting with Thomas for next Tuesday"
+              </div>
+              <div class="bubble outgoing">
+                <span class="ai-icon">🤖</span>
+                Done! Meeting scheduled for Tuesday 10:00 with Thomas. Calendar invitation sent.
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-cta">
+          <a href="#pricing" class="btn-primary">{t('skopaai.hero.cta_primary')}</a>
+          <a href="#solution" class="btn-secondary">{t('skopaai.hero.cta_secondary')}</a>
+        </div>
+
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <span class="icon">🇨🇭</span>
+            <span>{t('skopaai.trust.first_in_switzerland')}</span>
+          </div>
+          <div class="trust-badge">
+            <span class="icon">🔒</span>
+            <span>{t('skopaai.trust.swiss_data')}</span>
+          </div>
+          <div class="trust-badge">
+            <span class="icon">☁️</span>
+            <span>{t('skopaai.trust.no_cloud')}</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem" id="problem">
+      <div class="container">
+        <h2>{t('skopaai.problem.title')}</h2>
+        <p class="section-subtitle">{t('skopaai.problem.subtitle')}</p>
+
+        <div class="problems-grid">
+          {t('skopaai.problem.problems').map((problem: string, i: number) => (
+            <div class="problem-card">
+              <span class="problem-icon">{['📧', '📅', '📁', '🔍'][i]}</span>
+              <p>{problem}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution" id="solution">
+      <div class="container">
+        <h2>{t('skopaai.solution.title')}</h2>
+        <p class="section-subtitle">{t('skopaai.solution.subtitle')}</p>
+
+        <div class="features-grid">
+          {t('skopaai.solution.features').map((feature: {title: string, description: string}, i: number) => (
+            <div class="feature-card">
+              <div class="feature-icon">{['💬', '🖥️', '⚡', '🌙'][i]}</div>
+              <h3>{feature.title}</h3>
+              <p>{feature.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Use Cases Section -->
+    <section class="use-cases" id="use-cases">
+      <div class="container">
+        <h2>{t('skopaai.use_cases.title')}</h2>
+        <p class="section-subtitle">{t('skopaai.use_cases.subtitle')}</p>
+
+        <div class="use-cases-grid">
+          {t('skopaai.use_cases.cases').map((useCase: {title: string, description: string}, i: number) => (
+            <div class="use-case-card">
+              <div class="use-case-icon">{['📨', '📆', '🔎', '📂', '🧾', '✍️'][i]}</div>
+              <h3>{useCase.title}</h3>
+              <p>{useCase.description}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section class="pricing" id="pricing">
+      <div class="container">
+        <h2>{t('skopaai.pricing.title')}</h2>
+        <p class="section-subtitle">{t('skopaai.pricing.subtitle')}</p>
+
+        <div class="pricing-grid">
+          <!-- Cloud Tier -->
+          <div class="pricing-card">
+            <div class="card-header">
+              <h3>{t('skopaai.pricing.tiers.cloud.name')}</h3>
+              <p class="tier-description">{t('skopaai.pricing.tiers.cloud.description')}</p>
+            </div>
+            <div class="card-price">
+              <div class="price-row">
+                <span class="label">{t('skopaai.pricing.one_time_label')}</span>
+                <span class="price">{t('skopaai.pricing.tiers.cloud.one_time')}</span>
+              </div>
+              <div class="price-row monthly">
+                <span class="label">{t('skopaai.pricing.monthly_label')}</span>
+                <span class="price">{t('skopaai.pricing.tiers.cloud.monthly')}</span>
+              </div>
+            </div>
+            <div class="card-features">
+              <h4>{t('skopaai.pricing.includes_label')}</h4>
+              <ul>
+                {t('skopaai.pricing.tiers.cloud.features').map((feature: string) => (
+                  <li>{feature}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="card-best-for">
+              <strong>{t('skopaai.pricing.best_for_label')}:</strong> {t('skopaai.pricing.tiers.cloud.best_for')}
+            </div>
+            <a href="#contact" class="btn-outline">{t('skopaai.pricing.cta')}</a>
+          </div>
+
+          <!-- Mini Tier (Popular) -->
+          <div class="pricing-card popular">
+            <div class="popular-badge">{t('skopaai.pricing.tiers.mini.badge')}</div>
+            <div class="card-header">
+              <h3>{t('skopaai.pricing.tiers.mini.name')}</h3>
+              <p class="tier-description">{t('skopaai.pricing.tiers.mini.description')}</p>
+            </div>
+            <div class="card-price">
+              <div class="price-row">
+                <span class="label">{t('skopaai.pricing.one_time_label')}</span>
+                <span class="price">{t('skopaai.pricing.tiers.mini.one_time')}</span>
+              </div>
+              <div class="price-row monthly">
+                <span class="label">{t('skopaai.pricing.monthly_label')}</span>
+                <span class="price">{t('skopaai.pricing.tiers.mini.monthly')}</span>
+              </div>
+            </div>
+            <div class="card-features">
+              <h4>{t('skopaai.pricing.includes_label')}</h4>
+              <ul>
+                {t('skopaai.pricing.tiers.mini.features').map((feature: string) => (
+                  <li>{feature}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="card-best-for">
+              <strong>{t('skopaai.pricing.best_for_label')}:</strong> {t('skopaai.pricing.tiers.mini.best_for')}
+            </div>
+            <a href="#contact" class="btn-primary">{t('skopaai.pricing.cta')}</a>
+          </div>
+
+          <!-- Enterprise Tier -->
+          <div class="pricing-card">
+            <div class="card-header">
+              <h3>{t('skopaai.pricing.tiers.enterprise.name')}</h3>
+              <p class="tier-description">{t('skopaai.pricing.tiers.enterprise.description')}</p>
+            </div>
+            <div class="card-price">
+              <div class="price-row">
+                <span class="label">{t('skopaai.pricing.one_time_label')}</span>
+                <span class="price">{t('skopaai.pricing.tiers.enterprise.one_time')}</span>
+              </div>
+              <div class="price-row monthly">
+                <span class="label">{t('skopaai.pricing.monthly_label')}</span>
+                <span class="price">{t('skopaai.pricing.tiers.enterprise.monthly')}</span>
+              </div>
+            </div>
+            <div class="card-features">
+              <h4>{t('skopaai.pricing.includes_label')}</h4>
+              <ul>
+                {t('skopaai.pricing.tiers.enterprise.features').map((feature: string) => (
+                  <li>{feature}</li>
+                ))}
+              </ul>
+            </div>
+            <div class="card-best-for">
+              <strong>{t('skopaai.pricing.best_for_label')}:</strong> {t('skopaai.pricing.tiers.enterprise.best_for')}
+            </div>
+            <a href="#contact" class="btn-outline">{t('skopaai.pricing.cta')}</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- What's Included Section -->
+    <section class="included" id="included">
+      <div class="container">
+        <h2>{t('skopaai.included.title')}</h2>
+
+        <div class="included-grid">
+          <div class="included-card">
+            <div class="included-icon">🖥️</div>
+            <h3>{t('skopaai.included.hardware.title')}</h3>
+            <ul>
+              {t('skopaai.included.hardware.items').map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="included-card">
+            <div class="included-icon">💻</div>
+            <h3>{t('skopaai.included.software.title')}</h3>
+            <ul>
+              {t('skopaai.included.software.items').map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="included-card">
+            <div class="included-icon">🔗</div>
+            <h3>{t('skopaai.included.integrations.title')}</h3>
+            <ul>
+              {t('skopaai.included.integrations.items').map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="included-card">
+            <div class="included-icon">🎓</div>
+            <h3>{t('skopaai.included.training.title')}</h3>
+            <ul>
+              {t('skopaai.included.training.items').map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+
+          <div class="included-card">
+            <div class="included-icon">🛟</div>
+            <h3>{t('skopaai.included.support.title')}</h3>
+            <ul>
+              {t('skopaai.included.support.items').map((item: string) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq" id="faq">
+      <div class="container">
+        <h2>{t('skopaai.faq.title')}</h2>
+
+        <div class="faq-grid">
+          {t('skopaai.faq.questions').map((faq: {question: string, answer: string}) => (
+            <div class="faq-item">
+              <h3>{faq.question}</h3>
+              <p>{faq.answer}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta" id="contact">
+      <div class="container">
+        <h2>{t('skopaai.cta.title')}</h2>
+        <p class="cta-subtitle">{t('skopaai.cta.subtitle')}</p>
+
+        <a href="/en#contact" class="btn-primary btn-large">
+          {t('skopaai.cta.button')}
+        </a>
+
+        <p class="cta-note">{t('skopaai.cta.note')}</p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .skopaai-page {
+    padding-top: var(--header-height);
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .section-subtitle {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Hero Section */
+  .hero {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+    text-align: center;
+  }
+
+  .badge {
+    display: inline-block;
+    background: var(--success-500);
+    color: white;
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 1.5rem;
+  }
+
+  .hero h1 {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .hero .subtitle {
+    font-size: clamp(1.125rem, 2.5vw, 1.5rem);
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+  }
+
+  /* Mac Mini Mockup */
+  .hero-visual {
+    margin: 3rem auto;
+    max-width: 600px;
+  }
+
+  .mac-mini-mockup {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .device {
+    width: 120px;
+  }
+
+  .device-top {
+    height: 8px;
+    background: linear-gradient(to bottom, #e0e0e0 0%, #c0c0c0 100%);
+    border-radius: 4px 4px 0 0;
+  }
+
+  .device-body {
+    height: 32px;
+    background: linear-gradient(to bottom, #a8a8a8 0%, #8a8a8a 100%);
+    border-radius: 0 0 8px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 10px;
+  }
+
+  .led {
+    width: 6px;
+    height: 6px;
+    background: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 8px #00ff00;
+    animation: pulse 2s infinite;
+  }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+  }
+
+  .chat-bubbles {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 100%;
+    max-width: 450px;
+  }
+
+  .bubble {
+    padding: 1rem 1.25rem;
+    border-radius: 1rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    text-align: left;
+  }
+
+  .bubble.incoming {
+    background: white;
+    border: 1px solid var(--border-color);
+    border-bottom-left-radius: 4px;
+    align-self: flex-start;
+  }
+
+  .bubble.outgoing {
+    background: var(--primary-600);
+    color: white;
+    border-bottom-right-radius: 4px;
+    align-self: flex-end;
+  }
+
+  .app-icon, .ai-icon {
+    font-size: 1.25rem;
+    flex-shrink: 0;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 2rem;
+  }
+
+  .trust-badges {
+    display: flex;
+    gap: 2rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+  }
+
+  .trust-badge .icon {
+    font-size: 1.25rem;
+  }
+
+  /* Buttons */
+  .btn-primary,
+  .btn-secondary,
+  .btn-outline {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2rem;
+    border-radius: 0.5rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary {
+    background: var(--primary-600);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  }
+
+  .btn-secondary {
+    background: white;
+    color: var(--primary-600);
+    border: 2px solid var(--border-color);
+  }
+
+  .btn-secondary:hover {
+    border-color: var(--primary-600);
+    background: var(--primary-50);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--primary-600);
+    border: 2px solid var(--primary-600);
+  }
+
+  .btn-outline:hover {
+    background: var(--primary-600);
+    color: white;
+  }
+
+  .btn-large {
+    padding: 1.25rem 3rem;
+    font-size: 1.125rem;
+  }
+
+  /* Problem Section */
+  .problem {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .problem h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .problems-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+  }
+
+  .problem-card {
+    background: var(--bg-secondary);
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .problem-icon {
+    font-size: 2.5rem;
+    display: block;
+    margin-bottom: 1rem;
+  }
+
+  .problem-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* Solution Section */
+  .solution {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .solution h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+  }
+
+  .feature-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .feature-icon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .feature-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+    color: var(--text-primary);
+  }
+
+  .feature-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Use Cases Section */
+  .use-cases {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .use-cases h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .use-cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+
+  .use-case-card {
+    background: var(--primary-50);
+    padding: 2rem;
+    border-radius: 1rem;
+    border-left: 4px solid var(--primary-600);
+  }
+
+  .use-case-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .use-case-card h3 {
+    font-size: 1.125rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-700);
+  }
+
+  .use-case-card p {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  /* Pricing Section */
+  .pricing {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+  }
+
+  .pricing h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: start;
+  }
+
+  .pricing-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    position: relative;
+    border: 2px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .pricing-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .pricing-card.popular {
+    border-color: var(--primary-600);
+    border-width: 3px;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  }
+
+  .popular-badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-600);
+    color: white;
+    padding: 0.5rem 1.5rem;
+    border-radius: 2rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    white-space: nowrap;
+  }
+
+  .card-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .card-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--primary-700);
+  }
+
+  .tier-description {
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .card-price {
+    padding: 1.5rem 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+    margin-bottom: 1.5rem;
+  }
+
+  .price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+  }
+
+  .price-row .label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .price-row .price {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--primary-600);
+  }
+
+  .price-row.monthly .price {
+    font-size: 1.25rem;
+    color: var(--secondary-600);
+  }
+
+  .card-features {
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-features h4 {
+    font-size: 0.9rem;
+    color: var(--primary-700);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .card-features ul {
+    list-style: none;
+    padding: 0;
+  }
+
+  .card-features li {
+    padding: 0.5rem 0;
+    padding-left: 1.5rem;
+    position: relative;
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  .card-features li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--success-500);
+    font-weight: 700;
+  }
+
+  .card-best-for {
+    background: var(--bg-secondary);
+    padding: 1rem;
+    border-radius: 0.5rem;
+    font-size: 0.875rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .pricing-card .btn-primary,
+  .pricing-card .btn-outline {
+    width: 100%;
+  }
+
+  /* Included Section */
+  .included {
+    padding: 4rem 0;
+    background: white;
+  }
+
+  .included h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .included-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 1.5rem;
+  }
+
+  .included-card {
+    background: var(--bg-secondary);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    text-align: center;
+  }
+
+  .included-icon {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+
+  .included-card h3 {
+    font-size: 1rem;
+    margin-bottom: 1rem;
+    color: var(--primary-700);
+  }
+
+  .included-card ul {
+    list-style: none;
+    padding: 0;
+    text-align: left;
+  }
+
+  .included-card li {
+    font-size: 0.85rem;
+    padding: 0.35rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+    color: var(--text-secondary);
+  }
+
+  .included-card li::before {
+    content: "•";
+    position: absolute;
+    left: 0.5rem;
+    color: var(--primary-500);
+  }
+
+  /* FAQ Section */
+  .faq {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .faq h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .faq-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+  }
+
+  .faq-item {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.5rem;
+  }
+
+  .faq-item h3 {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: var(--primary-700);
+  }
+
+  .faq-item p {
+    color: var(--text-secondary);
+    line-height: 1.7;
+    font-size: 0.95rem;
+  }
+
+  /* CTA Section */
+  .cta {
+    padding: 4rem 0;
+    background: var(--primary-600);
+    text-align: center;
+  }
+
+  .cta h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    color: white;
+    margin-bottom: 1rem;
+  }
+
+  .cta-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+  }
+
+  .cta .btn-primary {
+    background: white;
+    color: var(--primary-600);
+  }
+
+  .cta .btn-primary:hover {
+    background: var(--primary-50);
+    transform: translateY(-2px);
+  }
+
+  .cta-note {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem;
+    margin-top: 1.5rem;
+  }
+
+  /* Responsive - Tablet */
+  @media (max-width: 1024px) {
+    .problems-grid,
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .use-cases-grid,
+    .pricing-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin: 0 auto;
+    }
+
+    .included-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .faq-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  /* Responsive - Mobile */
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1rem;
+    }
+
+    .hero,
+    .problem,
+    .solution,
+    .use-cases,
+    .pricing,
+    .included,
+    .faq,
+    .cta {
+      padding: 3rem 0;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.75rem, 7vw, 2.5rem);
+    }
+
+    .problems-grid,
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .included-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero-cta {
+      flex-direction: column;
+      max-width: 300px;
+      margin: 0 auto 2rem;
+    }
+
+    .trust-badges {
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .chat-bubbles {
+      max-width: 100%;
+    }
+
+    .bubble {
+      font-size: 0.85rem;
+      padding: 0.875rem 1rem;
+    }
+  }
+
+  /* Responsive - Small Mobile */
+  @media (max-width: 480px) {
+    .hero,
+    .problem,
+    .solution,
+    .use-cases,
+    .pricing,
+    .included,
+    .faq,
+    .cta {
+      padding: 2.5rem 0;
+    }
+
+    .section-subtitle {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .included-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .problem-card,
+    .feature-card,
+    .use-case-card,
+    .included-card {
+      padding: 1.5rem;
+    }
+
+    .pricing-card {
+      padding: 1.5rem;
+    }
+
+    .pricing-card.popular {
+      margin-top: 1rem;
+    }
+
+    .faq-item {
+      padding: 1.5rem;
+    }
+
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+      width: 100%;
+      padding: 1rem 1.5rem;
+    }
+
+    .cta-subtitle {
+      font-size: 1rem;
+    }
+  }
+</style>

@@ -1,6 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
-import { GraduationCap, Cog, Headphones, CheckCircle2, ArrowRight } from 'lucide-astro';
+import { GraduationCap, Cog, Headphones, Monitor, CheckCircle2, ArrowRight } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -24,7 +24,8 @@ const services = [
     idealFor: t('services.training.ideal_for'),
     duration: t('services.training.duration'),
     price: t('services.training.price'),
-    link: t('services.training.link')
+    link: t('services.training.link'),
+    badge: null
   },
   {
     icon: Cog,
@@ -40,7 +41,8 @@ const services = [
     idealFor: t('services.setup.ideal_for'),
     duration: t('services.setup.duration'),
     price: t('services.setup.price'),
-    link: t('services.setup.link')
+    link: t('services.setup.link'),
+    badge: null
   },
   {
     icon: Headphones,
@@ -56,7 +58,26 @@ const services = [
     idealFor: t('services.support.ideal_for'),
     duration: t('services.support.duration'),
     price: t('services.support.price'),
-    link: t('services.support.link')
+    link: t('services.support.link'),
+    badge: null
+  },
+  {
+    icon: Monitor,
+    title: t('services.skopaai.title'),
+    description: t('services.skopaai.description'),
+    features: [
+      t('services.skopaai.features.0'),
+      t('services.skopaai.features.1'),
+      t('services.skopaai.features.2'),
+      t('services.skopaai.features.3')
+    ],
+    outcome: t('services.skopaai.outcome'),
+    idealFor: t('services.skopaai.ideal_for'),
+    duration: t('services.skopaai.duration'),
+    price: t('services.skopaai.price'),
+    link: t('services.skopaai.link'),
+    badge: t('services.skopaai.badge'),
+    isHighlighted: true
   }
 ];
 
@@ -77,7 +98,8 @@ const learnMore = t('services.learn_more');
       {services.map((service) => {
         const IconComponent = service.icon;
         return (
-          <div class="service-card">
+          <div class={`service-card ${service.isHighlighted ? 'highlighted' : ''}`}>
+            {service.badge && <span class="service-badge">{service.badge}</span>}
             <div class="service-icon">
               <IconComponent size={32} />
             </div>
@@ -142,9 +164,9 @@ const learnMore = t('services.learn_more');
 
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
   }
 
@@ -164,6 +186,26 @@ const learnMore = t('services.learn_more');
     transform: translateY(-4px);
     box-shadow: 0 16px 32px rgba(0, 0, 0, 0.1);
     border-color: var(--eflury-teal);
+  }
+
+  .service-card.highlighted {
+    border-color: var(--success-500);
+    border-width: 2px;
+    background: linear-gradient(135deg, var(--success-50) 0%, var(--bg-primary) 100%);
+  }
+
+  .service-badge {
+    position: absolute;
+    top: -10px;
+    right: 1.5rem;
+    background: var(--success-500);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
   }
 
   :global([data-theme="dark"]) .service-card:hover {
@@ -303,9 +345,16 @@ const learnMore = t('services.learn_more');
     transform: translateX(4px);
   }
 
+  @media (max-width: 1200px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      max-width: 900px;
+    }
+  }
+
   @media (max-width: 1024px) {
     .services-grid {
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: repeat(2, 1fr);
       max-width: 800px;
     }
   }

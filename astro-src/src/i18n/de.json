@@ -118,6 +118,17 @@
       "price": "Ab CHF 500/Monat",
       "link": "#contact"
     },
+    "skopaai": {
+      "title": "SkopaAI Hardware",
+      "badge": "NEU",
+      "description": "Vorkonfigurierter Mac Mini mit KI-Assistent. Auspacken, verbinden und automatisieren via WhatsApp, Telegram oder E-Mail. Erstmals in der Schweiz.",
+      "features": ["Dedizierter Mac Mini M4", "WhatsApp/Telegram-Integration", "Keine technischen Kenntnisse nötig", "30 Tage Support inklusive"],
+      "outcome": "Ergebnis: Ihr eigener KI-Mitarbeiter läuft 24/7",
+      "ideal_for": "KMU mit Wunsch nach dedizierter KI-Hardware",
+      "duration": "Fertig in 1 Woche",
+      "price": "Ab CHF 1'300 + CHF 200/Mt.",
+      "link": "/de/skopaai"
+    },
     "outcome_label": "Ergebnis",
     "ideal_for_label": "Ideal für",
     "duration_label": "Dauer",
@@ -462,5 +473,202 @@
     "download_now": "Jetzt herunterladen",
     "privacy_note": "Ihre E-Mail ist sicher. Kein Spam, jederzeit abmelden.",
     "preview_title": "KI-Implementierungs-Playbook"
+  },
+  "skopaai": {
+    "meta": {
+      "title": "SkopaAI - Ihr KI-Mitarbeiter, sofort einsatzbereit | eFlury",
+      "description": "Vorkonfigurierter Mac Mini mit KI-Assistent. Erstmals in der Schweiz. Verbindet sich mit WhatsApp, Telegram, E-Mail. Auspacken, verbinden, automatisieren."
+    },
+    "hero": {
+      "badge": "Erstmals in der Schweiz",
+      "title": "Ihr KI-Mitarbeiter. Sofort einsatzbereit.",
+      "subtitle": "Vorkonfigurierter Mac Mini mit KI-Assistent. Auspacken. Verbinden. Automatisieren.",
+      "cta_primary": "SkopaAI reservieren",
+      "cta_secondary": "So funktioniert's"
+    },
+    "problem": {
+      "title": "Immer noch repetitive Aufgaben manuell?",
+      "subtitle": "Sie wissen, dass KI helfen kann. Aber das Setup ist überwältigend.",
+      "problems": [
+        "E-Mail-Flut stiehlt produktive Stunden",
+        "Kalender-Chaos mit ständigen Terminkonflikten",
+        "Dateien überall verstreut, unmöglich zu finden",
+        "Recherche dauert Stunden statt Minuten"
+      ]
+    },
+    "solution": {
+      "title": "Lernen Sie SkopaAI kennen",
+      "subtitle": "Ein KI-Assistent, der tatsächlich arbeitet—auf eigener Hardware in Ihrem Büro.",
+      "features": [
+        {
+          "title": "Funktioniert über Ihre Apps",
+          "description": "Befehlen Sie Ihre KI per WhatsApp, Telegram, iMessage, Slack oder E-Mail. Nutzen Sie Apps, die Sie bereits kennen."
+        },
+        {
+          "title": "Läuft auf Ihrer Hardware",
+          "description": "Dedizierter Mac Mini in Ihrem Büro. Ihre Daten bleiben bei Ihnen—keine Cloud erforderlich."
+        },
+        {
+          "title": "Erledigt echte Arbeit",
+          "description": "Nicht nur Antworten. Er sendet E-Mails, verwaltet Kalender, organisiert Dateien, recherchiert und mehr."
+        },
+        {
+          "title": "Immer verfügbar",
+          "description": "Leiser, kompakter Mac Mini läuft 24/7. Reagiert in Sekunden, arbeitet während Sie schlafen."
+        }
+      ]
+    },
+    "use_cases": {
+      "title": "Was kann SkopaAI?",
+      "subtitle": "Echte Aufgaben. Echte Automatisierung. Echte Zeitersparnis.",
+      "cases": [
+        {
+          "title": "E-Mail-Triage",
+          "description": "Liest, kategorisiert und entwirft Antworten. Sie genehmigen und senden."
+        },
+        {
+          "title": "Kalenderverwaltung",
+          "description": "Plant Meetings, löst Konflikte, sendet Erinnerungen."
+        },
+        {
+          "title": "Recherche",
+          "description": "Web-Suchen, Zusammenfassungen, Wettbewerbsanalysen—in Minuten."
+        },
+        {
+          "title": "Datei-Organisation",
+          "description": "Sortiert Downloads, benennt konsistent um, archiviert intelligent."
+        },
+        {
+          "title": "Ausgaben-Tracking",
+          "description": "Scannt Belege, kategorisiert Ausgaben, erstellt Berichte."
+        },
+        {
+          "title": "Content-Entwurf",
+          "description": "Entwirft Social Posts, E-Mails, Dokumente. Sie editieren und veröffentlichen."
+        }
+      ]
+    },
+    "pricing": {
+      "title": "Wählen Sie Ihren Plan",
+      "subtitle": "Vom Testen bis Enterprise-Datenschutz. Alles in Schweizer Qualität.",
+      "tiers": {
+        "cloud": {
+          "name": "SkopaAI Cloud",
+          "description": "Testen Sie die Möglichkeiten. Läuft auf Ihrem Mac oder in unserer Cloud.",
+          "one_time": "CHF 500",
+          "monthly": "CHF 200/Mt.",
+          "features": [
+            "2-Stunden Setup & Training",
+            "Claude KI-Zugang inklusive",
+            "3 Integrationen (WhatsApp, E-Mail, etc.)",
+            "E-Mail-Support"
+          ],
+          "best_for": "Testen, leichte Nutzung"
+        },
+        "mini": {
+          "name": "SkopaAI Mini",
+          "badge": "Beliebteste Wahl",
+          "description": "Dedizierte Hardware. Volle KI-Power. Empfohlen für die meisten KMU.",
+          "one_time": "CHF 1'300",
+          "monthly": "CHF 200/Mt.",
+          "features": [
+            "Apple Mac Mini M4 (16GB/256GB)",
+            "Vorkonfiguriert & einsatzbereit",
+            "Claude KI-Zugang inklusive",
+            "3 Integrationen Ihrer Wahl",
+            "Docker-Sicherheits-Sandbox",
+            "2-Stunden Schulung",
+            "30 Tage intensiver Support"
+          ],
+          "best_for": "KMU mit dedizierter KI"
+        },
+        "enterprise": {
+          "name": "SkopaAI Enterprise",
+          "description": "Maximaler Datenschutz. Self-hosted KI. Keine Daten verlassen Ihr Netzwerk.",
+          "one_time": "CHF 2'600",
+          "monthly": "CHF 0-150/Mt.",
+          "features": [
+            "Mac Mini M4 Pro (24GB/512GB)",
+            "Self-hosted KI-Modelle (Llama 3, Mixtral)",
+            "Keine Cloud-Abhängigkeit",
+            "Erweiterte Sicherheitshärtung",
+            "VPN/Firewall-Konfiguration",
+            "4-Stunden Schulung",
+            "Individuelle Workflow-Entwicklung",
+            "Priority-Support (optional)"
+          ],
+          "best_for": "Höchste Sicherheitsanforderungen"
+        }
+      },
+      "one_time_label": "Einmalig",
+      "monthly_label": "Monatlich",
+      "includes_label": "Enthält",
+      "best_for_label": "Ideal für",
+      "cta": "Jetzt reservieren"
+    },
+    "included": {
+      "title": "Was ist enthalten",
+      "hardware": {
+        "title": "Hardware",
+        "items": ["Apple Mac Mini M4", "Vorkonfiguriertes macOS", "Netzkabel & Setup-Anleitung"]
+      },
+      "software": {
+        "title": "Software",
+        "items": ["KI-Assistent vollständig konfiguriert", "Docker-Sicherheits-Sandbox", "Fernzugriff (SSH, Bildschirmfreigabe)", "Autostart bei Boot", "Backup-Agent"]
+      },
+      "integrations": {
+        "title": "Integrationen (3 wählen)",
+        "items": ["WhatsApp", "Telegram", "iMessage", "Slack", "Discord", "E-Mail (IMAP/SMTP)"]
+      },
+      "training": {
+        "title": "Schulung",
+        "items": ["1:1 Video-Walkthrough", "Befehlsbeispiele", "Sicherheits-Best-Practices", "5 Workflow-Vorlagen"]
+      },
+      "support": {
+        "title": "Support",
+        "items": ["30 Tage intensiver Support", "E-Mail & WhatsApp-Hilfe", "Fehlerbehebung", "Konfigurationsanpassungen"]
+      }
+    },
+    "faq": {
+      "title": "Häufig gestellte Fragen",
+      "questions": [
+        {
+          "question": "Brauche ich technische Kenntnisse?",
+          "answer": "Keine. Sie befehlen die KI in normaler Sprache per WhatsApp oder Ihrem bevorzugten Messenger. Wir übernehmen das komplette technische Setup."
+        },
+        {
+          "question": "Sind meine Daten sicher?",
+          "answer": "Der Mac Mini läuft in Ihrem Büro, in Ihrem Netzwerk. Mit dem Enterprise-Plan verlassen keine Daten jemals Ihre Räumlichkeiten. Voller Schweizer Datenschutz."
+        },
+        {
+          "question": "Was sind die laufenden Kosten?",
+          "answer": "Die monatliche Gebühr enthält Claude KI-Zugang. Keine überraschenden API-Kosten. Der Enterprise-Plan mit self-hosted Modellen hat keine verpflichtenden Monatsgebühren."
+        },
+        {
+          "question": "Was kann er wirklich?",
+          "answer": "E-Mail-Triage, Kalenderverwaltung, Datei-Organisation, Recherche, Content-Entwurf, Ausgaben-Tracking und individuelle Automatisierungen, die wir für Sie bauen."
+        },
+        {
+          "question": "Wie schnell reagiert er?",
+          "answer": "Typischerweise 5-15 Sekunden für die meisten Aufgaben. Der Mac Mini läuft 24/7 und reagiert auch wenn Ihr Hauptcomputer ausgeschaltet ist."
+        },
+        {
+          "question": "Kann ich ihn zurückgeben?",
+          "answer": "14-Tage-Zufriedenheitsgarantie. Wenn es nicht zu Ihrem Unternehmen passt, geben Sie die Hardware für volle Rückerstattung zurück (abzüglich Schulungszeit)."
+        }
+      ]
+    },
+    "cta": {
+      "title": "Bereit für Ihren KI-Mitarbeiter?",
+      "subtitle": "Begrenzte Verfügbarkeit. Reservieren Sie heute.",
+      "button": "SkopaAI-Gespräch buchen",
+      "note": "30-Minuten-Gespräch · Unverbindlich · Live-Demo"
+    },
+    "trust": {
+      "first_in_switzerland": "Erstmals in der Schweiz",
+      "swiss_data": "Schweizer Datenschutz",
+      "no_cloud": "Keine Cloud erforderlich",
+      "enterprise_security": "Enterprise-Sicherheit"
+    }
   }
 }
