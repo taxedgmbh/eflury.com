@@ -38,9 +38,19 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     <div class="nav-content">
       <ul class="nav-links" id="navLinks">
         <li><a href={`/${lang}/#home`}>{t('nav.home')}</a></li>
-        <li><a href={`/${lang}/#services`}>{t('nav.services')}</a></li>
-        <li><a href={`/${lang}/skopaai`} class="nav-skopaai">{t('nav.skopaai')}<span class="nav-badge">{t('nav.new')}</span></a></li>
-        <li><a href={`/${lang}/#about`}>{t('nav.about')}</a></li>
+        <li class="nav-dropdown">
+          <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+            {t('nav.services')}
+            <ChevronDown size={14} class="dropdown-chevron" />
+          </button>
+          <div class="nav-dropdown-menu">
+            <a href={`/${lang}/#services`}>{t('nav.services_overview')}</a>
+            <a href={`/${lang}/pricing`}>{t('nav.pricing')}</a>
+            <a href={`/${lang}/skopaai`} class="nav-skopaai">{t('nav.skopaai')}<span class="nav-badge">{t('nav.new')}</span></a>
+            <a href={`/${lang}/case-studies`}>{t('nav.case_studies')}</a>
+          </div>
+        </li>
+        <li><a href={`/${lang}/about`}>{t('nav.about')}</a></li>
         <li><a href={`/${lang}/blog`}>{t('nav.blog')}</a></li>
         <li><a href={`/${lang}/#contact`}>{t('nav.contact')}</a></li>
 
@@ -251,6 +261,89 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     text-transform: uppercase;
     letter-spacing: 0.5px;
     vertical-align: middle;
+  }
+
+  /* Services Dropdown */
+  .nav-dropdown {
+    position: relative;
+  }
+
+  .nav-dropdown-trigger {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: none;
+    border: none;
+    color: var(--text-secondary);
+    font-weight: 400;
+    font-size: 17px;
+    letter-spacing: -0.011em;
+    cursor: pointer;
+    padding: 0;
+    transition: color var(--transition-base);
+  }
+
+  .nav-dropdown-trigger:hover {
+    color: var(--text-primary);
+  }
+
+  .dropdown-chevron {
+    transition: transform var(--transition-fast);
+  }
+
+  .nav-dropdown:hover .dropdown-chevron,
+  .nav-dropdown.active .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+
+  .nav-dropdown-menu {
+    position: absolute;
+    top: calc(100% + 0.75rem);
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--card-bg);
+    border: 0.5px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-md);
+    min-width: 200px;
+    opacity: 0;
+    visibility: hidden;
+    transition: all var(--transition-base);
+    z-index: 100;
+    backdrop-filter: var(--blur-light);
+    -webkit-backdrop-filter: var(--blur-light);
+    padding: 0.5rem 0;
+  }
+
+  .nav-dropdown:hover .nav-dropdown-menu,
+  .nav-dropdown.active .nav-dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .nav-dropdown-menu a {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    color: var(--text-primary);
+    text-decoration: none;
+    font-size: 15px;
+    font-weight: 400;
+    transition: background-color var(--transition-fast);
+  }
+
+  .nav-dropdown-menu a:hover {
+    background: var(--bg-secondary);
+  }
+
+  .nav-dropdown-menu .nav-skopaai {
+    justify-content: flex-start;
+  }
+
+  .nav-dropdown-menu .nav-badge {
+    font-size: 8px;
+    padding: 1px 5px;
   }
 
   .nav-actions {
@@ -667,6 +760,45 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
 
     .nav-links.active .mobile-menu-section {
       display: block;
+    }
+
+    /* Mobile dropdown - display as flat list */
+    .nav-dropdown {
+      position: static;
+    }
+
+    .nav-dropdown-trigger {
+      display: none;
+    }
+
+    .nav-dropdown-menu {
+      position: static;
+      opacity: 1;
+      visibility: visible;
+      transform: none;
+      background: none;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      backdrop-filter: none;
+      -webkit-backdrop-filter: none;
+      padding: 0;
+      min-width: auto;
+    }
+
+    .nav-dropdown-menu a {
+      display: flex;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-primary);
+      min-height: 56px;
+      border-bottom: 0.5px solid var(--border-color);
+    }
+
+    .nav-dropdown-menu a:active {
+      background: var(--bg-secondary);
     }
   }
 </style>
