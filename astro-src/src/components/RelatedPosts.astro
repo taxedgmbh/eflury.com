@@ -1,0 +1,191 @@
+---
+/**
+ * Related Posts Component
+ * Shows 2-3 related posts based on matching tags
+ * Part of E-E-A-T content clustering strategy
+ */
+
+import { getCollection } from 'astro:content';
+import { ArrowRight, Calendar } from 'lucide-astro';
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  currentSlug: string;
+  currentTags: string[];
+  lang: 'en' | 'de';
+}
+
+const { currentSlug, currentTags, lang } = Astro.props;
+
+// Get all posts for the current language
+const allPosts = await getCollection('blog', ({ data }) => {
+  return data.lang === lang && !data.draft;
+});
+
+// Find related posts based on tag overlap
+function getRelatedPosts(posts: CollectionEntry<'blog'>[], tags: string[], excludeSlug: string, limit: number = 3) {
+  const scored = posts
+    .filter(post => post.id !== excludeSlug)
+    .map(post => {
+      const postTags = post.data.tags || [];
+      const matchingTags = postTags.filter((tag: string) =>
+        tags.some(currentTag =>
+          currentTag.toLowerCase() === tag.toLowerCase()
+        )
+      );
+      return {
+        post,
+        score: matchingTags.length,
+        matchingTags
+      };
+    })
+    .filter(item => item.score > 0)
+    .sort((a, b) => {
+      // Sort by score first, then by date
+      if (b.score !== a.score) return b.score - a.score;
+      return new Date(b.post.data.pubDate).getTime() - new Date(a.post.data.pubDate).getTime();
+    })
+    .slice(0, limit);
+
+  return scored.map(item => item.post);
+}
+
+const relatedPosts = getRelatedPosts(allPosts, currentTags, currentSlug, 3);
+
+const sectionTitle = lang === 'de' ? 'Weiterlesen' : 'Related Articles';
+const readMoreLabel = lang === 'de' ? 'Weiterlesen' : 'Read more';
+
+// Format date based on language
+function formatDate(date: Date, locale: string) {
+  return date.toLocaleDateString(locale === 'de' ? 'de-CH' : 'en-US', {
+    year: 'numeric',
+    month: 'short',
+    day: 'numeric'
+  });
+}
+---
+
+{relatedPosts.length > 0 && (
+  <section class="related-posts">
+    <h2 class="section-title">{sectionTitle}</h2>
+    <div class="posts-grid">
+      {relatedPosts.map((post) => (
+        <a href={`/${lang}/blog/${post.id}`} class="post-card">
+          <div class="post-meta">
+            <Calendar size={14} />
+            <span>{formatDate(post.data.pubDate, lang)}</span>
+          </div>
+          <h3 class="post-title">{post.data.title}</h3>
+          <p class="post-excerpt">{post.data.description}</p>
+          <span class="read-more">
+            {readMoreLabel}
+            <ArrowRight size={16} />
+          </span>
+        </a>
+      ))}
+    </div>
+  </section>
+)}
+
+<style>
+  .related-posts {
+    margin-top: 3rem;
+    padding-top: 3rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--eflury-navy, #022554);
+    margin-bottom: 1.5rem;
+  }
+
+  :global([data-theme="dark"]) .section-title {
+    color: var(--text-primary);
+  }
+
+  .posts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+  }
+
+  .post-card {
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem;
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .post-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--eflury-teal, #0d9488);
+  }
+
+  .post-meta {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .post-meta :global(svg) {
+    color: var(--eflury-teal, #0d9488);
+  }
+
+  .post-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.4;
+    margin-bottom: 0.75rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .post-excerpt {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    flex: 1;
+    margin-bottom: 1rem;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--eflury-teal, #0d9488);
+    transition: gap 0.2s ease;
+  }
+
+  .post-card:hover .read-more {
+    gap: 0.75rem;
+  }
+
+  @media (max-width: 768px) {
+    .posts-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .post-card {
+      padding: 1.25rem;
+    }
+  }
+</style>

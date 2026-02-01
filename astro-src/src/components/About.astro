@@ -1,6 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
-import { MapPin, Building2, CheckCircle2, Award, Shield } from 'lucide-astro';
+import { MapPin, Building2, CheckCircle2, Award, Shield, GraduationCap, Briefcase, Calendar } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -8,6 +8,14 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+
+// Timeline entries for experience
+const timeline = [
+  { year: '2011', label: lang === 'de' ? 'Karrierestart Finanzen' : 'Finance Career Start' },
+  { year: '2017', label: lang === 'de' ? 'Automation Lead' : 'Automation Lead' },
+  { year: '2021', label: 'Claude AI Early Adopter' },
+  { year: '2024', label: 'eflury.com' }
+];
 ---
 
 <section class="about" id="about">
@@ -66,6 +74,68 @@ const t = useTranslations(lang);
         <div class="highlight">
           <CheckCircle2 size={18} />
           <span>{t('about.highlight4')}</span>
+        </div>
+      </div>
+
+      <!-- Certifications & Experience Section -->
+      <div class="certifications-section">
+        <h3 class="certifications-title">
+          <GraduationCap size={20} />
+          {t('about.certifications_title')}
+        </h3>
+
+        <div class="certifications-grid">
+          <div class="cert-category">
+            <div class="cert-header">
+              <Award size={16} />
+              <span>{t('about.cert_ai_title')}</span>
+            </div>
+            <ul class="cert-list">
+              <li>Claude Code Specialist</li>
+              <li>MCP Integration Expert</li>
+              <li>AI Agents & Automation</li>
+            </ul>
+          </div>
+
+          <div class="cert-category">
+            <div class="cert-header">
+              <Briefcase size={16} />
+              <span>{t('about.cert_microsoft_title')}</span>
+            </div>
+            <ul class="cert-list">
+              <li>Power BI Data Analyst</li>
+              <li>Power Automate Developer</li>
+              <li>Azure Fundamentals</li>
+            </ul>
+          </div>
+
+          <div class="cert-category">
+            <div class="cert-header">
+              <Building2 size={16} />
+              <span>{t('about.cert_finance_title')}</span>
+            </div>
+            <ul class="cert-list">
+              <li>{t('about.cert_finance_1')}</li>
+              <li>{t('about.cert_finance_2')}</li>
+              <li>{t('about.cert_finance_3')}</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Experience Timeline -->
+        <div class="experience-timeline">
+          <div class="timeline-header">
+            <Calendar size={16} />
+            <span>{t('about.timeline_title')}</span>
+          </div>
+          <div class="timeline-track">
+            {timeline.map((item, index) => (
+              <div class="timeline-item">
+                <span class="timeline-year">{item.year}</span>
+                <span class="timeline-label">{item.label}</span>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
@@ -252,6 +322,158 @@ const t = useTranslations(lang);
     flex-shrink: 0;
   }
 
+  /* Certifications Section */
+  .certifications-section {
+    margin: 2rem 0;
+    padding: 1.5rem;
+    background: linear-gradient(135deg, rgba(2, 37, 84, 0.03) 0%, rgba(13, 148, 136, 0.05) 100%);
+    border-radius: 16px;
+    border: 1px solid rgba(2, 37, 84, 0.08);
+  }
+
+  :global([data-theme="dark"]) .certifications-section {
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.02) 0%, rgba(13, 148, 136, 0.08) 100%);
+    border-color: rgba(255, 255, 255, 0.08);
+  }
+
+  .certifications-title {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--eflury-navy);
+    margin-bottom: 1.25rem;
+  }
+
+  .certifications-title svg {
+    color: var(--eflury-teal);
+  }
+
+  :global([data-theme="dark"]) .certifications-title {
+    color: var(--text-primary);
+  }
+
+  .certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .cert-category {
+    padding: 1rem;
+    background: var(--bg-primary);
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+  }
+
+  .cert-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--eflury-teal);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .cert-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .cert-list li {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    padding: 0.25rem 0;
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .cert-list li:last-child {
+    border-bottom: none;
+  }
+
+  /* Experience Timeline */
+  .experience-timeline {
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .timeline-header {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--eflury-teal);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .timeline-track {
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+  }
+
+  .timeline-track::before {
+    content: '';
+    position: absolute;
+    top: 8px;
+    left: 10%;
+    right: 10%;
+    height: 2px;
+    background: linear-gradient(90deg, var(--eflury-navy) 0%, var(--eflury-teal) 100%);
+    z-index: 0;
+  }
+
+  .timeline-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .timeline-year {
+    width: 18px;
+    height: 18px;
+    background: var(--eflury-teal);
+    border-radius: 50%;
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0;
+    box-shadow: 0 0 0 3px var(--bg-primary);
+  }
+
+  .timeline-year::after {
+    content: attr(data-year);
+  }
+
+  .timeline-label {
+    font-size: 0.7rem;
+    color: var(--text-secondary);
+    text-align: center;
+    max-width: 80px;
+    line-height: 1.3;
+  }
+
+  .timeline-item:first-child .timeline-year {
+    background: var(--eflury-navy);
+  }
+
+  .timeline-item:last-child .timeline-year {
+    background: var(--eflury-teal);
+    box-shadow: 0 0 0 3px var(--bg-primary), 0 0 12px rgba(13, 148, 136, 0.4);
+  }
+
   .about-badges {
     display: flex;
     gap: 1rem;
@@ -410,6 +632,26 @@ const t = useTranslations(lang);
       width: 14px;
       height: 14px;
     }
+
+    .certifications-grid {
+      grid-template-columns: 1fr;
+      gap: 0.75rem;
+    }
+
+    .certifications-section {
+      padding: 1.25rem;
+      margin: 1.5rem 0;
+    }
+
+    .timeline-track::before {
+      left: 5%;
+      right: 5%;
+    }
+
+    .timeline-label {
+      font-size: 0.65rem;
+      max-width: 70px;
+    }
   }
 
   @media (max-width: 480px) {
@@ -454,6 +696,56 @@ const t = useTranslations(lang);
 
     .highlight {
       font-size: 0.8125rem;
+    }
+
+    .certifications-section {
+      padding: 1rem;
+    }
+
+    .certifications-title {
+      font-size: 0.9rem;
+      justify-content: center;
+    }
+
+    .cert-category {
+      padding: 0.75rem;
+    }
+
+    .cert-header {
+      font-size: 0.75rem;
+    }
+
+    .cert-list li {
+      font-size: 0.8rem;
+    }
+
+    .timeline-track {
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      justify-content: center;
+    }
+
+    .timeline-track::before {
+      display: none;
+    }
+
+    .timeline-item {
+      flex-direction: row;
+      gap: 0.5rem;
+      width: calc(50% - 0.5rem);
+      padding: 0.5rem;
+      background: var(--bg-secondary);
+      border-radius: 8px;
+    }
+
+    .timeline-year {
+      margin-bottom: 0;
+      flex-shrink: 0;
+    }
+
+    .timeline-label {
+      max-width: none;
+      text-align: left;
     }
 
     .about-badges {

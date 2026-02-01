@@ -13,7 +13,7 @@ Schweizer KMU stehen vor einer einzigartigen Herausforderung: Sie benötigen Aut
 
 Laut aktuellen Umfragen verbringt ein durchschnittliches Schweizer KMU **35-40% der Mitarbeiterzeit** mit sich wiederholenden administrativen Aufgaben. Für ein Unternehmen mit 20 Mitarbeitern entspricht das 7-8 Vollzeitstellen, die mit Arbeit verbracht werden, die wenig strategischen Mehrwert bietet.
 
-Die gute Nachricht? Moderne KI-Tools wie Claude können 60-80% dieser Aufgaben automatisieren und gleichzeitig die Qualitäts- und Compliance-Standards aufrechterhalten, die Schweizer Unternehmen benötigen.
+Die gute Nachricht? Moderne KI-Tools wie Claude können 60-80% dieser Aufgaben automatisieren und gleichzeitig die Qualitäts- und Compliance-Standards aufrechterhalten, die Schweizer Unternehmen benötigen. Erfahren Sie mehr über die [Claude Skills Entwicklung](/de/services/claude-skills), um zu sehen, wie massgeschneiderte KI-Workflows Ihre Abläufe transformieren können.
 
 ## Was kann automatisiert werden?
 
@@ -23,7 +23,7 @@ Basierend auf meiner Arbeit mit Schweizer KMU sind hier die wirkungsvollsten Ber
 
 1. **Kundenkommunikation** - E-Mail-Antworten, Terminplanung, Nachfassaktionen
 2. **Dokumentenverarbeitung** - Rechnungsbearbeitung, Vertragsprüfung, Datenextraktion
-3. **Berichterstattung** - Finanzberichte, KPI-Dashboards, Management-Updates
+3. **Berichterstattung** - Finanzberichte, KPI-Dashboards, Management-Updates (siehe unsere [Finanzautomatisierungs-Fallstudie](/de/case-studies/finance-automation) für echte Ergebnisse)
 4. **Dateneingabe** - CRM-Updates, ERP-Einträge, Tabellenpflege
 5. **Compliance-Aufgaben** - Regulatorische Prüfungen, Auditvorbereitung, Dokumentation
 

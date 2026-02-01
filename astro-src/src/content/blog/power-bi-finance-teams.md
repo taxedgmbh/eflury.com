@@ -7,7 +7,7 @@ tags: ["Power BI", "Finance", "Business Intelligence", "Reporting"]
 lang: "en"
 ---
 
-If your finance team still spends Friday afternoons building reports in Excel, you're leaving significant value on the table. Power BI can transform your reporting from a weekly burden into a real-time strategic asset.
+If your finance team still spends Friday afternoons building reports in Excel, you're leaving significant value on the table. Power BI can transform your reporting from a weekly burden into a real-time strategic asset. See how we've helped companies achieve this transformation with our [Power BI consulting services](/en/services/power-bi).
 
 ## The Excel Trap
 
@@ -19,7 +19,7 @@ Most finance teams are stuck in what I call "The Excel Trap":
 - **No drill-down capability** when executives ask questions
 - **Version control nightmares** when multiple people edit
 
-Sound familiar? You're not alone. This pattern costs Swiss SMEs an average of **15-25 hours per week** in finance team time.
+Sound familiar? You're not alone. This pattern costs Swiss SMEs an average of **15-25 hours per week** in finance team time. Read our [Power BI case study](/en/case-studies/power-bi-reporting) to see how one firm reduced this to just 2 hours.
 
 ## What Power BI Changes
 

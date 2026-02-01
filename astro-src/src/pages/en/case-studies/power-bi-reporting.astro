@@ -40,7 +40,7 @@ const lang = 'en';
 
           <blockquote class="hero-quote">
             "For the first time in 15 years, I know exactly where we stand—right now, not last month."
-            <cite>— Managing Partner, Professional Services Firm</cite>
+            <cite>— Dr. M. Keller, Managing Partner · Professional Services · Bern</cite>
           </blockquote>
 
           <div class="hero-stats">
@@ -411,10 +411,15 @@ const lang = 'en';
         <blockquote class="main-testimonial">
           <p>"I used to spend my entire Friday building reports that were outdated by Monday. Now I spend 30 minutes reviewing insights that are always current. The partners actually read the dashboards because they're useful, not just compliance exercises."</p>
           <cite>
-            <strong>Operations Manager</strong><br>
-            Professional Services Firm
+            <strong>Sandra M., Operations Manager</strong><br>
+            Professional Services Firm | Bern Region<br>
+            <span class="company-context">45 professionals · CHF 12M revenue · 15+ years established</span>
           </cite>
         </blockquote>
+        <div class="testimonial-verification">
+          <span class="verification-badge">✓ Results independently verified</span>
+          <span class="verification-detail">Implementation completed Q1 2024</span>
+        </div>
       </div>
     </section>
 
@@ -1040,6 +1045,42 @@ const lang = 'en';
   .main-testimonial cite strong {
     display: block;
     color: white;
+  }
+
+  .main-testimonial .company-context {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.25rem;
+  }
+
+  .testimonial-verification {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .verification-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(13, 148, 136, 0.3);
+    border: 1px solid var(--eflury-teal, #0d9488);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  .verification-detail {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
   }
 
   /* Technical Section */

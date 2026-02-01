@@ -1,0 +1,96 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'de';
+const t = useTranslations(lang);
+
+const serviceData = {
+  title: t('services_pages.power_bi.meta.title'),
+  description: t('services_pages.power_bi.meta.description'),
+  keywords: t('services_pages.power_bi.meta.keywords'),
+  lang,
+  serviceType: 'Power BI Beratung',
+  heroTitle: t('services_pages.power_bi.hero.title'),
+  heroSubtitle: t('services_pages.power_bi.hero.badge'),
+  heroDescription: t('services_pages.power_bi.hero.description'),
+  problemTitle: t('services_pages.power_bi.problem.title'),
+  problems: [
+    'Daten verstreut über Excel-Dateien, ERP und mehrere Systeme',
+    'Stunden für manuelle Berichterstellung, die bei Veröffentlichung bereits veraltet sind',
+    'Führungskräfte stellen Fragen, die Ihre aktuellen Reports nicht beantworten können',
+    'Keine Single Source of Truth für wichtige Geschäftskennzahlen'
+  ],
+  solutionTitle: t('services_pages.power_bi.solution.title'),
+  solutionDescription: t('services_pages.power_bi.solution.description'),
+  benefits: [
+    {
+      title: 'Single Source of Truth',
+      description: 'Alle Ihre Daten an einem Ort mit konsistenten Definitionen und Berechnungen.'
+    },
+    {
+      title: 'Live-Daten, keine statischen Reports',
+      description: 'Dashboards aktualisieren sich automatisch. Immer aktuell, nie veraltet.'
+    },
+    {
+      title: 'Self-Service Analytics',
+      description: 'Designed für Geschäftsnutzer, um Daten ohne IT-Support zu erkunden.'
+    },
+    {
+      title: 'KI-gestützte Erkenntnisse',
+      description: 'Optionale Claude-Integration für Abfragen und Analysen in natürlicher Sprache.'
+    }
+  ],
+  processTitle: t('services_pages.power_bi.process.title'),
+  processSteps: [
+    {
+      title: 'Anforderungsermittlung',
+      description: 'Wir definieren Ihre Schlüsselfragen, Metriken und wie Entscheidungen getroffen werden.'
+    },
+    {
+      title: 'Datenmodellierung',
+      description: 'Ich baue ein robustes Datenmodell, das Ihre verschiedenen Datenquellen verbindet.'
+    },
+    {
+      title: 'Dashboard-Design',
+      description: 'Interaktive Dashboards, designed für Ihre spezifischen Use Cases und Nutzer.'
+    },
+    {
+      title: 'Schulung & Adoption',
+      description: 'Ihr Team lernt, die Dashboards selbstständig zu nutzen und zu erweitern.'
+    }
+  ],
+  faqs: [
+    {
+      question: 'Welche Datenquellen können Sie mit Power BI verbinden?',
+      answer: 'Fast alles: Excel, SQL-Datenbanken, Bexio, ABACUS, Salesforce, SharePoint, Web-APIs und hunderte mehr. Power BI hat native Konnektoren für die meisten Business-Systeme.'
+    },
+    {
+      question: 'Wir haben noch keine Power BI-Lizenz. Was brauchen wir?',
+      answer: 'Power BI Desktop ist kostenlos. Für Sharing brauchen Sie Power BI Pro (CHF 9.40/Nutzer/Monat) oder Premium. Ich helfe bei der richtigen Lizenzwahl.'
+    },
+    {
+      question: 'Wie lange dauert ein Power BI-Projekt?',
+      answer: 'Einfache Dashboards: 2-3 Wochen. Umfassende BI-Lösungen mit mehreren Dashboards: 6-8 Wochen. Ich arbeite iterativ mit laufendem Feedback.'
+    },
+    {
+      question: 'Können Sie Claude KI mit Power BI integrieren?',
+      answer: 'Ja. Nutzer können Fragen in natürlicher Sprache stellen und erhalten sofortige Antworten aus Ihren Power BI-Daten. Das ist eine einzigartige Fähigkeit, die ich anbiete.'
+    },
+    {
+      question: 'Was ist die Investition für Power BI Beratung?',
+      answer: 'Einzelne Dashboard-Projekte starten bei CHF 5\'000. Enterprise BI-Implementierungen liegen bei CHF 15\'000-40\'000. Laufender Support kostet CHF 500-1\'500/Monat.'
+    }
+  ],
+  ctaTitle: t('services_pages.power_bi.cta.title'),
+  ctaDescription: t('services_pages.power_bi.cta.description'),
+  ctaButtonText: t('services_pages.power_bi.cta.button'),
+  relatedCaseStudy: {
+    title: 'Power BI Erfolgsgeschichte',
+    link: '/de/case-studies/power-bi-reporting',
+    metric: '15 Std/Woche gespart'
+  }
+};
+---
+
+<ServiceLayout {...serviceData} />

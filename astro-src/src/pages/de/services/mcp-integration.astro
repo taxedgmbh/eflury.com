@@ -1,0 +1,96 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'de';
+const t = useTranslations(lang);
+
+const serviceData = {
+  title: t('services_pages.mcp_integration.meta.title'),
+  description: t('services_pages.mcp_integration.meta.description'),
+  keywords: t('services_pages.mcp_integration.meta.keywords'),
+  lang,
+  serviceType: 'MCP Server Integration',
+  heroTitle: t('services_pages.mcp_integration.hero.title'),
+  heroSubtitle: t('services_pages.mcp_integration.hero.badge'),
+  heroDescription: t('services_pages.mcp_integration.hero.description'),
+  problemTitle: t('services_pages.mcp_integration.problem.title'),
+  problems: [
+    'KI-Tools können nicht auf Ihre internen Datenbanken und Systeme zugreifen',
+    'Manuelle Dateneingabe zwischen KI-Outputs und Ihrer Software verschwendet Zeit',
+    'Sie brauchen Echtzeitdaten, damit KI genaue Entscheidungen treffen kann',
+    'Sicherheitsbedenken verhindern die Verbindung von KI mit sensiblen Geschäftssystemen'
+  ],
+  solutionTitle: t('services_pages.mcp_integration.solution.title'),
+  solutionDescription: t('services_pages.mcp_integration.solution.description'),
+  benefits: [
+    {
+      title: 'Direkter Systemzugriff',
+      description: 'Claude liest und schreibt direkt in Ihre Datenbanken, CRMs und Business-Software.'
+    },
+    {
+      title: 'Echtzeit-Daten',
+      description: 'Keine veralteten Exporte mehr. KI-Entscheidungen basierend auf Live-Geschäftsdaten.'
+    },
+    {
+      title: 'Sicher by Design',
+      description: 'MCP bietet granulare Berechtigungskontrollen. Claude greift nur auf das zu, was Sie erlauben.'
+    },
+    {
+      title: 'Schweizer Hosting-Optionen',
+      description: 'MCP-Server können auf Ihrer Infrastruktur laufen für maximale Datenhoheit.'
+    }
+  ],
+  processTitle: t('services_pages.mcp_integration.process.title'),
+  processSteps: [
+    {
+      title: 'System-Audit',
+      description: 'Ich analysiere Ihre aktuellen Systeme und identifiziere Integrationsmöglichkeiten.'
+    },
+    {
+      title: 'Architektur-Design',
+      description: 'Wir entwerfen die MCP-Server-Architektur mit Fokus auf Sicherheit und Performance.'
+    },
+    {
+      title: 'Entwicklung & Deployment',
+      description: 'Ich baue und deploye individuelle MCP-Server, entweder Cloud-gehostet oder On-Premise.'
+    },
+    {
+      title: 'Testing & Sicherheitsreview',
+      description: 'Umfassende Tests stellen sicheren, zuverlässigen Betrieb sicher.'
+    }
+  ],
+  faqs: [
+    {
+      question: 'Was ist MCP (Model Context Protocol)?',
+      answer: 'MCP ist Anthropics offener Standard zur Verbindung von KI-Modellen mit externen Datenquellen. Es ist wie ein universeller Adapter, der Claude sicheren Zugriff auf Datenbanken, APIs und Dateisysteme ermöglicht.'
+    },
+    {
+      question: 'Ist MCP sicher für sensible Geschäftsdaten?',
+      answer: 'Ja. MCP enthält eingebaute Sicherheitsfunktionen: Authentifizierung, Berechtigungsscopes und Audit-Logging. Sie kontrollieren exakt, worauf Claude zugreifen kann.'
+    },
+    {
+      question: 'Welche Systeme können Sie mit MCP integrieren?',
+      answer: 'Jedes System mit API oder Datenbankverbindung: ERP-Systeme (SAP, ABACUS), CRMs (Salesforce, HubSpot), Datenbanken (PostgreSQL, MySQL), Cloud-Services und individuelle interne Systeme.'
+    },
+    {
+      question: 'Wie unterscheidet sich MCP von traditionellen API-Integrationen?',
+      answer: 'Traditionelle Integrationen sind einseitig. MCP ermöglicht KI-native Integration: Claude versteht Ihren Datenkontext und kann intelligente Aktionen über Systeme hinweg ausführen.'
+    },
+    {
+      question: 'Was kostet ein MCP-Integrationsprojekt?',
+      answer: 'Einfache MCP-Integrationen starten bei CHF 5\'000. Komplexe Enterprise-Integrationen liegen bei CHF 15\'000-30\'000. Laufende Wartung kostet CHF 500-1\'500/Monat.'
+    }
+  ],
+  ctaTitle: t('services_pages.mcp_integration.cta.title'),
+  ctaDescription: t('services_pages.mcp_integration.cta.description'),
+  ctaButtonText: t('services_pages.mcp_integration.cta.button'),
+  relatedCaseStudy: {
+    title: 'MCP in Produktion',
+    link: '/de/case-studies/taxed-gmbh',
+    metric: '5 Systeme verbunden'
+  }
+};
+---
+
+<ServiceLayout {...serviceData} />

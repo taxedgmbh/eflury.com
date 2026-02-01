@@ -1,0 +1,96 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'de';
+const t = useTranslations(lang);
+
+const serviceData = {
+  title: t('services_pages.finance_automation.meta.title'),
+  description: t('services_pages.finance_automation.meta.description'),
+  keywords: t('services_pages.finance_automation.meta.keywords'),
+  lang,
+  serviceType: 'Finanzprozess-Automatisierung',
+  heroTitle: t('services_pages.finance_automation.hero.title'),
+  heroSubtitle: t('services_pages.finance_automation.hero.badge'),
+  heroDescription: t('services_pages.finance_automation.hero.description'),
+  problemTitle: t('services_pages.finance_automation.problem.title'),
+  problems: [
+    'Der Monatsabschluss dauert Tage mit manueller Datensammlung und Abstimmung',
+    'Berichterstellung erfordert Stunden des Kopierens von Daten zwischen Systemen',
+    'Rechnungsverarbeitung ist ein Engpass mit manueller Dateneingabe',
+    'Compliance-Dokumentation ist zeitaufwändig und fehleranfällig'
+  ],
+  solutionTitle: t('services_pages.finance_automation.solution.title'),
+  solutionDescription: t('services_pages.finance_automation.solution.description'),
+  benefits: [
+    {
+      title: 'Schnellerer Monatsabschluss',
+      description: 'Reduzieren Sie die Abschlusszeit um 60-80% mit automatisierter Abstimmung und Reporting.'
+    },
+    {
+      title: 'Bexio & ABACUS Integration',
+      description: 'Native Integration mit Schweizer Buchhaltungssoftware via MCP.'
+    },
+    {
+      title: 'Genau & Prüffähig',
+      description: 'KI führt Audit-Trails und erkennt Fehler, die Menschen übersehen.'
+    },
+    {
+      title: 'Schweizer Compliance-ready',
+      description: 'Entwickelt mit Schweizer Buchhaltungsstandards und DSG-Datenschutz im Blick.'
+    }
+  ],
+  processTitle: t('services_pages.finance_automation.process.title'),
+  processSteps: [
+    {
+      title: 'Prozess-Mapping',
+      description: 'Wir dokumentieren Ihre aktuellen Finanz-Workflows und Schmerzpunkte.'
+    },
+    {
+      title: 'Automatisierungs-Design',
+      description: 'Ich entwerfe KI-Workflows, die sich in Ihre Buchhaltungssoftware integrieren.'
+    },
+    {
+      title: 'Entwicklung & Test',
+      description: 'Automatisierung wird mit historischen Daten vor Go-Live gebaut und getestet.'
+    },
+    {
+      title: 'Parallellauf & Schulung',
+      description: 'Wir laufen alte und neue Prozesse parallel, dann schulen wir Ihr Team.'
+    }
+  ],
+  faqs: [
+    {
+      question: 'Mit welcher Buchhaltungssoftware integrieren Sie?',
+      answer: 'Ich bin spezialisiert auf Schweizer Buchhaltungssoftware: Bexio, ABACUS und Infoniqa. Ich arbeite auch mit internationalen Tools wie Xero, QuickBooks und SAP.'
+    },
+    {
+      question: 'Wie viel Zeit können wir realistisch sparen?',
+      answer: 'Die meisten Finanzteams sparen 30-50 Stunden pro Monat. Der Monatsabschluss reduziert sich typischerweise von 5-7 Tagen auf 1-2 Tage.'
+    },
+    {
+      question: 'Ist KI genau genug für Finanzdaten?',
+      answer: 'Moderne KI erreicht 99%+ Genauigkeit bei strukturierten Datenaufgaben. Wir bauen immer menschliche Überprüfungspunkte für wichtige Entscheidungen ein.'
+    },
+    {
+      question: 'Was ist mit Compliance und Prüfungsanforderungen?',
+      answer: 'Alle Automatisierungen führen vollständige Audit-Trails. Jede KI-Aktion wird mit Zeitstempeln protokolliert und entspricht Schweizer Buchhaltungsstandards.'
+    },
+    {
+      question: 'Was ist die Investition für Finanzautomatisierung?',
+      answer: 'Starterprojekte beginnen bei CHF 10\'000. Umfassende Pakete liegen bei CHF 25\'000-50\'000. Die meisten Kunden sehen ROI innerhalb von 3-6 Monaten.'
+    }
+  ],
+  ctaTitle: t('services_pages.finance_automation.cta.title'),
+  ctaDescription: t('services_pages.finance_automation.cta.description'),
+  ctaButtonText: t('services_pages.finance_automation.cta.button'),
+  relatedCaseStudy: {
+    title: 'Finanzautomatisierungs-Fallstudie',
+    link: '/de/case-studies/finance-automation',
+    metric: '40 Std/Monat gespart'
+  }
+};
+---
+
+<ServiceLayout {...serviceData} />

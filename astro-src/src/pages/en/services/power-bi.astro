@@ -1,0 +1,96 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const serviceData = {
+  title: t('services_pages.power_bi.meta.title'),
+  description: t('services_pages.power_bi.meta.description'),
+  keywords: t('services_pages.power_bi.meta.keywords'),
+  lang,
+  serviceType: 'Power BI Consulting',
+  heroTitle: t('services_pages.power_bi.hero.title'),
+  heroSubtitle: t('services_pages.power_bi.hero.badge'),
+  heroDescription: t('services_pages.power_bi.hero.description'),
+  problemTitle: t('services_pages.power_bi.problem.title'),
+  problems: [
+    'Data scattered across Excel files, ERP, and multiple systems',
+    'Hours spent manually building reports that are outdated by publishing time',
+    "Executives asking questions your current reports can't answer",
+    'No single source of truth for key business metrics'
+  ],
+  solutionTitle: t('services_pages.power_bi.solution.title'),
+  solutionDescription: t('services_pages.power_bi.solution.description'),
+  benefits: [
+    {
+      title: 'Single Source of Truth',
+      description: 'All your data in one place with consistent definitions and calculations.'
+    },
+    {
+      title: 'Live Data, Not Static Reports',
+      description: 'Dashboards refresh automatically. Always current, never stale.'
+    },
+    {
+      title: 'Self-Service Analytics',
+      description: 'Designed for business users to explore data without IT support.'
+    },
+    {
+      title: 'AI-Powered Insights',
+      description: 'Optional Claude integration for natural language queries and analysis.'
+    }
+  ],
+  processTitle: t('services_pages.power_bi.process.title'),
+  processSteps: [
+    {
+      title: 'Requirements Discovery',
+      description: 'We define your key questions, metrics, and how decisions get made.'
+    },
+    {
+      title: 'Data Modeling',
+      description: 'I build a robust data model connecting your various data sources.'
+    },
+    {
+      title: 'Dashboard Design',
+      description: 'Interactive dashboards designed for your specific use cases and users.'
+    },
+    {
+      title: 'Training & Adoption',
+      description: 'Your team learns to use and extend the dashboards independently.'
+    }
+  ],
+  faqs: [
+    {
+      question: 'What data sources can you connect to Power BI?',
+      answer: 'Almost anything: Excel, SQL databases, Bexio, ABACUS, Salesforce, SharePoint, web APIs, and hundreds more. Power BI has native connectors for most business systems. For custom sources, I can build API integrations.'
+    },
+    {
+      question: "We don't have a Power BI license yet. What do we need?",
+      answer: 'Power BI Desktop is free for building reports. For sharing and collaboration, you need Power BI Pro (CHF 9.40/user/month) or Premium. I help you choose the right licensing based on your team size and needs.'
+    },
+    {
+      question: 'How long does a Power BI project take?',
+      answer: 'Simple dashboards: 2-3 weeks. Comprehensive BI solutions with multiple dashboards: 6-8 weeks. I work iteratively — you see progress and provide feedback throughout.'
+    },
+    {
+      question: 'Can you integrate Claude AI with Power BI?',
+      answer: "Yes. I can add Claude integration so users ask questions in natural language ('What were our top products last quarter?') and get instant answers from your Power BI data. This is a unique capability I offer."
+    },
+    {
+      question: "What's the investment for Power BI consulting?",
+      answer: 'Single dashboard projects start at CHF 5,000. Enterprise BI implementations with multiple dashboards range CHF 15,000-40,000. Ongoing support/maintenance is CHF 500-1,500/month.'
+    }
+  ],
+  ctaTitle: t('services_pages.power_bi.cta.title'),
+  ctaDescription: t('services_pages.power_bi.cta.description'),
+  ctaButtonText: t('services_pages.power_bi.cta.button'),
+  relatedCaseStudy: {
+    title: 'Power BI Success Story',
+    link: '/en/case-studies/power-bi-reporting',
+    metric: '15 hrs/week saved'
+  }
+};
+---
+
+<ServiceLayout {...serviceData} />

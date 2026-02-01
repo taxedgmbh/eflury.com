@@ -13,7 +13,7 @@ Swiss SMEs face a unique challenge: they need enterprise-grade automation but wi
 
 According to recent surveys, the average Swiss SME spends **35-40% of employee time** on repetitive administrative tasks. For a company with 20 employees, that's equivalent to 7-8 full-time positions worth of time spent on work that adds little strategic value.
 
-The good news? Modern AI tools like Claude can automate 60-80% of these tasks while maintaining the quality and compliance standards Swiss businesses require.
+The good news? Modern AI tools like Claude can automate 60-80% of these tasks while maintaining the quality and compliance standards Swiss businesses require. Learn more about [Claude Skills development](/en/services/claude-skills) to see how custom AI workflows can transform your operations.
 
 ## What Can Be Automated?
 
@@ -23,7 +23,7 @@ Based on my work with Swiss SMEs, here are the most impactful areas for automati
 
 1. **Client Communication** - Email responses, meeting scheduling, follow-ups
 2. **Document Processing** - Invoice handling, contract review, data extraction
-3. **Reporting** - Financial reports, KPI dashboards, management updates
+3. **Reporting** - Financial reports, KPI dashboards, management updates (see our [finance automation case study](/en/case-studies/finance-automation) for real results)
 4. **Data Entry** - CRM updates, ERP entries, spreadsheet maintenance
 5. **Compliance Tasks** - Regulatory checks, audit preparation, documentation
 
@@ -79,7 +79,7 @@ After implementing AI automation for dozens of Swiss SMEs, I've developed a syst
 ### Phase 3: Development (2-4 Weeks)
 
 - Build and test automations
-- Integrate with existing systems
+- Integrate with existing systems via [MCP server integration](/en/services/mcp-integration)
 - Implement security measures
 - Validate accuracy
 

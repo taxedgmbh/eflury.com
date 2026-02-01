@@ -1,0 +1,297 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Footer from '../../../components/Footer.astro';
+import AIChatbot from '../../../components/AIChatbot.astro';
+import { useTranslations } from '../../../i18n/utils';
+import { ArrowRight, Cpu, Server, Calculator, BarChart3 } from 'lucide-astro';
+
+const lang = 'de';
+const t = useTranslations(lang);
+
+const services = [
+  {
+    icon: Cpu,
+    title: 'Claude Skills Entwicklung',
+    description: 'Massgeschneiderte Claude Skills für Ihre spezifischen Workflows. Automatisieren Sie repetitive Aufgaben mit KI, die Ihr Geschäft versteht.',
+    link: '/de/services/claude-skills',
+    badge: 'Beliebteste',
+    metric: '15-30 Std/Woche gespart'
+  },
+  {
+    icon: Server,
+    title: 'MCP Server Integration',
+    description: 'Verbinden Sie Claude mit Ihren Geschäftssystemen über Model Context Protocol. Nahtlose Integration mit Datenbanken, APIs und Unternehmenssoftware.',
+    link: '/de/services/mcp-integration',
+    badge: null,
+    metric: '5+ Systeme verbunden'
+  },
+  {
+    icon: Calculator,
+    title: 'Finanzprozess-Automatisierung',
+    description: 'Automatisieren Sie Monatsabschluss, Reporting und Abstimmungen. KI-gestützte Finanzautomatisierung mit Bexio- und ABACUS-Integration.',
+    link: '/de/services/finanzen-automatisierung',
+    badge: null,
+    metric: '40 Std/Monat gespart'
+  },
+  {
+    icon: BarChart3,
+    title: 'Power BI Beratung',
+    description: 'Individuelle Power BI Dashboards und Reports für Schweizer Unternehmen. Von Datenmodellierung bis Executive Dashboards mit KI-Erkenntnissen.',
+    link: '/de/services/power-bi',
+    badge: null,
+    metric: '15 Std/Woche gespart'
+  }
+];
+---
+
+<MainLayout
+  title="Services | eflury.com"
+  description={t('services_pages.index.description')}
+  keywords="Claude Skills, MCP Integration, Finanzautomatisierung, Power BI Beratung, Schweizer KI-Services"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <main class="services-page">
+    <div class="container">
+      <header class="page-header">
+        <h1 class="page-title">{t('services_pages.index.title')}</h1>
+        <p class="page-subtitle">{t('services_pages.index.subtitle')}</p>
+        <p class="page-description">{t('services_pages.index.description')}</p>
+      </header>
+
+      <div class="services-grid">
+        {services.map((service) => (
+          <a href={service.link} class="service-card">
+            <div class="card-header">
+              <div class="icon-wrapper">
+                <service.icon size={28} />
+              </div>
+              {service.badge && <span class="badge">{service.badge}</span>}
+            </div>
+            <h2 class="card-title">{service.title}</h2>
+            <p class="card-description">{service.description}</p>
+            <div class="card-footer">
+              <span class="metric">{service.metric}</span>
+              <span class="arrow">
+                <ArrowRight size={18} />
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+
+      <section class="cta-section">
+        <h2>Nicht sicher, welcher Service passt?</h2>
+        <p>Buchen Sie ein kostenloses 30-Minuten-Strategiegespräch. Ich analysiere Ihre Workflows und empfehle den richtigen Ansatz.</p>
+        <a href={`/${lang}/#contact`} class="cta-button">
+          Kostenloses Strategiegespräch buchen
+          <ArrowRight size={18} />
+        </a>
+      </section>
+    </div>
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .services-page {
+    padding-top: var(--header-height);
+    padding-bottom: 4rem;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .page-header {
+    text-align: center;
+    padding: 4rem 0 3rem;
+  }
+
+  .page-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .page-subtitle {
+    font-size: 1.25rem;
+    color: var(--eflury-teal, #0d9488);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+
+  .page-description {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 4rem;
+  }
+
+  .service-card {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 20px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+
+  .service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--eflury-teal, #0d9488);
+  }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+
+  .icon-wrapper {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(2, 37, 84, 0.05) 100%);
+    border-radius: 16px;
+    color: var(--eflury-teal, #0d9488);
+  }
+
+  .badge {
+    padding: 0.375rem 0.75rem;
+    background: var(--eflury-teal, #0d9488);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    border-radius: 100px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .card-title {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.75rem;
+  }
+
+  .card-description {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+
+  .card-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .metric {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--eflury-navy, #022554);
+  }
+
+  :global([data-theme="dark"]) .metric {
+    color: var(--eflury-teal, #0d9488);
+  }
+
+  .arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    background: var(--bg-secondary);
+    border-radius: 50%;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+  }
+
+  .service-card:hover .arrow {
+    background: var(--eflury-teal, #0d9488);
+    color: white;
+    transform: translateX(4px);
+  }
+
+  .cta-section {
+    text-align: center;
+    padding: 4rem 2rem;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.08) 0%, rgba(2, 37, 84, 0.05) 100%);
+    border-radius: 24px;
+  }
+
+  .cta-section h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .cta-section p {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .cta-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--eflury-navy, #022554);
+    color: white;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 100px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+  }
+
+  .cta-button:hover {
+    background: var(--eflury-teal, #0d9488);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .page-header {
+      padding: 3rem 0 2rem;
+    }
+
+    .cta-section {
+      padding: 3rem 1.5rem;
+    }
+  }
+</style>

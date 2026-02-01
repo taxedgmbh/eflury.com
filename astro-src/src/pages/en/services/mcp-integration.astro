@@ -1,0 +1,96 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const serviceData = {
+  title: t('services_pages.mcp_integration.meta.title'),
+  description: t('services_pages.mcp_integration.meta.description'),
+  keywords: t('services_pages.mcp_integration.meta.keywords'),
+  lang,
+  serviceType: 'MCP Server Integration',
+  heroTitle: t('services_pages.mcp_integration.hero.title'),
+  heroSubtitle: t('services_pages.mcp_integration.hero.badge'),
+  heroDescription: t('services_pages.mcp_integration.hero.description'),
+  problemTitle: t('services_pages.mcp_integration.problem.title'),
+  problems: [
+    "AI tools can't access your internal databases and systems",
+    'Manual data entry between AI outputs and your software wastes time',
+    'You need real-time data for AI to make accurate decisions',
+    'Security concerns prevent connecting AI to sensitive business systems'
+  ],
+  solutionTitle: t('services_pages.mcp_integration.solution.title'),
+  solutionDescription: t('services_pages.mcp_integration.solution.description'),
+  benefits: [
+    {
+      title: 'Direct System Access',
+      description: 'Claude reads and writes to your databases, CRMs, and business software directly.'
+    },
+    {
+      title: 'Real-Time Data',
+      description: 'No more stale exports. AI decisions based on live business data.'
+    },
+    {
+      title: 'Secure by Design',
+      description: 'MCP provides granular permission controls. Claude only accesses what you allow.'
+    },
+    {
+      title: 'Swiss-Hosted Options',
+      description: 'MCP servers can run on your infrastructure for maximum data sovereignty.'
+    }
+  ],
+  processTitle: t('services_pages.mcp_integration.process.title'),
+  processSteps: [
+    {
+      title: 'System Audit',
+      description: 'I map your current systems and identify integration opportunities.'
+    },
+    {
+      title: 'Architecture Design',
+      description: 'We design the MCP server architecture with security and performance in mind.'
+    },
+    {
+      title: 'Development & Deployment',
+      description: 'I build and deploy custom MCP servers, either cloud-hosted or on-premise.'
+    },
+    {
+      title: 'Testing & Security Review',
+      description: 'Comprehensive testing ensures secure, reliable operation.'
+    }
+  ],
+  faqs: [
+    {
+      question: 'What is MCP (Model Context Protocol)?',
+      answer: "MCP is Anthropic's open standard for connecting AI models to external data sources. It's like a universal adapter that lets Claude securely access databases, APIs, and file systems. It's the foundation for building AI that actually does work in your systems."
+    },
+    {
+      question: 'Is MCP secure for sensitive business data?',
+      answer: 'Yes. MCP includes built-in security features: authentication, permission scopes, and audit logging. You control exactly what Claude can access. For maximum security, MCP servers can run entirely on your infrastructure.'
+    },
+    {
+      question: 'What systems can you integrate with MCP?',
+      answer: 'Any system with an API or database connection: ERP systems (SAP, ABACUS), CRMs (Salesforce, HubSpot), databases (PostgreSQL, MySQL), cloud services (Microsoft 365, Google Workspace), and custom internal systems.'
+    },
+    {
+      question: 'How does MCP differ from traditional API integrations?',
+      answer: "Traditional integrations are one-way: you push/pull data between systems. MCP enables AI-native integration: Claude understands your data context and can take intelligent actions across systems. It's the difference between a data pipeline and an AI employee."
+    },
+    {
+      question: 'What does an MCP integration project cost?',
+      answer: 'Simple MCP integrations (1-2 data sources) start at CHF 5,000. Complex enterprise integrations (multiple systems, custom security) range CHF 15,000-30,000. Ongoing maintenance is typically CHF 500-1,500/month.'
+    }
+  ],
+  ctaTitle: t('services_pages.mcp_integration.cta.title'),
+  ctaDescription: t('services_pages.mcp_integration.cta.description'),
+  ctaButtonText: t('services_pages.mcp_integration.cta.button'),
+  relatedCaseStudy: {
+    title: 'MCP in Production',
+    link: '/en/case-studies/taxed-gmbh',
+    metric: '5 systems connected'
+  }
+};
+---
+
+<ServiceLayout {...serviceData} />

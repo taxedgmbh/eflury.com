@@ -1,13 +1,18 @@
 ---
 /**
  * Blog Post Layout
- * Layout for individual blog posts
+ * Layout for individual blog posts with E-E-A-T optimizations
+ * - BlogPostingSchema for structured data
+ * - AuthorBio for author expertise display
  */
 
 import MainLayout from './MainLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import AIChatbot from '../components/AIChatbot.astro';
+import BlogPostingSchema from '../components/BlogPostingSchema.astro';
+import AuthorBio from '../components/AuthorBio.astro';
+import RelatedPosts from '../components/RelatedPosts.astro';
 import { ArrowLeft, Calendar, User, Clock, Tag } from 'lucide-astro';
 
 interface Props {
@@ -19,10 +24,11 @@ interface Props {
   image?: string;
   imageAlt?: string;
   tags?: string[];
+  slug: string;
   lang: 'en' | 'de';
 }
 
-const { title, description, pubDate, updatedDate, author, image, imageAlt, tags = [], lang } = Astro.props;
+const { title, description, pubDate, updatedDate, author, image, imageAlt, tags = [], slug, lang } = Astro.props;
 
 const formattedPubDate = pubDate.toLocaleDateString(lang === 'de' ? 'de-CH' : 'en-US', {
   year: 'numeric',
@@ -47,6 +53,17 @@ const readingTimeLabel = lang === 'de' ? 'Lesezeit' : 'Reading time';
   keywords={tags.join(', ')}
   lang={lang}
 >
+  <BlogPostingSchema
+    title={title}
+    description={description}
+    pubDate={pubDate}
+    updatedDate={updatedDate}
+    author={author}
+    image={image}
+    tags={tags}
+    lang={lang}
+    url={Astro.url.pathname}
+  />
   <Header lang={lang} />
 
   <article class="blog-post">
@@ -62,10 +79,10 @@ const readingTimeLabel = lang === 'de' ? 'Lesezeit' : 'Reading time';
             <Calendar size={16} />
             {formattedPubDate}
           </span>
-          <span class="author">
+          <a href={`/${lang}/about`} class="author">
             <User size={16} />
             {author}
-          </span>
+          </a>
           <span class="reading-time">
             <Clock size={16} />
             ~5 min {readingTimeLabel}
@@ -100,6 +117,14 @@ const readingTimeLabel = lang === 'de' ? 'Lesezeit' : 'Reading time';
           {updatedLabel}: {formattedUpdatedDate}
         </p>
       )}
+
+      <AuthorBio lang={lang} />
+
+      <RelatedPosts
+        currentSlug={slug}
+        currentTags={tags}
+        lang={lang}
+      />
 
       <div class="post-footer">
         <a href={`/${lang}/blog`} class="back-link">
@@ -161,6 +186,16 @@ const readingTimeLabel = lang === 'de' ? 'Lesezeit' : 'Reading time';
   }
 
   .meta :global(svg) {
+    color: var(--eflury-teal, #0d9488);
+  }
+
+  .meta a.author {
+    text-decoration: none;
+    color: var(--text-secondary);
+    transition: color 0.2s ease;
+  }
+
+  .meta a.author:hover {
     color: var(--eflury-teal, #0d9488);
   }
 

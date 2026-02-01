@@ -1,0 +1,202 @@
+---
+/**
+ * LocalBusiness Schema Component
+ * Defines eflury.com as a local professional service in Switzerland
+ * Helps Google understand business location, service area, and offerings
+ * Important for local SEO and Google Business Profile integration
+ */
+
+interface Props {
+  lang: 'en' | 'de';
+}
+
+const { lang } = Astro.props;
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  "@id": "https://eflury.com/#localbusiness",
+  "name": "eflury.com - AI Automation Consulting",
+  "alternateName": "eFlury Consulting",
+  "description": lang === 'de'
+    ? "KI-Automatisierungsberatung für Schweizer KMU. Claude Code Spezialist, MCP Integration, Finanzautomatisierung und Power BI Beratung."
+    : "AI automation consulting for Swiss SMEs. Claude Code specialist, MCP integration, finance automation, and Power BI consulting.",
+  "url": "https://eflury.com",
+  "logo": "https://eflury.com/images/eflury-logo.png",
+  "image": "https://eflury.com/images/portraits/emanuel-aaron-flury-portrait.png",
+  "telephone": "+41799107787",
+  "email": "me@eflury.com",
+  "founder": {
+    "@type": "Person",
+    "@id": "https://eflury.com/#person",
+    "name": "Emanuel Aaron Flury"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Keltenweg 4",
+    "addressLocality": "Grenchen",
+    "addressRegion": "SO",
+    "postalCode": "2540",
+    "addressCountry": "CH"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 47.1925,
+    "longitude": 7.3958
+  },
+  "areaServed": [
+    {
+      "@type": "Country",
+      "name": "Switzerland",
+      "sameAs": "https://en.wikipedia.org/wiki/Switzerland"
+    },
+    {
+      "@type": "AdministrativeArea",
+      "name": "DACH Region",
+      "containsPlace": [
+        { "@type": "Country", "name": "Germany" },
+        { "@type": "Country", "name": "Austria" },
+        { "@type": "Country", "name": "Switzerland" }
+      ]
+    }
+  ],
+  "serviceArea": {
+    "@type": "GeoCircle",
+    "geoMidpoint": {
+      "@type": "GeoCoordinates",
+      "latitude": 46.8182,
+      "longitude": 8.2275
+    },
+    "geoRadius": "300 km"
+  },
+  "priceRange": "CHF 5,000 - CHF 50,000",
+  "currenciesAccepted": "CHF, EUR",
+  "paymentAccepted": "Bank Transfer, Credit Card",
+  "openingHoursSpecification": [
+    {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  ],
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "telephone": "+41799107787",
+    "contactType": "customer service",
+    "email": "me@eflury.com",
+    "availableLanguage": ["German", "English", "French"],
+    "areaServed": "CH",
+    "hoursAvailable": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+      "opens": "09:00",
+      "closes": "18:00"
+    }
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": lang === 'de' ? "KI-Automatisierungsservices" : "AI Automation Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Claude Skills Development",
+          "description": lang === 'de'
+            ? "Individuelle Claude Skills für Ihre spezifischen Workflows"
+            : "Custom Claude Skills for your specific workflows",
+          "provider": { "@id": "https://eflury.com/#localbusiness" }
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "2000",
+          "priceCurrency": "CHF",
+          "minPrice": "2000",
+          "maxPrice": "25000"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "MCP Server Integration",
+          "description": lang === 'de'
+            ? "Verbinden Sie Claude mit Ihren Geschäftssystemen"
+            : "Connect Claude to your business systems",
+          "provider": { "@id": "https://eflury.com/#localbusiness" }
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "5000",
+          "priceCurrency": "CHF",
+          "minPrice": "5000",
+          "maxPrice": "30000"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": lang === 'de' ? "Finanzprozess-Automatisierung" : "Finance Process Automation",
+          "description": lang === 'de'
+            ? "Automatisieren Sie Monatsabschluss, Reporting und Abstimmungen"
+            : "Automate month-end close, reporting, and reconciliation",
+          "provider": { "@id": "https://eflury.com/#localbusiness" }
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "10000",
+          "priceCurrency": "CHF",
+          "minPrice": "10000",
+          "maxPrice": "50000"
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Power BI Consulting",
+          "description": lang === 'de'
+            ? "Individuelle Power BI Dashboards und Reports"
+            : "Custom Power BI dashboards and reports",
+          "provider": { "@id": "https://eflury.com/#localbusiness" }
+        },
+        "priceSpecification": {
+          "@type": "PriceSpecification",
+          "price": "5000",
+          "priceCurrency": "CHF",
+          "minPrice": "5000",
+          "maxPrice": "40000"
+        }
+      }
+    ]
+  },
+  "sameAs": [
+    "https://www.linkedin.com/in/emanuelflury",
+    "https://www.linkedin.com/company/eflury"
+  ],
+  "knowsAbout": [
+    "Claude Code",
+    "AI Automation",
+    "Model Context Protocol (MCP)",
+    "Swiss SME Consulting",
+    "Finance Automation",
+    "Power BI",
+    "Bexio Integration",
+    "ABACUS Integration"
+  ],
+  "slogan": lang === 'de'
+    ? "Enterprise-Methoden · KMU-Preise"
+    : "Enterprise Methods · SME Prices",
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "5",
+    "ratingCount": "7",
+    "bestRating": "5",
+    "worstRating": "1"
+  }
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(localBusinessSchema)} />

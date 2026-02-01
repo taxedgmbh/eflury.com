@@ -1,0 +1,96 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import { useTranslations } from '../../../i18n/utils';
+
+const lang = 'en';
+const t = useTranslations(lang);
+
+const serviceData = {
+  title: t('services_pages.claude_skills.meta.title'),
+  description: t('services_pages.claude_skills.meta.description'),
+  keywords: t('services_pages.claude_skills.meta.keywords'),
+  lang,
+  serviceType: 'Claude Skills Development',
+  heroTitle: t('services_pages.claude_skills.hero.title'),
+  heroSubtitle: t('services_pages.claude_skills.hero.badge'),
+  heroDescription: t('services_pages.claude_skills.hero.description'),
+  problemTitle: t('services_pages.claude_skills.problem.title'),
+  problems: [
+    'Your team spends hours on repetitive document tasks that AI could handle',
+    "You've tried ChatGPT but it doesn't integrate with your workflows",
+    "Generic AI tools don't understand your industry-specific needs",
+    'You need automation that works with your existing Swiss business software'
+  ],
+  solutionTitle: t('services_pages.claude_skills.solution.title'),
+  solutionDescription: t('services_pages.claude_skills.solution.description'),
+  benefits: [
+    {
+      title: 'Purpose-Built for Your Workflows',
+      description: 'Each Skill is designed around your specific processes, terminology, and requirements.'
+    },
+    {
+      title: 'Swiss Software Integration',
+      description: 'Works with Bexio, ABACUS, Microsoft 365, and other tools you already use.'
+    },
+    {
+      title: 'Measurable Time Savings',
+      description: 'Typical clients save 15-30 hours per week with 3-5 custom Skills.'
+    },
+    {
+      title: 'Continuous Improvement',
+      description: 'Skills get smarter over time as we refine them based on your feedback.'
+    }
+  ],
+  processTitle: t('services_pages.claude_skills.process.title'),
+  processSteps: [
+    {
+      title: 'Workflow Analysis',
+      description: 'I study your current processes to identify the best automation opportunities.'
+    },
+    {
+      title: 'Skill Design',
+      description: 'We define exactly what each Skill should do, including inputs, outputs, and edge cases.'
+    },
+    {
+      title: 'Development & Testing',
+      description: 'I build and thoroughly test each Skill with your real data.'
+    },
+    {
+      title: 'Training & Handover',
+      description: 'Your team learns to use and maintain the Skills independently.'
+    }
+  ],
+  faqs: [
+    {
+      question: 'What exactly is a Claude Skill?',
+      answer: "A Claude Skill is a custom AI automation built on Anthropic's Claude. It's a specialized prompt + workflow that handles specific tasks like document processing, data extraction, report generation, or email drafting. Unlike generic AI, Skills are trained on your business context."
+    },
+    {
+      question: 'How long does it take to build a Skill?',
+      answer: 'Simple Skills take 1-2 weeks. Complex Skills with multiple integrations take 3-4 weeks. Most clients start with 3-5 Skills that cover their highest-impact workflows.'
+    },
+    {
+      question: 'Can Skills work with my existing software?',
+      answer: 'Yes. I specialize in integrating Claude Skills with Swiss business software including Bexio, ABACUS, Microsoft 365, and custom systems via APIs or MCP (Model Context Protocol).'
+    },
+    {
+      question: "What's the difference between Claude Skills and ChatGPT?",
+      answer: "ChatGPT is a general-purpose chat tool. Claude Skills are custom automations that do specific tasks in your workflow — they take action, not just give answers. They're integrated into your systems and handle real work."
+    },
+    {
+      question: 'How much does a Claude Skill cost?',
+      answer: 'Individual Skills start at CHF 2,000. Most clients invest CHF 10,000-25,000 for a complete Skills package (3-5 Skills plus training). This typically delivers 3-6 month payback through time savings.'
+    }
+  ],
+  ctaTitle: t('services_pages.claude_skills.cta.title'),
+  ctaDescription: t('services_pages.claude_skills.cta.description'),
+  ctaButtonText: t('services_pages.claude_skills.cta.button'),
+  relatedCaseStudy: {
+    title: 'See Claude Skills in Action',
+    link: '/en/case-studies/taxed-gmbh',
+    metric: '27.5 hrs/week saved'
+  }
+};
+---
+
+<ServiceLayout {...serviceData} />

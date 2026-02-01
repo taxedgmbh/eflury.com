@@ -219,7 +219,15 @@
     "cta": "Lassen Sie uns sprechen",
     "credential1": "13+ Jahre Enterprise-Erfahrung",
     "credential2": "Fortune 100 Hintergrund",
-    "credential3": "Schweizer Qualität"
+    "credential3": "Schweizer Qualität",
+    "certifications_title": "Zertifizierungen & Expertise",
+    "cert_ai_title": "KI & Automatisierung",
+    "cert_microsoft_title": "Microsoft Stack",
+    "cert_finance_title": "Finanzen & Buchhaltung",
+    "cert_finance_1": "Enterprise Financial Reporting",
+    "cert_finance_2": "Monatsabschluss-Optimierung",
+    "cert_finance_3": "ERP-Integration (SAP, Bexio, ABACUS)",
+    "timeline_title": "Karriere"
   },
   "contact": {
     "title": "Kontakt",
@@ -674,6 +682,397 @@
       "swiss_data": "Schweizer Datenschutz",
       "no_cloud": "Keine Cloud erforderlich",
       "enterprise_security": "Enterprise-Sicherheit"
+    }
+  },
+  "services_pages": {
+    "index": {
+      "title": "Services",
+      "subtitle": "Spezialisierte KI-Automatisierungsservices für Schweizer KMU",
+      "description": "Von Claude Skills-Entwicklung bis Finanzautomatisierung — wählen Sie den Service, der zu Ihren Bedürfnissen passt."
+    },
+    "claude_skills": {
+      "meta": {
+        "title": "Claude Skills Entwicklung",
+        "description": "Massgeschneiderte Claude Skills für Ihre spezifischen Workflows. Automatisieren Sie repetitive Aufgaben mit KI, die Ihr Geschäft versteht.",
+        "keywords": "Claude Skills, Claude Code, KI Automatisierung, individuelle KI-Entwicklung, Schweizer KI-Berater"
+      },
+      "hero": {
+        "badge": "Claude Spezialist",
+        "title": "Massgeschneiderte Claude Skills für Ihr Unternehmen",
+        "description": "Ich entwickle individuelle Claude Skills, die Ihre spezifischen Workflows automatisieren — von Dokumentenverarbeitung bis Datenanalyse. Jeder Skill spart Ihrem Team wöchentlich Stunden."
+      },
+      "problem": {
+        "title": "Kommt Ihnen das bekannt vor?",
+        "items": [
+          "Ihr Team verbringt Stunden mit repetitiven Dokumentenaufgaben, die KI erledigen könnte",
+          "Sie haben ChatGPT ausprobiert, aber es integriert sich nicht in Ihre Workflows",
+          "Generische KI-Tools verstehen Ihre branchenspezifischen Anforderungen nicht",
+          "Sie brauchen Automatisierung, die mit Ihrer bestehenden Schweizer Business-Software funktioniert"
+        ]
+      },
+      "solution": {
+        "title": "Individuelle Claude Skills — Für Sie gebaut",
+        "description": "Ich entwickle Claude Skills, die exakt auf Ihre Workflows zugeschnitten sind. Keine generischen Vorlagen — individuelle KI, die Ihr Geschäft versteht, sich in Ihre Tools integriert und messbare Zeiteinsparungen liefert.",
+        "benefits": [
+          {
+            "title": "Massgeschneidert für Ihre Workflows",
+            "description": "Jeder Skill ist auf Ihre spezifischen Prozesse, Terminologie und Anforderungen ausgelegt."
+          },
+          {
+            "title": "Schweizer Software-Integration",
+            "description": "Funktioniert mit Bexio, ABACUS, Microsoft 365 und anderen Tools, die Sie bereits nutzen."
+          },
+          {
+            "title": "Messbare Zeiteinsparungen",
+            "description": "Typische Kunden sparen 15-30 Stunden pro Woche mit 3-5 individuellen Skills."
+          },
+          {
+            "title": "Kontinuierliche Verbesserung",
+            "description": "Skills werden mit der Zeit intelligenter, basierend auf Ihrem Feedback."
+          }
+        ]
+      },
+      "process": {
+        "title": "So entwickle ich Ihre Skills",
+        "steps": [
+          {
+            "title": "Workflow-Analyse",
+            "description": "Ich untersuche Ihre aktuellen Prozesse, um die besten Automatisierungsmöglichkeiten zu identifizieren."
+          },
+          {
+            "title": "Skill-Design",
+            "description": "Wir definieren exakt, was jeder Skill tun soll, inklusive Inputs, Outputs und Sonderfälle."
+          },
+          {
+            "title": "Entwicklung & Testing",
+            "description": "Ich baue und teste jeden Skill gründlich mit Ihren echten Daten."
+          },
+          {
+            "title": "Schulung & Übergabe",
+            "description": "Ihr Team lernt, die Skills selbstständig zu nutzen und zu pflegen."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "Was genau ist ein Claude Skill?",
+          "answer": "Ein Claude Skill ist eine individuelle KI-Automatisierung auf Basis von Anthropics Claude. Es ist ein spezialisierter Prompt + Workflow, der spezifische Aufgaben wie Dokumentenverarbeitung, Datenextraktion, Berichterstellung oder E-Mail-Entwürfe erledigt. Anders als generische KI sind Skills auf Ihren Geschäftskontext trainiert."
+        },
+        {
+          "question": "Wie lange dauert die Entwicklung eines Skills?",
+          "answer": "Einfache Skills dauern 1-2 Wochen. Komplexe Skills mit mehreren Integrationen 3-4 Wochen. Die meisten Kunden starten mit 3-5 Skills, die ihre wichtigsten Workflows abdecken."
+        },
+        {
+          "question": "Können Skills mit meiner bestehenden Software arbeiten?",
+          "answer": "Ja. Ich bin spezialisiert auf die Integration von Claude Skills mit Schweizer Business-Software, einschliesslich Bexio, ABACUS, Microsoft 365 und individuellen Systemen via APIs oder MCP (Model Context Protocol)."
+        },
+        {
+          "question": "Was ist der Unterschied zwischen Claude Skills und ChatGPT?",
+          "answer": "ChatGPT ist ein allgemeines Chat-Tool. Claude Skills sind individuelle Automatisierungen, die spezifische Aufgaben in Ihrem Workflow erledigen — sie handeln, statt nur zu antworten. Sie sind in Ihre Systeme integriert und erledigen echte Arbeit."
+        },
+        {
+          "question": "Was kostet ein Claude Skill?",
+          "answer": "Einzelne Skills starten bei CHF 2'000. Die meisten Kunden investieren CHF 10'000-25'000 für ein komplettes Skills-Paket (3-5 Skills plus Schulung). Das liefert typischerweise einen ROI innerhalb von 3-6 Monaten durch Zeiteinsparungen."
+        }
+      ],
+      "cta": {
+        "title": "Bereit zur Automatisierung mit Claude Skills?",
+        "description": "Buchen Sie ein kostenloses 30-Minuten-Gespräch. Ich analysiere Ihre Workflows und identifiziere Ihre wirkungsvollsten Automatisierungsmöglichkeiten.",
+        "button": "Skills-Strategiegespräch buchen"
+      },
+      "case_study": {
+        "title": "Claude Skills in Aktion",
+        "link": "/de/case-studies/taxed-gmbh",
+        "metric": "27.5 Std/Woche gespart"
+      }
+    },
+    "mcp_integration": {
+      "meta": {
+        "title": "MCP Server Integration",
+        "description": "Verbinden Sie Claude mit Ihren Geschäftssystemen über Model Context Protocol. Nahtlose Integration mit Datenbanken, APIs und Unternehmenssoftware.",
+        "keywords": "MCP Integration, Model Context Protocol, Claude Integration, API Automatisierung, Schweizer Business-Automatisierung"
+      },
+      "hero": {
+        "badge": "MCP Spezialist",
+        "title": "Verbinden Sie Claude mit Ihren Geschäftssystemen",
+        "description": "Model Context Protocol (MCP) ermöglicht Claude die direkte Interaktion mit Ihren Datenbanken, APIs und Software. Ich baue individuelle MCP-Integrationen, die Claude in eine echte Business-Automatisierungsplattform verwandeln."
+      },
+      "problem": {
+        "title": "Die Integrations-Herausforderung",
+        "items": [
+          "KI-Tools können nicht auf Ihre internen Datenbanken und Systeme zugreifen",
+          "Manuelle Dateneingabe zwischen KI-Outputs und Ihrer Software verschwendet Zeit",
+          "Sie brauchen Echtzeitdaten, damit KI genaue Entscheidungen treffen kann",
+          "Sicherheitsbedenken verhindern die Verbindung von KI mit sensiblen Geschäftssystemen"
+        ]
+      },
+      "solution": {
+        "title": "MCP — Das fehlende Glied",
+        "description": "Model Context Protocol ist Anthropics Standard zur sicheren Verbindung von Claude mit externen Systemen. Ich entwerfe und implementiere individuelle MCP-Server, die Claude kontrollierten Zugriff auf Ihre Geschäftsdaten geben.",
+        "benefits": [
+          {
+            "title": "Direkter Systemzugriff",
+            "description": "Claude liest und schreibt direkt in Ihre Datenbanken, CRMs und Business-Software."
+          },
+          {
+            "title": "Echtzeit-Daten",
+            "description": "Keine veralteten Exporte mehr. KI-Entscheidungen basierend auf Live-Geschäftsdaten."
+          },
+          {
+            "title": "Sicher by Design",
+            "description": "MCP bietet granulare Berechtigungskontrollen. Claude greift nur auf das zu, was Sie erlauben."
+          },
+          {
+            "title": "Schweizer Hosting-Optionen",
+            "description": "MCP-Server können auf Ihrer Infrastruktur laufen für maximale Datenhoheit."
+          }
+        ]
+      },
+      "process": {
+        "title": "MCP-Integrationsprozess",
+        "steps": [
+          {
+            "title": "System-Audit",
+            "description": "Ich analysiere Ihre aktuellen Systeme und identifiziere Integrationsmöglichkeiten."
+          },
+          {
+            "title": "Architektur-Design",
+            "description": "Wir entwerfen die MCP-Server-Architektur mit Fokus auf Sicherheit und Performance."
+          },
+          {
+            "title": "Entwicklung & Deployment",
+            "description": "Ich baue und deploye individuelle MCP-Server, entweder Cloud-gehostet oder On-Premise."
+          },
+          {
+            "title": "Testing & Sicherheitsreview",
+            "description": "Umfassende Tests stellen sicheren, zuverlässigen Betrieb sicher."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "Was ist MCP (Model Context Protocol)?",
+          "answer": "MCP ist Anthropics offener Standard zur Verbindung von KI-Modellen mit externen Datenquellen. Es ist wie ein universeller Adapter, der Claude sicheren Zugriff auf Datenbanken, APIs und Dateisysteme ermöglicht. Es ist die Grundlage für KI, die tatsächlich in Ihren Systemen arbeitet."
+        },
+        {
+          "question": "Ist MCP sicher für sensible Geschäftsdaten?",
+          "answer": "Ja. MCP enthält eingebaute Sicherheitsfunktionen: Authentifizierung, Berechtigungsscopes und Audit-Logging. Sie kontrollieren exakt, worauf Claude zugreifen kann. Für maximale Sicherheit können MCP-Server vollständig auf Ihrer Infrastruktur laufen."
+        },
+        {
+          "question": "Welche Systeme können Sie mit MCP integrieren?",
+          "answer": "Jedes System mit API oder Datenbankverbindung: ERP-Systeme (SAP, ABACUS), CRMs (Salesforce, HubSpot), Datenbanken (PostgreSQL, MySQL), Cloud-Services (Microsoft 365, Google Workspace) und individuelle interne Systeme."
+        },
+        {
+          "question": "Wie unterscheidet sich MCP von traditionellen API-Integrationen?",
+          "answer": "Traditionelle Integrationen sind einseitig: Sie schieben/ziehen Daten zwischen Systemen. MCP ermöglicht KI-native Integration: Claude versteht Ihren Datenkontext und kann intelligente Aktionen über Systeme hinweg ausführen. Es ist der Unterschied zwischen einer Datenpipeline und einem KI-Mitarbeiter."
+        },
+        {
+          "question": "Was kostet ein MCP-Integrationsprojekt?",
+          "answer": "Einfache MCP-Integrationen (1-2 Datenquellen) starten bei CHF 5'000. Komplexe Enterprise-Integrationen (mehrere Systeme, individuelle Sicherheit) liegen bei CHF 15'000-30'000. Laufende Wartung kostet typischerweise CHF 500-1'500/Monat."
+        }
+      ],
+      "cta": {
+        "title": "Verbinden Sie Ihre Systeme mit KI",
+        "description": "Lassen Sie uns besprechen, wie MCP Claude in eine integrierte Automatisierungsplattform für Ihr Unternehmen verwandeln kann.",
+        "button": "MCP-Beratungsgespräch buchen"
+      },
+      "case_study": {
+        "title": "MCP in Produktion",
+        "link": "/de/case-studies/taxed-gmbh",
+        "metric": "5 Systeme verbunden"
+      }
+    },
+    "finance_automation": {
+      "meta": {
+        "title": "Finanzprozess-Automatisierung",
+        "description": "Automatisieren Sie Monatsabschluss, Reporting und Abstimmungen. KI-gestützte Finanzautomatisierung für Schweizer KMU mit Bexio- und ABACUS-Integration.",
+        "keywords": "Finanzautomatisierung, Monatsabschluss, Reporting-Automatisierung, Bexio-Integration, ABACUS-Automatisierung, Schweizer Buchhaltung"
+      },
+      "hero": {
+        "badge": "Finanz-Spezialist",
+        "title": "Automatisieren Sie Ihre Finanzprozesse",
+        "description": "Vom Monatsabschluss bis zur täglichen Abstimmung — ich baue KI-Automatisierungen, die Finanzteams 30-50 Stunden pro Monat sparen und gleichzeitig Genauigkeit und Compliance verbessern."
+      },
+      "problem": {
+        "title": "Herausforderungen im Finanzteam",
+        "items": [
+          "Der Monatsabschluss dauert Tage mit manueller Datensammlung und Abstimmung",
+          "Berichterstellung erfordert Stunden des Kopierens von Daten zwischen Systemen",
+          "Rechnungsverarbeitung ist ein Engpass mit manueller Dateneingabe",
+          "Compliance-Dokumentation ist zeitaufwändig und fehleranfällig"
+        ]
+      },
+      "solution": {
+        "title": "KI-gestützte Finanzautomatisierung",
+        "description": "Ich kombiniere Claude KI mit Ihren bestehenden Finanztools (Bexio, ABACUS, Excel), um die repetitive Arbeit zu automatisieren. Ihr Team konzentriert sich auf Analyse und Entscheidungen, während KI die Datenverarbeitung übernimmt.",
+        "benefits": [
+          {
+            "title": "Schnellerer Monatsabschluss",
+            "description": "Reduzieren Sie die Abschlusszeit um 60-80% mit automatisierter Abstimmung und Reporting."
+          },
+          {
+            "title": "Bexio & ABACUS Integration",
+            "description": "Native Integration mit Schweizer Buchhaltungssoftware via MCP."
+          },
+          {
+            "title": "Genau & Prüffähig",
+            "description": "KI führt Audit-Trails und erkennt Fehler, die Menschen übersehen."
+          },
+          {
+            "title": "Schweizer Compliance-ready",
+            "description": "Entwickelt mit Schweizer Buchhaltungsstandards und DSG-Datenschutz im Blick."
+          }
+        ]
+      },
+      "process": {
+        "title": "Finanzautomatisierungsprozess",
+        "steps": [
+          {
+            "title": "Prozess-Mapping",
+            "description": "Wir dokumentieren Ihre aktuellen Finanz-Workflows und Schmerzpunkte."
+          },
+          {
+            "title": "Automatisierungs-Design",
+            "description": "Ich entwerfe KI-Workflows, die sich in Ihre Buchhaltungssoftware integrieren."
+          },
+          {
+            "title": "Entwicklung & Test",
+            "description": "Automatisierung wird mit historischen Daten vor Go-Live gebaut und getestet."
+          },
+          {
+            "title": "Parallellauf & Schulung",
+            "description": "Wir laufen alte und neue Prozesse parallel, dann schulen wir Ihr Team."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "Mit welcher Buchhaltungssoftware integrieren Sie?",
+          "answer": "Ich bin spezialisiert auf Schweizer Buchhaltungssoftware: Bexio, ABACUS und Infoniqa. Ich arbeite auch mit internationalen Tools wie Xero, QuickBooks und SAP. Für individuelle oder Legacy-Systeme kann ich API-Integrationen bauen."
+        },
+        {
+          "question": "Wie viel Zeit können wir realistisch sparen?",
+          "answer": "Die meisten Finanzteams sparen 30-50 Stunden pro Monat nach der Automatisierung. Der Monatsabschluss reduziert sich typischerweise von 5-7 Tagen auf 1-2 Tage. Rechnungsverarbeitung geht von Minuten pro Rechnung auf Sekunden."
+        },
+        {
+          "question": "Ist KI genau genug für Finanzdaten?",
+          "answer": "Moderne KI erreicht 99%+ Genauigkeit bei strukturierten Datenaufgaben. Wir bauen immer menschliche Überprüfungspunkte für wichtige Entscheidungen ein. Die KI erledigt Datensammlung und -aufbereitung; Menschen treffen finale Freigaben."
+        },
+        {
+          "question": "Was ist mit Compliance und Prüfungsanforderungen?",
+          "answer": "Alle Automatisierungen führen vollständige Audit-Trails. Jede KI-Aktion wird mit Zeitstempeln protokolliert. Ich entwerfe Workflows, die Schweizer Buchhaltungsstandards (OR/HRM) und Datenschutzanforderungen (DSG) entsprechen."
+        },
+        {
+          "question": "Was ist die Investition für Finanzautomatisierung?",
+          "answer": "Starterprojekte (1-2 Prozesse) beginnen bei CHF 10'000. Umfassende Finanzautomatisierungspakete liegen bei CHF 25'000-50'000. Die meisten Kunden sehen ROI innerhalb von 3-6 Monaten durch Zeiteinsparungen."
+        }
+      ],
+      "cta": {
+        "title": "Transformieren Sie Ihre Finanzoperationen",
+        "description": "Buchen Sie eine kostenlose Beratung, um Ihre wirkungsvollsten Automatisierungsmöglichkeiten zu identifizieren.",
+        "button": "Finanzautomatisierungs-Gespräch buchen"
+      },
+      "case_study": {
+        "title": "Finanzautomatisierungs-Fallstudie",
+        "link": "/de/case-studies/finance-automation",
+        "metric": "40 Std/Monat gespart"
+      }
+    },
+    "power_bi": {
+      "meta": {
+        "title": "Power BI Beratung & Dashboard-Entwicklung",
+        "description": "Individuelle Power BI Dashboards und Reports für Schweizer Unternehmen. Von Datenmodellierung bis Executive Dashboards mit KI-gestützten Erkenntnissen.",
+        "keywords": "Power BI Beratung, Dashboard-Entwicklung, Business Intelligence, Schweizer BI-Berater, Datenvisualisierung"
+      },
+      "hero": {
+        "badge": "BI Spezialist",
+        "title": "Power BI Dashboards, die Entscheidungen antreiben",
+        "description": "Ich baue Power BI Dashboards, die Ihre Daten in handlungsrelevante Erkenntnisse verwandeln. Von Executive KPI-Übersichten bis zu detaillierten operativen Ansichten — designed für wie Ihr Team tatsächlich arbeitet."
+      },
+      "problem": {
+        "title": "Daten ohne Richtung",
+        "items": [
+          "Daten verstreut über Excel-Dateien, ERP und mehrere Systeme",
+          "Stunden für manuelle Berichterstellung, die bei Veröffentlichung bereits veraltet sind",
+          "Führungskräfte stellen Fragen, die Ihre aktuellen Reports nicht beantworten können",
+          "Keine Single Source of Truth für wichtige Geschäftskennzahlen"
+        ]
+      },
+      "solution": {
+        "title": "Power BI richtig gemacht",
+        "description": "Ich erstelle Power BI-Lösungen, die alle Ihre Datenquellen in live, interaktive Dashboards verbinden. Automatische Aktualisierung, mobiler Zugriff und Erkenntnisse, die tatsächlich genutzt werden.",
+        "benefits": [
+          {
+            "title": "Single Source of Truth",
+            "description": "Alle Ihre Daten an einem Ort mit konsistenten Definitionen und Berechnungen."
+          },
+          {
+            "title": "Live-Daten, keine statischen Reports",
+            "description": "Dashboards aktualisieren sich automatisch. Immer aktuell, nie veraltet."
+          },
+          {
+            "title": "Self-Service Analytics",
+            "description": "Designed für Geschäftsnutzer, um Daten ohne IT-Support zu erkunden."
+          },
+          {
+            "title": "KI-gestützte Erkenntnisse",
+            "description": "Optionale Claude-Integration für Abfragen und Analysen in natürlicher Sprache."
+          }
+        ]
+      },
+      "process": {
+        "title": "Power BI Entwicklungsprozess",
+        "steps": [
+          {
+            "title": "Anforderungsermittlung",
+            "description": "Wir definieren Ihre Schlüsselfragen, Metriken und wie Entscheidungen getroffen werden."
+          },
+          {
+            "title": "Datenmodellierung",
+            "description": "Ich baue ein robustes Datenmodell, das Ihre verschiedenen Datenquellen verbindet."
+          },
+          {
+            "title": "Dashboard-Design",
+            "description": "Interaktive Dashboards, designed für Ihre spezifischen Use Cases und Nutzer."
+          },
+          {
+            "title": "Schulung & Adoption",
+            "description": "Ihr Team lernt, die Dashboards selbstständig zu nutzen und zu erweitern."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "Welche Datenquellen können Sie mit Power BI verbinden?",
+          "answer": "Fast alles: Excel, SQL-Datenbanken, Bexio, ABACUS, Salesforce, SharePoint, Web-APIs und hunderte mehr. Power BI hat native Konnektoren für die meisten Business-Systeme. Für individuelle Quellen kann ich API-Integrationen bauen."
+        },
+        {
+          "question": "Wir haben noch keine Power BI-Lizenz. Was brauchen wir?",
+          "answer": "Power BI Desktop ist kostenlos für die Berichterstellung. Für Sharing und Zusammenarbeit brauchen Sie Power BI Pro (CHF 9.40/Nutzer/Monat) oder Premium. Ich helfe Ihnen, die richtige Lizenzierung basierend auf Teamgrösse und Bedarf zu wählen."
+        },
+        {
+          "question": "Wie lange dauert ein Power BI-Projekt?",
+          "answer": "Einfache Dashboards: 2-3 Wochen. Umfassende BI-Lösungen mit mehreren Dashboards: 6-8 Wochen. Ich arbeite iterativ — Sie sehen Fortschritt und geben während des gesamten Prozesses Feedback."
+        },
+        {
+          "question": "Können Sie Claude KI mit Power BI integrieren?",
+          "answer": "Ja. Ich kann Claude-Integration hinzufügen, damit Nutzer Fragen in natürlicher Sprache stellen ('Was waren unsere Top-Produkte letztes Quartal?') und sofortige Antworten aus Ihren Power BI-Daten erhalten. Das ist eine einzigartige Fähigkeit, die ich anbiete."
+        },
+        {
+          "question": "Was ist die Investition für Power BI Beratung?",
+          "answer": "Einzelne Dashboard-Projekte starten bei CHF 5'000. Enterprise BI-Implementierungen mit mehreren Dashboards liegen bei CHF 15'000-40'000. Laufender Support/Wartung kostet CHF 500-1'500/Monat."
+        }
+      ],
+      "cta": {
+        "title": "Verwandeln Sie Ihre Daten in Erkenntnisse",
+        "description": "Lassen Sie uns besprechen, wie Power BI Ihrem Team helfen kann, schneller bessere Entscheidungen zu treffen.",
+        "button": "Power BI Beratungsgespräch buchen"
+      },
+      "case_study": {
+        "title": "Power BI Erfolgsgeschichte",
+        "link": "/de/case-studies/power-bi-reporting",
+        "metric": "15 Std/Woche gespart"
+      }
     }
   }
 }

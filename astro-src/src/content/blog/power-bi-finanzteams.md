@@ -7,7 +7,7 @@ tags: ["Power BI", "Finanzen", "Business Intelligence", "Reporting"]
 lang: "de"
 ---
 
-Wenn Ihr Finanzteam immer noch Freitagnachmittage damit verbringt, Berichte in Excel zu erstellen, verschenken Sie erheblichen Mehrwert. Power BI kann Ihr Reporting von einer wöchentlichen Belastung in einen strategischen Echtzeit-Vermögenswert verwandeln.
+Wenn Ihr Finanzteam immer noch Freitagnachmittage damit verbringt, Berichte in Excel zu erstellen, verschenken Sie erheblichen Mehrwert. Power BI kann Ihr Reporting von einer wöchentlichen Belastung in einen strategischen Echtzeit-Vermögenswert verwandeln. Erfahren Sie, wie wir Unternehmen bei dieser Transformation helfen mit unseren [Power BI Beratungsdienstleistungen](/de/services/power-bi).
 
 ## Die Excel-Falle
 
@@ -19,7 +19,7 @@ Die meisten Finanzteams stecken in dem fest, was ich "Die Excel-Falle" nenne:
 - **Keine Drill-Down-Fähigkeit**, wenn Führungskräfte Fragen stellen
 - **Versionskontroll-Alpträume**, wenn mehrere Personen bearbeiten
 
-Kommt Ihnen das bekannt vor? Sie sind nicht allein. Dieses Muster kostet Schweizer KMU durchschnittlich **15-25 Stunden pro Woche** an Finanzteam-Zeit.
+Kommt Ihnen das bekannt vor? Sie sind nicht allein. Dieses Muster kostet Schweizer KMU durchschnittlich **15-25 Stunden pro Woche** an Finanzteam-Zeit. Lesen Sie unsere [Power BI Fallstudie](/de/case-studies/power-bi-reporting), um zu sehen, wie ein Unternehmen dies auf nur 2 Stunden reduziert hat.
 
 ## Was Power BI ändert
 

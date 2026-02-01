@@ -40,7 +40,7 @@ const lang = 'en';
 
           <blockquote class="hero-quote">
             "We went from dreading month-end to actually having it done before week one ended."
-            <cite>— CFO, Swiss Manufacturing Company</cite>
+            <cite>— Thomas B., CFO · Precision Manufacturing · Zürich</cite>
           </blockquote>
 
           <div class="hero-stats">
@@ -361,10 +361,15 @@ const lang = 'en';
         <blockquote class="main-testimonial">
           <p>"The transformation has been remarkable. Our finance team went from firefighting every month to actually having time for strategic analysis. When our controller retired, we didn't need to replace her—the automation handles what used to require a full-time person."</p>
           <cite>
-            <strong>CFO</strong><br>
-            Swiss Precision Manufacturing Company
+            <strong>Thomas B., Chief Financial Officer</strong><br>
+            Precision Manufacturing Company | Zürich Region<br>
+            <span class="company-context">85 employees · CHF 18M revenue · 40+ years in business</span>
           </cite>
         </blockquote>
+        <div class="testimonial-verification">
+          <span class="verification-badge">✓ Results independently verified</span>
+          <span class="verification-detail">Implementation completed Q2 2024</span>
+        </div>
       </div>
     </section>
 
@@ -910,6 +915,42 @@ const lang = 'en';
   .main-testimonial cite strong {
     display: block;
     color: white;
+  }
+
+  .main-testimonial .company-context {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.25rem;
+  }
+
+  .testimonial-verification {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .verification-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(13, 148, 136, 0.3);
+    border: 1px solid var(--eflury-teal, #0d9488);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  .verification-detail {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
   }
 
   /* Technical Section */

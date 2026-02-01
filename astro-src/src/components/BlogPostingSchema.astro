@@ -1,0 +1,103 @@
+---
+/**
+ * BlogPosting Schema Component
+ * Provides structured data for blog posts with author linkage to PersonSchema
+ * Helps Google understand blog content and author expertise (E-E-A-T)
+ */
+
+interface Props {
+  title: string;
+  description: string;
+  pubDate: Date;
+  updatedDate?: Date;
+  author: string;
+  image?: string;
+  tags?: string[];
+  lang: 'en' | 'de';
+  url: string;
+}
+
+const { title, description, pubDate, updatedDate, author, image, tags = [], lang, url } = Astro.props;
+
+const baseUrl = 'https://eflury.com';
+const articleUrl = `${baseUrl}${url}`;
+const authorUrl = `${baseUrl}/${lang}/about`;
+const logoUrl = `${baseUrl}/images/eflury-logo.png`;
+const defaultImage = `${baseUrl}/images/blog-default.jpg`;
+
+const blogPostingSchema = {
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": title,
+  "description": description,
+  "image": image ? `${baseUrl}${image}` : defaultImage,
+  "datePublished": pubDate.toISOString(),
+  "dateModified": updatedDate ? updatedDate.toISOString() : pubDate.toISOString(),
+  "url": articleUrl,
+  "inLanguage": lang === 'de' ? 'de-CH' : 'en-US',
+  "author": {
+    "@type": "Person",
+    "@id": `${baseUrl}/#person`,
+    "name": "Emanuel Aaron Flury",
+    "url": authorUrl,
+    "jobTitle": "Claude Code & AI Automation Specialist",
+    "description": "Switzerland's leading Claude Code and AI automation specialist, helping Swiss SMEs implement end-to-end Claude solutions.",
+    "sameAs": [
+      "https://www.linkedin.com/in/emanuelflury"
+    ],
+    "worksFor": {
+      "@type": "Organization",
+      "name": "eflury.com",
+      "url": baseUrl
+    }
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "eflury.com",
+    "url": baseUrl,
+    "logo": {
+      "@type": "ImageObject",
+      "url": logoUrl,
+      "width": 200,
+      "height": 60
+    }
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": articleUrl
+  },
+  "keywords": tags.join(', '),
+  "articleSection": lang === 'de' ? 'AI Automatisierung' : 'AI Automation',
+  "wordCount": 1500,
+  "isAccessibleForFree": true
+};
+
+// Add breadcrumb schema for navigation
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": lang === 'de' ? 'Startseite' : 'Home',
+      "item": `${baseUrl}/${lang}`
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Blog",
+      "item": `${baseUrl}/${lang}/blog`
+    },
+    {
+      "@type": "ListItem",
+      "position": 3,
+      "name": title,
+      "item": articleUrl
+    }
+  ]
+};
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(blogPostingSchema)} />
+<script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />

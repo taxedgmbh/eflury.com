@@ -4,6 +4,7 @@ import '../styles/global.css';
 import '../styles/apple-components.css';
 import '../styles/scroll-indicator.css';
 import ExitIntent from '../components/ExitIntent.astro';
+import LocalBusinessSchema from '../components/LocalBusinessSchema.astro';
 
 interface Props {
   title: string;
@@ -287,6 +288,9 @@ const twitterImage = 'https://eflury.com/images/og-image.png';
       ]
     }
     </script>
+
+    <!-- Local Business Schema for Local SEO -->
+    <LocalBusinessSchema lang={lang} />
 
     <!-- Dark Mode Script - Prevent Flash -->
     <script is:inline>

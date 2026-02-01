@@ -218,7 +218,15 @@
     "certifications": "Claude Code, AI Agents, Process Automation",
     "credential1": "13+ Years Enterprise Experience",
     "credential2": "Fortune 100 Background",
-    "credential3": "Swiss Quality"
+    "credential3": "Swiss Quality",
+    "certifications_title": "Certifications & Expertise",
+    "cert_ai_title": "AI & Automation",
+    "cert_microsoft_title": "Microsoft Stack",
+    "cert_finance_title": "Finance & Accounting",
+    "cert_finance_1": "Enterprise Financial Reporting",
+    "cert_finance_2": "Month-End Close Optimization",
+    "cert_finance_3": "ERP Integration (SAP, Bexio, ABACUS)",
+    "timeline_title": "Career Journey"
   },
   "contact": {
     "title": "Book Your Free Strategy Call",
@@ -660,6 +668,397 @@
       "swiss_data": "Swiss Data Protection",
       "no_cloud": "No Cloud Required",
       "enterprise_security": "Enterprise Security"
+    }
+  },
+  "services_pages": {
+    "index": {
+      "title": "Services",
+      "subtitle": "Specialized AI automation services for Swiss SMEs",
+      "description": "From Claude Skills development to finance automation — choose the service that fits your needs."
+    },
+    "claude_skills": {
+      "meta": {
+        "title": "Claude Skills Development",
+        "description": "Custom Claude Skills built for your specific workflows. Automate repetitive tasks with AI that understands your business.",
+        "keywords": "Claude Skills, Claude Code, AI automation, custom AI development, Swiss AI consultant"
+      },
+      "hero": {
+        "badge": "Claude Specialist",
+        "title": "Custom Claude Skills for Your Business",
+        "description": "I build tailored Claude Skills that automate your specific workflows — from document processing to data analysis. Each Skill is designed to save your team hours every week."
+      },
+      "problem": {
+        "title": "Sound Familiar?",
+        "items": [
+          "Your team spends hours on repetitive document tasks that AI could handle",
+          "You've tried ChatGPT but it doesn't integrate with your workflows",
+          "Generic AI tools don't understand your industry-specific needs",
+          "You need automation that works with your existing Swiss business software"
+        ]
+      },
+      "solution": {
+        "title": "Custom Claude Skills — Built for You",
+        "description": "I develop Claude Skills tailored to your exact workflows. Not generic templates — custom AI that understands your business, integrates with your tools, and delivers measurable time savings.",
+        "benefits": [
+          {
+            "title": "Purpose-Built for Your Workflows",
+            "description": "Each Skill is designed around your specific processes, terminology, and requirements."
+          },
+          {
+            "title": "Swiss Software Integration",
+            "description": "Works with Bexio, ABACUS, Microsoft 365, and other tools you already use."
+          },
+          {
+            "title": "Measurable Time Savings",
+            "description": "Typical clients save 15-30 hours per week with 3-5 custom Skills."
+          },
+          {
+            "title": "Continuous Improvement",
+            "description": "Skills get smarter over time as we refine them based on your feedback."
+          }
+        ]
+      },
+      "process": {
+        "title": "How I Build Your Skills",
+        "steps": [
+          {
+            "title": "Workflow Analysis",
+            "description": "I study your current processes to identify the best automation opportunities."
+          },
+          {
+            "title": "Skill Design",
+            "description": "We define exactly what each Skill should do, including inputs, outputs, and edge cases."
+          },
+          {
+            "title": "Development & Testing",
+            "description": "I build and thoroughly test each Skill with your real data."
+          },
+          {
+            "title": "Training & Handover",
+            "description": "Your team learns to use and maintain the Skills independently."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "What exactly is a Claude Skill?",
+          "answer": "A Claude Skill is a custom AI automation built on Anthropic's Claude. It's a specialized prompt + workflow that handles specific tasks like document processing, data extraction, report generation, or email drafting. Unlike generic AI, Skills are trained on your business context."
+        },
+        {
+          "question": "How long does it take to build a Skill?",
+          "answer": "Simple Skills take 1-2 weeks. Complex Skills with multiple integrations take 3-4 weeks. Most clients start with 3-5 Skills that cover their highest-impact workflows."
+        },
+        {
+          "question": "Can Skills work with my existing software?",
+          "answer": "Yes. I specialize in integrating Claude Skills with Swiss business software including Bexio, ABACUS, Microsoft 365, and custom systems via APIs or MCP (Model Context Protocol)."
+        },
+        {
+          "question": "What's the difference between Claude Skills and ChatGPT?",
+          "answer": "ChatGPT is a general-purpose chat tool. Claude Skills are custom automations that do specific tasks in your workflow — they take action, not just give answers. They're integrated into your systems and handle real work."
+        },
+        {
+          "question": "How much does a Claude Skill cost?",
+          "answer": "Individual Skills start at CHF 2,000. Most clients invest CHF 10,000-25,000 for a complete Skills package (3-5 Skills plus training). This typically delivers 3-6 month payback through time savings."
+        }
+      ],
+      "cta": {
+        "title": "Ready to Automate with Claude Skills?",
+        "description": "Book a free 30-minute call. I'll analyze your workflows and identify your highest-impact automation opportunities.",
+        "button": "Book Your Skills Strategy Call"
+      },
+      "case_study": {
+        "title": "See Claude Skills in Action",
+        "link": "/en/case-studies/taxed-gmbh",
+        "metric": "27.5 hrs/week saved"
+      }
+    },
+    "mcp_integration": {
+      "meta": {
+        "title": "MCP Server Integration",
+        "description": "Connect Claude to your business systems with Model Context Protocol. Seamless integration with databases, APIs, and enterprise software.",
+        "keywords": "MCP integration, Model Context Protocol, Claude integration, API automation, Swiss business automation"
+      },
+      "hero": {
+        "badge": "MCP Specialist",
+        "title": "Connect Claude to Your Business Systems",
+        "description": "Model Context Protocol (MCP) lets Claude interact directly with your databases, APIs, and software. I build custom MCP integrations that turn Claude into a true business automation platform."
+      },
+      "problem": {
+        "title": "The Integration Challenge",
+        "items": [
+          "AI tools can't access your internal databases and systems",
+          "Manual data entry between AI outputs and your software wastes time",
+          "You need real-time data for AI to make accurate decisions",
+          "Security concerns prevent connecting AI to sensitive business systems"
+        ]
+      },
+      "solution": {
+        "title": "MCP — The Missing Link",
+        "description": "Model Context Protocol is Anthropic's standard for connecting Claude to external systems securely. I design and deploy custom MCP servers that give Claude controlled access to your business data.",
+        "benefits": [
+          {
+            "title": "Direct System Access",
+            "description": "Claude reads and writes to your databases, CRMs, and business software directly."
+          },
+          {
+            "title": "Real-Time Data",
+            "description": "No more stale exports. AI decisions based on live business data."
+          },
+          {
+            "title": "Secure by Design",
+            "description": "MCP provides granular permission controls. Claude only accesses what you allow."
+          },
+          {
+            "title": "Swiss-Hosted Options",
+            "description": "MCP servers can run on your infrastructure for maximum data sovereignty."
+          }
+        ]
+      },
+      "process": {
+        "title": "MCP Integration Process",
+        "steps": [
+          {
+            "title": "System Audit",
+            "description": "I map your current systems and identify integration opportunities."
+          },
+          {
+            "title": "Architecture Design",
+            "description": "We design the MCP server architecture with security and performance in mind."
+          },
+          {
+            "title": "Development & Deployment",
+            "description": "I build and deploy custom MCP servers, either cloud-hosted or on-premise."
+          },
+          {
+            "title": "Testing & Security Review",
+            "description": "Comprehensive testing ensures secure, reliable operation."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "What is MCP (Model Context Protocol)?",
+          "answer": "MCP is Anthropic's open standard for connecting AI models to external data sources. It's like a universal adapter that lets Claude securely access databases, APIs, and file systems. It's the foundation for building AI that actually does work in your systems."
+        },
+        {
+          "question": "Is MCP secure for sensitive business data?",
+          "answer": "Yes. MCP includes built-in security features: authentication, permission scopes, and audit logging. You control exactly what Claude can access. For maximum security, MCP servers can run entirely on your infrastructure."
+        },
+        {
+          "question": "What systems can you integrate with MCP?",
+          "answer": "Any system with an API or database connection: ERP systems (SAP, ABACUS), CRMs (Salesforce, HubSpot), databases (PostgreSQL, MySQL), cloud services (Microsoft 365, Google Workspace), and custom internal systems."
+        },
+        {
+          "question": "How does MCP differ from traditional API integrations?",
+          "answer": "Traditional integrations are one-way: you push/pull data between systems. MCP enables AI-native integration: Claude understands your data context and can take intelligent actions across systems. It's the difference between a data pipeline and an AI employee."
+        },
+        {
+          "question": "What does an MCP integration project cost?",
+          "answer": "Simple MCP integrations (1-2 data sources) start at CHF 5,000. Complex enterprise integrations (multiple systems, custom security) range CHF 15,000-30,000. Ongoing maintenance is typically CHF 500-1,500/month."
+        }
+      ],
+      "cta": {
+        "title": "Connect Your Systems to AI",
+        "description": "Let's discuss how MCP can turn Claude into an integrated automation platform for your business.",
+        "button": "Book Your MCP Consultation"
+      },
+      "case_study": {
+        "title": "MCP in Production",
+        "link": "/en/case-studies/taxed-gmbh",
+        "metric": "5 systems connected"
+      }
+    },
+    "finance_automation": {
+      "meta": {
+        "title": "Finance Process Automation",
+        "description": "Automate month-end close, reporting, and reconciliation. AI-powered finance automation for Swiss SMEs with Bexio and ABACUS integration.",
+        "keywords": "finance automation, month-end close, reporting automation, Bexio integration, ABACUS automation, Swiss accounting"
+      },
+      "hero": {
+        "badge": "Finance Specialist",
+        "title": "Automate Your Finance Processes",
+        "description": "From month-end close to daily reconciliation — I build AI automations that save finance teams 30-50 hours per month while improving accuracy and compliance."
+      },
+      "problem": {
+        "title": "Finance Team Challenges",
+        "items": [
+          "Month-end close takes days of manual data gathering and reconciliation",
+          "Report generation requires hours of copying data between systems",
+          "Invoice processing is a bottleneck with manual data entry",
+          "Compliance documentation is time-consuming and error-prone"
+        ]
+      },
+      "solution": {
+        "title": "AI-Powered Finance Automation",
+        "description": "I combine Claude AI with your existing finance tools (Bexio, ABACUS, Excel) to automate the repetitive work. Your team focuses on analysis and decisions while AI handles the data processing.",
+        "benefits": [
+          {
+            "title": "Faster Month-End Close",
+            "description": "Reduce close time by 60-80% with automated reconciliation and reporting."
+          },
+          {
+            "title": "Bexio & ABACUS Integration",
+            "description": "Native integration with Swiss accounting software via MCP."
+          },
+          {
+            "title": "Accurate & Auditable",
+            "description": "AI maintains audit trails and catches errors humans miss."
+          },
+          {
+            "title": "Swiss Compliance Ready",
+            "description": "Built with Swiss accounting standards and FADP data protection in mind."
+          }
+        ]
+      },
+      "process": {
+        "title": "Finance Automation Process",
+        "steps": [
+          {
+            "title": "Process Mapping",
+            "description": "We document your current finance workflows and pain points."
+          },
+          {
+            "title": "Automation Design",
+            "description": "I design AI workflows that integrate with your accounting software."
+          },
+          {
+            "title": "Build & Test",
+            "description": "Automation is built and tested with historical data before go-live."
+          },
+          {
+            "title": "Parallel Run & Training",
+            "description": "We run old and new processes together, then train your team."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "Which accounting software do you integrate with?",
+          "answer": "I specialize in Swiss accounting software: Bexio, ABACUS, and Infoniqa. I also work with international tools like Xero, QuickBooks, and SAP. For custom or legacy systems, I can build API integrations."
+        },
+        {
+          "question": "How much time can we realistically save?",
+          "answer": "Most finance teams save 30-50 hours per month after automation. Month-end close typically reduces from 5-7 days to 1-2 days. Invoice processing goes from minutes per invoice to seconds."
+        },
+        {
+          "question": "Is AI accurate enough for financial data?",
+          "answer": "Modern AI achieves 99%+ accuracy on structured data tasks. We always include human review checkpoints for high-stakes decisions. The AI handles data gathering and preparation; humans make final approvals."
+        },
+        {
+          "question": "What about compliance and audit requirements?",
+          "answer": "All automations maintain complete audit trails. Every AI action is logged with timestamps. I design workflows that comply with Swiss accounting standards (OR/HRM) and data protection requirements (FADP/DSG)."
+        },
+        {
+          "question": "What's the investment for finance automation?",
+          "answer": "Starter projects (1-2 processes) begin at CHF 10,000. Comprehensive finance automation packages range CHF 25,000-50,000. Most clients see ROI within 3-6 months through time savings."
+        }
+      ],
+      "cta": {
+        "title": "Transform Your Finance Operations",
+        "description": "Book a free consultation to identify your highest-impact automation opportunities.",
+        "button": "Book Finance Automation Call"
+      },
+      "case_study": {
+        "title": "Finance Automation Case Study",
+        "link": "/en/case-studies/finance-automation",
+        "metric": "40 hrs/month saved"
+      }
+    },
+    "power_bi": {
+      "meta": {
+        "title": "Power BI Consulting & Dashboard Development",
+        "description": "Custom Power BI dashboards and reports for Swiss businesses. From data modeling to executive dashboards with AI-powered insights.",
+        "keywords": "Power BI consulting, dashboard development, business intelligence, Swiss BI consultant, data visualization"
+      },
+      "hero": {
+        "badge": "BI Specialist",
+        "title": "Power BI Dashboards That Drive Decisions",
+        "description": "I build Power BI dashboards that transform your data into actionable insights. From executive KPI summaries to detailed operational views — designed for how your team actually works."
+      },
+      "problem": {
+        "title": "Data Without Direction",
+        "items": [
+          "Data scattered across Excel files, ERP, and multiple systems",
+          "Hours spent manually building reports that are outdated by publishing time",
+          "Executives asking questions your current reports can't answer",
+          "No single source of truth for key business metrics"
+        ]
+      },
+      "solution": {
+        "title": "Power BI Done Right",
+        "description": "I create Power BI solutions that connect all your data sources into live, interactive dashboards. Automatic refresh, mobile access, and insights that actually get used.",
+        "benefits": [
+          {
+            "title": "Single Source of Truth",
+            "description": "All your data in one place with consistent definitions and calculations."
+          },
+          {
+            "title": "Live Data, Not Static Reports",
+            "description": "Dashboards refresh automatically. Always current, never stale."
+          },
+          {
+            "title": "Self-Service Analytics",
+            "description": "Designed for business users to explore data without IT support."
+          },
+          {
+            "title": "AI-Powered Insights",
+            "description": "Optional Claude integration for natural language queries and analysis."
+          }
+        ]
+      },
+      "process": {
+        "title": "Power BI Development Process",
+        "steps": [
+          {
+            "title": "Requirements Discovery",
+            "description": "We define your key questions, metrics, and how decisions get made."
+          },
+          {
+            "title": "Data Modeling",
+            "description": "I build a robust data model connecting your various data sources."
+          },
+          {
+            "title": "Dashboard Design",
+            "description": "Interactive dashboards designed for your specific use cases and users."
+          },
+          {
+            "title": "Training & Adoption",
+            "description": "Your team learns to use and extend the dashboards independently."
+          }
+        ]
+      },
+      "faqs": [
+        {
+          "question": "What data sources can you connect to Power BI?",
+          "answer": "Almost anything: Excel, SQL databases, Bexio, ABACUS, Salesforce, SharePoint, web APIs, and hundreds more. Power BI has native connectors for most business systems. For custom sources, I can build API integrations."
+        },
+        {
+          "question": "We don't have a Power BI license yet. What do we need?",
+          "answer": "Power BI Desktop is free for building reports. For sharing and collaboration, you need Power BI Pro (CHF 9.40/user/month) or Premium. I help you choose the right licensing based on your team size and needs."
+        },
+        {
+          "question": "How long does a Power BI project take?",
+          "answer": "Simple dashboards: 2-3 weeks. Comprehensive BI solutions with multiple dashboards: 6-8 weeks. I work iteratively — you see progress and provide feedback throughout."
+        },
+        {
+          "question": "Can you integrate Claude AI with Power BI?",
+          "answer": "Yes. I can add Claude integration so users ask questions in natural language ('What were our top products last quarter?') and get instant answers from your Power BI data. This is a unique capability I offer."
+        },
+        {
+          "question": "What's the investment for Power BI consulting?",
+          "answer": "Single dashboard projects start at CHF 5,000. Enterprise BI implementations with multiple dashboards range CHF 15,000-40,000. Ongoing support/maintenance is CHF 500-1,500/month."
+        }
+      ],
+      "cta": {
+        "title": "Turn Your Data Into Insights",
+        "description": "Let's discuss how Power BI can help your team make better decisions faster.",
+        "button": "Book Power BI Consultation"
+      },
+      "case_study": {
+        "title": "Power BI Success Story",
+        "link": "/en/case-studies/power-bi-reporting",
+        "metric": "15 hrs/week saved"
+      }
     }
   }
 }

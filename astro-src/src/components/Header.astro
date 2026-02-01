@@ -44,7 +44,13 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
             <ChevronDown size={14} class="dropdown-chevron" />
           </button>
           <div class="nav-dropdown-menu">
-            <a href={`/${lang}/#services`}>{t('nav.services_overview')}</a>
+            <a href={`/${lang}/services`}>{t('nav.services_overview')}</a>
+            <div class="nav-dropdown-divider"></div>
+            <a href={`/${lang}/services/claude-skills`}>Claude Skills</a>
+            <a href={`/${lang}/services/mcp-integration`}>MCP Integration</a>
+            <a href={lang === 'de' ? `/${lang}/services/finanzen-automatisierung` : `/${lang}/services/finance-automation`}>{lang === 'de' ? 'Finanzautomatisierung' : 'Finance Automation'}</a>
+            <a href={`/${lang}/services/power-bi`}>Power BI</a>
+            <div class="nav-dropdown-divider"></div>
             <a href={`/${lang}/pricing`}>{t('nav.pricing')}</a>
             <a href={`/${lang}/skopaai`} class="nav-skopaai">{t('nav.skopaai')}<span class="nav-badge">{t('nav.new')}</span></a>
             <a href={`/${lang}/case-studies`}>{t('nav.case_studies')}</a>
@@ -344,6 +350,12 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
   .nav-dropdown-menu .nav-badge {
     font-size: 8px;
     padding: 1px 5px;
+  }
+
+  .nav-dropdown-divider {
+    height: 1px;
+    background: var(--border-color);
+    margin: 0.5rem 0;
   }
 
   .nav-actions {

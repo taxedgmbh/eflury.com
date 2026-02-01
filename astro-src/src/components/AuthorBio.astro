@@ -1,0 +1,301 @@
+---
+/**
+ * Author Bio Component
+ * Displays author information at the end of blog posts
+ * Enhances E-E-A-T by linking content to author expertise
+ */
+
+import { Linkedin, Mail, ArrowRight } from 'lucide-astro';
+
+interface Props {
+  lang: 'en' | 'de';
+}
+
+const { lang } = Astro.props;
+
+const content = {
+  en: {
+    writtenBy: 'Written by',
+    name: 'Emanuel Aaron Flury',
+    title: 'Claude Code & AI Automation Specialist',
+    bio: "Switzerland's leading Claude Code specialist helping SMEs save 20+ hours per week through AI automation. Founder of Taxed GmbH, where he achieved 27.5 hours/week in automated savings.",
+    credentials: [
+      '13+ Years Enterprise Experience',
+      'Fortune 100 Background',
+      '50+ Claude Skills Built'
+    ],
+    cta: 'Learn more about Emanuel',
+    contactCta: 'Get in touch'
+  },
+  de: {
+    writtenBy: 'Geschrieben von',
+    name: 'Emanuel Aaron Flury',
+    title: 'Claude Code & AI Automatisierungs-Spezialist',
+    bio: 'Der führende Claude Code Spezialist der Schweiz hilft KMU, über 20 Stunden pro Woche durch KI-Automatisierung zu sparen. Gründer von Taxed GmbH, wo er 27.5 Stunden/Woche an automatisierten Einsparungen erzielte.',
+    credentials: [
+      '13+ Jahre Unternehmenserfahrung',
+      'Fortune 100 Hintergrund',
+      '50+ Claude Skills entwickelt'
+    ],
+    cta: 'Mehr über Emanuel erfahren',
+    contactCta: 'Kontakt aufnehmen'
+  }
+};
+
+const t = content[lang];
+---
+
+<aside class="author-bio">
+  <div class="author-header">
+    <span class="written-by">{t.writtenBy}</span>
+  </div>
+
+  <div class="author-content">
+    <div class="author-image">
+      <a href={`/${lang}/about`}>
+        <img
+          src="/images/portraits/emanuel-aaron-flury-portrait.png"
+          alt={t.name}
+          width="120"
+          height="120"
+          loading="lazy"
+        />
+      </a>
+    </div>
+
+    <div class="author-info">
+      <a href={`/${lang}/about`} class="author-name-link">
+        <h4 class="author-name">{t.name}</h4>
+      </a>
+      <p class="author-title">{t.title}</p>
+      <p class="author-description">{t.bio}</p>
+
+      <div class="author-credentials">
+        {t.credentials.map((credential) => (
+          <span class="credential">{credential}</span>
+        ))}
+      </div>
+
+      <div class="author-actions">
+        <a href={`/${lang}/about`} class="author-link">
+          {t.cta}
+          <ArrowRight size={16} />
+        </a>
+        <div class="author-social">
+          <a
+            href="https://www.linkedin.com/in/emanuelflury"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
+            class="social-link"
+          >
+            <Linkedin size={18} />
+          </a>
+          <a
+            href="mailto:me@eflury.com"
+            aria-label="Email"
+            class="social-link"
+          >
+            <Mail size={18} />
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</aside>
+
+<style>
+  .author-bio {
+    margin-top: 3rem;
+    padding: 2rem;
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.05) 0%, rgba(2, 37, 84, 0.03) 100%);
+    border: 1px solid rgba(13, 148, 136, 0.15);
+    border-radius: 16px;
+  }
+
+  .author-header {
+    margin-bottom: 1.5rem;
+  }
+
+  .written-by {
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--eflury-teal, #0d9488);
+  }
+
+  .author-content {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+  }
+
+  .author-image {
+    flex-shrink: 0;
+  }
+
+  .author-image img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: top;
+    border: 3px solid var(--eflury-teal, #0d9488);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+
+  .author-image a:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(13, 148, 136, 0.3);
+  }
+
+  .author-info {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .author-name-link {
+    text-decoration: none;
+  }
+
+  .author-name {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.25rem 0;
+    transition: color 0.2s ease;
+  }
+
+  .author-name-link:hover .author-name {
+    color: var(--eflury-teal, #0d9488);
+  }
+
+  .author-title {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--eflury-navy, #022554);
+    margin: 0 0 0.75rem 0;
+  }
+
+  :global([data-theme="dark"]) .author-title {
+    color: var(--eflury-teal, #0d9488);
+  }
+
+  .author-description {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 1rem 0;
+  }
+
+  .author-credentials {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .credential {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(2, 37, 84, 0.08);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--eflury-navy, #022554);
+  }
+
+  :global([data-theme="dark"]) .credential {
+    background: rgba(255, 255, 255, 0.1);
+    color: var(--text-primary);
+  }
+
+  .author-actions {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .author-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--eflury-teal, #0d9488);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: gap 0.2s ease;
+  }
+
+  .author-link:hover {
+    gap: 0.75rem;
+  }
+
+  .author-social {
+    display: flex;
+    gap: 0.75rem;
+  }
+
+  .social-link {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: var(--eflury-navy, #022554);
+    color: white;
+    transition: background 0.2s ease, transform 0.2s ease;
+  }
+
+  .social-link:hover {
+    background: var(--eflury-teal, #0d9488);
+    transform: translateY(-2px);
+  }
+
+  :global([data-theme="dark"]) .author-bio {
+    background: linear-gradient(135deg, rgba(13, 148, 136, 0.1) 0%, rgba(96, 165, 250, 0.05) 100%);
+    border-color: rgba(13, 148, 136, 0.2);
+  }
+
+  :global([data-theme="dark"]) .social-link {
+    background: var(--eflury-teal, #0d9488);
+  }
+
+  :global([data-theme="dark"]) .social-link:hover {
+    background: var(--eflury-blue, #60a5fa);
+  }
+
+  @media (max-width: 600px) {
+    .author-bio {
+      padding: 1.5rem;
+    }
+
+    .author-content {
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .author-image img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .author-credentials {
+      justify-content: center;
+    }
+
+    .author-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .author-social {
+      margin-top: 0.5rem;
+    }
+  }
+</style>

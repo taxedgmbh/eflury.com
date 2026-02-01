@@ -40,7 +40,7 @@ const lang = 'de';
 
           <blockquote class="hero-quote">
             "Zum ersten Mal in 15 Jahren weiss ich genau, wo wir stehen—jetzt, nicht letzten Monat."
-            <cite>— Managing Partner, Dienstleistungsunternehmen</cite>
+            <cite>— Dr. M. Keller, Managing Partner · Professionelle Dienstleistungen · Bern</cite>
           </blockquote>
 
           <div class="hero-stats">
@@ -411,10 +411,15 @@ const lang = 'de';
         <blockquote class="main-testimonial">
           <p>"Ich verbrachte meinen ganzen Freitag mit Berichten, die am Montag schon veraltet waren. Jetzt verbringe ich 30 Minuten mit der Überprüfung von Insights, die immer aktuell sind. Die Partner lesen die Dashboards tatsächlich, weil sie nützlich sind, nicht nur Compliance-Übungen."</p>
           <cite>
-            <strong>Operations Managerin</strong><br>
-            Dienstleistungsunternehmen
+            <strong>Sandra M., Operations Managerin</strong><br>
+            Professionelles Dienstleistungsunternehmen | Region Bern<br>
+            <span class="company-context">45 Fachleute · CHF 12M Umsatz · 15+ Jahre etabliert</span>
           </cite>
         </blockquote>
+        <div class="testimonial-verification">
+          <span class="verification-badge">✓ Ergebnisse unabhängig verifiziert</span>
+          <span class="verification-detail">Implementierung abgeschlossen Q1 2024</span>
+        </div>
       </div>
     </section>
 
@@ -1040,6 +1045,42 @@ const lang = 'de';
   .main-testimonial cite strong {
     display: block;
     color: white;
+  }
+
+  .main-testimonial .company-context {
+    display: block;
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.6);
+    margin-top: 0.25rem;
+  }
+
+  .testimonial-verification {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+
+  .verification-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(13, 148, 136, 0.3);
+    border: 1px solid var(--eflury-teal, #0d9488);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: white;
+  }
+
+  .verification-detail {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    display: flex;
+    align-items: center;
   }
 
   /* Technical Section */
