@@ -43,13 +43,14 @@ const lang = 'en';
           </div>
 
           <div class="hero-image">
-            <!-- Placeholder for professional headshot -->
-            <div class="headshot-placeholder">
-              <div class="avatar-circle">
-                <span class="initials">EF</span>
-              </div>
-              <p class="photo-note">Professional headshot coming soon</p>
-            </div>
+            <img
+              src="/images/portraits/emanuel-aaron-flury-portrait.png"
+              alt="Emanuel Aaron Flury - AI Automation Specialist"
+              class="headshot"
+              width="714"
+              height="1616"
+              loading="eager"
+            />
           </div>
         </div>
       </div>
@@ -337,31 +338,25 @@ const lang = 'en';
     font-size: 1.125rem;
   }
 
-  .headshot-placeholder {
-    text-align: center;
+  .headshot {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    border-radius: 20px;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    border: 3px solid var(--eflury-navy);
+    outline: 3px solid var(--eflury-teal);
+    outline-offset: 3px;
+    transition: transform 0.3s ease;
   }
 
-  .avatar-circle {
-    width: 200px;
-    height: 200px;
-    border-radius: 50%;
-    background: linear-gradient(135deg, var(--primary-500), var(--secondary-500));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 1rem;
+  .headshot:hover {
+    transform: scale(1.02);
   }
 
-  .initials {
-    font-size: 4rem;
-    font-weight: 700;
-    color: white;
-  }
-
-  .photo-note {
-    font-size: 0.875rem;
-    color: var(--text-tertiary);
-    font-style: italic;
+  :global([data-theme="dark"]) .headshot {
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.4);
+    border-color: var(--eflury-blue);
   }
 
   /* Story Section */
