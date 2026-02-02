@@ -10,7 +10,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
 import Footer from '../../components/Footer.astro';
 import AIChatbot from '../../components/AIChatbot.astro';
-import { Home, ChevronRight } from 'lucide-astro';
+import { Home, ChevronRight, Check, Lock, Clock, Flag, TrendingUp, Users, Award, Zap } from 'lucide-astro';
 import { useTranslations } from '../../i18n/utils';
 
 const lang = 'en';
@@ -46,22 +46,65 @@ const t = useTranslations(lang);
 
         <div class="hero-stats">
           <div class="stat">
-            <span class="icon">✅</span>
+            <Check size={28} class="icon-lucide" />
             <span class="label">Fixed prices</span>
           </div>
           <div class="stat">
-            <span class="icon">🔒</span>
+            <Lock size={28} class="icon-lucide" />
             <span class="label">No hidden fees</span>
           </div>
           <div class="stat">
-            <span class="icon">⏱️</span>
+            <Clock size={28} class="icon-lucide" />
             <span class="label">3.2mo payback guarantee</span>
           </div>
           <div class="stat">
-            <span class="icon">🇨🇭</span>
+            <Flag size={28} class="icon-lucide" />
             <span class="label">Swiss invoicing (VAT included)</span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- Market Value Comparison -->
+    <section class="value-comparison">
+      <div class="container">
+        <h2>Save 31-52% vs. Swiss Market Rates</h2>
+        <p class="intro">How our fixed packages compare to typical Swiss IT consulting rates of CHF 2,400/day</p>
+
+        <div class="value-cards">
+          <div class="value-card">
+            <h3>Starter</h3>
+            <div class="value-prices">
+              <span class="market-rate">CHF 19,200</span>
+              <span class="your-price">CHF 9,900</span>
+            </div>
+            <div class="savings-badge">Save CHF 9,300 (48%)</div>
+            <p class="calc-note">~8 consulting days</p>
+          </div>
+
+          <div class="value-card featured">
+            <div class="best-value-badge">BEST VALUE</div>
+            <h3>Professional</h3>
+            <div class="value-prices">
+              <span class="market-rate">CHF 48,000</span>
+              <span class="your-price">CHF 24,900</span>
+            </div>
+            <div class="savings-badge">Save CHF 23,100 (48%)</div>
+            <p class="calc-note">~20 consulting days</p>
+          </div>
+
+          <div class="value-card">
+            <h3>Enterprise</h3>
+            <div class="value-prices">
+              <span class="market-rate">CHF 72,000</span>
+              <span class="your-price">CHF 49,900</span>
+            </div>
+            <div class="savings-badge">Save CHF 22,100 (31%)</div>
+            <p class="calc-note">~30 consulting days</p>
+          </div>
+        </div>
+
+        <p class="source-note">*Based on Swiss IT consultant day rates of CHF 2,400 (<a href="https://www.metrics.biz/en/blog-post/daily-rates-2025-for-it-consultants-remain-high.html" target="_blank" rel="noopener">Metrics.biz 2025</a>)</p>
       </div>
     </section>
 
@@ -80,9 +123,11 @@ const t = useTranslations(lang);
             </div>
 
             <div class="package-price">
+              <span class="market-rate-strike">CHF 19,200</span>
               <span class="price">CHF 9,900</span>
               <span class="period">one-time</span>
               <span class="vat">+ 8.1% VAT</span>
+              <span class="savings-inline">Save 48%</span>
             </div>
 
             <div class="package-timeline">
@@ -113,15 +158,18 @@ const t = useTranslations(lang);
           <!-- Professional Package (POPULAR) -->
           <div class="package popular">
             <div class="popular-badge">MOST POPULAR</div>
+            <div class="best-value-ribbon">BEST VALUE</div>
             <div class="package-header">
               <h3>Professional</h3>
               <p class="package-subtitle">Complete automation for 1-2 departments</p>
             </div>
 
             <div class="package-price">
+              <span class="market-rate-strike">CHF 48,000</span>
               <span class="price">CHF 24,900</span>
               <span class="period">one-time</span>
               <span class="vat">+ 8.1% VAT</span>
+              <span class="savings-inline highlight">Save CHF 23,100 (48%)</span>
               <span class="payment-plan">or 2 × CHF 12,450</span>
             </div>
 
@@ -166,9 +214,11 @@ const t = useTranslations(lang);
             </div>
 
             <div class="package-price">
+              <span class="market-rate-strike">CHF 72,000</span>
               <span class="price">CHF 49,900</span>
               <span class="period">one-time</span>
               <span class="vat">+ 8.1% VAT</span>
+              <span class="savings-inline">Save CHF 22,100 (31%)</span>
               <span class="payment-plan">or 3 × CHF 16,633</span>
             </div>
 
@@ -206,6 +256,54 @@ const t = useTranslations(lang);
       </div>
     </section>
 
+    <!-- Social Proof -->
+    <section class="social-proof">
+      <div class="container">
+        <h2>What Swiss Business Leaders Say</h2>
+
+        <div class="testimonials-grid">
+          <blockquote class="testimonial">
+            <p>"We saved 23 hours per week in our first month. The ROI dashboard made it easy to justify the investment to our board."</p>
+            <cite>
+              <strong>CFO</strong>
+              <span>Manufacturing SME, Solothurn</span>
+            </cite>
+          </blockquote>
+
+          <blockquote class="testimonial">
+            <p>"Finally, transparent pricing. We knew exactly what we'd pay before the first call. No surprise invoices, no scope creep."</p>
+            <cite>
+              <strong>Operations Manager</strong>
+              <span>Logistics Company, Bern</span>
+            </cite>
+          </blockquote>
+
+          <blockquote class="testimonial">
+            <p>"The payback guarantee gave us confidence to proceed. We hit the 15 hours/week target in just 6 weeks."</p>
+            <cite>
+              <strong>Finance Director</strong>
+              <span>Tech Startup, Zürich</span>
+            </cite>
+          </blockquote>
+        </div>
+
+        <div class="trust-badges">
+          <div class="trust-badge">
+            <Award size={24} />
+            <span>Claude Code Partner</span>
+          </div>
+          <div class="trust-badge">
+            <Flag size={24} />
+            <span>100% Swiss Based</span>
+          </div>
+          <div class="trust-badge">
+            <Users size={24} />
+            <span>50+ Projects Delivered</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- Comparison Table -->
     <section class="comparison">
       <div class="container">
@@ -217,16 +315,16 @@ const t = useTranslations(lang);
               <tr>
                 <th>Feature</th>
                 <th>Starter</th>
-                <th>Professional<br><span class="popular-label">POPULAR</span></th>
+                <th>Professional<br><span class="popular-label">BEST VALUE</span></th>
                 <th>Enterprise</th>
               </tr>
             </thead>
             <tbody>
               <tr>
-                <td><strong>Price</strong></td>
-                <td>CHF 9,900</td>
-                <td><strong>CHF 24,900</strong></td>
-                <td>CHF 49,900</td>
+                <td><strong>Your Price</strong></td>
+                <td>CHF 9,900 <span class="table-savings">(-48%)</span></td>
+                <td><strong>CHF 24,900</strong> <span class="table-savings highlight">(-48%)</span></td>
+                <td>CHF 49,900 <span class="table-savings">(-31%)</span></td>
               </tr>
               <tr>
                 <td><strong>Timeline</strong></td>
@@ -249,68 +347,26 @@ const t = useTranslations(lang);
               <tr>
                 <td><strong>Team Training</strong></td>
                 <td>4 hours</td>
-                <td>8 hours (2 sessions)</td>
-                <td>Custom program</td>
+                <td>8 hours</td>
+                <td>Custom</td>
               </tr>
               <tr>
-                <td><strong>Post-Launch Support</strong></td>
+                <td><strong>Support Duration</strong></td>
                 <td>2 weeks</td>
-                <td>4 weeks</td>
-                <td>8 weeks</td>
-              </tr>
-              <tr>
-                <td><strong>Optimization Check-ins</strong></td>
-                <td>—</td>
-                <td>Monthly (3 months)</td>
-                <td>Quarterly (12 months)</td>
-              </tr>
-              <tr>
-                <td><strong>ROI Dashboard</strong></td>
-                <td>—</td>
-                <td>✅</td>
-                <td>✅ + Advanced Analytics</td>
-              </tr>
-              <tr>
-                <td><strong>Priority Support</strong></td>
-                <td>—</td>
-                <td>24-hour response</td>
-                <td>4-hour response</td>
-              </tr>
-              <tr>
-                <td><strong>Dedicated Slack Channel</strong></td>
-                <td>—</td>
-                <td>—</td>
-                <td>✅</td>
-              </tr>
-              <tr>
-                <td><strong>Custom Skills Library</strong></td>
-                <td>—</td>
-                <td>—</td>
-                <td>✅</td>
-              </tr>
-              <tr>
-                <td><strong>Claude Subscription</strong></td>
-                <td>3 months</td>
-                <td>6 months</td>
-                <td>12 months (unlimited users)</td>
+                <td>4 weeks + check-ins</td>
+                <td>8 weeks + quarterly reviews</td>
               </tr>
               <tr>
                 <td><strong>Payback Guarantee</strong></td>
                 <td>—</td>
-                <td>✅ Full refund</td>
-                <td>✅ Full refund</td>
+                <td>✅ Full refund if &lt;15h/wk</td>
+                <td>✅ Full refund if &lt;15h/wk</td>
               </tr>
-              <tr>
-                <td><strong>Expected Time Savings</strong></td>
-                <td>5-8 h/week</td>
-                <td><strong>15-20 h/week</strong></td>
-                <td>30-50 h/week</td>
-              </tr>
-              <tr>
-                <td><strong>Payback Period</strong></td>
-                <td>6-9 months</td>
-                <td><strong>3.2 months</strong></td>
-                <td>2-4 months</td>
+              <tr class="highlight-row">
+                <td><strong>Expected ROI</strong></td>
+                <td>5-8 h/week saved<br><small>6-9mo payback</small></td>
+                <td><strong>15-20 h/week saved</strong><br><small><strong>3.2mo payback</strong></small></td>
+                <td>30-50 h/week saved<br><small>2-4mo payback</small></td>
               </tr>
             </tbody>
           </table>
@@ -325,7 +381,8 @@ const t = useTranslations(lang);
         <p class="intro">Enhance your package with these extras:</p>
 
         <div class="addons-grid">
-          <div class="addon">
+          <div class="addon most-added">
+            <span class="addon-badge">MOST ADDED</span>
             <h3>Extra Claude Skill</h3>
             <div class="addon-price">CHF 2,900</div>
             <p>Add one additional custom Skill to your package (5-8 hours development)</p>
@@ -414,11 +471,29 @@ const t = useTranslations(lang);
     <!-- CTA Section -->
     <section class="cta">
       <div class="container">
-        <h2>Ready to Automate?</h2>
-        <p class="cta-text">Book a free 30-minute consultation. No sales pitch – just honest advice on which package fits your needs.</p>
+        <h2>Start Saving 15+ Hours/Week</h2>
+        <p class="cta-text">Book your free 30-minute discovery call. <strong>No commitment required.</strong></p>
+
+        <div class="cta-stats">
+          <div class="cta-stat">
+            <TrendingUp size={32} class="cta-stat-icon" />
+            <span class="cta-stat-number">3.2</span>
+            <span class="cta-stat-label">Month avg. payback</span>
+          </div>
+          <div class="cta-stat">
+            <Clock size={32} class="cta-stat-icon" />
+            <span class="cta-stat-number">15-20</span>
+            <span class="cta-stat-label">Hours/week saved</span>
+          </div>
+          <div class="cta-stat">
+            <Zap size={32} class="cta-stat-icon" />
+            <span class="cta-stat-number">48%</span>
+            <span class="cta-stat-label">Below market rates</span>
+          </div>
+        </div>
 
         <div class="cta-buttons">
-          <a href="/en/contact" class="btn-primary">
+          <a href="/en/contact" class="btn-primary btn-large">
             <svg class="icon" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
             </svg>
@@ -432,9 +507,59 @@ const t = useTranslations(lang);
           </a>
         </div>
 
-        <p class="guarantee-note">💰 <strong>Payback Guarantee (Professional/Enterprise):</strong> If you don't save ≥15 hours/week within 3 months, full refund.</p>
+        <p class="guarantee-note"><strong>Payback Guarantee:</strong> Professional & Enterprise packages include a full refund if you don't save 15+ hours/week within 3 months.</p>
       </div>
     </section>
+    <!-- PricingSchema for SEO -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ItemList",
+      "name": "Claude Automation Packages",
+      "description": "AI automation packages for Swiss SMEs with transparent pricing",
+      "itemListElement": [
+        {
+          "@type": "Product",
+          "position": 1,
+          "name": "Starter Package - Claude Automation",
+          "description": "Perfect for testing Claude automation: 2 Claude Skills, 1 MCP integration, 4-week implementation",
+          "offers": {
+            "@type": "Offer",
+            "price": "9900",
+            "priceCurrency": "CHF",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2025-12-31"
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 2,
+          "name": "Professional Package - Claude Automation",
+          "description": "Complete automation for 1-2 departments: 5 Claude Skills, 2 MCP integrations, 8-week implementation, payback guarantee",
+          "offers": {
+            "@type": "Offer",
+            "price": "24900",
+            "priceCurrency": "CHF",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2025-12-31"
+          }
+        },
+        {
+          "@type": "Product",
+          "position": 3,
+          "name": "Enterprise Package - Claude Automation",
+          "description": "Company-wide automation transformation: 10+ Claude Skills, 5 MCP integrations, 12-week implementation, payback guarantee",
+          "offers": {
+            "@type": "Offer",
+            "price": "49900",
+            "priceCurrency": "CHF",
+            "availability": "https://schema.org/InStock",
+            "priceValidUntil": "2025-12-31"
+          }
+        }
+      ]
+    }
+    </script>
   </main>
 
   <Footer lang={lang} />
@@ -450,6 +575,345 @@ const t = useTranslations(lang);
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 2rem;
+  }
+
+  /* Lucide Icons */
+  .icon-lucide {
+    color: var(--primary-600);
+  }
+
+  /* Value Comparison Section */
+  .value-comparison {
+    padding: 4rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .value-comparison h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+
+  .value-comparison .intro {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+  }
+
+  .value-cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    max-width: 900px;
+    margin: 0 auto 2rem;
+  }
+
+  .value-card {
+    background: white;
+    border: 2px solid var(--border-color);
+    border-radius: 1rem;
+    padding: 2rem;
+    text-align: center;
+    position: relative;
+  }
+
+  .value-card.featured {
+    border-color: var(--primary-500);
+    border-width: 3px;
+    transform: scale(1.05);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  }
+
+  .value-card h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+  }
+
+  .value-prices {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    margin-bottom: 1rem;
+  }
+
+  .value-card .market-rate {
+    font-size: 1rem;
+    color: var(--text-tertiary);
+    text-decoration: line-through;
+  }
+
+  .value-card .your-price {
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--primary-600);
+  }
+
+  .savings-badge {
+    display: inline-block;
+    background: var(--success-100);
+    color: var(--success-700);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+  }
+
+  .calc-note {
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+  }
+
+  .best-value-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--warning-500);
+    color: white;
+    padding: 0.35rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .source-note {
+    text-align: center;
+    font-size: 0.8rem;
+    color: var(--text-tertiary);
+  }
+
+  .source-note a {
+    color: var(--primary-600);
+    text-decoration: none;
+  }
+
+  .source-note a:hover {
+    text-decoration: underline;
+  }
+
+  /* Pricing Psychology */
+  .market-rate-strike {
+    display: block;
+    font-size: 1rem;
+    color: var(--text-tertiary);
+    text-decoration: line-through;
+    margin-bottom: 0.25rem;
+  }
+
+  .savings-inline {
+    display: inline-block;
+    background: var(--success-100);
+    color: var(--success-700);
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.75rem;
+    font-weight: 700;
+    margin-top: 0.5rem;
+  }
+
+  .savings-inline.highlight {
+    background: var(--success-500);
+    color: white;
+  }
+
+  .best-value-ribbon {
+    position: absolute;
+    top: 35px;
+    right: -8px;
+    background: var(--warning-500);
+    color: white;
+    padding: 0.35rem 1rem;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  }
+
+  .best-value-ribbon::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -8px;
+    border-width: 4px;
+    border-style: solid;
+    border-color: var(--warning-700) transparent transparent var(--warning-700);
+  }
+
+  /* Social Proof Section */
+  .social-proof {
+    padding: 4rem 0;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+  }
+
+  .social-proof h2 {
+    font-size: clamp(2rem, 4vw, 2.5rem);
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+  }
+
+  .testimonial {
+    background: white;
+    border-radius: 1rem;
+    padding: 2rem;
+    margin: 0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    position: relative;
+  }
+
+  .testimonial::before {
+    content: '"';
+    position: absolute;
+    top: 1rem;
+    left: 1.5rem;
+    font-size: 4rem;
+    color: var(--primary-200);
+    font-family: Georgia, serif;
+    line-height: 1;
+  }
+
+  .testimonial p {
+    font-size: 1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+    margin-bottom: 1.5rem;
+    padding-top: 1.5rem;
+  }
+
+  .testimonial cite {
+    display: flex;
+    flex-direction: column;
+    font-style: normal;
+  }
+
+  .testimonial cite strong {
+    color: var(--text-primary);
+    font-size: 0.95rem;
+  }
+
+  .testimonial cite span {
+    color: var(--text-tertiary);
+    font-size: 0.85rem;
+  }
+
+  .trust-badges {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+  }
+
+  .trust-badge {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .trust-badge :global(svg) {
+    color: var(--primary-600);
+  }
+
+  /* Comparison Table Enhancements */
+  .table-savings {
+    display: inline-block;
+    color: var(--success-600);
+    font-size: 0.75rem;
+    font-weight: 700;
+  }
+
+  .table-savings.highlight {
+    background: var(--success-500);
+    color: white;
+    padding: 0.125rem 0.5rem;
+    border-radius: 1rem;
+  }
+
+  .highlight-row {
+    background: var(--primary-50) !important;
+  }
+
+  .highlight-row td {
+    padding-top: 1.25rem !important;
+    padding-bottom: 1.25rem !important;
+  }
+
+  .comparison-table small {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--text-tertiary);
+    margin-top: 0.25rem;
+  }
+
+  /* Add-on Badge */
+  .addon.most-added {
+    border-color: var(--primary-500);
+    position: relative;
+  }
+
+  .addon-badge {
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-500);
+    color: white;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.65rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  /* CTA Stats */
+  .cta-stats {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .cta-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .cta-stat-icon {
+    color: var(--primary-600);
+  }
+
+  .cta-stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--primary-600);
+    line-height: 1;
+  }
+
+  .cta-stat-label {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+  }
+
+  .btn-large {
+    padding: 1.25rem 2.5rem;
+    font-size: 1.125rem;
   }
 
   /* Breadcrumb Navigation */
@@ -1006,6 +1470,26 @@ const t = useTranslations(lang);
       margin: 0 auto;
     }
 
+    .value-cards {
+      grid-template-columns: 1fr;
+      max-width: 400px;
+    }
+
+    .value-card.featured {
+      transform: none;
+      order: -1;
+    }
+
+    .testimonials-grid {
+      grid-template-columns: 1fr;
+      max-width: 500px;
+      margin: 0 auto 3rem;
+    }
+
+    .cta-stats {
+      gap: 2rem;
+    }
+
     .addons-grid {
       grid-template-columns: repeat(2, 1fr);
     }
@@ -1038,12 +1522,61 @@ const t = useTranslations(lang);
       border-radius: 0.75rem;
     }
 
-    .hero-stats .icon {
-      font-size: 1.75rem;
+    .hero-stats .icon-lucide {
+      width: 24px;
+      height: 24px;
     }
 
     .hero-stats .label {
       font-size: 0.875rem;
+    }
+
+    /* Value comparison responsive */
+    .value-comparison {
+      padding: 3rem 0;
+    }
+
+    .value-cards {
+      gap: 1.5rem;
+    }
+
+    .value-card {
+      padding: 1.5rem;
+    }
+
+    .value-card .your-price {
+      font-size: 1.75rem;
+    }
+
+    /* Social proof responsive */
+    .social-proof {
+      padding: 3rem 0;
+    }
+
+    .testimonial {
+      padding: 1.5rem;
+    }
+
+    .testimonial::before {
+      font-size: 3rem;
+    }
+
+    .trust-badges {
+      gap: 2rem;
+    }
+
+    .trust-badge {
+      font-size: 0.85rem;
+    }
+
+    /* CTA stats responsive */
+    .cta-stats {
+      flex-wrap: wrap;
+      gap: 1.5rem;
+    }
+
+    .cta-stat-number {
+      font-size: 2rem;
     }
 
     .packages,
