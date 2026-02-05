@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <!-- Homepage -->
   <url>
     <loc>https://eflury.com/en/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
@@ -15,16 +16,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
+
+  <!-- About -->
   <url>
     <loc>https://eflury.com/en/about/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/about/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/about/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/about/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -33,16 +36,18 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/about/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/about/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/about/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Pricing -->
   <url>
     <loc>https://eflury.com/en/pricing/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/pricing/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/pricing/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/pricing/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
@@ -51,16 +56,138 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/pricing/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/pricing/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/pricing/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
+
+  <!-- Services Index -->
+  <url>
+    <loc>https://eflury.com/en/services/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/services/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <!-- Services: Power BI -->
+  <url>
+    <loc>https://eflury.com/en/services/power-bi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/power-bi/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/power-bi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/power-bi/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/services/power-bi/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/power-bi/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/power-bi/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/power-bi/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Services: Finance Automation -->
+  <url>
+    <loc>https://eflury.com/en/services/finance-automation/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/finance-automation/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/finanzen-automatisierung/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/finance-automation/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/services/finanzen-automatisierung/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/finance-automation/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/finanzen-automatisierung/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/finance-automation/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Services: MCP Integration -->
+  <url>
+    <loc>https://eflury.com/en/services/mcp-integration/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/mcp-integration/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/mcp-integration/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/mcp-integration/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/services/mcp-integration/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/mcp-integration/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/mcp-integration/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/mcp-integration/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Services: Claude Skills -->
+  <url>
+    <loc>https://eflury.com/en/services/claude-skills/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/claude-skills/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/claude-skills/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/claude-skills/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/services/claude-skills/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/claude-skills/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/claude-skills/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/claude-skills/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Case Studies Index -->
+  <url>
+    <loc>https://eflury.com/en/case-studies/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/case-studies/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/case-studies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/case-studies/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/case-studies/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/case-studies/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/case-studies/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/case-studies/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <!-- Case Study: Taxed GmbH -->
   <url>
     <loc>https://eflury.com/en/case-studies/taxed-gmbh/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/case-studies/taxed-gmbh/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/case-studies/taxed-gmbh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/case-studies/taxed-gmbh/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -69,98 +196,188 @@
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/case-studies/taxed-gmbh/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/case-studies/taxed-gmbh/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/case-studies/taxed-gmbh/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
+
+  <!-- Case Study: Finance Automation -->
+  <url>
+    <loc>https://eflury.com/en/case-studies/finance-automation/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/case-studies/finance-automation/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/case-studies/finance-automation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/case-studies/finance-automation/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/case-studies/finance-automation/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/case-studies/finance-automation/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/case-studies/finance-automation/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/case-studies/finance-automation/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Case Study: Power BI Reporting -->
+  <url>
+    <loc>https://eflury.com/en/case-studies/power-bi-reporting/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/case-studies/power-bi-reporting/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/case-studies/power-bi-reporting/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/case-studies/power-bi-reporting/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/case-studies/power-bi-reporting/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/case-studies/power-bi-reporting/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/case-studies/power-bi-reporting/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/case-studies/power-bi-reporting/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Blog Index -->
+  <url>
+    <loc>https://eflury.com/en/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/blog/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- SkopaAI -->
+  <url>
+    <loc>https://eflury.com/en/skopaai/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/skopaai/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/skopaai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/skopaai/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/skopaai/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/skopaai/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/skopaai/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/skopaai/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Legal: Privacy -->
   <url>
     <loc>https://eflury.com/en/privacy/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/privacy/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/datenschutz/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/privacy/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://eflury.com/de/datenschutz/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/privacy/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/datenschutz/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/privacy/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.3</priority>
   </url>
+
+  <!-- Legal: Terms -->
   <url>
     <loc>https://eflury.com/en/terms/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/terms/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/nutzungsbedingungen/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/terms/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://eflury.com/de/nutzungsbedingungen/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/terms/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/nutzungsbedingungen/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/terms/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.3</priority>
   </url>
+
+  <!-- Legal: Cookies -->
   <url>
     <loc>https://eflury.com/en/cookies/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/cookies/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/cookies/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/cookies/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://eflury.com/de/cookies/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/cookies/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/cookies/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/cookies/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.3</priority>
   </url>
+
+  <!-- Legal: Disclaimer -->
   <url>
     <loc>https://eflury.com/en/disclaimer/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/disclaimer/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/haftungsausschluss/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/disclaimer/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://eflury.com/de/haftungsausschluss/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/disclaimer/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/haftungsausschluss/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/disclaimer/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.3</priority>
   </url>
+
+  <!-- Legal: Code of Conduct -->
   <url>
     <loc>https://eflury.com/en/code-of-conduct/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/code-of-conduct/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/verhaltenskodex/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/code-of-conduct/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.3</priority>
   </url>
   <url>
     <loc>https://eflury.com/de/verhaltenskodex/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/code-of-conduct/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/verhaltenskodex/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/code-of-conduct/"/>
-    <lastmod>2026-02-02</lastmod>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>yearly</changefreq>
-    <priority>0.4</priority>
+    <priority>0.3</priority>
   </url>
 </urlset>

@@ -1,16 +1,36 @@
 ---
-// Language redirect - instant via JavaScript, fallback via meta refresh
+// Language redirect - Google-friendly redirect to /en/
+// Uses noindex to prevent indexing the redirect page
+// Canonical points to the actual target page
 ---
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting...</title>
-  <meta http-equiv="refresh" content="0;url=/en/">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Emanuel Flury - AI Consultant</title>
+  <meta name="description" content="Emanuel Flury - Switzerland's leading Agentic AI & Business Automation Consultant. Redirecting to main site.">
+
+  <!-- SEO: Tell Google not to index this redirect page -->
+  <meta name="robots" content="noindex, follow">
+
+  <!-- Canonical points to the actual English homepage -->
   <link rel="canonical" href="https://eflury.com/en/">
+
+  <!-- hreflang for proper language signaling -->
+  <link rel="alternate" hreflang="en" href="https://eflury.com/en/">
+  <link rel="alternate" hreflang="de" href="https://eflury.com/de/">
+  <link rel="alternate" hreflang="x-default" href="https://eflury.com/en/">
+
+  <!-- Meta refresh as fallback (0 seconds = immediate) -->
+  <meta http-equiv="refresh" content="0;url=/en/">
+
+  <!-- JavaScript redirect (faster than meta refresh) -->
   <script>window.location.replace('/en/');</script>
 </head>
 <body>
-  <a href="/en/">Redirecting to English...</a>
+  <noscript>
+    <p>Redirecting to <a href="/en/">Emanuel Flury - AI Consultant</a></p>
+  </noscript>
 </body>
 </html>

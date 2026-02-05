@@ -1,5 +1,5 @@
 ---
-import { type Language } from '../i18n/utils';
+import { type Language, routes } from '../i18n/utils';
 import '../styles/global.css';
 import '../styles/apple-components.css';
 import '../styles/scroll-indicator.css';
@@ -11,17 +11,49 @@ interface Props {
   description: string;
   lang: Language;
   keywords?: string;
+  /** Override hreflang URLs for pages with different paths per language */
+  hreflangEn?: string;
+  hreflangDe?: string;
 }
 
-const { title, description, lang, keywords } = Astro.props;
+const { title, description, lang, keywords, hreflangEn, hreflangDe } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+
+// Map paths to their localized equivalents for proper hreflang generation
+const localizedPaths: Record<string, { en: string; de: string }> = {
+  // Legal pages with different slugs
+  '/en/privacy/': { en: '/en/privacy/', de: '/de/datenschutz/' },
+  '/de/datenschutz/': { en: '/en/privacy/', de: '/de/datenschutz/' },
+  '/en/terms/': { en: '/en/terms/', de: '/de/nutzungsbedingungen/' },
+  '/de/nutzungsbedingungen/': { en: '/en/terms/', de: '/de/nutzungsbedingungen/' },
+  '/en/disclaimer/': { en: '/en/disclaimer/', de: '/de/haftungsausschluss/' },
+  '/de/haftungsausschluss/': { en: '/en/disclaimer/', de: '/de/haftungsausschluss/' },
+  '/en/code-of-conduct/': { en: '/en/code-of-conduct/', de: '/de/verhaltenskodex/' },
+  '/de/verhaltenskodex/': { en: '/en/code-of-conduct/', de: '/de/verhaltenskodex/' },
+  // Services with different slugs
+  '/en/services/finance-automation/': { en: '/en/services/finance-automation/', de: '/de/services/finanzen-automatisierung/' },
+  '/de/services/finanzen-automatisierung/': { en: '/en/services/finance-automation/', de: '/de/services/finanzen-automatisierung/' },
+};
 
 // Generate hreflang URLs for language alternates
 const getHrefLangUrl = (targetLang: Language) => {
+  // Check if explicit hreflang props were provided
+  if (targetLang === 'en' && hreflangEn) return hreflangEn;
+  if (targetLang === 'de' && hreflangDe) return hreflangDe;
+
   const pathname = Astro.url.pathname;
+
+  // Root redirect page
   if (pathname === '/') {
     return `https://eflury.com/${targetLang}/`;
   }
+
+  // Check if this path has a localized mapping
+  if (localizedPaths[pathname]) {
+    return `https://eflury.com${localizedPaths[pathname][targetLang]}`;
+  }
+
+  // Default: simple path replacement for pages with same slugs
   return `https://eflury.com${pathname.replace(/^\/(en|de)\//, `/${targetLang}/`)}`;
 };
 

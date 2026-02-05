@@ -1,0 +1,190 @@
+---
+import MainLayout from '../layouts/MainLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+// Default to English for 404 page
+const lang = 'en';
+---
+
+<MainLayout
+  title="Page Not Found | Emanuel Flury"
+  description="The page you're looking for doesn't exist or has been moved."
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <main class="error-page">
+    <div class="container">
+      <div class="error-content">
+        <h1>404</h1>
+        <h2>Page Not Found</h2>
+        <p>The page you're looking for doesn't exist or has been moved.</p>
+
+        <div class="error-actions">
+          <a href="/en/" class="btn-primary">Go to Homepage (EN)</a>
+          <a href="/de/" class="btn-secondary">Zur Startseite (DE)</a>
+        </div>
+
+        <div class="helpful-links">
+          <p>Looking for something specific?</p>
+          <ul>
+            <li><a href="/en/services/">Our Services</a></li>
+            <li><a href="/en/about/">About Emanuel</a></li>
+            <li><a href="/en/case-studies/">Case Studies</a></li>
+            <li><a href="/en/#contact">Contact Us</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <Footer lang={lang} />
+</MainLayout>
+
+<style>
+  .error-page {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 120px 2rem 4rem;
+    background: linear-gradient(
+      135deg,
+      rgba(2, 37, 84, 0.03) 0%,
+      rgba(13, 148, 136, 0.05) 50%,
+      rgba(2, 37, 84, 0.03) 100%
+    );
+  }
+
+  .container {
+    max-width: 600px;
+    text-align: center;
+  }
+
+  .error-content h1 {
+    font-size: clamp(6rem, 20vw, 10rem);
+    font-weight: 800;
+    color: var(--eflury-teal);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.05em;
+  }
+
+  .error-content h2 {
+    font-size: clamp(1.5rem, 4vw, 2rem);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 1rem;
+  }
+
+  .error-content > p {
+    font-size: 1.125rem;
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    line-height: 1.6;
+  }
+
+  .error-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+
+  .btn-primary,
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.875rem 1.5rem;
+    border-radius: var(--radius-full);
+    font-weight: 600;
+    font-size: 1rem;
+    text-decoration: none;
+    transition: all var(--transition-base);
+    min-width: 180px;
+  }
+
+  .btn-primary {
+    background: var(--eflury-teal);
+    color: white;
+  }
+
+  .btn-primary:hover {
+    background: var(--eflury-navy);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(13, 148, 136, 0.3);
+  }
+
+  .btn-secondary {
+    background: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-color);
+  }
+
+  .btn-secondary:hover {
+    background: var(--bg-tertiary);
+    transform: translateY(-2px);
+  }
+
+  .helpful-links {
+    padding-top: 2rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .helpful-links p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin-bottom: 1rem;
+  }
+
+  .helpful-links ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    gap: 1.5rem;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .helpful-links a {
+    color: var(--eflury-teal);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color var(--transition-base);
+  }
+
+  .helpful-links a:hover {
+    color: var(--eflury-navy);
+    text-decoration: underline;
+  }
+
+  @media (max-width: 640px) {
+    .error-actions {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .btn-primary,
+    .btn-secondary {
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .helpful-links ul {
+      flex-direction: column;
+      gap: 0.75rem;
+    }
+  }
+
+  :global([data-theme="dark"]) .error-page {
+    background: linear-gradient(
+      135deg,
+      rgba(13, 148, 136, 0.08) 0%,
+      rgba(2, 37, 84, 0.1) 50%,
+      rgba(13, 148, 136, 0.08) 100%
+    );
+  }
+</style>
