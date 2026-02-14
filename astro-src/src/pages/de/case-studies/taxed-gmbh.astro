@@ -47,22 +47,25 @@ const lang = 'de';
             <cite>— Emanuel Aaron Flury, Gründer, Taxed GmbH</cite>
           </blockquote>
 
+          <div class="disclaimer-banner">
+            <p>Alle Kennzahlen sind projizierte Schätzungen basierend auf Workflow-Analyse und Zeiterfassung. Tatsächliche Ergebnisse können abweichen.</p>
+          </div>
           <div class="hero-stats">
             <div class="stat">
-              <span class="value">27,5h</span>
-              <span class="label">Wöchentlich eingesparte Zeit</span>
+              <span class="value">~27,5h</span>
+              <span class="label">Geschätzte wöchentliche Zeitersparnis</span>
             </div>
             <div class="stat">
-              <span class="value">CHF 24K</span>
-              <span class="label">Jährliche Einsparungen</span>
+              <span class="value">~CHF 24K</span>
+              <span class="label">Projizierte jährliche Einsparungen</span>
             </div>
             <div class="stat">
-              <span class="value">3,2 Mo</span>
-              <span class="label">Amortisationszeit</span>
+              <span class="value">~3,2 Mo</span>
+              <span class="label">Geschätzte Amortisationszeit</span>
             </div>
             <div class="stat">
               <span class="value">99,7%</span>
-              <span class="label">Genauigkeitsrate</span>
+              <span class="label">Angestrebte Genauigkeit</span>
             </div>
           </div>
         </div>
@@ -100,7 +103,7 @@ const lang = 'de';
           </div>
         </div>
 
-        <h3>Resultate auf einen Blick</h3>
+        <h3>Projizierte Resultate</h3>
         <div class="results-table-wrapper">
           <table class="results-table">
             <thead>
@@ -718,17 +721,14 @@ const lang = 'de';
       </div>
     </section>
 
-    <!-- Testimonial -->
+    <!-- Kundenfeedback -->
     <section class="testimonial">
       <div class="container">
-        <h2>Kunden-Testimonial</h2>
-        <blockquote class="main-testimonial">
-          <p>"Mir fiel Mitte 2024 auf, dass sich bei Taxed GmbH etwas verändert hatte. Plötzlich wurden meine Fragen in Minuten statt Stunden beantwortet. Reports waren konsistenter und detaillierter. Als Emanuel mir sagte, dass er KI nutzt, war ich skeptisch – aber die Resultate sprachen für sich. Jetzt will ich dasselbe für mein Geschäft."</p>
-          <cite>
-            <strong>Michael R.</strong><br>
-            Fertigungs-Kunde, Taxed GmbH seit 2021
-          </cite>
-        </blockquote>
+        <h2>Was sich für Kunden verändert hat</h2>
+        <div class="feedback-summary">
+          <p>Seit der Einführung der Claude-Automatisierung erleben Taxed GmbH-Kunden spürbar schnellere Reaktionszeiten und konsistentere Berichterstattung. Die Automatisierung ermöglicht dem Team, sich auf Beratungsarbeit statt auf manuelle Dateneingabe zu konzentrieren.</p>
+          <p class="disclaimer-text"><em>Dies ist eine Zusammenfassung beobachteter Verbesserungen, kein direktes Kundenzitat.</em></p>
+        </div>
       </div>
     </section>
 
@@ -803,7 +803,7 @@ const lang = 'de';
         <p><strong>Letzte Aktualisierung:</strong> Januar 2025</p>
         <p><strong>Implementierungsdatum:</strong> April-Juni 2024</p>
         <p><strong>Validiert von:</strong> Emanuel Aaron Flury, Inhaber, Taxed GmbH</p>
-        <p class="disclaimer"><em>Alle Finanzzahlen durch unabhängiges Audit verifiziert. Kundennamen gemäss Schweizer Datenschutzgesetz anonymisiert. Steuerberechnungs-Genauigkeit validiert gegen ESTV (Eidgenössische Steuerverwaltung) offizielle Tools.</em></p>
+        <p class="disclaimer"><em>Alle Kennzahlen sind projizierte Schätzungen basierend auf Workflow-Analyse und Zeiterfassung. Tatsächliche Ergebnisse können abweichen. Kundennamen gemäss Schweizer Datenschutzgesetz (DSG) anonymisiert. Steuerberechnungs-Genauigkeit gegen ESTV (Eidgenössische Steuerverwaltung) offizielle Tools benchmarked.</em></p>
       </div>
     </section>
   </main>
@@ -901,11 +901,39 @@ const lang = 'de';
     color: var(--text-secondary);
   }
 
+  .disclaimer-banner {
+    background: var(--warning-50, #fffbeb);
+    border: 1px solid var(--warning-200, #fde68a);
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--warning-800, #92400e);
+  }
+
+  .disclaimer-banner p {
+    margin: 0;
+  }
+
+  .disclaimer-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+  }
+
+  .feedback-summary {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
   .hero-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
   }
 
   .hero-stats .stat {

@@ -47,22 +47,26 @@ const lang = 'en';
             <cite>— Emanuel Aaron Flury, Founder, Taxed GmbH</cite>
           </blockquote>
 
+          <div class="disclaimer-banner">
+            <p>Metrics shown are projected estimates based on workflow analysis and time tracking. Actual results may vary.</p>
+          </div>
+
           <div class="hero-stats">
             <div class="stat">
-              <span class="value">27.5h</span>
-              <span class="label">Weekly time saved</span>
+              <span class="value">~27.5h</span>
+              <span class="label">Estimated weekly time saved</span>
             </div>
             <div class="stat">
-              <span class="value">CHF 24K</span>
-              <span class="label">Annual savings</span>
+              <span class="value">~CHF 24K</span>
+              <span class="label">Projected annual savings</span>
             </div>
             <div class="stat">
-              <span class="value">3.2mo</span>
-              <span class="label">Payback period</span>
+              <span class="value">~3.2mo</span>
+              <span class="label">Estimated payback period</span>
             </div>
             <div class="stat">
               <span class="value">99.7%</span>
-              <span class="label">Accuracy rate</span>
+              <span class="label">Target accuracy rate</span>
             </div>
           </div>
         </div>
@@ -100,7 +104,7 @@ const lang = 'en';
           </div>
         </div>
 
-        <h3>Results at a Glance</h3>
+        <h3>Projected Results</h3>
         <div class="results-table-wrapper">
           <table class="results-table">
             <thead>
@@ -718,17 +722,14 @@ const lang = 'en';
       </div>
     </section>
 
-    <!-- Testimonial -->
+    <!-- Client Feedback -->
     <section class="testimonial">
       <div class="container">
-        <h2>Client Testimonial</h2>
-        <blockquote class="main-testimonial">
-          <p>"I noticed something changed at Taxed GmbH around mid-2024. Suddenly, my questions got answered in minutes instead of hours. Reports were more consistent and detailed. When Emanuel told me he was using AI, I was skeptical—but the results spoke for themselves. Now I want the same for my business."</p>
-          <cite>
-            <strong>Michael R.</strong><br>
-            Manufacturing Client, Taxed GmbH since 2021
-          </cite>
-        </blockquote>
+        <h2>What Changed for Clients</h2>
+        <div class="feedback-summary">
+          <p>Since implementing Claude automation, Taxed GmbH clients have experienced noticeably faster response times and more consistent reporting. The automation allows the team to focus on advisory work rather than manual data entry.</p>
+          <p class="disclaimer-text"><em>This is a summary of observed improvements, not a direct client quote.</em></p>
+        </div>
       </div>
     </section>
 
@@ -803,7 +804,7 @@ const lang = 'en';
         <p><strong>Last Updated:</strong> January 2025</p>
         <p><strong>Implementation Date:</strong> April-June 2024</p>
         <p><strong>Validated By:</strong> Emanuel Aaron Flury, Owner, Taxed GmbH</p>
-        <p class="disclaimer"><em>All financial figures verified by independent audit. Client names anonymized per Swiss data protection law. Tax calculation accuracy validated against ESTV (Swiss Federal Tax Administration) official tools.</em></p>
+        <p class="disclaimer"><em>All metrics are projected estimates based on workflow analysis and time tracking. Actual results may vary. Client names anonymized per Swiss data protection law (FADP). Tax calculation accuracy benchmarked against ESTV (Swiss Federal Tax Administration) official tools.</em></p>
       </div>
     </section>
   </main>
@@ -901,11 +902,39 @@ const lang = 'en';
     color: var(--text-secondary);
   }
 
+  .disclaimer-banner {
+    background: var(--warning-50, #fffbeb);
+    border: 1px solid var(--warning-200, #fde68a);
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--warning-800, #92400e);
+  }
+
+  .disclaimer-banner p {
+    margin: 0;
+  }
+
+  .disclaimer-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+  }
+
+  .feedback-summary {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
   .hero-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2rem;
-    margin-top: 3rem;
+    margin-top: 1.5rem;
   }
 
   .hero-stats .stat {

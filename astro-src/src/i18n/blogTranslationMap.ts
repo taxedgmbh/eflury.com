@@ -16,6 +16,11 @@ export const blogTranslationMap: Record<string, string> = {
   'accounting-automation-switzerland': 'buchhaltung-automatisieren-schweiz',
   'excel-to-power-bi-migration': 'excel-zu-power-bi-migration',
   'ai-for-accounting-firms': 'ki-fuer-treuhand',
+  'openclaw-setup-service-swiss-sme': 'openclaw-setup-service-schweizer-kmu',
+  'ai-email-triage-agent-professionals': 'ki-email-triage-agent-professionals',
+  'ai-client-onboarding-accounting-firms': 'ki-kunden-onboarding-treuhand',
+  'voice-ai-receptionist-swiss-sme': 'voice-ki-rezeptionist-schweizer-kmu',
+  'enterprise-ai-consulting-fortune500-experience': 'enterprise-ki-beratung-fortune500-erfahrung',
 
   // German -> English (reverse mapping)
   'kreditoren-automatisierung-ki-schweizer-kmu': 'ap-automation-ai-swiss-smes',
@@ -29,6 +34,11 @@ export const blogTranslationMap: Record<string, string> = {
   'buchhaltung-automatisieren-schweiz': 'accounting-automation-switzerland',
   'excel-zu-power-bi-migration': 'excel-to-power-bi-migration',
   'ki-fuer-treuhand': 'ai-for-accounting-firms',
+  'openclaw-setup-service-schweizer-kmu': 'openclaw-setup-service-swiss-sme',
+  'ki-email-triage-agent-professionals': 'ai-email-triage-agent-professionals',
+  'ki-kunden-onboarding-treuhand': 'ai-client-onboarding-accounting-firms',
+  'voice-ki-rezeptionist-schweizer-kmu': 'voice-ai-receptionist-swiss-sme',
+  'enterprise-ki-beratung-fortune500-erfahrung': 'enterprise-ai-consulting-fortune500-experience',
 };
 
 /**

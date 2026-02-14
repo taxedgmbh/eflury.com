@@ -20,7 +20,7 @@
   "hero": {
     "badge": "Enterprise-Methoden · KMU-Preise",
     "title": "KI-Automatisierung für Schweizer KMU. Strategisch geplant. Praktisch umgesetzt.",
-    "subtitle": "Ich bringe die Automatisierungsstrategien von Fortune-100-Unternehmen zu Ihrem KMU — ohne Enterprise-Budget.",
+    "subtitle": "Ich bringe die Automatisierungsstrategien von Fortune-500-Unternehmen zu Ihrem KMU — ohne Enterprise-Budget.",
     "cta_primary": "Kostenloses Strategiegespräch buchen",
     "cta_secondary": "Methode entdecken ↓",
     "secondary_cta": "Methode entdecken ↓",
@@ -126,7 +126,7 @@
     "skopaai": {
       "title": "SkopaAI Hardware",
       "badge": "NEU",
-      "description": "Vorkonfigurierter Mac Mini mit KI-Assistent. Auspacken, verbinden und automatisieren via WhatsApp, Telegram oder E-Mail. Erstmals in der Schweiz.",
+      "description": "Vorkonfigurierter Mac Mini mit KI-Assistent. Auspacken, verbinden und automatisieren via WhatsApp, Telegram oder E-Mail. Made in Switzerland.",
       "features": ["Dedizierter Mac Mini M4", "WhatsApp/Telegram-Integration", "Keine technischen Kenntnisse nötig", "30 Tage Support inklusive"],
       "outcome": "Ergebnis: Ihr eigener KI-Mitarbeiter läuft 24/7",
       "ideal_for": "KMU mit Wunsch nach dedizierter KI-Hardware",
@@ -204,21 +204,21 @@
     "title": "Über mich",
     "subtitle": "KI-Berater mit Sitz in der Schweiz",
     "headline": "Vom Konzern zum KMU-Partner",
-    "bio1": "Nach 13 Jahren bei Johnson & Johnson, wo ich Automatisierungsinitiativen für globale Geschäftsbereiche geleitet habe, weiss ich, was im grossen Massstab funktioniert. Jetzt bringe ich diese Enterprise-Expertise direkt zu Schweizer KMUs.",
+    "bio1": "Nach 13 Jahren bei einem Fortune-500-Pharmaunternehmen, wo ich Automatisierungsinitiativen für globale Geschäftsbereiche geleitet habe, weiss ich, was im grossen Massstab funktioniert. Jetzt bringe ich diese Enterprise-Expertise direkt zu Schweizer KMUs.",
     "bio2": "Ich habe eFlury gegründet, weil ich gesehen habe, wie viele Unternehmen mit der KI-Einführung kämpfen. Sie brauchen keine neuen Tools - sie brauchen jemanden, der ihnen zeigt, wie sie das Vorhandene nutzen können.",
     "bio3": "Mit Sitz in Grenchen arbeite ich direkt mit meinen Kunden zusammen. Keine Folien, keine Frameworks - nur praktische Umsetzung, die vom ersten Tag an Ergebnisse liefert.",
-    "highlight1": "13 Jahre Fortune 100 Erfahrung",
+    "highlight1": "13 Jahre Fortune 500 Erfahrung",
     "highlight2": "Mit Sitz in der Schweiz",
     "highlight3": "Hands-on Umsetzung",
     "highlight4": "Festpreisprojekte",
-    "achievement": "Automatisierungen implementiert, die 200+ Stunden monatlich einsparen",
+    "achievement": "Automatisierungen konzipiert mit dem Ziel, 200+ Stunden monatlich einzusparen",
     "skills_title": "Expertise",
     "badge1": "Schweizer Standort",
-    "badge2": "Fortune 100 Hintergrund",
+    "badge2": "Fortune 500 Hintergrund",
     "certifications": "Claude Code, KI-Agenten, Prozessautomatisierung",
     "cta": "Lassen Sie uns sprechen",
     "credential1": "13+ Jahre Enterprise-Erfahrung",
-    "credential2": "Fortune 100 Hintergrund",
+    "credential2": "Fortune 500 Hintergrund",
     "credential3": "Schweizer Qualität",
     "certifications_title": "Zertifizierungen & Expertise",
     "cert_ai_title": "KI & Automatisierung",
@@ -330,57 +330,28 @@
     "menu": "Menü"
   },
   "testimonials": {
-    "title": "Was Kunden sagen",
-    "subtitle": "Echte Ergebnisse von echten Unternehmen",
-    "testimonial1": {
-      "name": "Thomas R.",
-      "role": "VP Finance & Controlling",
-      "company": "Global Finance",
-      "text": "Emanuel hat unseren Monatsabschlussprozess automatisiert und spart unserem Team jeden Monat über 40 Stunden. Der ROI war innerhalb des ersten Quartals klar."
+    "title": "Warum Schweizer KMU mich wählen",
+    "subtitle": "Was Sie bei der Zusammenarbeit erwarten können",
+    "value_prop1": {
+      "title": "Enterprise-Methoden, KMU-Preise",
+      "description": "13 Jahre Fortune-500-Automatisierungserfahrung für Ihr Unternehmen — ohne Enterprise-Budget."
     },
-    "testimonial2": {
-      "name": "Sarah M.",
-      "role": "Geschäftsführerin",
-      "company": "Schweizer KMU, Fertigung",
-      "text": "Von manueller Dateneingabe zu vollautomatisierten Workflows in nur 3 Wochen. Emanuel hat den ganzen Prozess mühelos gestaltet."
+    "value_prop2": {
+      "title": "Hands-on Umsetzung",
+      "description": "Ich arbeite direkt mit Ihrem Team, um funktionierende Automatisierung aufzubauen. Keine Folien, keine Berichte in der Schublade — nur Ergebnisse."
     },
-    "testimonial3": {
-      "name": "Martin K.",
-      "role": "Leiter Betrieb",
-      "company": "Schweizer Fertigung, 120 Mitarbeiter",
-      "text": "Das KI-Training war genau das, was unser Team brauchte. Praktisch, hands-on und sofort anwendbar. Wir nutzen jetzt täglich KI-Tools."
-    },
-    "testimonial4": {
-      "name": "Claudia B.",
-      "role": "Office Managerin",
-      "company": "Anwaltskanzlei, Zürich",
-      "text": "Unsere Dokumentenverarbeitung ging von 3 Stunden auf 15 Minuten pro Batch. Emanuel verstand unsere Compliance-Anforderungen und baute eine Lösung, die tatsächlich innerhalb der Schweizer Vorschriften funktioniert."
-    },
-    "testimonial5": {
-      "name": "Andreas W.",
-      "role": "CEO",
-      "company": "Tech-Startup, 25 Mitarbeiter",
-      "text": "Wir konnten uns keinen Vollzeit-KI-Spezialisten leisten, aber Emanuels Festpreis-Ansatz gab uns Enterprise-Level-Automatisierung zu einem Bruchteil der Kosten. Beste Investition dieses Jahr."
-    },
-    "testimonial6": {
-      "name": "Petra H.",
-      "role": "HR-Direktorin",
-      "company": "Gesundheitsdienste, Basel",
-      "text": "Anfangs skeptisch, ob KI sensible HR-Daten verarbeiten kann, aber Emanuels Ansatz zum Datenschutz hat mich überzeugt. Jetzt läuft unser Onboarding-Prozess automatisch und bleibt dabei vollständig DSGVO-konform."
-    },
-    "testimonial7": {
-      "name": "Marco F.",
-      "role": "Financial Controller",
-      "company": "Import/Export-Geschäft, Genf",
-      "text": "Der ROI-Rechner, den Emanuel bereitstellte, zeigte Einsparungen von CHF 45'000/Jahr. Nach sechs Monaten sparen wir tatsächlich mehr. Kein Berater-Jargon, nur Ergebnisse."
+    "value_prop3": {
+      "title": "Festpreis, keine Überraschungen",
+      "description": "Sie kennen die vollen Kosten vor Projektstart. Klarer Umfang, transparente Preise und 30 Tage Support inklusive."
     }
   },
   "portfolio": {
     "title": "Erfolgsgeschichten",
-    "subtitle": "Echte Ergebnisse aus echten Implementierungen",
+    "subtitle": "Echte Implementierungen mit geschätzten Ergebnissen",
+    "disclaimer": "Kundendaten anonymisiert. Kennzahlen sind Schätzungen basierend auf Projektdaten.",
     "project1": {
       "title": "Finanzprozess-Automatisierung",
-      "description": "Automatisierung von Monatsabschluss-Reporting und Abstimmung für ein globales Finanzteam. Verarbeitungszeit um 80% reduziert.",
+      "description": "Automatisierung von Monatsabschluss-Reporting und Abstimmung für ein Finanzteam mit geschätzter Reduktion der Verarbeitungszeit um 80%.",
       "category": "Finanz-Automatisierung",
       "technologies": "Make, Microsoft 365, Claude AI"
     },
@@ -443,7 +414,7 @@
       },
       {
         "question": "Was unterscheidet Sie von Beratungsfirmen?",
-        "answer": "Ich liefere funktionierende Automatisierung, keine PowerPoint-Berichte. Ich arbeite hands-on mit Ihrem Team, biete Festpreisprojekte (keine Stundenüberraschungen) und bleibe involviert, bis die Lösung funktioniert. Meine Fortune-100-Erfahrung bedeutet Enterprise-Qualität zu KMU-freundlichen Preisen."
+        "answer": "Ich liefere funktionierende Automatisierung, keine PowerPoint-Berichte. Ich arbeite hands-on mit Ihrem Team, biete Festpreisprojekte (keine Stundenüberraschungen) und bleibe involviert, bis die Lösung funktioniert. Meine Fortune-500-Erfahrung bedeutet Enterprise-Qualität zu KMU-freundlichen Preisen."
       },
       {
         "question": "Wie weiss ich, ob KI für mein Unternehmen geeignet ist?",
@@ -461,13 +432,14 @@
       "healthcare": "Gesundheitswesen"
     },
     "stats": {
+      "years_experience": "Jahre Enterprise-Erfahrung",
       "hours_saved": "Stunden gespart / Monat",
       "projects": "Projekte umgesetzt",
       "swiss_based": "In der Schweiz"
     },
     "badges": {
       "data_protection": "Schweizer Datenschutz",
-      "enterprise_experience": "Fortune 100 Erfahrung"
+      "enterprise_experience": "Fortune 500 Erfahrung"
     }
   },
   "lead_magnet": {
@@ -490,10 +462,10 @@
   "skopaai": {
     "meta": {
       "title": "SkopaAI - Ihr KI-Mitarbeiter, sofort einsatzbereit | eFlury",
-      "description": "Vorkonfigurierter Mac Mini mit KI-Assistent. Erstmals in der Schweiz. Verbindet sich mit WhatsApp, Telegram, E-Mail. Auspacken, verbinden, automatisieren."
+      "description": "Vorkonfigurierter Mac Mini mit KI-Assistent. Made in Switzerland. Verbindet sich mit WhatsApp, Telegram, E-Mail. Auspacken, verbinden, automatisieren."
     },
     "hero": {
-      "badge": "Erstmals in der Schweiz",
+      "badge": "Made in Switzerland",
       "title": "Ihr KI-Mitarbeiter. Sofort einsatzbereit.",
       "subtitle": "Vorkonfigurierter Mac Mini mit KI-Assistent. Auspacken. Verbinden. Automatisieren.",
       "cta_primary": "SkopaAI reservieren",
@@ -678,7 +650,7 @@
       "note": "30-Minuten-Gespräch · Unverbindlich · Live-Demo"
     },
     "trust": {
-      "first_in_switzerland": "Erstmals in der Schweiz",
+      "first_in_switzerland": "Made in Switzerland",
       "swiss_data": "Schweizer Datenschutz",
       "no_cloud": "Keine Cloud erforderlich",
       "enterprise_security": "Enterprise-Sicherheit"

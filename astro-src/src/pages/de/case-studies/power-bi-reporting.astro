@@ -39,22 +39,25 @@ const lang = 'de';
           <p class="subtitle">Echtzeit Business Intelligence für eine wachsende Firma</p>
 
           <blockquote class="hero-quote">
-            "Zum ersten Mal in 15 Jahren weiss ich genau, wo wir stehen—jetzt, nicht letzten Monat."
-            <cite>— Dr. M. Keller, Managing Partner · Professionelle Dienstleistungen · Bern</cite>
+            Sieben getrennte Datenquellen in einem einzigen Echtzeit-Executive-Dashboard vereint.
+            <cite>— Anonymisierter Kunde, Professionelle Dienstleistungen, Region Bern</cite>
           </blockquote>
 
+          <div class="disclaimer-banner">
+            <p>Kundendaten auf Wunsch anonymisiert. Kennzahlen sind Schätzungen basierend auf Projektdaten und spiegeln möglicherweise nicht die exakten Ergebnisse wider.</p>
+          </div>
           <div class="hero-stats">
             <div class="stat">
-              <span class="value">15h</span>
-              <span class="label">Wöchentlich gespart</span>
+              <span class="value">~15h</span>
+              <span class="label">Geschätzte wöchentliche Zeitersparnis</span>
             </div>
             <div class="stat">
-              <span class="value">CHF 36K</span>
-              <span class="label">Jährliche Einsparung</span>
+              <span class="value">~CHF 36K</span>
+              <span class="label">Geschätzte jährliche Einsparung</span>
             </div>
             <div class="stat">
-              <span class="value">2.8 Mo</span>
-              <span class="label">Amortisationszeit</span>
+              <span class="value">~2.8 Mo</span>
+              <span class="label">Geschätzte Amortisationszeit</span>
             </div>
             <div class="stat">
               <span class="value">7</span>
@@ -93,7 +96,7 @@ const lang = 'de';
           </div>
         </div>
 
-        <h3>Ergebnisse auf einen Blick</h3>
+        <h3>Geschätzte Ergebnisse</h3>
         <div class="results-table-wrapper">
           <table class="results-table">
             <thead>
@@ -405,20 +408,12 @@ const lang = 'de';
       </div>
     </section>
 
-    <!-- Testimonial -->
+    <!-- Kundenfeedback -->
     <section class="testimonial">
       <div class="container">
-        <blockquote class="main-testimonial">
-          <p>"Ich verbrachte meinen ganzen Freitag mit Berichten, die am Montag schon veraltet waren. Jetzt verbringe ich 30 Minuten mit der Überprüfung von Insights, die immer aktuell sind. Die Partner lesen die Dashboards tatsächlich, weil sie nützlich sind, nicht nur Compliance-Übungen."</p>
-          <cite>
-            <strong>Sandra M., Operations Managerin</strong><br>
-            Professionelles Dienstleistungsunternehmen | Region Bern<br>
-            <span class="company-context">45 Fachleute · CHF 12M Umsatz · 15+ Jahre etabliert</span>
-          </cite>
-        </blockquote>
-        <div class="testimonial-verification">
-          <span class="verification-badge">✓ Ergebnisse unabhängig verifiziert</span>
-          <span class="verification-detail">Implementierung abgeschlossen Q1 2024</span>
+        <div class="feedback-summary">
+          <p>Das Operations-Team berichtete von einem grossen Wandel — weg von manueller wöchentlicher Report-Erstellung hin zu Echtzeit-Dashboard-Monitoring, wobei die Partner erstmals aktiv mit den Daten arbeiteten.</p>
+          <p class="disclaimer-text"><em>Kundendaten auf Wunsch anonymisiert. Dies ist eine Zusammenfassung berichteter Ergebnisse, kein direktes Zitat. Implementierung abgeschlossen Q1 2024.</em></p>
         </div>
       </div>
     </section>
@@ -596,11 +591,39 @@ const lang = 'de';
     color: var(--text-secondary);
   }
 
+  .disclaimer-banner {
+    background: var(--warning-50, #fffbeb);
+    border: 1px solid var(--warning-200, #fde68a);
+    border-radius: 8px;
+    padding: 0.75rem 1.25rem;
+    margin-top: 2rem;
+    font-size: 0.85rem;
+    color: var(--warning-800, #92400e);
+  }
+
+  .disclaimer-banner p {
+    margin: 0;
+  }
+
+  .disclaimer-text {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+    margin-top: 1rem;
+  }
+
+  .feedback-summary {
+    max-width: 700px;
+    margin: 0 auto;
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: var(--text-secondary);
+  }
+
   .hero-stats {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 1.5rem;
-    margin-top: 2rem;
+    margin-top: 1.5rem;
   }
 
   .hero-stats .stat {
