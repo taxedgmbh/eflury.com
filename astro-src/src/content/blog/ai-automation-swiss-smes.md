@@ -1,7 +1,7 @@
 ---
 title: "AI Automation for Swiss SMEs: A Practical Guide"
 description: "Learn how Swiss small and medium enterprises can leverage Claude AI and automation tools to save 15-40 hours per week while maintaining Swiss data protection standards."
-pubDate: 2025-01-15
+pubDate: 2026-02-10
 author: "Emanuel Flury"
 tags: ["AI Automation", "Swiss SME", "Claude AI", "Business Process"]
 lang: "en"

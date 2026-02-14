@@ -1,7 +1,7 @@
 ---
 title: "Buchhaltung automatisieren in der Schweiz: Der praktische Leitfaden für KMU"
 description: "Erfahren Sie, wie Schweizer KMU ihre Buchhaltungsprozesse automatisieren können. Von der Kreditorenbuchhaltung bis zum Monatsabschluss - mit konkreten Tools und ROI-Berechnungen."
-pubDate: 2025-01-20
+pubDate: 2026-02-03
 author: "Emanuel Flury"
 tags: ["Buchhaltung", "Automatisierung", "Schweiz", "KMU", "Finanzen"]
 lang: "de"

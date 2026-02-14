@@ -1,7 +1,7 @@
 ---
 title: "KI für Treuhandfirmen: Wie Sie Ihre Kanzlei zukunftssicher machen"
 description: "Künstliche Intelligenz verändert die Treuhandbranche grundlegend. Erfahren Sie, welche KI-Tools für Schweizer Treuhänder relevant sind und wie Sie diese gewinnbringend einsetzen."
-pubDate: 2025-01-15
+pubDate: 2026-02-05
 author: "Emanuel Flury"
 tags: ["KI", "Treuhand", "Schweiz", "Automatisierung", "Digitalisierung"]
 lang: "de"

@@ -1,7 +1,7 @@
 ---
 title: "Accounting Automation in Switzerland: A Practical Guide for SMEs"
 description: "Learn how Swiss SMEs can automate their accounting processes. From accounts payable to month-end close - with specific tools and ROI calculations."
-pubDate: 2025-01-20
+pubDate: 2026-02-03
 author: "Emanuel Flury"
 tags: ["Accounting", "Automation", "Switzerland", "SME", "Finance"]
 lang: "en"

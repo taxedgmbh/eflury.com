@@ -1,7 +1,7 @@
 ---
 title: "RPA vs AI: Which Automation Approach is Right for You?"
 description: "Compare traditional RPA (Robotic Process Automation) with modern AI automation. Learn when to use each approach and how they can work together."
-pubDate: 2025-01-01
+pubDate: 2026-02-01
 author: "Emanuel Flury"
 tags: ["RPA", "AI", "Automation", "Technology Comparison"]
 lang: "en"

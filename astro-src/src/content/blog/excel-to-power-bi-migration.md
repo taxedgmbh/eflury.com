@@ -1,7 +1,7 @@
 ---
 title: "From Excel to Power BI: The Migration Guide for Swiss SMEs"
 description: "Step-by-step guide for migrating Excel reports to Power BI. Including checklist, typical pitfalls, and ROI calculation for Swiss companies."
-pubDate: 2025-01-10
+pubDate: 2026-02-07
 author: "Emanuel Flury"
 tags: ["Power BI", "Excel", "Migration", "Business Intelligence", "Switzerland"]
 lang: "en"

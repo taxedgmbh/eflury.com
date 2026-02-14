@@ -1,7 +1,7 @@
 ---
 title: "Power BI für Finanzteams: Mehr als einfaches Reporting"
 description: "Wechseln Sie von statischen Excel-Berichten zu dynamischen Power BI-Dashboards. Erfahren Sie, wie Finanzteams die Berichtszeit um 80% reduzieren und gleichzeitig Echtzeit-Einblicke gewinnen können."
-pubDate: 2025-01-08
+pubDate: 2026-02-08
 author: "Emanuel Flury"
 tags: ["Power BI", "Finanzen", "Business Intelligence", "Reporting"]
 lang: "de"

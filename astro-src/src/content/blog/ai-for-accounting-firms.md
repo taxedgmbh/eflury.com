@@ -1,7 +1,7 @@
 ---
 title: "AI for Accounting Firms: How to Future-Proof Your Practice"
 description: "Artificial intelligence is fundamentally changing the accounting industry. Learn which AI tools are relevant for Swiss accountants and how to use them profitably."
-pubDate: 2025-01-15
+pubDate: 2026-02-05
 author: "Emanuel Flury"
 tags: ["AI", "Accounting", "Switzerland", "Automation", "Digitalization"]
 lang: "en"

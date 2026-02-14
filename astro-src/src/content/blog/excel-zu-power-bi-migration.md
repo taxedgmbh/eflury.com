@@ -1,7 +1,7 @@
 ---
 title: "Von Excel zu Power BI: Der Migrations-Leitfaden für Schweizer KMU"
 description: "Schritt-für-Schritt-Anleitung für die Migration von Excel-Berichten zu Power BI. Inkl. Checkliste, typische Fallstricke und ROI-Berechnung für Schweizer Unternehmen."
-pubDate: 2025-01-10
+pubDate: 2026-02-07
 author: "Emanuel Flury"
 tags: ["Power BI", "Excel", "Migration", "Business Intelligence", "Schweiz"]
 lang: "de"

@@ -1,7 +1,7 @@
 ---
 title: "KI-Automatisierung für Schweizer KMU: Ein praktischer Leitfaden"
 description: "Erfahren Sie, wie Schweizer KMU Claude AI und Automatisierungstools nutzen können, um 15-40 Stunden pro Woche zu sparen und gleichzeitig Schweizer Datenschutzstandards einzuhalten."
-pubDate: 2025-01-15
+pubDate: 2026-02-10
 author: "Emanuel Flury"
 tags: ["KI-Automatisierung", "Schweizer KMU", "Claude AI", "Geschäftsprozesse"]
 lang: "de"

@@ -1,7 +1,7 @@
 ---
 title: "RPA vs KI: Welcher Automatisierungsansatz ist richtig für Sie?"
 description: "Vergleichen Sie traditionelles RPA (Robotic Process Automation) mit moderner KI-Automatisierung. Erfahren Sie, wann welcher Ansatz sinnvoll ist und wie sie zusammenarbeiten können."
-pubDate: 2025-01-01
+pubDate: 2026-02-01
 author: "Emanuel Flury"
 tags: ["RPA", "KI", "Automatisierung", "Technologievergleich"]
 lang: "de"

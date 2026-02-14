@@ -1,7 +1,7 @@
 ---
 title: "Power BI for Finance Teams: Beyond Basic Reporting"
 description: "Move from static Excel reports to dynamic Power BI dashboards. Learn how finance teams can reduce reporting time by 80% while gaining real-time insights."
-pubDate: 2025-01-08
+pubDate: 2026-02-08
 author: "Emanuel Flury"
 tags: ["Power BI", "Finance", "Business Intelligence", "Reporting"]
 lang: "en"
