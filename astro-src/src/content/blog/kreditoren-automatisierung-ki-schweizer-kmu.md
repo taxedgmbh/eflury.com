@@ -5,6 +5,7 @@ pubDate: 2026-02-19
 author: "Emanuel Flury"
 tags: ["Finanzautomatisierung", "Kreditorenbuchhaltung", "KI", "Schweizer KMU"]
 lang: "de"
+translationKey: "ap-automation-2026"
 ---
 
 Ein CFO in Basel teilte kürzlich eine Erkenntnis, die jeden Schweizer Geschäftsführer beunruhigen sollte: "Wir haben festgestellt, dass wir CHF 45 pro Rechnung ausgeben, um die Kreditorenbuchhaltung manuell zu bearbeiten. Unser Konkurrent auf der anderen Strassenseite? Er gibt CHF 8 aus. Gleiche Branche, gleicher Lieferantenstamm, gleiche Compliance-Anforderungen. Der Unterschied? Sie haben vor sechs Monaten automatisiert."

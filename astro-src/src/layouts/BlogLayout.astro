@@ -26,9 +26,10 @@ interface Props {
   tags?: string[];
   slug: string;
   lang: 'en' | 'de';
+  languageSwitchUrl?: string;
 }
 
-const { title, description, pubDate, updatedDate, author, image, imageAlt, tags = [], slug, lang } = Astro.props;
+const { title, description, pubDate, updatedDate, author, image, imageAlt, tags = [], slug, lang, languageSwitchUrl } = Astro.props;
 
 const formattedPubDate = pubDate.toLocaleDateString(lang === 'de' ? 'de-CH' : 'en-US', {
   year: 'numeric',
@@ -64,7 +65,7 @@ const readingTimeLabel = lang === 'de' ? 'Lesezeit' : 'Reading time';
     lang={lang}
     url={Astro.url.pathname}
   />
-  <Header lang={lang} />
+  <Header lang={lang} languageSwitchUrl={languageSwitchUrl} />
 
   <article class="blog-post">
     <div class="container">

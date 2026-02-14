@@ -5,6 +5,7 @@ pubDate: 2026-02-01
 author: "Emanuel Flury"
 tags: ["RPA", "KI", "Automatisierung", "Technologievergleich"]
 lang: "de"
+translationKey: "rpa-vs-ai"
 ---
 
 "Sollten wir RPA oder KI verwenden?" ist eine der häufigsten Fragen, die ich von Schweizer Unternehmen erhalte, die Automatisierung erkunden. Die Antwort ist, wie bei den meisten Technologieentscheidungen, "es kommt darauf an." Lassen Sie uns aufschlüsseln, wann welcher Ansatz sinnvoll ist.

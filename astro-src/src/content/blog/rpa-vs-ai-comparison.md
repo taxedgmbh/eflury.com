@@ -5,6 +5,7 @@ pubDate: 2026-02-01
 author: "Emanuel Flury"
 tags: ["RPA", "AI", "Automation", "Technology Comparison"]
 lang: "en"
+translationKey: "rpa-vs-ai"
 ---
 
 "Should we use RPA or AI?" is one of the most common questions I get from Swiss businesses exploring automation. The answer, as with most technology decisions, is "it depends." Let's break down when each approach makes sense.

@@ -5,6 +5,7 @@ pubDate: 2026-02-10
 author: "Emanuel Flury"
 tags: ["KI-Automatisierung", "Schweizer KMU", "Claude AI", "Geschäftsprozesse"]
 lang: "de"
+translationKey: "ai-automation-swiss-smes"
 ---
 
 Letzten Monat teilte mir die Finanzchefin eines Fertigungsunternehmens in Solothurn etwas mit, das ich in auffälliger Regelmässigkeit von Geschäftsführenden in der ganzen Schweiz höre: *«Wir ertrinken in Papierkram, während unsere Konkurrenten an uns vorbeiziehen.»* Ihr vierköpfiges Finanzteam hatte etwa 60 Prozent seiner Arbeitszeit mit manueller Dateneingabe, Rechnungsverarbeitung und Berichtserstellung verbracht – Aufgaben, die zwar notwendig waren, aber absolut nichts zu den strategischen Zielen oder der Wettbewerbspositionierung des Unternehmens beitrugen.

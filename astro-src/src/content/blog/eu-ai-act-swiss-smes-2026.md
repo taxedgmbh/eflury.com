@@ -5,6 +5,7 @@ pubDate: 2026-02-16
 author: "Emanuel Flury"
 tags: ["EU AI Act", "Swiss SME", "Compliance", "Regulation"]
 lang: "en"
+translationKey: "eu-ai-act-2026"
 ---
 
 On August 2, 2026—precisely 168 days from now—the most significant AI regulation in history takes full effect. For Swiss small and medium enterprises deploying AI systems in EU markets, this date represents a hard deadline that will fundamentally reshape how they develop, deploy, and document their artificial intelligence applications.

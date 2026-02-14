@@ -5,6 +5,7 @@ pubDate: 2026-02-18
 author: "Emanuel Flury"
 tags: ["Agentic AI", "AI Agents", "Swiss SME", "Automation"]
 lang: "en"
+translationKey: "agentic-ai-2026"
 ---
 
 A banking client recently asked me a question that I suspect many Swiss business leaders are pondering: *"We've deployed chatbots, we're using automation—what exactly is this 'agentic AI' everyone keeps talking about, and why does Gartner predict that 40% of enterprise applications will have AI agents by the end of 2026?"*

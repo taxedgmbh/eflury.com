@@ -5,15 +5,20 @@ import { ChevronDown } from 'lucide-astro';
 
 interface Props {
   lang: Language;
+  languageSwitchUrl?: string;
 }
 
-const { lang } = Astro.props;
+const { lang, languageSwitchUrl } = Astro.props;
 const t = useTranslations(lang);
 const currentRoutes = routes[lang];
 
 // Generate language switch URLs that preserve the current page
 const currentPath = Astro.url.pathname;
 const getLanguageSwitchUrl = (targetLang: Language) => {
+  // If a custom languageSwitchUrl is provided (e.g., for blog posts), use it
+  if (languageSwitchUrl && targetLang !== lang) {
+    return languageSwitchUrl;
+  }
   // If on root, go to language home
   if (currentPath === '/' || currentPath === '') {
     return `/${targetLang}/`;

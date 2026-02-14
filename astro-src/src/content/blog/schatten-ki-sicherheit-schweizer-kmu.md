@@ -5,6 +5,7 @@ pubDate: 2026-02-15
 author: "Emanuel Flury"
 tags: ["Schatten-KI", "KI-Sicherheit", "Schweizer KMU", "DSG-Konformität", "Zero Trust", "MCP-Sicherheit"]
 lang: "de"
+translationKey: "shadow-ai-security-2026"
 ---
 
 Der Anruf kam am Dienstag um 2:47 Uhr morgens im November 2025. Thomas Widmer, IT-Leiter eines mittelgrossen Zürcher Finanzberatungsunternehmens, hörte mit wachsendem Entsetzen zu, als sein CISO die Situation erklärte: Ein leitender Analyst hatte seit acht Monaten ChatGPT verwendet, um Kundenberichte zu erstellen, und dabei unwissentlich detaillierte Finanzinformationen über 340 vermögende Kunden – inklusive AHV-Nummern, Kontoständen und Anlagestrategien – direkt in OpenAIs Trainingsdaten eingespeist, bevor das Unternehmen Opt-out-Schutzmassnahmen implementiert hatte.

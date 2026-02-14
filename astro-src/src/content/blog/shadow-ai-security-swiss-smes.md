@@ -5,6 +5,7 @@ pubDate: 2026-02-15
 author: "Emanuel Flury"
 tags: ["Shadow AI", "AI Security", "Swiss SME", "FADP Compliance", "Zero Trust", "MCP Security"]
 lang: "en"
+translationKey: "shadow-ai-security-2026"
 ---
 
 The phone call came at 2:47 AM on a Tuesday morning in November 2025. Thomas Widmer, the IT director of a mid-sized Zürich financial advisory firm, listened in growing horror as his CISO explained the situation: a senior analyst had been using ChatGPT to help draft client reports for the past eight months, inadvertently feeding detailed financial information about 340 high-net-worth clients—including AHV numbers, account balances, and investment strategies—directly into OpenAI's training data before the company had implemented opt-out protections.

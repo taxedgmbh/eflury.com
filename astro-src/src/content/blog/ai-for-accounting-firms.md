@@ -5,6 +5,7 @@ pubDate: 2026-02-05
 author: "Emanuel Flury"
 tags: ["AI", "Accounting", "Switzerland", "Automation", "Digitalization"]
 lang: "en"
+translationKey: "ai-accounting-firms"
 ---
 
 The accounting industry is at a turning point. Artificial intelligence will fundamentally change how accounting firms work in the coming years. The question is not if, but how quickly you adapt.

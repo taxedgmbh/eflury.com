@@ -5,6 +5,7 @@ pubDate: 2026-02-16
 author: "Emanuel Flury"
 tags: ["EU AI Act", "Schweizer KMU", "Compliance", "Regulierung"]
 lang: "de"
+translationKey: "eu-ai-act-2026"
 ---
 
 Am 2. August 2026 – genau 168 Tage von heute an – tritt die bedeutendste KI-Regulierung der Geschichte in vollem Umfang in Kraft. Für Schweizer kleine und mittlere Unternehmen, die KI-Systeme auf EU-Märkten einsetzen, stellt dieses Datum eine harte Frist dar, die grundlegend verändern wird, wie sie ihre Künstliche-Intelligenz-Anwendungen entwickeln, einsetzen und dokumentieren.

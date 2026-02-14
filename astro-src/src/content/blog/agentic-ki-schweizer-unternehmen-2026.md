@@ -5,6 +5,7 @@ pubDate: 2026-02-18
 author: "Emanuel Flury"
 tags: ["Agentic AI", "AI Agents", "Schweizer KMU", "Automation"]
 lang: "de"
+translationKey: "agentic-ai-2026"
 ---
 
 Ein Bankkunde stellte mir kürzlich eine Frage, über die vermutlich viele Schweizer Führungskräfte nachdenken: *"Wir haben Chatbots implementiert, wir nutzen Automation – was genau ist diese 'Agentic AI', von der alle sprechen, und warum prognostiziert Gartner, dass 40% der Unternehmensanwendungen bis Ende 2026 AI Agents enthalten werden?"*

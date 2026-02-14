@@ -5,6 +5,7 @@ pubDate: 2026-02-10
 author: "Emanuel Flury"
 tags: ["AI Automation", "Swiss SME", "Claude AI", "Business Process"]
 lang: "en"
+translationKey: "ai-automation-swiss-smes"
 ---
 
 Last month, a manufacturing CFO in Solothurn shared something with me that I hear with striking regularity from business leaders across Switzerland: *"We're drowning in paperwork while our competitors are racing ahead."* Her finance team of four had been spending roughly 60% of their working hours on manual data entry, invoice processing, and report compilation—tasks that, while necessary, contributed absolutely nothing to the company's strategic objectives or competitive positioning.

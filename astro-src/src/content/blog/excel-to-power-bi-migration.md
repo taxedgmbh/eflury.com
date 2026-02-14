@@ -5,6 +5,7 @@ pubDate: 2026-02-07
 author: "Emanuel Flury"
 tags: ["Power BI", "Excel", "Migration", "Business Intelligence", "Switzerland"]
 lang: "en"
+translationKey: "excel-power-bi-migration"
 ---
 
 You've worked with Excel for years. Your reports work. So why switch? The short answer: Because Excel costs you more than you think - and Power BI offers you more than you expect.

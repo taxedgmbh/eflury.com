@@ -5,6 +5,7 @@ pubDate: 2026-02-03
 author: "Emanuel Flury"
 tags: ["Buchhaltung", "Automatisierung", "Schweiz", "KMU", "Finanzen"]
 lang: "de"
+translationKey: "accounting-automation"
 ---
 
 Die Buchhaltung frisst in vielen Schweizer KMU unverhältnismässig viel Zeit. Dabei lassen sich gerade hier enorme Effizienzgewinne erzielen. In diesem Leitfaden zeige ich Ihnen, welche Prozesse Sie automatisieren können - und welchen ROI Sie erwarten dürfen.

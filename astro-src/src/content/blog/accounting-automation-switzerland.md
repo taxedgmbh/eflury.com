@@ -5,6 +5,7 @@ pubDate: 2026-02-03
 author: "Emanuel Flury"
 tags: ["Accounting", "Automation", "Switzerland", "SME", "Finance"]
 lang: "en"
+translationKey: "accounting-automation"
 ---
 
 Accounting consumes a disproportionate amount of time in many Swiss SMEs. Yet this is precisely where enormous efficiency gains can be achieved. In this guide, I'll show you which processes you can automate - and what ROI you can expect.

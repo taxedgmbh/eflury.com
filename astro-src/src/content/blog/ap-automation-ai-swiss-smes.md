@@ -5,6 +5,7 @@ pubDate: 2026-02-19
 author: "Emanuel Flury"
 tags: ["Finance Automation", "Accounts Payable", "AI", "Swiss SME"]
 lang: "en"
+translationKey: "ap-automation-2026"
 ---
 
 A CFO in Basel recently shared a revelation that should concern every Swiss business leader: "We discovered we were spending CHF 45 per invoice to process accounts payable manually. Our competitor down the street? They spend CHF 8. Same industry, same supplier base, same compliance requirements. The difference? They automated six months ago."

@@ -5,6 +5,7 @@ pubDate: 2026-02-17
 author: "Emanuel Flury"
 tags: ["AI ROI", "Schweizer KMU", "Business Intelligence", "Finanzen"]
 lang: "de"
+translationKey: "ai-roi-measurement-2026"
 ---
 
 Der CFO eines Berner Logistikunternehmens sass mir letzte Woche gegenüber und sagte etwas, das ich zunehmend häufiger höre: *«Wir haben in den letzten 18 Monaten CHF 85'000 für AI-Pilotprojekte ausgegeben. Das Tech-Team ist begeistert, die Berater sagen, wir würden 'AI-Fähigkeiten aufbauen', aber ich kann meinem Verwaltungsrat immer noch nicht sagen, ob wir Geld verdient oder verloren haben.»*

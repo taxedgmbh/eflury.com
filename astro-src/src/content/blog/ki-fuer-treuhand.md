@@ -5,6 +5,7 @@ pubDate: 2026-02-05
 author: "Emanuel Flury"
 tags: ["KI", "Treuhand", "Schweiz", "Automatisierung", "Digitalisierung"]
 lang: "de"
+translationKey: "ai-accounting-firms"
 ---
 
 Die Treuhandbranche steht vor einem Wendepunkt. Künstliche Intelligenz wird in den nächsten Jahren grundlegend verändern, wie Treuhandfirmen arbeiten. Die Frage ist nicht ob, sondern wie schnell Sie sich anpassen.
