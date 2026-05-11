@@ -521,9 +521,10 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
   }
 
   /* Mobile-only elements - hidden on desktop by default */
-  .mobile-dark-toggle,
-  .mobile-menu-section,
-  .mobile-language-options {
+  /* Specificity must match .nav-links > li (added for vertical alignment) */
+  .nav-links > li.mobile-dark-toggle,
+  .nav-links > li.mobile-menu-section,
+  .nav-links > li.mobile-language-options {
     display: none;
   }
 
