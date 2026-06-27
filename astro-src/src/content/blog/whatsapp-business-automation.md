@@ -5,6 +5,7 @@ pubDate: 2025-02-15
 author: "Emanuel Flury"
 tags: ["WhatsApp Business", "Automation", "Swiss SME", "Customer Communication"]
 lang: "en"
+translationKey: "whatsapp-business-automation"
 ---
 
 A Zurich-based dental practice I worked with last year had a persistent problem: roughly 15% of their appointments were no-shows. The front desk team spent hours each week calling patients to confirm bookings — time that could have been spent on far more valuable tasks. After implementing automated WhatsApp reminders, their no-show rate dropped to under 3%, and the practice reclaimed approximately 12 hours per week.

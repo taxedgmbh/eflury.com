@@ -14,6 +14,8 @@ const blog = defineCollection({
     tags: z.array(z.string()).default([]),
     lang: z.enum(['en', 'de']),
     draft: z.boolean().default(false),
+    // Shared key linking an EN post to its DE counterpart (and vice versa).
+    translationKey: z.string().optional(),
   }),
 });
 

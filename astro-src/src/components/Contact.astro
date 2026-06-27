@@ -232,7 +232,7 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
 
   .contact-method {
     display: flex;
-    align-items: flex-start;
+    align-items: center;
     gap: 1rem;
   }
 
@@ -247,6 +247,10 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
     color: white;
     font-size: 1.2rem;
     flex-shrink: 0;
+  }
+
+  .method-content {
+    min-width: 0;
   }
 
   .method-content h4 {

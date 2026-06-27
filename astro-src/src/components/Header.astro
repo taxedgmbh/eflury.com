@@ -244,6 +244,8 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
   }
 
   .nav-links a {
+    display: flex;
+    align-items: center;
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 400;
@@ -651,6 +653,9 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
       padding: 6px 10px;
       font-size: 14px;
       white-space: nowrap;
+      min-height: 44px;
+      min-width: 44px;
+      justify-content: center;
     }
 
     .language-current span {

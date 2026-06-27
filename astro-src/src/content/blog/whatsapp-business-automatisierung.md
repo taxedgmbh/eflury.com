@@ -5,6 +5,7 @@ pubDate: 2025-02-15
 author: "Emanuel Flury"
 tags: ["WhatsApp Business", "Automatisierung", "Schweizer KMU", "Kundenkommunikation"]
 lang: "de"
+translationKey: "whatsapp-business-automation"
 ---
 
 WhatsApp ist in der Schweiz allgegenwärtig. Über 90 Prozent der Bevölkerung nutzen den Messenger täglich — zum Chatten mit Freunden, aber zunehmend auch für die Kommunikation mit Unternehmen. Für Schweizer KMU ergibt sich daraus eine riesige Chance: Kunden dort abholen, wo sie bereits sind. Kein neues Portal, keine App, kein Login. Einfach WhatsApp.
