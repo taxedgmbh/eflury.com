@@ -6,7 +6,7 @@
 
 import { getCollection, render } from 'astro:content';
 import BlogLayout from '../../../layouts/BlogLayout.astro';
-import { getTranslatedSlug } from '../../../i18n/blogTranslationMap';
+import { getBlogLanguageSwitchUrl } from '../../../i18n/blogTranslations';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog', ({ data }) => {
@@ -22,9 +22,8 @@ export async function getStaticPaths() {
 const { post } = Astro.props;
 const { Content } = await render(post);
 
-// Get translated slug for language switcher
-const translatedSlug = getTranslatedSlug(post.id);
-const languageSwitchUrl = translatedSlug ? `/de/blog/${translatedSlug}` : '/de/blog';
+// Get translated URL for language switcher (derived from frontmatter translationKey)
+const languageSwitchUrl = await getBlogLanguageSwitchUrl(post.id, 'en', 'de');
 ---
 
 <BlogLayout
