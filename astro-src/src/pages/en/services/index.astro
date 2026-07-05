@@ -1,6 +1,7 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
 import Header from '../../../components/Header.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
 import AIChatbot from '../../../components/AIChatbot.astro';
 import { useTranslations } from '../../../i18n/utils';
@@ -53,12 +54,11 @@ const services = [
 >
   <Header lang={lang} />
 
+  <Breadcrumbs lang={lang} items={[{ label: 'Services' }]} />
+
   <main class="services-page">
     <section class="page-hero">
       <div class="container">
-        <div class="breadcrumb">
-          <a href="/en">Home</a> / Services
-        </div>
         <h1 class="page-title">{t('services_pages.index.title')}</h1>
         <p class="page-subtitle">{t('services_pages.index.subtitle')}</p>
         <p class="page-description">{t('services_pages.index.description')}</p>
@@ -122,10 +122,6 @@ const services = [
 
 <style>
   /* Shared verbatim between en/ and de/ services index — edit both together. */
-  .services-page {
-    padding-top: var(--header-height);
-  }
-
   .container {
     max-width: 1100px;
     margin: 0 auto;
