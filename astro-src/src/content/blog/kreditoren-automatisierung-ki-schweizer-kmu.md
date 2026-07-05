@@ -692,8 +692,8 @@ Bewerten Sie die Bereitschaft Ihrer Organisation mit dieser Selbstevaluation:
 
 Sehen Sie, wie Kreditorenbuchhaltungs-Automatisierung in eine breitere Finanztransformation passt:
 
-- **[Finanzautomatisierungs-Dienstleistungen](/de/services/finance-automation):** Umfassende Automatisierung über die gesamte Finanzfunktion
-- **[Claude AI Integration](/de/services/claude-integration):** Custom AI-Workflows für Ihre spezifischen Prozesse
+- **[Finanzautomatisierungs-Dienstleistungen](/de/services/finanzen-automatisierung):** Umfassende Automatisierung über die gesamte Finanzfunktion
+- **[Claude AI Integration](/de/services/claude-skills):** Custom AI-Workflows für Ihre spezifischen Prozesse
 - **[ERP-Integration](/de/services/mcp-integration):** Verbinden Sie KI mit SAP, Abacus, Sage und anderen Systemen
 
 ### Option 4: Lesen Sie die vollständige Fallstudie

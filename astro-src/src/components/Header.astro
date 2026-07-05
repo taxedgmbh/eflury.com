@@ -23,6 +23,14 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
   if (currentPath === '/' || currentPath === '') {
     return `/${targetLang}/`;
   }
+  // Pages with localized slugs (legal pages, finanzen-automatisierung) can't
+  // use prefix replacement — look the path up in the routes table first.
+  const normalized = currentPath.endsWith('/') ? currentPath : `${currentPath}/`;
+  for (const [key, path] of Object.entries(routes[lang])) {
+    if (path === normalized) {
+      return routes[targetLang][key as keyof (typeof routes)['en']];
+    }
+  }
   // Replace /en/ or /de/ prefix with target language
   return currentPath.replace(/^\/(en|de)\//, `/${targetLang}/`);
 };

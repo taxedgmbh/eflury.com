@@ -187,4 +187,4 @@ WhatsApp Business automation isn't a nice-to-have for Swiss SMEs — it's rapidl
 
 The SMEs that move now will build customer communication habits and workflows that become increasingly difficult for late adopters to replicate. Start with one use case, prove the value, and scale from there.
 
-If you'd like to discuss how WhatsApp automation could work for your specific business, [get in touch](/contact). I'm always happy to talk through the options over a coffee — or, naturally, via WhatsApp.
+If you'd like to discuss how WhatsApp automation could work for your specific business, [get in touch](/en/#contact). I'm always happy to talk through the options over a coffee — or, naturally, via WhatsApp.

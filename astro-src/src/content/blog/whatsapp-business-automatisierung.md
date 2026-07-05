@@ -125,4 +125,4 @@ WhatsApp Business Automatisierung ist kein Luxus mehr — es ist ein Wettbewerbs
 
 Der Schlüssel liegt darin, klein zu starten, sauber zu implementieren und den Schweizer Datenschutz von Anfang an mitzudenken. Wer das tut, wird nicht nur effizienter kommunizieren, sondern auch näher an seinen Kunden sein — auf dem Kanal, den sie ohnehin jeden Tag nutzen.
 
-Du möchtest WhatsApp Business für dein KMU einrichten? [Kontaktiere mich](/kontakt) für eine unverbindliche Erstberatung.
+Du möchtest WhatsApp Business für dein KMU einrichten? [Kontaktiere mich](/de/#contact) für eine unverbindliche Erstberatung.
