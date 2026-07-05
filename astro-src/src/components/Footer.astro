@@ -44,9 +44,23 @@ const legalTitle = lang === 'en' ? 'Legal' : 'Rechtliches';
     <div class="footer-section">
       <h4>{t('footer.sections.services')}</h4>
       <ul class="footer-links">
-        <li><a href="#services">{t('footer.services_list.training')}</a></li>
-        <li><a href="#services">{t('footer.services_list.setup')}</a></li>
-        <li><a href="#services">{t('footer.services_list.support')}</a></li>
+        <li><a href={currentRoutes.services}>{lang === 'en' ? 'Overview' : 'Übersicht'}</a></li>
+        <li><a href={currentRoutes.servicesClaudeSkills}>Claude Skills</a></li>
+        <li><a href={currentRoutes.servicesMcpIntegration}>MCP Integration</a></li>
+        <li><a href={currentRoutes.servicesFinanceAutomation}>{lang === 'en' ? 'Finance Automation' : 'Finanzautomatisierung'}</a></li>
+        <li><a href={currentRoutes.servicesPowerBi}>Power BI</a></li>
+      </ul>
+    </div>
+
+    <!-- Column: Company -->
+    <div class="footer-section">
+      <h4>{lang === 'en' ? 'Company' : 'Unternehmen'}</h4>
+      <ul class="footer-links">
+        <li><a href={`/${lang}/about`}>{lang === 'en' ? 'About' : 'Über mich'}</a></li>
+        <li><a href={`/${lang}/pricing`}>{t('nav.pricing')}</a></li>
+        <li><a href={`/${lang}/case-studies`}>{t('nav.case_studies')}</a></li>
+        <li><a href={`/${lang}/blog`}>Blog</a></li>
+        <li><a href={`/${lang}/skopaai`}>SkopaAI</a></li>
       </ul>
     </div>
 

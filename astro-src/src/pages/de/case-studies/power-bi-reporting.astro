@@ -6,6 +6,7 @@
 
 import MainLayout from '../../../layouts/MainLayout.astro';
 import Header from '../../../components/Header.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
 import AIChatbot from '../../../components/AIChatbot.astro';
 import { ArrowRight, Clock, TrendingUp, CheckCircle2, AlertCircle, BarChart3 } from 'lucide-astro';
@@ -21,13 +22,12 @@ const lang = 'de';
 >
   <Header lang={lang} />
 
+  <Breadcrumbs lang={lang} items={[{ label: 'Fallstudien', href: `/${lang}/case-studies` }, { label: 'Power BI Reporting' }]} />
+
   <main class="case-study">
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        <div class="breadcrumb">
-          <a href="/de">Startseite</a> / <a href="/de/case-studies">Fallstudien</a> / Power BI Dashboard
-        </div>
 
         <div class="hero-content">
           <div class="badge-row">
@@ -503,10 +503,6 @@ const lang = 'de';
 </MainLayout>
 
 <style>
-  .case-study {
-    padding-top: var(--header-height);
-  }
-
   .container {
     max-width: 1200px;
     margin: 0 auto;

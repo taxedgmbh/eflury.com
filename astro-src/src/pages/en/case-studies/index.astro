@@ -6,6 +6,7 @@
 
 import MainLayout from '../../../layouts/MainLayout.astro';
 import Header from '../../../components/Header.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
 import AIChatbot from '../../../components/AIChatbot.astro';
 import { ArrowRight, Clock, TrendingUp, Building2, Home, ChevronRight } from 'lucide-astro';
@@ -65,24 +66,12 @@ const caseStudies = [
 >
   <Header lang={lang} />
 
-  <nav class="breadcrumb" aria-label="Breadcrumb">
-    <div class="container">
-      <a href={`/${lang}/`} class="breadcrumb-link">
-        <Home size={14} />
-        <span>{t('nav.home')}</span>
-      </a>
-      <ChevronRight size={14} class="breadcrumb-separator" />
-      <span class="breadcrumb-current">{t('nav.case_studies')}</span>
-    </div>
-  </nav>
+  <Breadcrumbs lang={lang} items={[{ label: t('nav.case_studies') }]} />
 
   <main class="case-studies-page">
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        <div class="breadcrumb">
-          <a href="/en">Home</a> / Case Studies
-        </div>
 
         <h1>Case Studies</h1>
         <p class="subtitle">Real results from real Swiss businesses</p>

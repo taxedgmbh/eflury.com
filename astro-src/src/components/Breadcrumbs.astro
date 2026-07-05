@@ -1,0 +1,102 @@
+---
+/**
+ * Shared breadcrumb bar — the single visible breadcrumb implementation.
+ * Policy: homepage renders none; every subpage renders exactly one of
+ * these, directly after <Header/>. The bar carries the fixed-navbar
+ * offset (margin-top), so page wrappers must not also pad for it.
+ */
+import { Home, ChevronRight } from 'lucide-astro';
+import type { Language } from '../i18n/utils';
+
+interface Crumb {
+  label: string;
+  href?: string;
+}
+
+interface Props {
+  lang: Language;
+  items: Crumb[];
+}
+
+const { lang, items } = Astro.props;
+---
+
+<nav class="crumbs" aria-label="Breadcrumb">
+  <div class="container">
+    <a href={`/${lang}/`} class="crumb-home">
+      <Home size={14} />
+      <span>Home</span>
+    </a>
+    {items.map((item) => (
+      <Fragment>
+        <ChevronRight size={14} class="crumb-sep" />
+        {item.href ? (
+          <a href={item.href} class="crumb-link">{item.label}</a>
+        ) : (
+          <span class="crumb-current">{item.label}</span>
+        )}
+      </Fragment>
+    ))}
+  </div>
+</nav>
+
+<style>
+  .crumbs {
+    margin-top: var(--header-height);
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0.8125rem 2rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+  }
+
+  .crumb-home {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.375rem;
+    color: var(--eflury-teal);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .crumb-home:hover span {
+    text-decoration: underline;
+  }
+
+  .crumb-link {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+    flex-shrink: 0;
+  }
+
+  .crumb-link:hover {
+    color: var(--eflury-teal);
+  }
+
+  .crumb-sep {
+    color: var(--text-tertiary);
+    flex-shrink: 0;
+  }
+
+  .crumb-current {
+    color: var(--text-secondary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0.75rem 1.25rem;
+    }
+  }
+</style>

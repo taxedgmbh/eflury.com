@@ -8,6 +8,7 @@
 
 import MainLayout from './MainLayout.astro';
 import Header from '../components/Header.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Footer from '../components/Footer.astro';
 import AIChatbot from '../components/AIChatbot.astro';
 import BlogPostingSchema from '../components/BlogPostingSchema.astro';
@@ -78,6 +79,8 @@ const hreflangDe = lang === 'de' ? selfUrl : otherUrl;
     url={Astro.url.pathname}
   />
   <Header lang={lang} languageSwitchUrl={languageSwitchUrl} />
+
+  <Breadcrumbs lang={lang} items={[{ label: 'Blog', href: `/${lang}/blog` }, { label: title }]} />
 
   <article class="blog-post">
     <div class="container">
@@ -154,7 +157,7 @@ const hreflangDe = lang === 'de' ? selfUrl : otherUrl;
 
 <style>
   .blog-post {
-    padding-top: var(--header-height);
+    padding-top: 0;
     padding-bottom: 4rem;
     background: #ffffff;
   }

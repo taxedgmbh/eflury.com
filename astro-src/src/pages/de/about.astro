@@ -8,6 +8,7 @@
 
 import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Footer from '../../components/Footer.astro';
 import AIChatbot from '../../components/AIChatbot.astro';
 import PersonSchema from '../../components/PersonSchema.astro';
@@ -24,6 +25,8 @@ const lang = 'de';
   <PersonSchema slot="head" />
 
   <Header lang={lang} />
+
+  <Breadcrumbs lang={lang} items={[{ label: 'Über mich' }]} />
 
   <main class="about-page">
     <!-- Hero Section -->
@@ -427,10 +430,6 @@ const lang = 'de';
      About page — unified design (shared verbatim between en/ and de/ pages;
      edit both together to prevent drift)
      ========================================================================== */
-
-  .about-page {
-    padding-top: var(--header-height);
-  }
 
   .container {
     max-width: 1200px;

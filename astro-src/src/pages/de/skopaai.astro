@@ -7,6 +7,7 @@
 
 import MainLayout from '../../layouts/MainLayout.astro';
 import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Footer from '../../components/Footer.astro';
 import AIChatbot from '../../components/AIChatbot.astro';
 import { useTranslations } from '../../i18n/utils';
@@ -29,18 +30,10 @@ const t = useTranslations(lang);
 >
   <Header lang={lang} />
 
+  <Breadcrumbs lang={lang} items={[{ label: t('nav.skopaai') }]} />
+
   <main class="skopaai-page">
     <!-- Breadcrumb Navigation -->
-    <nav class="breadcrumb" aria-label="Breadcrumb">
-      <div class="container">
-        <a href={`/${lang}/`} class="breadcrumb-link">
-          <Home size={14} />
-          <span>{t('nav.home')}</span>
-        </a>
-        <ChevronRight size={14} class="breadcrumb-separator" />
-        <span class="breadcrumb-current">{t('nav.skopaai')}</span>
-      </div>
-    </nav>
 
     <!-- Hero Section -->
     <section class="hero">

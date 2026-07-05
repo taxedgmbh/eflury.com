@@ -6,6 +6,7 @@
  */
 import MainLayout from './MainLayout.astro';
 import Header from '../components/Header.astro';
+import Breadcrumbs from '../components/Breadcrumbs.astro';
 import Footer from '../components/Footer.astro';
 import AIChatbot from '../components/AIChatbot.astro';
 import { type Language, routes } from '../i18n/utils';
@@ -32,6 +33,8 @@ const currentRoutes = routes[lang];
   keywords={keywords}
 >
   <Header lang={lang} />
+
+  <Breadcrumbs lang={lang} items={[{ label: heroTitle }]} />
 
   <main class="content-page">
     <!-- Hero Section -->
@@ -70,7 +73,7 @@ const currentRoutes = routes[lang];
 
 <style>
   .content-page {
-    padding-top: 80px;
+    padding-top: 0;
     min-height: 100vh;
   }
 
