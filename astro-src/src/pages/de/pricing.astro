@@ -200,7 +200,7 @@ const t = useTranslations(lang);
             </div>
 
             <div class="guarantee">
-              <strong>💰 Zufriedenheits-Commitment:</strong> Ich arbeite mit Ihnen, bis die vereinbarten Automatisierungsziele erreicht sind. Ihr Erfolg ist meine Priorität.
+              <strong>Zufriedenheits-Commitment:</strong> Ich arbeite mit Ihnen, bis die vereinbarten Automatisierungsziele erreicht sind. Ihr Erfolg ist meine Priorität.
             </div>
 
             <a href="/de/#contact" class="btn-primary">Starten Sie Ihre Automatisierung</a>
@@ -350,8 +350,8 @@ const t = useTranslations(lang);
               <tr>
                 <td><strong>Zufriedenheits-Commitment</strong></td>
                 <td>—</td>
-                <td>✅ Laufender Support bis Ziele erreicht</td>
-                <td>✅ Laufender Support bis Ziele erreicht</td>
+                <td>✓ Laufender Support bis Ziele erreicht</td>
+                <td>✓ Laufender Support bis Ziele erreicht</td>
               </tr>
               <tr class="highlight-row">
                 <td><strong>Geschätzter ROI</strong></td>
@@ -519,7 +519,7 @@ const t = useTranslations(lang);
             "price": "9900",
             "priceCurrency": "CHF",
             "availability": "https://schema.org/InStock",
-            "priceValidUntil": "2025-12-31"
+            "priceValidUntil": "2026-12-31"
           }
         },
         {
@@ -532,7 +532,7 @@ const t = useTranslations(lang);
             "price": "24900",
             "priceCurrency": "CHF",
             "availability": "https://schema.org/InStock",
-            "priceValidUntil": "2025-12-31"
+            "priceValidUntil": "2026-12-31"
           }
         },
         {
@@ -545,7 +545,7 @@ const t = useTranslations(lang);
             "price": "49900",
             "priceCurrency": "CHF",
             "availability": "https://schema.org/InStock",
-            "priceValidUntil": "2025-12-31"
+            "priceValidUntil": "2026-12-31"
           }
         }
       ]
@@ -601,7 +601,7 @@ const t = useTranslations(lang);
   }
 
   .value-card {
-    background: white;
+    background: var(--card-bg);
     border: 2px solid var(--border-color);
     border-radius: 1rem;
     padding: 2rem;
@@ -659,6 +659,7 @@ const t = useTranslations(lang);
 
   .best-value-badge {
     position: absolute;
+    z-index: 2;
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
@@ -714,6 +715,7 @@ const t = useTranslations(lang);
 
   .best-value-ribbon {
     position: absolute;
+    z-index: 2;
     top: 35px;
     right: -8px;
     background: var(--warning-500);
@@ -756,7 +758,7 @@ const t = useTranslations(lang);
   }
 
   .testimonial {
-    background: white;
+    background: var(--card-bg);
     border-radius: 1rem;
     padding: 2rem;
     margin: 0;
@@ -1045,7 +1047,7 @@ const t = useTranslations(lang);
   }
 
   .package {
-    background: white;
+    background: var(--card-bg);
     border: 2px solid var(--border-color);
     border-radius: 1rem;
     padding: 2rem;
@@ -1068,6 +1070,7 @@ const t = useTranslations(lang);
 
   .popular-badge {
     position: absolute;
+    z-index: 2;
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
@@ -1452,6 +1455,12 @@ const t = useTranslations(lang);
 
   /* Responsive */
   @media (max-width: 1024px) {
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1rem 0.75rem;
+      font-size: 0.9rem;
+    }
+
     .packages-grid {
       grid-template-columns: 1fr;
     }

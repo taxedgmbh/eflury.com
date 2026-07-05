@@ -200,7 +200,7 @@ const t = useTranslations(lang);
             </div>
 
             <div class="guarantee">
-              <strong>💰 Satisfaction Commitment:</strong> I work with you until the agreed automation targets are met. Your success is my priority.
+              <strong>Satisfaction Commitment:</strong> I work with you until the agreed automation targets are met. Your success is my priority.
             </div>
 
             <a href="/en/#contact" class="btn-primary">Start Your Automation</a>
@@ -350,8 +350,8 @@ const t = useTranslations(lang);
               <tr>
                 <td><strong>Satisfaction Commitment</strong></td>
                 <td>—</td>
-                <td>✅ Ongoing support until targets met</td>
-                <td>✅ Ongoing support until targets met</td>
+                <td>✓ Ongoing support until targets met</td>
+                <td>✓ Ongoing support until targets met</td>
               </tr>
               <tr class="highlight-row">
                 <td><strong>Estimated ROI</strong></td>
@@ -519,7 +519,7 @@ const t = useTranslations(lang);
             "price": "9900",
             "priceCurrency": "CHF",
             "availability": "https://schema.org/InStock",
-            "priceValidUntil": "2025-12-31"
+            "priceValidUntil": "2026-12-31"
           }
         },
         {
@@ -532,7 +532,7 @@ const t = useTranslations(lang);
             "price": "24900",
             "priceCurrency": "CHF",
             "availability": "https://schema.org/InStock",
-            "priceValidUntil": "2025-12-31"
+            "priceValidUntil": "2026-12-31"
           }
         },
         {
@@ -545,7 +545,7 @@ const t = useTranslations(lang);
             "price": "49900",
             "priceCurrency": "CHF",
             "availability": "https://schema.org/InStock",
-            "priceValidUntil": "2025-12-31"
+            "priceValidUntil": "2026-12-31"
           }
         }
       ]
@@ -601,7 +601,7 @@ const t = useTranslations(lang);
   }
 
   .value-card {
-    background: white;
+    background: var(--card-bg);
     border: 2px solid var(--border-color);
     border-radius: 1rem;
     padding: 2rem;
@@ -659,6 +659,7 @@ const t = useTranslations(lang);
 
   .best-value-badge {
     position: absolute;
+    z-index: 2;
     top: -12px;
     left: 50%;
     transform: translateX(-50%);
@@ -714,6 +715,7 @@ const t = useTranslations(lang);
 
   .best-value-ribbon {
     position: absolute;
+    z-index: 2;
     top: 35px;
     right: -8px;
     background: var(--warning-500);
@@ -756,7 +758,7 @@ const t = useTranslations(lang);
   }
 
   .testimonial {
-    background: white;
+    background: var(--card-bg);
     border-radius: 1rem;
     padding: 2rem;
     margin: 0;
@@ -1045,7 +1047,7 @@ const t = useTranslations(lang);
   }
 
   .package {
-    background: white;
+    background: var(--card-bg);
     border: 2px solid var(--border-color);
     border-radius: 1rem;
     padding: 2rem;
@@ -1068,6 +1070,7 @@ const t = useTranslations(lang);
 
   .popular-badge {
     position: absolute;
+    z-index: 2;
     top: -15px;
     left: 50%;
     transform: translateX(-50%);
@@ -1450,8 +1453,14 @@ const t = useTranslations(lang);
     color: var(--text-secondary);
   }
 
-  /* Responsive - Tablet (1024px) */
+  /* Responsive */
   @media (max-width: 1024px) {
+    .comparison-table th,
+    .comparison-table td {
+      padding: 1rem 0.75rem;
+      font-size: 0.9rem;
+    }
+
     .packages-grid {
       grid-template-columns: 1fr;
     }
@@ -1488,18 +1497,11 @@ const t = useTranslations(lang);
     .faq-grid {
       grid-template-columns: 1fr;
     }
-
-    .comparison-table th,
-    .comparison-table td {
-      padding: 1rem 0.75rem;
-      font-size: 0.9rem;
-    }
   }
 
-  /* Responsive - Small Tablet / Large Mobile (768px) */
   @media (max-width: 768px) {
     .hero {
-      padding: 3.5rem 0;
+      padding: 3rem 0;
     }
 
     .hero-stats {
@@ -1508,18 +1510,15 @@ const t = useTranslations(lang);
     }
 
     .hero-stats .stat {
-      padding: 0.75rem;
+      padding: 1rem;
       background: rgba(255, 255, 255, 0.5);
       border-radius: 0.75rem;
+      min-height: 80px;
     }
 
     .hero-stats .icon-lucide {
       width: 24px;
       height: 24px;
-    }
-
-    .hero-stats .label {
-      font-size: 0.875rem;
     }
 
     /* Value comparison responsive */
@@ -1570,70 +1569,87 @@ const t = useTranslations(lang);
       font-size: 2rem;
     }
 
-    .packages,
-    .addons,
-    .faq,
-    .cta {
-      padding: 3.5rem 0;
+    .packages {
+      padding: 3rem 0;
     }
 
-    .comparison {
-      padding: 3.5rem 0;
+    .packages .intro {
+      margin-bottom: 2rem;
+    }
+
+    .packages-grid {
+      gap: 1.5rem;
     }
 
     .package {
       padding: 1.75rem;
     }
 
-    .package-features li {
-      font-size: 0.9rem;
-      padding: 0.4rem 0;
-      padding-left: 1.25rem;
-    }
-
     .addons-grid {
       grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
 
     .addon {
-      padding: 1.5rem;
+      padding: 1.75rem;
+      /* Improve touch targets */
+      min-height: 180px;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .faq {
+      padding: 3rem 0;
     }
 
     .faq-item {
-      padding: 1.5rem;
+      padding: 1.75rem;
     }
 
     .faq-item h3 {
-      font-size: 1rem;
+      font-size: 1.05rem;
+      line-height: 1.4;
+    }
+
+    .cta {
+      padding: 3rem 0;
     }
 
     .cta-buttons {
       flex-direction: column;
-      max-width: 300px;
+      max-width: 320px;
       margin: 0 auto 2rem;
     }
 
     .cta-buttons .btn-primary,
     .cta-buttons .btn-secondary {
-      width: 100%;
-      justify-content: center;
-      padding: 1rem 1.5rem;
+      /* Touch-friendly targets (44px minimum) */
       min-height: 48px;
+      padding: 1rem 1.5rem;
+      justify-content: center;
     }
 
-    /* Comparison table - better touch targets */
+    .btn-primary,
+    .btn-secondary,
+    .btn-outline {
+      /* Better touch targets */
+      min-height: 48px;
+      padding: 1rem 1.5rem;
+    }
+
+    .comparison {
+      padding: 3rem 0;
+    }
+
     .comparison-table th,
     .comparison-table td {
-      padding: 0.875rem 0.5rem;
-      font-size: 0.85rem;
-    }
-
-    .comparison-table td:first-child {
-      font-size: 0.8rem;
+      padding: 0.875rem 0.75rem;
+      font-size: 0.9rem;
     }
   }
 
-  /* Responsive - Mobile (600px) */
+  /* Small tablets and large phones */
   @media (max-width: 600px) {
     .container {
       padding: 0 1rem;
@@ -1643,32 +1659,31 @@ const t = useTranslations(lang);
       padding: 3rem 1rem;
     }
 
-    .hero h1 {
-      font-size: clamp(1.75rem, 7vw, 2.5rem);
-    }
-
-    .hero .subtitle {
-      font-size: clamp(1rem, 3.5vw, 1.25rem);
-      margin-bottom: 2rem;
-    }
-
     .badge {
       font-size: 0.75rem;
       padding: 0.4rem 0.875rem;
       margin-bottom: 1rem;
     }
 
+    .hero h1 {
+      font-size: clamp(1.75rem, 6vw, 2.25rem);
+      line-height: 1.2;
+      margin-bottom: 0.875rem;
+    }
+
+    .hero .subtitle {
+      font-size: clamp(1rem, 3vw, 1.125rem);
+      margin-bottom: 2rem;
+      line-height: 1.5;
+    }
+
     .hero-stats {
-      grid-template-columns: 1fr;
       gap: 1rem;
-      max-width: 280px;
     }
 
     .hero-stats .stat {
-      flex-direction: row;
-      justify-content: flex-start;
-      gap: 1rem;
-      padding: 0.875rem 1rem;
+      padding: 0.875rem;
+      min-height: 70px;
     }
 
     .hero-stats .icon {
@@ -1676,37 +1691,25 @@ const t = useTranslations(lang);
     }
 
     .hero-stats .label {
-      text-align: left;
+      font-size: 0.8rem;
+      line-height: 1.3;
     }
 
-    .packages,
-    .addons,
-    .cta {
+    .packages {
       padding: 3rem 1rem;
     }
 
-    .faq,
-    .comparison {
-      padding: 3rem 1rem;
-    }
-
-    .packages h2,
-    .addons h2,
-    .faq h2,
-    .cta h2,
-    .comparison h2 {
+    .packages h2 {
       font-size: clamp(1.5rem, 5vw, 2rem);
       margin-bottom: 0.75rem;
     }
 
-    .packages .intro,
-    .addons .intro {
+    .packages .intro {
       font-size: 1rem;
       margin-bottom: 2rem;
     }
 
     .package {
-      max-width: 100%;
       padding: 1.5rem;
     }
 
@@ -1715,69 +1718,66 @@ const t = useTranslations(lang);
     }
 
     .package-subtitle {
-      font-size: 0.9rem;
-    }
-
-    .package-price {
-      padding: 1.25rem 0;
+      font-size: 0.875rem;
     }
 
     .package-price .price {
-      font-size: clamp(2rem, 8vw, 2.5rem);
+      font-size: clamp(2rem, 7vw, 2.5rem);
     }
 
     .package-price .period,
+    .package-price .vat,
     .package-price .payment-plan {
       font-size: 0.8rem;
     }
 
-    .package-price .vat {
-      font-size: 0.7rem;
-    }
-
-    .package-timeline {
-      padding: 0.6rem 0.875rem;
-      font-size: 0.875rem;
-    }
-
-    .package-features h4 {
-      font-size: 0.9rem;
-    }
-
     .package-features li {
-      font-size: 0.85rem;
-      padding: 0.35rem 0;
-      padding-left: 1.25rem;
-      line-height: 1.5;
-    }
-
-    .package-roi {
-      padding: 0.875rem;
       font-size: 0.875rem;
+      padding: 0.4rem 0;
+      padding-left: 1.25rem;
     }
 
+    .package-roi,
     .guarantee {
+      font-size: 0.85rem;
       padding: 0.875rem;
-      font-size: 0.8rem;
     }
 
     .popular-badge {
-      top: -12px;
-      font-size: 0.65rem;
+      font-size: 0.7rem;
       padding: 0.4rem 1rem;
     }
 
-    /* Comparison table - horizontal scroll with sticky first column */
+    /* Comparison table: horizontal scroll with sticky first column */
+    .comparison {
+      padding: 3rem 1rem;
+    }
+
+    .comparison h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+      margin-bottom: 2rem;
+    }
+
     .comparison-table-wrapper {
       overflow-x: auto;
       -webkit-overflow-scrolling: touch;
       margin: 0 -1rem;
       padding: 0 1rem;
+      /* Visual hint for scrolling */
+      background:
+        linear-gradient(to right, white 30%, rgba(255, 255, 255, 0)),
+        linear-gradient(to right, rgba(255, 255, 255, 0), white 70%) 0 100%,
+        radial-gradient(farthest-side at 0% 50%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)),
+        radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0)) 0 100%;
+      background-repeat: no-repeat;
+      background-color: white;
+      background-size: 40px 100%, 40px 100%, 14px 100%, 14px 100%;
+      background-position: 0 0, 100%, 0 0, 100%;
+      background-attachment: local, local, scroll, scroll;
     }
 
     .comparison-table {
       min-width: 600px;
-      font-size: 0.8rem;
     }
 
     .comparison-table th:first-child,
@@ -1800,7 +1800,8 @@ const t = useTranslations(lang);
 
     .comparison-table th,
     .comparison-table td {
-      padding: 0.75rem 0.5rem;
+      padding: 0.75rem 0.625rem;
+      font-size: 0.8rem;
     }
 
     .popular-label {
@@ -1808,12 +1809,25 @@ const t = useTranslations(lang);
     }
 
     /* Add-ons */
+    .addons {
+      padding: 3rem 1rem;
+    }
+
+    .addons h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .addons .intro {
+      font-size: 1rem;
+      margin-bottom: 2rem;
+    }
+
     .addon {
-      padding: 1.25rem;
+      padding: 1.5rem;
     }
 
     .addon h3 {
-      font-size: 1.1rem;
+      font-size: 1.125rem;
     }
 
     .addon-price {
@@ -1825,7 +1839,12 @@ const t = useTranslations(lang);
     }
 
     /* FAQ */
+    .faq {
+      padding: 3rem 1rem;
+    }
+
     .faq h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
       margin-bottom: 2rem;
     }
 
@@ -1834,43 +1853,40 @@ const t = useTranslations(lang);
     }
 
     .faq-item {
-      padding: 1.25rem;
+      padding: 1.5rem;
     }
 
     .faq-item h3 {
-      font-size: 0.95rem;
-      line-height: 1.4;
+      font-size: 1rem;
+      margin-bottom: 0.75rem;
     }
 
     .faq-item p {
-      font-size: 0.875rem;
+      font-size: 0.9rem;
       line-height: 1.6;
     }
 
     /* CTA */
-    .cta-text {
-      font-size: 1rem;
+    .cta {
+      padding: 3rem 1rem;
     }
 
-    .cta-buttons {
-      max-width: 100%;
-      padding: 0;
+    .cta h2 {
+      font-size: clamp(1.5rem, 5vw, 2rem);
+    }
+
+    .cta-text {
+      font-size: 1rem;
+      margin-bottom: 1.5rem;
     }
 
     .guarantee-note {
       font-size: 0.85rem;
       line-height: 1.5;
     }
-
-    .btn-primary,
-    .btn-secondary,
-    .btn-outline {
-      padding: 0.875rem 1.5rem;
-      font-size: 0.95rem;
-    }
   }
 
-  /* Responsive - Small Mobile (480px) */
+  /* Small phones */
   @media (max-width: 480px) {
     .container {
       padding: 0 1rem;
@@ -1880,29 +1896,26 @@ const t = useTranslations(lang);
       padding: 2.5rem 1rem;
     }
 
-    .hero h1 {
-      font-size: clamp(1.5rem, 8vw, 2rem);
-      line-height: 1.2;
-    }
-
-    .hero .subtitle {
-      font-size: clamp(0.9rem, 4vw, 1.1rem);
-      line-height: 1.5;
-      margin-bottom: 1.75rem;
-    }
-
     .badge {
       font-size: 0.7rem;
       padding: 0.35rem 0.75rem;
-      letter-spacing: 0.5px;
+    }
+
+    .hero h1 {
+      font-size: clamp(1.5rem, 7vw, 1.875rem);
+    }
+
+    .hero .subtitle {
+      font-size: 0.95rem;
     }
 
     .hero-stats {
-      max-width: 100%;
+      gap: 0.75rem;
     }
 
     .hero-stats .stat {
-      padding: 0.75rem;
+      padding: 0.75rem 0.5rem;
+      min-height: 65px;
     }
 
     .hero-stats .icon {
@@ -1910,32 +1923,23 @@ const t = useTranslations(lang);
     }
 
     .hero-stats .label {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
     }
 
-    .packages,
-    .addons,
-    .cta {
+    .packages {
       padding: 2.5rem 1rem;
     }
 
-    .faq,
-    .comparison {
-      padding: 2.5rem 1rem;
+    .packages h2 {
+      font-size: clamp(1.375rem, 6vw, 1.625rem);
     }
 
-    .packages h2,
-    .addons h2,
-    .faq h2,
-    .cta h2,
-    .comparison h2 {
-      font-size: clamp(1.35rem, 6vw, 1.75rem);
-    }
-
-    .packages .intro,
-    .addons .intro {
+    .packages .intro {
       font-size: 0.9rem;
-      margin-bottom: 1.75rem;
+    }
+
+    .packages-grid {
+      gap: 1.25rem;
     }
 
     .package {
@@ -1943,40 +1947,39 @@ const t = useTranslations(lang);
     }
 
     .package.popular {
-      margin-top: 0.75rem;
+      margin-top: 0.5rem;
     }
 
     .popular-badge {
-      top: -10px;
-      font-size: 0.6rem;
+      top: -12px;
+      font-size: 0.65rem;
       padding: 0.35rem 0.875rem;
-      white-space: nowrap;
     }
 
     .package-header {
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
 
     .package-header h3 {
-      font-size: 1.35rem;
+      font-size: 1.375rem;
     }
 
     .package-subtitle {
-      font-size: 0.85rem;
+      font-size: 0.8rem;
     }
 
     .package-price {
-      padding: 1rem 0;
+      padding: 1.25rem 0;
       margin-bottom: 1.25rem;
     }
 
     .package-price .price {
-      font-size: clamp(1.75rem, 10vw, 2.25rem);
+      font-size: clamp(1.75rem, 8vw, 2.25rem);
     }
 
     .package-timeline {
-      padding: 0.5rem 0.75rem;
-      font-size: 0.8rem;
+      padding: 0.625rem 0.75rem;
+      font-size: 0.85rem;
       margin-bottom: 1.25rem;
     }
 
@@ -1985,26 +1988,24 @@ const t = useTranslations(lang);
     }
 
     .package-features h4 {
-      font-size: 0.85rem;
+      font-size: 0.9rem;
       margin-bottom: 0.75rem;
     }
 
     .package-features li {
-      font-size: 0.8rem;
-      padding: 0.3rem 0;
-      padding-left: 1.1rem;
+      font-size: 0.825rem;
+      line-height: 1.5;
     }
 
     .package-roi {
-      padding: 0.75rem;
       font-size: 0.8rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
 
     .guarantee {
+      font-size: 0.8rem;
       padding: 0.75rem;
-      font-size: 0.75rem;
-      margin-bottom: 1.25rem;
+      margin-bottom: 1rem;
     }
 
     /* Full-width CTA buttons */
@@ -2012,42 +2013,53 @@ const t = useTranslations(lang);
     .btn-secondary,
     .btn-outline {
       width: 100%;
-      padding: 1rem;
-      font-size: 0.9rem;
+      padding: 1rem 1rem;
+      font-size: 0.95rem;
       min-height: 52px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
     }
 
-    /* Comparison table - small mobile */
-    .comparison-table {
-      min-width: 550px;
-      font-size: 0.75rem;
+    /* Comparison table */
+    .comparison {
+      padding: 2.5rem 1rem;
+    }
+
+    .comparison h2 {
+      font-size: clamp(1.375rem, 6vw, 1.625rem);
+      margin-bottom: 1.5rem;
     }
 
     .comparison-table th:first-child,
     .comparison-table td:first-child {
       min-width: 120px;
-      font-size: 0.7rem;
     }
 
     .comparison-table th,
     .comparison-table td {
-      padding: 0.6rem 0.4rem;
-    }
-
-    .popular-label {
-      font-size: 0.6rem;
+      padding: 0.625rem 0.5rem;
+      font-size: 0.75rem;
     }
 
     /* Add-ons */
+    .addons {
+      padding: 2.5rem 1rem;
+    }
+
+    .addons h2 {
+      font-size: clamp(1.375rem, 6vw, 1.625rem);
+    }
+
+    .addons .intro {
+      font-size: 0.9rem;
+      margin-bottom: 1.5rem;
+    }
+
     .addons-grid {
       gap: 1rem;
     }
 
     .addon {
-      padding: 1rem;
+      padding: 1.25rem;
+      min-height: 160px;
     }
 
     .addon h3 {
@@ -2056,7 +2068,7 @@ const t = useTranslations(lang);
     }
 
     .addon-price {
-      font-size: 1.35rem;
+      font-size: 1.375rem;
       margin-bottom: 0.75rem;
     }
 
@@ -2066,34 +2078,54 @@ const t = useTranslations(lang);
     }
 
     /* FAQ */
+    .faq {
+      padding: 2.5rem 1rem;
+    }
+
     .faq h2 {
-      margin-bottom: 1.75rem;
+      font-size: clamp(1.375rem, 6vw, 1.625rem);
+      margin-bottom: 1.5rem;
+    }
+
+    .faq-grid {
+      gap: 0.875rem;
     }
 
     .faq-item {
-      padding: 1rem;
+      padding: 1.25rem;
     }
 
     .faq-item h3 {
-      font-size: 0.875rem;
-      margin-bottom: 0.75rem;
+      font-size: 0.95rem;
+      line-height: 1.35;
     }
 
     .faq-item p {
-      font-size: 0.8rem;
-      line-height: 1.55;
+      font-size: 0.85rem;
     }
 
     /* CTA */
+    .cta {
+      padding: 2.5rem 1rem;
+    }
+
+    .cta h2 {
+      font-size: clamp(1.375rem, 6vw, 1.625rem);
+    }
+
     .cta-text {
       font-size: 0.9rem;
-      margin-bottom: 1.5rem;
-      line-height: 1.5;
     }
 
     .cta-buttons {
-      gap: 0.75rem;
-      margin-bottom: 1.5rem;
+      max-width: 100%;
+      gap: 0.875rem;
+    }
+
+    .cta-buttons .btn-primary,
+    .cta-buttons .btn-secondary {
+      width: 100%;
+      font-size: 0.9rem;
     }
 
     .cta-buttons .icon {
