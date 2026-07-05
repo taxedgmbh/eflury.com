@@ -693,7 +693,7 @@ Assess your organization's readiness with this self-evaluation:
 See how AP automation fits into broader finance transformation:
 
 - **[Finance Automation Services](/en/services/finance-automation):** Comprehensive automation across the full finance function
-- **[Claude AI Integration](/en/services/claude-integration):** Custom AI workflows for your specific processes
+- **[Claude AI Integration](/en/services/claude-skills):** Custom AI workflows for your specific processes
 - **[ERP Integration](/en/services/mcp-integration):** Connect AI to SAP, Abacus, Sage, and other systems
 
 ### Option 4: Read the Full Case Study

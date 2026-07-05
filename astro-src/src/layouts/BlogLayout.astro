@@ -46,6 +46,16 @@ const formattedUpdatedDate = updatedDate?.toLocaleDateString(lang === 'de' ? 'de
 const backLabel = lang === 'de' ? 'Zurück zum Blog' : 'Back to Blog';
 const updatedLabel = lang === 'de' ? 'Aktualisiert' : 'Updated';
 const readingTimeLabel = lang === 'de' ? 'Lesezeit' : 'Reading time';
+
+// hreflang alternates: blog slugs differ per language, so MainLayout's default
+// /en/<->/de/ prefix swap would advertise non-existent URLs. languageSwitchUrl
+// already points at the translated post (or the blog index as fallback).
+const otherLang = lang === 'en' ? 'de' : 'en';
+const selfUrl = `https://eflury.com/${lang}/blog/${slug}/`;
+const otherPath = languageSwitchUrl ?? `/${otherLang}/blog/`;
+const otherUrl = `https://eflury.com${otherPath.endsWith('/') ? otherPath : `${otherPath}/`}`;
+const hreflangEn = lang === 'en' ? selfUrl : otherUrl;
+const hreflangDe = lang === 'de' ? selfUrl : otherUrl;
 ---
 
 <MainLayout
@@ -53,6 +63,8 @@ const readingTimeLabel = lang === 'de' ? 'Lesezeit' : 'Reading time';
   description={description}
   keywords={tags.join(', ')}
   lang={lang}
+  hreflangEn={hreflangEn}
+  hreflangDe={hreflangDe}
 >
   <BlogPostingSchema
     title={title}
