@@ -1342,4 +1342,26 @@ const lang = 'de';
       justify-content: center;
     }
   }
+
+  /* The client-feedback band sits on navy — force light text (was falling
+     back to dark text-secondary / unstyled dark, unreadable on navy). */
+  .testimonial .feedback-summary {
+    max-width: 760px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.1875rem;
+    font-style: italic;
+    color: #fff;
+    line-height: 1.75;
+  }
+
+  .testimonial .feedback-summary p {
+    color: #fff;
+    margin-bottom: 0.75rem;
+  }
+
+  .testimonial .disclaimer-text {
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+  }
 </style>
