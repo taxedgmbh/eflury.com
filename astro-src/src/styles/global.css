@@ -5,6 +5,8 @@
 
 /* CSS Variables - Light Mode (eFlury Brand + Apple Design) */
 :root {
+    /* Fixed navbar clearance used by page wrappers (padding-top) */
+    --header-height: 76px;
     /* eFlury Brand Colors - Primary Palette */
     --eflury-navy: #022554;         /* Primary Brand Color */
     --eflury-navy-dark: #0f2744;    /* Hover/Dark Variant */
@@ -350,7 +352,7 @@ button:active, .btn:active {
 }
 
 /* iOS Native Card Styles */
-.card, [class*="card"] {
+.card, .pricing-card {
     background: var(--card-bg);
     border-radius: var(--radius-lg);
     border: 0.5px solid var(--border-color);
