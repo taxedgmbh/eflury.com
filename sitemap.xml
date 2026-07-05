@@ -324,24 +324,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://eflury.com/en/blog/ai-client-onboarding-accounting-firms/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-client-onboarding-accounting-firms/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-kunden-onboarding-treuhand/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-client-onboarding-accounting-firms/"/>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://eflury.com/de/blog/ki-kunden-onboarding-treuhand/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-client-onboarding-accounting-firms/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-kunden-onboarding-treuhand/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-client-onboarding-accounting-firms/"/>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://eflury.com/en/blog/agentic-ai-swiss-business-2026/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/agentic-ai-swiss-business-2026/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/agentic-ki-schweizer-unternehmen-2026/"/>
@@ -378,20 +360,20 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://eflury.com/en/blog/ai-for-accounting-firms/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-for-accounting-firms/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-fuer-treuhand/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-for-accounting-firms/"/>
-    <lastmod>2026-02-05</lastmod>
+    <loc>https://eflury.com/en/blog/ai-client-onboarding-accounting-firms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-client-onboarding-accounting-firms/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-kunden-onboarding-treuhand/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-client-onboarding-accounting-firms/"/>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://eflury.com/de/blog/ki-fuer-treuhand/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-for-accounting-firms/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-fuer-treuhand/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-for-accounting-firms/"/>
-    <lastmod>2026-02-05</lastmod>
+    <loc>https://eflury.com/de/blog/ki-kunden-onboarding-treuhand/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-client-onboarding-accounting-firms/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-kunden-onboarding-treuhand/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-client-onboarding-accounting-firms/"/>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -410,6 +392,24 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-email-triage-agent-professionals/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-email-triage-agent-professionals/"/>
     <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/en/blog/ai-for-accounting-firms/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-for-accounting-firms/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-fuer-treuhand/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-for-accounting-firms/"/>
+    <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/blog/ki-fuer-treuhand/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-for-accounting-firms/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-fuer-treuhand/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-for-accounting-firms/"/>
+    <lastmod>2026-02-05</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -468,24 +468,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://eflury.com/en/blog/excel-to-power-bi-migration/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/excel-to-power-bi-migration/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/excel-zu-power-bi-migration/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/excel-to-power-bi-migration/"/>
-    <lastmod>2026-02-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://eflury.com/de/blog/excel-zu-power-bi-migration/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/excel-to-power-bi-migration/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/excel-zu-power-bi-migration/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/excel-to-power-bi-migration/"/>
-    <lastmod>2026-02-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://eflury.com/en/blog/eu-ai-act-swiss-smes-2026/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/eu-ai-act-swiss-smes-2026/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/eu-ki-gesetz-schweizer-kmu-2026/"/>
@@ -500,6 +482,24 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/eu-ki-gesetz-schweizer-kmu-2026/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/eu-ai-act-swiss-smes-2026/"/>
     <lastmod>2026-02-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/en/blog/excel-to-power-bi-migration/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/excel-to-power-bi-migration/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/excel-zu-power-bi-migration/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/excel-to-power-bi-migration/"/>
+    <lastmod>2026-02-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/blog/excel-zu-power-bi-migration/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/excel-to-power-bi-migration/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/excel-zu-power-bi-migration/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/excel-to-power-bi-migration/"/>
+    <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -558,24 +558,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://eflury.com/en/blog/shadow-ai-security-swiss-smes/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/schatten-ki-sicherheit-schweizer-kmu/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://eflury.com/de/blog/schatten-ki-sicherheit-schweizer-kmu/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/schatten-ki-sicherheit-schweizer-kmu/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://eflury.com/en/blog/voice-ai-receptionist-swiss-sme/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/voice-ai-receptionist-swiss-sme/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/voice-ki-rezeptionist-schweizer-kmu/"/>
@@ -608,6 +590,24 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/whatsapp-business-automatisierung/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/whatsapp-business-automation/"/>
     <lastmod>2025-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/en/blog/shadow-ai-security-swiss-smes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/schatten-ki-sicherheit-schweizer-kmu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/blog/schatten-ki-sicherheit-schweizer-kmu/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/schatten-ki-sicherheit-schweizer-kmu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
+    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
