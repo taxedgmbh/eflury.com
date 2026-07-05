@@ -43,7 +43,9 @@ function getRelatedPosts(posts: CollectionEntry<'blog'>[], tags: string[], exclu
     .sort((a, b) => {
       // Sort by score first, then by date
       if (b.score !== a.score) return b.score - a.score;
-      return new Date(b.post.data.pubDate).getTime() - new Date(a.post.data.pubDate).getTime();
+      const byDate = new Date(b.post.data.pubDate).getTime() - new Date(a.post.data.pubDate).getTime();
+      if (byDate !== 0) return byDate;
+      return a.post.id.localeCompare(b.post.id);
     })
     .slice(0, limit);
 

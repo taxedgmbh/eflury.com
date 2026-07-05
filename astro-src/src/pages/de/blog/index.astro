@@ -18,7 +18,7 @@ const allPosts = await getCollection('blog', ({ data }) => {
   return data.lang === 'de' && !data.draft;
 });
 
-const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || a.id.localeCompare(b.id));
 ---
 
 <MainLayout
