@@ -55,6 +55,7 @@ export const routes = {
     cookies: '/en/cookies/',
     disclaimer: '/en/disclaimer/',
     codeOfConduct: '/en/code-of-conduct/',
+    imprint: '/en/imprint/',
   },
   de: {
     home: '/de/',
@@ -71,5 +72,6 @@ export const routes = {
     cookies: '/de/cookies/',
     disclaimer: '/de/haftungsausschluss/',
     codeOfConduct: '/de/verhaltenskodex/',
+    imprint: '/de/impressum/',
   },
 };

@@ -59,6 +59,7 @@ const staticPages: StaticPage[] = [
   { en: '/en/cookies/', de: '/de/cookies/', priority: '0.4', changefreq: 'yearly' },
   { en: '/en/disclaimer/', de: '/de/haftungsausschluss/', priority: '0.4', changefreq: 'yearly' },
   { en: '/en/code-of-conduct/', de: '/de/verhaltenskodex/', priority: '0.4', changefreq: 'yearly' },
+  { en: '/en/imprint/', de: '/de/impressum/', priority: '0.4', changefreq: 'yearly' },
 ];
 
 const xmlEscape = (s: string) =>
