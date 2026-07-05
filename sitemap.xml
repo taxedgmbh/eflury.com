@@ -394,24 +394,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://eflury.com/en/blog/ai-email-triage-agent-professionals/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-email-triage-agent-professionals/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-email-triage-agent-professionals/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-email-triage-agent-professionals/"/>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://eflury.com/de/blog/ki-email-triage-agent-professionals/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-email-triage-agent-professionals/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-email-triage-agent-professionals/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-email-triage-agent-professionals/"/>
-    <lastmod>2026-02-14</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://eflury.com/en/blog/ai-for-accounting-firms/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-for-accounting-firms/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-fuer-treuhand/"/>
@@ -426,6 +408,24 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-fuer-treuhand/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-for-accounting-firms/"/>
     <lastmod>2026-02-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/en/blog/ai-email-triage-agent-professionals/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-email-triage-agent-professionals/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-email-triage-agent-professionals/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-email-triage-agent-professionals/"/>
+    <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/blog/ki-email-triage-agent-professionals/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-email-triage-agent-professionals/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-email-triage-agent-professionals/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-email-triage-agent-professionals/"/>
+    <lastmod>2026-02-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
