@@ -9,6 +9,7 @@
     "astro": "astro"
   },
   "dependencies": {
+    "@astrojs/rss": "^4.0.19",
     "@emailjs/browser": "^4.4.1",
     "@types/three": "^0.180.0",
     "astro": "^5.15.1",
