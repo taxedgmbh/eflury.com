@@ -119,7 +119,11 @@ export const GET: APIRoute = async () => {
   }
 
   // --- Blog posts (dynamic) ----------------------------------------------
-  const posts = (await getCollection('blog')).filter((p) => !p.data.draft);
+  // Sort by id so Map insertion order — and therefore emitted URL order — is
+  // stable across builds (getCollection order is not deterministic).
+  const posts = (await getCollection('blog'))
+    .filter((p) => !p.data.draft)
+    .sort((a, b) => a.id.localeCompare(b.id));
 
   // Group posts by translationKey so EN/DE counterparts cross-link via hreflang.
   const byKey = new Map<string, { en?: typeof posts[number]; de?: typeof posts[number] }>();

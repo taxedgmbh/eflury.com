@@ -10,7 +10,7 @@ import type { APIContext } from 'astro';
 export async function GET(context: APIContext) {
   const posts = (
     await getCollection('blog', ({ data }) => data.lang === 'de' && !data.draft)
-  ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf());
+  ).sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || a.id.localeCompare(b.id));
 
   return rss({
     title: 'eFlury Consulting Blog',

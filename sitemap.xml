@@ -430,24 +430,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://eflury.com/en/blog/ap-automation-ai-swiss-smes/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ap-automation-ai-swiss-smes/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/kreditoren-automatisierung-ki-schweizer-kmu/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ap-automation-ai-swiss-smes/"/>
-    <lastmod>2026-02-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://eflury.com/de/blog/kreditoren-automatisierung-ki-schweizer-kmu/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ap-automation-ai-swiss-smes/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/kreditoren-automatisierung-ki-schweizer-kmu/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ap-automation-ai-swiss-smes/"/>
-    <lastmod>2026-02-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://eflury.com/en/blog/ai-roi-measurement-swiss-smes/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ai-roi-measurement-swiss-smes/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-roi-messung-schweizer-kmu/"/>
@@ -462,6 +444,24 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/ki-roi-messung-schweizer-kmu/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ai-roi-measurement-swiss-smes/"/>
     <lastmod>2026-02-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/en/blog/ap-automation-ai-swiss-smes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ap-automation-ai-swiss-smes/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/kreditoren-automatisierung-ki-schweizer-kmu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ap-automation-ai-swiss-smes/"/>
+    <lastmod>2026-02-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/blog/kreditoren-automatisierung-ki-schweizer-kmu/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/ap-automation-ai-swiss-smes/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/kreditoren-automatisierung-ki-schweizer-kmu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/ap-automation-ai-swiss-smes/"/>
+    <lastmod>2026-02-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
@@ -574,6 +574,24 @@
     <priority>0.6</priority>
   </url>
   <url>
+    <loc>https://eflury.com/en/blog/shadow-ai-security-swiss-smes/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/schatten-ki-sicherheit-schweizer-kmu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/blog/schatten-ki-sicherheit-schweizer-kmu/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/schatten-ki-sicherheit-schweizer-kmu/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
+    <lastmod>2026-02-15</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://eflury.com/en/blog/voice-ai-receptionist-swiss-sme/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/voice-ai-receptionist-swiss-sme/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/voice-ki-rezeptionist-schweizer-kmu/"/>
@@ -606,24 +624,6 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/whatsapp-business-automatisierung/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/whatsapp-business-automation/"/>
     <lastmod>2025-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://eflury.com/en/blog/shadow-ai-security-swiss-smes/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/schatten-ki-sicherheit-schweizer-kmu/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
-    <lastmod>2026-02-15</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://eflury.com/de/blog/schatten-ki-sicherheit-schweizer-kmu/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/schatten-ki-sicherheit-schweizer-kmu/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/shadow-ai-security-swiss-smes/"/>
-    <lastmod>2026-02-15</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
