@@ -405,56 +405,56 @@ const t = useTranslations(lang);
       <div class="container">
         <h2>Pricing FAQs</h2>
 
-        <div class="faq-grid">
-          <div class="faq-item">
-            <h3>Why upfront pricing instead of "Contact us"?</h3>
-            <p>Because Swiss SMEs value transparency. Hidden pricing = wasted time. I show you exactly what it costs so you can decide faster.</p>
-          </div>
+        <div class="faq-list">
+          <details class="faq-item">
+            <summary>Why upfront pricing instead of "Contact us"?</summary>
+            <div class="faq-answer"><p>Because Swiss SMEs value transparency. Hidden pricing = wasted time. I show you exactly what it costs so you can decide faster.</p></div>
+          </details>
 
-          <div class="faq-item">
-            <h3>Can I pay in installments?</h3>
-            <p>Yes! Professional and Enterprise packages offer split payments (50% upfront, 50% at deployment). Starter is one payment.</p>
-          </div>
+          <details class="faq-item">
+            <summary>Can I pay in installments?</summary>
+            <div class="faq-answer"><p>Yes! Professional and Enterprise packages offer split payments (50% upfront, 50% at deployment). Starter is one payment.</p></div>
+          </details>
 
-          <div class="faq-item">
-            <h3>What's included in the "Claude Team subscription"?</h3>
-            <p>Claude Team costs CHF 280/month (3 users). I include it for the duration specified in each package, so you don't pay separately during implementation.</p>
-          </div>
+          <details class="faq-item">
+            <summary>What's included in the "Claude Team subscription"?</summary>
+            <div class="faq-answer"><p>Claude Team costs CHF 280/month (3 users). I include it for the duration specified in each package, so you don't pay separately during implementation.</p></div>
+          </details>
 
-          <div class="faq-item">
-            <h3>What if I need fewer than 2 Skills?</h3>
-            <p>For single-Skill projects, I offer a CHF 5,900 Micro package (2 weeks, 1 Skill, 1 MCP integration). <a href="/en/#contact">Contact me</a> to discuss.</p>
-          </div>
+          <details class="faq-item">
+            <summary>What if I need fewer than 2 Skills?</summary>
+            <div class="faq-answer"><p>For single-Skill projects, I offer a CHF 5,900 Micro package (2 weeks, 1 Skill, 1 MCP integration). <a href="/en/#contact">Contact me</a> to discuss.</p></div>
+          </details>
 
-          <div class="faq-item">
-            <h3>Do you charge hourly after the package ends?</h3>
-            <p>No. Post-launch support is included (2-8 weeks depending on package). After that, you can add Extended Support (CHF 1,200/month) or pay per-project for new Skills.</p>
-          </div>
+          <details class="faq-item">
+            <summary>Do you charge hourly after the package ends?</summary>
+            <div class="faq-answer"><p>No. Post-launch support is included (2-8 weeks depending on package). After that, you can add Extended Support (CHF 1,200/month) or pay per-project for new Skills.</p></div>
+          </details>
 
-          <div class="faq-item">
-            <h3>What's your refund policy?</h3>
-            <p><strong>Professional and Enterprise only:</strong> If you don't achieve ≥15 hours/week time savings within 3 months of deployment, full refund. Starter packages are non-refundable (too short to measure ROI).</p>
-          </div>
+          <details class="faq-item">
+            <summary>What's your refund policy?</summary>
+            <div class="faq-answer"><p><strong>Professional and Enterprise only:</strong> If you don't achieve ≥15 hours/week time savings within 3 months of deployment, full refund. Starter packages are non-refundable (too short to measure ROI).</p></div>
+          </details>
 
-          <div class="faq-item">
-            <h3>Are there any hidden fees?</h3>
-            <p>No. The only additional cost is 8.1% VAT (Swiss law). Everything else – hosting, software licenses during development, training materials – is included.</p>
-          </div>
+          <details class="faq-item">
+            <summary>Are there any hidden fees?</summary>
+            <div class="faq-answer"><p>No. The only additional cost is 8.1% VAT (Swiss law). Everything else – hosting, software licenses during development, training materials – is included.</p></div>
+          </details>
 
-          <div class="faq-item">
-            <h3>Can I upgrade from Starter to Professional later?</h3>
-            <p>Yes! If you start with Starter and want to expand, I'll credit your CHF 9,900 toward Professional (pay CHF 15,000 difference). Must upgrade within 6 months.</p>
-          </div>
+          <details class="faq-item">
+            <summary>Can I upgrade from Starter to Professional later?</summary>
+            <div class="faq-answer"><p>Yes! If you start with Starter and want to expand, I'll credit your CHF 9,900 toward Professional (pay CHF 15,000 difference). Must upgrade within 6 months.</p></div>
+          </details>
 
-          <div class="faq-item">
-            <h3>Do you offer discounts?</h3>
-            <p>Occasionally, yes. I run seasonal promotions (e.g., -10% in Q1 for early-stage startups). <a href="/en/#contact">Subscribe to my newsletter</a> to hear about them.</p>
-          </div>
+          <details class="faq-item">
+            <summary>Do you offer discounts?</summary>
+            <div class="faq-answer"><p>Occasionally, yes. I run seasonal promotions (e.g., -10% in Q1 for early-stage startups). <a href="/en/#contact">Subscribe to my newsletter</a> to hear about them.</p></div>
+          </details>
 
-          <div class="faq-item">
-            <h3>What if my project needs more than 10 Skills?</h3>
-            <p>For >10 Skills, I create a custom Enterprise+ quote. Pricing scales: CHF 2,500/Skill for 11-20 Skills, CHF 2,000/Skill for 20+.</p>
-          </div>
+          <details class="faq-item">
+            <summary>What if my project needs more than 10 Skills?</summary>
+            <div class="faq-answer"><p>For >10 Skills, I create a custom Enterprise+ quote. Pricing scales: CHF 2,500/Skill for 11-20 Skills, CHF 2,000/Skill for 20+.</p></div>
+          </details>
         </div>
       </div>
     </section>
@@ -1380,36 +1380,65 @@ const t = useTranslations(lang);
     margin-bottom: 3rem;
   }
 
-  .faq-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
+  .faq-list {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
   }
 
   .faq-item {
-    background: white;
-    padding: 2rem;
-    border-radius: 0.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    overflow: hidden;
+    transition: border-color 0.2s ease;
   }
 
-  .faq-item h3 {
-    font-size: 1.125rem;
-    margin-bottom: 1rem;
-    color: var(--primary-700);
+  .faq-item[open],
+  .faq-item:hover {
+    border-color: var(--eflury-teal);
   }
 
-  .faq-item p {
+  .faq-item summary {
+    list-style: none;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.125rem 1.375rem;
+    font-weight: 600;
+    color: var(--text-primary);
+  }
+
+  .faq-item summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .faq-item summary::after {
+    content: '+';
+    font-size: 1.375rem;
+    font-weight: 400;
+    color: var(--eflury-teal);
+    line-height: 1;
+    transition: transform 0.25s ease;
+    flex-shrink: 0;
+  }
+
+  .faq-item[open] summary::after {
+    transform: rotate(45deg);
+  }
+
+  .faq-answer {
+    padding: 0 1.375rem 1.25rem;
     color: var(--text-secondary);
-    line-height: 1.7;
+    line-height: 1.65;
   }
 
-  .faq-item a {
-    color: var(--primary-600);
-    text-decoration: none;
-  }
-
-  .faq-item a:hover {
-    text-decoration: underline;
+  .faq-answer a {
+    color: var(--eflury-teal);
   }
 
   /* CTA Section */
@@ -1492,10 +1521,6 @@ const t = useTranslations(lang);
 
     .addons-grid {
       grid-template-columns: repeat(2, 1fr);
-    }
-
-    .faq-grid {
-      grid-template-columns: 1fr;
     }
   }
 
