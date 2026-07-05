@@ -520,24 +520,6 @@
     <priority>0.6</priority>
   </url>
   <url>
-    <loc>https://eflury.com/en/blog/power-bi-finance-teams/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/power-bi-finance-teams/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/power-bi-finanzteams/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/power-bi-finance-teams/"/>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://eflury.com/de/blog/power-bi-finanzteams/</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/power-bi-finance-teams/"/>
-    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/power-bi-finanzteams/"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/power-bi-finance-teams/"/>
-    <lastmod>2026-02-08</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  <url>
     <loc>https://eflury.com/en/blog/openclaw-setup-service-swiss-sme/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/openclaw-setup-service-swiss-sme/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/openclaw-setup-service-schweizer-kmu/"/>
@@ -552,6 +534,24 @@
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/openclaw-setup-service-schweizer-kmu/"/>
     <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/openclaw-setup-service-swiss-sme/"/>
     <lastmod>2026-02-14</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/en/blog/power-bi-finance-teams/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/power-bi-finance-teams/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/power-bi-finanzteams/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/power-bi-finance-teams/"/>
+    <lastmod>2026-02-08</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/blog/power-bi-finanzteams/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/power-bi-finance-teams/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/power-bi-finanzteams/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/blog/power-bi-finance-teams/"/>
+    <lastmod>2026-02-08</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.6</priority>
   </url>
