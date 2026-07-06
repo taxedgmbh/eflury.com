@@ -1,0 +1,622 @@
+---
+/**
+ * Worked before/after example for the Data Quality service pages.
+ * Pure HTML/CSS in the site design system — no images, dark-mode aware.
+ * All numbers shown are explicitly labeled as an illustrative example.
+ */
+interface Props {
+  lang: 'en' | 'de';
+}
+
+const { lang } = Astro.props;
+const de = lang === 'de';
+
+const t = {
+  sectionTitle: de ? 'So sieht das konkret aus' : 'What this looks like in practice',
+  sectionIntro: de
+    ? 'Ein fiktives, aber typisches Beispiel: eine Kundenliste, wie sie in fast jedem KMU existiert — und was die Agenten daraus machen.'
+    : 'A fictional but typical example: a customer list like the one in almost every SME — and what the agents do with it.',
+  step1: de ? 'Schritt 1 — Der Profiling-Agent findet die Probleme' : 'Step 1 — The profiling agent finds the problems',
+  step2: de ? 'Schritt 2 — Der Bereinigungs-Agent schlägt vor, Sie geben frei' : 'Step 2 — The cleansing agent proposes, you approve',
+  step3: de ? 'Schritt 3 — Messbares Resultat' : 'Step 3 — Measurable result',
+  colName: de ? 'Firma' : 'Company',
+  colCity: de ? 'Ort' : 'City',
+  colUid: 'UID',
+  colPhone: de ? 'Telefon' : 'Phone',
+  tagDup: de ? 'Duplikat-Cluster' : 'Duplicate cluster',
+  tagUid: de ? 'UID fehlt' : 'UID missing',
+  tagFormat: de ? 'Format-Drift' : 'Format drift',
+  proposalTitle: de ? 'Vorschlag: 3 Datensätze zu 1 Golden Record zusammenführen' : 'Proposal: merge 3 records into 1 golden record',
+  proposalWhy: de
+    ? 'Begründung des Agenten: identische UID-Registrierung, gleiche Telefonnummer nach Normalisierung, Adresse in Grenchen in allen drei Quellen. Konfidenz: hoch.'
+    : 'Agent’s reasoning: identical UID registration, same phone number after normalization, Grenchen address in all three sources. Confidence: high.',
+  goldenLabel: 'Golden Record',
+  reviewGate: de ? 'Menschliches Freigabe-Gate' : 'Human review gate',
+  btnApprove: de ? 'Freigeben' : 'Approve',
+  btnReject: de ? 'Ablehnen' : 'Reject',
+  gateNote: de
+    ? 'Ohne Klick auf «Freigeben» wird nichts in Ihre Systeme geschrieben.'
+    : 'Nothing is written to your systems until someone clicks "Approve".',
+  m1Label: de ? 'Duplikatquote' : 'Duplicate rate',
+  m2Label: de ? 'Datensätze ohne UID' : 'Records without UID',
+  m3Label: de ? 'Manuelle Bereinigung' : 'Manual cleanup',
+  m3Before: de ? '12 Std./Monat' : '12 hrs/month',
+  m3After: de ? '~1 Std./Monat' : '~1 hr/month',
+  illustrative: de
+    ? 'Illustratives Beispiel mit fiktiven Daten und Beispielwerten — Ihre Ausgangslage messen wir im Audit.'
+    : 'Illustrative example with fictional data and sample figures — your actual baseline is measured in the audit.',
+  pipeTitle: de ? 'Die Architektur dahinter' : 'The architecture behind it',
+  pipeSources: de ? 'Ihre Systeme' : 'Your systems',
+  pipeMcp: de ? 'MCP · nur Lesezugriff' : 'MCP · read-only',
+  pipeAgents: de ? 'Claude-Agenten' : 'Claude agents',
+  pipeAgentList: ['Profiler', de ? 'Bereiniger' : 'Cleanser', 'Validator', 'Monitor'],
+  pipeContext: de
+    ? 'Kontextfenster: Schema + Regeln + Stichproben (200K–1M Tokens)'
+    : 'Context window: schema + rules + samples (200K–1M tokens)',
+  pipeGate: de ? 'Review-Gate' : 'Review gate',
+  pipeGateSub: de ? 'Mensch entscheidet' : 'human decides',
+  pipeOut1: de ? 'Saubere Stammdaten' : 'Clean master data',
+  pipeOut2: de ? 'Qualitäts-Dashboard' : 'Quality dashboard',
+};
+
+const dirtyRows = [
+  { name: 'Müller AG', city: 'Grenchen', uid: 'CHE-123.456.789', phone: '+41 32 645 11 22', dup: true, issues: [] },
+  { name: 'Mueller AG', city: 'Grenchen', uid: '', phone: '032 645 11 22', dup: true, issues: ['uid', 'format'] },
+  { name: 'Müller AG, Grenchen', city: '', uid: 'CHE-123.456.789', phone: '0326451122', dup: true, issues: ['format'] },
+  { name: 'Bäckerei Steiner GmbH', city: 'Biel/Bienne', uid: 'CHE-987.654.321', phone: '+41 32 322 33 44', dup: false, issues: [] },
+  { name: 'steiner gmbh bäckerei', city: 'Biel', uid: '', phone: '+41 32 322 33 44', dup: false, issues: ['uid'], dup2: true },
+];
+---
+
+<section class="dq-showcase">
+  <div class="container">
+    <h2>{t.sectionTitle}</h2>
+    <p class="dq-intro">{t.sectionIntro}</p>
+
+    <!-- Step 1: dirty table with findings -->
+    <div class="dq-step">
+      <h3><span class="dq-step-num">1</span>{t.step1}</h3>
+      <div class="dq-table-wrap">
+        <table class="dq-table">
+          <thead>
+            <tr>
+              <th>{t.colName}</th>
+              <th>{t.colCity}</th>
+              <th>{t.colUid}</th>
+              <th>{t.colPhone}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {dirtyRows.map((r) => (
+              <tr class={r.dup ? 'dup-a' : r.dup2 ? 'dup-b' : ''}>
+                <td>{r.name} {(r.dup || r.dup2) && <span class="chip chip-red">{t.tagDup}</span>}</td>
+                <td>{r.city || <span class="missing">—</span>}</td>
+                <td>{r.uid ? r.uid : <span class="chip chip-amber">{t.tagUid}</span>}</td>
+                <td>
+                  {r.phone}
+                  {r.issues.includes('format') && <span class="chip chip-amber">{t.tagFormat}</span>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Step 2: merge proposal + review gate -->
+    <div class="dq-step">
+      <h3><span class="dq-step-num">2</span>{t.step2}</h3>
+      <div class="dq-proposal">
+        <div class="dq-proposal-head">
+          <strong>{t.proposalTitle}</strong>
+          <p>{t.proposalWhy}</p>
+        </div>
+        <div class="dq-merge">
+          <div class="dq-merge-sources">
+            <div class="dq-mini">Müller AG</div>
+            <div class="dq-mini">Mueller AG</div>
+            <div class="dq-mini">Müller AG, Grenchen</div>
+          </div>
+          <div class="dq-merge-arrow" aria-hidden="true">→</div>
+          <div class="dq-golden">
+            <span class="dq-golden-badge">{t.goldenLabel}</span>
+            <div class="dq-golden-body">
+              <div><strong>Müller AG</strong></div>
+              <div>Grenchen · CHE-123.456.789</div>
+              <div>+41 32 645 11 22</div>
+            </div>
+          </div>
+        </div>
+        <div class="dq-gate">
+          <span class="dq-gate-label">{t.reviewGate}</span>
+          <span class="dq-btn dq-btn-approve">✓ {t.btnApprove}</span>
+          <span class="dq-btn dq-btn-reject">✕ {t.btnReject}</span>
+          <span class="dq-gate-note">{t.gateNote}</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Step 3: metrics -->
+    <div class="dq-step">
+      <h3><span class="dq-step-num">3</span>{t.step3}</h3>
+      <div class="dq-metrics">
+        <div class="dq-metric">
+          <span class="dq-metric-label">{t.m1Label}</span>
+          <span class="dq-metric-vals"><s>14%</s> <span class="dq-arrow">→</span> <strong>0.8%</strong></span>
+        </div>
+        <div class="dq-metric">
+          <span class="dq-metric-label">{t.m2Label}</span>
+          <span class="dq-metric-vals"><s>23%</s> <span class="dq-arrow">→</span> <strong>2%</strong></span>
+        </div>
+        <div class="dq-metric">
+          <span class="dq-metric-label">{t.m3Label}</span>
+          <span class="dq-metric-vals"><s>{t.m3Before}</s> <span class="dq-arrow">→</span> <strong>{t.m3After}</strong></span>
+        </div>
+      </div>
+      <p class="dq-disclaimer"><em>{t.illustrative}</em></p>
+    </div>
+
+    <!-- Pipeline diagram -->
+    <div class="dq-pipe">
+      <h3>{t.pipeTitle}</h3>
+      <div class="dq-pipe-flow">
+        <div class="dq-pipe-col">
+          <span class="dq-pipe-label">{t.pipeSources}</span>
+          <div class="dq-pipe-box">bexio</div>
+          <div class="dq-pipe-box">CRM</div>
+          <div class="dq-pipe-box">Excel</div>
+        </div>
+        <div class="dq-pipe-link"><span>{t.pipeMcp}</span></div>
+        <div class="dq-pipe-col">
+          <span class="dq-pipe-label">{t.pipeAgents}</span>
+          <div class="dq-pipe-agents">
+            {t.pipeAgentList.map((a) => <div class="dq-pipe-box dq-pipe-agent">{a}</div>)}
+          </div>
+          <span class="dq-pipe-context">{t.pipeContext}</span>
+        </div>
+        <div class="dq-pipe-link"><span aria-hidden="true">→</span></div>
+        <div class="dq-pipe-col">
+          <div class="dq-pipe-box dq-pipe-gate">
+            {t.pipeGate}
+            <small>{t.pipeGateSub}</small>
+          </div>
+        </div>
+        <div class="dq-pipe-link"><span aria-hidden="true">→</span></div>
+        <div class="dq-pipe-col">
+          <div class="dq-pipe-box dq-pipe-out">{t.pipeOut1}</div>
+          <div class="dq-pipe-box dq-pipe-out">{t.pipeOut2}</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .dq-showcase {
+    padding: 4.5rem 0;
+    background: var(--bg-secondary);
+  }
+
+  .container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .dq-showcase h2 {
+    text-align: center;
+    font-size: clamp(1.75rem, 4vw, 2.25rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 0 0 1rem;
+  }
+
+  .dq-showcase h2::after {
+    content: '';
+    display: block;
+    width: 48px;
+    height: 3px;
+    border-radius: 2px;
+    background: var(--eflury-teal);
+    margin: 1rem auto 0;
+  }
+
+  .dq-intro {
+    max-width: 640px;
+    margin: 0 auto 2.5rem;
+    text-align: center;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .dq-step {
+    margin-bottom: 2.5rem;
+  }
+
+  .dq-step h3 {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    margin: 0 0 1rem;
+  }
+
+  .dq-step-num {
+    flex-shrink: 0;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9375rem;
+    font-weight: 700;
+    color: #fff;
+    background: linear-gradient(135deg, var(--eflury-navy), var(--eflury-teal));
+  }
+
+  /* --- table --- */
+  .dq-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    background: var(--card-bg);
+  }
+
+  .dq-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.875rem;
+    min-width: 640px;
+  }
+
+  .dq-table th {
+    background: var(--eflury-navy);
+    color: #fff;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-weight: 600;
+    font-size: 0.8125rem;
+    white-space: nowrap;
+  }
+
+  .dq-table td {
+    padding: 0.6875rem 1rem;
+    border-top: 1px solid var(--border-color);
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .dq-table tr.dup-a td {
+    background: rgba(229, 72, 77, 0.06);
+  }
+
+  .dq-table tr.dup-b td {
+    background: rgba(245, 158, 11, 0.06);
+  }
+
+  .missing {
+    color: var(--accent-red, #e5484d);
+    font-weight: 700;
+  }
+
+  .chip {
+    display: inline-block;
+    margin-left: 0.5rem;
+    padding: 0.125rem 0.5rem;
+    border-radius: 999px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+
+  .chip-red {
+    background: rgba(229, 72, 77, 0.12);
+    color: var(--accent-red, #e5484d);
+  }
+
+  .chip-amber {
+    background: rgba(245, 158, 11, 0.14);
+    color: #b45309;
+  }
+
+  /* --- proposal --- */
+  .dq-proposal {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--eflury-teal);
+    border-radius: 14px;
+    padding: 1.5rem;
+  }
+
+  .dq-proposal-head strong {
+    color: var(--text-primary);
+  }
+
+  .dq-proposal-head p {
+    margin: 0.375rem 0 1.25rem;
+    color: var(--text-secondary);
+    font-size: 0.9rem;
+    line-height: 1.6;
+  }
+
+  .dq-merge {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
+
+  .dq-merge-sources {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .dq-mini {
+    padding: 0.5rem 0.875rem;
+    background: var(--bg-secondary);
+    border: 1px dashed var(--border-color);
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    color: var(--text-secondary);
+    text-decoration: line-through;
+    text-decoration-color: rgba(229, 72, 77, 0.5);
+  }
+
+  .dq-merge-arrow {
+    font-size: 1.5rem;
+    color: var(--eflury-teal);
+    font-weight: 700;
+  }
+
+  .dq-golden {
+    position: relative;
+    padding: 1.125rem 1.25rem 1rem;
+    background: rgba(13, 148, 136, 0.07);
+    border: 1px solid rgba(13, 148, 136, 0.35);
+    border-radius: 12px;
+    min-width: 240px;
+  }
+
+  .dq-golden-badge {
+    position: absolute;
+    top: -10px;
+    left: 12px;
+    padding: 0.125rem 0.625rem;
+    background: var(--eflury-teal);
+    color: #fff;
+    border-radius: 999px;
+    font-size: 0.6875rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+
+  .dq-golden-body {
+    font-size: 0.875rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .dq-golden-body strong {
+    color: var(--text-primary);
+  }
+
+  .dq-gate {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+    padding-top: 1.125rem;
+    border-top: 1px dashed var(--border-color);
+  }
+
+  .dq-gate-label {
+    font-size: 0.8125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+
+  .dq-btn {
+    display: inline-block;
+    padding: 0.375rem 0.875rem;
+    border-radius: 8px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    cursor: default;
+  }
+
+  .dq-btn-approve {
+    background: var(--eflury-teal);
+    color: #fff;
+  }
+
+  .dq-btn-reject {
+    background: transparent;
+    border: 1px solid var(--border-color);
+    color: var(--text-secondary);
+  }
+
+  .dq-gate-note {
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+  }
+
+  /* --- metrics --- */
+  .dq-metrics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+
+  .dq-metric {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 1.125rem 1.25rem;
+    text-align: center;
+  }
+
+  .dq-metric-label {
+    display: block;
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    margin-bottom: 0.375rem;
+  }
+
+  .dq-metric-vals {
+    font-size: 1.0625rem;
+    color: var(--text-secondary);
+  }
+
+  .dq-metric-vals s {
+    color: var(--text-tertiary);
+  }
+
+  .dq-metric-vals strong {
+    color: var(--eflury-teal);
+    font-size: 1.1875rem;
+  }
+
+  .dq-arrow {
+    color: var(--eflury-teal);
+    margin: 0 0.25rem;
+  }
+
+  .dq-disclaimer {
+    margin-top: 0.875rem;
+    font-size: 0.8125rem;
+    color: var(--text-tertiary);
+    text-align: center;
+  }
+
+  /* --- pipeline --- */
+  .dq-pipe {
+    margin-top: 3rem;
+  }
+
+  .dq-pipe h3 {
+    text-align: center;
+    font-size: 1.125rem;
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+  }
+
+  .dq-pipe-flow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+  }
+
+  .dq-pipe-col {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    align-items: center;
+  }
+
+  .dq-pipe-label {
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--text-tertiary);
+    margin-bottom: 0.125rem;
+  }
+
+  .dq-pipe-box {
+    padding: 0.5rem 1rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 10px;
+    font-size: 0.8125rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-align: center;
+    min-width: 90px;
+  }
+
+  .dq-pipe-agents {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+  }
+
+  .dq-pipe-agent {
+    border-color: rgba(13, 148, 136, 0.4);
+    color: var(--eflury-teal);
+  }
+
+  .dq-pipe-context {
+    max-width: 230px;
+    font-size: 0.6875rem;
+    color: var(--text-tertiary);
+    text-align: center;
+    line-height: 1.45;
+  }
+
+  .dq-pipe-gate {
+    background: var(--eflury-navy);
+    border-color: var(--eflury-navy);
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    gap: 0.125rem;
+  }
+
+  .dq-pipe-gate small {
+    font-weight: 400;
+    font-size: 0.6875rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .dq-pipe-out {
+    border-color: rgba(13, 148, 136, 0.4);
+    background: rgba(13, 148, 136, 0.07);
+    color: var(--text-primary);
+  }
+
+  .dq-pipe-link {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--eflury-teal);
+    white-space: nowrap;
+  }
+
+  @media (max-width: 860px) {
+    .container {
+      padding: 0 1.25rem;
+    }
+
+    .dq-metrics {
+      grid-template-columns: 1fr;
+    }
+
+    .dq-merge {
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .dq-merge-arrow {
+      text-align: center;
+      transform: rotate(90deg);
+    }
+
+    .dq-pipe-flow {
+      flex-direction: column;
+    }
+
+    .dq-pipe-link {
+      padding: 0.125rem 0;
+    }
+  }
+</style>

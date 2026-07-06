@@ -1,5 +1,6 @@
 ---
 import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import DataQualityShowcase from '../../../components/DataQualityShowcase.astro';
 
 const lang = 'de';
 
@@ -115,4 +116,6 @@ const serviceData = {
 };
 ---
 
-<ServiceLayout {...serviceData} />
+<ServiceLayout {...serviceData}>
+  <DataQualityShowcase lang={lang} slot="showcase" />
+</ServiceLayout>
