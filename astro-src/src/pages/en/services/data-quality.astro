@@ -1,0 +1,118 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+
+const lang = 'en';
+
+const serviceData = {
+  title: 'Data Quality with Agentic AI | eflury.com',
+  description:
+    'AI agents that profile, deduplicate, validate and monitor your business data — with human review gates and Swiss data protection built in.',
+  keywords:
+    'data quality, agentic AI, data cleansing, deduplication, master data, data validation, Swiss SME, Claude, MCP',
+  lang,
+  serviceType: 'Data Quality with Agentic AI',
+  heroTitle: 'Clean Data, Continuously — with Agentic AI',
+  heroSubtitle: 'Data Quality',
+  heroDescription:
+    'Autonomous AI agents profile your data, find duplicates no rule engine catches, validate new entries and monitor quality continuously — while every correction passes a human review gate. Built on Claude, connected to your systems via MCP, aligned with Swiss data protection.',
+  problemTitle: 'Does this sound familiar?',
+  problems: [
+    '"Müller AG", "Mueller AG" and "Müller AG, Grenchen" are three different customers in your CRM — and nobody trusts the customer count',
+    'Every month-end report starts with hours of manual cleanup in Excel before anyone dares to present the numbers',
+    'Your ERP, CRM and spreadsheets disagree about addresses, prices or stock levels — and reconciling them is somebody’s unofficial side job',
+    'A migration or AI project is stalled because "the data isn’t ready" — and nobody can say when it will be',
+    'Your existing data-quality rules break every time reality produces a case nobody wrote a rule for'
+  ],
+  solutionTitle: 'Agents that understand your data — not just match patterns',
+  solutionDescription:
+    'Traditional data-quality tools execute hand-written rules. Agentic AI reads your data the way a careful employee would: it recognizes that two differently spelled companies are the same customer, that a price is implausible for its product group, that a date format changed after the last ERP update. Modern Claude models hold 200,000 to 1 million tokens of context — roughly 300 to 2,500 pages, or tens of thousands of records — so an agent can consider your schema, your business rules and large data samples at once instead of one row at a time. This is not a nice-to-have: Gartner predicts that through 2026, organizations will abandon 60% of AI projects that are not supported by AI-ready data. Clean data is the foundation every automation and AI initiative stands on.',
+  benefits: [
+    {
+      title: 'Semantic Deduplication',
+      description:
+        'Finds duplicates that fuzzy matching misses: name variants, umlauts, abbreviations, relocated addresses. Merges are proposed in batches and reviewed by a human before anything changes.'
+    },
+    {
+      title: 'Rules Written in Plain Language',
+      description:
+        'Describe what "valid" means in plain German or English — the agent turns it into executable checks. No rule-engine scripting, no consultant lock-in. This natural-language-to-rules pattern is where the whole industry is heading.'
+    },
+    {
+      title: 'Continuous Monitoring Instead of Annual Cleanup',
+      description:
+        'A monitoring agent watches new and changed records, flags anomalies without predefined thresholds, and reports data health on a dashboard your team actually trusts.'
+    },
+    {
+      title: 'Context Windows, Used Correctly',
+      description:
+        'Large context windows enable whole-dataset checks — but published research (NVIDIA RULER, Chroma’s context-rot study) shows effective context is smaller than advertised. Our agents therefore combine long context for reasoning with direct MCP database queries and chunked batch runs, instead of naively "reading" a million rows.'
+    }
+  ],
+  processTitle: 'How we get your data clean',
+  processSteps: [
+    {
+      title: 'Data-Quality Audit',
+      description:
+        'Agents profile your systems (ERP, CRM, files) and produce a scored report: duplicates, gaps, inconsistencies, format drift — each with its business impact.'
+    },
+    {
+      title: 'Cleansing with Review Gates',
+      description:
+        'Cleansing agents propose corrections and merges in batches; you approve them. Nothing is written back to your systems without sign-off.'
+    },
+    {
+      title: 'Validation at the Source',
+      description:
+        'New entries are checked as they arrive — plausibility, completeness, cross-system consistency — so quality stops degrading in the first place.'
+    },
+    {
+      title: 'Monitoring & Handover',
+      description:
+        'A data-health dashboard (Power BI if you like), sensible alerts, and training so your team runs the system independently.'
+    }
+  ],
+  faqs: [
+    {
+      question: 'What do AI context windows have to do with data quality?',
+      answer:
+        'The context window is the model’s working memory. Current Claude models hold 200K to 1 million tokens — several hundred to about 2,500 pages, or tens of thousands of records. That lets one agent consider your schema, data dictionary, business rules and large samples simultaneously, which is exactly what makes semantic deduplication and cross-table consistency checks possible. But research ("Lost in the Middle", NVIDIA’s RULER benchmark, Chroma’s 2025 context-rot study) shows models degrade well before the advertised limit. So we never dump your database into a prompt: agents query it through MCP, process it in chunks, and reserve the context window for reasoning. That is the difference between a demo and a system you can trust.'
+    },
+    {
+      question: 'Is my data safe? What about the revDSG?',
+      answer:
+        'Your data stays in your systems; agents access it read-only via MCP connectors. For sensitive datasets we work with samples or redaction, use EU/Swiss-hosted deployment options where required, and document every processing step. Anthropic does not train its models on API data by default, and EU-region hosting (e.g. Frankfurt) is available where required. You get a processing record and a revDSG-compliant setup, not a black box.'
+    },
+    {
+      question: 'Won’t the AI hallucinate "corrections"?',
+      answer:
+        'Left unsupervised, it can — which is why no correction is applied automatically. Cleansing agents propose, humans approve. Deterministic checks handle what determinism does best (exact sums, key integrity, referential checks), and the agent handles the semantic judgment calls. This human-in-the-loop pattern is the industry standard: Forrester’s Q1 2026 Data Quality Wave describes agentic remediation "while keeping humans in the loop" as the defining market shift.'
+    },
+    {
+      question: 'How is this different from Informatica, Talend and the classic tools?',
+      answer:
+        'Those are excellent enterprise platforms — and even they are going agentic: Gartner renamed the category to "Augmented Data Quality Solutions" in 2024, and the incumbents are adding natural-language rule agents. And the evidence favors the approach: in a 2026 benchmark built from a real production deduplication workflow, LLM-based matching clearly outperformed the long-deployed rule-based system. My service brings this pattern to Swiss SMEs at SME scale: weeks instead of quarters, fixed prices, built on Claude and MCP against the systems you already run — bexio, ABACUS, Microsoft 365.'
+    },
+    {
+      question: 'What does it cost, and how long does it take?',
+      answer:
+        'The data-quality audit takes about one week and gives you a scored report plus a prioritized remediation plan — that alone is often eye-opening. A typical cleansing and monitoring setup runs 4–8 weeks. Pricing follows the same transparent fixed-price packages as all my services.'
+    },
+    {
+      question: 'Agentic AI is heavily hyped. Why would this project succeed?',
+      answer:
+        'Fair question — Gartner expects over 40% of agentic-AI projects to be canceled by 2027, mostly for unclear business value. Data quality is the counterexample, because the baseline is measurable before we start: duplicate rate, error rate, hours of manual cleanup per month. We define these metrics in the audit, and you watch them move after every cleansing batch. If they don’t move, you see that too.'
+    }
+  ],
+  ctaTitle: 'Find out how clean your data really is',
+  ctaDescription:
+    'Book a free 30-minute call. We’ll look at one of your datasets together, and I’ll tell you honestly what agents can fix — and what they can’t.',
+  ctaButtonText: 'Book a Free Data Check',
+  relatedCaseStudy: {
+    title: 'Finance Process Automation at a Swiss Manufacturer',
+    link: '/en/case-studies/finance-automation',
+    metric: '~CHF 48K projected annual savings'
+  }
+};
+---
+
+<ServiceLayout {...serviceData} />

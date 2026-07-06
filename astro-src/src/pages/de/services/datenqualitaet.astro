@@ -1,0 +1,118 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+
+const lang = 'de';
+
+const serviceData = {
+  title: 'Datenqualität mit Agentic AI | eflury.com',
+  description:
+    'KI-Agenten, die Ihre Geschäftsdaten profilieren, deduplizieren, validieren und überwachen — mit menschlichen Freigabe-Gates und Schweizer Datenschutz.',
+  keywords:
+    'Datenqualität, Agentic AI, Datenbereinigung, Deduplizierung, Stammdaten, Datenvalidierung, Schweizer KMU, Claude, MCP',
+  lang,
+  serviceType: 'Datenqualität mit Agentic AI',
+  heroTitle: 'Saubere Daten, dauerhaft — mit Agentic AI',
+  heroSubtitle: 'Datenqualität',
+  heroDescription:
+    'Autonome KI-Agenten profilieren Ihre Daten, finden Duplikate, die keine Regel-Engine erkennt, validieren neue Einträge und überwachen die Qualität laufend — und jede Korrektur durchläuft ein menschliches Freigabe-Gate. Gebaut auf Claude, verbunden mit Ihren Systemen via MCP, ausgerichtet auf Schweizer Datenschutz.',
+  problemTitle: 'Kommt Ihnen das bekannt vor?',
+  problems: [
+    '"Müller AG", "Mueller AG" und "Müller AG, Grenchen" sind drei verschiedene Kunden in Ihrem CRM — und niemand traut der Kundenzahl',
+    'Jeder Monatsabschluss beginnt mit stundenlangem manuellem Aufräumen in Excel, bevor jemand die Zahlen zu präsentieren wagt',
+    'ERP, CRM und Excel-Listen widersprechen sich bei Adressen, Preisen oder Beständen — und der Abgleich ist irgendjemandes inoffizieller Nebenjob',
+    'Eine Migration oder ein KI-Projekt steht still, weil "die Daten nicht bereit sind" — und niemand sagen kann, wann sie es sein werden',
+    'Ihre bestehenden Datenqualitätsregeln brechen jedes Mal, wenn die Realität einen Fall produziert, für den niemand eine Regel geschrieben hat'
+  ],
+  solutionTitle: 'Agenten, die Ihre Daten verstehen — statt nur Muster abzugleichen',
+  solutionDescription:
+    'Klassische Datenqualitäts-Tools führen handgeschriebene Regeln aus. Agentic AI liest Ihre Daten wie eine sorgfältige Mitarbeiterin: Sie erkennt, dass zwei unterschiedlich geschriebene Firmen derselbe Kunde sind, dass ein Preis für seine Produktgruppe unplausibel ist, dass sich ein Datumsformat nach dem letzten ERP-Update geändert hat. Moderne Claude-Modelle halten 200’000 bis 1 Million Tokens Kontext — grob 300 bis 2’500 Seiten oder Zehntausende Datensätze — sodass ein Agent Ihr Schema, Ihre Geschäftsregeln und grosse Datenstichproben gleichzeitig betrachten kann statt Zeile für Zeile. Das ist kein Nice-to-have: Gartner prognostiziert, dass bis Ende 2026 60% der KI-Projekte ohne AI-ready Data abgebrochen werden. Saubere Daten sind das Fundament, auf dem jede Automatisierung und jede KI-Initiative steht.',
+  benefits: [
+    {
+      title: 'Semantische Deduplizierung',
+      description:
+        'Findet Duplikate, die Fuzzy-Matching übersieht: Namensvarianten, Umlaute, Abkürzungen, umgezogene Adressen. Zusammenführungen werden in Batches vorgeschlagen und von einem Menschen geprüft, bevor sich irgendetwas ändert.'
+    },
+    {
+      title: 'Regeln in natürlicher Sprache',
+      description:
+        'Beschreiben Sie auf Deutsch oder Englisch, was "gültig" bedeutet — der Agent macht daraus ausführbare Prüfungen. Kein Regel-Engine-Scripting, kein Berater-Lock-in. Genau dorthin bewegt sich die gesamte Branche.'
+    },
+    {
+      title: 'Laufende Überwachung statt jährlicher Putzaktion',
+      description:
+        'Ein Monitoring-Agent beobachtet neue und geänderte Datensätze, meldet Anomalien ohne vordefinierte Schwellenwerte und zeigt die Datengesundheit auf einem Dashboard, dem Ihr Team wirklich vertraut.'
+    },
+    {
+      title: 'Kontextfenster, richtig eingesetzt',
+      description:
+        'Grosse Kontextfenster ermöglichen Prüfungen über ganze Datensätze — aber publizierte Forschung (NVIDIA RULER, Chromas Context-Rot-Studie) zeigt: Der effektive Kontext ist kleiner als der beworbene. Unsere Agenten kombinieren deshalb langen Kontext fürs Schlussfolgern mit direkten MCP-Datenbankabfragen und Batch-Verarbeitung, statt naiv "eine Million Zeilen zu lesen".'
+    }
+  ],
+  processTitle: 'So bringen wir Ihre Daten in Ordnung',
+  processSteps: [
+    {
+      title: 'Datenqualitäts-Audit',
+      description:
+        'Agenten profilieren Ihre Systeme (ERP, CRM, Dateien) und erstellen einen bewerteten Report: Duplikate, Lücken, Inkonsistenzen, Format-Drift — jeweils mit Business-Impact.'
+    },
+    {
+      title: 'Bereinigung mit Freigabe-Gates',
+      description:
+        'Bereinigungs-Agenten schlagen Korrekturen und Zusammenführungen in Batches vor; Sie geben frei. Ohne Freigabe wird nichts in Ihre Systeme zurückgeschrieben.'
+    },
+    {
+      title: 'Validierung an der Quelle',
+      description:
+        'Neue Einträge werden bei der Erfassung geprüft — Plausibilität, Vollständigkeit, systemübergreifende Konsistenz — damit die Qualität gar nicht erst wieder abrutscht.'
+    },
+    {
+      title: 'Monitoring & Übergabe',
+      description:
+        'Ein Datengesundheits-Dashboard (auf Wunsch in Power BI), sinnvolle Alarme und Training, damit Ihr Team das System selbstständig betreibt.'
+    }
+  ],
+  faqs: [
+    {
+      question: 'Was haben KI-Kontextfenster mit Datenqualität zu tun?',
+      answer:
+        'Das Kontextfenster ist das Arbeitsgedächtnis des Modells. Aktuelle Claude-Modelle halten 200’000 bis 1 Million Tokens — mehrere hundert bis rund 2’500 Seiten oder Zehntausende Datensätze. Damit kann ein Agent Schema, Datenkatalog, Geschäftsregeln und grosse Stichproben gleichzeitig betrachten — genau das macht semantische Deduplizierung und tabellenübergreifende Konsistenzprüfungen möglich. Die Forschung ("Lost in the Middle", NVIDIAs RULER-Benchmark, Chromas Context-Rot-Studie 2025) zeigt aber: Modelle bauen deutlich vor der beworbenen Grenze ab. Deshalb kippen wir nie Ihre Datenbank in einen Prompt: Agenten fragen sie über MCP ab, verarbeiten in Batches und reservieren das Kontextfenster fürs Schlussfolgern. Das ist der Unterschied zwischen einer Demo und einem System, dem Sie vertrauen können.'
+    },
+    {
+      question: 'Sind meine Daten sicher? Was ist mit dem revDSG?',
+      answer:
+        'Ihre Daten bleiben in Ihren Systemen; Agenten greifen über MCP-Konnektoren lesend zu. Bei sensiblen Datensätzen arbeiten wir mit Stichproben oder Redaktion, nutzen wo nötig EU-/Schweiz-gehostete Deployment-Optionen und dokumentieren jeden Verarbeitungsschritt. Anthropic trainiert seine Modelle standardmässig nicht auf API-Daten, und EU-Hosting (z.B. Frankfurt) ist verfügbar. Sie erhalten ein Bearbeitungsverzeichnis und ein revDSG-konformes Setup — keine Black Box.'
+    },
+    {
+      question: 'Halluziniert die KI nicht einfach "Korrekturen"?',
+      answer:
+        'Unbeaufsichtigt kann sie das — genau deshalb wird keine Korrektur automatisch angewendet. Bereinigungs-Agenten schlagen vor, Menschen geben frei. Deterministische Prüfungen übernehmen, was Determinismus am besten kann (exakte Summen, Schlüssel-Integrität, referenzielle Prüfungen); der Agent übernimmt die semantischen Ermessensfälle. Dieses Human-in-the-Loop-Muster ist der Branchenstandard: Forresters Data-Quality-Wave vom Q1 2026 beschreibt agentische Bereinigung "mit dem Menschen in der Schleife" als die prägende Marktverschiebung.'
+    },
+    {
+      question: 'Was unterscheidet das von Informatica, Talend und den klassischen Tools?',
+      answer:
+        'Das sind exzellente Enterprise-Plattformen — und selbst sie werden agentisch: Gartner hat die Kategorie 2024 in "Augmented Data Quality Solutions" umbenannt, und die etablierten Anbieter bauen Natural-Language-Regel-Agenten ein. Die Evidenz spricht für den Ansatz: In einem 2026 publizierten Benchmark aus einem echten Produktions-Deduplizierungsworkflow schlug LLM-basiertes Matching das langjährig eingesetzte regelbasierte System deutlich. Mein Service bringt dieses Muster zu Schweizer KMU in KMU-Massstab: Wochen statt Quartale, Fixpreise, gebaut auf Claude und MCP gegen die Systeme, die Sie bereits nutzen — bexio, ABACUS, Microsoft 365.'
+    },
+    {
+      question: 'Was kostet das, und wie lange dauert es?',
+      answer:
+        'Das Datenqualitäts-Audit dauert etwa eine Woche und liefert einen bewerteten Report plus priorisierten Bereinigungsplan — das allein ist oft ein Augenöffner. Ein typisches Bereinigungs- und Monitoring-Setup dauert 4–8 Wochen. Die Preise folgen denselben transparenten Fixpreis-Paketen wie alle meine Services.'
+    },
+    {
+      question: 'Agentic AI ist stark gehypt. Warum sollte dieses Projekt gelingen?',
+      answer:
+        'Berechtigte Frage — Gartner erwartet, dass über 40% der Agentic-AI-Projekte bis 2027 abgebrochen werden, meist wegen unklarem Geschäftsnutzen. Datenqualität ist das Gegenbeispiel, weil die Ausgangslage messbar ist, bevor wir starten: Duplikatquote, Fehlerquote, Stunden manueller Bereinigung pro Monat. Diese Kennzahlen definieren wir im Audit — und Sie sehen sie nach jedem Bereinigungs-Batch. Wenn sie sich nicht bewegen, sehen Sie auch das.'
+    }
+  ],
+  ctaTitle: 'Finden Sie heraus, wie sauber Ihre Daten wirklich sind',
+  ctaDescription:
+    'Buchen Sie ein kostenloses 30-Minuten-Gespräch. Wir schauen gemeinsam auf einen Ihrer Datensätze — und ich sage Ihnen ehrlich, was Agenten beheben können und was nicht.',
+  ctaButtonText: 'Kostenlosen Daten-Check buchen',
+  relatedCaseStudy: {
+    title: 'Finanzprozess-Automatisierung bei einem Schweizer Fertigungsbetrieb',
+    link: '/de/case-studies/finance-automation',
+    metric: '~CHF 48’000 projizierte jährliche Einsparungen'
+  }
+};
+---
+
+<ServiceLayout {...serviceData} />
