@@ -36,6 +36,8 @@ const staticPages: StaticPage[] = [
   { en: '/en/about/', de: '/de/about/', priority: '0.8', changefreq: 'monthly' },
   { en: '/en/pricing/', de: '/de/pricing/', priority: '0.8', changefreq: 'monthly' },
   { en: '/en/skopaai/', de: '/de/skopaai/', priority: '0.8', changefreq: 'monthly' },
+  { en: '/en/method/', de: '/de/methode/', priority: '0.7', changefreq: 'monthly' },
+  { en: '/en/trust/', de: '/de/sicherheit/', priority: '0.6', changefreq: 'monthly' },
 
   // Services
   { en: '/en/services/', de: '/de/services/', priority: '0.8', changefreq: 'monthly' },

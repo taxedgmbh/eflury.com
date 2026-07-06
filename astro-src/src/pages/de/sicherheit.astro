@@ -1,0 +1,61 @@
+---
+import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
+
+const lang = 'de';
+---
+
+<ContentPageLayout
+  title="Sicherheit & Vertrauen - eFlury Consulting"
+  description="Wie eFlury Consulting mit Ihren Daten arbeitet: Lesezugriff via MCP, menschliche Freigaben, revDSG-Ausrichtung, alle eingesetzten Dienste offengelegt."
+  lang={lang}
+  heroTitle="Sicherheit & Vertrauen"
+  heroSubtitle="Wie wir mit Ihren Daten arbeiten — vollständig offengelegt"
+  lastUpdated="5. Juli 2026"
+  keywords="Datensicherheit, revDSG, Datenschutz, KI-Sicherheit, Subprozessoren, MCP, eFlury Consulting"
+>
+  <div class="info-box">
+    <p><strong>Das Grundprinzip:</strong> Ihre Daten bleiben in Ihren Systemen. KI-Agenten greifen lesend über MCP-Konnektoren zu, und ohne menschliche Freigabe wird nichts zurückgeschrieben. Diese Seite legt vollständig offen, wie wir arbeiten und welche Dienste wir einsetzen — damit Ihre Risikoprüfung Antworten findet statt Floskeln.</p>
+  </div>
+
+  <h2>1. Wie wir in Projekten mit Ihren Daten arbeiten</h2>
+  <ul>
+    <li><strong>Lesezugriff statt Kopien:</strong> Agenten fragen Ihre Systeme (z.B. bexio, ABACUS, Datenbanken) über MCP-Konnektoren ab — Ihre Daten werden nicht in fremde Systeme migriert.</li>
+    <li><strong>Menschliche Freigabe-Gates:</strong> Korrekturen, Zusammenführungen und kundenrelevante Ausgaben werden vorgeschlagen, nicht automatisch angewendet. Ohne Freigabe keine Änderung.</li>
+    <li><strong>Sensible Daten:</strong> Wo nötig arbeiten wir mit Stichproben, Redaktion (Entfernen von Personenbezug) oder aggregierten Daten.</li>
+    <li><strong>Dokumentation:</strong> Jedes Projekt erhält ein Bearbeitungsverzeichnis: welche Daten, welche Systeme, welche Verarbeitungsschritte.</li>
+  </ul>
+
+  <h2>2. KI-Verarbeitung: Anthropic Claude</h2>
+  <ul>
+    <li>Wir arbeiten mit Claude-Modellen von Anthropic über die kommerzielle API.</li>
+    <li>Anthropic trainiert seine Modelle <strong>standardmässig nicht</strong> auf API-Daten kommerzieller Kunden.</li>
+    <li>Wo Datenresidenz gefordert ist, nutzen wir EU-gehostete Deployment-Optionen (z.B. AWS Bedrock in Frankfurt).</li>
+    <li>Ein Auftragsverarbeitungsvertrag (AVV/DPA) für die Projektverarbeitung ist auf Anfrage Teil des Vertrags.</li>
+  </ul>
+
+  <h2>3. Diese Website</h2>
+  <p>Auf eflury.com selbst werden keine Kundendaten aus Projekten verarbeitet. Die Website ist statisch und wird bei Hostinger gehostet.</p>
+
+  <h2>4. Eingesetzte Dienste (offengelegt)</h2>
+  <ul>
+    <li><strong>Anthropic</strong> — KI-Verarbeitung in Kundenprojekten (API, kein Training auf Ihren Daten)</li>
+    <li><strong>Hostinger</strong> — Hosting dieser Website</li>
+    <li><strong>Google Analytics</strong> — Web-Statistik dieser Website</li>
+    <li><strong>EmailJS</strong> — Versand des Kontaktformulars</li>
+  </ul>
+  <p>Diese Liste ist vollständig. Kommt ein Dienst hinzu, wird diese Seite aktualisiert.</p>
+
+  <h2>5. Rechtlicher Rahmen</h2>
+  <ul>
+    <li>Massgeblich ist das revidierte Schweizer Datenschutzgesetz (revDSG); bei EU-Bezug zusätzlich die DSGVO.</li>
+    <li>Details zur Datenverarbeitung dieser Website: <a href="/de/datenschutz/">Datenschutzerklärung</a> · Anbieterkennzeichnung: <a href="/de/impressum/">Impressum</a>.</li>
+  </ul>
+
+  <h2>6. Was wir bewusst nicht behaupten</h2>
+  <div class="warning-box">
+    <p>Vertrauen entsteht durch überprüfbare Aussagen — deshalb sagen wir auch, was (noch) nicht gilt: Wir führen derzeit <strong>keine ISO-27001-Zertifizierung</strong> und werben mit keinem Siegel, das wir nicht besitzen. Was auf dieser Seite steht, gilt — und wird auf Wunsch vertraglich zugesichert. Wenn sich unser Status ändert, steht es zuerst hier.</p>
+  </div>
+
+  <h2>7. Fragen zur Risikoprüfung?</h2>
+  <p>Wenn Ihre IT, Ihr Datenschutzbeauftragter oder Ihre Geschäftsleitung konkrete Fragen hat: <a href="mailto:me@eflury.com">me@eflury.com</a> — Sie erhalten Antworten vom Menschen, der die Systeme baut, nicht von einer Rechtsabteilung.</p>
+</ContentPageLayout>

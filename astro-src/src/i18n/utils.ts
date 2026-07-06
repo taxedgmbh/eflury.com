@@ -57,6 +57,8 @@ export const routes = {
     disclaimer: '/en/disclaimer/',
     codeOfConduct: '/en/code-of-conduct/',
     imprint: '/en/imprint/',
+    trust: '/en/trust/',
+    method: '/en/method/',
   },
   de: {
     home: '/de/',
@@ -75,5 +77,7 @@ export const routes = {
     disclaimer: '/de/haftungsausschluss/',
     codeOfConduct: '/de/verhaltenskodex/',
     imprint: '/de/impressum/',
+    trust: '/de/sicherheit/',
+    method: '/de/methode/',
   },
 };
