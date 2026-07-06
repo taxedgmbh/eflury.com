@@ -63,6 +63,7 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
             <a href={`/${lang}/services/mcp-integration`}>MCP Integration</a>
             <a href={lang === 'de' ? `/${lang}/services/finanzen-automatisierung` : `/${lang}/services/finance-automation`}>{lang === 'de' ? 'Finanzautomatisierung' : 'Finance Automation'}</a>
             <a href={`/${lang}/services/power-bi`}>Power BI</a>
+            <a href={lang === 'de' ? `/${lang}/services/datenqualitaet` : `/${lang}/services/data-quality`}>{lang === 'de' ? 'Datenqualität' : 'Data Quality'}</a>
             <div class="nav-dropdown-divider"></div>
             <a href={`/${lang}/pricing`}>{t('nav.pricing')}</a>
             <a href={`/${lang}/skopaai`} class="nav-skopaai">{t('nav.skopaai')}<span class="nav-badge">{t('nav.new')}</span></a>

@@ -5,7 +5,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
 import AIChatbot from '../../../components/AIChatbot.astro';
 import { useTranslations } from '../../../i18n/utils';
-import { ArrowRight, Cpu, Server, Calculator, BarChart3 } from 'lucide-astro';
+import { ArrowRight, Cpu, Server, Calculator, BarChart3, Database } from 'lucide-astro';
 
 const lang = 'de';
 const t = useTranslations(lang);
@@ -34,6 +34,14 @@ const services = [
     link: '/de/services/finanzen-automatisierung',
     badge: null,
     metric: '40 Std/Monat gespart'
+  },
+  {
+    icon: Database,
+    title: 'Datenqualität mit Agentic AI',
+    description: 'Autonome KI-Agenten, die Ihre Geschäftsdaten profilieren, bereinigen und überwachen. Deduplizierung, Validierung und laufende Qualitätsprüfungen — mit eingebauter menschlicher Kontrolle.',
+    link: '/de/services/datenqualitaet',
+    badge: 'Neu',
+    metric: 'Vertrauenswürdige Daten, messbar'
   },
   {
     icon: BarChart3,
