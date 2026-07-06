@@ -66,6 +66,38 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://eflury.com/en/method/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/method/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/methode/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/method/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/methode/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/method/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/methode/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/method/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/en/trust/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/trust/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/sicherheit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/trust/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/sicherheit/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/trust/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/sicherheit/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/trust/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  <url>
     <loc>https://eflury.com/en/services/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/"/>
