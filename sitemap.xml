@@ -146,6 +146,22 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://eflury.com/en/services/data-quality/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/data-quality/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/datenqualitaet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/data-quality/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/services/datenqualitaet/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/data-quality/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/datenqualitaet/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/data-quality/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://eflury.com/en/blog/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/blog/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/blog/"/>

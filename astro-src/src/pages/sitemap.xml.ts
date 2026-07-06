@@ -43,6 +43,7 @@ const staticPages: StaticPage[] = [
   { en: '/en/services/mcp-integration/', de: '/de/services/mcp-integration/', priority: '0.7', changefreq: 'monthly' },
   { en: '/en/services/finance-automation/', de: '/de/services/finanzen-automatisierung/', priority: '0.7', changefreq: 'monthly' },
   { en: '/en/services/power-bi/', de: '/de/services/power-bi/', priority: '0.7', changefreq: 'monthly' },
+  { en: '/en/services/data-quality/', de: '/de/services/datenqualitaet/', priority: '0.7', changefreq: 'monthly' },
 
   // Blog index
   { en: '/en/blog/', de: '/de/blog/', priority: '0.7', changefreq: 'weekly' },
