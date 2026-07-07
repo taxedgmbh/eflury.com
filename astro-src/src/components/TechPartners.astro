@@ -8,18 +8,28 @@ interface Props {
 const { lang } = Astro.props;
 const t = useTranslations(lang);
 
+const de = lang === 'de';
+
 const categories = [
   {
-    label: 'AI',
-    logos: ['Claude / Anthropic']
+    label: de ? 'KI & Agenten' : 'AI & Agents',
+    logos: ['Claude (Anthropic)', 'Claude Code', 'Agent Skills']
   },
   {
-    label: 'Automation',
-    logos: ['Make', 'Zapier', 'n8n']
+    label: de ? 'Integration & Automatisierung' : 'Integration & Automation',
+    logos: ['MCP (Model Context Protocol)', 'n8n']
   },
   {
-    label: 'Business',
-    logos: ['Microsoft 365', 'Google Workspace', 'Notion']
+    label: de ? 'Daten & Analytik' : 'Data & Analytics',
+    logos: ['Power BI', 'Python']
+  },
+  {
+    label: de ? 'Business-Systeme' : 'Business Systems',
+    logos: ['bexio', 'ABACUS', 'Microsoft 365', 'HubSpot', 'Google Workspace', 'Notion']
+  },
+  {
+    label: 'Hosting (EU/CH)',
+    logos: ['AWS Bedrock (EU)', de ? 'Exoscale (Schweiz)' : 'Exoscale (Switzerland)']
   }
 ];
 ---
