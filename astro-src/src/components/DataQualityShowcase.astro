@@ -57,7 +57,16 @@ const t = {
   pipeGateSub: de ? 'Mensch entscheidet' : 'human decides',
   pipeOut1: de ? 'Saubere Stammdaten' : 'Clean master data',
   pipeOut2: de ? 'Qualitäts-Dashboard' : 'Quality dashboard',
+  mktTitle: de ? 'Der Enterprise-Markt — und wo wir stehen' : 'The enterprise market — and where we stand',
+  mktLeadersLabel: de ? 'Leaders im Gartner Magic Quadrant für Augmented Data Quality Solutions (2025):' : 'Leaders in the Gartner Magic Quadrant for Augmented Data Quality Solutions (2025):',
+  mktOthersLabel: de ? 'Ebenfalls bewertet:' : 'Also evaluated:',
+  mktNote: de
+    ? 'Das sind exzellente Plattformen für Konzerne mit eigenen Datenteams — wir setzen sie nicht ein und verkaufen sie nicht. Unser Ansatz bringt dasselbe agentische Muster, das Gartner mit dieser Kategorie formalisiert hat, in KMU-Grösse: Claude + MCP, Wochen statt Quartale, Fixpreis.'
+    : 'These are excellent platforms for corporations with their own data teams — we neither deploy nor resell them. Our approach brings the same agentic pattern Gartner formalized with this category to SME scale: Claude + MCP, weeks instead of quarters, fixed price.',
 };
+
+const mqLeaders = ['Ataccama', 'Informatica', 'Qlik'];
+const mqOthers = ['Ab Initio', 'Anomalo', 'CluedIn', 'DQLabs', 'Experian', 'IBM', 'Irion', 'Precisely', 'SAS'];
 
 const dirtyRows = [
   { name: 'Müller AG', city: 'Grenchen', uid: 'CHE-123.456.789', phone: '+41 32 645 11 22', dup: true, issues: [] },
@@ -187,6 +196,14 @@ const dirtyRows = [
           <div class="dq-pipe-box dq-pipe-out">{t.pipeOut2}</div>
         </div>
       </div>
+    </div>
+
+    <!-- Market context: Gartner-evaluated enterprise landscape (not our stack) -->
+    <div class="dq-market">
+      <h3>{t.mktTitle}</h3>
+      <p class="dq-market-line"><strong>{t.mktLeadersLabel}</strong> {mqLeaders.join(' · ')}</p>
+      <p class="dq-market-line dq-market-others">{t.mktOthersLabel} {mqOthers.join(', ')}</p>
+      <p class="dq-market-note">{t.mktNote}</p>
     </div>
   </div>
 </section>
@@ -590,6 +607,45 @@ const dirtyRows = [
     font-weight: 600;
     color: var(--eflury-teal);
     white-space: nowrap;
+  }
+
+  .dq-market {
+    margin-top: 3rem;
+    padding: 1.75rem 2rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+  }
+
+  .dq-market h3 {
+    margin: 0 0 0.875rem;
+    font-size: 1.125rem;
+    color: var(--text-primary);
+  }
+
+  .dq-market-line {
+    margin: 0 0 0.5rem;
+    color: var(--text-secondary);
+    font-size: 0.9375rem;
+    line-height: 1.6;
+  }
+
+  .dq-market-line strong {
+    color: var(--text-primary);
+  }
+
+  .dq-market-others {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+  }
+
+  .dq-market-note {
+    margin: 0.875rem 0 0;
+    padding-top: 0.875rem;
+    border-top: 1px dashed var(--border-color);
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.65;
   }
 
   @media (max-width: 860px) {
