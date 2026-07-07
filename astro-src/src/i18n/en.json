@@ -96,7 +96,12 @@
     "training": {
       "title": "AI Training",
       "description": "Hands-on workshops teaching your team to use AI tools like Claude Code effectively. Learn to build agents, automate tasks, and integrate AI into daily workflows.",
-      "features": ["Team workshops", "Claude Code & AI tools", "Practical exercises", "Ongoing support"],
+      "features": [
+        "Team workshops",
+        "Claude Code & AI tools",
+        "Practical exercises",
+        "Ongoing support"
+      ],
       "outcome": "Result: Your team uses AI independently within 4 weeks",
       "ideal_for": "Teams wanting to use AI daily",
       "duration": "2-4 weeks",
@@ -106,7 +111,12 @@
     "setup": {
       "title": "Workflow Setup",
       "description": "Custom AI agents and automated workflows designed for your specific business processes. From concept to production-ready implementation.",
-      "features": ["Process analysis", "Custom AI agents", "Workflow automation", "Integration with your tools"],
+      "features": [
+        "Process analysis",
+        "Custom AI agents",
+        "Workflow automation",
+        "Integration with your tools"
+      ],
       "outcome": "Result: Working automation from day one",
       "ideal_for": "Businesses with repetitive document processes",
       "duration": "3-6 weeks",
@@ -116,7 +126,12 @@
     "support": {
       "title": "Ongoing Support",
       "description": "Continued guidance as your AI capabilities grow. Regular check-ins, troubleshooting, and help expanding to new use cases.",
-      "features": ["Regular check-ins", "Troubleshooting help", "New use case development", "Knowledge transfer"],
+      "features": [
+        "Regular check-ins",
+        "Troubleshooting help",
+        "New use case development",
+        "Knowledge transfer"
+      ],
       "outcome": "Result: Continuous improvement and new use cases",
       "ideal_for": "Companies wanting long-term AI partnership",
       "duration": "Ongoing",
@@ -127,7 +142,12 @@
       "title": "SkopaAI Hardware",
       "badge": "NEW",
       "description": "Pre-configured Mac Mini with AI assistant. Unbox, connect, and automate via WhatsApp, Telegram, or Email. Made in Switzerland.",
-      "features": ["Dedicated Mac Mini M4", "WhatsApp/Telegram integration", "No technical skills needed", "30-day support included"],
+      "features": [
+        "Dedicated Mac Mini M4",
+        "WhatsApp/Telegram integration",
+        "No technical skills needed",
+        "30-day support included"
+      ],
       "outcome": "Result: Your own AI employee running 24/7",
       "ideal_for": "SMEs wanting dedicated AI hardware",
       "duration": "Ready in 1 week",
@@ -144,15 +164,24 @@
     "categories": {
       "ai": {
         "name": "AI",
-        "tools": ["Claude/Anthropic"]
+        "tools": [
+          "Claude/Anthropic"
+        ]
       },
       "automation": {
         "name": "Automation",
-        "tools": ["Make", "Zapier", "n8n"]
+        "tools": [
+          "MCP",
+          "n8n"
+        ]
       },
       "business": {
         "name": "Business",
-        "tools": ["Microsoft 365", "Google Workspace", "Notion"]
+        "tools": [
+          "Microsoft 365",
+          "Google Workspace",
+          "Notion"
+        ]
       }
     }
   },
@@ -581,23 +610,50 @@
       "title": "What's Included",
       "hardware": {
         "title": "Hardware",
-        "items": ["Apple Mac Mini M4", "Pre-configured macOS", "Power cable & setup manual"]
+        "items": [
+          "Apple Mac Mini M4",
+          "Pre-configured macOS",
+          "Power cable & setup manual"
+        ]
       },
       "software": {
         "title": "Software",
-        "items": ["AI assistant fully configured", "Docker security sandbox", "Remote access (SSH, Screen Sharing)", "Auto-start on boot", "Backup agent"]
+        "items": [
+          "AI assistant fully configured",
+          "Docker security sandbox",
+          "Remote access (SSH, Screen Sharing)",
+          "Auto-start on boot",
+          "Backup agent"
+        ]
       },
       "integrations": {
         "title": "Integrations (Choose 3)",
-        "items": ["WhatsApp", "Telegram", "iMessage", "Slack", "Discord", "Email (IMAP/SMTP)"]
+        "items": [
+          "WhatsApp",
+          "Telegram",
+          "iMessage",
+          "Slack",
+          "Discord",
+          "Email (IMAP/SMTP)"
+        ]
       },
       "training": {
         "title": "Training",
-        "items": ["1:1 video walkthrough", "Command examples", "Safety best practices", "5 workflow templates"]
+        "items": [
+          "1:1 video walkthrough",
+          "Command examples",
+          "Safety best practices",
+          "5 workflow templates"
+        ]
       },
       "support": {
         "title": "Support",
-        "items": ["30-day intensive support", "Email & WhatsApp help", "Bug fixes", "Configuration adjustments"]
+        "items": [
+          "30-day intensive support",
+          "Email & WhatsApp help",
+          "Bug fixes",
+          "Configuration adjustments"
+        ]
       }
     },
     "faq": {
