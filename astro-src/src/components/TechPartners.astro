@@ -38,13 +38,13 @@ const categories = [
   <div class="container">
     <h2 class="section-title">{t('tech_partners.section_title')}</h2>
 
-    <div class="partner-categories">
+    <div class="stack-card">
       {categories.map((category) => (
-        <div class="category">
-          <span class="category-label">{category.label}</span>
-          <div class="logos">
+        <div class="stack-row">
+          <span class="stack-label">{category.label}</span>
+          <div class="stack-chips">
             {category.logos.map((logo) => (
-              <span class="logo-text">{logo}</span>
+              <span class="stack-chip">{logo}</span>
             ))}
           </div>
         </div>
@@ -88,66 +88,73 @@ const categories = [
     letter-spacing: -0.02em;
   }
 
-  .partner-categories {
-    display: flex;
-    flex-direction: column;
-    gap: 2.5rem;
-    margin-bottom: 3rem;
+  .stack-card {
+    max-width: 880px;
+    margin: 0 auto 3rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    overflow: hidden;
   }
 
-  .category {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 1rem;
+  .stack-row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 1.25rem;
+    align-items: start;
+    padding: 1.25rem 1.75rem;
   }
 
-  .category-label {
+  .stack-row + .stack-row {
+    border-top: 1px solid var(--border-color);
+  }
+
+  .stack-label {
     font-size: 0.75rem;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
-    color: var(--text-tertiary);
+    letter-spacing: 0.08em;
+    color: var(--eflury-teal);
+    padding-top: 0.5rem;
+    line-height: 1.4;
   }
 
-  .logos {
+  .stack-chips {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
+    gap: 0.5rem;
   }
 
-  .logo-text {
+  .stack-chip {
     display: inline-flex;
     align-items: center;
-    justify-content: center;
-    padding: 0.875rem 1.5rem;
+    padding: 0.4375rem 0.9375rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    border-radius: 12px;
-    font-size: 0.9rem;
+    border-radius: 999px;
+    font-size: 0.875rem;
     font-weight: 500;
     color: var(--text-secondary);
-    filter: grayscale(100%);
-    opacity: 0.7;
-    transition: all 0.3s ease;
+    transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
     cursor: default;
-    min-width: 120px;
-    text-align: center;
   }
 
-  .logo-text:hover {
-    filter: grayscale(0%);
-    opacity: 1;
-    color: var(--text-primary);
+  .stack-chip:hover {
     border-color: var(--eflury-teal);
-    background: var(--bg-primary);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    color: var(--text-primary);
+    transform: translateY(-1px);
   }
 
-  :global([data-theme="dark"]) .logo-text:hover {
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  @media (max-width: 720px) {
+    .stack-row {
+      grid-template-columns: 1fr;
+      gap: 0.625rem;
+      padding: 1.125rem 1.25rem;
+    }
+
+    .stack-label {
+      padding-top: 0;
+    }
   }
 
   .trust-badges {
