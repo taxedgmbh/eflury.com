@@ -96,7 +96,12 @@
     "training": {
       "title": "KI-Schulung",
       "description": "Praxisnahe Workshops, in denen Ihr Team lernt, KI-Tools wie Claude Code effektiv zu nutzen. Lernen Sie, Agenten zu erstellen, Aufgaben zu automatisieren und KI in den Arbeitsalltag zu integrieren.",
-      "features": ["Team-Workshops", "Claude Code & KI-Tools", "Praktische Übungen", "Laufende Unterstützung"],
+      "features": [
+        "Team-Workshops",
+        "Claude Code & KI-Tools",
+        "Praktische Übungen",
+        "Laufende Unterstützung"
+      ],
       "outcome": "Ergebnis: Ihr Team nutzt KI selbstständig innerhalb von 4 Wochen",
       "ideal_for": "Teams, die KI täglich nutzen wollen",
       "duration": "2-4 Wochen",
@@ -106,7 +111,12 @@
     "setup": {
       "title": "Workflow-Einrichtung",
       "description": "Massgeschneiderte KI-Agenten und automatisierte Workflows für Ihre spezifischen Geschäftsprozesse. Vom Konzept bis zur produktionsreifen Implementierung.",
-      "features": ["Prozessanalyse", "Individuelle KI-Agenten", "Workflow-Automatisierung", "Integration mit Ihren Tools"],
+      "features": [
+        "Prozessanalyse",
+        "Individuelle KI-Agenten",
+        "Workflow-Automatisierung",
+        "Integration mit Ihren Tools"
+      ],
       "outcome": "Ergebnis: Funktionierende Automatisierung vom ersten Tag",
       "ideal_for": "Unternehmen mit repetitiven Dokumentenprozessen",
       "duration": "3-6 Wochen",
@@ -116,7 +126,12 @@
     "support": {
       "title": "Laufende Betreuung",
       "description": "Kontinuierliche Begleitung bei der Weiterentwicklung Ihrer KI-Fähigkeiten. Regelmässige Check-ins, Problemlösung und Hilfe bei neuen Anwendungsfällen.",
-      "features": ["Regelmässige Check-ins", "Problemlösungshilfe", "Neue Anwendungsfälle", "Wissenstransfer"],
+      "features": [
+        "Regelmässige Check-ins",
+        "Problemlösungshilfe",
+        "Neue Anwendungsfälle",
+        "Wissenstransfer"
+      ],
       "outcome": "Ergebnis: Kontinuierliche Verbesserung und neue Use Cases",
       "ideal_for": "Unternehmen, die langfristige KI-Partnerschaft wollen",
       "duration": "Laufend",
@@ -127,7 +142,12 @@
       "title": "SkopaAI Hardware",
       "badge": "NEU",
       "description": "Vorkonfigurierter Mac Mini mit KI-Assistent. Auspacken, verbinden und automatisieren via WhatsApp, Telegram oder E-Mail. Made in Switzerland.",
-      "features": ["Dedizierter Mac Mini M4", "WhatsApp/Telegram-Integration", "Keine technischen Kenntnisse nötig", "30 Tage Support inklusive"],
+      "features": [
+        "Dedizierter Mac Mini M4",
+        "WhatsApp/Telegram-Integration",
+        "Keine technischen Kenntnisse nötig",
+        "30 Tage Support inklusive"
+      ],
       "outcome": "Ergebnis: Ihr eigener KI-Mitarbeiter läuft 24/7",
       "ideal_for": "KMU mit Wunsch nach dedizierter KI-Hardware",
       "duration": "Fertig in 1 Woche",
@@ -144,15 +164,24 @@
     "categories": {
       "ai": {
         "name": "AI",
-        "tools": ["Claude/Anthropic"]
+        "tools": [
+          "Claude/Anthropic"
+        ]
       },
       "automation": {
         "name": "Automation",
-        "tools": ["Make", "Zapier", "n8n"]
+        "tools": [
+          "MCP",
+          "n8n"
+        ]
       },
       "business": {
         "name": "Business",
-        "tools": ["Microsoft 365", "Google Workspace", "Notion"]
+        "tools": [
+          "Microsoft 365",
+          "Google Workspace",
+          "Notion"
+        ]
       }
     }
   },
@@ -595,23 +624,50 @@
       "title": "Was ist enthalten",
       "hardware": {
         "title": "Hardware",
-        "items": ["Apple Mac Mini M4", "Vorkonfiguriertes macOS", "Netzkabel & Setup-Anleitung"]
+        "items": [
+          "Apple Mac Mini M4",
+          "Vorkonfiguriertes macOS",
+          "Netzkabel & Setup-Anleitung"
+        ]
       },
       "software": {
         "title": "Software",
-        "items": ["KI-Assistent vollständig konfiguriert", "Docker-Sicherheits-Sandbox", "Fernzugriff (SSH, Bildschirmfreigabe)", "Autostart bei Boot", "Backup-Agent"]
+        "items": [
+          "KI-Assistent vollständig konfiguriert",
+          "Docker-Sicherheits-Sandbox",
+          "Fernzugriff (SSH, Bildschirmfreigabe)",
+          "Autostart bei Boot",
+          "Backup-Agent"
+        ]
       },
       "integrations": {
         "title": "Integrationen (3 wählen)",
-        "items": ["WhatsApp", "Telegram", "iMessage", "Slack", "Discord", "E-Mail (IMAP/SMTP)"]
+        "items": [
+          "WhatsApp",
+          "Telegram",
+          "iMessage",
+          "Slack",
+          "Discord",
+          "E-Mail (IMAP/SMTP)"
+        ]
       },
       "training": {
         "title": "Schulung",
-        "items": ["1:1 Video-Walkthrough", "Befehlsbeispiele", "Sicherheits-Best-Practices", "5 Workflow-Vorlagen"]
+        "items": [
+          "1:1 Video-Walkthrough",
+          "Befehlsbeispiele",
+          "Sicherheits-Best-Practices",
+          "5 Workflow-Vorlagen"
+        ]
       },
       "support": {
         "title": "Support",
-        "items": ["30 Tage intensiver Support", "E-Mail & WhatsApp-Hilfe", "Fehlerbehebung", "Konfigurationsanpassungen"]
+        "items": [
+          "30 Tage intensiver Support",
+          "E-Mail & WhatsApp-Hilfe",
+          "Fehlerbehebung",
+          "Konfigurationsanpassungen"
+        ]
       }
     },
     "faq": {
