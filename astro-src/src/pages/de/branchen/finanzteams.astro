@@ -1,0 +1,394 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Footer from '../../../components/Footer.astro';
+import AIChatbot from '../../../components/AIChatbot.astro';
+import { ArrowRight, CalendarCheck, BarChart3, FileSpreadsheet, Database } from 'lucide-astro';
+
+const lang = 'de';
+
+const pains = [
+  {
+    title: 'Der Monatsabschluss zieht sich',
+    text: 'Abstimmung, Abweichungsanalyse und Reporting von Hand — tagelange Arbeit, die sich jeden Monat wiederholt.',
+  },
+  {
+    title: 'Excel als Reporting-Rückgrat',
+    text: 'Statische Berichte, jeden Zyklus manuell neu gebaut, fragile Verknüpfungen, Versionschaos — und keine Zeit für Analyse.',
+  },
+  {
+    title: 'Zahlen verstreut über Systeme',
+    text: 'ERP, CRM, Tabellen, Banking-Portale — Fragen der Geschäftsleitung kosten Stunden, weil keine einheitliche Sicht existiert.',
+  },
+];
+
+const automations = [
+  {
+    icon: CalendarCheck,
+    title: 'Monatsabschluss',
+    text: 'Automatisierte Abstimmung und vorbereitete Abweichungsanalyse — Ihr Team prüft und entscheidet, statt zu tippen.',
+    href: '/de/services/finanzen-automatisierung/',
+    linkLabel: 'Service Finanzautomatisierung',
+  },
+  {
+    icon: BarChart3,
+    title: 'Management-Reporting',
+    text: 'Power-BI-Dashboards direkt an Ihre Quellsysteme angebunden — Echtzeit-KPIs statt monatsalter Momentaufnahmen.',
+    href: '/de/services/power-bi/',
+    linkLabel: 'Service Power BI',
+  },
+  {
+    icon: FileSpreadsheet,
+    title: 'Excel-zu-Power-BI-Migration',
+    text: 'Strukturierte Migration gewachsener Excel-Berichte — mit Checkliste für die typischen Stolperfallen.',
+    href: '/de/blog/excel-zu-power-bi-migration/',
+    linkLabel: 'Der Migrationsleitfaden',
+  },
+  {
+    icon: Database,
+    title: 'Finanz-Stammdaten',
+    text: 'Dubletten, Formatabweichungen und fehlende Identifikatoren bereinigt mit Freigabe-Gates — damit sich Ihre Berichte nicht mehr widersprechen.',
+    href: '/de/services/datenqualitaet/',
+    linkLabel: 'Service Datenqualität',
+  },
+];
+---
+
+<MainLayout
+  title="KI für Finanzteams - eFlury Consulting"
+  description="Automatisierung für Finanzteams in Schweizer KMU: Monatsabschluss, Power-BI-Reporting, Excel-Migration und Stammdaten — dokumentiert in zwei Kundenprojekten."
+  keywords="Finanzteam Automatisierung, Monatsabschluss Automatisierung, Power BI Finanzen, Excel Power BI Migration, Schweizer KMU Finanzen"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <Breadcrumbs lang={lang} items={[{ label: 'Branchen', href: '/de/branchen/' }, { label: 'Finanzteams' }]} />
+
+  <main class="industry-page">
+    <section class="industry-hero">
+      <div class="container">
+        <p class="eyebrow">Branchen · Finanzteams</p>
+        <h1>KI für Finanzteams.</h1>
+        <p class="lead">
+          Ihr Team wurde eingestellt, um die Zahlen zu steuern — nicht, um sie zwischen Systemen zu kopieren.
+          Wir automatisieren den Abschluss, das Reporting und die Datenarbeit darunter.
+        </p>
+      </div>
+    </section>
+
+    <section class="pains">
+      <div class="container">
+        <h2>Wohin die Stunden verschwinden</h2>
+        <div class="card-grid three">
+          {pains.map((pain) => (
+            <div class="plain-card">
+              <h3>{pain.title}</h3>
+              <p>{pain.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="automations">
+      <div class="container">
+        <h2>Was wir für Finanzteams automatisieren</h2>
+        <p class="section-lead">
+          Jedes System folgt derselben Regel: Die KI schlägt vor, Ihr Team gibt frei.
+          Finanzdaten bleiben in Ihren Systemen — Agenten greifen über MCP-Konnektoren lesend zu.
+        </p>
+        <div class="card-grid two">
+          {automations.map((item) => (
+            <div class="auto-card">
+              <div class="auto-icon"><item.icon size={22} /></div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <a href={item.href} class="card-link">{item.linkLabel} <ArrowRight size={14} /></a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="container">
+        <h2>Dokumentiert in zwei Kundenprojekten</h2>
+        <div class="proof-card">
+          <p>
+            Für ein Schweizer Fertigungsunternehmen haben wir Abstimmung, Abweichungsanalyse
+            und Reporting automatisiert — die Fallstudie dokumentiert einen Monatsabschluss, der von 12 auf 5 Tage
+            verkürzt wurde, mit ~40 h/Monat geschätzter Zeitersparnis und ~4.1 Monaten geschätzter Amortisation.
+          </p>
+          <a href="/de/case-studies/finance-automation/" class="card-link">Fallstudie Finanzautomatisierung <ArrowRight size={14} /></a>
+        </div>
+        <div class="proof-card">
+          <p>
+            Für ein Dienstleistungsunternehmen haben wir eine Power-BI-Lösung mit Anbindung an sieben
+            Datenquellen gebaut — dokumentiert mit ~15 h/Woche geschätzter Zeitersparnis und ~2.8 Monaten geschätzter Amortisation.
+          </p>
+          <a href="/de/case-studies/power-bi-reporting/" class="card-link">Fallstudie Power BI <ArrowRight size={14} /></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="insights-band">
+      <div class="container">
+        <p>
+          Zwei vertiefende Artikel zu Power BI für Finanzteams —
+          <a href="/de/blog/#powerbi">im Insights-Hub lesen</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Wie viele Tage dauert Ihr Abschluss?</h2>
+        <p>Kostenloses 30-Minuten-Gespräch — wir gehen Ihren Abschlusskalender durch, nicht ein Foliendeck.</p>
+        <a href="/de/kontakt/" class="btn-primary">
+          Kontakt aufnehmen
+          <ArrowRight size={18} />
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .industry-hero {
+    padding: var(--spacing-4xl) 0 var(--spacing-2xl);
+    background: var(--bg-primary);
+  }
+
+  .eyebrow {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--eflury-teal);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .industry-hero h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    max-width: 800px;
+  }
+
+  .industry-hero .lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 700px;
+  }
+
+  section h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .section-lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .pains {
+    padding: var(--spacing-2xl) 0;
+    background: var(--bg-secondary);
+  }
+
+  .automations {
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-primary);
+  }
+
+  .card-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+  }
+
+  .card-grid.three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-grid.two {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plain-card,
+  .auto-card,
+  .proof-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .plain-card h3,
+  .auto-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .plain-card p,
+  .auto-card p,
+  .proof-card p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .auto-card p {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .auto-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    background: var(--primary-50);
+    color: var(--eflury-teal);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .card-link:hover {
+    text-decoration: underline;
+  }
+
+  .proof {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+    background: var(--bg-secondary);
+  }
+
+  .proof-card p {
+    font-size: 1.02rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .proof-card + .proof-card {
+    margin-top: var(--spacing-lg);
+  }
+
+  .insights-band {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .insights-band p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 0;
+  }
+
+  .insights-band a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-light);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .insights-band a:hover {
+    text-decoration: underline;
+  }
+
+  .cta {
+    padding: var(--spacing-3xl) 0;
+    background: var(--eflury-navy);
+    text-align: center;
+  }
+
+  .cta h2 {
+    color: var(--eflury-white);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cta p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--eflury-teal);
+    color: var(--eflury-white);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px) {
+    .card-grid.three,
+    .card-grid.two {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .industry-hero {
+      padding: var(--spacing-3xl) 0 var(--spacing-xl);
+    }
+
+    .industry-hero .lead {
+      font-size: 1.05rem;
+    }
+
+    .pains,
+    .automations,
+    .proof {
+      padding: var(--spacing-xl) 0;
+    }
+  }
+</style>

@@ -1,0 +1,394 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Footer from '../../../components/Footer.astro';
+import AIChatbot from '../../../components/AIChatbot.astro';
+import { ArrowRight, CalendarCheck, BarChart3, FileSpreadsheet, Database } from 'lucide-astro';
+
+const lang = 'en';
+
+const pains = [
+  {
+    title: 'Month-end close drags on',
+    text: 'Reconciliation, variance analysis, and reporting by hand — days of work that repeat every single month.',
+  },
+  {
+    title: 'Excel as the reporting backbone',
+    text: 'Static reports rebuilt manually each cycle, fragile links, version confusion — and no time left for analysis.',
+  },
+  {
+    title: 'Numbers scattered across systems',
+    text: 'ERP, CRM, spreadsheets, banking portals — management questions take hours because no single view exists.',
+  },
+];
+
+const automations = [
+  {
+    icon: CalendarCheck,
+    title: 'Month-end close',
+    text: 'Automated reconciliation and variance analysis preparation — your team reviews and decides instead of typing.',
+    href: '/en/services/finance-automation/',
+    linkLabel: 'Finance automation service',
+  },
+  {
+    icon: BarChart3,
+    title: 'Management reporting',
+    text: 'Power BI dashboards connected to your source systems — real-time KPIs instead of month-old snapshots.',
+    href: '/en/services/power-bi/',
+    linkLabel: 'Power BI service',
+  },
+  {
+    icon: FileSpreadsheet,
+    title: 'Excel to Power BI migration',
+    text: 'Structured migration of grown Excel reporting — with a checklist for the typical pitfalls.',
+    href: '/en/blog/excel-to-power-bi-migration/',
+    linkLabel: 'The migration guide',
+  },
+  {
+    icon: Database,
+    title: 'Financial master data',
+    text: 'Duplicates, format drift, and missing identifiers cleaned up with human approval gates — so reports stop arguing with each other.',
+    href: '/en/services/data-quality/',
+    linkLabel: 'Data quality service',
+  },
+];
+---
+
+<MainLayout
+  title="AI for Finance Teams - eFlury Consulting"
+  description="Automation for finance teams in Swiss SMEs: month-end close, Power BI reporting, Excel migration, and master data — documented in two client case studies."
+  keywords="finance team automation, month-end close automation, Power BI finance, Excel Power BI migration, Swiss SME finance"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <Breadcrumbs lang={lang} items={[{ label: 'Industries', href: '/en/industries/' }, { label: 'Finance Teams' }]} />
+
+  <main class="industry-page">
+    <section class="industry-hero">
+      <div class="container">
+        <p class="eyebrow">Industries · Finance Teams</p>
+        <h1>AI for finance teams.</h1>
+        <p class="lead">
+          Your team was hired to steer the numbers — not to copy them between systems.
+          We automate the close, the reporting, and the data work underneath it.
+        </p>
+      </div>
+    </section>
+
+    <section class="pains">
+      <div class="container">
+        <h2>Where the hours go</h2>
+        <div class="card-grid three">
+          {pains.map((pain) => (
+            <div class="plain-card">
+              <h3>{pain.title}</h3>
+              <p>{pain.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="automations">
+      <div class="container">
+        <h2>What we automate for finance teams</h2>
+        <p class="section-lead">
+          Every system follows the same rule: AI proposes, your team approves.
+          Financial data stays in your systems — agents access it read-only via MCP connectors.
+        </p>
+        <div class="card-grid two">
+          {automations.map((item) => (
+            <div class="auto-card">
+              <div class="auto-icon"><item.icon size={22} /></div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <a href={item.href} class="card-link">{item.linkLabel} <ArrowRight size={14} /></a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="container">
+        <h2>Documented in two client projects</h2>
+        <div class="proof-card">
+          <p>
+            For a Swiss manufacturing company we automated reconciliation, variance analysis,
+            and reporting — the case study documents a month-end close reduced from 12 to 5 days,
+            with ~40 h/month estimated time saved and ~4.1 months estimated payback.
+          </p>
+          <a href="/en/case-studies/finance-automation/" class="card-link">Finance automation case study <ArrowRight size={14} /></a>
+        </div>
+        <div class="proof-card">
+          <p>
+            For a professional services firm we built a Power BI solution connecting seven data
+            sources — documented with ~15 h/week estimated time saved and ~2.8 months estimated payback.
+          </p>
+          <a href="/en/case-studies/power-bi-reporting/" class="card-link">Power BI case study <ArrowRight size={14} /></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="insights-band">
+      <div class="container">
+        <p>
+          Two in-depth articles on Power BI for finance teams —
+          <a href="/en/blog/#powerbi">read them in the Insights hub</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>How many days does your close take?</h2>
+        <p>Free 30-minute call — we walk through your close calendar, not a slide deck.</p>
+        <a href="/en/contact/" class="btn-primary">
+          Get in touch
+          <ArrowRight size={18} />
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .industry-hero {
+    padding: var(--spacing-4xl) 0 var(--spacing-2xl);
+    background: var(--bg-primary);
+  }
+
+  .eyebrow {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--eflury-teal);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .industry-hero h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    max-width: 800px;
+  }
+
+  .industry-hero .lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 700px;
+  }
+
+  section h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .section-lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .pains {
+    padding: var(--spacing-2xl) 0;
+    background: var(--bg-secondary);
+  }
+
+  .automations {
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-primary);
+  }
+
+  .card-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+  }
+
+  .card-grid.three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-grid.two {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plain-card,
+  .auto-card,
+  .proof-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .plain-card h3,
+  .auto-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .plain-card p,
+  .auto-card p,
+  .proof-card p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .auto-card p {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .auto-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    background: var(--primary-50);
+    color: var(--eflury-teal);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .card-link:hover {
+    text-decoration: underline;
+  }
+
+  .proof {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+    background: var(--bg-secondary);
+  }
+
+  .proof-card p {
+    font-size: 1.02rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .proof-card + .proof-card {
+    margin-top: var(--spacing-lg);
+  }
+
+  .insights-band {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .insights-band p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 0;
+  }
+
+  .insights-band a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-light);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .insights-band a:hover {
+    text-decoration: underline;
+  }
+
+  .cta {
+    padding: var(--spacing-3xl) 0;
+    background: var(--eflury-navy);
+    text-align: center;
+  }
+
+  .cta h2 {
+    color: var(--eflury-white);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cta p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--eflury-teal);
+    color: var(--eflury-white);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px) {
+    .card-grid.three,
+    .card-grid.two {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .industry-hero {
+      padding: var(--spacing-3xl) 0 var(--spacing-xl);
+    }
+
+    .industry-hero .lead {
+      font-size: 1.05rem;
+    }
+
+    .pains,
+    .automations,
+    .proof {
+      padding: var(--spacing-xl) 0;
+    }
+  }
+</style>
