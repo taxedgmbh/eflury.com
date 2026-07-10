@@ -26,9 +26,9 @@ const t = useTranslations(lang);
           <ArrowRight size={18} />
         </a>
         <p class="risk-reducer">{t('hero.risk_reducer')}</p>
-        <a href="#process" class="secondary-cta" onclick="window.trackEvent?.('Engagement', 'cta_click', 'Hero - Method')">
+        <a href={lang === 'de' ? '/de/methode/' : '/en/method/'} class="secondary-cta" onclick="window.trackEvent?.('Engagement', 'cta_click', 'Hero - Method')">
           {t('hero.cta_secondary')}
-          <ChevronDown size={16} />
+          <ArrowRight size={16} />
         </a>
       </div>
       <div class="trust-badges">
