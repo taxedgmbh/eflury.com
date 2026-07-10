@@ -124,15 +124,23 @@ const topics = topicOrder.filter((key) => topicCounts.has(key));
   const chips = document.querySelectorAll<HTMLButtonElement>('.topic-filter .chip');
   const cards = document.querySelectorAll<HTMLElement>('.post-card');
 
-  chips.forEach((chip) => {
-    chip.addEventListener('click', () => {
-      chips.forEach((c) => c.classList.toggle('active', c === chip));
-      const topic = chip.dataset.topic;
-      cards.forEach((card) => {
-        card.hidden = topic !== 'all' && card.dataset.topic !== topic;
-      });
+  const applyTopic = (chip: HTMLButtonElement) => {
+    chips.forEach((c) => c.classList.toggle('active', c === chip));
+    const topic = chip.dataset.topic;
+    cards.forEach((card) => {
+      card.hidden = topic !== 'all' && card.dataset.topic !== topic;
     });
+  };
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => applyTopic(chip));
   });
+
+  // Deep links: /blog/#treuhand pre-selects that topic (used by industry pages)
+  const fromHash = document.querySelector<HTMLButtonElement>(
+    `.topic-filter .chip[data-topic="${CSS.escape(location.hash.slice(1))}"]`
+  );
+  if (fromHash) applyTopic(fromHash);
 </script>
 
 <style>

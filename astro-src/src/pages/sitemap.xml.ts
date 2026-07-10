@@ -40,6 +40,10 @@ const staticPages: StaticPage[] = [
   { en: '/en/trust/', de: '/de/sicherheit/', priority: '0.6', changefreq: 'monthly' },
   { en: '/en/contact/', de: '/de/kontakt/', priority: '0.8', changefreq: 'monthly' },
 
+  // Industries
+  { en: '/en/industries/', de: '/de/branchen/', priority: '0.8', changefreq: 'monthly' },
+  { en: '/en/industries/treuhand-accounting/', de: '/de/branchen/treuhand/', priority: '0.7', changefreq: 'monthly' },
+
   // Services
   { en: '/en/services/', de: '/de/services/', priority: '0.8', changefreq: 'monthly' },
   { en: '/en/services/claude-skills/', de: '/de/services/claude-skills/', priority: '0.7', changefreq: 'monthly' },
