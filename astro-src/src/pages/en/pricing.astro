@@ -245,6 +245,15 @@ const t = useTranslations(lang);
             <a href="/en/#contact" class="btn-outline">Let's Talk</a>
           </div>
         </div>
+
+        <div class="audit-band">
+          <p>
+            <strong>Not sure which package fits?</strong> Start with the
+            <a href="/en/services/ai-audit/">AI Audit</a> — CHF 4,900, one week,
+            ending in an honest go/no-go. Fully credited toward any package
+            if you proceed within 6 months.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -1306,6 +1315,34 @@ const t = useTranslations(lang);
   }
 
   /* Add-Ons */
+  .audit-band {
+    margin-top: 2.5rem;
+    padding: 1.25rem 1.75rem;
+    background: var(--primary-50);
+    border: 1px solid var(--primary-100);
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  .audit-band p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+  }
+
+  .audit-band a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-600);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .audit-band a:hover {
+    text-decoration: underline;
+  }
+
   .addons {
     padding: 4rem 0;
   }
