@@ -1,63 +1,68 @@
-# Site architecture — current state and agreed target
+# Site architecture — current state (target achieved July 2026)
 
-Owner-approved July 2026. New pages must land where this tree says; if a
-page doesn't fit, ask the owner instead of improvising a location.
+Owner-approved July 2026; fully built as of July 10, 2026 (PRs #33–#44).
+New pages must land where this tree says; if a page doesn't fit, ask the
+owner instead of improvising a location.
 
 Every content page exists in BOTH `/en/` and `/de/`. DE uses localized
 slugs where noted; case-study slugs stay English in DE.
 
-## Target architecture (agreed with owner)
+## Current architecture (was the target; now built)
 
 ```
-eflury.com
+eflury.com                              ~100 built pages / 98 sitemap locs
 │
-├── HOME ─ short: positioning, proof strip (real numbers only),
-│          entry points into the hubs below
+├── HOME ─ short: Hero · TrustSignals · ProofStrip · ServiceLifecycle
+│          (Advise/Build/Run) · IndustriesRouter · MethodTrustBand ·
+│          TechPartners · About · value props · LeadMagnet · Contact
+│          (anchors #services #industries #method #about #contact)
 │
-├── services/                        « WHAT WE DO »
-│   ├── overview ─ grouped: Advise / Build / Run
-│   ├── ai-audit                 ⊕ planned  productized fixed-price entry offer
-│   ├── claude-skills                       (exists)
-│   ├── mcp-integration                     (exists)
-│   ├── finance-automation                  (exists; de: finanzen-automatisierung)
-│   ├── power-bi                            (exists)
-│   ├── data-quality                        (exists; de: datenqualitaet)
-│   └── managed-ai-operations    ⊕ planned  the "Run" tier (matches pricing retainer)
+├── services/                        « WHAT WE DO » — lifecycle
+│   ├── overview                            (AI Audit first, Managed Ops last)
+│   ├── ai-audit                            (de: ki-audit)   Advise tier
+│   ├── claude-skills
+│   ├── mcp-integration
+│   ├── finance-automation                  (de: finanzen-automatisierung)
+│   ├── power-bi
+│   ├── data-quality                        (de: datenqualitaet)
+│   └── managed-ai-operations               (de: ki-betrieb)  Run tier
 │
-├── industries/                  ⊕ planned  « WHO WE SERVE »
-│   ├── treuhand-accounting                 (build from existing verified content)
-│   ├── finance-teams
-│   └── professional-services
+├── industries/                             (de: branchen/)  « WHO WE SERVE »
+│   ├── treuhand-accounting                 (de: treuhand)
+│   ├── finance-teams                       (de: finanzteams)
+│   └── professional-services               (de: dienstleister)
 │
-├── case-studies/                    « PROOF »  (URLs stay as-is)
-│   ├── overview ⊕ planned: measured-results strip (real numbers from the studies)
-│   └── taxed-gmbh · finance-automation · power-bi-reporting   (exist)
+├── case-studies/                    « PROOF »
+│   ├── overview — aggregated results strip (~220 h/month · ~CHF 108K ·
+│   │              2.8–4.1 mo, all qualified "estimated", basis line)
+│   └── taxed-gmbh · finance-automation · power-bi-reporting
 │
-├── insights/                    ⊕ planned hub  « THOUGHT LEADERSHIP »
-│   ├── blog/                               (exists, 17 post pairs; URLs unchanged)
-│   ├── guides                   ⊕ planned  playbooks repackaged from existing posts
-│   └── sample-deliverables      ⊕ parked   fictional-data artifacts (owner will trigger)
+├── blog/  « INSIGHTS hub »  17 post pairs, 5 curated topics
+│   │      (i18n/blog-topics.ts; chips filter client-side; #<topic>
+│   │       hash deep-links; real computed reading times)
+│   └── guides                              (de: leitfaeden)
+│       3 ungated 2-page PDF playbooks × EN/DE in /downloads/
+│       (sample-deliverables still ⊕ parked — owner will trigger)
 │
-├── company/                         « WHO WE ARE »
-│   ├── about                               (exists)
-│   ├── method                              (exists; de: methode)  eflury Method™
-│   ├── trust                               (exists; de: sicherheit)
-│   └── careers                  ⊕ parked   only when owner commits to posting roles
+├── company pages                    « WHO WE ARE »
+│   ├── about · method|methode · trust|sicherheit
+│   └── careers                             (de: karriere)
+│       initiative applications only; no advertised roles — the page
+│       says so explicitly; update lastUpdated when role status changes
 │
-├── skopaai                             (exists) « PRODUCT »
-├── pricing                             (exists)
-├── contact                  ⊕ planned  real page, not an #anchor
+├── skopaai · pricing
+├── contact                                 (de: kontakt)
 │
-└── legal/                              (exists, complete)
-    privacy|datenschutz · terms|nutzungsbedingungen · cookies
-    disclaimer|haftungsausschluss · code-of-conduct|verhaltenskodex
-    imprint|impressum
+└── legal/  privacy|datenschutz · terms|nutzungsbedingungen · cookies
+            disclaimer|haftungsausschluss · code-of-conduct|verhaltenskodex
+            imprint|impressum
 ```
 
-Build order agreed with owner: (1) contact page + case-studies results
-strip + insights regrouping → (2) industries hub → (3) ai-audit +
-managed-ai-operations → (4) careers (only on owner go) → (5) guides +
-sample deliverables.
+Retired (deleted July 2026 — do not resurrect): homepage components
+`Services`, `EfluryMethod`, `HowIWork`, `IdealClient` and i18n namespaces
+`services`, `method`, `process`, `ideal_client`, `portfolio`. Their
+replacements are `ProofStrip`, `ServiceLifecycle`, `IndustriesRouter`,
+`MethodTrustBand` (all take a `lang` prop, strings inline).
 
 ## Navigation spec (Apple pattern — hard rules)
 
