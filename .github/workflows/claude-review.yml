@@ -21,22 +21,29 @@ jobs:
         id: diff
         run: |
           git fetch origin ${{ github.base_ref }}
-          DIFF=$(git diff origin/${{ github.base_ref }}...HEAD)
-          echo "diff<<EOF" >> $GITHUB_OUTPUT
-          echo "$DIFF" >> $GITHUB_OUTPUT
-          echo "EOF" >> $GITHUB_OUTPUT
+          # Write the diff to a file. Never route it through GITHUB_OUTPUT or
+          # workflow expression interpolation: outputs cap at 1MB and the
+          # expression evaluator has a memory limit that large diffs exceed
+          # (this failed on PR #38).
+          git diff origin/${{ github.base_ref }}...HEAD > /tmp/pr.diff
 
       - name: Claude Review
         id: review
         env:
           ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
-          PR_DIFF: ${{ steps.diff.outputs.diff }}
         run: |
+          # Cap what we send to the API; note the truncation in the prompt.
+          TOTAL=$(wc -c < /tmp/pr.diff)
+          head -c 150000 /tmp/pr.diff > /tmp/pr-review.diff
+          if [ "$TOTAL" -gt 150000 ]; then
+            printf '\n\n[diff truncated for review: first 150000 of %s bytes]\n' "$TOTAL" >> /tmp/pr-review.diff
+          fi
+
           # Build JSON payload using jq to handle escaping properly
           PAYLOAD=$(jq -n \
-            --arg diff "$PR_DIFF" \
+            --rawfile diff /tmp/pr-review.diff \
             '{
-              model: "claude-sonnet-4-20250514",
+              model: "claude-sonnet-5",
               max_tokens: 4096,
               messages: [{
                 role: "user",
