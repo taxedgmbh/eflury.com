@@ -1,0 +1,387 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Footer from '../../../components/Footer.astro';
+import AIChatbot from '../../../components/AIChatbot.astro';
+import { ArrowRight, MailCheck, Phone, MessageCircle, BarChart3 } from 'lucide-astro';
+
+const lang = 'en';
+
+const pains = [
+  {
+    title: 'Billable hours lost to admin',
+    text: 'Inbox triage, scheduling, follow-ups, status reports — hours that cannot be invoiced but fill the day anyway.',
+  },
+  {
+    title: 'Every channel demands attention',
+    text: 'Email, phone, WhatsApp — clients expect fast answers everywhere, and every interruption breaks focused work.',
+  },
+  {
+    title: 'Client reporting eats the evenings',
+    text: 'Each client wants to see progress and numbers — assembled by hand from different tools, again and again.',
+  },
+];
+
+const automations = [
+  {
+    icon: MailCheck,
+    title: 'Email triage',
+    text: 'Incoming mail sorted, prioritized, and drafted for response — nothing is sent without human review.',
+    href: '/en/blog/ai-email-triage-agent-professionals/',
+    linkLabel: 'The email triage pattern',
+  },
+  {
+    icon: Phone,
+    title: 'Phone reception',
+    text: 'Voice AI takes first contact, captures the request in a structured way, and routes it — your team calls back prepared.',
+    href: '/en/blog/voice-ai-receptionist-swiss-sme/',
+    linkLabel: 'Voice AI in practice',
+  },
+  {
+    icon: MessageCircle,
+    title: 'WhatsApp business communication',
+    text: 'Appointment requests and standard questions answered automatically — handover to a human on anything non-standard.',
+    href: '/en/blog/whatsapp-business-automation/',
+    linkLabel: 'WhatsApp automation guide',
+  },
+  {
+    icon: BarChart3,
+    title: 'Client reporting',
+    text: 'Power BI dashboards that clients can be shown directly — instead of slide decks assembled at midnight.',
+    href: '/en/services/power-bi/',
+    linkLabel: 'Power BI service',
+  },
+];
+---
+
+<MainLayout
+  title="AI for Professional Services - eFlury Consulting"
+  description="Automation for Swiss professional services firms: email triage, voice reception, WhatsApp, and client reporting — documented in a client case study."
+  keywords="professional services automation, email triage AI, voice AI reception, WhatsApp business automation, client reporting Power BI"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <Breadcrumbs lang={lang} items={[{ label: 'Industries', href: '/en/industries/' }, { label: 'Professional Services' }]} />
+
+  <main class="industry-page">
+    <section class="industry-hero">
+      <div class="container">
+        <p class="eyebrow">Industries · Professional Services</p>
+        <h1>AI for professional services.</h1>
+        <p class="lead">
+          Consultants, agencies, engineering offices, practices — you sell expertise by the hour,
+          and the hours keep leaking into administration. We automate the routine around your client work.
+        </p>
+      </div>
+    </section>
+
+    <section class="pains">
+      <div class="container">
+        <h2>The daily leak</h2>
+        <div class="card-grid three">
+          {pains.map((pain) => (
+            <div class="plain-card">
+              <h3>{pain.title}</h3>
+              <p>{pain.text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="automations">
+      <div class="container">
+        <h2>What we automate for service firms</h2>
+        <p class="section-lead">
+          Every system follows the same rule: AI proposes, your team approves.
+          Client data stays in your systems — agents access it read-only via MCP connectors.
+        </p>
+        <div class="card-grid two">
+          {automations.map((item) => (
+            <div class="auto-card">
+              <div class="auto-icon"><item.icon size={22} /></div>
+              <h3>{item.title}</h3>
+              <p>{item.text}</p>
+              <a href={item.href} class="card-link">{item.linkLabel} <ArrowRight size={14} /></a>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="proof">
+      <div class="container">
+        <h2>Documented in a client project</h2>
+        <div class="proof-card">
+          <p>
+            For a Swiss professional services firm we built a Power BI solution connecting seven
+            data sources — real-time KPI tracking and automated client reporting, documented with
+            ~15 h/week estimated time saved, ~CHF 36K estimated annual savings, and ~2.8 months estimated payback.
+          </p>
+          <a href="/en/case-studies/power-bi-reporting/" class="card-link">Read the case study <ArrowRight size={14} /></a>
+        </div>
+      </div>
+    </section>
+
+    <section class="insights-band">
+      <div class="container">
+        <p>
+          Four hands-on articles on automation in practice —
+          <a href="/en/blog/#practice">read them in the Insights hub</a>.
+        </p>
+      </div>
+    </section>
+
+    <section class="cta">
+      <div class="container">
+        <h2>Which routine costs you the most billable hours?</h2>
+        <p>Free 30-minute call — we walk through your week, not a slide deck.</p>
+        <a href="/en/contact/" class="btn-primary">
+          Get in touch
+          <ArrowRight size={18} />
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .industry-hero {
+    padding: var(--spacing-4xl) 0 var(--spacing-2xl);
+    background: var(--bg-primary);
+  }
+
+  .eyebrow {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--eflury-teal);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .industry-hero h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+    max-width: 800px;
+  }
+
+  .industry-hero .lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 700px;
+  }
+
+  section h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-lg);
+  }
+
+  .section-lead {
+    font-size: 1.05rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .pains {
+    padding: var(--spacing-2xl) 0;
+    background: var(--bg-secondary);
+  }
+
+  .automations {
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-primary);
+  }
+
+  .card-grid {
+    display: grid;
+    gap: var(--spacing-lg);
+  }
+
+  .card-grid.three {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .card-grid.two {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .plain-card,
+  .auto-card,
+  .proof-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .plain-card h3,
+  .auto-card h3 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .plain-card p,
+  .auto-card p,
+  .proof-card p {
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .auto-card p {
+    margin-bottom: var(--spacing-md);
+  }
+
+  .auto-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border-radius: var(--radius-md);
+    background: var(--primary-50);
+    color: var(--eflury-teal);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+  }
+
+  .card-link:hover {
+    text-decoration: underline;
+  }
+
+  .proof {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+    background: var(--bg-secondary);
+  }
+
+  .proof-card p {
+    font-size: 1.02rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .proof-card + .proof-card {
+    margin-top: var(--spacing-lg);
+  }
+
+  .insights-band {
+    padding: var(--spacing-xl) 0;
+    background: var(--bg-primary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .insights-band p {
+    font-size: 1rem;
+    color: var(--text-secondary);
+    text-align: center;
+    margin: 0;
+  }
+
+  .insights-band a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-light);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .insights-band a:hover {
+    text-decoration: underline;
+  }
+
+  .cta {
+    padding: var(--spacing-3xl) 0;
+    background: var(--eflury-navy);
+    text-align: center;
+  }
+
+  .cta h2 {
+    color: var(--eflury-white);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cta p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--eflury-teal);
+    color: var(--eflury-white);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px) {
+    .card-grid.three,
+    .card-grid.two {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .industry-hero {
+      padding: var(--spacing-3xl) 0 var(--spacing-xl);
+    }
+
+    .industry-hero .lead {
+      font-size: 1.05rem;
+    }
+
+    .pains,
+    .automations,
+    .proof {
+      padding: var(--spacing-xl) 0;
+    }
+  }
+</style>
