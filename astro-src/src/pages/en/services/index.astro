@@ -5,7 +5,7 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
 import AIChatbot from '../../../components/AIChatbot.astro';
 import { useTranslations } from '../../../i18n/utils';
-import { ArrowRight, Cpu, Server, Calculator, BarChart3, Database, ClipboardCheck } from 'lucide-astro';
+import { ArrowRight, Cpu, Server, Calculator, BarChart3, Database, ClipboardCheck, Activity } from 'lucide-astro';
 
 const lang = 'en';
 const t = useTranslations(lang);
@@ -58,6 +58,14 @@ const services = [
     link: '/en/services/power-bi',
     badge: null,
     metric: '15 hrs/week saved'
+  },
+  {
+    icon: Activity,
+    title: 'Managed AI Operations',
+    description: 'We run what we build: monitoring, monthly metrics reports, improvement backlog, and re-validation after platform updates.',
+    link: '/en/services/managed-ai-operations',
+    badge: null,
+    metric: 'From CHF 1,200/month'
   }
 ];
 ---

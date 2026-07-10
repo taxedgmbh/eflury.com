@@ -1,0 +1,118 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+
+const lang = 'en';
+
+const serviceData = {
+  title: 'Managed AI Operations - Run Your Automations | eflury.com',
+  description:
+    'Ongoing operation of your AI automations: monitoring, monthly metrics reports, improvement backlog, and re-validation after platform updates — from the published CHF 1,200/month rate.',
+  keywords:
+    'managed AI operations, AI monitoring, automation support, Claude skills maintenance, Swiss SME, extended support',
+  lang,
+  serviceType: 'Managed AI Operations',
+  heroTitle: 'Built Is Half the Job. We Run the Other Half.',
+  heroSubtitle: 'Managed AI Operations',
+  heroDescription:
+    'Automations create value only while they keep working. We operate the systems we build for you: regular health checks, a monthly metrics report in writing, a prioritized improvement backlog — and re-validation whenever the AI platforms underneath change. Without you hiring an AI engineer.',
+  problemTitle: 'Does this sound familiar?',
+  problems: [
+    'The automation worked at go-live — six months later, nobody can say whether it still performs',
+    'Model and API updates land every few months, and nobody owns testing them against your workflows',
+    'Errors surface when a customer complains — not when they happen',
+    'The one person who understood the system is busy, on holiday, or gone',
+    'You want the benefits of AI automation without putting an AI engineer on the payroll'
+  ],
+  solutionTitle: 'Operation as a product: measured, monthly, in writing',
+  solutionDescription:
+    'Managed AI Operations is phase 5 of the eflury Method™ — optimization — run as a continuous service. We take over the operation of the automations we built: regular health checks, monitoring of error rates and usage, and a monthly written metrics report showing time saved, error rates, and usage — the same numbers the original business case promised. Every report comes with a prioritized improvement backlog, and one short monthly review is all the time it costs your team. When Claude models or APIs are updated, we re-test your workflows against the changes and adjust where needed, so your automations keep pace with the platform instead of quietly degrading.',
+  benefits: [
+    {
+      title: 'Run Capability Without Hiring',
+      description:
+        'You get monitoring, maintenance, and platform expertise as a service — instead of recruiting for a role that is hard to fill and harder to keep busy.'
+    },
+    {
+      title: 'Measured, Monthly, in Writing',
+      description:
+        'A monthly metrics report — time saved, error rates, usage — plus a prioritized improvement backlog. You always know whether the system still earns its keep.'
+    },
+    {
+      title: 'A Published Price',
+      description:
+        'Ongoing operation starts at the Extended Support rate published on our pricing page: CHF 1,200/month with 4-hour response and monthly check-ins. Larger setups get a written fixed quote.'
+    },
+    {
+      title: 'No Lock-In, Ever',
+      description:
+        'Documentation stays current as part of the service. You can take operation in-house at any time — no lock-in is a stated principle of our method.'
+    }
+  ],
+  processTitle: 'How the service runs',
+  processSteps: [
+    {
+      title: 'Handover & Baseline',
+      description:
+        'We document the current state and agree the metrics that matter: time saved, error rates, usage — measured the same way every month.'
+    },
+    {
+      title: 'Monitoring & Health Checks',
+      description:
+        'Regular checks of your automations and their data flows; anomalies are flagged and investigated before they reach your customers.'
+    },
+    {
+      title: 'Monthly Report & Review',
+      description:
+        'A written metrics report with a prioritized improvement backlog — walked through in one short monthly review with you.'
+    },
+    {
+      title: 'Improvements & Re-Validation',
+      description:
+        'Backlog items are implemented at fixed prices; after model or API updates we re-test your workflows and adjust where needed.'
+    }
+  ],
+  faqs: [
+    {
+      question: 'What does it cost?',
+      answer:
+        'The starting point is published on our pricing page: Extended Support at CHF 1,200/month, with 4-hour response time and monthly check-ins. Setups with more systems or stricter requirements get a written fixed quote before anything starts — no day rates, no open end.'
+    },
+    {
+      question: 'Do we even need this?',
+      answer:
+        'Honestly: maybe not. Every project we hand over includes full documentation and team training, so you can operate without us — that is our no-lock-in principle. Managed operations is for teams that would rather buy the run capability than own it. Both are clean choices.'
+    },
+    {
+      question: 'What is in the monthly report?',
+      answer:
+        'The phase-5 deliverables of the eflury Method™: a metrics report covering time saved, error rates, and usage, plus a prioritized improvement backlog. The point is that you can verify — every month — whether the automation still delivers what the business case promised.'
+    },
+    {
+      question: 'Why do automations need ongoing attention at all?',
+      answer:
+        'Because their environment moves: AI models are updated, APIs change, your processes and data evolve. A workflow that was tested at go-live can silently degrade under a new model version or a changed input format. Re-validating after platform changes is precisely the kind of work that never gets prioritized internally — so we make it someone’s explicit job.'
+    },
+    {
+      question: 'Do you operate systems you did not build?',
+      answer:
+        'Preferably we run what we built — we know it line by line. For existing Claude/MCP setups built by others, we start with an AI audit to document the current state; after that, taking over operation is usually straightforward.'
+    },
+    {
+      question: 'What happens to our data during operation?',
+      answer:
+        'The same rules as in every project: your data stays in your systems, access is read-only via MCP connectors, and changes require human approval. Every service we rely on is disclosed on our Trust & Security page.'
+    }
+  ],
+  ctaTitle: 'Keep your automations earning their keep',
+  ctaDescription:
+    'Book a free 30-minute call. We’ll look at what you are running today and tell you honestly whether managed operations is worth it in your case.',
+  ctaButtonText: 'Book a Free Operations Call',
+  relatedCaseStudy: {
+    title: 'Power BI Executive Dashboard for a Professional Services Firm',
+    link: '/en/case-studies/power-bi-reporting',
+    metric: '~15 h/week estimated time saved'
+  }
+};
+---
+
+<ServiceLayout {...serviceData} />

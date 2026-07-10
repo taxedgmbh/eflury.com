@@ -1,0 +1,118 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+
+const lang = 'de';
+
+const serviceData = {
+  title: 'Managed AI Operations - Betrieb Ihrer Automatisierungen | eflury.com',
+  description:
+    'Laufender Betrieb Ihrer KI-Automatisierungen: Monitoring, monatlicher Kennzahlenbericht, Verbesserungs-Backlog und Re-Validierung nach Plattform-Updates — ab publiziertem Tarif von CHF 1\'200/Monat.',
+  keywords:
+    'Managed AI Operations, KI-Monitoring, Automatisierung Support, Claude Skills Wartung, Schweizer KMU, Extended Support',
+  lang,
+  serviceType: 'Managed AI Operations',
+  heroTitle: 'Bauen ist die halbe Arbeit. Wir übernehmen die andere Hälfte.',
+  heroSubtitle: 'Managed AI Operations',
+  heroDescription:
+    'Automatisierungen schaffen nur Wert, solange sie funktionieren. Wir betreiben die Systeme, die wir für Sie bauen: regelmässige Health-Checks, ein monatlicher schriftlicher Kennzahlenbericht, ein priorisiertes Verbesserungs-Backlog — und Re-Validierung, wenn sich die KI-Plattformen darunter ändern. Ohne dass Sie einen KI-Engineer einstellen müssen.',
+  problemTitle: 'Kommt Ihnen das bekannt vor?',
+  problems: [
+    'Beim Go-live funktionierte die Automatisierung — sechs Monate später kann niemand sagen, ob sie noch performt',
+    'Modell- und API-Updates erscheinen alle paar Monate, und niemand ist zuständig, sie gegen Ihre Workflows zu testen',
+    'Fehler fallen auf, wenn ein Kunde reklamiert — nicht, wenn sie passieren',
+    'Die eine Person, die das System verstand, ist ausgelastet, in den Ferien oder weg',
+    'Sie wollen den Nutzen der KI-Automatisierung, ohne einen KI-Engineer auf der Lohnliste zu haben'
+  ],
+  solutionTitle: 'Betrieb als Produkt: gemessen, monatlich, schriftlich',
+  solutionDescription:
+    'Managed AI Operations ist Phase 5 der eflury Method™ — Optimierung — als kontinuierlicher Service. Wir übernehmen den Betrieb der Automatisierungen, die wir gebaut haben: regelmässige Health-Checks, Monitoring von Fehlerraten und Nutzung sowie ein monatlicher schriftlicher Kennzahlenbericht mit Zeitersparnis, Fehlerraten und Nutzung — denselben Zahlen, die der ursprüngliche Business Case versprochen hat. Jeder Bericht kommt mit einem priorisierten Verbesserungs-Backlog, und ein kurzes monatliches Review ist alles, was es Ihr Team an Zeit kostet. Werden Claude-Modelle oder APIs aktualisiert, testen wir Ihre Workflows gegen die Änderungen und passen an, wo nötig — damit Ihre Automatisierungen mit der Plattform Schritt halten, statt still zu degradieren.',
+  benefits: [
+    {
+      title: 'Betriebskompetenz ohne Einstellung',
+      description:
+        'Sie erhalten Monitoring, Wartung und Plattform-Expertise als Service — statt eine Rolle zu rekrutieren, die schwer zu besetzen und noch schwerer auszulasten ist.'
+    },
+    {
+      title: 'Gemessen, monatlich, schriftlich',
+      description:
+        'Ein monatlicher Kennzahlenbericht — Zeitersparnis, Fehlerraten, Nutzung — plus priorisiertes Verbesserungs-Backlog. Sie wissen jederzeit, ob sich das System noch verdient.'
+    },
+    {
+      title: 'Ein publizierter Preis',
+      description:
+        'Der laufende Betrieb startet beim publizierten Extended-Support-Tarif unserer Preisseite: CHF 1’200/Monat mit 4-Stunden-Reaktionszeit und monatlichen Check-ins. Grössere Setups erhalten eine schriftliche Fixofferte.'
+    },
+    {
+      title: 'Kein Lock-in, nie',
+      description:
+        'Die Dokumentation bleibt als Teil des Service aktuell. Sie können den Betrieb jederzeit selbst übernehmen — kein Lock-in ist ein erklärtes Prinzip unserer Methode.'
+    }
+  ],
+  processTitle: 'So läuft der Service',
+  processSteps: [
+    {
+      title: 'Übergabe & Baseline',
+      description:
+        'Wir dokumentieren den Ist-Zustand und vereinbaren die relevanten Kennzahlen: Zeitersparnis, Fehlerraten, Nutzung — jeden Monat gleich gemessen.'
+    },
+    {
+      title: 'Monitoring & Health-Checks',
+      description:
+        'Regelmässige Prüfung Ihrer Automatisierungen und ihrer Datenflüsse; Anomalien werden markiert und untersucht, bevor sie Ihre Kunden erreichen.'
+    },
+    {
+      title: 'Monatsbericht & Review',
+      description:
+        'Ein schriftlicher Kennzahlenbericht mit priorisiertem Verbesserungs-Backlog — gemeinsam durchgesprochen in einem kurzen monatlichen Review.'
+    },
+    {
+      title: 'Verbesserungen & Re-Validierung',
+      description:
+        'Backlog-Punkte werden zu Fixpreisen umgesetzt; nach Modell- oder API-Updates testen wir Ihre Workflows neu und passen an, wo nötig.'
+    }
+  ],
+  faqs: [
+    {
+      question: 'Was kostet es?',
+      answer:
+        'Der Ausgangspunkt ist auf unserer Preisseite publiziert: Extended Support für CHF 1’200/Monat, mit 4-Stunden-Reaktionszeit und monatlichen Check-ins. Setups mit mehr Systemen oder strengeren Anforderungen erhalten vor dem Start eine schriftliche Fixofferte — keine Tagessätze, kein offenes Ende.'
+    },
+    {
+      question: 'Brauchen wir das überhaupt?',
+      answer:
+        'Ehrlich: vielleicht nicht. Jedes Projekt übergeben wir mit vollständiger Dokumentation und Team-Schulung, sodass Sie ohne uns betreiben können — das ist unser No-Lock-in-Prinzip. Managed Operations ist für Teams, die die Betriebskompetenz lieber einkaufen als aufbauen. Beides sind saubere Entscheidungen.'
+    },
+    {
+      question: 'Was steht im Monatsbericht?',
+      answer:
+        'Die Phase-5-Deliverables der eflury Method™: ein Kennzahlenbericht mit Zeitersparnis, Fehlerraten und Nutzung plus ein priorisiertes Verbesserungs-Backlog. Der Punkt ist: Sie können jeden Monat überprüfen, ob die Automatisierung noch liefert, was der Business Case versprochen hat.'
+    },
+    {
+      question: 'Warum brauchen Automatisierungen überhaupt laufende Betreuung?',
+      answer:
+        'Weil sich ihre Umgebung bewegt: KI-Modelle werden aktualisiert, APIs ändern sich, Ihre Prozesse und Daten entwickeln sich weiter. Ein Workflow, der beim Go-live getestet wurde, kann unter einer neuen Modellversion oder einem geänderten Eingabeformat still degradieren. Re-Validierung nach Plattformänderungen ist genau die Arbeit, die intern nie priorisiert wird — also machen wir sie zu jemandes explizitem Job.'
+    },
+    {
+      question: 'Betreiben Sie auch Systeme, die Sie nicht gebaut haben?',
+      answer:
+        'Am liebsten betreiben wir, was wir gebaut haben — das kennen wir Zeile für Zeile. Bei bestehenden Claude/MCP-Setups von Dritten starten wir mit einem KI-Audit, um den Ist-Zustand zu dokumentieren; danach ist die Betriebsübernahme meist unkompliziert.'
+    },
+    {
+      question: 'Was passiert im Betrieb mit unseren Daten?',
+      answer:
+        'Dieselben Regeln wie in jedem Projekt: Ihre Daten bleiben in Ihren Systemen, der Zugriff erfolgt lesend über MCP-Konnektoren, und Änderungen brauchen menschliche Freigabe. Jeder Dienst, auf den wir uns stützen, ist auf unserer Seite Sicherheit & Vertrauen offengelegt.'
+    }
+  ],
+  ctaTitle: 'Sorgen Sie dafür, dass sich Ihre Automatisierungen weiter verdienen',
+  ctaDescription:
+    'Buchen Sie ein kostenloses 30-Minuten-Gespräch. Wir schauen an, was heute bei Ihnen läuft — und sagen Ihnen ehrlich, ob sich Managed Operations in Ihrem Fall lohnt.',
+  ctaButtonText: 'Kostenloses Betriebs-Gespräch buchen',
+  relatedCaseStudy: {
+    title: 'Power BI Executive Dashboard für ein Dienstleistungsunternehmen',
+    link: '/de/case-studies/power-bi-reporting',
+    metric: '~15 h/Woche geschätzte Zeitersparnis'
+  }
+};
+---
+
+<ServiceLayout {...serviceData} />

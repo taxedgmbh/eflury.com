@@ -144,6 +144,7 @@ const localizedMap = {
   'services/finance-automation': 'services/finanzen-automatisierung',
   'services/data-quality': 'services/datenqualitaet',
   'services/ai-audit': 'services/ki-audit',
+  'services/managed-ai-operations': 'services/ki-betrieb',
 };
 const norm = (p) => relative(ROOT, p).replace(/\/index\.html$/, '').replace(/\.html$/, '');
 const enPages = new Set(pages.map(norm).filter((p) => p.startsWith('en/')).map((p) => p.slice(3)));
