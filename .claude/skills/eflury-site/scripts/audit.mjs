@@ -136,6 +136,7 @@ const localizedMap = {
   'imprint': 'impressum',
   'method': 'methode',
   'trust': 'sicherheit',
+  'contact': 'kontakt',
   'services/finance-automation': 'services/finanzen-automatisierung',
   'services/data-quality': 'services/datenqualitaet',
 };

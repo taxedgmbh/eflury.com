@@ -72,7 +72,7 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
         </li>
         <li><a href={`/${lang}/about`}>{t('nav.about')}</a></li>
         <li><a href={`/${lang}/blog`}>{t('nav.blog')}</a></li>
-        <li><a href={`/${lang}/#contact`}>{t('nav.contact')}</a></li>
+        <li><a href={lang === 'de' ? '/de/kontakt/' : '/en/contact/'}>{t('nav.contact')}</a></li>
 
         <!-- Mobile-only: Dark Mode Toggle -->
         <li class="mobile-dark-toggle">

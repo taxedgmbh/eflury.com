@@ -1,0 +1,201 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import AIChatbot from '../../components/AIChatbot.astro';
+
+const lang = 'de';
+
+const steps = [
+  {
+    title: 'Sie melden sich',
+    text: 'Über das Formular unten, per E-Mail, Telefon oder WhatsApp — wie es Ihnen passt.',
+  },
+  {
+    title: 'Antwort innerhalb von 24 Stunden',
+    text: 'Direkt von Emanuel Flury — von der Person, die die Systeme baut, nicht von einer Vorzimmer-Instanz.',
+  },
+  {
+    title: 'Kostenloses 30-Minuten-Gespräch',
+    text: 'Wir gehen Ihren Fall gemeinsam durch. Passt Automatisierung nicht, sagen wir das offen — ein klares Nein ist auch ein sauberes Ergebnis.',
+  },
+];
+---
+
+<MainLayout
+  title="Kontakt - eFlury Consulting"
+  description="Kontakt zu eFlury Consulting: Formular, E-Mail, Telefon oder WhatsApp. Antwort innerhalb von 24 Stunden, danach ein kostenloses 30-Minuten-Gespräch zu Ihrem Fall."
+  keywords="Kontakt eFlury Consulting, KI-Automatisierung Beratung, kostenloses Strategiegespräch, Grenchen Schweiz"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <Breadcrumbs lang={lang} items={[{ label: 'Kontakt' }]} />
+
+  <main class="contact-page">
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Sprechen wir.</h1>
+        <p class="lead">
+          Ob Sie einen konkreten Prozess im Kopf haben oder erst sondieren —
+          Sie erhalten innerhalb von 24 Stunden eine Antwort, von der Person, die die Systeme baut.
+        </p>
+      </div>
+    </section>
+
+    <section class="next-steps">
+      <div class="container">
+        <h2>So geht es weiter</h2>
+        <ol class="steps-grid">
+          {steps.map((step, i) => (
+            <li class="step-card">
+              <span class="step-number">{i + 1}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))}
+        </ol>
+        <p class="imprint-note">
+          Firmenangaben und Postadresse: <a href="/de/impressum/">Impressum</a> ·
+          Wie wir mit Ihren Daten arbeiten: <a href="/de/sicherheit/">Sicherheit &amp; Vertrauen</a>
+        </p>
+      </div>
+    </section>
+
+    <Contact lang={lang} />
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .contact-hero {
+    padding: var(--spacing-4xl) var(--spacing-lg) var(--spacing-2xl);
+    background: var(--bg-primary);
+    text-align: center;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contact-hero .lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .next-steps {
+    padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-3xl);
+    background: var(--bg-primary);
+  }
+
+  .next-steps .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .next-steps h2 {
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .steps-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .step-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: var(--eflury-teal);
+    color: var(--eflury-white);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .step-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .step-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .imprint-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+    margin: var(--spacing-xl) 0 0;
+  }
+
+  .imprint-note a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-light);
+    text-decoration: none;
+  }
+
+  .imprint-note a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .contact-hero {
+      padding: var(--spacing-3xl) var(--spacing-md) var(--spacing-xl);
+    }
+
+    .contact-hero .lead {
+      font-size: 1.05rem;
+    }
+
+    .next-steps {
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-2xl);
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+
+    .step-card {
+      padding: var(--spacing-lg);
+    }
+  }
+</style>
