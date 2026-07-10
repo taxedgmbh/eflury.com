@@ -210,6 +210,22 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://eflury.com/en/services/managed-ai-operations/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/managed-ai-operations/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/ki-betrieb/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/managed-ai-operations/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/services/ki-betrieb/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/managed-ai-operations/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/ki-betrieb/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/services/managed-ai-operations/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://eflury.com/en/services/claude-skills/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/claude-skills/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/claude-skills/"/>
