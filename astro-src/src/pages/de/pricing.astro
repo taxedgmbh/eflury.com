@@ -245,6 +245,15 @@ const t = useTranslations(lang);
             <a href="/de/#contact" class="btn-outline">Kontaktieren</a>
           </div>
         </div>
+
+        <div class="audit-band">
+          <p>
+            <strong>Unsicher, welches Paket passt?</strong> Starten Sie mit dem
+            <a href="/de/services/ki-audit/">KI-Audit</a> — CHF 4'900, eine Woche,
+            mit ehrlichem Go/No-Go am Ende. Bei einem Folgeauftrag innert 6 Monaten
+            vollständig ans Paket angerechnet.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -1306,6 +1315,34 @@ const t = useTranslations(lang);
   }
 
   /* Add-Ons */
+  .audit-band {
+    margin-top: 2.5rem;
+    padding: 1.25rem 1.75rem;
+    background: var(--primary-50);
+    border: 1px solid var(--primary-100);
+    border-radius: var(--radius-md);
+    text-align: center;
+  }
+
+  .audit-band p {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-primary);
+  }
+
+  .audit-band a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-600);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .audit-band a:hover {
+    text-decoration: underline;
+  }
+
   .addons {
     padding: 4rem 0;
   }
