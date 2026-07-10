@@ -1,7 +1,7 @@
 ---
 /**
- * Blog Index Page (English)
- * Lists all blog posts
+ * Blog / Insights hub (English)
+ * Topic-filterable list of all posts; topics come from src/i18n/blog-topics.ts.
  */
 
 import MainLayout from '../../../layouts/MainLayout.astro';
@@ -10,22 +10,34 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
 import AIChatbot from '../../../components/AIChatbot.astro';
 import { getCollection } from 'astro:content';
-import { ArrowRight, Calendar, Clock, Tag } from 'lucide-astro';
+import { ArrowRight, Calendar, Clock } from 'lucide-astro';
+import { topicFor, topicLabels, topicOrder, readingMinutes } from '../../../i18n/blog-topics';
 
 const lang = 'en';
 
-// Get all English blog posts, sorted by date
 const allPosts = await getCollection('blog', ({ data }) => {
   return data.lang === 'en' && !data.draft;
 });
 
-const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || a.id.localeCompare(b.id));
+const posts = allPosts
+  .sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf() || a.id.localeCompare(b.id))
+  .map((post) => ({
+    ...post,
+    topic: topicFor(post.data.translationKey),
+    minutes: readingMinutes(post.body),
+  }));
+
+const topicCounts = new Map<string, number>();
+for (const post of posts) {
+  topicCounts.set(post.topic, (topicCounts.get(post.topic) ?? 0) + 1);
+}
+const topics = topicOrder.filter((key) => topicCounts.has(key));
 ---
 
 <MainLayout
-  title="Blog - AI Automation Insights | Emanuel Flury"
-  description="Expert insights on AI automation, Power BI, and business process optimization for Swiss SMEs. Practical guides and industry analysis."
-  keywords="AI automation blog, Claude AI tutorials, Power BI guides, Swiss business automation, RPA insights"
+  title="Blog & Insights - AI Automation for Swiss SMEs | Emanuel Flury"
+  description="Practical insights on AI automation, Treuhand & accounting, Power BI, and security for Swiss SMEs — filterable by topic."
+  keywords="AI automation blog, Claude AI insights, Power BI guides, Treuhand automation, Swiss business automation"
   lang={lang}
 >
   <Header lang={lang} />
@@ -36,73 +48,68 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
+        <h1>Insights</h1>
+        <p class="subtitle">Practical analyses on AI automation, Treuhand &amp; accounting, reporting, and security — written for Swiss SMEs.</p>
 
-        <h1>Blog</h1>
-        <p class="subtitle">Insights on AI automation, Power BI, and business process optimization</p>
+        <div class="topic-filter" role="group" aria-label="Filter articles by topic">
+          <button class="chip active" data-topic="all">All <span class="count">{posts.length}</span></button>
+          {topics.map((key) => (
+            <button class="chip" data-topic={key}>
+              {topicLabels[key][lang]} <span class="count">{topicCounts.get(key)}</span>
+            </button>
+          ))}
+        </div>
       </div>
     </section>
 
     <!-- Blog Posts Grid -->
     <section class="blog-grid">
       <div class="container">
-        {posts.length === 0 ? (
-          <div class="no-posts">
-            <p>No blog posts yet. Check back soon!</p>
-          </div>
-        ) : (
-          <div class="posts-grid">
-            {posts.map((post) => (
-              <a href={`/en/blog/${post.id}`} class="post-card">
-                {post.data.image && (
-                  <div class="post-image">
-                    <img src={post.data.image} alt={post.data.imageAlt || post.data.title} loading="lazy" />
-                  </div>
-                )}
-                <div class="post-content">
-                  <div class="post-meta">
-                    <span class="date">
-                      <Calendar size={14} />
-                      {post.data.pubDate.toLocaleDateString('en-US', {
-                        year: 'numeric',
-                        month: 'short',
-                        day: 'numeric'
-                      })}
-                    </span>
-                    <span class="reading-time">
-                      <Clock size={14} />
-                      ~5 min read
-                    </span>
-                  </div>
-
-                  <h2>{post.data.title}</h2>
-                  <p class="description">{post.data.description}</p>
-
-                  {post.data.tags && post.data.tags.length > 0 && (
-                    <div class="tags">
-                      {post.data.tags.slice(0, 3).map((tag: string) => (
-                        <span class="tag">{tag}</span>
-                      ))}
-                    </div>
-                  )}
-
-                  <div class="read-more">
-                    Read Article <ArrowRight size={16} />
-                  </div>
+        <div class="posts-grid">
+          {posts.map((post) => (
+            <a href={`/en/blog/${post.id}`} class="post-card" data-topic={post.topic}>
+              {post.data.image && (
+                <div class="post-image">
+                  <img src={post.data.image} alt={post.data.imageAlt || post.data.title} loading="lazy" />
                 </div>
-              </a>
-            ))}
-          </div>
-        )}
+              )}
+              <div class="post-content">
+                <div class="post-meta">
+                  <span class="topic-badge">{topicLabels[post.topic][lang]}</span>
+                  <span class="date">
+                    <Calendar size={14} />
+                    {post.data.pubDate.toLocaleDateString('en-US', {
+                      year: 'numeric',
+                      month: 'short',
+                      day: 'numeric'
+                    })}
+                  </span>
+                  <span class="reading-time">
+                    <Clock size={14} />
+                    ~{post.minutes} min read
+                  </span>
+                </div>
+
+                <h2>{post.data.title}</h2>
+                <p class="description">{post.data.description}</p>
+
+                <div class="read-more">
+                  Read Article <ArrowRight size={16} />
+                </div>
+              </div>
+            </a>
+          ))}
+        </div>
       </div>
     </section>
 
     <!-- CTA Section -->
     <section class="cta">
       <div class="container">
-        <h2>Stay Updated</h2>
-        <p>Get the latest insights on AI automation delivered to your inbox.</p>
-        <a href="/en#contact" class="btn-primary">
-          Subscribe to Newsletter
+        <h2>Want to apply this to your business?</h2>
+        <p>Free 30-minute call — we walk through your specific case.</p>
+        <a href="/en/contact/" class="btn-primary">
+          Get in touch
           <ArrowRight size={18} />
         </a>
       </div>
@@ -112,6 +119,21 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
   <Footer lang={lang} />
   <AIChatbot />
 </MainLayout>
+
+<script>
+  const chips = document.querySelectorAll<HTMLButtonElement>('.topic-filter .chip');
+  const cards = document.querySelectorAll<HTMLElement>('.post-card');
+
+  chips.forEach((chip) => {
+    chip.addEventListener('click', () => {
+      chips.forEach((c) => c.classList.toggle('active', c === chip));
+      const topic = chip.dataset.topic;
+      cards.forEach((card) => {
+        card.hidden = topic !== 'all' && card.dataset.topic !== topic;
+      });
+    });
+  });
+</script>
 
 <style>
   .blog-page {
@@ -124,36 +146,17 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
     padding: 0 2rem;
   }
 
-  /* Hero Section - Minimal National Geographic style */
+  /* Hero Section */
   .hero {
-    padding: 4rem 0 5rem;
-    background: #ffffff;
-    border-bottom: 1px solid #e5e5e5;
-  }
-
-  .breadcrumb {
-    font-size: 0.75rem;
-    color: var(--text-secondary);
-    margin-bottom: 3rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    font-weight: 500;
-  }
-
-  .breadcrumb a {
-    color: var(--text-secondary);
-    text-decoration: none;
-    transition: color 0.2s ease;
-  }
-
-  .breadcrumb a:hover {
-    color: var(--eflury-teal);
+    padding: 4rem 0 3rem;
+    background: var(--bg-primary);
+    border-bottom: 1px solid var(--border-color);
   }
 
   .hero h1 {
     font-size: clamp(3rem, 7vw, 5rem);
     font-weight: 700;
-    color: var(--eflury-navy);
+    color: var(--text-primary);
     margin-bottom: 1.5rem;
     letter-spacing: -0.025em;
     line-height: 1.1;
@@ -165,6 +168,46 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
     font-weight: 400;
     line-height: 1.6;
     max-width: 700px;
+    margin-bottom: 2rem;
+  }
+
+  /* Topic filter chips */
+  .topic-filter {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+  }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    padding: 0.45rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    background: var(--card-bg);
+    color: var(--text-secondary);
+    font-size: 0.85rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .chip:hover {
+    border-color: var(--eflury-teal);
+    color: var(--eflury-teal);
+  }
+
+  .chip.active {
+    background: var(--eflury-navy);
+    border-color: var(--eflury-navy);
+    color: var(--eflury-white);
+  }
+
+  .chip .count {
+    font-size: 0.75rem;
+    font-weight: 500;
+    opacity: 0.7;
   }
 
   /* Blog Grid */
@@ -172,13 +215,6 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
     padding: 4rem 0;
   }
 
-  .no-posts {
-    text-align: center;
-    padding: 4rem 0;
-    color: var(--text-secondary);
-  }
-
-  /* National Geographic-inspired grid */
   .posts-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(380px, 1fr));
@@ -186,7 +222,7 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
   }
 
   .post-card {
-    background: white;
+    background: var(--bg-primary);
     border-radius: 0;
     overflow: hidden;
     border: none;
@@ -202,11 +238,15 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
     transform: translateY(-2px);
   }
 
-  /* Emphasis on photography - larger, more dramatic */
+  /* The hidden attribute must beat the explicit display:flex above */
+  .post-card[hidden] {
+    display: none;
+  }
+
   .post-image {
     aspect-ratio: 4 / 3;
     overflow: hidden;
-    background: #000;
+    background: var(--apple-black);
     position: relative;
   }
 
@@ -214,7 +254,7 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.5s var(--ease-in-out);
     filter: brightness(0.95);
   }
 
@@ -232,7 +272,9 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
 
   .post-meta {
     display: flex;
-    gap: 1.25rem;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
     font-size: 0.75rem;
     color: var(--text-secondary);
     margin-bottom: 1rem;
@@ -252,10 +294,15 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
     opacity: 0.6;
   }
 
+  .topic-badge {
+    color: var(--eflury-teal);
+    font-weight: 700;
+  }
+
   .post-card h2 {
     font-size: clamp(1.5rem, 3vw, 1.85rem);
     font-weight: 700;
-    color: var(--eflury-navy);
+    color: var(--text-primary);
     margin-bottom: 0.75rem;
     line-height: 1.25;
     letter-spacing: -0.015em;
@@ -270,36 +317,11 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
     font-weight: 400;
   }
 
-  .tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-bottom: 1.25rem;
-  }
-
-  .tag {
-    padding: 0.3rem 0.8rem;
-    background: transparent;
-    border: 1px solid #e0e0e0;
-    border-radius: 2px;
-    font-size: 0.7rem;
-    color: var(--text-secondary);
-    text-transform: uppercase;
-    letter-spacing: 0.08em;
-    font-weight: 500;
-    transition: all 0.2s ease;
-  }
-
-  .tag:hover {
-    border-color: var(--eflury-teal);
-    color: var(--eflury-teal);
-  }
-
   .read-more {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-    color: var(--eflury-navy);
+    color: var(--text-primary);
     font-weight: 600;
     font-size: 0.85rem;
     margin-top: auto;
@@ -330,7 +352,7 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
 
   .cta h2 {
     font-size: clamp(1.75rem, 4vw, 2.5rem);
-    color: white;
+    color: var(--eflury-white);
     margin-bottom: 0.75rem;
   }
 
@@ -346,15 +368,15 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
     gap: 0.5rem;
     padding: 1rem 2rem;
     background: var(--eflury-teal);
-    color: white;
-    border-radius: 12px;
+    color: var(--eflury-white);
+    border-radius: var(--radius-md);
     font-weight: 600;
     text-decoration: none;
     transition: all 0.2s ease;
   }
 
   .btn-primary:hover {
-    background: #0f766e;
+    background: var(--primary-700);
     transform: translateY(-2px);
   }
 
@@ -365,7 +387,7 @@ const posts = allPosts.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.
     }
 
     .hero {
-      padding: 2rem 0 3rem;
+      padding: 2rem 0 2rem;
     }
 
     .posts-grid {
