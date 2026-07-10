@@ -1,0 +1,201 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Contact from '../../components/Contact.astro';
+import Footer from '../../components/Footer.astro';
+import AIChatbot from '../../components/AIChatbot.astro';
+
+const lang = 'en';
+
+const steps = [
+  {
+    title: 'You reach out',
+    text: 'Use the form below, email, phone, or WhatsApp — whichever suits you.',
+  },
+  {
+    title: 'Reply within 24 hours',
+    text: 'Directly from Emanuel Flury — the person who builds the systems, not a gatekeeper.',
+  },
+  {
+    title: 'Free 30-minute call',
+    text: 'We walk through your case. If automation does not fit, we say so — a clear no is a clean outcome too.',
+  },
+];
+---
+
+<MainLayout
+  title="Contact - eFlury Consulting"
+  description="Get in touch with eFlury Consulting: contact form, email, phone, or WhatsApp. Reply within 24 hours, then a free 30-minute call to walk through your case."
+  keywords="contact eFlury Consulting, AI automation consultation, free strategy call, Grenchen Switzerland"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <Breadcrumbs lang={lang} items={[{ label: 'Contact' }]} />
+
+  <main class="contact-page">
+    <section class="contact-hero">
+      <div class="container">
+        <h1>Let's talk.</h1>
+        <p class="lead">
+          Whether you have a concrete process in mind or are still exploring —
+          you get a reply within 24 hours, from the person who builds the systems.
+        </p>
+      </div>
+    </section>
+
+    <section class="next-steps">
+      <div class="container">
+        <h2>What happens next</h2>
+        <ol class="steps-grid">
+          {steps.map((step, i) => (
+            <li class="step-card">
+              <span class="step-number">{i + 1}</span>
+              <h3>{step.title}</h3>
+              <p>{step.text}</p>
+            </li>
+          ))}
+        </ol>
+        <p class="imprint-note">
+          Company details and postal address: <a href="/en/imprint/">Imprint</a> ·
+          How we handle your data: <a href="/en/trust/">Trust &amp; Security</a>
+        </p>
+      </div>
+    </section>
+
+    <Contact lang={lang} />
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .contact-hero {
+    padding: var(--spacing-4xl) var(--spacing-lg) var(--spacing-2xl);
+    background: var(--bg-primary);
+    text-align: center;
+  }
+
+  .contact-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .contact-hero .lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .next-steps {
+    padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-3xl);
+    background: var(--bg-primary);
+  }
+
+  .next-steps .container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  .next-steps h2 {
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .steps-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .step-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .step-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: var(--eflury-teal);
+    color: var(--eflury-white);
+    font-weight: 700;
+    font-size: 1rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .step-card h3 {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .step-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  .imprint-note {
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+    margin: var(--spacing-xl) 0 0;
+  }
+
+  .imprint-note a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-light);
+    text-decoration: none;
+  }
+
+  .imprint-note a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .contact-hero {
+      padding: var(--spacing-3xl) var(--spacing-md) var(--spacing-xl);
+    }
+
+    .contact-hero .lead {
+      font-size: 1.05rem;
+    }
+
+    .next-steps {
+      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-2xl);
+    }
+
+    .steps-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+
+    .step-card {
+      padding: var(--spacing-lg);
+    }
+  }
+</style>
