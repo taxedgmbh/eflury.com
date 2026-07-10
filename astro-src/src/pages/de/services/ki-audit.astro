@@ -1,0 +1,118 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+
+const lang = 'de';
+
+const serviceData = {
+  title: 'KI-Audit - Automatisierungs-Assessment zum Fixpreis | eflury.com',
+  description:
+    'Einwöchiges Audit zum Fixpreis: Prozessinventar mit Zeitkosten-Scoring, priorisierte Automatisierungs-Roadmap, ROI-Projektion pro Initiative — und ein ehrliches Go/No-Go.',
+  keywords:
+    'KI-Audit, Automatisierungs-Assessment, KI-Readiness, Prozessinventar, ROI-Projektion, Schweizer KMU, Fixpreis',
+  lang,
+  serviceType: 'KI-Audit',
+  heroTitle: 'Wissen, was sich lohnt — bevor Sie bauen',
+  heroSubtitle: 'KI-Audit',
+  heroDescription:
+    'Ein einwöchiges Audit Ihrer Prozesse zum Fixpreis: wo Automatisierung messbaren Wert schafft, was sie kostet, was sie zurückbringt — und wo sie sich nicht lohnt. Sie erhalten eine schriftliche Entscheidungsgrundlage, kein Verkaufsgespräch. Das Ergebnis kann ein No-Go sein; auch das ist ein sauberes Resultat.',
+  problemTitle: 'Kommt Ihnen das bekannt vor?',
+  problems: [
+    '«Wir müssten etwas mit KI machen» steht auf der GL-Agenda — aber niemand kann sagen, mit welchem Prozess man anfangen soll',
+    'Anbieter versprechen Einsparungen, aber Sie haben keine eigenen, unabhängigen Zahlen zum Gegenprüfen',
+    'Ihr Team ist bereits ausgelastet — ein sechsmonatiges Experiment, das still stirbt, liegt nicht drin',
+    'Ein früherer Automatisierungsanlauf ist verpufft, weil der Aufwand in den falschen Prozess floss',
+    'Sie brauchen etwas, das Partner oder Verwaltungsrat lesen können: Zahlen und Prioritäten statt Schlagworte'
+  ],
+  solutionTitle: 'Eine Woche. Echte Zahlen. Ein klares Go oder No-Go.',
+  solutionDescription:
+    'Das KI-Audit ist Phase 1 der eflury Method™ als eigenständiges Produkt: Wir interviewen die Menschen, die Ihre Prozesse tatsächlich ausführen (2–3 Stunden Aufwand für Ihr Team), prüfen die relevanten Systeme mit Lesezugriff und bewerten jeden Kandidatenprozess nach Zeitkosten und Automatisierungspotenzial. Sie erhalten ein Prozessinventar mit Zeitkosten-Scoring, eine priorisierte Automatisierungs-Roadmap und eine ROI-Projektion pro Initiative — schriftlich, und sie gehören Ihnen. Genau diese Grundlagenarbeit überspringen gescheiterte KI-Projekte: Gartner prognostiziert, dass Organisationen bis 2026 rund 60% der KI-Projekte abbrechen, die nicht durch KI-taugliche Daten gestützt sind. Das Audit sagt Ihnen vor jedem Build, ob Ihre Prozesse und Daten bereit sind — und welche Initiative sich zuerst amortisiert.',
+  benefits: [
+    {
+      title: 'Eine Entscheidungsgrundlage, kein Pitch',
+      description:
+        'Drei benannte Deliverables: Prozessinventar mit Zeitkosten-Scoring, priorisierte Roadmap, ROI-Projektion pro Initiative. Alles schriftlich, alles Ihres — nutzbar mit uns oder mit jedem anderen.'
+    },
+    {
+      title: 'Ein No-Go ist ein sauberes Resultat',
+      description:
+        'Das Audit endet mit einem gemeinsamen Go/No-Go-Entscheid auf Basis der Zahlen. Lohnt sich Automatisierung in Ihrem Fall nicht, steht das im Bericht — schriftlich, bevor Sie etwas für einen Build ausgegeben haben.'
+    },
+    {
+      title: 'Minimale Belastung für Ihr Team',
+      description:
+        'Ihr Beitrag: 2–3 Stunden Interviews und Lesezugriff auf die relevanten Systeme. Den Rest übernehmen wir — Ihr Betrieb läuft weiter.'
+    },
+    {
+      title: 'Geht nahtlos in den Build über',
+      description:
+        'Fällt der Entscheid auf Go, startet das Design direkt auf den Audit-Ergebnissen — ohne wiederholte Discovery. Umsetzungspakete inklusive Build sind transparent publiziert, ab CHF 9’900.'
+    }
+  ],
+  processTitle: 'So läuft das Audit ab',
+  processSteps: [
+    {
+      title: 'Kickoff & Interviews',
+      description:
+        '2–3 Stunden mit den Menschen, die die Prozesse tatsächlich ausführen — nicht nur mit der Geschäftsleitung. Hier zeigen sich die echten Zeitfresser.'
+    },
+    {
+      title: 'System-Review',
+      description:
+        'Prüfung der relevanten Systeme mit Lesezugriff (z.B. bexio, ABACUS, Microsoft 365) — unter denselben offengelegten Sicherheitsstandards wie alle unsere Arbeit.'
+    },
+    {
+      title: 'Scoring & Roadmap',
+      description:
+        'Jeder Kandidatenprozess bewertet nach Zeitkosten und Automatisierungspotenzial; Initiativen priorisiert, je mit ROI-Projektion.'
+    },
+    {
+      title: 'Ergebnis-Workshop',
+      description:
+        'Wir gehen den Bericht gemeinsam durch und fällen einen Go/No-Go-Entscheid — auf Basis der Zahlen, nicht unseres Eindrucks.'
+    }
+  ],
+  faqs: [
+    {
+      question: 'Was habe ich am Ende konkret in der Hand?',
+      answer:
+        'Drei schriftliche Deliverables: ein Prozessinventar mit Zeitkosten-Scoring, eine priorisierte Automatisierungs-Roadmap und eine ROI-Projektion pro Initiative — plus eine dokumentierte Go/No-Go-Empfehlung. Das sind die Phase-1-Deliverables der eflury Method™, und sie gehören Ihnen, unabhängig davon, wie Sie sich danach entscheiden.'
+    },
+    {
+      question: 'Was kostet das Audit?',
+      answer:
+        'Ein Fixpreis, schriftlich bestätigt, bevor wir starten — keine Tagessätze, kein offenes Ende. Vollständige Umsetzungspakete inklusive Build sind transparent auf der Preisseite publiziert, ab CHF 9’900; das Audit ist der risikoarme Weg herauszufinden, ob sich eines davon für Sie lohnt.'
+    },
+    {
+      question: 'Was, wenn die Antwort lautet: nicht automatisieren?',
+      answer:
+        'Dann steht genau das im Bericht, mit den Zahlen, die dorthin geführt haben. Ein No-Go ist ein sauberes Resultat — es kostet Sie ein Audit statt eines gescheiterten Projekts. Die Deliverables behalten Sie in jedem Fall.'
+    },
+    {
+      question: 'Sind unsere Daten während des Audits sicher?',
+      answer:
+        'Das Audit arbeitet mit Lesezugriff: Agenten und wir greifen über MCP-Konnektoren auf Ihre Systeme zu, ohne etwas zurückzuschreiben. Bei sensiblen Daten arbeiten wir mit Stichproben oder Redaktion. Das vollständige Setup — inklusive aller eingesetzten Dienste — ist auf unserer Seite Sicherheit & Vertrauen offengelegt, ausgerichtet am revDSG.'
+    },
+    {
+      question: 'Können wir die Roadmap ohne Sie umsetzen?',
+      answer:
+        'Ja. Die Deliverables sind so geschrieben, dass jeder kompetente Umsetzer damit arbeiten kann — kein Lock-in ist ein erklärtes Prinzip unserer Methode. Machen Sie mit uns weiter, startet das Design ohne wiederholte Discovery auf den Audit-Ergebnissen.'
+    },
+    {
+      question: 'Wie viel Zeit kostet es unser Team?',
+      answer:
+        'Rund 2–3 Stunden Interviews mit den Betroffenen, das Einrichten des Lesezugriffs auf die relevanten Systeme und etwa eine Stunde für den Ergebnis-Workshop. Das Audit selbst dauert typischerweise eine Woche.'
+    }
+  ],
+  ctaTitle: 'Finden Sie heraus, welcher Prozess sich zuerst amortisiert',
+  ctaDescription:
+    'Buchen Sie ein kostenloses 30-Minuten-Gespräch. Wir schauen Ihre Situation gemeinsam an — am Ende des Gesprächs wissen Sie, ob ein Audit für Sie sinnvoll ist.',
+  ctaButtonText: 'Kostenloses Audit-Gespräch buchen',
+  relatedCaseStudy: {
+    title: 'Finanzprozess-Automatisierung bei einem Schweizer Fertigungsunternehmen',
+    link: '/de/case-studies/finance-automation',
+    metric: '~4.1 Monate geschätzte Amortisation'
+  }
+};
+---
+
+<ServiceLayout {...serviceData} />

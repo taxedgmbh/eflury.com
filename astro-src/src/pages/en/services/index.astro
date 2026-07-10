@@ -5,12 +5,20 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
 import AIChatbot from '../../../components/AIChatbot.astro';
 import { useTranslations } from '../../../i18n/utils';
-import { ArrowRight, Cpu, Server, Calculator, BarChart3, Database } from 'lucide-astro';
+import { ArrowRight, Cpu, Server, Calculator, BarChart3, Database, ClipboardCheck } from 'lucide-astro';
 
 const lang = 'en';
 const t = useTranslations(lang);
 
 const services = [
+  {
+    icon: ClipboardCheck,
+    title: 'AI Audit',
+    description: 'One week, fixed price: process inventory with time-cost scoring, prioritized roadmap, and an ROI projection per initiative — ending in an honest go/no-go.',
+    link: '/en/services/ai-audit',
+    badge: 'Start Here',
+    metric: '1 week, fixed price'
+  },
   {
     icon: Cpu,
     title: 'Claude Skills Development',

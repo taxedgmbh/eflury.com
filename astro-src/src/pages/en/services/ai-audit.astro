@@ -1,0 +1,118 @@
+---
+import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+
+const lang = 'en';
+
+const serviceData = {
+  title: 'AI Audit - Fixed-Price Automation Assessment | eflury.com',
+  description:
+    'A one-week, fixed-price audit: process inventory with time-cost scoring, prioritized automation roadmap, ROI projection per initiative — and an honest go/no-go.',
+  keywords:
+    'AI audit, automation assessment, AI readiness, process inventory, ROI projection, Swiss SME, fixed price',
+  lang,
+  serviceType: 'AI Audit',
+  heroTitle: 'Know What Pays Off — Before You Build',
+  heroSubtitle: 'AI Audit',
+  heroDescription:
+    'A one-week, fixed-price audit of your processes: where automation creates measurable value, what it costs, what it returns — and where it does not pay off. You get a written decision basis, not a sales pitch. The result can be a no-go; that is a clean outcome too.',
+  problemTitle: 'Does this sound familiar?',
+  problems: [
+    '"We should do something with AI" is on the management agenda — but nobody can say which process to start with',
+    'Vendors promise savings, but you have no independent numbers of your own to check them against',
+    'Your team is stretched as it is — a six-month experiment that quietly dies is not an option',
+    'A previous automation attempt fizzled because the effort landed on the wrong process',
+    'You need something your partners or board can actually read: numbers and priorities, not buzzwords'
+  ],
+  solutionTitle: 'One week. Real numbers. A clear go or no-go.',
+  solutionDescription:
+    'The AI Audit is phase 1 of the eflury Method™, offered as a standalone product: we interview the people who run your processes (2–3 hours of your team’s time), review the relevant systems read-only, and score every candidate process by time cost and automation potential. You receive a process inventory with time-cost scoring, a prioritized automation roadmap, and an ROI projection per initiative — in writing, and yours to keep. This groundwork is exactly what failed AI projects skip: Gartner predicts that through 2026, organizations will abandon 60% of AI projects that are not supported by AI-ready data. The audit tells you before any build whether your processes and data are ready, and which initiative pays back first.',
+  benefits: [
+    {
+      title: 'A Decision Basis, Not a Pitch',
+      description:
+        'Three named deliverables: process inventory with time-cost scoring, prioritized roadmap, ROI projection per initiative. All written, all yours — usable with us or with anyone else.'
+    },
+    {
+      title: 'A No-Go Is a Clean Outcome',
+      description:
+        'The audit ends in a joint go/no-go decision based on the numbers. If automation does not pay off in your case, the report says so — in writing, before you have spent anything on a build.'
+    },
+    {
+      title: 'Minimal Load on Your Team',
+      description:
+        'Your contribution is 2–3 hours of interviews and read access to the relevant systems. We do the rest — your operation keeps running.'
+    },
+    {
+      title: 'Continues Seamlessly Into a Build',
+      description:
+        'If the decision is go, design starts directly on the audit’s outputs — no repeated discovery. Implementation packages including the build are published transparently from CHF 9,900.'
+    }
+  ],
+  processTitle: 'How the audit works',
+  processSteps: [
+    {
+      title: 'Kickoff & Interviews',
+      description:
+        '2–3 hours with the people who actually run the processes — not just management. This is where the real time sinks surface.'
+    },
+    {
+      title: 'System Review',
+      description:
+        'Read-only review of the relevant systems (e.g. bexio, ABACUS, Microsoft 365) under the same disclosed security standards as all our work.'
+    },
+    {
+      title: 'Scoring & Roadmap',
+      description:
+        'Every candidate process scored by time cost and automation potential; initiatives prioritized with an ROI projection each.'
+    },
+    {
+      title: 'Results Workshop',
+      description:
+        'We walk through the report together and make a joint go/no-go decision — based on the numbers, not our impression.'
+    }
+  ],
+  faqs: [
+    {
+      question: 'What exactly do I have in hand at the end?',
+      answer:
+        'Three written deliverables: a process inventory with time-cost scoring, a prioritized automation roadmap, and an ROI projection per initiative — plus a documented go/no-go recommendation. These are the phase-1 deliverables of the eflury Method™, and they are yours to keep regardless of what you decide afterwards.'
+    },
+    {
+      question: 'What does the audit cost?',
+      answer:
+        'A fixed price, confirmed in writing before we start — no day rates, no open end. Full implementation packages including the build are published transparently from CHF 9,900 on the pricing page; the audit is the low-risk way to find out whether one of them is worth it for you.'
+    },
+    {
+      question: 'What if the answer is: don’t automate?',
+      answer:
+        'Then the report says exactly that, with the numbers that led there. A no-go is a clean outcome — it costs you one audit instead of a failed project. You keep every deliverable either way.'
+    },
+    {
+      question: 'Is our data safe during the audit?',
+      answer:
+        'The audit works read-only: agents and we access your systems via MCP connectors without writing anything back. Where data is sensitive, we work with samples or redaction. The full setup — including every service we use — is disclosed on our Trust & Security page, aligned with the revDSG.'
+    },
+    {
+      question: 'Can we implement the roadmap without you?',
+      answer:
+        'Yes. The deliverables are written so that any competent implementer can execute them — no lock-in is a stated principle of our method. If you continue with us, design starts on the audit’s outputs without repeated discovery.'
+    },
+    {
+      question: 'How much of our team’s time does it take?',
+      answer:
+        'About 2–3 hours of interviews with the people affected, granting read access to the relevant systems, and roughly an hour for the results workshop. The audit itself typically runs one week.'
+    }
+  ],
+  ctaTitle: 'Find out which process pays back first',
+  ctaDescription:
+    'Book a free 30-minute call. We’ll look at your situation together, and you’ll know by the end of the call whether an audit makes sense for you.',
+  ctaButtonText: 'Book a Free Audit Call',
+  relatedCaseStudy: {
+    title: 'Finance Process Automation at a Swiss Manufacturer',
+    link: '/en/case-studies/finance-automation',
+    metric: '~4.1 months estimated payback'
+  }
+};
+---
+
+<ServiceLayout {...serviceData} />
