@@ -57,8 +57,9 @@ const staticPages: StaticPage[] = [
   { en: '/en/services/power-bi/', de: '/de/services/power-bi/', priority: '0.7', changefreq: 'monthly' },
   { en: '/en/services/data-quality/', de: '/de/services/datenqualitaet/', priority: '0.7', changefreq: 'monthly' },
 
-  // Blog index
+  // Blog index + guides
   { en: '/en/blog/', de: '/de/blog/', priority: '0.7', changefreq: 'weekly' },
+  { en: '/en/guides/', de: '/de/leitfaeden/', priority: '0.6', changefreq: 'monthly' },
 
   // Case studies (DE keeps English slugs)
   { en: '/en/case-studies/', de: '/de/case-studies/', priority: '0.7', changefreq: 'monthly' },

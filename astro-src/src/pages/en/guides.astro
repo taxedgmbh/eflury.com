@@ -1,0 +1,262 @@
+---
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Footer from '../../components/Footer.astro';
+import AIChatbot from '../../components/AIChatbot.astro';
+import { Download, ArrowRight, FileText } from 'lucide-astro';
+
+const lang = 'en';
+
+const guides = [
+  {
+    tag: 'Compliance',
+    title: 'The EU AI Act: Compliance Playbook for Swiss SMEs',
+    inside: [
+      'The staged timeline up to the hard deadline of August 2, 2026',
+      'The high-risk quick test (two pathways + Annex III areas)',
+      'The six-pillar compliance checklist',
+      'A 5-step action plan with realistic timeframes',
+    ],
+    pdf: '/downloads/eflury-guide-eu-ai-act-en.pdf',
+    article: '/en/blog/eu-ai-act-swiss-smes-2026/',
+  },
+  {
+    tag: 'Security & revDSG',
+    title: 'revDSG & AI: The Shadow-AI Playbook',
+    inside: [
+      'Where shadow AI violates the revDSG, article by article',
+      'The personal-liability dimension (up to CHF 250,000)',
+      'Five zero-trust principles for AI governance',
+      'A 60–90 day implementation path + policy skeleton',
+    ],
+    pdf: '/downloads/eflury-guide-revdsg-ai-en.pdf',
+    article: '/en/blog/shadow-ai-security-swiss-smes/',
+  },
+  {
+    tag: 'Data Quality',
+    title: 'The Data Quality Playbook: Agentic AI with Review Gates',
+    inside: [
+      'Why 60% of AI projects die on data that is not ready (Gartner)',
+      'Context windows: what they enable — and their real limits',
+      'The four-step operating model with human review gates',
+      'The metrics that make data quality verifiable',
+    ],
+    pdf: '/downloads/eflury-guide-data-quality-en.pdf',
+    article: '/en/services/data-quality/',
+  },
+];
+---
+
+<MainLayout
+  title="Guides - Downloadable Playbooks | eFlury Consulting"
+  description="Free, condensed playbooks for Swiss SMEs: EU AI Act compliance, revDSG & shadow AI governance, and data quality with agentic AI. PDF, no email required."
+  keywords="EU AI Act guide, revDSG AI playbook, shadow AI policy, data quality playbook, Swiss SME, free download"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <Breadcrumbs lang={lang} items={[{ label: 'Guides' }]} />
+
+  <main class="guides-page">
+    <section class="hub-hero">
+      <div class="container">
+        <h1>Guides</h1>
+        <p class="lead">
+          The essentials of our in-depth articles, condensed into playbooks you can
+          print, share, and act on. <strong>PDF, two pages each, no email required.</strong>
+        </p>
+      </div>
+    </section>
+
+    <section class="guides-grid">
+      <div class="container">
+        {guides.map((g) => (
+          <article class="guide-card">
+            <span class="guide-tag">{g.tag}</span>
+            <h2>{g.title}</h2>
+            <ul>
+              {g.inside.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+            <div class="guide-actions">
+              <a href={g.pdf} class="btn-download" download>
+                <Download size={16} /> Download PDF
+              </a>
+              <a href={g.article} class="article-link">
+                <FileText size={14} /> Full article with sources <ArrowRight size={14} />
+              </a>
+            </div>
+          </article>
+        ))}
+        <p class="hub-note">
+          Every guide is the condensed edition of a published article — same facts,
+          same sources, packaged for offline reading. Not legal advice.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hub-hero {
+    padding: var(--spacing-4xl) 0 var(--spacing-2xl);
+    background: var(--bg-primary);
+  }
+
+  .hub-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hub-hero .lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 700px;
+  }
+
+  .guides-grid {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+    background: var(--bg-secondary);
+  }
+
+  .guides-grid .container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .guide-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .guide-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--eflury-teal);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .guide-card h2 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    line-height: 1.35;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .guide-card ul {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-lg);
+    flex-grow: 1;
+  }
+
+  .guide-card li {
+    position: relative;
+    padding-left: 1.1rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+    margin-bottom: 0.5rem;
+  }
+
+  .guide-card li::before {
+    content: '·';
+    position: absolute;
+    left: 0.2rem;
+    color: var(--eflury-teal);
+    font-weight: 700;
+  }
+
+  .guide-actions {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+  }
+
+  .btn-download {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    padding: 0.7rem 1.25rem;
+    background: var(--eflury-navy);
+    color: var(--eflury-white);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    font-size: 0.95rem;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .btn-download:hover {
+    background: var(--eflury-teal);
+    transform: translateY(-1px);
+  }
+
+  .article-link {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-decoration: none;
+  }
+
+  .article-link:hover {
+    text-decoration: underline;
+  }
+
+  .hub-note {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin: var(--spacing-lg) 0 0;
+  }
+
+  @media (max-width: 900px) {
+    .guides-grid .container {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .hub-hero {
+      padding: var(--spacing-3xl) 0 var(--spacing-xl);
+    }
+
+    .hub-hero .lead {
+      font-size: 1.05rem;
+    }
+  }
+</style>

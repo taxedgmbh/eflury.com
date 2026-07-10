@@ -65,6 +65,7 @@ export const routes = {
     trust: '/en/trust/',
     method: '/en/method/',
     careers: '/en/careers/',
+    guides: '/en/guides/',
   },
   de: {
     home: '/de/',
@@ -91,5 +92,6 @@ export const routes = {
     trust: '/de/sicherheit/',
     method: '/de/methode/',
     careers: '/de/karriere/',
+    guides: '/de/leitfaeden/',
   },
 };
