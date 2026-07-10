@@ -1,0 +1,174 @@
+---
+import { type Language } from '../i18n/utils';
+import { ArrowRight } from 'lucide-astro';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const de = lang === 'de';
+
+const t = {
+  title: de ? 'Für wen wir arbeiten' : 'Who we serve',
+  subtitle: de
+    ? 'Automatisierung, die die Sprache Ihres Tagesgeschäfts spricht — verankert in dokumentierten Projekten.'
+    : 'Automation that speaks the language of your daily business — grounded in documented projects.',
+  all: de ? 'Alle Branchen' : 'All industries',
+  allHref: de ? '/de/branchen/' : '/en/industries/',
+  view: de ? 'Zur Branchenseite' : 'View industry page',
+};
+
+// Keep card copy in sync with the industries hub pages.
+const industries = [
+  {
+    title: de ? 'Treuhand & Buchhaltung' : 'Treuhand & Accounting',
+    text: de
+      ? 'Mandanten-Onboarding, Kreditoren, E-Mail-Triage und Stammdaten — erprobt in einer echten Schweizer Praxis.'
+      : 'Client onboarding, accounts payable, email triage, and master data — tested in a real Swiss practice.',
+    href: de ? '/de/branchen/treuhand/' : '/en/industries/treuhand-accounting/',
+  },
+  {
+    title: de ? 'Finanzteams' : 'Finance Teams',
+    text: de
+      ? 'Monatsabschluss, Power-BI-Reporting, Excel-Migration — dokumentiert in zwei Kundenprojekten.'
+      : 'Month-end close, Power BI reporting, Excel migration — documented in two client case studies.',
+    href: de ? '/de/branchen/finanzteams/' : '/en/industries/finance-teams/',
+  },
+  {
+    title: de ? 'Dienstleister' : 'Professional Services',
+    text: de
+      ? 'E-Mail-Triage, Telefonannahme, WhatsApp und Kundenreporting — damit verrechenbare Stunden nicht versickern.'
+      : 'Email triage, phone reception, WhatsApp, and client reporting — so billable hours stop leaking away.',
+    href: de ? '/de/branchen/dienstleister/' : '/en/industries/professional-services/',
+  },
+];
+---
+
+<section class="industries-router section-padding" id="industries">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{t.title}</h2>
+      <p class="section-subtitle">{t.subtitle}</p>
+    </div>
+
+    <div class="router-grid">
+      {industries.map((item) => (
+        <a href={item.href} class="router-card">
+          <h3>{item.title}</h3>
+          <p>{item.text}</p>
+          <span class="router-link">{t.view} <ArrowRight size={14} /></span>
+        </a>
+      ))}
+    </div>
+
+    <p class="router-footer">
+      <a href={t.allHref} class="all-link">{t.all} <ArrowRight size={16} /></a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .industries-router {
+    background: var(--bg-secondary);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 640px;
+    margin: 0 auto;
+  }
+
+  .router-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .router-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-base);
+  }
+
+  .router-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--eflury-teal);
+  }
+
+  .router-card h3 {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .router-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 var(--spacing-md);
+    flex-grow: 1;
+  }
+
+  .router-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .router-footer {
+    margin: var(--spacing-xl) 0 0;
+    text-align: center;
+  }
+
+  .all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--primary-light);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .all-link:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 900px) {
+    .router-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

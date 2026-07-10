@@ -1,0 +1,137 @@
+---
+import { type Language } from '../i18n/utils';
+import { Clock, TrendingUp, CalendarClock, ArrowRight } from 'lucide-astro';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const de = lang === 'de';
+
+// Figures are aggregated from the three published case studies — keep in
+// sync with the strip on /case-studies/ (same numbers, same qualifiers).
+const stats = [
+  {
+    icon: Clock,
+    value: de ? '~220 h/Monat' : '~220 h/month',
+    label: de ? 'Geschätzte Zeitersparnis, kombiniert' : 'Combined estimated time saved',
+  },
+  {
+    icon: TrendingUp,
+    value: '~CHF 108K',
+    label: de ? 'Geschätzte Jahresersparnis, kombiniert' : 'Combined estimated annual savings',
+  },
+  {
+    icon: CalendarClock,
+    value: de ? '2.8–4.1 Monate' : '2.8–4.1 months',
+    label: de ? 'Geschätzte Amortisation, pro Projekt' : 'Estimated payback, per project',
+  },
+];
+
+const basis = de
+  ? 'Aggregiert aus drei dokumentierten Projekten — jede Zahl ist pro Projekt in der Fallstudie belegt.'
+  : 'Aggregated from three documented projects — every figure is evidenced per project in its case study.';
+const linkLabel = de ? 'Zu den Fallstudien' : 'See the case studies';
+const linkHref = de ? '/de/case-studies/' : '/en/case-studies/';
+---
+
+<section class="proof-strip">
+  <div class="container">
+    <div class="proof-grid">
+      {stats.map(({ icon: Icon, value, label }) => (
+        <div class="proof-tile">
+          <Icon size={22} />
+          <span class="proof-value">{value}</span>
+          <span class="proof-label">{label}</span>
+        </div>
+      ))}
+    </div>
+    <p class="proof-basis">
+      {basis}
+      <a href={linkHref}>{linkLabel} <ArrowRight size={14} /></a>
+    </p>
+  </div>
+</section>
+
+<style>
+  .proof-strip {
+    padding: var(--spacing-2xl) var(--spacing-lg);
+    background: var(--bg-secondary);
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .proof-tile {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 0.35rem;
+    padding: var(--spacing-lg);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .proof-tile :global(svg) {
+    color: var(--eflury-teal);
+    margin-bottom: 0.25rem;
+  }
+
+  .proof-value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.01em;
+  }
+
+  .proof-label {
+    font-size: 0.85rem;
+    color: var(--text-secondary);
+  }
+
+  .proof-basis {
+    margin: var(--spacing-lg) 0 0;
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+  }
+
+  .proof-basis a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-left: 0.5rem;
+    color: var(--primary-light);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .proof-basis a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .proof-strip {
+      padding: var(--spacing-xl) var(--spacing-md);
+    }
+
+    .proof-grid {
+      grid-template-columns: 1fr;
+      gap: var(--spacing-md);
+    }
+  }
+</style>

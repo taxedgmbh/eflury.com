@@ -1,0 +1,282 @@
+---
+import { type Language } from '../i18n/utils';
+import { ClipboardCheck, Wrench, Activity, ArrowRight } from 'lucide-astro';
+
+interface Props {
+  lang: Language;
+}
+
+const { lang } = Astro.props;
+const de = lang === 'de';
+
+const t = {
+  title: de ? 'Was wir tun' : 'What we do',
+  subtitle: de
+    ? 'Vom ersten Assessment bis zum laufenden Betrieb — Fixpreise auf jeder Stufe.'
+    : 'From first assessment to daily operation — fixed prices at every step.',
+  adviseTag: de ? 'Beraten' : 'Advise',
+  buildTag: de ? 'Bauen' : 'Build',
+  runTag: de ? 'Betreiben' : 'Run',
+  auditTitle: de ? 'KI-Audit' : 'AI Audit',
+  auditText: de
+    ? 'Eine Woche, Fixpreis: Prozessinventar, priorisierte Roadmap, ROI-Projektion — mit ehrlichem Go/No-Go.'
+    : 'One week, fixed price: process inventory, prioritized roadmap, ROI projection — with an honest go/no-go.',
+  auditHref: de ? '/de/services/ki-audit/' : '/en/services/ai-audit/',
+  buildTitle: de ? 'Automatisierung nach Mass' : 'Automation, built to order',
+  buildText: de
+    ? 'Massgeschneiderte Systeme auf Claude und MCP — gebaut in Wochen, mit Freigabe-Gates und Abnahmekriterien.'
+    : 'Tailored systems on Claude and MCP — built in weeks, with review gates and acceptance criteria.',
+  buildNote: de ? 'Pakete ab CHF 9’900 —' : 'Packages from CHF 9,900 —',
+  buildNoteLink: de ? 'zu den Preisen' : 'see pricing',
+  pricingHref: de ? '/de/pricing/' : '/en/pricing/',
+  opsTitle: 'Managed AI Operations',
+  opsText: de
+    ? 'Wir betreiben, was wir bauen: Monitoring, monatlicher Kennzahlenbericht, Verbesserungs-Backlog. Ab CHF 1’200/Monat.'
+    : 'We run what we build: monitoring, a monthly metrics report, an improvement backlog. From CHF 1,200/month.',
+  opsHref: de ? '/de/services/ki-betrieb/' : '/en/services/managed-ai-operations/',
+  learnMore: de ? 'Mehr erfahren' : 'Learn more',
+  allServices: de ? 'Alle Leistungen im Überblick' : 'See all services',
+  allHref: de ? '/de/services/' : '/en/services/',
+  productNote: de ? 'Produkt: SkopaAI — der KI-Assistent für Ihre Website' : 'Product: SkopaAI — the AI assistant for your website',
+  productHref: de ? '/de/skopaai/' : '/en/skopaai/',
+};
+
+const buildLinks = [
+  { label: 'Claude Skills', href: `/${lang}/services/claude-skills/` },
+  { label: 'MCP Integration', href: `/${lang}/services/mcp-integration/` },
+  { label: de ? 'Finanzautomatisierung' : 'Finance Automation', href: de ? '/de/services/finanzen-automatisierung/' : '/en/services/finance-automation/' },
+  { label: 'Power BI', href: `/${lang}/services/power-bi/` },
+  { label: de ? 'Datenqualität' : 'Data Quality', href: de ? '/de/services/datenqualitaet/' : '/en/services/data-quality/' },
+];
+---
+
+<section class="lifecycle section-padding" id="services">
+  <div class="container">
+    <div class="section-header">
+      <h2 class="section-title">{t.title}</h2>
+      <p class="section-subtitle">{t.subtitle}</p>
+    </div>
+
+    <div class="lifecycle-grid">
+      <a href={t.auditHref} class="phase-card">
+        <span class="phase-tag">1 · {t.adviseTag}</span>
+        <div class="phase-icon"><ClipboardCheck size={24} /></div>
+        <h3>{t.auditTitle}</h3>
+        <p>{t.auditText}</p>
+        <span class="phase-link">{t.learnMore} <ArrowRight size={14} /></span>
+      </a>
+
+      <div class="phase-card build-card">
+        <span class="phase-tag">2 · {t.buildTag}</span>
+        <div class="phase-icon"><Wrench size={24} /></div>
+        <h3>{t.buildTitle}</h3>
+        <p>{t.buildText}</p>
+        <ul class="build-links">
+          {buildLinks.map((l) => (
+            <li><a href={l.href}>{l.label}</a></li>
+          ))}
+        </ul>
+        <p class="build-note">{t.buildNote} <a href={t.pricingHref}>{t.buildNoteLink}</a></p>
+      </div>
+
+      <a href={t.opsHref} class="phase-card">
+        <span class="phase-tag">3 · {t.runTag}</span>
+        <div class="phase-icon"><Activity size={24} /></div>
+        <h3>{t.opsTitle}</h3>
+        <p>{t.opsText}</p>
+        <span class="phase-link">{t.learnMore} <ArrowRight size={14} /></span>
+      </a>
+    </div>
+
+    <p class="lifecycle-footer">
+      <a href={t.allHref} class="all-link">{t.allServices} <ArrowRight size={16} /></a>
+      <span class="product-note"><a href={t.productHref}>{t.productNote}</a></span>
+    </p>
+  </div>
+</section>
+
+<style>
+  .lifecycle {
+    background: var(--bg-primary);
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+  }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: var(--spacing-2xl);
+  }
+
+  .section-title {
+    font-size: clamp(2rem, 4vw, 3rem);
+    font-weight: 700;
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+    margin-bottom: 0.75rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+    color: var(--text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .lifecycle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+    align-items: stretch;
+  }
+
+  .phase-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-base);
+  }
+
+  a.phase-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--eflury-teal);
+  }
+
+  .phase-tag {
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--eflury-teal);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .phase-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: var(--radius-md);
+    background: var(--primary-50);
+    color: var(--eflury-teal);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .phase-card h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .phase-card p {
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 var(--spacing-md);
+  }
+
+  .phase-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: auto;
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .build-links {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+  }
+
+  .build-links a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-primary);
+    font-size: 0.92rem;
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .build-links a:hover {
+    color: var(--eflury-teal);
+  }
+
+  .build-note {
+    margin-top: auto;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+  }
+
+  .build-note a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-light);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .build-note a:hover {
+    text-decoration: underline;
+  }
+
+  .lifecycle-footer {
+    margin: var(--spacing-xl) 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: var(--spacing-md) var(--spacing-xl);
+  }
+
+  .all-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--primary-light);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .all-link:hover {
+    text-decoration: underline;
+  }
+
+  .product-note {
+    font-size: 0.9rem;
+  }
+
+  .product-note a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--text-secondary);
+    text-decoration: none;
+  }
+
+  .product-note a:hover {
+    color: var(--eflury-teal);
+  }
+
+  @media (max-width: 900px) {
+    .lifecycle-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
