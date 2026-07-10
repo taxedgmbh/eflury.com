@@ -60,7 +60,7 @@ const caseStudies = [
 
 <MainLayout
   title="Fallstudien - KI-Automatisierung Erfolgsgeschichten | Emanuel Flury"
-  description="Entdecken Sie echte KI-Automatisierungs-Erfolgsgeschichten von Schweizer KMUs. Sehen Sie, wie Unternehmen 15-40+ Stunden pro Woche mit Claude AI-Implementierung gespart haben."
+  description="Dokumentierte KI-Automatisierungsprojekte aus Schweizer Unternehmen: geschätzte Einsparungen von CHF 24K-48K pro Jahr, Amortisation in 2.8-4.1 Monaten — Zahlen pro Projekt ausgewiesen."
   keywords="KI-Automatisierung Fallstudien, Schweizer Geschäftsautomatisierung, Claude AI Implementierung, RPA Erfolgsgeschichten, Power BI Beratung"
   lang={lang}
 >
@@ -72,9 +72,6 @@ const caseStudies = [
     <!-- Hero Section -->
     <section class="hero">
       <div class="container">
-        <div class="breadcrumb-inline">
-          <a href="/de">Startseite</a> / Fallstudien
-        </div>
 
         <h1>Fallstudien</h1>
         <p class="subtitle">Echte Ergebnisse von echten Schweizer Unternehmen</p>
@@ -82,20 +79,23 @@ const caseStudies = [
         <div class="hero-stats">
           <div class="stat">
             <Clock size={24} />
-            <span class="value">80+ Stunden</span>
-            <span class="label">Monatlich gespart (Durchschnitt)</span>
+            <span class="value">~220 h/Monat</span>
+            <span class="label">Geschätzte Zeitersparnis, kombiniert</span>
           </div>
           <div class="stat">
             <TrendingUp size={24} />
-            <span class="value">130%</span>
-            <span class="label">Durchschnittlicher ROI</span>
+            <span class="value">~CHF 108K</span>
+            <span class="label">Geschätzte Jahresersparnis, kombiniert</span>
           </div>
           <div class="stat">
             <Building2 size={24} />
-            <span class="value">3.4 Monate</span>
-            <span class="label">Durchschnittliche Amortisation</span>
+            <span class="value">2.8–4.1 Monate</span>
+            <span class="label">Geschätzte Amortisation, pro Projekt</span>
           </div>
         </div>
+        <p class="stats-basis">
+          Aggregiert aus den drei Projekten unten — jede Zahl ist pro Projekt in der jeweiligen Fallstudie dokumentiert.
+        </p>
       </div>
     </section>
 
@@ -143,7 +143,7 @@ const caseStudies = [
       <div class="container">
         <h2>Möchten Sie ähnliche Ergebnisse?</h2>
         <p>Buchen Sie eine kostenlose 30-minütige Bewertung, um Ihr Automatisierungspotenzial zu entdecken.</p>
-        <a href="/de#contact" class="btn-primary">
+        <a href="/de/kontakt/" class="btn-primary">
           Jetzt starten
           <ArrowRight size={18} />
         </a>
@@ -227,21 +227,6 @@ const caseStudies = [
     background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
   }
 
-  .breadcrumb-inline {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-  }
-
-  .breadcrumb-inline a {
-    color: var(--primary-600);
-    text-decoration: none;
-  }
-
-  .breadcrumb a:hover {
-    text-decoration: underline;
-  }
-
   .hero h1 {
     font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
@@ -267,9 +252,16 @@ const caseStudies = [
     align-items: center;
     text-align: center;
     padding: 1.5rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stats-basis {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin: 1.25rem 0 0;
   }
 
   .hero-stats .stat :global(svg) {

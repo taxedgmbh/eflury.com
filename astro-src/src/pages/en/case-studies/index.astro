@@ -60,7 +60,7 @@ const caseStudies = [
 
 <MainLayout
   title="Case Studies - AI Automation Success Stories | Emanuel Flury"
-  description="Explore real-world AI automation success stories from Swiss SMEs. See how businesses saved 15-40+ hours per week with Claude AI implementation."
+  description="Documented AI automation projects from Swiss businesses: estimated savings of CHF 24K-48K per year and payback in 2.8-4.1 months, with the numbers shown per project."
   keywords="AI automation case studies, Swiss business automation, Claude AI implementation, RPA success stories, Power BI consulting"
   lang={lang}
 >
@@ -79,20 +79,23 @@ const caseStudies = [
         <div class="hero-stats">
           <div class="stat">
             <Clock size={24} />
-            <span class="value">80+ hours</span>
-            <span class="label">Saved monthly (average)</span>
+            <span class="value">~220 h/month</span>
+            <span class="label">Combined estimated time saved</span>
           </div>
           <div class="stat">
             <TrendingUp size={24} />
-            <span class="value">130%</span>
-            <span class="label">Average ROI</span>
+            <span class="value">~CHF 108K</span>
+            <span class="label">Combined estimated annual savings</span>
           </div>
           <div class="stat">
             <Building2 size={24} />
-            <span class="value">3.4 months</span>
-            <span class="label">Average payback</span>
+            <span class="value">2.8–4.1 months</span>
+            <span class="label">Estimated payback, per project</span>
           </div>
         </div>
+        <p class="stats-basis">
+          Aggregated from the three projects below — every figure is documented, per project, in its case study.
+        </p>
       </div>
     </section>
 
@@ -140,7 +143,7 @@ const caseStudies = [
       <div class="container">
         <h2>Want Similar Results?</h2>
         <p>Book a free 30-minute assessment to discover your automation potential.</p>
-        <a href="/en#contact" class="btn-primary">
+        <a href="/en/contact/" class="btn-primary">
           Get Started
           <ArrowRight size={18} />
         </a>
@@ -163,80 +166,10 @@ const caseStudies = [
     padding: 0 2rem;
   }
 
-  /* Breadcrumb Navigation */
-  .breadcrumb {
-    background: var(--bg-secondary);
-    border-bottom: 1px solid var(--border-color);
-    padding: 0.75rem 0;
-    margin-top: var(--header-height, 70px);
-  }
-
-  .breadcrumb .container {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
-  .breadcrumb-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
-    color: var(--eflury-teal);
-    text-decoration: none;
-    font-size: 0.875rem;
-    font-weight: 500;
-    transition: color 0.2s ease;
-  }
-
-  .breadcrumb-link:hover {
-    color: var(--eflury-navy);
-  }
-
-  :global([data-theme="dark"]) .breadcrumb-link:hover {
-    color: white;
-  }
-
-  .breadcrumb-separator {
-    color: var(--text-tertiary);
-    flex-shrink: 0;
-  }
-
-  .breadcrumb-current {
-    color: var(--text-secondary);
-    font-size: 0.875rem;
-    font-weight: 500;
-  }
-
-  @media (max-width: 768px) {
-    .breadcrumb {
-      padding: 0.5rem 0;
-    }
-
-    .breadcrumb-link,
-    .breadcrumb-current {
-      font-size: 0.8125rem;
-    }
-  }
-
   /* Hero Section */
   .hero {
     padding: 3rem 0 4rem;
     background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
-  }
-
-  .hero .breadcrumb-inline {
-    font-size: 0.875rem;
-    color: var(--text-secondary);
-    margin-bottom: 2rem;
-  }
-
-  .hero .breadcrumb-inline a {
-    color: var(--primary-600);
-    text-decoration: none;
-  }
-
-  .breadcrumb a:hover {
-    text-decoration: underline;
   }
 
   .hero h1 {
@@ -264,9 +197,16 @@ const caseStudies = [
     align-items: center;
     text-align: center;
     padding: 1.5rem;
-    background: white;
-    border-radius: 12px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    background: var(--card-bg);
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .stats-basis {
+    text-align: center;
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin: 1.25rem 0 0;
   }
 
   .hero-stats .stat :global(svg) {
