@@ -59,6 +59,7 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
           <div class="nav-dropdown-menu">
             <a href={`/${lang}/services`}>{t('nav.services_overview')}</a>
             <div class="nav-dropdown-divider"></div>
+            <a href={lang === 'de' ? '/de/services/ki-audit/' : '/en/services/ai-audit/'}>{lang === 'de' ? 'KI-Audit' : 'AI Audit'}</a>
             <a href={`/${lang}/services/claude-skills`}>Claude Skills</a>
             <a href={`/${lang}/services/mcp-integration`}>MCP Integration</a>
             <a href={lang === 'de' ? `/${lang}/services/finanzen-automatisierung` : `/${lang}/services/finance-automation`}>{lang === 'de' ? 'Finanzautomatisierung' : 'Finance Automation'}</a>

@@ -143,6 +143,7 @@ const localizedMap = {
   'industries/professional-services': 'branchen/dienstleister',
   'services/finance-automation': 'services/finanzen-automatisierung',
   'services/data-quality': 'services/datenqualitaet',
+  'services/ai-audit': 'services/ki-audit',
 };
 const norm = (p) => relative(ROOT, p).replace(/\/index\.html$/, '').replace(/\.html$/, '');
 const enPages = new Set(pages.map(norm).filter((p) => p.startsWith('en/')).map((p) => p.slice(3)));

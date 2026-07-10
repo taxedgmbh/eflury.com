@@ -5,12 +5,20 @@ import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
 import AIChatbot from '../../../components/AIChatbot.astro';
 import { useTranslations } from '../../../i18n/utils';
-import { ArrowRight, Cpu, Server, Calculator, BarChart3, Database } from 'lucide-astro';
+import { ArrowRight, Cpu, Server, Calculator, BarChart3, Database, ClipboardCheck } from 'lucide-astro';
 
 const lang = 'de';
 const t = useTranslations(lang);
 
 const services = [
+  {
+    icon: ClipboardCheck,
+    title: 'KI-Audit',
+    description: 'Eine Woche, Fixpreis: Prozessinventar mit Zeitkosten-Scoring, priorisierte Roadmap und ROI-Projektion pro Initiative — mit ehrlichem Go/No-Go am Ende.',
+    link: '/de/services/ki-audit',
+    badge: 'Hier starten',
+    metric: '1 Woche, Fixpreis'
+  },
   {
     icon: Cpu,
     title: 'Claude Skills Entwicklung',
