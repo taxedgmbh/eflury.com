@@ -38,6 +38,7 @@ const staticPages: StaticPage[] = [
   { en: '/en/skopaai/', de: '/de/skopaai/', priority: '0.8', changefreq: 'monthly' },
   { en: '/en/method/', de: '/de/methode/', priority: '0.7', changefreq: 'monthly' },
   { en: '/en/trust/', de: '/de/sicherheit/', priority: '0.6', changefreq: 'monthly' },
+  { en: '/en/careers/', de: '/de/karriere/', priority: '0.5', changefreq: 'monthly' },
   { en: '/en/contact/', de: '/de/kontakt/', priority: '0.8', changefreq: 'monthly' },
 
   // Industries

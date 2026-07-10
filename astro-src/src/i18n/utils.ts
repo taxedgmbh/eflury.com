@@ -64,6 +64,7 @@ export const routes = {
     imprint: '/en/imprint/',
     trust: '/en/trust/',
     method: '/en/method/',
+    careers: '/en/careers/',
   },
   de: {
     home: '/de/',
@@ -89,5 +90,6 @@ export const routes = {
     imprint: '/de/impressum/',
     trust: '/de/sicherheit/',
     method: '/de/methode/',
+    careers: '/de/karriere/',
   },
 };
