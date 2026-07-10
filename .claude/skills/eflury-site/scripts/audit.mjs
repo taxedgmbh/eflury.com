@@ -137,6 +137,7 @@ const localizedMap = {
   'method': 'methode',
   'trust': 'sicherheit',
   'contact': 'kontakt',
+  'careers': 'karriere',
   'industries': 'branchen',
   'industries/treuhand-accounting': 'branchen/treuhand',
   'industries/finance-teams': 'branchen/finanzteams',
