@@ -159,25 +159,31 @@ const automations = [
   }
 
   .industry-hero {
-    padding: var(--spacing-4xl) 0 var(--spacing-2xl);
-    background: var(--bg-primary);
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
   }
 
   .eyebrow {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(13, 148, 136, 0.1);
+    border-radius: 100px;
     font-size: 0.8rem;
     font-weight: 700;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     color: var(--eflury-teal);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: var(--spacing-lg);
   }
 
   .industry-hero h1 {
     font-size: clamp(2.25rem, 5vw, 3.5rem);
-    font-weight: 700;
+    font-weight: 800;
     letter-spacing: -0.02em;
     color: var(--text-primary);
-    margin-bottom: var(--spacing-md);
+    margin: 0 auto var(--spacing-md);
     max-width: 800px;
   }
 
@@ -186,6 +192,7 @@ const automations = [
     line-height: 1.6;
     color: var(--text-secondary);
     max-width: 700px;
+    margin: 0 auto;
   }
 
   section h2 {
