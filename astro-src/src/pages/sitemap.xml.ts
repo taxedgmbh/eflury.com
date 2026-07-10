@@ -49,6 +49,7 @@ const staticPages: StaticPage[] = [
   // Services
   { en: '/en/services/', de: '/de/services/', priority: '0.8', changefreq: 'monthly' },
   { en: '/en/services/ai-audit/', de: '/de/services/ki-audit/', priority: '0.7', changefreq: 'monthly' },
+  { en: '/en/services/managed-ai-operations/', de: '/de/services/ki-betrieb/', priority: '0.7', changefreq: 'monthly' },
   { en: '/en/services/claude-skills/', de: '/de/services/claude-skills/', priority: '0.7', changefreq: 'monthly' },
   { en: '/en/services/mcp-integration/', de: '/de/services/mcp-integration/', priority: '0.7', changefreq: 'monthly' },
   { en: '/en/services/finance-automation/', de: '/de/services/finanzen-automatisierung/', priority: '0.7', changefreq: 'monthly' },
