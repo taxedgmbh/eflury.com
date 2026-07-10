@@ -51,6 +51,10 @@ const topics = topicOrder.filter((key) => topicCounts.has(key));
         <h1>Insights</h1>
         <p class="subtitle">Practical analyses on AI automation, Treuhand &amp; accounting, reporting, and security — written for Swiss SMEs.</p>
 
+        <p class="guides-teaser">
+          Prefer the condensed version? <a href="/en/guides/">Three downloadable playbooks →</a>
+        </p>
+
         <div class="topic-filter" role="group" aria-label="Filter articles by topic">
           <button class="chip active" data-topic="all">All <span class="count">{posts.length}</span></button>
           {topics.map((key) => (
@@ -177,6 +181,24 @@ const topics = topicOrder.filter((key) => topicCounts.has(key));
     line-height: 1.6;
     max-width: 700px;
     margin-bottom: 2rem;
+  }
+
+  .guides-teaser {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0 0 1.25rem;
+  }
+
+  .guides-teaser a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-light);
+    font-weight: 600;
+    text-decoration: none;
+  }
+
+  .guides-teaser a:hover {
+    text-decoration: underline;
   }
 
   /* Topic filter chips */
