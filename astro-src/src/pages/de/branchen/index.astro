@@ -1,0 +1,177 @@
+---
+import MainLayout from '../../../layouts/MainLayout.astro';
+import Header from '../../../components/Header.astro';
+import Breadcrumbs from '../../../components/Breadcrumbs.astro';
+import Footer from '../../../components/Footer.astro';
+import AIChatbot from '../../../components/AIChatbot.astro';
+import { ArrowRight } from 'lucide-astro';
+
+const lang = 'de';
+
+const industries = [
+  {
+    title: 'Treuhand & Buchhaltung',
+    text: 'Mandanten-Onboarding, Kreditoren, E-Mail-Triage und Stammdaten — automatisiert mit Freigabe-Gates, erprobt in einer echten Schweizer Praxis.',
+    href: '/de/branchen/treuhand/',
+  },
+];
+---
+
+<MainLayout
+  title="Branchen - eFlury Consulting"
+  description="Für wen wir KI-Automatisierung bauen: Treuhand- und Buchhaltungsfirmen, Finanzteams und Dienstleister — verankert in dokumentierten Projekten."
+  keywords="KI-Automatisierung Branchen, Treuhand KI, Finanzteam Automatisierung, Dienstleister KI, Schweizer KMU"
+  lang={lang}
+>
+  <Header lang={lang} />
+
+  <Breadcrumbs lang={lang} items={[{ label: 'Branchen' }]} />
+
+  <main class="industries-page">
+    <section class="hub-hero">
+      <div class="container">
+        <h1>Branchen</h1>
+        <p class="lead">
+          Automatisierung funktioniert nur, wenn sie die Sprache Ihres Tagesgeschäfts spricht.
+          Diese Seiten zeigen, was wir pro Branche bauen — verankert in den Projekten und
+          Artikeln, die auf dieser Website dokumentiert sind.
+        </p>
+      </div>
+    </section>
+
+    <section class="hub-grid">
+      <div class="container">
+        <div class="card-grid">
+          {industries.map((item) => (
+            <a href={item.href} class="industry-card">
+              <h2>{item.title}</h2>
+              <p>{item.text}</p>
+              <span class="card-link">Zur Branchenseite <ArrowRight size={14} /></span>
+            </a>
+          ))}
+        </div>
+        <p class="more-note">
+          Die Seiten für Finanzteams und Dienstleister sind in Vorbereitung —
+          die zugrunde liegenden Leistungen finden Sie heute in der <a href="/de/services/">Leistungsübersicht</a>.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
+
+<style>
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .hub-hero {
+    padding: var(--spacing-4xl) 0 var(--spacing-2xl);
+    background: var(--bg-primary);
+  }
+
+  .hub-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .hub-hero .lead {
+    font-size: 1.25rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 700px;
+  }
+
+  .hub-grid {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+    background: var(--bg-secondary);
+  }
+
+  .card-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: var(--spacing-lg);
+  }
+
+  .industry-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    text-decoration: none;
+    color: inherit;
+    transition: all var(--transition-base);
+  }
+
+  .industry-card:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--eflury-teal);
+  }
+
+  .industry-card h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .industry-card p {
+    font-size: 0.98rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    flex-grow: 1;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.9rem;
+  }
+
+  .more-note {
+    margin-top: var(--spacing-xl);
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+    text-align: center;
+  }
+
+  .more-note a {
+    display: inline-flex;
+    align-items: center;
+    color: var(--primary-light);
+    text-decoration: none;
+  }
+
+  .more-note a:hover {
+    text-decoration: underline;
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+
+    .hub-hero {
+      padding: var(--spacing-3xl) 0 var(--spacing-xl);
+    }
+
+    .hub-hero .lead {
+      font-size: 1.05rem;
+    }
+  }
+</style>
