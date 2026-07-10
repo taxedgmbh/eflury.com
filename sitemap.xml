@@ -146,6 +146,38 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://eflury.com/en/industries/finance-teams/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/industries/finance-teams/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/branchen/finanzteams/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/industries/finance-teams/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/branchen/finanzteams/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/industries/finance-teams/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/branchen/finanzteams/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/industries/finance-teams/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/en/industries/professional-services/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/industries/professional-services/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/branchen/dienstleister/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/industries/professional-services/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/branchen/dienstleister/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/industries/professional-services/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/branchen/dienstleister/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/industries/professional-services/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://eflury.com/en/services/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/services/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/services/"/>
