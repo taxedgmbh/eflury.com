@@ -2,6 +2,19 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+## MANDATORY: the eflury-site skill
+
+Before creating or restyling any page, component, or copy, load the
+`eflury-site` skill (`.claude/skills/eflury-site/SKILL.md`). It defines the
+Apple-derived design system, the agreed site architecture, and the content
+honesty rules — never invent design tokens, page locations, or claims.
+
+Before committing site changes, run the audit and fix every error:
+
+```bash
+cd astro-src && npm run build && npm run audit
+```
+
 ## Development Commands
 
 All development happens in `astro-src/`:
