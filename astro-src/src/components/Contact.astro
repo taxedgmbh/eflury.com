@@ -1,6 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
-import { Mail, Phone, MapPin, Send, MessageCircle } from 'lucide-astro';
+import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2 } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -153,6 +153,34 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
 
         <div id="formStatus" class="form-status" role="status" aria-live="polite"></div>
       </form>
+
+      <div class="contact-form success-panel" id="formSuccess" hidden>
+        <div class="success-icon"><CheckCircle2 size={42} /></div>
+        <h3>{lang === 'de' ? 'Nachricht erhalten!' : 'Message received!'}</h3>
+        <p class="success-text">
+          {lang === 'de'
+            ? 'Vielen Dank. Sie erhalten innerhalb von 24 Stunden eine Antwort — direkt von Emanuel Flury.'
+            : 'Thank you. You will get a reply within 24 hours — directly from Emanuel Flury.'}
+        </p>
+        <p class="success-hint">
+          {lang === 'de'
+            ? 'Dringend? Rufen Sie an: +41 79 910 77 87'
+            : 'Urgent? Call +41 79 910 77 87'}
+        </p>
+        <div class="success-newsletter" id="successNewsletter">
+          <p>
+            {lang === 'de'
+              ? 'Bis dahin: ein praxisnaher KI-Impuls pro Monat?'
+              : 'In the meantime: one practical AI insight per month?'}
+          </p>
+          <button type="button" class="subscribe-after" id="subscribeAfter">
+            {lang === 'de' ? 'Newsletter abonnieren' : 'Subscribe to the newsletter'}
+          </button>
+        </div>
+        <button type="button" class="send-another" id="sendAnother">
+          {lang === 'de' ? 'Weitere Nachricht senden' : 'Send another message'}
+        </button>
+      </div>
     </div>
   </div>
 </section>
@@ -588,6 +616,112 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
     color: #128C7E;
   }
 
+  /* Success panel (replaces the form after submission) */
+  .contact-form[hidden],
+  .success-panel[hidden] {
+    display: none !important;
+  }
+
+  .success-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.75rem;
+    min-height: 320px;
+  }
+
+  .success-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 72px;
+    height: 72px;
+    border-radius: var(--radius-full);
+    background: rgba(13, 148, 136, 0.12);
+    color: var(--eflury-teal);
+    margin-bottom: 0.5rem;
+  }
+
+  .success-panel h3 {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .success-text {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 380px;
+    margin: 0;
+  }
+
+  .success-hint {
+    font-size: 0.875rem;
+    color: var(--text-tertiary);
+    margin: 0;
+  }
+
+  .success-newsletter {
+    margin-top: 0.5rem;
+    padding: 1rem 1.25rem;
+    background: rgba(13, 148, 136, 0.06);
+    border: 1px solid rgba(13, 148, 136, 0.2);
+    border-radius: var(--radius-md);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.6rem;
+  }
+
+  .success-newsletter p {
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .subscribe-after {
+    padding: 0.55rem 1.25rem;
+    background: var(--eflury-teal);
+    border: none;
+    border-radius: var(--radius-md);
+    color: var(--eflury-white);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background var(--transition-fast);
+  }
+
+  .subscribe-after:hover:not(:disabled) {
+    background: var(--eflury-navy);
+  }
+
+  .subscribe-after:disabled {
+    opacity: 0.7;
+    cursor: default;
+  }
+
+  .send-another {
+    margin-top: 0.75rem;
+    padding: 0.55rem 1.1rem;
+    background: transparent;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+    color: var(--text-secondary);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+  }
+
+  .send-another:hover {
+    border-color: var(--eflury-teal);
+    color: var(--eflury-teal);
+  }
+
   /* Contact benefits list */
   .contact-benefits {
     list-style: none;
@@ -784,6 +918,7 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
 
   // Turnstile token storage
   let turnstileToken: string | null = null;
+  let lastSubmittedEmail = '';
 
   // Global callbacks for Turnstile
   (window as any).onTurnstileSuccess = (token: string) => {
@@ -833,6 +968,7 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
         const name = (form.querySelector('#name') as HTMLInputElement)?.value?.trim() || '';
         const email = (form.querySelector('#email') as HTMLInputElement)?.value?.trim() || '';
         const message = (form.querySelector('#message') as HTMLTextAreaElement)?.value?.trim() || '';
+        lastSubmittedEmail = email;
 
         await submitHubSpotForm(
           HUBSPOT_FORMS.contact,
@@ -840,11 +976,15 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
           'Contact form'
         );
 
-        formStatus.className = 'form-status success';
-        formStatus.textContent = lang === 'de'
-          ? 'Nachricht erfolgreich gesendet! Ich melde mich bald bei Ihnen.'
-          : 'Message sent successfully! I\'ll get back to you soon.';
         form.reset();
+        formStatus.className = 'form-status';
+        formStatus.textContent = '';
+        form.hidden = true;
+        const successPanel = document.getElementById('formSuccess');
+        if (successPanel) {
+          successPanel.hidden = false;
+          successPanel.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
 
         // Reset Turnstile after successful submission
         if ((window as any).turnstile) {
@@ -868,6 +1008,41 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
         submitButton.classList.remove('loading');
         if (btnText) btnText.textContent = originalText;
       }
+    });
+
+    const subscribeAfter = document.getElementById('subscribeAfter') as HTMLButtonElement | null;
+    subscribeAfter?.addEventListener('click', async () => {
+      if (!lastSubmittedEmail) return;
+      subscribeAfter.disabled = true;
+      const original = subscribeAfter.textContent || '';
+      subscribeAfter.textContent = '...';
+      try {
+        await submitHubSpotForm(
+          HUBSPOT_FORMS.newsletter,
+          { email: lastSubmittedEmail },
+          'Newsletter opt-in after contact'
+        );
+        subscribeAfter.textContent = lang === 'de' ? 'Abonniert ✓' : 'Subscribed ✓';
+        if ((window as any).trackEvent) {
+          (window as any).trackEvent('Conversion', 'newsletter_subscribe', 'After contact');
+        }
+      } catch (error) {
+        console.error('Newsletter opt-in error:', error);
+        subscribeAfter.disabled = false;
+        subscribeAfter.textContent = original;
+      }
+    });
+
+    const sendAnother = document.getElementById('sendAnother');
+    sendAnother?.addEventListener('click', () => {
+      const successPanel = document.getElementById('formSuccess');
+      if (successPanel) successPanel.hidden = true;
+      form.hidden = false;
+      turnstileToken = null;
+      if ((window as any).turnstile) {
+        (window as any).turnstile.reset();
+      }
+      (form.querySelector('#name') as HTMLInputElement)?.focus();
     });
   }
 </script>
