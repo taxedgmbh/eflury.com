@@ -295,6 +295,10 @@ const legalLinks = [
     gap: 0.5rem;
   }
 
+  .newsletter-form[hidden] {
+    display: none;
+  }
+
   .newsletter-input {
     width: 240px;
     padding: 0.6rem 0.9rem;
@@ -336,7 +340,7 @@ const legalLinks = [
   .newsletter-status {
     flex-basis: 100%;
     display: none;
-    font-size: 0.8rem;
+    font-size: 0.85rem;
     text-align: right;
   }
 
@@ -499,9 +503,10 @@ const legalLinks = [
 
         newsletterStatus.className = 'newsletter-status success';
         newsletterStatus.textContent = lang === 'de'
-          ? 'Erfolgreich abonniert! Vielen Dank.'
-          : 'Successfully subscribed! Thank you.';
+          ? 'Erfolgreich abonniert! Sie erhalten einen praxisnahen KI-Impuls pro Monat.'
+          : 'Subscribed! You will get one practical AI insight per month.';
         newsletterForm.reset();
+        newsletterForm.hidden = true;
 
         if ((window as any).trackEvent) {
           (window as any).trackEvent('Conversion', 'newsletter_subscribe', 'Newsletter');
