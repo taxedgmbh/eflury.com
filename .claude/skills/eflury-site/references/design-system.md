@@ -12,22 +12,47 @@ add one. The audit script flags non-token hex values in source components.
 
 ## Color tokens — what to use when
 
+**WCAG-AA rules (enforced by the HIG contrast audit — do not regress):**
+
+1. **Buttons/badges with white text** → background `--action-teal`
+   (#096b62 light / #0f766e dark; ≥5.4:1 with white). NEVER put white
+   text on `--eflury-teal` (3.7:1 light, 2.5:1 dark — fails AA).
+2. **Teal-colored text on light/theme surfaces** (chips, eyebrows,
+   `.hero-badge`, sublines, inline links, prices) → `--teal-text`
+   (#096b62 light / #2dd4bf dark). `--eflury-teal` as a TEXT color is
+   only allowed on navy surfaces.
+3. **Blue text links** → `--link-color` (#276297 light / #5AB8E8 dark).
+   Never `--eflury-blue` (#1490D0) as text on white — 3.5:1, fails.
+4. **Navy bands/sections that must stay navy in dark mode** (CTA bands,
+   footer newsletter, chips on cards) → `--surface-navy`. In dark mode
+   `--eflury-navy` flips to bright blue #1490D0 — never use it as a
+   band background.
+5. **Muted text** → `--text-tertiary` (#5d6b80 light, white@0.58 dark;
+   both AA). Never `--eflury-grey-light` (#9CADBE) as a text color.
+6. **Never hardcode `background: white` on cards** — use `--card-bg`
+   or the card is blinding in dark mode.
+
 | Purpose                          | Token |
 |----------------------------------|-------|
-| Headings, primary text, primary buttons | `--eflury-navy` (#022554) / semantic `--primary`, `--text-primary` |
-| Hover/dark variant               | `--eflury-navy-dark` |
-| Accent highlights, chips, labels | `--eflury-teal` (#0d9488) / `--accent-teal` |
-| Links, secondary accent          | `--eflury-blue` (#1490D0) / `--primary-light` |
+| Headings, primary text           | `--eflury-navy` (#022554) / semantic `--primary`, `--text-primary` |
+| Filled buttons/badges (white text) | `--action-teal` (AA-safe both themes) |
+| Teal accent text on light surfaces | `--teal-text` (AA-safe both themes) |
+| Text links (blue)                | `--link-color` (AA-safe both themes) |
+| Navy bands (stay navy in dark)   | `--surface-navy` |
+| Accent icons/borders (non-text)  | `--eflury-teal` (#0d9488) — 3:1 graphics OK on light |
 | Body/secondary text              | `--text-secondary` (grey #4D596D) |
+| Muted/caption text               | `--text-tertiary` (#5d6b80) |
 | Page background                  | `--bg-primary`; alternating sections `--bg-secondary` (warm #f5f5f4) |
 | Cards                            | `--card-bg` + `--shadow-sm`, hover `--shadow-md` |
 | Borders/separators               | `--separator`, `--border-color` |
-| Success/teal scale               | `--success-*`, `--primary-50/100/500/600/700` (corporate teal scale) |
-| Warnings                         | `--warning-500/700` |
+| Tinted bands/chips               | `--primary-50/100/200`, `--success-50/100` (these flip dark automatically) |
+| Warnings                         | `--warning-500/700`; `--warning-300` only on navy |
 
 Dark mode redefines the same tokens under `[data-theme="dark"]` — using
 tokens (not hex) is what makes dark mode work for free. Never write
-`@media (prefers-color-scheme)` styles per-component.
+`@media (prefers-color-scheme)` styles per-component. The repo audit
+(`npm run audit`) errors on any `var(--x)` reference without a
+definition, so never invent token names.
 
 ## Layout tokens
 
