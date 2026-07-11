@@ -52,6 +52,7 @@ const downloadUrl = `/downloads/eflury-ai-implementation-guide-${lang}.pdf`;
                 required
                 autocomplete="email"
               />
+          <input type="text" name="website" id="lead-hp" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" tabindex="-1" autocomplete="off" aria-hidden="true" />
             </div>
             <button type="submit" class="download-btn">
               <span class="btn-text">
@@ -439,6 +440,8 @@ const downloadUrl = `/downloads/eflury-ai-implementation-guide-${lang}.pdf`;
 
     const emailInput = form.querySelector('#lead-email') as HTMLInputElement;
     const email = emailInput?.value?.trim();
+    const hp = (form.querySelector('#lead-hp') as HTMLInputElement)?.value;
+    if (hp) return; // honeypot: silently drop bot submissions
     const downloadUrl = form.dataset.downloadUrl;
 
     if (!email) {

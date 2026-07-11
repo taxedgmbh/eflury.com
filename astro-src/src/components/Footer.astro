@@ -8,6 +8,7 @@ interface Props {
 
 const { lang } = Astro.props;
 const de = lang === 'de';
+const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAACNCvv3pA4hrcbKM';
 const r = routes[lang];
 const currentYear = new Date().getFullYear();
 
@@ -134,7 +135,7 @@ const legalLinks = [
         </div>
       </div>
       <div class="newsletter-action">
-        <form class="newsletter-form" id="newsletterForm">
+        <form class="newsletter-form" id="newsletterForm" data-sitekey={turnstileSitekey}>
           <input
             type="email"
             id="newsletter-email"
@@ -146,10 +147,20 @@ const legalLinks = [
             aria-label={t.newsletterTitle}
             required
           />
+          <input
+            type="text"
+            name="website"
+            id="newsletter-hp"
+            class="nl-hp"
+            tabindex="-1"
+            autocomplete="off"
+            aria-hidden="true"
+          />
           <button type="submit" class="newsletter-button" id="newsletter-submit">
             {t.newsletterButton}
           </button>
         </form>
+        <div id="newsletter-turnstile" class="nl-turnstile"></div>
         <p class="newsletter-micro">
           {t.newsletterMicro} <a href={r.privacy}>{t.newsletterPrivacy}</a>
         </p>
@@ -332,6 +343,19 @@ const legalLinks = [
     display: flex;
     flex-direction: column;
     gap: 0.4rem;
+  }
+
+  .nl-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .nl-turnstile:not(:empty) {
+    margin-top: 0.4rem;
   }
 
   .newsletter-micro {
@@ -559,9 +583,59 @@ const legalLinks = [
   const newsletterEmail = document.getElementById('newsletter-email') as HTMLInputElement;
   const lang = document.documentElement.lang || 'en';
 
+  // --- Bot protection: honeypot + lazily rendered Turnstile ---------------
+  let nlToken: string | null = null;
+  let nlWidgetRendered = false;
+
+  function renderNlTurnstile() {
+    const ts = (window as any).turnstile;
+    const container = document.getElementById('newsletter-turnstile');
+    if (!ts || !container || nlWidgetRendered) return;
+    nlWidgetRendered = true;
+    ts.render(container, {
+      sitekey: newsletterForm?.dataset.sitekey,
+      appearance: 'interaction-only',
+      callback: (token: string) => { nlToken = token; },
+      'expired-callback': () => { nlToken = null; },
+    });
+  }
+
+  function ensureTurnstileLoaded() {
+    if ((window as any).turnstile) {
+      renderNlTurnstile();
+      return;
+    }
+    // Contact pages already load the api.js tag; otherwise inject it once.
+    if (!document.querySelector('script[src*="challenges.cloudflare.com"]')) {
+      const s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+      s.async = true;
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+    const poll = setInterval(() => {
+      if ((window as any).turnstile) {
+        clearInterval(poll);
+        renderNlTurnstile();
+      }
+    }, 250);
+    setTimeout(() => clearInterval(poll), 10000);
+  }
+
+  newsletterEmail?.addEventListener('focus', ensureTurnstileLoaded, { once: true });
+
   if (newsletterForm) {
     newsletterForm.addEventListener('submit', async (e) => {
       e.preventDefault();
+
+      // Honeypot: bots fill hidden fields — pretend success, submit nothing.
+      const honeypot = (document.getElementById('newsletter-hp') as HTMLInputElement)?.value;
+      if (honeypot) {
+        newsletterStatus.className = 'newsletter-status success';
+        newsletterStatus.textContent = lang === 'de' ? 'Abonniert!' : 'Subscribed!';
+        newsletterForm.reset();
+        return;
+      }
 
       const email = newsletterEmail?.value?.trim();
 
@@ -570,6 +644,16 @@ const legalLinks = [
         newsletterStatus.textContent = lang === 'de'
           ? 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
           : 'Please enter a valid email address.';
+        return;
+      }
+
+      // Turnstile gate: widget rendered but unsolved -> ask to wait/complete.
+      // Script never loaded (blocked) -> fail open; HubSpot filters spam too.
+      if (!nlToken && nlWidgetRendered) {
+        newsletterStatus.className = 'newsletter-status error';
+        newsletterStatus.textContent = lang === 'de'
+          ? 'Bitte schliessen Sie kurz die Sicherheitsprüfung unten ab.'
+          : 'Please complete the quick security check below.';
         return;
       }
 
