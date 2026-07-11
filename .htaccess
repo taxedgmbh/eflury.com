@@ -1,11 +1,23 @@
-# eflury.com — host canonicalization and cache policy
+# eflury.com — 404 handling, host canonicalization, cache policy
 
-# www -> apex (301)
+# Serve the site's own 404 page (local path, so Apache keeps the 404 status;
+# a full URL here would 302 and create soft-404s)
+ErrorDocument 404 /404.html
+
 <IfModule mod_rewrite.c>
 RewriteEngine On
+
+# Single-hop canonicalization: http OR www -> https://eflury.com (301)
+RewriteCond %{HTTPS} !=on [OR]
 RewriteCond %{HTTP_HOST} ^www\. [NC]
 RewriteRule ^ https://eflury.com%{REQUEST_URI} [R=301,L]
+
 </IfModule>
+
+# Root -> default language, server-side (stronger canonical signal than the
+# meta-refresh in index.html, which stays as fallback). mod_alias form because
+# LiteSpeed did not apply the per-dir RewriteRule for the root URL.
+RedirectMatch 301 ^/$ /en/
 
 <IfModule mod_headers.c>
   # HTML: always revalidate so deploys are visible immediately
