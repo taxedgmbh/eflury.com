@@ -186,6 +186,31 @@ for (const f of ['en/rss.xml', 'de/rss.xml', 'robots.txt']) {
   if (!existsSync(join(ROOT, f))) errors.push(`expected file missing: ${f}`);
 }
 
+// ---------------------------------------------------------------- undefined CSS tokens (ERROR)
+// Undefined custom properties fail silently in the browser (transparent
+// backgrounds, invisible buttons) — this has caused real production bugs.
+if (existsSync(SRC)) {
+  const cssFiles = await findFiles(SRC, ['.astro', '.css'], [], SRC);
+  const definedTokens = new Set();
+  for (const f of cssFiles) {
+    const text = await readFile(f, 'utf8');
+    for (const m of text.matchAll(/(--[a-zA-Z0-9-]+)\s*:/g)) definedTokens.add(m[1]);
+  }
+  const undefinedRefs = new Map();
+  for (const f of cssFiles) {
+    const text = await readFile(f, 'utf8');
+    for (const m of text.matchAll(/var\((--[a-zA-Z0-9-]+)(?:\s*,\s*[^)]+)?\)/g)) {
+      const hasFallback = m[0].includes(',');
+      if (!definedTokens.has(m[1]) && !hasFallback) {
+        if (!undefinedRefs.has(m[1])) undefinedRefs.set(m[1], relative(SRC, f));
+      }
+    }
+  }
+  for (const [token, file] of undefinedRefs) {
+    errors.push(`undefined CSS token ${token} referenced without fallback (e.g. ${file})`);
+  }
+}
+
 // ---------------------------------------------------------------- token discipline (warn-only ratchet)
 if (existsSync(SRC)) {
   const srcFiles = await findFiles(SRC, ['.astro'], [], SRC);

@@ -192,7 +192,7 @@ const topics = topicOrder.filter((key) => topicCounts.has(key));
   .guides-teaser a {
     display: inline-flex;
     align-items: center;
-    color: var(--primary-light);
+    color: var(--link-color);
     font-weight: 600;
     text-decoration: none;
   }
@@ -224,12 +224,12 @@ const topics = topicOrder.filter((key) => topicCounts.has(key));
   }
 
   .chip:hover {
-    border-color: var(--eflury-teal);
-    color: var(--eflury-teal);
+    border-color: var(--teal-text);
+    color: var(--teal-text);
   }
 
   .chip.active {
-    background: var(--eflury-navy);
+    background: var(--surface-navy);
     border-color: var(--eflury-navy);
     color: var(--eflury-white);
   }
@@ -320,12 +320,12 @@ const topics = topicOrder.filter((key) => topicCounts.has(key));
   }
 
   .post-meta :global(svg) {
-    color: var(--eflury-teal);
+    color: var(--teal-text);
     opacity: 0.6;
   }
 
   .topic-badge {
-    color: var(--eflury-teal);
+    color: var(--teal-text);
     font-weight: 700;
   }
 
@@ -362,7 +362,7 @@ const topics = topicOrder.filter((key) => topicCounts.has(key));
 
   .post-card:hover .read-more {
     gap: 0.75rem;
-    color: var(--eflury-teal);
+    color: var(--teal-text);
   }
 
   .read-more :global(svg) {
@@ -376,7 +376,7 @@ const topics = topicOrder.filter((key) => topicCounts.has(key));
   /* CTA Section */
   .cta {
     padding: 4rem 0;
-    background: var(--eflury-navy);
+    background: var(--surface-navy);
     text-align: center;
   }
 
@@ -397,7 +397,7 @@ const topics = topicOrder.filter((key) => topicCounts.has(key));
     align-items: center;
     gap: 0.5rem;
     padding: 1rem 2rem;
-    background: var(--eflury-teal);
+    background: var(--action-teal);
     color: var(--eflury-white);
     border-radius: var(--radius-md);
     font-weight: 600;
