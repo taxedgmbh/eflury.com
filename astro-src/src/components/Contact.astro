@@ -145,7 +145,7 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
           <div id="turnstile-error" class="field-error" role="alert" aria-live="polite"></div>
         </div>
 
-        <button type="submit" class="btn btn-primary" id="submitBtn" disabled aria-label={t('contact.form.submit')}>
+        <button type="submit" class="btn btn-primary" id="submitBtn" aria-label={t('contact.form.submit')}>
           <span class="btn-text">{t('contact.form.submit')}</span>
           <Send size={18} class="btn-icon" />
           <span class="btn-loader" aria-hidden="true"></span>
@@ -788,9 +788,6 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
   // Global callbacks for Turnstile
   (window as any).onTurnstileSuccess = (token: string) => {
     turnstileToken = token;
-    if (submitButton) {
-      submitButton.disabled = false;
-    }
     if (turnstileError) {
       turnstileError.textContent = '';
       turnstileError.style.opacity = '0';
@@ -799,9 +796,6 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
 
   (window as any).onTurnstileExpired = () => {
     turnstileToken = null;
-    if (submitButton) {
-      submitButton.disabled = true;
-    }
     if (turnstileError) {
       turnstileError.textContent = lang === 'de'
         ? 'Verifizierung abgelaufen. Bitte erneut bestätigen.'
@@ -814,12 +808,15 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
     form.addEventListener('submit', async (e) => {
       e.preventDefault();
 
-      // Check Turnstile verification
-      if (!turnstileToken) {
+      // Turnstile gate: if the widget loaded but has no token yet, ask the
+      // user to complete it. If the script never loaded at all (ad-blocker,
+      // network), fail open — the token is client-side only and HubSpot
+      // applies its own spam filtering.
+      if (!turnstileToken && (window as any).turnstile) {
         if (turnstileError) {
           turnstileError.textContent = lang === 'de'
-            ? 'Bitte bestätigen Sie, dass Sie kein Roboter sind.'
-            : 'Please verify that you are not a robot.';
+            ? 'Bitte bestätigen Sie unten, dass Sie kein Roboter sind.'
+            : 'Please complete the verification below.';
           turnstileError.style.opacity = '1';
         }
         return;
@@ -867,7 +864,7 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
           ? 'Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt an me@eflury.com'
           : 'Failed to send message. Please try again or email me directly at me@eflury.com';
       } finally {
-        submitButton.disabled = !turnstileToken;
+        submitButton.disabled = false;
         submitButton.classList.remove('loading');
         if (btnText) btnText.textContent = originalText;
       }
