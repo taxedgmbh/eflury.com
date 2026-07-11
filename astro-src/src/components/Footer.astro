@@ -666,8 +666,8 @@ const legalLinks = [
 
         newsletterStatus.className = 'newsletter-status success';
         newsletterStatus.textContent = lang === 'de'
-          ? 'Abonniert! Ihre Playbooks warten:'
-          : 'Subscribed! Your playbooks are waiting:';
+          ? 'Fast geschafft — bitte bestätigen Sie kurz über die soeben gesendete E-Mail. Ihre Playbooks:'
+          : 'Almost done — please confirm via the email we just sent. Your playbooks:';
         newsletterForm.reset();
         newsletterForm.hidden = true;
         const micro = document.querySelector('.newsletter-micro') as HTMLElement | null;

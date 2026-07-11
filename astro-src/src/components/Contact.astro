@@ -1022,7 +1022,7 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
           { email: lastSubmittedEmail },
           'Newsletter opt-in after contact'
         );
-        subscribeAfter.textContent = lang === 'de' ? 'Abonniert ✓' : 'Subscribed ✓';
+        subscribeAfter.textContent = lang === 'de' ? 'Bestätigungs-E-Mail gesendet ✓' : 'Confirmation email sent ✓';
         if ((window as any).trackEvent) {
           (window as any).trackEvent('Conversion', 'newsletter_subscribe', 'After contact');
         }
