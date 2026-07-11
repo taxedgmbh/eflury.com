@@ -774,14 +774,7 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
 <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
 
 <script>
-  import emailjs from '@emailjs/browser';
-
-  // Initialize EmailJS with public key from environment
-  const emailjsKey = import.meta.env.PUBLIC_EMAILJS_KEY || 't1Qe1Zg5U3m8sqLGE';
-  const emailjsServiceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID || 'service_7o5qkdh';
-  const emailjsTemplateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID || 'template_yw4ehjl';
-
-  emailjs.init(emailjsKey);
+  import { submitHubSpotForm, HUBSPOT_FORMS } from '../scripts/hubspot-forms';
 
   const form = document.getElementById('contactForm') as HTMLFormElement;
   const formStatus = document.getElementById('formStatus') as HTMLDivElement;
@@ -840,13 +833,15 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
       if (btnText) btnText.textContent = lang === 'de' ? 'Wird gesendet...' : 'Sending...';
 
       try {
-        const result = await emailjs.sendForm(
-          emailjsServiceId,
-          emailjsTemplateId,
-          form
-        );
+        const name = (form.querySelector('#name') as HTMLInputElement)?.value?.trim() || '';
+        const email = (form.querySelector('#email') as HTMLInputElement)?.value?.trim() || '';
+        const message = (form.querySelector('#message') as HTMLTextAreaElement)?.value?.trim() || '';
 
-        console.log('EmailJS Success:', result);
+        await submitHubSpotForm(
+          HUBSPOT_FORMS.contact,
+          { firstname: name, email, message },
+          'Contact form'
+        );
 
         formStatus.className = 'form-status success';
         formStatus.textContent = lang === 'de'
@@ -865,18 +860,12 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
           (window as any).trackEvent('Conversion', 'contact_form_submit', 'Contact Form');
         }
       } catch (error: any) {
-        console.error('EmailJS Error:', error);
-
-        let errorMessage = lang === 'de'
-          ? 'Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt an me@eflury.com'
-          : 'Failed to send message. Please try again or email me directly at me@eflury.com';
-
-        if (error?.text) {
-          console.error('EmailJS Error Details:', error.text);
-        }
+        console.error('Contact form submission error:', error);
 
         formStatus.className = 'form-status error';
-        formStatus.textContent = errorMessage;
+        formStatus.textContent = lang === 'de'
+          ? 'Nachricht konnte nicht gesendet werden. Bitte versuchen Sie es erneut oder schreiben Sie mir direkt an me@eflury.com'
+          : 'Failed to send message. Please try again or email me directly at me@eflury.com';
       } finally {
         submitButton.disabled = !turnstileToken;
         submitButton.classList.remove('loading');
