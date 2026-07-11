@@ -140,39 +140,6 @@
       "form_description": "Nachricht hinterlassen"
     }
   },
-  "footer": {
-    "tagline": "Agentic AI Training & Setup",
-    "description": "Schweizer KMUs bei funktionierender KI unterstützen.",
-    "company_details": "eFlury Consulting · Einzelfirma",
-    "swiss_quality": "Schweizer Qualität",
-    "sections": {
-      "quick_links": "Schnelllinks",
-      "services": "Leistungen",
-      "legal": "Rechtliches",
-      "connect": "Verbinden"
-    },
-    "links": {
-      "home": "Home",
-      "services": "Leistungen",
-      "contact": "Kontakt",
-      "privacy": "Datenschutz",
-      "terms": "Nutzungsbedingungen",
-      "cookies": "Cookie-Richtlinie"
-    },
-    "services_list": {
-      "training": "KI-Schulung",
-      "setup": "Workflow-Einrichtung",
-      "support": "Laufende Betreuung"
-    },
-    "copyright": "© {year} Emanuel Flury. Alle Rechte vorbehalten.",
-    "made_with": "Made in Switzerland",
-    "newsletter": {
-      "title": "KI-Tipps für KMU",
-      "subtitle": "Monatlich, kostenlos",
-      "placeholder": "ihre@email.com",
-      "button": "Anmelden"
-    }
-  },
   "common": {
     "read_more": "Mehr erfahren",
     "learn_more": "Mehr erfahren",
