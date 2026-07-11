@@ -126,39 +126,6 @@
       "availability": "Available for Swiss projects"
     }
   },
-  "footer": {
-    "tagline": "Agentic AI Training & Setup",
-    "description": "Helping Swiss SMEs implement AI that works.",
-    "company_details": "eFlury Consulting · Sole Proprietorship",
-    "swiss_quality": "Swiss Quality",
-    "sections": {
-      "quick_links": "Quick Links",
-      "services": "Services",
-      "legal": "Legal",
-      "connect": "Connect"
-    },
-    "links": {
-      "home": "Home",
-      "services": "Services",
-      "contact": "Contact",
-      "privacy": "Privacy Policy",
-      "terms": "Terms of Service",
-      "cookies": "Cookie Policy"
-    },
-    "services_list": {
-      "training": "AI Training",
-      "setup": "Workflow Setup",
-      "support": "Ongoing Support"
-    },
-    "copyright": "© {year} Emanuel Flury. All rights reserved.",
-    "made_with": "Made in Switzerland",
-    "newsletter": {
-      "title": "AI Tips for SMEs",
-      "subtitle": "Monthly, free",
-      "placeholder": "your@email.com",
-      "button": "Subscribe"
-    }
-  },
   "common": {
     "read_more": "Read More",
     "learn_more": "Learn More",
