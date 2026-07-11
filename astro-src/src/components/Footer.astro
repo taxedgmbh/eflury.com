@@ -468,14 +468,7 @@ const legalLinks = [
 </style>
 
 <script>
-  import emailjs from '@emailjs/browser';
-
-  // Initialize EmailJS with public key from environment
-  const emailjsKey = import.meta.env.PUBLIC_EMAILJS_KEY || 't1Qe1Zg5U3m8sqLGE';
-  const emailjsServiceId = import.meta.env.PUBLIC_EMAILJS_SERVICE_ID || 'service_7o5qkdh';
-  const emailjsTemplateId = import.meta.env.PUBLIC_EMAILJS_TEMPLATE_ID || 'template_yw4ehjl';
-
-  emailjs.init(emailjsKey);
+  import { submitHubSpotForm, HUBSPOT_FORMS } from '../scripts/hubspot-forms';
 
   const newsletterForm = document.getElementById('newsletterForm') as HTMLFormElement;
   const newsletterStatus = document.getElementById('newsletter-status') as HTMLDivElement;
@@ -502,11 +495,7 @@ const legalLinks = [
       newsletterSubmit.textContent = '...';
 
       try {
-        await emailjs.send(emailjsServiceId, emailjsTemplateId, {
-          name: 'Newsletter Subscriber',
-          email: email,
-          message: `New newsletter subscription request from: ${email}`,
-        });
+        await submitHubSpotForm(HUBSPOT_FORMS.newsletter, { email }, 'Newsletter signup (footer)');
 
         newsletterStatus.className = 'newsletter-status success';
         newsletterStatus.textContent = lang === 'de'
@@ -518,7 +507,7 @@ const legalLinks = [
           (window as any).trackEvent('Conversion', 'newsletter_subscribe', 'Newsletter');
         }
       } catch (error) {
-        console.error('Newsletter EmailJS Error:', error);
+        console.error('Newsletter subscription error:', error);
         newsletterStatus.className = 'newsletter-status error';
         newsletterStatus.textContent = lang === 'de'
           ? 'Fehler beim Abonnieren. Bitte versuchen Sie es erneut.'

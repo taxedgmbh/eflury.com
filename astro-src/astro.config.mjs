@@ -22,9 +22,6 @@ export default defineConfig({
               if (id.includes('three')) {
                 return 'three';
               }
-              if (id.includes('emailjs')) {
-                return 'emailjs';
-              }
               if (id.includes('gsap')) {
                 return 'gsap';
               }
