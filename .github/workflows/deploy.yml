@@ -37,7 +37,8 @@ jobs:
         run: npm run build
 
       - name: Copy dist to repo root
-        run: cp -R astro-src/dist/* .
+        # dist/. (not dist/*) so dotfiles like .htaccess are included
+        run: cp -R astro-src/dist/. .
 
       - name: Commit and push built files
         run: |
