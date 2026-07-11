@@ -1,77 +1,664 @@
 ---
-import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
+import MainLayout from '../../layouts/MainLayout.astro';
+import Header from '../../components/Header.astro';
+import Breadcrumbs from '../../components/Breadcrumbs.astro';
+import Footer from '../../components/Footer.astro';
+import AIChatbot from '../../components/AIChatbot.astro';
+import {
+  Search, DraftingCompass, Wrench, Rocket, Activity,
+  Flag, Users, CheckCircle2, ArrowRight,
+  FileText, BookOpen, ClipboardCheck, PhoneCall, Unlock,
+  Banknote, UserCheck, FileCheck,
+} from 'lucide-astro';
 
 const lang = 'de';
+
+const phases = [
+  {
+    icon: Search,
+    name: 'Discovery',
+    week: 'Woche 1',
+    goal: 'Verstehen, wo Automatisierung wirklich Wert schafft — bevor über Technik gesprochen wird.',
+    deliverables: [
+      'Prozessinventar mit Zeitaufwand-Bewertung',
+      'Priorisierte Automatisierungs-Roadmap',
+      'ROI-Prognose je Vorhaben',
+    ],
+    gate: 'Gemeinsamer Go/No-Go-Entscheid auf Basis der Zahlen — auch ein «No-Go» ist ein sauberes Ergebnis.',
+    contribution: '2–3 Stunden Interviews mit den betroffenen Mitarbeitenden, Lesezugriff auf die relevanten Systeme.',
+    product: { label: 'Einzeln buchbar: KI-Audit — CHF 4’900, voll angerechnet', href: '/de/services/ki-audit/' },
+  },
+  {
+    icon: DraftingCompass,
+    name: 'Design',
+    week: 'Woche 2',
+    goal: 'Die Lösung vollständig entwerfen, bevor eine Zeile gebaut wird.',
+    deliverables: [
+      'Lösungs-Blueprint (Skills, MCP-Konnektoren, Datenflüsse, Freigabe-Gates)',
+      'Schriftliche Abnahmekriterien',
+      'Sicherheits- und Datenschutzkonzept gemäss unseren publizierten Standards',
+    ],
+    gate: 'Ihre Freigabe des Blueprints — erst danach beginnt die Entwicklung.',
+    contribution: 'Ein Review-Meeting, Entscheid über offene Designfragen.',
+    product: null,
+  },
+  {
+    icon: Wrench,
+    name: 'Development',
+    week: 'Wochen 3–5',
+    goal: 'Bauen und mit Ihren echten Daten testen — nicht mit Demo-Daten.',
+    deliverables: [
+      'Die Skills und Konnektoren selbst',
+      'Testprotokoll gegen die Abnahmekriterien aus Phase 2',
+      'Technische Dokumentation',
+    ],
+    gate: 'Abnahmetest bestanden — gemessen an den vorab vereinbarten Kriterien, nicht an unserem Eindruck.',
+    contribution: 'Testdaten, Feedback in zwei kurzen Review-Runden.',
+    product: null,
+  },
+  {
+    icon: Rocket,
+    name: 'Deployment',
+    week: 'Woche 6',
+    goal: 'Produktivbetrieb mit einem Team, das das System versteht.',
+    deliverables: [
+      'Team-Training',
+      'Betriebs-Runbook (Bedienung, Grenzfälle, Eskalation)',
+      'Begleiteter Go-Live',
+    ],
+    gate: 'Produktiver Betrieb ohne unsere tägliche Beteiligung.',
+    contribution: 'Team-Zeit für das Training (typisch ein halber Tag).',
+    product: null,
+  },
+  {
+    icon: Activity,
+    name: 'Optimization',
+    week: 'Laufend',
+    goal: 'Messen, ob die versprochenen Resultate eintreten — und nachschärfen.',
+    deliverables: [
+      'Kennzahlen-Report (Zeitersparnis, Fehlerquoten, Nutzung)',
+      'Priorisiertes Verbesserungs-Backlog',
+    ],
+    gate: null,
+    contribution: 'Ein kurzes Review pro Monat.',
+    product: { label: 'Als Service verfügbar: Managed AI Operations — ab CHF 1’200/Monat', href: '/de/services/ki-betrieb/' },
+  },
+];
+
+const governance = [
+  { icon: FileText, title: 'Wöchentlicher schriftlicher Statusbericht', text: 'Erledigt, geplant, Risiken. Kein Rätselraten über den Projektstand.' },
+  { icon: BookOpen, title: 'Entscheidungs-Log', text: 'Jede relevante Entscheidung mit Datum und Begründung festgehalten.' },
+  { icon: ClipboardCheck, title: 'Abnahmekriterien vor dem Bau', text: 'Vereinbart in Phase 2, gemessen in Phase 3.' },
+  { icon: PhoneCall, title: 'Klarer Eskalationsweg', text: 'Sie wissen, wen Sie erreichen und wie schnell.' },
+  { icon: Unlock, title: 'Kein Lock-in', text: 'Vollständige Dokumentation und Training gehören zur Übergabe. Sie können jederzeit ohne uns weiterbetreiben.' },
+];
+
+const principles = [
+  { icon: Banknote, title: 'Fixpreis statt Tagessatz', text: 'Sie kennen die Kosten, bevor wir starten — transparente Pakete.', href: '/de/pricing/', linkLabel: 'Zu den Preisen' },
+  { icon: UserCheck, title: 'Human-in-the-Loop', text: 'KI schlägt vor, Menschen entscheiden — bei uns wie in Ihren künftigen Systemen.', href: null, linkLabel: null },
+  { icon: FileCheck, title: 'Alles dokumentiert', text: 'Was nicht aufgeschrieben ist, existiert nicht.', href: null, linkLabel: null },
+];
 ---
 
-<ContentPageLayout
+<MainLayout
   title="Die eflury Method™ - eFlury Consulting"
   description="Das dokumentierte 5-Phasen-Framework hinter jedem Projekt: Ziele, benannte Deliverables, Entscheidungs-Gates und Ihr Beitrag pro Phase."
+  keywords="eflury Method, Methodik, KI-Projekt Vorgehen, Deliverables, Projektphasen, Entscheidungs-Gates, Schweizer KMU"
   lang={lang}
-  heroTitle="Die eflury Method™"
-  heroSubtitle="Jedes Projekt folgt demselben dokumentierten Framework — hier steht es vollständig"
-  lastUpdated="5. Juli 2026"
-  keywords="eflury Method, Methodik, KI-Projekt Vorgehen, Deliverables, Projektphasen, Schweizer KMU"
 >
-  <p>Grosse Beratungen verkaufen Methodik als Verkaufsfolie. Wir veröffentlichen unsere: fünf Phasen, jede mit klarem Ziel, benannten Deliverables, einem Entscheidungs-Gate — und dem, was wir dafür von Ihnen brauchen. Kein Projekt beginnt eine Phase, bevor das Gate der vorherigen genommen ist.</p>
+  <Header lang={lang} />
 
-  <h2>Phase 1 — Discovery <em>(Woche 1)</em></h2>
-  <p><strong>Ziel:</strong> Verstehen, wo Automatisierung wirklich Wert schafft — bevor über Technik gesprochen wird.</p>
-  <ul>
-    <li><strong>Deliverables:</strong> Prozessinventar mit Zeitaufwand-Bewertung · priorisierte Automatisierungs-Roadmap · ROI-Prognose je Vorhaben</li>
-    <li><strong>Gate:</strong> gemeinsamer Go/No-Go-Entscheid auf Basis der Zahlen — auch ein «No-Go» ist ein sauberes Ergebnis</li>
-    <li><strong>Ihr Beitrag:</strong> 2–3 Stunden Interviews mit den betroffenen Mitarbeitenden, Lesezugriff auf die relevanten Systeme</li>
-  </ul>
+  <Breadcrumbs lang={lang} items={[{ label: 'Unsere Methode' }]} />
 
-  <h2>Phase 2 — Design <em>(Woche 2)</em></h2>
-  <p><strong>Ziel:</strong> Die Lösung vollständig entwerfen, bevor eine Zeile gebaut wird.</p>
-  <ul>
-    <li><strong>Deliverables:</strong> Lösungs-Blueprint (Skills, MCP-Konnektoren, Datenflüsse, Freigabe-Gates) · schriftliche Abnahmekriterien · Sicherheits- und Datenschutzkonzept gemäss <a href="/de/sicherheit/">unseren Standards</a></li>
-    <li><strong>Gate:</strong> Ihre Freigabe des Blueprints — erst danach beginnt die Entwicklung</li>
-    <li><strong>Ihr Beitrag:</strong> ein Review-Meeting, Entscheid über offene Designfragen</li>
-  </ul>
+  <main class="method-page">
+    <section class="method-hero">
+      <div class="container">
+        <span class="hero-badge">Advise · Build · Run</span>
+        <h1>Die eflury Method™</h1>
+        <p class="lead">
+          Grosse Beratungen verkaufen Methodik als Verkaufsfolie. Wir veröffentlichen unsere: fünf Phasen,
+          jede mit klarem Ziel, benannten Deliverables, einem Entscheidungs-Gate — und dem, was wir dafür von Ihnen brauchen.
+          <strong>Kein Projekt beginnt eine Phase, bevor das Gate der vorherigen genommen ist.</strong>
+        </p>
+      </div>
+    </section>
 
-  <h2>Phase 3 — Development <em>(Wochen 3–5)</em></h2>
-  <p><strong>Ziel:</strong> Bauen und mit Ihren echten Daten testen — nicht mit Demo-Daten.</p>
-  <ul>
-    <li><strong>Deliverables:</strong> die Skills und Konnektoren selbst · Testprotokoll gegen die Abnahmekriterien aus Phase 2 · technische Dokumentation</li>
-    <li><strong>Gate:</strong> Abnahmetest bestanden — gemessen an den vorab vereinbarten Kriterien, nicht an unserem Eindruck</li>
-    <li><strong>Ihr Beitrag:</strong> Testdaten, Feedback in zwei kurzen Review-Runden</li>
-  </ul>
+    <section class="timeline">
+      <div class="container">
+        <ol class="phase-list">
+          {phases.map((phase, i) => (
+            <li class="phase-item">
+              <div class="phase-rail">
+                <span class="phase-node">{i + 1}</span>
+                {i < phases.length - 1 && <span class="phase-line" aria-hidden="true"></span>}
+              </div>
+              <article class="phase-card">
+                <header class="phase-head">
+                  <span class="phase-icon"><phase.icon size={20} /></span>
+                  <h2>{phase.name}</h2>
+                  <span class="phase-week">{phase.week}</span>
+                </header>
+                <p class="phase-goal">{phase.goal}</p>
+                <ul class="phase-deliverables">
+                  {phase.deliverables.map((d) => (
+                    <li><CheckCircle2 size={15} /> {d}</li>
+                  ))}
+                </ul>
+                {phase.gate && (
+                  <div class="phase-gate">
+                    <Flag size={15} />
+                    <span><strong>Gate:</strong> {phase.gate}</span>
+                  </div>
+                )}
+                <div class="phase-contribution">
+                  <Users size={14} />
+                  <span><strong>Ihr Beitrag:</strong> {phase.contribution}</span>
+                </div>
+                {phase.product && (
+                  <a href={phase.product.href} class="phase-product">
+                    {phase.product.label} <ArrowRight size={13} />
+                  </a>
+                )}
+              </article>
+            </li>
+          ))}
+        </ol>
+      </div>
+    </section>
 
-  <h2>Phase 4 — Deployment <em>(Woche 6)</em></h2>
-  <p><strong>Ziel:</strong> Produktivbetrieb mit einem Team, das das System versteht.</p>
-  <ul>
-    <li><strong>Deliverables:</strong> Team-Training · Betriebs-Runbook (Bedienung, Grenzfälle, Eskalation) · begleiteter Go-Live</li>
-    <li><strong>Gate:</strong> produktiver Betrieb ohne unsere tägliche Beteiligung</li>
-    <li><strong>Ihr Beitrag:</strong> Team-Zeit für das Training (typisch ein halber Tag)</li>
-  </ul>
+    <section class="governance">
+      <div class="container">
+        <h2 class="section-title">So führen wir Projekte</h2>
+        <p class="section-lead">Jedes Projekt erhält, unabhängig von seiner Grösse:</p>
+        <div class="gov-grid">
+          {governance.map(({ icon: Icon, title, text }) => (
+            <div class="gov-card">
+              <span class="gov-icon"><Icon size={20} /></span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-  <h2>Phase 5 — Optimization <em>(laufend)</em></h2>
-  <p><strong>Ziel:</strong> Messen, ob die versprochenen Resultate eintreten — und nachschärfen.</p>
-  <ul>
-    <li><strong>Deliverables:</strong> Kennzahlen-Report (Zeitersparnis, Fehlerquoten, Nutzung) · priorisiertes Verbesserungs-Backlog</li>
-    <li><strong>Ihr Beitrag:</strong> ein kurzes Review pro Monat</li>
-  </ul>
+    <section class="principles">
+      <div class="container">
+        <h2 class="section-title">Die Prinzipien dahinter</h2>
+        <div class="principle-grid">
+          {principles.map(({ icon: Icon, title, text, href, linkLabel }) => (
+            <div class="principle-card">
+              <span class="principle-icon"><Icon size={22} /></span>
+              <h3>{title}</h3>
+              <p>{text}</p>
+              {href && (
+                <a href={href} class="card-link">{linkLabel} <ArrowRight size={14} /></a>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
 
-  <h2>So führen wir Projekte</h2>
-  <div class="info-box">
-    <p>Jedes Projekt erhält, unabhängig von seiner Grösse:</p>
-    <ul>
-      <li><strong>Wöchentlicher schriftlicher Statusbericht</strong> — erledigt, geplant, Risiken. Kein Rätselraten über den Projektstand.</li>
-      <li><strong>Entscheidungs-Log</strong> — jede relevante Entscheidung mit Datum und Begründung festgehalten.</li>
-      <li><strong>Abnahmekriterien vor dem Bau</strong> — vereinbart in Phase 2, gemessen in Phase 3.</li>
-      <li><strong>Klarer Eskalationsweg</strong> — Sie wissen, wen Sie erreichen und wie schnell.</li>
-      <li><strong>Kein Lock-in</strong> — vollständige Dokumentation und Training gehören zur Übergabe. Sie können jederzeit ohne uns weiterbetreiben.</li>
-    </ul>
-  </div>
+    <section class="cta">
+      <div class="container">
+        <h2>Fragen zum Vorgehen?</h2>
+        <p>Buchen Sie ein kostenloses 30-Minuten-Gespräch — wir gehen die Methode an Ihrem konkreten Fall durch.</p>
+        <a href="/de/kontakt/" class="btn-primary">
+          Kontakt aufnehmen
+          <ArrowRight size={18} />
+        </a>
+      </div>
+    </section>
+  </main>
 
-  <h2>Die Prinzipien dahinter</h2>
-  <ul>
-    <li><strong>Fixpreis statt Tagessatz:</strong> Sie kennen die Kosten, bevor wir starten — <a href="/de/pricing/">transparente Pakete</a>.</li>
-    <li><strong>Human-in-the-Loop:</strong> KI schlägt vor, Menschen entscheiden — bei uns wie in Ihren künftigen Systemen.</li>
-    <li><strong>Alles dokumentiert:</strong> Was nicht aufgeschrieben ist, existiert nicht.</li>
-  </ul>
+  <Footer lang={lang} />
+  <AIChatbot />
+</MainLayout>
 
-  <p>Fragen zum Vorgehen? <a href="/de/#contact">Buchen Sie ein kostenloses 30-Minuten-Gespräch</a> — wir gehen die Methode an Ihrem konkreten Fall durch.</p>
-</ContentPageLayout>
+<style>
+  .container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  .method-hero {
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+    border-bottom: 1px solid var(--border-color);
+    text-align: center;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(13, 148, 136, 0.1);
+    color: var(--eflury-teal);
+    border-radius: 100px;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+
+  .method-hero h1 {
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .method-hero .lead {
+    font-size: 1.15rem;
+    line-height: 1.65;
+    color: var(--text-secondary);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  /* Timeline */
+  .timeline {
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-primary);
+  }
+
+  .phase-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .phase-item {
+    display: flex;
+    gap: var(--spacing-lg);
+  }
+
+  .phase-rail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    width: 44px;
+  }
+
+  .phase-node {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: var(--radius-full);
+    background: var(--eflury-teal);
+    color: var(--eflury-white);
+    font-weight: 800;
+    font-size: 1.1rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .phase-line {
+    flex: 1;
+    width: 2px;
+    background: var(--primary-100);
+    margin: 6px 0;
+  }
+
+  .phase-card {
+    flex: 1;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .phase-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: var(--spacing-md);
+  }
+
+  .phase-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: rgba(13, 148, 136, 0.1);
+    color: var(--eflury-teal);
+    flex-shrink: 0;
+  }
+
+  .phase-head h2 {
+    font-size: 1.35rem;
+    font-weight: 800;
+    letter-spacing: -0.01em;
+    color: var(--text-primary);
+    margin: 0;
+    flex: 1;
+  }
+
+  .phase-week {
+    padding: 0.3rem 0.8rem;
+    border-radius: var(--radius-full);
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--text-secondary);
+    white-space: nowrap;
+  }
+
+  .phase-goal {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    margin: 0 0 var(--spacing-md);
+  }
+
+  .phase-deliverables {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 var(--spacing-md);
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  .phase-deliverables li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--text-secondary);
+  }
+
+  .phase-deliverables :global(svg) {
+    color: var(--eflury-teal);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .phase-gate {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    padding: 0.75rem 1rem;
+    background: rgba(13, 148, 136, 0.07);
+    border-left: 3px solid var(--eflury-teal);
+    border-radius: var(--radius-sm);
+    font-size: 0.92rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .phase-gate :global(svg) {
+    color: var(--eflury-teal);
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .phase-contribution {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.875rem;
+    line-height: 1.5;
+    color: var(--text-tertiary);
+  }
+
+  .phase-contribution :global(svg) {
+    flex-shrink: 0;
+    margin-top: 3px;
+  }
+
+  .phase-product {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    margin-top: var(--spacing-md);
+    padding: 0.5rem 0.9rem;
+    background: var(--eflury-navy);
+    border-radius: var(--radius-md);
+    color: var(--eflury-white);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-decoration: none;
+    transition: background var(--transition-fast);
+  }
+
+  .phase-product:hover {
+    background: var(--eflury-teal);
+  }
+
+  /* Governance */
+  .governance {
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-secondary);
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .section-lead {
+    text-align: center;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    margin: 0 0 var(--spacing-xl);
+  }
+
+  .gov-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: var(--spacing-md);
+  }
+
+  .gov-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    box-shadow: var(--shadow-xs);
+  }
+
+  .gov-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 38px;
+    height: 38px;
+    border-radius: var(--radius-md);
+    background: rgba(13, 148, 136, 0.1);
+    color: var(--eflury-teal);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .gov-card h3 {
+    font-size: 0.98rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.35rem;
+  }
+
+  .gov-card p {
+    font-size: 0.875rem;
+    line-height: 1.55;
+    color: var(--text-secondary);
+    margin: 0;
+  }
+
+  /* Principles */
+  .principles {
+    padding: var(--spacing-3xl) 0;
+    background: var(--bg-primary);
+  }
+
+  .principles .section-title {
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .principle-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-lg);
+  }
+
+  .principle-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-xl);
+    box-shadow: var(--shadow-sm);
+    text-align: center;
+    align-items: center;
+  }
+
+  .principle-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    border-radius: var(--radius-full);
+    background: rgba(13, 148, 136, 0.1);
+    color: var(--eflury-teal);
+    margin-bottom: var(--spacing-md);
+  }
+
+  .principle-card h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.4rem;
+  }
+
+  .principle-card p {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 var(--spacing-sm);
+    flex-grow: 1;
+  }
+
+  .card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    color: var(--primary-light);
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-decoration: none;
+  }
+
+  .card-link:hover {
+    text-decoration: underline;
+  }
+
+  /* CTA */
+  .cta {
+    padding: var(--spacing-3xl) 0;
+    background: var(--eflury-navy);
+    text-align: center;
+  }
+
+  .cta h2 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    color: var(--eflury-white);
+    margin-bottom: var(--spacing-sm);
+  }
+
+  .cta p {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 1.05rem;
+    margin-bottom: var(--spacing-xl);
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 1rem 2rem;
+    background: var(--eflury-teal);
+    color: var(--eflury-white);
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    transition: all var(--transition-base);
+  }
+
+  .btn-primary:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+  }
+
+  @media (max-width: 900px) {
+    .principle-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 1.25rem;
+    }
+
+    .method-hero {
+      padding: var(--spacing-2xl) 0 var(--spacing-xl);
+    }
+
+    .method-hero .lead {
+      font-size: 1rem;
+    }
+
+    .timeline,
+    .governance,
+    .principles {
+      padding: var(--spacing-2xl) 0;
+    }
+
+    .phase-item {
+      gap: var(--spacing-md);
+    }
+
+    .phase-rail {
+      width: 36px;
+    }
+
+    .phase-node {
+      width: 36px;
+      height: 36px;
+      font-size: 0.95rem;
+    }
+
+    .phase-card {
+      padding: var(--spacing-lg);
+      margin-bottom: var(--spacing-lg);
+    }
+
+    .phase-head {
+      flex-wrap: wrap;
+    }
+
+    .phase-head h2 {
+      font-size: 1.15rem;
+    }
+  }
+</style>
