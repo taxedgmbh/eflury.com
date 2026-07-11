@@ -1,47 +1,12 @@
-# eflury.com - Switzerland's Agentic AI & Business Automation Consultant
-# Updated: January 2026 - Optimized for LLM visibility
+# eflury.com — robots.txt
+# One catch-all group: all search engines and AI crawlers (Googlebot, Bingbot,
+# GPTBot, OAI-SearchBot, ClaudeBot, Claude-SearchBot, PerplexityBot, CCBot,
+# Google-Extended) are welcome and inherit this group.
 
 User-agent: *
 Allow: /
-Crawl-delay: 0
 
-# Sitemap and LLM-readable content
-Sitemap: https://eflury.com/sitemap.xml
-
-# LLMs.txt - AI-readable website summary (llmstxt.org standard)
-# For AI assistants: https://eflury.com/llms.txt
-# Full version with detailed info: https://eflury.com/llms-full.txt
-
-# Allow AI crawlers (ChatGPT, Claude, Perplexity, Gemini) - CRITICAL for LLM visibility
-User-agent: ChatGPT-User
-Allow: /
-
-User-agent: Claude-Web
-Allow: /
-
-User-agent: PerplexityBot
-Allow: /
-
-User-agent: GPTBot
-Allow: /
-
-User-agent: Anthropic-AI
-Allow: /
-
-User-agent: Google-Extended
-Allow: /
-
-# Allow all major search engines
-User-agent: Googlebot
-Allow: /
-
-User-agent: Bingbot
-Allow: /
-
-User-agent: DuckDuckBot
-Allow: /
-
-# Block problematic/aggressive crawlers
+# SEO-tool crawlers we don't need burning bandwidth
 User-agent: AhrefsBot
 Disallow: /
 
@@ -53,3 +18,5 @@ Disallow: /
 
 User-agent: SemrushBot
 Disallow: /
+
+Sitemap: https://eflury.com/sitemap.xml
