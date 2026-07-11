@@ -21,10 +21,16 @@ const t = {
   resources: de ? 'Ressourcen' : 'Resources',
   newsletterTitle: de ? 'KI-Tipps für KMU' : 'AI Tips for SMEs',
   newsletterSubtitle: de
-    ? 'Ein praxisnaher Impuls pro Monat. Kostenlos, jederzeit abbestellbar.'
-    : 'One practical insight per month. Free, unsubscribe anytime.',
+    ? 'Ein praxisnaher Impuls pro Monat — plus direkter Zugang zu unseren drei Playbooks.'
+    : 'One practical insight per month — plus instant access to our three playbooks.',
+  newsletterChips: de
+    ? ['EU AI Act', 'revDSG & Schatten-KI', 'Datenqualität']
+    : ['EU AI Act', 'revDSG & Shadow AI', 'Data Quality'],
   newsletterPlaceholder: de ? 'ihre@email.ch' : 'your@email.com',
   newsletterButton: de ? 'Abonnieren' : 'Subscribe',
+  newsletterMicro: de ? 'Kostenlos. Kein Spam. Jederzeit abbestellbar.' : 'Free. No spam. Unsubscribe anytime.',
+  newsletterPrivacy: de ? 'Datenschutz' : 'Privacy',
+  newsletterSuccessCta: de ? 'Zu Ihren Playbooks' : 'Get your playbooks',
   rights: de ? 'Alle Rechte vorbehalten.' : 'All rights reserved.',
   companyLine: de
     ? 'eFlury Consulting · Einzelfirma · Grenchen, Schweiz'
@@ -121,24 +127,38 @@ const legalLinks = [
       <div class="newsletter-copy">
         <h4>{t.newsletterTitle}</h4>
         <p>{t.newsletterSubtitle}</p>
+        <div class="newsletter-chips">
+          {t.newsletterChips.map((chip) => (
+            <span class="nl-chip">{chip}</span>
+          ))}
+        </div>
       </div>
-      <form class="newsletter-form" id="newsletterForm">
-        <input
-          type="email"
-          id="newsletter-email"
-          name="email"
-          placeholder={t.newsletterPlaceholder}
-          class="newsletter-input"
-          autocomplete="email"
-          inputmode="email"
-          aria-label={t.newsletterTitle}
-          required
-        />
-        <button type="submit" class="newsletter-button" id="newsletter-submit">
-          {t.newsletterButton}
-        </button>
-      </form>
-      <div id="newsletter-status" class="newsletter-status" role="status" aria-live="polite"></div>
+      <div class="newsletter-action">
+        <form class="newsletter-form" id="newsletterForm">
+          <input
+            type="email"
+            id="newsletter-email"
+            name="email"
+            placeholder={t.newsletterPlaceholder}
+            class="newsletter-input"
+            autocomplete="email"
+            inputmode="email"
+            aria-label={t.newsletterTitle}
+            required
+          />
+          <button type="submit" class="newsletter-button" id="newsletter-submit">
+            {t.newsletterButton}
+          </button>
+        </form>
+        <p class="newsletter-micro">
+          {t.newsletterMicro} <a href={r.privacy}>{t.newsletterPrivacy}</a>
+        </p>
+        <div id="newsletter-status" class="newsletter-status" role="status" aria-live="polite">
+        </div>
+        <a href={r.guides} class="newsletter-success-cta" id="newsletterSuccessCta" hidden>
+          {t.newsletterSuccessCta} →
+        </a>
+      </div>
     </div>
   </div>
 
@@ -261,10 +281,10 @@ const legalLinks = [
     color: var(--eflury-teal);
   }
 
-  /* Newsletter band */
+  /* Newsletter band (navy, matching the site's CTA bands) */
   .footer-newsletter {
-    border-top: 1px solid var(--border-color);
-    padding: var(--spacing-lg) var(--spacing-lg);
+    background: var(--eflury-navy);
+    padding: var(--spacing-xl) var(--spacing-lg);
   }
 
   .newsletter-inner {
@@ -273,21 +293,85 @@ const legalLinks = [
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: var(--spacing-lg);
+    gap: var(--spacing-lg) var(--spacing-2xl);
     flex-wrap: wrap;
   }
 
   .newsletter-copy h4 {
-    font-size: 0.95rem;
+    font-size: 1.05rem;
     font-weight: 700;
-    color: var(--text-primary);
-    margin: 0 0 0.15rem;
+    color: var(--eflury-white);
+    margin: 0 0 0.25rem;
   }
 
   .newsletter-copy p {
-    font-size: 0.85rem;
-    color: var(--text-secondary);
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+    margin: 0 0 0.6rem;
+    max-width: 460px;
+  }
+
+  .newsletter-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+  }
+
+  .nl-chip {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.25rem 0.7rem;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    border-radius: var(--radius-full);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.85);
+  }
+
+  .newsletter-action {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+
+  .newsletter-micro {
+    font-size: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
     margin: 0;
+  }
+
+  .newsletter-micro a {
+    display: inline-flex;
+    align-items: center;
+    color: rgba(255, 255, 255, 0.8);
+    text-decoration: underline;
+  }
+
+  .newsletter-micro a:hover {
+    color: var(--eflury-white);
+  }
+
+  .newsletter-success-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    align-self: flex-start;
+    padding: 0.55rem 1.1rem;
+    background: var(--eflury-teal);
+    border-radius: var(--radius-md);
+    color: var(--eflury-white);
+    font-size: 0.875rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background var(--transition-fast);
+  }
+
+  .newsletter-success-cta:hover {
+    background: var(--primary-700);
+  }
+
+  .newsletter-success-cta[hidden] {
+    display: none;
   }
 
   .newsletter-form {
@@ -300,13 +384,13 @@ const legalLinks = [
   }
 
   .newsletter-input {
-    width: 240px;
+    width: 260px;
     padding: 0.6rem 0.9rem;
-    border: 1px solid var(--border-color);
+    border: 1px solid rgba(255, 255, 255, 0.3);
     border-radius: var(--radius-md);
     font-size: 0.875rem;
-    background: var(--bg-primary);
-    color: var(--text-primary);
+    background: var(--eflury-white);
+    color: var(--eflury-navy);
     transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
   }
 
@@ -318,18 +402,18 @@ const legalLinks = [
 
   .newsletter-button {
     padding: 0.6rem 1.25rem;
-    background: var(--eflury-navy);
+    background: var(--eflury-teal);
     color: var(--eflury-white);
     border: none;
     border-radius: var(--radius-md);
     font-size: 0.875rem;
-    font-weight: 600;
+    font-weight: 700;
     cursor: pointer;
     transition: background var(--transition-fast);
   }
 
   .newsletter-button:hover:not(:disabled) {
-    background: var(--eflury-teal);
+    background: var(--primary-700);
   }
 
   .newsletter-button:disabled {
@@ -338,20 +422,19 @@ const legalLinks = [
   }
 
   .newsletter-status {
-    flex-basis: 100%;
     display: none;
     font-size: 0.85rem;
-    text-align: right;
   }
 
   .newsletter-status.success {
     display: block;
-    color: var(--eflury-teal);
+    color: var(--eflury-white);
+    font-weight: 600;
   }
 
   .newsletter-status.error {
     display: block;
-    color: var(--accent-red);
+    color: #ffb4ad;
   }
 
   /* Bottom bar */
@@ -455,10 +538,6 @@ const legalLinks = [
       min-width: 0;
     }
 
-    .newsletter-status {
-      text-align: left;
-    }
-
     .footer-bottom {
       padding: var(--spacing-md) var(--spacing-md) calc(var(--spacing-md) + 80px + env(safe-area-inset-bottom));
     }
@@ -503,10 +582,14 @@ const legalLinks = [
 
         newsletterStatus.className = 'newsletter-status success';
         newsletterStatus.textContent = lang === 'de'
-          ? 'Erfolgreich abonniert! Sie erhalten einen praxisnahen KI-Impuls pro Monat.'
-          : 'Subscribed! You will get one practical AI insight per month.';
+          ? 'Abonniert! Ihre Playbooks warten:'
+          : 'Subscribed! Your playbooks are waiting:';
         newsletterForm.reset();
         newsletterForm.hidden = true;
+        const micro = document.querySelector('.newsletter-micro') as HTMLElement | null;
+        if (micro) micro.hidden = true;
+        const successCta = document.getElementById('newsletterSuccessCta');
+        if (successCta) successCta.hidden = false;
 
         if ((window as any).trackEvent) {
           (window as any).trackEvent('Conversion', 'newsletter_subscribe', 'Newsletter');
