@@ -14,9 +14,11 @@ interface Props {
   /** Override hreflang URLs for pages with different paths per language */
   hreflangEn?: string;
   hreflangDe?: string;
+  /** Preload the homepage hero image (only pages that render Hero) */
+  preloadHero?: boolean;
 }
 
-const { title, description, lang, keywords, hreflangEn, hreflangDe } = Astro.props;
+const { title, description, lang, keywords, hreflangEn, hreflangDe, preloadHero = false } = Astro.props;
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 // Map paths to their localized equivalents for proper hreflang generation
@@ -91,7 +93,7 @@ const twitterImage = 'https://eflury.com/images/og-image.png';
 <html lang={lang}>
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <title>{title}</title>
     <meta name="description" content={description} />
     {keywords && <meta name="keywords" content={keywords} />}
@@ -119,9 +121,8 @@ const twitterImage = 'https://eflury.com/images/og-image.png';
     <link rel="preconnect" href="https://www.googletagmanager.com" />
     <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
 
-    <!-- Preload critical assets -->
-    <link rel="preload" href="/images/hero-ai.webp" as="image" type="image/webp" />
-    <link rel="preload" href="/images/portraits/emanuel-aaron-flury-portrait.png" as="image" type="image/png" />
+    <!-- Preload above-the-fold hero only where the Hero actually renders -->
+    {preloadHero && <link rel="preload" href="/images/hero-ai.webp" as="image" type="image/webp" />}
 
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
