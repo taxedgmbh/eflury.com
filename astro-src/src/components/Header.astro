@@ -763,7 +763,11 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     .mobile-dark-toggle-btn {
       width: 51px;
       height: 31px;
-      background: var(--bg-tertiary);
+      min-height: 31px;
+      min-width: 51px;
+      flex-shrink: 0;
+      padding: 0;
+      background: var(--apple-gray-3); /* visible iOS-style off track on white */
       border: none;
       border-radius: 15.5px;
       position: relative;
@@ -817,8 +821,14 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
       display: none;
     }
 
+    /* Links already draw separators; the desktop divider doubles them */
+    .nav-dropdown-divider {
+      display: none;
+    }
+
     .nav-dropdown-menu {
       position: static;
+      width: 100%;
       opacity: 1;
       visibility: visible;
       transform: none;
