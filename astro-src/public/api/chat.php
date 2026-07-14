@@ -117,6 +117,12 @@ Free downloadable guides (EN/DE): EU AI Act for Swiss SMEs, revDSG & AI, Data Qu
 ## CONTACT / NEXT STEP:
 Free 30-minute call, no obligation, response within 24 hours. Contact page: " . ($siteLang === 'de' ? '/de/kontakt/' : '/en/contact/') . " · me@eflury.com · +41 79 910 77 87
 
+## LEAD CAPTURE:
+When a visitor shows concrete interest (wants to start, asks about availability, describes their processes, or asks to be contacted), offer to pass their details to Emanuel. Collect at least their name and email (company and phone optional), then ask one short confirmation question ('May Emanuel contact you at that address?' — mention details are handled per the privacy policy at " . ($siteLang === 'de' ? '/de/datenschutz/' : '/en/privacy/') . "). Only after they confirm, call the submit_lead tool with a 2-3 sentence summary of their situation from this conversation. After the tool succeeds, tell them Emanuel will get back within 24 hours. Never call the tool without name, email, and confirmation. Never invent contact data.
+
+## LINKS:
+When you point to a page, format it as a markdown link, e.g. [" . ($siteLang === 'de' ? 'Kontaktseite](/de/kontakt/)' : 'contact page](/en/contact/)') . ".
+
 ## RULES:
 - Be concise (2-6 sentences unless asked for detail), warm, professional. You are a guide, not a salesperson.
 - Lead with understanding the visitor's situation and explaining the approach. Do NOT bring up prices unless the visitor explicitly asks — the numbers above are only for answering direct pricing questions, and always add that details are on the pricing page.
@@ -144,9 +150,66 @@ $payload = [
         $history,
         [['role' => 'user', 'content' => $userMessage]]
     ),
+    'tools' => [[
+        'type' => 'function',
+        'function' => [
+            'name' => 'submit_lead',
+            'description' => 'Save a confirmed lead to the CRM so Emanuel can follow up. Call only after the visitor gave name, email, and explicit consent.',
+            'parameters' => [
+                'type' => 'object',
+                'properties' => [
+                    'name' => ['type' => 'string', 'description' => 'Full name of the visitor'],
+                    'email' => ['type' => 'string', 'description' => 'Email address of the visitor'],
+                    'company' => ['type' => 'string', 'description' => 'Company name (optional)'],
+                    'phone' => ['type' => 'string', 'description' => 'Phone number (optional)'],
+                    'summary' => ['type' => 'string', 'description' => '2-3 sentence summary of what the visitor needs, based on the conversation'],
+                ],
+                'required' => ['name', 'email', 'summary'],
+            ],
+        ],
+    ]],
     'max_tokens' => 500,
     'temperature' => 0.4
 ];
+
+// Submit a confirmed lead to the HubSpot contact form (server-side)
+function submitLeadToHubspot(array $args, string $siteLang): array {
+    $email = trim($args['email'] ?? '');
+    $name = trim($args['name'] ?? '');
+    if (!filter_var($email, FILTER_VALIDATE_EMAIL) || $name === '') {
+        return ['ok' => false, 'error' => 'invalid name or email'];
+    }
+    $summary = trim($args['summary'] ?? '');
+    $extra = [];
+    if (!empty($args['company'])) $extra[] = 'Company: ' . trim($args['company']);
+    if (!empty($args['phone'])) $extra[] = 'Phone: ' . trim($args['phone']);
+    $message = "[Lead captured by Effi, the website assistant]\n\n" . $summary
+        . ($extra ? "\n" . implode("\n", $extra) : '');
+
+    $payload = json_encode([
+        'fields' => [
+            ['objectTypeId' => '0-1', 'name' => 'firstname', 'value' => $name],
+            ['objectTypeId' => '0-1', 'name' => 'email', 'value' => $email],
+            ['objectTypeId' => '0-1', 'name' => 'message', 'value' => $message],
+        ],
+        'context' => [
+            'pageUri' => 'https://eflury.com/' . $siteLang . '/',
+            'pageName' => 'Effi chatbot lead',
+        ],
+    ]);
+    $ch = curl_init('https://api-eu1.hsforms.com/submissions/v3/integration/submit/148876247/964cc7b9-969c-4007-ae49-232ad1117b8c');
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => $payload,
+        CURLOPT_HTTPHEADER => ['Content-Type: application/json'],
+        CURLOPT_TIMEOUT => 15,
+    ]);
+    curl_exec($ch);
+    $code = curl_getinfo($ch, CURLINFO_HTTP_CODE);
+    curl_close($ch);
+    return $code >= 200 && $code < 300 ? ['ok' => true] : ['ok' => false, 'error' => 'crm error ' . $code];
+}
 
 // Make API request
 $ch = curl_init($API_URL);
@@ -179,6 +242,43 @@ if ($httpCode !== 200) {
 }
 
 $data = json_decode($response, true);
-$reply = $data['choices'][0]['message']['content'] ?? 'Sorry, I could not generate a response.';
+$assistantMsg = $data['choices'][0]['message'] ?? [];
+$leadCaptured = false;
 
-echo json_encode(['reply' => $reply]);
+if (!empty($assistantMsg['tool_calls'])) {
+    $toolCall = $assistantMsg['tool_calls'][0];
+    $args = json_decode($toolCall['function']['arguments'] ?? '{}', true) ?: [];
+    $result = ($toolCall['function']['name'] ?? '') === 'submit_lead'
+        ? submitLeadToHubspot($args, $siteLang)
+        : ['ok' => false, 'error' => 'unknown tool'];
+    $leadCaptured = $result['ok'];
+
+    // Second pass: give the model the tool result so it can confirm naturally
+    $payload['messages'][] = $assistantMsg;
+    $payload['messages'][] = [
+        'role' => 'tool',
+        'tool_call_id' => $toolCall['id'],
+        'content' => json_encode($result),
+    ];
+    unset($payload['tools']);
+
+    $ch = curl_init($API_URL);
+    curl_setopt_array($ch, [
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_POST => true,
+        CURLOPT_POSTFIELDS => json_encode($payload),
+        CURLOPT_HTTPHEADER => [
+            'Content-Type: application/json',
+            'Authorization: Bearer ' . $API_KEY
+        ],
+        CURLOPT_TIMEOUT => 30
+    ]);
+    $response = curl_exec($ch);
+    curl_close($ch);
+    $data = json_decode($response, true);
+    $assistantMsg = $data['choices'][0]['message'] ?? [];
+}
+
+$reply = $assistantMsg['content'] ?? 'Sorry, I could not generate a response.';
+
+echo json_encode(['reply' => $reply, 'leadCaptured' => $leadCaptured]);
