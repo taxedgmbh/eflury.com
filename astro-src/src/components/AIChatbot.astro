@@ -419,8 +419,17 @@ const t = {
   }
 
   function formatResponse(text: string): string {
-    return escapeHtml(text)
-      .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
-      .replace(/\n/g, '<br>');
+    let s = escapeHtml(text);
+    // markdown links: internal paths, https, mailto, tel
+    s = s.replace(
+      /\[([^\]]+)\]\((\/[^\s)]+|https?:\/\/[^\s)]+|mailto:[^\s)]+|tel:[^\s)]+)\)/g,
+      (_m, label, href) =>
+        `<a href="${href}"${href.startsWith('http') ? ' target="_blank" rel="noopener"' : ''}>${label}</a>`
+    );
+    s = s.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+    // bare internal paths and emails the model didn't format
+    s = s.replace(/(^|[\s(])(\/(?:en|de)\/[a-zA-Z0-9\-\/]+)/g, '$1<a href="$2">$2</a>');
+    s = s.replace(/(^|[\s(])([a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-z]{2,})/g, '$1<a href="mailto:$2">$2</a>');
+    return s.replace(/\n/g, '<br>');
   }
 </script>
