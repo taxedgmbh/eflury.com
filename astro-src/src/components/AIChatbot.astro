@@ -8,15 +8,15 @@ const lang = Astro.url.pathname.startsWith('/de') ? 'de' : 'en';
 const de = lang === 'de';
 
 const t = {
-  title: de ? 'Frag eFlury' : 'Ask eFlury',
-  subtitle: de ? 'Antworten zu Angebot & Preisen' : 'Answers on services & pricing',
+  title: 'Effi',
+  subtitle: de ? 'Ihr Automatisierungs-Guide' : 'Your automation guide',
   greeting: de
-    ? 'Grüezi! Ich beantworte Fragen zu KI-Automatisierung, Leistungen und Preisen — auf Deutsch oder Englisch.'
-    : "Hi! I answer questions about AI automation, services, and pricing — in English or German.",
+    ? 'Grüezi, ich bin Effi — der Automatisierungs-Guide von eFlury. Fragen Sie mich, wie KI-Automatisierung in Ihrem Unternehmen funktionieren könnte.'
+    : "Hi, I'm Effi — eFlury's automation guide. Ask me how AI automation could work in your business.",
   placeholder: de ? 'Frage eingeben …' : 'Type a question…',
   chips: de
-    ? ['Was kostet das KI-Audit?', 'Welche Prozesse kann ich automatisieren?', 'Wie starte ich?']
-    : ['What does the AI Audit cost?', 'Which processes can be automated?', 'How do I get started?'],
+    ? ['Wie startet eine Zusammenarbeit?', 'Welche Prozesse kann ich automatisieren?', 'Ist meine Firma bereit für KI?']
+    : ['How does working together start?', 'Which processes can be automated?', 'Is my company ready for AI?'],
   errorConnect: de
     ? 'Ich konnte den Dienst gerade nicht erreichen. Bitte später erneut versuchen oder direkt schreiben: '
     : "I couldn't reach the service right now. Please try again later or write directly: ",
@@ -29,7 +29,7 @@ const t = {
 
 <div id="aiChatbot" class="ai-chatbot" style="display: none;" data-lang={lang}>
   <div class="chatbot-header">
-    <img src="/images/favicon-96.png" alt="" class="chatbot-avatar" width="30" height="30" />
+    <img src="/images/favicon-tab.png" alt="" class="chatbot-avatar" width="30" height="30" />
     <div class="chatbot-headings">
       <h3>{t.title}</h3>
       <span class="chatbot-subtitle">{t.subtitle}</span>
