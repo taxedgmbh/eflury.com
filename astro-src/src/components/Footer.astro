@@ -97,7 +97,7 @@ const legalLinks = [
   <div class="footer-main">
     <div class="footer-grid">
       <div class="footer-brand">
-        <a href={r.home} class="brand-mark">eFlury <span>Consulting</span></a>
+        <a href={r.home} class="brand-mark"><img src="/images/favicon-96.png" alt="" class="brand-icon" width="34" height="34" loading="lazy" /> eFlury <span>Consulting</span></a>
         <p class="brand-positioning">{t.positioning}</p>
         <ul class="brand-contact">
           <li><a href="mailto:me@eflury.com"><Mail size={15} /> me@eflury.com</a></li>
@@ -211,7 +211,9 @@ const legalLinks = [
 
   /* Brand block */
   .brand-mark {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
     font-size: 1.35rem;
     font-weight: 800;
     letter-spacing: -0.01em;
@@ -222,6 +224,17 @@ const legalLinks = [
 
   .brand-mark span {
     color: var(--eflury-teal);
+  }
+
+  .brand-icon {
+    width: 34px;
+    height: 34px;
+  }
+
+  [data-theme="dark"] .brand-icon {
+    background: #000;
+    border-radius: 7px;
+    padding: 3px;
   }
 
   .brand-positioning {
