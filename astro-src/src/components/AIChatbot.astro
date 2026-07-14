@@ -1,12 +1,40 @@
 ---
-// AI-Powered Chatbot Component
-// Uses modern Web APIs and can integrate with OpenAI or local AI
+/**
+ * Site assistant ("Ask eFlury" / "Frag eFlury")
+ * Bilingual chat over /api/chat.php (DeepSeek proxy with curated site facts).
+ * Language is derived from the URL so no page needs to pass props.
+ */
+const lang = Astro.url.pathname.startsWith('/de') ? 'de' : 'en';
+const de = lang === 'de';
+
+const t = {
+  title: de ? 'Frag eFlury' : 'Ask eFlury',
+  subtitle: de ? 'Antworten zu Angebot & Preisen' : 'Answers on services & pricing',
+  greeting: de
+    ? 'Grüezi! Ich beantworte Fragen zu KI-Automatisierung, Leistungen und Preisen — auf Deutsch oder Englisch.'
+    : "Hi! I answer questions about AI automation, services, and pricing — in English or German.",
+  placeholder: de ? 'Frage eingeben …' : 'Type a question…',
+  chips: de
+    ? ['Was kostet das KI-Audit?', 'Welche Prozesse kann ich automatisieren?', 'Wie starte ich?']
+    : ['What does the AI Audit cost?', 'Which processes can be automated?', 'How do I get started?'],
+  errorConnect: de
+    ? 'Ich konnte den Dienst gerade nicht erreichen. Bitte später erneut versuchen oder direkt schreiben: '
+    : "I couldn't reach the service right now. Please try again later or write directly: ",
+  errorGeneric: de ? 'Entschuldigung, etwas ist schiefgelaufen: ' : 'Sorry, something went wrong: ',
+  openLabel: de ? 'Chat öffnen' : 'Open chat',
+  closeLabel: de ? 'Chat schliessen' : 'Close chat',
+  sendLabel: de ? 'Nachricht senden' : 'Send message',
+};
 ---
 
-<div id="aiChatbot" class="ai-chatbot" style="display: none;">
+<div id="aiChatbot" class="ai-chatbot" style="display: none;" data-lang={lang}>
   <div class="chatbot-header">
-    <h3>AI Assistant</h3>
-    <button class="chatbot-close" id="chatbotClose" aria-label="Close chatbot">
+    <img src="/images/favicon-96.png" alt="" class="chatbot-avatar" width="30" height="30" />
+    <div class="chatbot-headings">
+      <h3>{t.title}</h3>
+      <span class="chatbot-subtitle">{t.subtitle}</span>
+    </div>
+    <button class="chatbot-close" id="chatbotClose" aria-label={t.closeLabel}>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="18" y1="6" x2="6" y2="18"></line>
         <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -15,12 +43,17 @@
   </div>
   <div class="chatbot-messages" id="chatbotMessages">
     <div class="message bot-message">
-      <p>Hello! I'm an AI assistant. How can I help you with automation or Swiss tax questions?</p>
+      <p>{t.greeting}</p>
+    </div>
+    <div class="chatbot-chips" id="chatbotChips">
+      {t.chips.map((chip) => (
+        <button type="button" class="chip" data-q={chip}>{chip}</button>
+      ))}
     </div>
   </div>
   <form class="chatbot-input" id="chatbotForm">
-    <input type="text" id="chatbotInput" placeholder="Ask me anything..." autocomplete="off" />
-    <button type="submit" aria-label="Send message">
+    <input type="text" id="chatbotInput" placeholder={t.placeholder} autocomplete="off" />
+    <button type="submit" aria-label={t.sendLabel}>
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
         <line x1="22" y1="2" x2="11" y2="13"></line>
         <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -29,7 +62,7 @@
   </form>
 </div>
 
-<button class="chatbot-toggle" id="chatbotToggle" aria-label="Open AI chatbot">
+<button class="chatbot-toggle" id="chatbotToggle" aria-label={t.openLabel} data-error-connect={t.errorConnect} data-error-generic={t.errorGeneric}>
   <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
   </svg>
@@ -43,7 +76,7 @@
     width: 56px;
     height: 56px;
     border-radius: var(--radius-full);
-    background: var(--primary);
+    background: var(--surface-navy);
     color: white;
     border: none;
     cursor: pointer;
@@ -66,40 +99,62 @@
 
   .ai-chatbot {
     position: fixed;
-    bottom: 100px;
+    bottom: 96px;
     right: var(--spacing-xl);
-    width: 380px;
-    max-height: 600px;
+    width: 390px;
+    height: min(600px, 76vh);
     background: var(--card-bg);
     border: 0.5px solid var(--border-color);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-xl);
     display: flex;
     flex-direction: column;
-    z-index: 998;
-    backdrop-filter: var(--blur-light);
-    -webkit-backdrop-filter: var(--blur-light);
+    z-index: 1050;
+    overflow: hidden;
   }
 
   .chatbot-header {
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 0.65rem;
     padding: var(--spacing-md);
     border-bottom: 0.5px solid var(--border-color);
+    background: var(--surface-navy);
+  }
+
+  .chatbot-avatar {
+    width: 30px;
+    height: 30px;
+    background: #fff;
+    border-radius: 8px;
+    padding: 3px;
+    flex-shrink: 0;
+  }
+
+  .chatbot-headings {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1;
   }
 
   .chatbot-header h3 {
     margin: 0;
-    font-size: 17px;
-    font-weight: 600;
-    color: var(--text-primary);
+    font-size: 16px;
+    font-weight: 700;
+    color: #fff;
+    line-height: 1.2;
+  }
+
+  .chatbot-subtitle {
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.75);
   }
 
   .chatbot-close {
     background: none;
     border: none;
-    color: var(--text-secondary);
+    color: rgba(255, 255, 255, 0.8);
     cursor: pointer;
     padding: var(--spacing-xs);
     border-radius: var(--radius-sm);
@@ -107,36 +162,65 @@
   }
 
   .chatbot-close:hover {
-    background: var(--bg-secondary);
-    color: var(--text-primary);
+    background: rgba(255, 255, 255, 0.12);
+    color: #fff;
   }
 
   .chatbot-messages {
     flex: 1;
+    min-height: 0;
     overflow-y: auto;
     padding: var(--spacing-md);
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
-    max-height: 400px;
   }
 
-  .message {
+  .chatbot-chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .chatbot-chips .chip {
+    padding: 0.45rem 0.85rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    background: var(--bg-primary);
+    color: var(--teal-text);
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+    text-align: left;
+  }
+
+  .chatbot-chips .chip:hover {
+    border-color: var(--teal-text);
+    background: var(--bg-secondary);
+  }
+
+  /* :global — JS-created bubbles lack Astro's scoped attribute */
+  .ai-chatbot :global(.message) {
     padding: var(--spacing-md);
     border-radius: var(--radius-md);
-    max-width: 80%;
+    max-width: 85%;
     font-size: 15px;
     line-height: 1.5;
   }
 
-  .bot-message {
+  .ai-chatbot :global(.message p) {
+    margin: 0;
+  }
+
+  .ai-chatbot :global(.bot-message) {
     background: var(--bg-secondary);
     color: var(--text-primary);
     align-self: flex-start;
   }
 
-  .user-message {
-    background: var(--primary);
+  .ai-chatbot :global(.user-message) {
+    background: var(--surface-navy);
     color: white;
     align-self: flex-end;
   }
@@ -146,29 +230,32 @@
     gap: var(--spacing-sm);
     padding: var(--spacing-md);
     border-top: 0.5px solid var(--border-color);
+    background: var(--card-bg);
   }
 
   .chatbot-input input {
     flex: 1;
+    min-width: 0;
     padding: var(--spacing-sm) var(--spacing-md);
     border: 0.5px solid var(--border-color);
     border-radius: var(--radius-md);
     background: var(--bg-secondary);
     color: var(--text-primary);
-    font-size: 15px;
+    font-size: 16px; /* 16px stops iOS from zooming the page on focus */
     outline: none;
     transition: border-color var(--transition-fast);
   }
 
   .chatbot-input input:focus {
-    border-color: var(--primary);
+    border-color: var(--eflury-teal);
   }
 
   .chatbot-input button {
-    width: 40px;
-    height: 40px;
+    width: 42px;
+    height: 42px;
+    min-width: 42px;
     border-radius: var(--radius-md);
-    background: var(--primary);
+    background: var(--action-teal);
     color: white;
     border: none;
     cursor: pointer;
@@ -179,55 +266,63 @@
   }
 
   .chatbot-input button:hover {
-    background: var(--primary-hover);
+    background: var(--primary-700);
     transform: scale(1.05);
   }
 
   @media (max-width: 768px) {
     .chatbot-toggle {
-      bottom: 80px;
+      bottom: 16px;
       right: 16px;
-      width: 48px;
-      height: 48px;
+      width: 52px;
+      height: 52px;
     }
 
+    /* Bottom sheet: full width, anchored to the bottom, keyboard-aware (dvh) */
     .ai-chatbot {
-      bottom: 140px;
-      right: 8px;
-      left: 8px;
-      width: auto;
-      max-height: 60vh;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      width: 100%;
+      height: min(85dvh, 640px);
+      border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+      border-left: none;
+      border-right: none;
+      border-bottom: none;
+    }
+
+    .chatbot-input {
+      padding-bottom: calc(var(--spacing-md) + env(safe-area-inset-bottom, 0px));
     }
   }
 
-  /* Thinking animation */
-  .thinking {
+  /* Thinking animation (JS-created) */
+  .ai-chatbot :global(.thinking) {
     display: flex;
     gap: 4px;
   }
 
-  .thinking span {
+  .ai-chatbot :global(.thinking span) {
     animation: bounce 1.4s infinite ease-in-out both;
     font-size: 24px;
     line-height: 1;
   }
 
-  .thinking span:nth-child(1) { animation-delay: -0.32s; }
-  .thinking span:nth-child(2) { animation-delay: -0.16s; }
-  .thinking span:nth-child(3) { animation-delay: 0s; }
+  .ai-chatbot :global(.thinking span:nth-child(1)) { animation-delay: -0.32s; }
+  .ai-chatbot :global(.thinking span:nth-child(2)) { animation-delay: -0.16s; }
+  .ai-chatbot :global(.thinking span:nth-child(3)) { animation-delay: 0s; }
 
   @keyframes bounce {
     0%, 80%, 100% { transform: translateY(0); }
     40% { transform: translateY(-6px); }
   }
 
-  /* Links in messages */
-  .bot-message a {
-    color: var(--primary);
+  .ai-chatbot :global(.bot-message a) {
+    color: var(--link-color);
     text-decoration: underline;
   }
 
-  .bot-message a:hover {
+  .ai-chatbot :global(.bot-message a:hover) {
     text-decoration: none;
   }
 </style>
@@ -237,37 +332,51 @@
   const chatbotToggle = document.getElementById('chatbotToggle');
   const chatbotClose = document.getElementById('chatbotClose');
   const chatbotForm = document.getElementById('chatbotForm');
-  const chatbotInput = document.getElementById('chatbotInput');
+  const chatbotInput = document.getElementById('chatbotInput') as HTMLInputElement | null;
   const chatbotMessages = document.getElementById('chatbotMessages');
+  const chipsWrap = document.getElementById('chatbotChips');
+
+  const siteLang = chatbot?.dataset.lang === 'de' ? 'de' : 'en';
+  const errConnect = chatbotToggle?.dataset.errorConnect || "I couldn't reach the service right now. Please write directly: ";
+  const errGeneric = chatbotToggle?.dataset.errorGeneric || 'Sorry, something went wrong: ';
+
+  // short conversation memory sent along so follow-up questions work
+  const history: { role: 'user' | 'assistant'; content: string }[] = [];
 
   chatbotToggle?.addEventListener('click', () => {
     chatbot?.style.setProperty('display', 'flex');
     chatbotToggle.style.display = 'none';
-    chatbotInput?.focus();
+    if (window.matchMedia('(min-width: 769px)').matches) chatbotInput?.focus();
   });
 
   chatbotClose?.addEventListener('click', () => {
     chatbot?.style.setProperty('display', 'none');
-    chatbotToggle.style.display = 'flex';
+    if (chatbotToggle) chatbotToggle.style.display = 'flex';
+  });
+
+  chipsWrap?.addEventListener('click', (e) => {
+    const btn = (e.target as HTMLElement).closest('button.chip') as HTMLButtonElement | null;
+    if (!btn || !chatbotInput) return;
+    chatbotInput.value = btn.dataset.q || btn.textContent || '';
+    chipsWrap.remove();
+    chatbotForm?.dispatchEvent(new Event('submit', { cancelable: true }));
   });
 
   chatbotForm?.addEventListener('submit', async (e) => {
     e.preventDefault();
     const message = chatbotInput?.value.trim();
-    if (!message) return;
+    if (!message || !chatbotInput) return;
 
-    // Add user message
+    chipsWrap?.remove();
+
     const userMsg = document.createElement('div');
     userMsg.className = 'message user-message';
     userMsg.innerHTML = `<p>${escapeHtml(message)}</p>`;
     chatbotMessages?.appendChild(userMsg);
     chatbotInput.value = '';
     chatbotInput.disabled = true;
-
-    // Scroll to bottom
     chatbotMessages?.scrollTo(0, chatbotMessages.scrollHeight);
 
-    // Add thinking indicator
     const botMsg = document.createElement('div');
     botMsg.className = 'message bot-message';
     botMsg.innerHTML = '<p class="thinking"><span>.</span><span>.</span><span>.</span></p>';
@@ -275,29 +384,34 @@
     chatbotMessages?.scrollTo(0, chatbotMessages.scrollHeight);
 
     try {
+      const controller = new AbortController();
+      const timer = setTimeout(() => controller.abort(), 30000);
       const response = await fetch('/api/chat.php', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ message })
+        body: JSON.stringify({ message, lang: siteLang, history: history.slice(-8) }),
+        signal: controller.signal,
       });
+      clearTimeout(timer);
 
+      if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
 
       if (data.error) {
-        botMsg.innerHTML = `<p>Sorry, something went wrong: ${escapeHtml(data.error)}</p>`;
+        botMsg.innerHTML = `<p>${errGeneric}${escapeHtml(data.error)}</p>`;
       } else {
         botMsg.innerHTML = `<p>${formatResponse(data.reply)}</p>`;
+        history.push({ role: 'user', content: message }, { role: 'assistant', content: data.reply });
       }
     } catch (error) {
-      botMsg.innerHTML = '<p>Sorry, I couldn\'t connect to the AI service. Please try again or contact me directly at <a href="mailto:me@eflury.com">me@eflury.com</a>.</p>';
+      botMsg.innerHTML = `<p>${errConnect}<a href="mailto:me@eflury.com">me@eflury.com</a></p>`;
     } finally {
       chatbotInput.disabled = false;
-      chatbotInput.focus();
+      if (window.matchMedia('(min-width: 769px)').matches) chatbotInput.focus();
       chatbotMessages?.scrollTo(0, chatbotMessages.scrollHeight);
     }
   });
 
-  // Helper functions
   function escapeHtml(text: string): string {
     const div = document.createElement('div');
     div.textContent = text;
@@ -305,10 +419,8 @@
   }
 
   function formatResponse(text: string): string {
-    // Convert markdown-like formatting to HTML
     return escapeHtml(text)
       .replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>')
       .replace(/\n/g, '<br>');
   }
 </script>
-
