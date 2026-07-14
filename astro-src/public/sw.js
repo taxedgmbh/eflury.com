@@ -1,10 +1,9 @@
 // Service Worker for PWA functionality
-const CACHE_NAME = 'eflury-v2';
-const RUNTIME_CACHE = 'eflury-runtime-v2';
+const CACHE_NAME = 'eflury-v3';
+const RUNTIME_CACHE = 'eflury-runtime-v3';
 
 // Assets to cache on install
 const PRECACHE_ASSETS = [
-  '/',
   '/en/',
   '/de/',
   '/en/about/',
@@ -13,7 +12,7 @@ const PRECACHE_ASSETS = [
   '/de/pricing/',
   '/favicon.svg',
   '/manifest.json',
-  '/images/portraits/emanuel-aaron-flury-portrait.png',
+  '/images/portraits/emanuel-aaron-flury-portrait.webp',
 ];
 
 // Install event - cache assets
@@ -49,8 +48,9 @@ self.addEventListener('fetch', (event) => {
         // Clone the response
         const responseToCache = response.clone();
 
-        // Cache successful responses
-        if (response.status === 200) {
+        // Cache only clean same-origin responses; never cache redirects or
+        // mid-deploy snapshots that could pin a broken page
+        if (response.status === 200 && response.type === 'basic' && !response.redirected) {
           caches.open(RUNTIME_CACHE).then((cache) => {
             cache.put(event.request, responseToCache);
           });
@@ -66,7 +66,7 @@ self.addEventListener('fetch', (event) => {
           }
           // Return offline page if available
           if (event.request.destination === 'document') {
-            return caches.match('/');
+            return caches.match('/en/');
           }
         });
       })
