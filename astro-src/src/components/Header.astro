@@ -45,7 +45,7 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
   <div class="nav-container">
     <a href={currentRoutes.home} class="logo">
       <img src="/images/favicon-96.png" alt="eFlury Consulting" class="logo-icon" width="32" height="32" />
-      <span class="logo-text">eFlury</span>
+      <span class="logo-text">eFlury <span class="logo-sub">Consulting</span></span>
     </a>
 
     <div class="nav-content">
@@ -215,6 +215,17 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     transition: opacity var(--transition-base);
   }
 
+  .logo-sub {
+    color: var(--teal-text);
+  }
+
+  /* The mark carries brand navy — give it a black plate in dark mode */
+  [data-theme="dark"] .logo-icon {
+    background: #000;
+    border-radius: 7px;
+    padding: 3px;
+  }
+
   .logo:hover {
     opacity: 0.8;
   }
@@ -230,10 +241,6 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     font-weight: 700;
     letter-spacing: -0.015em;
     color: var(--text-primary);
-    background: var(--gradient-primary);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
   }
 
   .nav-content {
