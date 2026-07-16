@@ -36,6 +36,8 @@ interface Props {
   processTitle: string;
   processSteps: { title: string; description: string }[];
   faqs: FAQ[];
+  /** Optional downloadable sample deliverable (e.g. the AI Audit sample report) */
+  sampleReport?: { title: string; note: string; cta: string; href: string };
   ctaTitle: string;
   ctaDescription: string;
   ctaButtonText: string;
@@ -63,6 +65,7 @@ const {
   processTitle,
   processSteps,
   faqs,
+  sampleReport,
   ctaTitle,
   ctaDescription,
   ctaButtonText,
@@ -182,6 +185,20 @@ const breadcrumbSchema = {
 
       <!-- Process Section -->
       <slot name="showcase" />
+
+      {sampleReport && (
+        <section class="sample-section">
+          <div class="sample-band">
+            <div class="sample-copy">
+              <h2>{sampleReport.title}</h2>
+              <p>{sampleReport.note}</p>
+            </div>
+            <a href={sampleReport.href} class="sample-btn" download>
+              {sampleReport.cta}
+            </a>
+          </div>
+        </section>
+      )}
 
       <section class="process-section">
         <h2 class="section-title">{processTitle}</h2>
@@ -544,6 +561,54 @@ const breadcrumbSchema = {
     margin: 0;
     color: var(--text-secondary);
     line-height: 1.7;
+  }
+
+  /* Sample deliverable band */
+  .sample-section {
+    margin: 2.5rem 0;
+  }
+
+  .sample-band {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    background: var(--primary-50);
+    border: 1px solid var(--primary-100);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+  }
+
+  .sample-copy h2 {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+  }
+
+  .sample-copy p {
+    color: var(--text-secondary);
+    margin: 0;
+    max-width: 520px;
+  }
+
+  .sample-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: var(--action-teal);
+    color: #fff;
+    padding: 0.9rem 1.5rem;
+    border-radius: var(--radius-md);
+    font-weight: 600;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all var(--transition-fast);
+  }
+
+  .sample-btn:hover {
+    background: var(--primary-700);
+    transform: translateY(-1px);
   }
 
   /* CTA Section */

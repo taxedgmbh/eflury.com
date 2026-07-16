@@ -39,6 +39,7 @@ Built for Swiss SME owners across industries — wherever repetitive processes e
 
 ## Resources
 
+- [Sample AI Audit report](https://eflury.com/downloads/eflury-sample-audit-report-en.pdf): What the CHF 4,900 audit delivers — sample PDF for a fictional SME (German version: /downloads/eflury-sample-audit-report-de.pdf)
 - [Guides](https://eflury.com/en/guides/): Free downloadable playbooks (EN/DE): EU AI Act for Swiss SMEs, revDSG & AI, Data Quality
 - [Blog / Insights](https://eflury.com/en/blog/): Practical articles on AI automation, accounting & finance, reporting, compliance, and security for Swiss SMEs
 - [Trust & Security](https://eflury.com/en/trust/): How client data is handled (revDSG, EU-hosted tooling)
