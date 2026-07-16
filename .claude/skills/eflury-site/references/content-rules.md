@@ -6,6 +6,31 @@ we publish our method, disclose our services, and state what we do NOT
 claim. One invented number destroys that positioning. These rules are
 absolute.
 
+## Positioning decisions (confirmed 2026-07, in force)
+
+- **Target buyer:** broad Swiss SME owners/managing directors across
+  industries — NOT vertical-specialized.
+- **Treuhand is NOT an eFlury target industry** ("treuhand is my other
+  business notting to do with eflury"). The Treuhand industry pages were
+  deleted (301 → Taxed case study). The Taxed GmbH case study stays
+  ONLY as capability proof ("automated my own firm"). Never rebuild
+  Treuhand targeting.
+- **Company brand, not personal brand:** "you can leave me as the head
+  of the company but thats it." No founder video, no personal-brand
+  marketing. Emanuel appears factually as founder/head on About, imprint,
+  and as article author only.
+- **Site voice is "we"/"wir"** (company speaking) on all marketing pages.
+  Exceptions where first person stays: About pages (founder story),
+  blog posts (bylined author content), Taxed case study, legal pages.
+  Never invent a team ("our team of experts" is forbidden — plain "we").
+- **The site's #1 job is inbound lead generation**, won through radical
+  transparency (real artifacts, labeled estimates, published method).
+- **The two "Client Project" case studies are owner-confirmed real
+  engagements** he stands behind (confirmed 2026-07).
+- **Chatbot:** persona "Effi"; never state/invent registry numbers
+  (sole proprietorship, no UID/CHE, not in Handelsregister); no former
+  employer names; prices only on explicit request.
+
 ## Standing owner directives (quoted, still in force)
 
 - **Johnson & Johnson:** "dont use Johnson and Johnson on my page - they

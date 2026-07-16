@@ -21,15 +21,15 @@
   "hero": {
     "badge": "Enterprise Methods · SME Prices",
     "title": "AI Automation for Swiss SMEs. Strategically planned. Practically implemented.",
-    "subtitle": "I bring the automation strategies of Fortune 500 companies to your SME — without the enterprise budget.",
+    "subtitle": "We bring the automation strategies of Fortune 500 companies to your SME — without the enterprise budget.",
     "cta_primary": "Book Your Free Strategy Call",
-    "cta_secondary": "Discover my method",
+    "cta_secondary": "Discover our method",
     "secondary_cta": "Discover the Method ↓",
     "risk_reducer": "No obligation · 30 minutes · Confidential",
     "trust_bar": "Powered by: Claude/Anthropic · Make · Microsoft 365"
   },
   "tech_partners": {
-    "section_title": "Technologies I Work With",
+    "section_title": "Technologies We Work With",
     "categories": {
       "ai": {
         "name": "AI",
@@ -58,9 +58,9 @@
     "title": "About",
     "subtitle": "AI consultant based in Switzerland",
     "headline": "Making AI Practical for Swiss Businesses",
-    "bio1": "I've spent 13 years automating workflows at a Fortune 500 pharmaceutical company — building processes designed to save hundreds of hours monthly.",
-    "bio2": "I saw how powerful this was. I also saw how inaccessible it was to smaller businesses. That's why I started eFlury: to bring enterprise-grade AI automation to Swiss SMEs. Same methods, practical approach, honest pricing.",
-    "bio3": "Based in Grenchen, Switzerland. I work hands-on with your team — no consultants sending reports. Just results.",
+    "bio1": "Emanuel Flury has spent 13 years automating workflows at a Fortune 500 pharmaceutical company — building processes designed to save hundreds of hours monthly.",
+    "bio2": "He saw how powerful this was. He also saw how inaccessible it was to smaller businesses. That's why he started eFlury: to bring enterprise-grade AI automation to Swiss SMEs. Same methods, practical approach, honest pricing.",
+    "bio3": "Based in Grenchen, Switzerland. We work hands-on with your team — no consultants sending reports. Just results.",
     "achievement": "Designed automations targeting 200+ hours in monthly savings",
     "highlight1": "13 years Fortune 500 experience",
     "highlight2": "Based in Switzerland",
@@ -94,7 +94,7 @@
       "process": "Which process to automate first",
       "timeline": "Realistic timeline and budget"
     },
-    "response_time": "I respond within 24 hours · Most calls scheduled within 3 days",
+    "response_time": "We respond within 24 hours · Most calls scheduled within 3 days",
     "whatsapp": "Prefer a quick message?",
     "whatsapp_number": "+41 79 910 77 87",
     "email": "Email",
@@ -103,21 +103,21 @@
     "form": {
       "name": "Your Name",
       "name_placeholder": "Hans Muller",
-      "name_hint": "How should I address you?",
+      "name_hint": "How should we address you?",
       "email": "Email Address",
       "email_placeholder": "hans@company.ch",
-      "email_hint": "I'll respond within 24 hours",
+      "email_hint": "We'll respond within 24 hours",
       "subject": "Subject",
       "subject_placeholder": "AI implementation for my business",
       "subject_hint": "What would you like to discuss?",
       "message": "Message",
-      "message_placeholder": "Tell me about your business and what you'd like to achieve with AI...",
-      "message_hint": "The more detail, the better I can help",
+      "message_placeholder": "Tell us about your business and what you'd like to achieve with AI...",
+      "message_hint": "The more detail, the better we can help",
       "captcha": "Security Check",
       "submit": "Send Message",
       "sending": "Sending...",
-      "success": "Message sent! I'll respond within 24 hours.",
-      "error": "Failed to send. Please email me directly at me@eflury.com"
+      "success": "Message sent! We'll respond within 24 hours.",
+      "error": "Failed to send. Please email us directly at me@eflury.com"
     },
     "info": {
       "email": "me@eflury.com",
@@ -137,15 +137,15 @@
     "menu": "Menu"
   },
   "testimonials": {
-    "title": "Why Swiss SMEs Choose Me",
-    "subtitle": "What you can expect when working with me",
+    "title": "Why Swiss SMEs Choose Us",
+    "subtitle": "What you can expect when working with us",
     "value_prop1": {
       "title": "Enterprise Methods, SME Prices",
       "description": "13 years of Fortune 500 automation experience applied to your business — without the enterprise budget."
     },
     "value_prop2": {
       "title": "Hands-On Implementation",
-      "description": "I work alongside your team to build working automation. No slide decks, no reports that sit in drawers — just results."
+      "description": "We work alongside your team to build working automation. No slide decks, no reports that sit in drawers — just results."
     },
     "value_prop3": {
       "title": "Fixed-Price, No Surprises",
@@ -154,7 +154,7 @@
   },
   "faq": {
     "title": "Frequently Asked Questions",
-    "subtitle": "Common questions about AI implementation and working with me",
+    "subtitle": "Common questions about AI implementation and working with us",
     "questions": [
       {
         "question": "How long does a typical AI implementation take?",
@@ -162,31 +162,31 @@
       },
       {
         "question": "What's the minimum investment to get started?",
-        "answer": "AI Training starts at CHF 2,500, and Workflow Setup projects start at CHF 5,000. I recommend a minimum budget of CHF 5,000 to achieve meaningful business impact. Projects under CHF 2,000 rarely deliver sustainable results."
+        "answer": "AI Training starts at CHF 2,500, and Workflow Setup projects start at CHF 5,000. We recommend a minimum budget of CHF 5,000 to achieve meaningful business impact. Projects under CHF 2,000 rarely deliver sustainable results."
       },
       {
         "question": "Do you work with companies outside Switzerland?",
-        "answer": "My focus is Swiss SMEs, but I do work with companies in the DACH region (Germany, Austria, Switzerland). For clients outside this region, I offer remote consulting on a case-by-case basis."
+        "answer": "Our focus is Swiss SMEs, but we do work with companies in the DACH region (Germany, Austria, Switzerland). For clients outside this region, we offer remote consulting on a case-by-case basis."
       },
       {
         "question": "How do you ensure data protection and GDPR compliance?",
-        "answer": "Data protection is central to every implementation. I use Swiss-hosted solutions where possible, implement data minimization principles, and ensure all AI tools comply with GDPR/nDSG requirements. I can provide detailed documentation for your compliance team."
+        "answer": "Data protection is central to every implementation. We use Swiss-hosted solutions where possible, implement data minimization principles, and ensure all AI tools comply with GDPR/nDSG requirements. We can provide detailed documentation for your compliance team."
       },
       {
         "question": "What happens if the AI makes mistakes?",
-        "answer": "Every automation I build includes human oversight checkpoints for critical decisions. We start with lower-stakes processes and gradually expand. I also implement monitoring and alerting so issues are caught quickly. The goal is augmenting your team, not replacing human judgment."
+        "answer": "Every automation we build includes human oversight checkpoints for critical decisions. We start with lower-stakes processes and gradually expand. We also implement monitoring and alerting so issues are caught quickly. The goal is augmenting your team, not replacing human judgment."
       },
       {
         "question": "Do I need technical knowledge to use AI tools?",
-        "answer": "No technical background required. My training programs are designed for business users. I focus on practical, hands-on learning with tools like Claude that use natural language. Within 2-4 weeks, most teams are using AI independently."
+        "answer": "No technical background required. Our training programs are designed for business users. We focus on practical, hands-on learning with tools like Claude that use natural language. Within 2-4 weeks, most teams are using AI independently."
       },
       {
         "question": "What tools and technologies do you work with?",
-        "answer": "I specialize in Claude (Anthropic), Make.com, Microsoft 365, and custom AI agents. I'm also experienced with n8n, Zapier, Google Workspace, and various document processing tools. I recommend the best tool for your specific needs, not just what I know."
+        "answer": "We specialize in Claude (Anthropic), Make.com, Microsoft 365, and custom AI agents. We're also experienced with n8n, Zapier, Google Workspace, and various document processing tools. We recommend the best tool for your specific needs, not just what we know."
       },
       {
         "question": "How do you calculate ROI for AI projects?",
-        "answer": "I measure time savings in hours per week, then convert to CHF value. For example, if automation saves 10 hours/week at CHF 75/hour, that's CHF 39,000/year in recaptured time. Most projects achieve 3-6 month payback periods."
+        "answer": "We measure time savings in hours per week, then convert to CHF value. For example, if automation saves 10 hours/week at CHF 75/hour, that's CHF 39,000/year in recaptured time. Most projects achieve 3-6 month payback periods."
       },
       {
         "question": "What's included in ongoing support?",
@@ -194,15 +194,15 @@
       },
       {
         "question": "Can you work with our existing IT systems?",
-        "answer": "Yes. I specialize in integrating AI into existing workflows without disrupting current systems. Whether you use SAP, Microsoft 365, Google Workspace, or custom software, I design solutions that work alongside what you already have."
+        "answer": "Yes. We specialize in integrating AI into existing workflows without disrupting current systems. Whether you use SAP, Microsoft 365, Google Workspace, or custom software, we design solutions that work alongside what you already have."
       },
       {
         "question": "What makes you different from consulting firms?",
-        "answer": "I deliver working automation, not PowerPoint reports. I work hands-on with your team, offer fixed-price projects (no hourly surprises), and stay involved until the solution works. My Fortune 500 experience means enterprise-quality methods at SME-friendly prices."
+        "answer": "We deliver working automation, not PowerPoint reports. We work hands-on with your team, offer fixed-price projects (no hourly surprises), and stay involved until the solution works. Our Fortune 500 experience means enterprise-quality methods at SME-friendly prices."
       },
       {
         "question": "How do I know if AI is right for my business?",
-        "answer": "Book a free 30-minute strategy call. I'll ask about your workflows, identify automation potential, and give you an honest assessment. If AI isn't the right fit, I'll tell you—no sales pitch, just practical advice."
+        "answer": "Book a free 30-minute strategy call. We'll ask about your workflows, identify automation potential, and give you an honest assessment. If AI isn't the right fit, we'll tell you—no sales pitch, just practical advice."
       }
     ]
   },
@@ -229,7 +229,7 @@
   "lead_magnet": {
     "badge": "Free Download",
     "title": "The AI Implementation Playbook for Swiss SMEs",
-    "subtitle": "Learn the exact 5-phase framework I use to help Swiss businesses implement AI successfully—without the enterprise budget.",
+    "subtitle": "Learn the exact 5-phase framework we use to help Swiss businesses implement AI successfully—without the enterprise budget.",
     "benefits": {
       "benefit1": "The eFlury Method explained step-by-step",
       "benefit2": "Real ROI calculations and examples",
@@ -482,7 +482,7 @@
       "hero": {
         "badge": "Claude Specialist",
         "title": "Custom Claude Skills for Your Business",
-        "description": "I build tailored Claude Skills that automate your specific workflows — from document processing to data analysis. Each Skill is designed to save your team hours every week."
+        "description": "We build tailored Claude Skills that automate your specific workflows — from document processing to data analysis. Each Skill is designed to save your team hours every week."
       },
       "problem": {
         "title": "Sound Familiar?",
@@ -495,7 +495,7 @@
       },
       "solution": {
         "title": "Custom Claude Skills — Built for You",
-        "description": "I develop Claude Skills tailored to your exact workflows. Not generic templates — custom AI that understands your business, integrates with your tools, and delivers measurable time savings.",
+        "description": "We develop Claude Skills tailored to your exact workflows. Not generic templates — custom AI that understands your business, integrates with your tools, and delivers measurable time savings.",
         "benefits": [
           {
             "title": "Purpose-Built for Your Workflows",
@@ -516,11 +516,11 @@
         ]
       },
       "process": {
-        "title": "How I Build Your Skills",
+        "title": "How We Build Your Skills",
         "steps": [
           {
             "title": "Workflow Analysis",
-            "description": "I study your current processes to identify the best automation opportunities."
+            "description": "We study your current processes to identify the best automation opportunities."
           },
           {
             "title": "Skill Design",
@@ -528,7 +528,7 @@
           },
           {
             "title": "Development & Testing",
-            "description": "I build and thoroughly test each Skill with your real data."
+            "description": "We build and thoroughly test each Skill with your real data."
           },
           {
             "title": "Training & Handover",
@@ -547,7 +547,7 @@
         },
         {
           "question": "Can Skills work with my existing software?",
-          "answer": "Yes. I specialize in integrating Claude Skills with Swiss business software including Bexio, ABACUS, Microsoft 365, and custom systems via APIs or MCP (Model Context Protocol)."
+          "answer": "Yes. We specialize in integrating Claude Skills with Swiss business software including Bexio, ABACUS, Microsoft 365, and custom systems via APIs or MCP (Model Context Protocol)."
         },
         {
           "question": "What's the difference between Claude Skills and ChatGPT?",
@@ -560,7 +560,7 @@
       ],
       "cta": {
         "title": "Ready to Automate with Claude Skills?",
-        "description": "Book a free 30-minute call. I'll analyze your workflows and identify your highest-impact automation opportunities.",
+        "description": "Book a free 30-minute call. We'll analyze your workflows and identify your highest-impact automation opportunities.",
         "button": "Book Your Skills Strategy Call"
       },
       "case_study": {
@@ -578,7 +578,7 @@
       "hero": {
         "badge": "MCP Specialist",
         "title": "Connect Claude to Your Business Systems",
-        "description": "Model Context Protocol (MCP) lets Claude interact directly with your databases, APIs, and software. I build custom MCP integrations that turn Claude into a true business automation platform."
+        "description": "Model Context Protocol (MCP) lets Claude interact directly with your databases, APIs, and software. We build custom MCP integrations that turn Claude into a true business automation platform."
       },
       "problem": {
         "title": "The Integration Challenge",
@@ -591,7 +591,7 @@
       },
       "solution": {
         "title": "MCP — The Missing Link",
-        "description": "Model Context Protocol is Anthropic's standard for connecting Claude to external systems securely. I design and deploy custom MCP servers that give Claude controlled access to your business data.",
+        "description": "Model Context Protocol is Anthropic's standard for connecting Claude to external systems securely. We design and deploy custom MCP servers that give Claude controlled access to your business data.",
         "benefits": [
           {
             "title": "Direct System Access",
@@ -616,7 +616,7 @@
         "steps": [
           {
             "title": "System Audit",
-            "description": "I map your current systems and identify integration opportunities."
+            "description": "We map your current systems and identify integration opportunities."
           },
           {
             "title": "Architecture Design",
@@ -624,7 +624,7 @@
           },
           {
             "title": "Development & Deployment",
-            "description": "I build and deploy custom MCP servers, either cloud-hosted or on-premise."
+            "description": "We build and deploy custom MCP servers, either cloud-hosted or on-premise."
           },
           {
             "title": "Testing & Security Review",
@@ -674,7 +674,7 @@
       "hero": {
         "badge": "Finance Specialist",
         "title": "Automate Your Finance Processes",
-        "description": "From month-end close to daily reconciliation — I build AI automations that save finance teams 30-50 hours per month while improving accuracy and compliance."
+        "description": "From month-end close to daily reconciliation — we build AI automations that save finance teams 30-50 hours per month while improving accuracy and compliance."
       },
       "problem": {
         "title": "Finance Team Challenges",
@@ -687,7 +687,7 @@
       },
       "solution": {
         "title": "AI-Powered Finance Automation",
-        "description": "I combine Claude AI with your existing finance tools (Bexio, ABACUS, Excel) to automate the repetitive work. Your team focuses on analysis and decisions while AI handles the data processing.",
+        "description": "We combine Claude AI with your existing finance tools (Bexio, ABACUS, Excel) to automate the repetitive work. Your team focuses on analysis and decisions while AI handles the data processing.",
         "benefits": [
           {
             "title": "Faster Month-End Close",
@@ -716,7 +716,7 @@
           },
           {
             "title": "Automation Design",
-            "description": "I design AI workflows that integrate with your accounting software."
+            "description": "We design AI workflows that integrate with your accounting software."
           },
           {
             "title": "Build & Test",
@@ -731,7 +731,7 @@
       "faqs": [
         {
           "question": "Which accounting software do you integrate with?",
-          "answer": "I specialize in Swiss accounting software: Bexio, ABACUS, and Infoniqa. I also work with international tools like Xero, QuickBooks, and SAP. For custom or legacy systems, I can build API integrations."
+          "answer": "We specialize in Swiss accounting software: Bexio, ABACUS, and Infoniqa. We also work with international tools like Xero, QuickBooks, and SAP. For custom or legacy systems, we can build API integrations."
         },
         {
           "question": "How much time can we realistically save?",
@@ -743,7 +743,7 @@
         },
         {
           "question": "What about compliance and audit requirements?",
-          "answer": "All automations maintain complete audit trails. Every AI action is logged with timestamps. I design workflows that comply with Swiss accounting standards (OR/HRM) and data protection requirements (FADP/DSG)."
+          "answer": "All automations maintain complete audit trails. Every AI action is logged with timestamps. We design workflows that comply with Swiss accounting standards (OR/HRM) and data protection requirements (FADP/DSG)."
         },
         {
           "question": "What's the investment for finance automation?",
@@ -770,7 +770,7 @@
       "hero": {
         "badge": "BI Specialist",
         "title": "Power BI Dashboards That Drive Decisions",
-        "description": "I build Power BI dashboards that transform your data into actionable insights. From executive KPI summaries to detailed operational views — designed for how your team actually works."
+        "description": "We build Power BI dashboards that transform your data into actionable insights. From executive KPI summaries to detailed operational views — designed for how your team actually works."
       },
       "problem": {
         "title": "Data Without Direction",
@@ -783,7 +783,7 @@
       },
       "solution": {
         "title": "Power BI Done Right",
-        "description": "I create Power BI solutions that connect all your data sources into live, interactive dashboards. Automatic refresh, mobile access, and insights that actually get used.",
+        "description": "We create Power BI solutions that connect all your data sources into live, interactive dashboards. Automatic refresh, mobile access, and insights that actually get used.",
         "benefits": [
           {
             "title": "Single Source of Truth",
@@ -812,7 +812,7 @@
           },
           {
             "title": "Data Modeling",
-            "description": "I build a robust data model connecting your various data sources."
+            "description": "We build a robust data model connecting your various data sources."
           },
           {
             "title": "Dashboard Design",
@@ -827,19 +827,19 @@
       "faqs": [
         {
           "question": "What data sources can you connect to Power BI?",
-          "answer": "Almost anything: Excel, SQL databases, Bexio, ABACUS, Salesforce, SharePoint, web APIs, and hundreds more. Power BI has native connectors for most business systems. For custom sources, I can build API integrations."
+          "answer": "Almost anything: Excel, SQL databases, Bexio, ABACUS, Salesforce, SharePoint, web APIs, and hundreds more. Power BI has native connectors for most business systems. For custom sources, we can build API integrations."
         },
         {
           "question": "We don't have a Power BI license yet. What do we need?",
-          "answer": "Power BI Desktop is free for building reports. For sharing and collaboration, you need Power BI Pro (CHF 9.40/user/month) or Premium. I help you choose the right licensing based on your team size and needs."
+          "answer": "Power BI Desktop is free for building reports. For sharing and collaboration, you need Power BI Pro (CHF 9.40/user/month) or Premium. We help you choose the right licensing based on your team size and needs."
         },
         {
           "question": "How long does a Power BI project take?",
-          "answer": "Simple dashboards: 2-3 weeks. Comprehensive BI solutions with multiple dashboards: 6-8 weeks. I work iteratively — you see progress and provide feedback throughout."
+          "answer": "Simple dashboards: 2-3 weeks. Comprehensive BI solutions with multiple dashboards: 6-8 weeks. We work iteratively — you see progress and provide feedback throughout."
         },
         {
           "question": "Can you integrate Claude AI with Power BI?",
-          "answer": "Yes. I can add Claude integration so users ask questions in natural language ('What were our top products last quarter?') and get instant answers from your Power BI data. This is a unique capability I offer."
+          "answer": "Yes. We can add Claude integration so users ask questions in natural language ('What were our top products last quarter?') and get instant answers from your Power BI data. This is a unique capability we offer."
         },
         {
           "question": "What's the investment for Power BI consulting?",

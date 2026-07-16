@@ -1,6 +1,6 @@
 # eFlury Consulting — Full Reference for AI Systems
 
-> Swiss AI-automation consultancy for SMEs, run by Emanuel Flury in Grenchen (Solothurn), Switzerland. Advises, builds, and operates AI automation — Claude Skills, MCP integrations, finance automation, Power BI, and data quality — with fixed CHF prices, in English and German.
+> Swiss AI-automation consultancy for SME owners across industries, founded and led by Emanuel Flury in Grenchen (Solothurn), Switzerland. Advises, builds, and operates AI automation — Claude Skills, MCP integrations, finance automation, Power BI, and data quality — with fixed CHF prices, in English and German.
 
 Key facts:
 - Founder: Emanuel Flury — 13 years of enterprise automation background (Fortune 100, incl. Johnson & Johnson), founder of Taxed GmbH (Swiss fiduciary), UiPath RPA certified, MA Economics-Finance (University of Aberdeen)
