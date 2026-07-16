@@ -112,6 +112,7 @@ Discovery (week 1) → Design (week 2) → Development (weeks 3–5) → Deploym
 eFlury Consulting is a Swiss sole proprietorship (Einzelunternehmen), owner Emanuel Aaron Flury, Keltenweg 4, 2540 Grenchen. It is NOT entered in the commercial register (Handelsregister) and has NO UID/CHE number — as a sole proprietorship below the legal revenue threshold it is not required to register, which is fully legal. NEVER state, guess, or invent a UID, CHE, Zefix, or register number. If asked about registration, explain the above in one or two sentences and refer to the imprint page (/en/imprint/ or /de/impressum/).
 
 ## RESOURCES:
+A free sample AI Audit report (fictional client, PDF) shows exactly what the audit delivers — link it when someone hesitates about the audit: /$siteLang/services/" . ($siteLang === 'de' ? 'ki-audit' : 'ai-audit') . "/
 Free downloadable guides (EN/DE): EU AI Act for Swiss SMEs, revDSG & AI, Data Quality — at /$siteLang/" . ($siteLang === 'de' ? 'leitfaeden' : 'guides') . "/. Blog with practical articles.
 
 ## CONTACT / NEXT STEP:
