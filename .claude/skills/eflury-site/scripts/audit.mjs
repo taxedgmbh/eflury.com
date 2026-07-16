@@ -140,7 +140,6 @@ const localizedMap = {
   'careers': 'karriere',
   'guides': 'leitfaeden',
   'industries': 'branchen',
-  'industries/treuhand-accounting': 'branchen/treuhand',
   'industries/finance-teams': 'branchen/finanzteams',
   'industries/professional-services': 'branchen/dienstleister',
   'services/finance-automation': 'services/finanzen-automatisierung',
