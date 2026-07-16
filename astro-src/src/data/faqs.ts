@@ -129,7 +129,7 @@ export const faqsDE: FAQ[] = [
   },
   {
     question: "Welche Branchen profitieren am meisten von Claude-Automatisierung?",
-    answer: "Claude-Automatisierung liefert aussergewöhnliche Resultate in: (1) Treuhand & Buchhaltung (Rechnungsverarbeitung, Steuervorbereitung, Kundenreporting) - 25-35 Stunden/Woche gespart, (2) Rechtsdienstleistungen (Vertragsanalyse, Dokumentenerstellung, Recherche) - 20-30 Stunden/Woche, (3) Gesundheitsverwaltung (Patiententerminierung, Abrechnung, Compliance-Dokumente) - 15-25 Stunden/Woche, (4) Immobilien (Objektausschreibungen, Mietvertragserstellung, Marktanalysen) - 18-28 Stunden/Woche, (5) Beratungsdienstleistungen (Offerterstellung, Projektdokumente, Kundenkommunikation) - 20-30 Stunden/Woche. Jede Branche mit repetitiver Dokumentenverarbeitung, Dateneingabe oder Kundenkommunikation profitiert erheblich."
+    answer: "Claude-Automatisierung liefert aussergewöhnliche Resultate in: (1) Finanz- & Rechnungswesen (Rechnungsverarbeitung, Kreditoren, Management-Reporting) - 25-35 Stunden/Woche gespart, (2) Rechtsdienstleistungen (Vertragsanalyse, Dokumentenerstellung, Recherche) - 20-30 Stunden/Woche, (3) Gesundheitsverwaltung (Patiententerminierung, Abrechnung, Compliance-Dokumente) - 15-25 Stunden/Woche, (4) Immobilien (Objektausschreibungen, Mietvertragserstellung, Marktanalysen) - 18-28 Stunden/Woche, (5) Beratungsdienstleistungen (Offerterstellung, Projektdokumente, Kundenkommunikation) - 20-30 Stunden/Woche. Jede Branche mit repetitiver Dokumentenverarbeitung, Dateneingabe oder Kundenkommunikation profitiert erheblich."
   },
   {
     question: "Brauche ich ein technisches Team, um Claude Code zu nutzen?",

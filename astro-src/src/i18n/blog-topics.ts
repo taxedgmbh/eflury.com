@@ -12,7 +12,7 @@ export const topicOrder: TopicKey[] = ['strategy', 'treuhand', 'practice', 'powe
 
 export const topicLabels: Record<TopicKey, { en: string; de: string }> = {
   strategy: { en: 'AI Strategy & ROI', de: 'KI-Strategie & ROI' },
-  treuhand: { en: 'Treuhand & Accounting', de: 'Treuhand & Buchhaltung' },
+  treuhand: { en: 'Accounting & Finance', de: 'Buchhaltung & Finanzen' },
   practice: { en: 'Automation in Practice', de: 'Automatisierung in der Praxis' },
   powerbi: { en: 'Power BI & Reporting', de: 'Power BI & Reporting' },
   security: { en: 'Security & Compliance', de: 'Sicherheit & Compliance' },

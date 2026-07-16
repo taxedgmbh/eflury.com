@@ -19,6 +19,11 @@ RewriteRule ^ https://eflury.com%{REQUEST_URI} [R=301,L]
 # LiteSpeed did not apply the per-dir RewriteRule for the root URL.
 RedirectMatch 301 ^/$ /en/
 
+# Treuhand industry pages retired (Treuhand is Taxed GmbH's domain);
+# the Taxed case study carries the capability proof
+RedirectMatch 301 ^/en/industries/treuhand-accounting/?$ /en/case-studies/taxed-gmbh
+RedirectMatch 301 ^/de/branchen/treuhand/?$ /de/case-studies/taxed-gmbh
+
 <IfModule mod_headers.c>
   # Security headers
   Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains"

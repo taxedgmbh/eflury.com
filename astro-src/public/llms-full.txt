@@ -32,14 +32,15 @@ Key facts:
 
 ## Industries
 
-- [Treuhand & Accounting](https://eflury.com/en/industries/treuhand-accounting/): Automation for Swiss fiduciaries — the founder runs one himself
+Built for Swiss SME owners across industries — wherever repetitive processes eat time:
+
 - [Finance Teams](https://eflury.com/en/industries/finance-teams/): Month-end close, reconciliations, reporting
 - [Professional Services](https://eflury.com/en/industries/professional-services/): Client reporting and delivery automation
 
 ## Resources
 
 - [Guides](https://eflury.com/en/guides/): Free downloadable playbooks (EN/DE): EU AI Act for Swiss SMEs, revDSG & AI, Data Quality
-- [Blog / Insights](https://eflury.com/en/blog/): Practical articles on AI automation, Treuhand & accounting, reporting, compliance, and security for Swiss SMEs
+- [Blog / Insights](https://eflury.com/en/blog/): Practical articles on AI automation, accounting & finance, reporting, compliance, and security for Swiss SMEs
 - [Trust & Security](https://eflury.com/en/trust/): How client data is handled (revDSG, EU-hosted tooling)
 - [Contact](https://eflury.com/en/contact/): Free 30-minute call, response within 24 hours
 
