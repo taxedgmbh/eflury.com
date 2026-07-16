@@ -10,30 +10,37 @@ const { lang } = Astro.props;
 const de = lang === 'de';
 
 const t = {
-  title: de ? 'Für wen wir arbeiten' : 'Who we serve',
+  title: de ? 'Wo wir helfen' : 'Where we help',
   subtitle: de
     ? 'Für Schweizer KMU jeder Branche — Automatisierung, die die Sprache Ihres Tagesgeschäfts spricht, verankert in dokumentierten Projekten.'
     : 'For Swiss SMEs in any industry — automation that speaks the language of your daily business, grounded in documented projects.',
-  all: de ? 'Alle Branchen' : 'All industries',
+  all: de ? 'Alle Einsatzbereiche' : 'All areas',
   allHref: de ? '/de/branchen/' : '/en/industries/',
-  view: de ? 'Zur Branchenseite' : 'View industry page',
+  view: de ? 'Was wir automatisieren' : 'See what we automate',
 };
 
 // Keep card copy in sync with the industries hub pages.
 const industries = [
   {
-    title: de ? 'Finanzteams' : 'Finance Teams',
+    title: de ? 'Finanzen & Back Office' : 'Finance & Back Office',
     text: de
-      ? 'Monatsabschluss, Power-BI-Reporting, Excel-Migration — dokumentiert in zwei Kundenprojekten.'
-      : 'Month-end close, Power BI reporting, Excel migration — documented in two client case studies.',
+      ? 'Kreditorenerfassung, Monatsabschluss, Mahnwesen — dokumentiert in zwei Kundenprojekten.'
+      : 'Supplier invoices, month-end close, reminders — documented in two client case studies.',
     href: de ? '/de/branchen/finanzteams/' : '/en/industries/finance-teams/',
   },
   {
-    title: de ? 'Dienstleister' : 'Professional Services',
+    title: de ? 'Kundenkommunikation & Annahme' : 'Customer Communication & Intake',
     text: de
-      ? 'E-Mail-Triage, Telefonannahme, WhatsApp und Kundenreporting — damit verrechenbare Stunden nicht versickern.'
-      : 'Email triage, phone reception, WhatsApp, and client reporting — so billable hours stop leaking away.',
+      ? 'E-Mail-Triage, Telefonannahme, WhatsApp und Offertanfragen — damit Kundenarbeit nicht versickert.'
+      : 'Email triage, phone reception, WhatsApp, and quote requests — so customer work stops leaking away.',
     href: de ? '/de/branchen/dienstleister/' : '/en/industries/professional-services/',
+  },
+  {
+    title: de ? 'Reporting & Daten' : 'Reporting & Data',
+    text: de
+      ? 'Power-BI-Dashboards, Excel-Migration und Datenqualität — Zahlen, die sich selbst aktualisieren.'
+      : 'Power BI dashboards, Excel migration, and data quality — numbers that refresh themselves.',
+    href: de ? '/de/branchen/reporting-daten/' : '/en/industries/reporting-data/',
   },
 ];
 ---

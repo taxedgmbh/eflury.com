@@ -4,82 +4,82 @@ import Header from '../../../components/Header.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
 import AIChatbot from '../../../components/AIChatbot.astro';
-import { ArrowRight, MailCheck, Phone, MessageCircle, BarChart3 } from 'lucide-astro';
+import { ArrowRight, BarChart3, FileSpreadsheet, Database, Send } from 'lucide-astro';
 
 const lang = 'en';
 
 const pains = [
   {
-    title: 'Billable hours lost to admin',
-    text: 'Inbox triage, scheduling, follow-ups, status reports — hours that cannot be invoiced but fill the day anyway.',
+    title: 'Reports rebuilt by hand every cycle',
+    text: 'The monthly numbers exist — but assembling them from exports and spreadsheets eats days, every single month.',
   },
   {
-    title: 'Every channel demands attention',
-    text: 'Email, phone, WhatsApp — clients expect fast answers everywhere, and every interruption breaks focused work.',
+    title: 'No single source of truth',
+    text: 'ERP, CRM, banking, Excel — the same KPI has three values depending on who you ask, and nobody fully trusts any of them.',
   },
   {
-    title: 'Client reporting eats the evenings',
-    text: 'Each client wants to see progress and numbers — assembled by hand from different tools, again and again.',
+    title: 'Decisions wait for data',
+    text: 'Management questions take hours to answer because the data has to be hunted down and reconciled first.',
   },
 ];
 
 const automations = [
   {
-    icon: MailCheck,
-    title: 'Email triage',
-    text: 'Incoming mail sorted, prioritized, and drafted for response — nothing is sent without human review.',
-    href: '/en/blog/ai-email-triage-agent-professionals/',
-    linkLabel: 'The email triage pattern',
-  },
-  {
-    icon: Phone,
-    title: 'Phone reception',
-    text: 'Voice AI takes first contact, captures the request in a structured way, and routes it — your team calls back prepared.',
-    href: '/en/blog/voice-ai-receptionist-swiss-sme/',
-    linkLabel: 'Voice AI in practice',
-  },
-  {
-    icon: MessageCircle,
-    title: 'WhatsApp business communication',
-    text: 'Appointment requests and standard questions answered automatically — handover to a human on anything non-standard.',
-    href: '/en/blog/whatsapp-business-automation/',
-    linkLabel: 'WhatsApp automation guide',
-  },
-  {
     icon: BarChart3,
-    title: 'Client reporting',
-    text: 'Power BI dashboards that clients can be shown directly — instead of slide decks assembled at midnight.',
+    title: 'Power BI dashboards',
+    text: 'Live dashboards connected to your source systems — the numbers refresh themselves instead of being rebuilt.',
     href: '/en/services/power-bi/',
     linkLabel: 'Power BI service',
+  },
+  {
+    icon: FileSpreadsheet,
+    title: 'Excel to Power BI migration',
+    text: 'Structured migration of grown Excel reporting — with a checklist for the typical pitfalls.',
+    href: '/en/blog/excel-to-power-bi-migration/',
+    linkLabel: 'The migration guide',
+  },
+  {
+    icon: Database,
+    title: 'Data quality',
+    text: 'Duplicates, format drift, and missing identifiers cleaned with human approval gates — so your reports stop arguing with each other.',
+    href: '/en/services/data-quality/',
+    linkLabel: 'Data quality service',
+  },
+  {
+    icon: Send,
+    title: 'Report distribution',
+    text: 'Recurring client and management reports drafted and distributed automatically — reviewed by a person before anything leaves the house.',
+    href: '/en/services/finance-automation/',
+    linkLabel: 'Finance automation service',
   },
 ];
 ---
 
 <MainLayout
-  title="Customer Communication & Intake Automation - eFlury Consulting"
-  description="Automation for Swiss professional services firms: email triage, voice reception, WhatsApp, and client reporting — documented in a client case study."
-  keywords="professional services automation, email triage AI, voice AI reception, WhatsApp business automation, client reporting Power BI"
+  title="Reporting & Data Automation - eFlury Consulting"
+  description="Automation for reporting and data in Swiss SMEs: Power BI dashboards, Excel migration, data quality, and automated report distribution — documented in a client case study."
+  keywords="Power BI Swiss SME, reporting automation, Excel Power BI migration, data quality, dashboard automation"
   lang={lang}
 >
   <Header lang={lang} />
 
-  <Breadcrumbs lang={lang} items={[{ label: 'Where We Help', href: '/en/industries/' }, { label: 'Customer Communication & Intake' }]} />
+  <Breadcrumbs lang={lang} items={[{ label: 'Where We Help', href: '/en/industries/' }, { label: 'Reporting & Data' }]} />
 
   <main class="industry-page">
     <section class="industry-hero">
       <div class="container">
-        <p class="eyebrow">Where we help · Customer Communication &amp; Intake</p>
-        <h1>Customer communication &amp; intake.</h1>
+        <p class="eyebrow">Where we help · Reporting &amp; Data</p>
+        <h1>Reporting &amp; data.</h1>
         <p class="lead">
-          Consultants, agencies, engineering offices, practices — you sell expertise by the hour,
-          and the hours keep leaking into administration. We automate the routine around your client work.
+          Numbers you trust, on screens that update themselves.
+          We connect your systems, clean the data underneath, and automate the reports on top.
         </p>
       </div>
     </section>
 
     <section class="pains">
       <div class="container">
-        <h2>The daily leak</h2>
+        <h2>Where the hours go</h2>
         <div class="card-grid three">
           {pains.map((pain) => (
             <div class="plain-card">
@@ -93,10 +93,10 @@ const automations = [
 
     <section class="automations">
       <div class="container">
-        <h2>What we automate around the inbox and the phone</h2>
+        <h2>What we automate around reporting &amp; data</h2>
         <p class="section-lead">
           Every system follows the same rule: AI proposes, your team approves.
-          Client data stays in your systems — agents access it read-only via MCP connectors.
+          Your data stays in your systems — agents access it read-only via MCP connectors.
         </p>
         <div class="card-grid two">
           {automations.map((item) => (
@@ -116,11 +116,18 @@ const automations = [
         <h2>Documented in a client project</h2>
         <div class="proof-card">
           <p>
-            For a Swiss professional services firm we built a Power BI solution connecting seven
-            data sources — real-time KPI tracking and automated client reporting, documented with
-            ~15 h/week estimated time saved, ~CHF 36K estimated annual savings, and ~2.8 months estimated payback.
+            For a professional services firm we built a Power BI solution connecting seven data
+            sources into one executive dashboard — documented with ~15 h/week estimated time saved
+            and ~2.8 months estimated payback.
           </p>
-          <a href="/en/case-studies/power-bi-reporting/" class="card-link">Read the case study <ArrowRight size={14} /></a>
+          <a href="/en/case-studies/power-bi-reporting/" class="card-link">Power BI case study <ArrowRight size={14} /></a>
+        </div>
+        <div class="proof-card">
+          <p>
+            How our data-quality agents reason about duplicates and conflicts is shown live —
+            with illustrative data — in the interactive demo on the data quality service page.
+          </p>
+          <a href="/en/services/data-quality/" class="card-link">See the live demo <ArrowRight size={14} /></a>
         </div>
       </div>
     </section>
@@ -128,16 +135,16 @@ const automations = [
     <section class="insights-band">
       <div class="container">
         <p>
-          Four hands-on articles on automation in practice —
-          <a href="/en/blog/#practice">read them in the Insights hub</a>.
+          In-depth articles on Power BI and reporting —
+          <a href="/en/blog/#powerbi">read them in the Insights hub</a>.
         </p>
       </div>
     </section>
 
     <section class="cta">
       <div class="container">
-        <h2>Which routine costs you the most billable hours?</h2>
-        <p>Free 30-minute call — we walk through your week, not a slide deck.</p>
+        <h2>How long does your monthly report take?</h2>
+        <p>Free 30-minute call — we look at your reporting chain, not a slide deck.</p>
         <a href="/en/contact/" class="btn-primary">
           Get in touch
           <ArrowRight size={18} />

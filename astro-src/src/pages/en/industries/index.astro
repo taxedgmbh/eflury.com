@@ -8,41 +8,47 @@ import { ArrowRight, Calculator, BarChart3, Briefcase } from 'lucide-astro';
 
 const lang = 'en';
 
-const industries = [
+const areas = [
   {
-    icon: BarChart3,
-    title: 'Finance Teams',
-    text: 'Month-end close, Power BI reporting, Excel migration, and financial master data — documented in two client case studies.',
+    icon: Calculator,
+    title: 'Finance & Back Office',
+    text: 'Supplier invoices, month-end close, reminders, and financial master data — documented in two client case studies.',
     href: '/en/industries/finance-teams/',
   },
   {
     icon: Briefcase,
-    title: 'Professional Services',
-    text: 'Email triage, phone reception, WhatsApp, and client reporting — so billable hours stop leaking into administration.',
+    title: 'Customer Communication & Intake',
+    text: 'Email triage, phone reception, WhatsApp, and quote requests — so customer work stops leaking into administration.',
     href: '/en/industries/professional-services/',
+  },
+  {
+    icon: BarChart3,
+    title: 'Reporting & Data',
+    text: 'Power BI dashboards, Excel migration, and data quality — numbers you trust, refreshing themselves.',
+    href: '/en/industries/reporting-data/',
   },
 ];
 ---
 
 <MainLayout
-  title="Industries - eFlury Consulting"
-  description="Who we build AI automation for: fiduciary and accounting firms, finance teams, and professional services — grounded in documented projects."
+  title="Where We Help - eFlury Consulting"
+  description="The three business areas where we automate for Swiss SMEs: finance & back office, customer communication & intake, reporting & data — grounded in documented projects."
   keywords="AI automation industries, finance team automation, professional services AI, Swiss SME"
   lang={lang}
 >
   <Header lang={lang} />
 
-  <Breadcrumbs lang={lang} items={[{ label: 'Industries' }]} />
+  <Breadcrumbs lang={lang} items={[{ label: 'Where We Help' }]} />
 
   <main class="industries-page">
     <section class="hub-hero">
       <div class="container">
-        <span class="hero-badge">Who we serve</span>
-        <h1>Industries</h1>
+        <span class="hero-badge">For Swiss SMEs in any industry</span>
+        <h1>Where we help.</h1>
         <p class="lead">
-          Automation only works when it speaks the language of your daily business.
-          These pages show what we build per sector — grounded in the projects and
-          articles already documented on this site.
+          The same processes eat time in every industry: invoices arrive, emails pile up,
+          reports get built by hand. These pages show what we automate in each business
+          area — grounded in the projects and articles documented on this site.
         </p>
       </div>
     </section>
@@ -50,12 +56,12 @@ const industries = [
     <section class="hub-grid">
       <div class="container">
         <div class="card-grid">
-          {industries.map((item) => (
+          {areas.map((item) => (
             <a href={item.href} class="industry-card">
               <div class="card-icon"><item.icon size={22} /></div>
               <h2>{item.title}</h2>
               <p>{item.text}</p>
-              <span class="card-link">View industry page <ArrowRight size={14} /></span>
+              <span class="card-link">See what we automate <ArrowRight size={14} /></span>
             </a>
           ))}
         </div>
