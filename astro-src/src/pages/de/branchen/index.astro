@@ -8,41 +8,47 @@ import { ArrowRight, Calculator, BarChart3, Briefcase } from 'lucide-astro';
 
 const lang = 'de';
 
-const industries = [
+const areas = [
   {
-    icon: BarChart3,
-    title: 'Finanzteams',
-    text: 'Monatsabschluss, Power-BI-Reporting, Excel-Migration und Finanz-Stammdaten — dokumentiert in zwei Kundenprojekten.',
+    icon: Calculator,
+    title: 'Finanzen & Back Office',
+    text: 'Kreditorenerfassung, Monatsabschluss, Mahnwesen und Finanz-Stammdaten — dokumentiert in zwei Kundenprojekten.',
     href: '/de/branchen/finanzteams/',
   },
   {
     icon: Briefcase,
-    title: 'Dienstleister',
-    text: 'E-Mail-Triage, Telefonannahme, WhatsApp und Kundenreporting — damit verrechenbare Stunden nicht in der Administration versickern.',
+    title: 'Kundenkommunikation & Annahme',
+    text: 'E-Mail-Triage, Telefonannahme, WhatsApp und Offertanfragen — damit Kundenarbeit nicht in der Administration versickert.',
     href: '/de/branchen/dienstleister/',
+  },
+  {
+    icon: BarChart3,
+    title: 'Reporting & Daten',
+    text: 'Power-BI-Dashboards, Excel-Migration und Datenqualität — Zahlen, denen Sie trauen, und die sich selbst aktualisieren.',
+    href: '/de/branchen/reporting-daten/',
   },
 ];
 ---
 
 <MainLayout
-  title="Branchen - eFlury Consulting"
-  description="Für wen wir KI-Automatisierung bauen: Finanzteams und Dienstleister in Schweizer KMU — verankert in dokumentierten Projekten."
+  title="Einsatzbereiche - eFlury Consulting"
+  description="Die drei Geschäftsbereiche, in denen wir für Schweizer KMU automatisieren: Finanzen & Back Office, Kundenkommunikation & Annahme, Reporting & Daten — verankert in dokumentierten Projekten."
   keywords="KI-Automatisierung Branchen, Finanzteam Automatisierung, Dienstleister KI, Schweizer KMU"
   lang={lang}
 >
   <Header lang={lang} />
 
-  <Breadcrumbs lang={lang} items={[{ label: 'Branchen' }]} />
+  <Breadcrumbs lang={lang} items={[{ label: 'Einsatzbereiche' }]} />
 
   <main class="industries-page">
     <section class="hub-hero">
       <div class="container">
-        <span class="hero-badge">Für wen wir arbeiten</span>
-        <h1>Branchen</h1>
+        <span class="hero-badge">Für Schweizer KMU jeder Branche</span>
+        <h1>Einsatzbereiche.</h1>
         <p class="lead">
-          Automatisierung funktioniert nur, wenn sie die Sprache Ihres Tagesgeschäfts spricht.
-          Diese Seiten zeigen, was wir pro Branche bauen — verankert in den Projekten und
-          Artikeln, die auf dieser Website dokumentiert sind.
+          Dieselben Prozesse fressen in jeder Branche Zeit: Rechnungen kommen, E-Mails stapeln
+          sich, Reports werden von Hand gebaut. Diese Seiten zeigen, was wir pro Geschäftsbereich
+          automatisieren — verankert in den Projekten und Artikeln auf dieser Website.
         </p>
       </div>
     </section>
@@ -50,12 +56,12 @@ const industries = [
     <section class="hub-grid">
       <div class="container">
         <div class="card-grid">
-          {industries.map((item) => (
+          {areas.map((item) => (
             <a href={item.href} class="industry-card">
               <div class="card-icon"><item.icon size={22} /></div>
               <h2>{item.title}</h2>
               <p>{item.text}</p>
-              <span class="card-link">Zur Branchenseite <ArrowRight size={14} /></span>
+              <span class="card-link">Was wir automatisieren <ArrowRight size={14} /></span>
             </a>
           ))}
         </div>

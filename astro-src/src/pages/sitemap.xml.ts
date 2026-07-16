@@ -45,6 +45,7 @@ const staticPages: StaticPage[] = [
   { en: '/en/industries/', de: '/de/branchen/', priority: '0.8', changefreq: 'monthly' },
   { en: '/en/industries/finance-teams/', de: '/de/branchen/finanzteams/', priority: '0.7', changefreq: 'monthly' },
   { en: '/en/industries/professional-services/', de: '/de/branchen/dienstleister/', priority: '0.7', changefreq: 'monthly' },
+  { en: '/en/industries/reporting-data/', de: '/de/branchen/reporting-daten/', priority: '0.7', changefreq: 'monthly' },
 
   // Services
   { en: '/en/services/', de: '/de/services/', priority: '0.8', changefreq: 'monthly' },

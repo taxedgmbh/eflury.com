@@ -30,12 +30,13 @@ Key facts:
 
 - [Case studies](https://eflury.com/en/case-studies/): Three documented projects with per-project estimates — Taxed GmbH (own firm: ~27.5 h/week automated, ~CHF 24K/year, 3.2-month payback), finance process automation (manufacturing client: 40 h/month, ~CHF 48K/year), Power BI reporting (professional-services client: 15 h/week, ~CHF 36K/year)
 
-## Industries
+## Where we help
 
-Built for Swiss SME owners across industries — wherever repetitive processes eat time:
+Built for Swiss SME owners across industries — organized by business area, not sector:
 
-- [Finance Teams](https://eflury.com/en/industries/finance-teams/): Month-end close, reconciliations, reporting
-- [Professional Services](https://eflury.com/en/industries/professional-services/): Client reporting and delivery automation
+- [Finance & Back Office](https://eflury.com/en/industries/finance-teams/): Supplier invoices, month-end close, reminders, master data
+- [Customer Communication & Intake](https://eflury.com/en/industries/professional-services/): Email triage, reception, WhatsApp, quote requests
+- [Reporting & Data](https://eflury.com/en/industries/reporting-data/): Power BI dashboards, Excel migration, data quality
 
 ## Resources
 

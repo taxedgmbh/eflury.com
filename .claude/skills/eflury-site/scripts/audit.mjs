@@ -142,6 +142,7 @@ const localizedMap = {
   'industries': 'branchen',
   'industries/finance-teams': 'branchen/finanzteams',
   'industries/professional-services': 'branchen/dienstleister',
+  'industries/reporting-data': 'branchen/reporting-daten',
   'services/finance-automation': 'services/finanzen-automatisierung',
   'services/data-quality': 'services/datenqualitaet',
   'services/ai-audit': 'services/ki-audit',

@@ -4,82 +4,82 @@ import Header from '../../../components/Header.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
 import AIChatbot from '../../../components/AIChatbot.astro';
-import { ArrowRight, MailCheck, Phone, MessageCircle, BarChart3 } from 'lucide-astro';
+import { ArrowRight, BarChart3, FileSpreadsheet, Database, Send } from 'lucide-astro';
 
-const lang = 'en';
+const lang = 'de';
 
 const pains = [
   {
-    title: 'Billable hours lost to admin',
-    text: 'Inbox triage, scheduling, follow-ups, status reports — hours that cannot be invoiced but fill the day anyway.',
+    title: 'Reports werden jeden Monat neu gebaut',
+    text: 'Die Zahlen existieren — aber sie aus Exporten und Tabellen zusammenzusetzen kostet Tage, jeden einzelnen Monat.',
   },
   {
-    title: 'Every channel demands attention',
-    text: 'Email, phone, WhatsApp — clients expect fast answers everywhere, and every interruption breaks focused work.',
+    title: 'Keine einzige Wahrheit',
+    text: 'ERP, CRM, Banking, Excel — dieselbe Kennzahl hat drei Werte, je nachdem, wen man fragt. Und keiner traut keinem.',
   },
   {
-    title: 'Client reporting eats the evenings',
-    text: 'Each client wants to see progress and numbers — assembled by hand from different tools, again and again.',
+    title: 'Entscheide warten auf Daten',
+    text: 'Managementfragen brauchen Stunden, weil die Daten zuerst gesucht und abgeglichen werden müssen.',
   },
 ];
 
 const automations = [
   {
-    icon: MailCheck,
-    title: 'Email triage',
-    text: 'Incoming mail sorted, prioritized, and drafted for response — nothing is sent without human review.',
-    href: '/en/blog/ai-email-triage-agent-professionals/',
-    linkLabel: 'The email triage pattern',
-  },
-  {
-    icon: Phone,
-    title: 'Phone reception',
-    text: 'Voice AI takes first contact, captures the request in a structured way, and routes it — your team calls back prepared.',
-    href: '/en/blog/voice-ai-receptionist-swiss-sme/',
-    linkLabel: 'Voice AI in practice',
-  },
-  {
-    icon: MessageCircle,
-    title: 'WhatsApp business communication',
-    text: 'Appointment requests and standard questions answered automatically — handover to a human on anything non-standard.',
-    href: '/en/blog/whatsapp-business-automation/',
-    linkLabel: 'WhatsApp automation guide',
-  },
-  {
     icon: BarChart3,
-    title: 'Client reporting',
-    text: 'Power BI dashboards that clients can be shown directly — instead of slide decks assembled at midnight.',
-    href: '/en/services/power-bi/',
-    linkLabel: 'Power BI service',
+    title: 'Power-BI-Dashboards',
+    text: 'Live-Dashboards, verbunden mit Ihren Quellsystemen — die Zahlen aktualisieren sich selbst, statt neu gebaut zu werden.',
+    href: '/de/services/power-bi/',
+    linkLabel: 'Power-BI-Service',
+  },
+  {
+    icon: FileSpreadsheet,
+    title: 'Excel-zu-Power-BI-Migration',
+    text: 'Strukturierte Migration gewachsener Excel-Reports — mit Checkliste für die typischen Stolperfallen.',
+    href: '/de/blog/excel-zu-power-bi-migration/',
+    linkLabel: 'Der Migrations-Guide',
+  },
+  {
+    icon: Database,
+    title: 'Datenqualität',
+    text: 'Dubletten, Formatabweichungen und fehlende Identifikatoren bereinigt — mit menschlicher Freigabe, damit Ihre Reports sich nicht mehr widersprechen.',
+    href: '/de/services/datenqualitaet/',
+    linkLabel: 'Datenqualitäts-Service',
+  },
+  {
+    icon: Send,
+    title: 'Report-Verteilung',
+    text: 'Wiederkehrende Kunden- und Management-Reports automatisch entworfen und verteilt — geprüft von einem Menschen, bevor etwas das Haus verlässt.',
+    href: '/de/services/finanzen-automatisierung/',
+    linkLabel: 'Finanzautomatisierungs-Service',
   },
 ];
 ---
 
 <MainLayout
-  title="Customer Communication & Intake Automation - eFlury Consulting"
-  description="Automation for Swiss professional services firms: email triage, voice reception, WhatsApp, and client reporting — documented in a client case study."
-  keywords="professional services automation, email triage AI, voice AI reception, WhatsApp business automation, client reporting Power BI"
+  title="Reporting & Daten automatisieren - eFlury Consulting"
+  description="Automatisierung für Reporting und Daten in Schweizer KMU: Power-BI-Dashboards, Excel-Migration, Datenqualität und automatische Report-Verteilung — dokumentiert in einem Kundenprojekt."
+  keywords="Power BI Schweizer KMU, Reporting Automatisierung, Excel Power BI Migration, Datenqualität, Dashboard"
   lang={lang}
 >
   <Header lang={lang} />
 
-  <Breadcrumbs lang={lang} items={[{ label: 'Where We Help', href: '/en/industries/' }, { label: 'Customer Communication & Intake' }]} />
+  <Breadcrumbs lang={lang} items={[{ label: 'Einsatzbereiche', href: '/de/branchen/' }, { label: 'Reporting & Daten' }]} />
 
   <main class="industry-page">
     <section class="industry-hero">
       <div class="container">
-        <p class="eyebrow">Where we help · Customer Communication &amp; Intake</p>
-        <h1>Customer communication &amp; intake.</h1>
+        <p class="eyebrow">Einsatzbereiche · Reporting &amp; Daten</p>
+        <h1>Reporting &amp; Daten.</h1>
         <p class="lead">
-          Consultants, agencies, engineering offices, practices — you sell expertise by the hour,
-          and the hours keep leaking into administration. We automate the routine around your client work.
+          Zahlen, denen Sie trauen — auf Bildschirmen, die sich selbst aktualisieren.
+          Wir verbinden Ihre Systeme, bereinigen die Daten darunter und automatisieren die Reports darüber.
         </p>
       </div>
     </section>
 
     <section class="pains">
       <div class="container">
-        <h2>The daily leak</h2>
+        <h2>Wohin die Stunden verschwinden</h2>
         <div class="card-grid three">
           {pains.map((pain) => (
             <div class="plain-card">
@@ -93,10 +93,10 @@ const automations = [
 
     <section class="automations">
       <div class="container">
-        <h2>What we automate around the inbox and the phone</h2>
+        <h2>Was wir rund um Reporting &amp; Daten automatisieren</h2>
         <p class="section-lead">
-          Every system follows the same rule: AI proposes, your team approves.
-          Client data stays in your systems — agents access it read-only via MCP connectors.
+          Für jedes System gilt dieselbe Regel: KI schlägt vor, Ihr Team gibt frei.
+          Ihre Daten bleiben in Ihren Systemen — Agenten greifen über MCP-Konnektoren nur lesend zu.
         </p>
         <div class="card-grid two">
           {automations.map((item) => (
@@ -113,14 +113,21 @@ const automations = [
 
     <section class="proof">
       <div class="container">
-        <h2>Documented in a client project</h2>
+        <h2>Dokumentiert in einem Kundenprojekt</h2>
         <div class="proof-card">
           <p>
-            For a Swiss professional services firm we built a Power BI solution connecting seven
-            data sources — real-time KPI tracking and automated client reporting, documented with
-            ~15 h/week estimated time saved, ~CHF 36K estimated annual savings, and ~2.8 months estimated payback.
+            Für ein Dienstleistungsunternehmen haben wir eine Power-BI-Lösung gebaut, die sieben
+            Datenquellen in einem Management-Dashboard verbindet — dokumentiert mit ~15 h/Woche
+            geschätzter Zeitersparnis und ~2.8 Monaten geschätzter Amortisation.
           </p>
-          <a href="/en/case-studies/power-bi-reporting/" class="card-link">Read the case study <ArrowRight size={14} /></a>
+          <a href="/de/case-studies/power-bi-reporting/" class="card-link">Power-BI-Fallstudie <ArrowRight size={14} /></a>
+        </div>
+        <div class="proof-card">
+          <p>
+            Wie unsere Datenqualitäts-Agenten über Dubletten und Konflikte entscheiden, zeigen wir
+            live — mit illustrativen Daten — in der interaktiven Demo auf der Datenqualitäts-Seite.
+          </p>
+          <a href="/de/services/datenqualitaet/" class="card-link">Zur Live-Demo <ArrowRight size={14} /></a>
         </div>
       </div>
     </section>
@@ -128,18 +135,18 @@ const automations = [
     <section class="insights-band">
       <div class="container">
         <p>
-          Four hands-on articles on automation in practice —
-          <a href="/en/blog/#practice">read them in the Insights hub</a>.
+          Vertiefende Artikel zu Power BI und Reporting —
+          <a href="/de/blog/#powerbi">im Insights-Hub lesen</a>.
         </p>
       </div>
     </section>
 
     <section class="cta">
       <div class="container">
-        <h2>Which routine costs you the most billable hours?</h2>
-        <p>Free 30-minute call — we walk through your week, not a slide deck.</p>
-        <a href="/en/contact/" class="btn-primary">
-          Get in touch
+        <h2>Wie lange dauert Ihr Monatsreport?</h2>
+        <p>Kostenloses 30-Minuten-Gespräch — wir schauen Ihre Reporting-Kette an, kein Foliensatz.</p>
+        <a href="/de/kontakt/" class="btn-primary">
+          Kontakt aufnehmen
           <ArrowRight size={18} />
         </a>
       </div>
