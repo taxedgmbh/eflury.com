@@ -6,7 +6,7 @@
   },
   "nav": {
     "home": "Home",
-    "about": "Über mich",
+    "about": "Über uns",
     "services": "Leistungen",
     "services_overview": "Übersicht",
     "industries": "Branchen",
@@ -21,7 +21,7 @@
   "hero": {
     "badge": "Enterprise-Methoden · KMU-Preise",
     "title": "KI-Automatisierung für Schweizer KMU. Strategisch geplant. Praktisch umgesetzt.",
-    "subtitle": "Ich bringe die Automatisierungsstrategien von Fortune-500-Unternehmen zu Ihrem KMU — ohne Enterprise-Budget.",
+    "subtitle": "Wir bringen die Automatisierungsstrategien von Fortune-500-Unternehmen zu Ihrem KMU — ohne Enterprise-Budget.",
     "cta_primary": "Kostenloses Strategiegespräch buchen",
     "cta_secondary": "Methode entdecken ↓",
     "secondary_cta": "Methode entdecken ↓",
@@ -29,7 +29,7 @@
     "trust_bar": "Powered by: Claude/Anthropic · Make · Microsoft 365"
   },
   "tech_partners": {
-    "section_title": "Technologien, die ich einsetze",
+    "section_title": "Technologien, die wir einsetzen",
     "categories": {
       "ai": {
         "name": "AI",
@@ -55,12 +55,12 @@
     }
   },
   "about": {
-    "title": "Über mich",
+    "title": "Über uns",
     "subtitle": "KI-Berater mit Sitz in der Schweiz",
     "headline": "Vom Konzern zum KMU-Partner",
-    "bio1": "Nach 13 Jahren bei einem Fortune-500-Pharmaunternehmen, wo ich Automatisierungsinitiativen für globale Geschäftsbereiche geleitet habe, weiss ich, was im grossen Massstab funktioniert. Jetzt bringe ich diese Enterprise-Expertise direkt zu Schweizer KMUs.",
-    "bio2": "Ich habe eFlury gegründet, weil ich gesehen habe, wie viele Unternehmen mit der KI-Einführung kämpfen. Sie brauchen keine neuen Tools - sie brauchen jemanden, der ihnen zeigt, wie sie das Vorhandene nutzen können.",
-    "bio3": "Mit Sitz in Grenchen arbeite ich direkt mit meinen Kunden zusammen. Keine Folien, keine Frameworks - nur praktische Umsetzung, die vom ersten Tag an Ergebnisse liefert.",
+    "bio1": "Nach 13 Jahren bei einem Fortune-500-Pharmaunternehmen, wo er Automatisierungsinitiativen für globale Geschäftsbereiche geleitet hat, weiss Gründer Emanuel Flury, was im grossen Massstab funktioniert. Jetzt bringen wir diese Enterprise-Expertise direkt zu Schweizer KMUs.",
+    "bio2": "Emanuel hat eFlury gegründet, weil er gesehen hat, wie viele Unternehmen mit der KI-Einführung kämpfen. Sie brauchen keine neuen Tools - sie brauchen jemanden, der ihnen zeigt, wie sie das Vorhandene nutzen können.",
+    "bio3": "Mit Sitz in Grenchen arbeiten wir direkt mit unseren Kunden zusammen. Keine Folien, keine Frameworks - nur praktische Umsetzung, die vom ersten Tag an Ergebnisse liefert.",
     "highlight1": "13 Jahre Fortune 500 Erfahrung",
     "highlight2": "Mit Sitz in der Schweiz",
     "highlight3": "Hands-on Umsetzung",
@@ -87,7 +87,7 @@
     "title": "Kontakt",
     "subtitle": "Bereit für ein Gespräch? Wählen Sie, was Ihnen am besten passt.",
     "info_title": "Kontakt aufnehmen",
-    "info_description": "Ich biete ein kostenloses 30-Minuten-Gespräch an, um Ihre Situation zu verstehen und ehrlich einzuschätzen, ob und wie ich helfen kann.",
+    "info_description": "Wir bieten ein kostenloses 30-Minuten-Gespräch an, um Ihre Situation zu verstehen und ehrlich einzuschätzen, ob und wie wir helfen können.",
     "form_title": "Strategiegespräch buchen",
     "response_guarantee": "Antwort innerhalb von 24 Stunden",
     "benefits": {
@@ -96,7 +96,7 @@
       "timeline": "Realistische Zeitplanung und Budget"
     },
     "whatsapp_number": "+41 79 910 77 87",
-    "response_time": "Ich antworte innerhalb von 24 Stunden · Termine meist innerhalb von 3 Tagen",
+    "response_time": "Wir antworten innerhalb von 24 Stunden · Termine meist innerhalb von 3 Tagen",
     "email": "E-Mail",
     "phone": "Telefon",
     "whatsapp": "WhatsApp",
@@ -105,21 +105,21 @@
     "form": {
       "name": "Ihr Name",
       "name_placeholder": "Hans Müller",
-      "name_hint": "Wie darf ich Sie ansprechen?",
+      "name_hint": "Wie dürfen wir Sie ansprechen?",
       "email": "E-Mail-Adresse",
       "email_placeholder": "hans@firma.ch",
-      "email_hint": "Ich antworte innerhalb von 24 Stunden",
+      "email_hint": "Wir antworten innerhalb von 24 Stunden",
       "subject": "Betreff",
       "subject_placeholder": "KI-Implementierung für mein Unternehmen",
       "subject_hint": "Was möchten Sie besprechen?",
       "message": "Nachricht",
-      "message_placeholder": "Erzählen Sie mir kurz von Ihrem Unternehmen und welche Prozesse Sie automatisieren möchten...",
-      "message_hint": "Je mehr Details, desto besser kann ich helfen",
+      "message_placeholder": "Erzählen Sie uns kurz von Ihrem Unternehmen und welche Prozesse Sie automatisieren möchten...",
+      "message_hint": "Je mehr Details, desto besser können wir helfen",
       "captcha": "Sicherheitsprüfung",
       "submit": "Nachricht senden",
       "sending": "Wird gesendet...",
-      "success": "Nachricht gesendet! Ich melde mich innerhalb von 24 Stunden.",
-      "error": "Senden fehlgeschlagen. Bitte schreiben Sie mir direkt an me@eflury.com"
+      "success": "Nachricht gesendet! Wir melden uns innerhalb von 24 Stunden.",
+      "error": "Senden fehlgeschlagen. Bitte schreiben Sie uns direkt an me@eflury.com"
     },
     "info": {
       "email": "me@eflury.com",
@@ -151,7 +151,7 @@
     "menu": "Menü"
   },
   "testimonials": {
-    "title": "Warum Schweizer KMU mich wählen",
+    "title": "Warum Schweizer KMU uns wählen",
     "subtitle": "Was Sie bei der Zusammenarbeit erwarten können",
     "value_prop1": {
       "title": "Enterprise-Methoden, KMU-Preise",
@@ -159,7 +159,7 @@
     },
     "value_prop2": {
       "title": "Hands-on Umsetzung",
-      "description": "Ich arbeite direkt mit Ihrem Team, um funktionierende Automatisierung aufzubauen. Keine Folien, keine Berichte in der Schublade — nur Ergebnisse."
+      "description": "Wir arbeiten direkt mit Ihrem Team, um funktionierende Automatisierung aufzubauen. Keine Folien, keine Berichte in der Schublade — nur Ergebnisse."
     },
     "value_prop3": {
       "title": "Festpreis, keine Überraschungen",
@@ -176,31 +176,31 @@
       },
       {
         "question": "Was ist die Mindestinvestition für den Start?",
-        "answer": "KI-Training beginnt bei CHF 2'500, Workflow-Setup-Projekte ab CHF 5'000. Ich empfehle ein Mindestbudget von CHF 5'000 für nachhaltige Geschäftswirkung. Projekte unter CHF 2'000 liefern selten langfristige Ergebnisse."
+        "answer": "KI-Training beginnt bei CHF 2'500, Workflow-Setup-Projekte ab CHF 5'000. Wir empfehlen ein Mindestbudget von CHF 5'000 für nachhaltige Geschäftswirkung. Projekte unter CHF 2'000 liefern selten langfristige Ergebnisse."
       },
       {
         "question": "Arbeiten Sie auch mit Unternehmen ausserhalb der Schweiz?",
-        "answer": "Mein Fokus liegt auf Schweizer KMU, aber ich arbeite auch mit Unternehmen in der DACH-Region (Deutschland, Österreich, Schweiz). Für Kunden ausserhalb dieser Region biete ich Remote-Beratung im Einzelfall an."
+        "answer": "Unser Fokus liegt auf Schweizer KMU, aber wir arbeiten auch mit Unternehmen in der DACH-Region (Deutschland, Österreich, Schweiz). Für Kunden ausserhalb dieser Region bieten wir Remote-Beratung im Einzelfall an."
       },
       {
         "question": "Wie gewährleisten Sie Datenschutz und DSGVO-Konformität?",
-        "answer": "Datenschutz steht im Zentrum jeder Implementierung. Wo möglich nutze ich in der Schweiz gehostete Lösungen, implementiere Datenminimierungsprinzipien und stelle sicher, dass alle KI-Tools DSGVO/nDSG-konform sind. Für Ihr Compliance-Team kann ich detaillierte Dokumentation bereitstellen."
+        "answer": "Datenschutz steht im Zentrum jeder Implementierung. Wo möglich nutzen wir in der Schweiz gehostete Lösungen, implementieren Datenminimierungsprinzipien und stellen sicher, dass alle KI-Tools DSGVO/nDSG-konform sind. Für Ihr Compliance-Team können wir detaillierte Dokumentation bereitstellen."
       },
       {
         "question": "Was passiert, wenn die KI Fehler macht?",
-        "answer": "Jede Automatisierung, die ich baue, enthält menschliche Kontrollpunkte für kritische Entscheidungen. Wir beginnen mit weniger kritischen Prozessen und erweitern schrittweise. Ich implementiere auch Monitoring und Alerting, damit Probleme schnell erkannt werden. Das Ziel ist, Ihr Team zu unterstützen, nicht menschliches Urteilsvermögen zu ersetzen."
+        "answer": "Jede Automatisierung, die wir bauen, enthält menschliche Kontrollpunkte für kritische Entscheidungen. Wir beginnen mit weniger kritischen Prozessen und erweitern schrittweise. Wir implementieren auch Monitoring und Alerting, damit Probleme schnell erkannt werden. Das Ziel ist, Ihr Team zu unterstützen, nicht menschliches Urteilsvermögen zu ersetzen."
       },
       {
         "question": "Brauche ich technisches Wissen, um KI-Tools zu nutzen?",
-        "answer": "Nein, kein technischer Hintergrund erforderlich. Meine Schulungsprogramme sind für Geschäftsanwender konzipiert. Ich fokussiere auf praktisches, hands-on Lernen mit Tools wie Claude, die natürliche Sprache verwenden. Innerhalb von 2-4 Wochen nutzen die meisten Teams KI selbstständig."
+        "answer": "Nein, kein technischer Hintergrund erforderlich. Unsere Schulungsprogramme sind für Geschäftsanwender konzipiert. Wir fokussieren auf praktisches, hands-on Lernen mit Tools wie Claude, die natürliche Sprache verwenden. Innerhalb von 2-4 Wochen nutzen die meisten Teams KI selbstständig."
       },
       {
         "question": "Mit welchen Tools und Technologien arbeiten Sie?",
-        "answer": "Ich spezialisiere mich auf Claude (Anthropic), Make.com, Microsoft 365 und individuelle KI-Agenten. Ich habe auch Erfahrung mit n8n, Zapier, Google Workspace und verschiedenen Dokumentenverarbeitungs-Tools. Ich empfehle das beste Tool für Ihre spezifischen Bedürfnisse, nicht nur was ich kenne."
+        "answer": "Wir spezialisieren uns auf Claude (Anthropic), Make.com, Microsoft 365 und individuelle KI-Agenten. Wir haben auch Erfahrung mit n8n, Zapier, Google Workspace und verschiedenen Dokumentenverarbeitungs-Tools. Wir empfehlen das beste Tool für Ihre spezifischen Bedürfnisse, nicht nur was wir kennen."
       },
       {
         "question": "Wie berechnen Sie den ROI für KI-Projekte?",
-        "answer": "Ich messe Zeitersparnis in Stunden pro Woche und rechne diese in CHF-Wert um. Beispiel: Wenn Automatisierung 10 Stunden/Woche bei CHF 75/Stunde spart, sind das CHF 39'000/Jahr an zurückgewonnener Zeit. Die meisten Projekte erreichen Amortisationszeiten von 3-6 Monaten."
+        "answer": "Wir messen Zeitersparnis in Stunden pro Woche und rechnen diese in CHF-Wert um. Beispiel: Wenn Automatisierung 10 Stunden/Woche bei CHF 75/Stunde spart, sind das CHF 39'000/Jahr an zurückgewonnener Zeit. Die meisten Projekte erreichen Amortisationszeiten von 3-6 Monaten."
       },
       {
         "question": "Was ist im laufenden Support enthalten?",
@@ -208,15 +208,15 @@
       },
       {
         "question": "Können Sie mit unseren bestehenden IT-Systemen arbeiten?",
-        "answer": "Ja. Ich spezialisiere mich auf die Integration von KI in bestehende Workflows ohne Störung aktueller Systeme. Ob Sie SAP, Microsoft 365, Google Workspace oder individuelle Software nutzen – ich konzipiere Lösungen, die mit dem arbeiten, was Sie bereits haben."
+        "answer": "Ja. Wir spezialisieren uns auf die Integration von KI in bestehende Workflows ohne Störung aktueller Systeme. Ob Sie SAP, Microsoft 365, Google Workspace oder individuelle Software nutzen – wir konzipieren Lösungen, die mit dem arbeiten, was Sie bereits haben."
       },
       {
         "question": "Was unterscheidet Sie von Beratungsfirmen?",
-        "answer": "Ich liefere funktionierende Automatisierung, keine PowerPoint-Berichte. Ich arbeite hands-on mit Ihrem Team, biete Festpreisprojekte (keine Stundenüberraschungen) und bleibe involviert, bis die Lösung funktioniert. Meine Fortune-500-Erfahrung bedeutet Enterprise-Qualität zu KMU-freundlichen Preisen."
+        "answer": "Wir liefern funktionierende Automatisierung, keine PowerPoint-Berichte. Wir arbeiten hands-on mit Ihrem Team, bieten Festpreisprojekte (keine Stundenüberraschungen) und bleiben involviert, bis die Lösung funktioniert. Unsere Fortune-500-Erfahrung bedeutet Enterprise-Qualität zu KMU-freundlichen Preisen."
       },
       {
         "question": "Wie weiss ich, ob KI für mein Unternehmen geeignet ist?",
-        "answer": "Buchen Sie ein kostenloses 30-minütiges Strategiegespräch. Ich frage nach Ihren Workflows, identifiziere Automatisierungspotenzial und gebe Ihnen eine ehrliche Einschätzung. Wenn KI nicht passt, sage ich es Ihnen – kein Verkaufsgespräch, nur praktische Beratung."
+        "answer": "Buchen Sie ein kostenloses 30-minütiges Strategiegespräch. Wir fragen nach Ihren Workflows, identifizieren Automatisierungspotenzial und geben Ihnen eine ehrliche Einschätzung. Wenn KI nicht passt, sagen wir es Ihnen – kein Verkaufsgespräch, nur praktische Beratung."
       }
     ]
   },
@@ -243,7 +243,7 @@
   "lead_magnet": {
     "badge": "Kostenloser Download",
     "title": "Das KI-Implementierungs-Playbook für Schweizer KMU",
-    "subtitle": "Lernen Sie das 5-Phasen-Framework, das ich nutze, um Schweizer Unternehmen bei der erfolgreichen KI-Implementierung zu helfen—ohne Enterprise-Budget.",
+    "subtitle": "Lernen Sie das 5-Phasen-Framework, das wir nutzen, um Schweizer Unternehmen bei der erfolgreichen KI-Implementierung zu helfen—ohne Enterprise-Budget.",
     "benefits": {
       "benefit1": "Die eFlury-Methode Schritt für Schritt erklärt",
       "benefit2": "Echte ROI-Berechnungen und Beispiele",
@@ -496,7 +496,7 @@
       "hero": {
         "badge": "Claude Spezialist",
         "title": "Massgeschneiderte Claude Skills für Ihr Unternehmen",
-        "description": "Ich entwickle individuelle Claude Skills, die Ihre spezifischen Workflows automatisieren — von Dokumentenverarbeitung bis Datenanalyse. Jeder Skill spart Ihrem Team wöchentlich Stunden."
+        "description": "Wir entwickeln individuelle Claude Skills, die Ihre spezifischen Workflows automatisieren — von Dokumentenverarbeitung bis Datenanalyse. Jeder Skill spart Ihrem Team wöchentlich Stunden."
       },
       "problem": {
         "title": "Kommt Ihnen das bekannt vor?",
@@ -509,7 +509,7 @@
       },
       "solution": {
         "title": "Individuelle Claude Skills — Für Sie gebaut",
-        "description": "Ich entwickle Claude Skills, die exakt auf Ihre Workflows zugeschnitten sind. Keine generischen Vorlagen — individuelle KI, die Ihr Geschäft versteht, sich in Ihre Tools integriert und messbare Zeiteinsparungen liefert.",
+        "description": "Wir entwickeln Claude Skills, die exakt auf Ihre Workflows zugeschnitten sind. Keine generischen Vorlagen — individuelle KI, die Ihr Geschäft versteht, sich in Ihre Tools integriert und messbare Zeiteinsparungen liefert.",
         "benefits": [
           {
             "title": "Massgeschneidert für Ihre Workflows",
@@ -530,11 +530,11 @@
         ]
       },
       "process": {
-        "title": "So entwickle ich Ihre Skills",
+        "title": "So entwickeln wir Ihre Skills",
         "steps": [
           {
             "title": "Workflow-Analyse",
-            "description": "Ich untersuche Ihre aktuellen Prozesse, um die besten Automatisierungsmöglichkeiten zu identifizieren."
+            "description": "Wir untersuchen Ihre aktuellen Prozesse, um die besten Automatisierungsmöglichkeiten zu identifizieren."
           },
           {
             "title": "Skill-Design",
@@ -542,7 +542,7 @@
           },
           {
             "title": "Entwicklung & Testing",
-            "description": "Ich baue und teste jeden Skill gründlich mit Ihren echten Daten."
+            "description": "Wir bauen und testen jeden Skill gründlich mit Ihren echten Daten."
           },
           {
             "title": "Schulung & Übergabe",
@@ -561,7 +561,7 @@
         },
         {
           "question": "Können Skills mit meiner bestehenden Software arbeiten?",
-          "answer": "Ja. Ich bin spezialisiert auf die Integration von Claude Skills mit Schweizer Business-Software, einschliesslich Bexio, ABACUS, Microsoft 365 und individuellen Systemen via APIs oder MCP (Model Context Protocol)."
+          "answer": "Ja. Wir sind spezialisiert auf die Integration von Claude Skills mit Schweizer Business-Software, einschliesslich Bexio, ABACUS, Microsoft 365 und individuellen Systemen via APIs oder MCP (Model Context Protocol)."
         },
         {
           "question": "Was ist der Unterschied zwischen Claude Skills und ChatGPT?",
@@ -574,7 +574,7 @@
       ],
       "cta": {
         "title": "Bereit zur Automatisierung mit Claude Skills?",
-        "description": "Buchen Sie ein kostenloses 30-Minuten-Gespräch. Ich analysiere Ihre Workflows und identifiziere Ihre wirkungsvollsten Automatisierungsmöglichkeiten.",
+        "description": "Buchen Sie ein kostenloses 30-Minuten-Gespräch. Wir analysieren Ihre Workflows und identifizieren Ihre wirkungsvollsten Automatisierungsmöglichkeiten.",
         "button": "Skills-Strategiegespräch buchen"
       },
       "case_study": {
@@ -592,7 +592,7 @@
       "hero": {
         "badge": "MCP Spezialist",
         "title": "Verbinden Sie Claude mit Ihren Geschäftssystemen",
-        "description": "Model Context Protocol (MCP) ermöglicht Claude die direkte Interaktion mit Ihren Datenbanken, APIs und Software. Ich baue individuelle MCP-Integrationen, die Claude in eine echte Business-Automatisierungsplattform verwandeln."
+        "description": "Model Context Protocol (MCP) ermöglicht Claude die direkte Interaktion mit Ihren Datenbanken, APIs und Software. Wir bauen individuelle MCP-Integrationen, die Claude in eine echte Business-Automatisierungsplattform verwandeln."
       },
       "problem": {
         "title": "Die Integrations-Herausforderung",
@@ -605,7 +605,7 @@
       },
       "solution": {
         "title": "MCP — Das fehlende Glied",
-        "description": "Model Context Protocol ist Anthropics Standard zur sicheren Verbindung von Claude mit externen Systemen. Ich entwerfe und implementiere individuelle MCP-Server, die Claude kontrollierten Zugriff auf Ihre Geschäftsdaten geben.",
+        "description": "Model Context Protocol ist Anthropics Standard zur sicheren Verbindung von Claude mit externen Systemen. Wir entwerfen und implementieren individuelle MCP-Server, die Claude kontrollierten Zugriff auf Ihre Geschäftsdaten geben.",
         "benefits": [
           {
             "title": "Direkter Systemzugriff",
@@ -630,7 +630,7 @@
         "steps": [
           {
             "title": "System-Audit",
-            "description": "Ich analysiere Ihre aktuellen Systeme und identifiziere Integrationsmöglichkeiten."
+            "description": "Wir analysieren Ihre aktuellen Systeme und identifizieren Integrationsmöglichkeiten."
           },
           {
             "title": "Architektur-Design",
@@ -638,7 +638,7 @@
           },
           {
             "title": "Entwicklung & Deployment",
-            "description": "Ich baue und deploye individuelle MCP-Server, entweder Cloud-gehostet oder On-Premise."
+            "description": "Wir bauen und deployen individuelle MCP-Server, entweder Cloud-gehostet oder On-Premise."
           },
           {
             "title": "Testing & Sicherheitsreview",
@@ -688,7 +688,7 @@
       "hero": {
         "badge": "Finanz-Spezialist",
         "title": "Automatisieren Sie Ihre Finanzprozesse",
-        "description": "Vom Monatsabschluss bis zur täglichen Abstimmung — ich baue KI-Automatisierungen, die Finanzteams 30-50 Stunden pro Monat sparen und gleichzeitig Genauigkeit und Compliance verbessern."
+        "description": "Vom Monatsabschluss bis zur täglichen Abstimmung — wir bauen KI-Automatisierungen, die Finanzteams 30-50 Stunden pro Monat sparen und gleichzeitig Genauigkeit und Compliance verbessern."
       },
       "problem": {
         "title": "Herausforderungen im Finanzteam",
@@ -701,7 +701,7 @@
       },
       "solution": {
         "title": "KI-gestützte Finanzautomatisierung",
-        "description": "Ich kombiniere Claude KI mit Ihren bestehenden Finanztools (Bexio, ABACUS, Excel), um die repetitive Arbeit zu automatisieren. Ihr Team konzentriert sich auf Analyse und Entscheidungen, während KI die Datenverarbeitung übernimmt.",
+        "description": "Wir kombinieren Claude KI mit Ihren bestehenden Finanztools (Bexio, ABACUS, Excel), um die repetitive Arbeit zu automatisieren. Ihr Team konzentriert sich auf Analyse und Entscheidungen, während KI die Datenverarbeitung übernimmt.",
         "benefits": [
           {
             "title": "Schnellerer Monatsabschluss",
@@ -730,7 +730,7 @@
           },
           {
             "title": "Automatisierungs-Design",
-            "description": "Ich entwerfe KI-Workflows, die sich in Ihre Buchhaltungssoftware integrieren."
+            "description": "Wir entwerfen KI-Workflows, die sich in Ihre Buchhaltungssoftware integrieren."
           },
           {
             "title": "Entwicklung & Test",
@@ -745,7 +745,7 @@
       "faqs": [
         {
           "question": "Mit welcher Buchhaltungssoftware integrieren Sie?",
-          "answer": "Ich bin spezialisiert auf Schweizer Buchhaltungssoftware: Bexio, ABACUS und Infoniqa. Ich arbeite auch mit internationalen Tools wie Xero, QuickBooks und SAP. Für individuelle oder Legacy-Systeme kann ich API-Integrationen bauen."
+          "answer": "Wir sind spezialisiert auf Schweizer Buchhaltungssoftware: Bexio, ABACUS und Infoniqa. Wir arbeiten auch mit internationalen Tools wie Xero, QuickBooks und SAP. Für individuelle oder Legacy-Systeme können wir API-Integrationen bauen."
         },
         {
           "question": "Wie viel Zeit können wir realistisch sparen?",
@@ -757,7 +757,7 @@
         },
         {
           "question": "Was ist mit Compliance und Prüfungsanforderungen?",
-          "answer": "Alle Automatisierungen führen vollständige Audit-Trails. Jede KI-Aktion wird mit Zeitstempeln protokolliert. Ich entwerfe Workflows, die Schweizer Buchhaltungsstandards (OR/HRM) und Datenschutzanforderungen (DSG) entsprechen."
+          "answer": "Alle Automatisierungen führen vollständige Audit-Trails. Jede KI-Aktion wird mit Zeitstempeln protokolliert. Wir entwerfen Workflows, die Schweizer Buchhaltungsstandards (OR/HRM) und Datenschutzanforderungen (DSG) entsprechen."
         },
         {
           "question": "Was ist die Investition für Finanzautomatisierung?",
@@ -784,7 +784,7 @@
       "hero": {
         "badge": "BI Spezialist",
         "title": "Power BI Dashboards, die Entscheidungen antreiben",
-        "description": "Ich baue Power BI Dashboards, die Ihre Daten in handlungsrelevante Erkenntnisse verwandeln. Von Executive KPI-Übersichten bis zu detaillierten operativen Ansichten — designed für wie Ihr Team tatsächlich arbeitet."
+        "description": "Wir bauen Power BI Dashboards, die Ihre Daten in handlungsrelevante Erkenntnisse verwandeln. Von Executive KPI-Übersichten bis zu detaillierten operativen Ansichten — designed für wie Ihr Team tatsächlich arbeitet."
       },
       "problem": {
         "title": "Daten ohne Richtung",
@@ -797,7 +797,7 @@
       },
       "solution": {
         "title": "Power BI richtig gemacht",
-        "description": "Ich erstelle Power BI-Lösungen, die alle Ihre Datenquellen in live, interaktive Dashboards verbinden. Automatische Aktualisierung, mobiler Zugriff und Erkenntnisse, die tatsächlich genutzt werden.",
+        "description": "Wir erstellen Power BI-Lösungen, die alle Ihre Datenquellen in live, interaktive Dashboards verbinden. Automatische Aktualisierung, mobiler Zugriff und Erkenntnisse, die tatsächlich genutzt werden.",
         "benefits": [
           {
             "title": "Single Source of Truth",
@@ -826,7 +826,7 @@
           },
           {
             "title": "Datenmodellierung",
-            "description": "Ich baue ein robustes Datenmodell, das Ihre verschiedenen Datenquellen verbindet."
+            "description": "Wir bauen ein robustes Datenmodell, das Ihre verschiedenen Datenquellen verbindet."
           },
           {
             "title": "Dashboard-Design",
@@ -841,19 +841,19 @@
       "faqs": [
         {
           "question": "Welche Datenquellen können Sie mit Power BI verbinden?",
-          "answer": "Fast alles: Excel, SQL-Datenbanken, Bexio, ABACUS, Salesforce, SharePoint, Web-APIs und hunderte mehr. Power BI hat native Konnektoren für die meisten Business-Systeme. Für individuelle Quellen kann ich API-Integrationen bauen."
+          "answer": "Fast alles: Excel, SQL-Datenbanken, Bexio, ABACUS, Salesforce, SharePoint, Web-APIs und hunderte mehr. Power BI hat native Konnektoren für die meisten Business-Systeme. Für individuelle Quellen können wir API-Integrationen bauen."
         },
         {
           "question": "Wir haben noch keine Power BI-Lizenz. Was brauchen wir?",
-          "answer": "Power BI Desktop ist kostenlos für die Berichterstellung. Für Sharing und Zusammenarbeit brauchen Sie Power BI Pro (CHF 9.40/Nutzer/Monat) oder Premium. Ich helfe Ihnen, die richtige Lizenzierung basierend auf Teamgrösse und Bedarf zu wählen."
+          "answer": "Power BI Desktop ist kostenlos für die Berichterstellung. Für Sharing und Zusammenarbeit brauchen Sie Power BI Pro (CHF 9.40/Nutzer/Monat) oder Premium. Wir helfen Ihnen, die richtige Lizenzierung basierend auf Teamgrösse und Bedarf zu wählen."
         },
         {
           "question": "Wie lange dauert ein Power BI-Projekt?",
-          "answer": "Einfache Dashboards: 2-3 Wochen. Umfassende BI-Lösungen mit mehreren Dashboards: 6-8 Wochen. Ich arbeite iterativ — Sie sehen Fortschritt und geben während des gesamten Prozesses Feedback."
+          "answer": "Einfache Dashboards: 2-3 Wochen. Umfassende BI-Lösungen mit mehreren Dashboards: 6-8 Wochen. Wir arbeiten iterativ — Sie sehen Fortschritt und geben während des gesamten Prozesses Feedback."
         },
         {
           "question": "Können Sie Claude KI mit Power BI integrieren?",
-          "answer": "Ja. Ich kann Claude-Integration hinzufügen, damit Nutzer Fragen in natürlicher Sprache stellen ('Was waren unsere Top-Produkte letztes Quartal?') und sofortige Antworten aus Ihren Power BI-Daten erhalten. Das ist eine einzigartige Fähigkeit, die ich anbiete."
+          "answer": "Ja. Wir können Claude-Integration hinzufügen, damit Nutzer Fragen in natürlicher Sprache stellen ('Was waren unsere Top-Produkte letztes Quartal?') und sofortige Antworten aus Ihren Power BI-Daten erhalten. Das ist eine einzigartige Fähigkeit, die wir anbieten."
         },
         {
           "question": "Was ist die Investition für Power BI Beratung?",
