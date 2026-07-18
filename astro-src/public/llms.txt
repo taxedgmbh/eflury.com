@@ -6,12 +6,12 @@ Key facts:
 - Founder: Emanuel Flury — 13 years of enterprise automation background (Fortune 100, incl. Johnson & Johnson), founder of Taxed GmbH (Swiss fiduciary), UiPath RPA certified, MA Economics-Finance (University of Aberdeen)
 - Contact: me@eflury.com · +41 79 910 77 87 · Keltenweg 4, 2540 Grenchen, Switzerland
 - Languages: German and English (full bilingual site: /de/ and /en/)
-- Entry point: AI Audit — CHF 4,900 fixed, one week, fully credited toward implementation within 6 months
+- Entry point: AI Audit — CHF 4'900 fixed, one week, fully credited toward implementation within 6 months
 
 ## Services
 
-- [AI Audit](https://eflury.com/en/services/ai-audit/): One-week audit of automation potential, CHF 4,900 fixed, fully credited toward a later implementation package within 6 months
-- [Managed AI Operations](https://eflury.com/en/services/managed-ai-operations/): Ongoing operation, monitoring, and improvement of deployed automations, from CHF 1,200/month
+- [AI Audit](https://eflury.com/en/services/ai-audit/): One-week audit of automation potential, CHF 4'900 fixed, fully credited toward a later implementation package within 6 months
+- [Managed AI Operations](https://eflury.com/en/services/managed-ai-operations/): Ongoing operation, monitoring, and improvement of deployed automations, from CHF 1'200/month
 - [Claude Skills](https://eflury.com/en/services/claude-skills): Custom Claude Skills for recurring business processes
 - [MCP Integration](https://eflury.com/en/services/mcp-integration): Connecting AI to business systems (e.g. bexio, databases, internal tools) via Model Context Protocol
 - [Finance Automation](https://eflury.com/en/services/finance-automation): Month-end close, reconciliation, and reporting automation
@@ -20,7 +20,7 @@ Key facts:
 
 ## Pricing (fixed, in CHF, excl. 8.1% VAT)
 
-- [Pricing overview](https://eflury.com/en/pricing/): Micro CHF 5,900 (2 weeks, 1 Skill, 1 MCP integration) · Starter CHF 9,900 · Professional CHF 24,900 · Enterprise CHF 49,900. Add-ons: extra Claude Skill CHF 2,900, extra MCP integration CHF 3,500, Extended Support CHF 1,200/month, on-site workshop CHF 1,800/day
+- [Pricing overview](https://eflury.com/en/pricing/): Micro CHF 5'900 (2 weeks, 1 Skill, 1 MCP integration) · Starter CHF 9'900 · Professional CHF 24'900 · Enterprise CHF 49'900. Add-ons: extra Claude Skill CHF 2'900, extra MCP integration CHF 3'500, Extended Support CHF 1'200/month, on-site workshop CHF 1'800/day
 
 ## Method
 
@@ -40,7 +40,7 @@ Built for Swiss SME owners across industries — organized by business area, not
 
 ## Resources
 
-- [Sample AI Audit report](https://eflury.com/downloads/eflury-sample-audit-report-en.pdf): What the CHF 4,900 audit delivers — sample PDF for a fictional SME (German version: /downloads/eflury-sample-audit-report-de.pdf)
+- [Sample AI Audit report](https://eflury.com/downloads/eflury-sample-audit-report-en.pdf): What the CHF 4'900 audit delivers — sample PDF for a fictional SME (German version: /downloads/eflury-sample-audit-report-de.pdf)
 - [Guides](https://eflury.com/en/guides/): Free downloadable playbooks (EN/DE): EU AI Act for Swiss SMEs, revDSG & AI, Data Quality
 - [Blog / Insights](https://eflury.com/en/blog/): Practical articles on AI automation, accounting & finance, reporting, compliance, and security for Swiss SMEs
 - [Trust & Security](https://eflury.com/en/trust/): How client data is handled (revDSG, EU-hosted tooling)
