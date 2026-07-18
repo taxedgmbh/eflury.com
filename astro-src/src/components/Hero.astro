@@ -1,6 +1,7 @@
 ---
 // Deployment test: 2026-01-28
 import { type Language, useTranslations } from '../i18n/utils';
+import HeroBrandIllustration from './HeroBrandIllustration.astro';
 import { ArrowRight, Sparkles, ChevronDown } from 'lucide-astro';
 
 interface Props {
@@ -51,17 +52,7 @@ const t = useTranslations(lang);
     </div>
     <div class="hero-visual">
       <div class="visual-wrapper">
-        <picture>
-          <source srcset="/images/hero-ai.webp" type="image/webp" />
-          <img
-            src="/images/hero-ai.jpg"
-            alt="AI Technology Visualization"
-            class="hero-image"
-            width="600"
-            height="400"
-            loading="eager"
-          />
-        </picture>
+        <HeroBrandIllustration />
         <div class="visual-glow"></div>
       </div>
     </div>
