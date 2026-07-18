@@ -1,0 +1,77 @@
+---
+/**
+ * Contact page visual: radar rings around the Grenchen home base —
+ * cartographic-style reach map with the response promise as a stamp.
+ * Ring labels use approximate, commonly-known travel relations.
+ */
+import { type Language } from '../../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+const { lang } = Astro.props;
+const de = lang === 'de';
+
+const t = {
+  base: 'Grenchen SO',
+  stamp: de ? '< 24 h Antwort' : '< 24 h response',
+  remote: de ? 'Remote: ganze Schweiz & EU' : 'Remote: all of Switzerland & EU',
+  ring1: de ? 'Solothurn · Biel' : 'Solothurn · Biel',
+  ring2: de ? 'Bern · Basel · Zürich' : 'Bern · Basel · Zurich',
+};
+---
+
+<svg viewBox="0 0 560 360" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" class="ill-reach">
+  <!-- radar rings -->
+  <g stroke="var(--eflury-teal)" fill="none">
+    <circle cx="280" cy="170" r="52" stroke-width="2" opacity="0.9" />
+    <circle cx="280" cy="170" r="100" stroke-width="2" stroke-dasharray="2 8" opacity="0.65" />
+    <circle cx="280" cy="170" r="148" stroke-width="2" stroke-dasharray="2 10" opacity="0.4" />
+  </g>
+
+  <!-- ring labels on small plates -->
+  <g>
+    <rect x="316" y="98" width="104" height="24" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" />
+    <text x="368" y="114" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--text-secondary)" font-family="inherit">{t.ring1}</text>
+  </g>
+  <g>
+    <rect x="352" y="242" width="146" height="24" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" />
+    <text x="425" y="258" text-anchor="middle" font-size="11.5" font-weight="600" fill="var(--text-secondary)" font-family="inherit">{t.ring2}</text>
+  </g>
+
+  <!-- satellite city dots -->
+  <g fill="var(--eflury-blue)">
+    <circle cx="356" cy="122" r="4.5" opacity="0.85" />
+    <circle cx="196" cy="118" r="4.5" opacity="0.7" />
+    <circle cx="384" cy="242" r="4.5" opacity="0.85" />
+    <circle cx="164" cy="238" r="4.5" opacity="0.7" />
+    <circle cx="280" cy="22" r="4.5" opacity="0.5" />
+  </g>
+
+  <!-- home base: the mark as the pin -->
+  <g>
+    <rect x="252" y="128" width="56" height="56" rx="13" fill="#fff" stroke="var(--eflury-teal)" stroke-width="2.5" />
+    <image href="/images/favicon-tab.png" x="256" y="132" width="48" height="48" />
+    <path d="M280 184 L 280 204" stroke="var(--eflury-teal)" stroke-width="3" stroke-linecap="round" />
+    <circle cx="280" cy="210" r="4" fill="var(--eflury-teal)" />
+  </g>
+  <text x="280" y="232" text-anchor="middle" font-size="13" font-weight="800" fill="var(--eflury-navy)" font-family="inherit">{t.base}</text>
+
+  <!-- response stamp -->
+  <g transform="rotate(-7 112 84)">
+    <rect x="52" y="60" width="120" height="46" rx="10" fill="none" stroke="var(--teal-text)" stroke-width="2.5" />
+    <text x="112" y="89" text-anchor="middle" font-size="15" font-weight="800" letter-spacing="0.04em" fill="var(--teal-text)" font-family="inherit">{t.stamp}</text>
+  </g>
+
+  <!-- remote note + wordmark -->
+  <text x="34" y="334" font-size="12.5" font-weight="600" fill="var(--text-secondary)" font-family="inherit">{t.remote}</text>
+  <text x="526" y="334" text-anchor="end" font-size="13" font-weight="700" fill="var(--eflury-navy)" font-family="inherit">eFlury <tspan fill="var(--eflury-teal)">Consulting</tspan></text>
+</svg>
+
+<style>
+  .ill-reach {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>

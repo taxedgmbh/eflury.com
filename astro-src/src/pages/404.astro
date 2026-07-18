@@ -17,6 +17,16 @@ const lang = 'en';
   <main class="error-page">
     <div class="container">
       <div class="error-content">
+        <svg viewBox="0 0 320 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" class="err-art">
+          <path d="M20 60 L 108 60" stroke="var(--eflury-teal)" stroke-width="3" stroke-linecap="round" />
+          <circle cx="114" cy="60" r="5" fill="var(--eflury-teal)" />
+          <path d="M206 60 L 300 60" stroke="var(--eflury-teal)" stroke-width="3" stroke-linecap="round" stroke-dasharray="2 9" opacity="0.6" />
+          <circle cx="206" cy="60" r="5" fill="none" stroke="var(--eflury-teal)" stroke-width="2.5" />
+          <g>
+            <rect x="130" y="30" width="60" height="60" rx="14" fill="#fff" stroke="var(--eflury-teal)" stroke-width="2.5" />
+            <image href="/images/favicon-tab.png" x="135" y="35" width="50" height="50" />
+          </g>
+        </svg>
         <h1>404</h1>
         <h2>Page Not Found</h2>
         <p>The page you're looking for doesn't exist or has been moved.</p>
@@ -60,6 +70,13 @@ const lang = 'en';
   .container {
     max-width: 600px;
     text-align: center;
+  }
+
+  .err-art {
+    width: 220px;
+    height: auto;
+    margin: 0 auto 0.5rem;
+    display: block;
   }
 
   .error-content h1 {

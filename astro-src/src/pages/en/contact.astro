@@ -1,5 +1,7 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
+import IllustrationShowcase from '../../components/IllustrationShowcase.astro';
+import SwissReachIllustration from '../../components/illustrations/SwissReachIllustration.astro';
 import Header from '../../components/Header.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Contact from '../../components/Contact.astro';
@@ -45,6 +47,10 @@ const steps = [
         </p>
       </div>
     </section>
+
+    <IllustrationShowcase>
+      <SwissReachIllustration lang="en" />
+    </IllustrationShowcase>
 
     <section class="next-steps">
       <div class="container">
