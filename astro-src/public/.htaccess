@@ -60,3 +60,11 @@ RedirectMatch 301 ^/de/branchen/treuhand/?$ /de/case-studies/taxed-gmbh
 
 # vCard downloads
 AddType text/vcard .vcf
+
+# Business card: force real downloads instead of inline navigation
+<Files "emanuel-flury-card.png">
+  Header set Content-Disposition "attachment; filename=\"emanuel-flury-card.png\""
+</Files>
+<Files "emanuel-flury-card.pdf">
+  Header set Content-Disposition "attachment; filename=\"emanuel-flury-card.pdf\""
+</Files>
