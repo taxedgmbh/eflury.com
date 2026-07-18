@@ -3,9 +3,10 @@
  * Decorative on-brand illustration: AI agent connected to business systems
  * via MCP, with a human approval gate. Inline SVG on CSS variables.
  */
+import IllustrationBrand from './IllustrationBrand.astro';
 ---
 
-<svg viewBox="0 0 560 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" class="ill-systems">
+<svg viewBox="0 0 560 344" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" class="ill-systems">
   <!-- connection lines -->
   <g stroke="var(--eflury-teal)" stroke-width="2" stroke-dasharray="1 7" stroke-linecap="round" opacity="0.8">
     <path d="M232 170 L 128 92" />
@@ -16,10 +17,11 @@
   <!-- human gate line (solid) -->
   <path d="M280 214 L 280 268" stroke="var(--eflury-navy)" stroke-width="2" stroke-linecap="round" opacity="0.7" />
 
-  <!-- center: the agent -->
+  <!-- center: the agent, carrying the real brand mark -->
   <g>
     <rect x="220" y="122" width="120" height="96" rx="18" fill="var(--primary-50)" stroke="var(--eflury-teal)" stroke-width="2" />
-    <path d="M287 146 L 266 176 L 279 176 L 273 196 L 296 164 L 282 164 Z" fill="var(--eflury-teal)" />
+    <rect x="253" y="136" width="54" height="54" rx="12" fill="#fff" stroke="var(--border-color)" />
+    <image href="/images/favicon-tab.png" x="257" y="140" width="46" height="46" />
     <rect x="244" y="200" width="72" height="8" rx="4" fill="var(--eflury-navy)" opacity="0.35" />
   </g>
 
@@ -44,6 +46,8 @@
     <rect x="406" y="216" width="56" height="9" rx="4.5" fill="var(--eflury-blue)" opacity="0.7" />
     <rect x="406" y="234" width="88" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.45" />
   </g>
+
+  <IllustrationBrand x={412} y={330} />
 
   <!-- human approval gate -->
   <g>

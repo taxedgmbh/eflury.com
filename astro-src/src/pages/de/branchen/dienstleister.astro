@@ -4,6 +4,8 @@ import Header from '../../../components/Header.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
 import AIChatbot from '../../../components/AIChatbot.astro';
+import IllustrationShowcase from '../../../components/IllustrationShowcase.astro';
+import InboxTriageIllustration from '../../../components/illustrations/InboxTriageIllustration.astro';
 import { ArrowRight, MailCheck, Phone, MessageCircle, BarChart3 } from 'lucide-astro';
 
 const lang = 'de';
@@ -90,6 +92,10 @@ const automations = [
         </div>
       </div>
     </section>
+
+    <IllustrationShowcase>
+      <InboxTriageIllustration />
+    </IllustrationShowcase>
 
     <section class="automations">
       <div class="container">

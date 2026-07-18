@@ -3,6 +3,7 @@
  * Decorative on-brand illustration: a live dashboard.
  * Pure inline SVG on CSS variables — adapts to dark mode automatically.
  */
+import IllustrationBrand from './IllustrationBrand.astro';
 ---
 
 <svg viewBox="0 0 560 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" class="ill-dashboard">
@@ -14,7 +15,7 @@
   <circle cx="30" cy="26" r="5" fill="var(--eflury-teal)" opacity="0.55" />
   <circle cx="48" cy="26" r="5" fill="var(--eflury-blue)" opacity="0.55" />
   <circle cx="66" cy="26" r="5" fill="var(--eflury-navy)" opacity="0.4" />
-  <rect x="420" y="19" width="112" height="14" rx="7" fill="var(--primary-50)" stroke="var(--primary-100)" />
+  <text x="532" y="31" text-anchor="end" font-size="13" font-weight="700" fill="var(--eflury-navy)" font-family="inherit">eFlury <tspan fill="var(--eflury-teal)">Consulting</tspan></text>
 
   <!-- KPI cards -->
   <g>

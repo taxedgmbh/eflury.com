@@ -1,0 +1,62 @@
+---
+/**
+ * Decorative on-brand illustration: shared inbox triaged into lanes,
+ * with a drafted reply awaiting human approval. Inline SVG on CSS variables.
+ */
+import IllustrationBrand from './IllustrationBrand.astro';
+---
+
+<svg viewBox="0 0 560 344" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" class="ill-inbox">
+  <!-- inbox column -->
+  <g>
+    <rect x="40" y="52" width="180" height="240" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5" />
+    <rect x="56" y="66" width="72" height="10" rx="5" fill="var(--eflury-navy)" opacity="0.6" />
+    {[0, 1, 2, 3, 4].map((i) => (
+      <g>
+        <rect x="56" y={90 + i * 40} width="148" height="30" rx="8" fill="var(--bg-secondary)" />
+        <rect x="66" y={99 + i * 40} width="64" height="7" rx="3.5" fill="var(--text-tertiary)" opacity="0.55" />
+        <rect x="66" y={110 + i * 40} width="96" height="5" rx="2.5" fill="var(--text-tertiary)" opacity="0.35" />
+        <circle cx="192" cy={105 + i * 40} r="5" fill={i % 3 === 0 ? 'var(--eflury-teal)' : i % 3 === 1 ? 'var(--eflury-blue)' : 'var(--eflury-navy)'} opacity="0.75" />
+      </g>
+    ))}
+  </g>
+
+  <!-- triage lines -->
+  <g stroke="var(--eflury-teal)" stroke-width="2" stroke-dasharray="1 7" stroke-linecap="round" opacity="0.8">
+    <path d="M222 110 C 268 110, 280 92, 322 92" />
+    <path d="M222 170 C 268 170, 280 176, 322 176" />
+    <path d="M222 240 C 268 240, 280 262, 322 262" />
+  </g>
+
+  <!-- lanes -->
+  <g>
+    <rect x="324" y="66" width="196" height="52" rx="10" fill="var(--primary-50)" stroke="var(--primary-100)" />
+    <circle cx="346" cy="92" r="7" fill="var(--eflury-teal)" opacity="0.85" />
+    <rect x="362" y="80" width="76" height="9" rx="4.5" fill="var(--eflury-navy)" opacity="0.65" />
+    <rect x="362" y="96" width="120" height="7" rx="3.5" fill="var(--text-tertiary)" opacity="0.45" />
+  </g>
+  <g>
+    <rect x="324" y="150" width="196" height="52" rx="10" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5" />
+    <circle cx="346" cy="176" r="7" fill="var(--eflury-blue)" opacity="0.85" />
+    <rect x="362" y="164" width="60" height="9" rx="4.5" fill="var(--eflury-navy)" opacity="0.65" />
+    <rect x="362" y="180" width="120" height="7" rx="3.5" fill="var(--text-tertiary)" opacity="0.45" />
+  </g>
+  <!-- drafted reply lane with approval -->
+  <g>
+    <rect x="324" y="236" width="196" height="52" rx="10" fill="var(--card-bg)" stroke="var(--eflury-teal)" stroke-width="1.5" />
+    <rect x="340" y="250" width="90" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.5" />
+    <rect x="340" y="266" width="66" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.35" />
+    <circle cx="492" cy="262" r="16" fill="var(--success-50)" stroke="var(--eflury-teal)" stroke-width="2" />
+    <path d="M485 262 L 490 267 L 500 256" stroke="var(--teal-text)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+  </g>
+
+  <IllustrationBrand x={40} y={330} />
+</svg>
+
+<style>
+  .ill-inbox {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
