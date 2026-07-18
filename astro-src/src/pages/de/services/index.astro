@@ -1,5 +1,7 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
+import IllustrationShowcase from '../../../components/IllustrationShowcase.astro';
+import LifecycleOrbitIllustration from '../../../components/illustrations/LifecycleOrbitIllustration.astro';
 import Header from '../../../components/Header.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
@@ -88,6 +90,10 @@ const services = [
         <p class="page-description">{t('services_pages.index.description')}</p>
       </div>
     </section>
+
+    <IllustrationShowcase>
+      <LifecycleOrbitIllustration />
+    </IllustrationShowcase>
 
     <section class="offer">
       <div class="container">

@@ -1,5 +1,7 @@
 ---
 import MainLayout from '../../../layouts/MainLayout.astro';
+import IllustrationShowcase from '../../../components/IllustrationShowcase.astro';
+import FloorPlanIllustration from '../../../components/illustrations/FloorPlanIllustration.astro';
 import Header from '../../../components/Header.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
@@ -52,6 +54,10 @@ const areas = [
         </p>
       </div>
     </section>
+
+    <IllustrationShowcase>
+      <FloorPlanIllustration lang="de" />
+    </IllustrationShowcase>
 
     <section class="hub-grid">
       <div class="container">

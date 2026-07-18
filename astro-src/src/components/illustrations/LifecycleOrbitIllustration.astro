@@ -1,0 +1,52 @@
+---
+/**
+ * Services index visual: Advise → Build → Run as a continuous orbit
+ * around the eFlury mark — the service lifecycle as one loop.
+ * Language-neutral (the trio is a brand device in both languages).
+ */
+---
+
+<svg viewBox="0 0 560 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" class="ill-orbit">
+  <!-- orbit track -->
+  <circle cx="280" cy="190" r="126" stroke="var(--border-color)" stroke-width="2" stroke-dasharray="2 8" fill="none" />
+
+  <!-- three arc segments with direction arrows -->
+  <g stroke-width="7" fill="none" stroke-linecap="round">
+    <path d="M 280 64 A 126 126 0 0 1 389 253" stroke="var(--eflury-navy)" opacity="0.85" />
+    <path d="M 389 253 A 126 126 0 0 1 171 253" stroke="var(--eflury-teal)" opacity="0.9" />
+    <path d="M 171 253 A 126 126 0 0 1 280 64" stroke="var(--eflury-blue)" opacity="0.85" />
+  </g>
+  <g fill="none" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M 380 236 L 390 254 L 398 236" stroke="var(--eflury-navy)" />
+    <path d="M 181 268 L 170 252 L 190 250" stroke="var(--eflury-teal)" transform="rotate(24 171 253)" />
+    <path d="M 270 78 L 281 63 L 288 82" stroke="var(--eflury-blue)" transform="rotate(14 280 64)" />
+  </g>
+
+  <!-- stage labels on the orbit -->
+  <g font-family="inherit" font-weight="800" font-size="17" letter-spacing="0.08em">
+    <text x="416" y="130" fill="var(--eflury-navy)">ADVISE</text>
+    <text x="280" y="356" text-anchor="middle" fill="var(--teal-text)">BUILD</text>
+    <text x="144" y="130" text-anchor="end" fill="var(--eflury-blue)">RUN</text>
+  </g>
+  <g font-family="inherit" font-size="11.5" fill="var(--text-secondary)">
+    <text x="416" y="148">Audit · Roadmap</text>
+    <text x="280" y="373" text-anchor="middle">Skills · MCP · Power BI</text>
+    <text x="144" y="148" text-anchor="end">Managed Operations</text>
+  </g>
+
+  <!-- center: the mark -->
+  <g>
+    <circle cx="280" cy="190" r="58" fill="var(--primary-50)" stroke="var(--eflury-teal)" stroke-width="2" />
+    <rect x="248" y="158" width="64" height="64" rx="15" fill="#fff" stroke="var(--border-color)" />
+    <image href="/images/favicon-tab.png" x="253" y="163" width="54" height="54" />
+  </g>
+  <text x="280" y="278" text-anchor="middle" font-size="14" font-weight="700" fill="var(--eflury-navy)" font-family="inherit">eFlury <tspan fill="var(--eflury-teal)">Consulting</tspan></text>
+</svg>
+
+<style>
+  .ill-orbit {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
