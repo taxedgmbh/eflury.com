@@ -57,3 +57,6 @@ RedirectMatch 301 ^/de/branchen/treuhand/?$ /de/case-studies/taxed-gmbh
     Header set Cache-Control "max-age=3600"
   </FilesMatch>
 </IfModule>
+
+# vCard downloads
+AddType text/vcard .vcf
