@@ -1,5 +1,7 @@
 ---
 import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import IllustrationShowcase from '../../../components/IllustrationShowcase.astro';
+import InvoiceFlowIllustration from '../../../components/illustrations/InvoiceFlowIllustration.astro';
 import { useTranslations } from '../../../i18n/utils';
 
 const lang = 'en';
@@ -93,4 +95,8 @@ const serviceData = {
 };
 ---
 
-<ServiceLayout {...serviceData} />
+<ServiceLayout {...serviceData}>
+  <IllustrationShowcase slot="showcase">
+    <InvoiceFlowIllustration />
+  </IllustrationShowcase>
+</ServiceLayout>

@@ -1,0 +1,15 @@
+---
+/**
+ * Corner brand signature used inside every illustration SVG:
+ * the "eFlury Consulting" wordmark in brand colors (theme-aware).
+ * Text-only — raster <image> tags compile as HTML <img> outside an
+ * <svg> root in Astro components and break the SVG. Position via x/y.
+ */
+interface Props {
+  x: number;
+  y: number;
+}
+const { x, y } = Astro.props;
+---
+
+<text x={x} y={y} font-size="13" font-weight="700" fill="var(--eflury-navy)" font-family="inherit" opacity="0.92">eFlury <tspan fill="var(--eflury-teal)">Consulting</tspan></text>
