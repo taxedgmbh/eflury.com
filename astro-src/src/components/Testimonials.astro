@@ -1,6 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
-import { Briefcase, Wrench, BadgeSwissFranc } from 'lucide-astro';
+import { Briefcase, Wrench, BadgeSwissFranc, Eye, ArrowRight } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -8,22 +8,37 @@ interface Props {
 
 const { lang } = Astro.props;
 const t = useTranslations(lang);
+const de = lang === 'de';
 
+// Every claim links to the page where it can be verified.
 const valueProps = [
   {
     icon: Briefcase,
     title: t('testimonials.value_prop1.title'),
     description: t('testimonials.value_prop1.description'),
+    link: t('testimonials.value_prop1.link'),
+    href: `/${lang}/about/`,
   },
   {
     icon: Wrench,
     title: t('testimonials.value_prop2.title'),
     description: t('testimonials.value_prop2.description'),
+    link: t('testimonials.value_prop2.link'),
+    href: `/${lang}/case-studies/`,
   },
   {
     icon: BadgeSwissFranc,
     title: t('testimonials.value_prop3.title'),
     description: t('testimonials.value_prop3.description'),
+    link: t('testimonials.value_prop3.link'),
+    href: `/${lang}/pricing/`,
+  },
+  {
+    icon: Eye,
+    title: t('testimonials.value_prop4.title'),
+    description: t('testimonials.value_prop4.description'),
+    link: t('testimonials.value_prop4.link'),
+    href: de ? '/de/sicherheit/' : '/en/trust/',
   },
 ];
 ---
@@ -36,13 +51,14 @@ const valueProps = [
     </div>
 
     <div class="testimonials-grid">
-      {valueProps.map(({ icon: Icon, title, description }) => (
+      {valueProps.map(({ icon: Icon, title, description, link, href }) => (
         <div class="testimonial-card">
           <div class="value-icon">
             <Icon size={28} />
           </div>
           <h3 class="value-title">{title}</h3>
           <p class="value-description">{description}</p>
+          <a href={href} class="value-link">{link} <ArrowRight size={14} /></a>
         </div>
       ))}
     </div>
@@ -75,11 +91,14 @@ const valueProps = [
 
   .testimonials-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
   }
 
   .testimonial-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: var(--card-bg);
     border-radius: var(--radius-lg);
     padding: var(--spacing-xl);
@@ -88,6 +107,10 @@ const valueProps = [
     position: relative;
     box-shadow: var(--shadow-xs);
     text-align: center;
+  }
+
+  .testimonial-card .value-description {
+    flex-grow: 1;
   }
 
   .testimonial-card:hover {
@@ -118,7 +141,22 @@ const valueProps = [
   .value-description {
     color: var(--text-secondary);
     line-height: 1.7;
-    font-size: 1rem;
+    font-size: 0.95rem;
+    margin-bottom: 1rem;
+  }
+
+  .value-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--link-color);
+    font-weight: 600;
+    font-size: 0.88rem;
+    text-decoration: none;
+  }
+
+  .value-link:hover {
+    text-decoration: underline;
   }
 
   @media (max-width: 768px) {

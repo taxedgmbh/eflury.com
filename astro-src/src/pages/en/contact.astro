@@ -101,7 +101,6 @@ const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Keltenweg+4%2C+
             <p class="effi-hint"><MessageCircle size={15} /> Quick question outside office hours? Effi, our chat in the bottom-right corner, answers instantly.</p>
           </div>
         </div>
-        <p class="legal-note" set:html={`Full company details in the <a href="/en/imprint/">imprint</a> · How we handle your data: <a href="/en/trust/">Trust &amp; Security</a>`} />
       </div>
     </section>
   </main>
@@ -364,22 +363,6 @@ const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Keltenweg+4%2C+
     flex-shrink: 0;
     margin-top: 0.15rem;
     color: var(--teal-text);
-  }
-
-  .legal-note {
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--text-tertiary);
-    margin: var(--spacing-xl) 0 0;
-  }
-
-  .legal-note :global(a) {
-    color: var(--link-color);
-    text-decoration: none;
-  }
-
-  .legal-note :global(a:hover) {
-    text-decoration: underline;
   }
 
   @media (max-width: 900px) {

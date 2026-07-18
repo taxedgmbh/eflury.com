@@ -101,7 +101,6 @@ const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Keltenweg+4%2C+
             <p class="effi-hint"><MessageCircle size={15} /> Schnelle Frage ausserhalb der Bürozeiten? Effi, unser Chat unten rechts, antwortet sofort.</p>
           </div>
         </div>
-        <p class="legal-note" set:html={`Vollständige Firmenangaben im <a href="/de/impressum/">Impressum</a> · Wie wir mit Ihren Daten arbeiten: <a href="/de/sicherheit/">Sicherheit &amp; Vertrauen</a>`} />
       </div>
     </section>
   </main>
@@ -364,22 +363,6 @@ const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Keltenweg+4%2C+
     flex-shrink: 0;
     margin-top: 0.15rem;
     color: var(--teal-text);
-  }
-
-  .legal-note {
-    text-align: center;
-    font-size: 0.9rem;
-    color: var(--text-tertiary);
-    margin: var(--spacing-xl) 0 0;
-  }
-
-  .legal-note :global(a) {
-    color: var(--link-color);
-    text-decoration: none;
-  }
-
-  .legal-note :global(a:hover) {
-    text-decoration: underline;
   }
 
   @media (max-width: 900px) {

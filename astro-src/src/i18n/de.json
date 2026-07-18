@@ -21,7 +21,7 @@
   "hero": {
     "badge": "Enterprise-Methoden · KMU-Preise",
     "title": "KI-Automatisierung für Schweizer KMU. Strategisch geplant. Praktisch umgesetzt.",
-    "subtitle": "Wir bringen die Automatisierungsstrategien von Fortune-500-Unternehmen zu Ihrem KMU — ohne Enterprise-Budget.",
+    "subtitle": "Wir bringen die Automatisierungsstrategien von Fortune-500-Unternehmen zu Ihrem KMU — ohne Enterprise-Budget. Vom KI-Audit mit ehrlichem Go/No-Go bis zum betreuten Betrieb: Fixpreise, dokumentierte Projekte, messbare Stunden.",
     "cta_primary": "Kostenloses Strategiegespräch buchen",
     "cta_secondary": "Methode entdecken ↓",
     "secondary_cta": "Methode entdecken ↓",
@@ -52,7 +52,8 @@
           "Notion"
         ]
       }
-    }
+    },
+    "section_subtitle": "Etablierte Werkzeuge statt Blackbox-Eigenentwicklungen — mit EU/CH-Hosting-Optionen. Welche Dienste in Ihrem Projekt laufen, legen wir offen."
   },
   "about": {
     "title": "Über uns",
@@ -152,18 +153,26 @@
   },
   "testimonials": {
     "title": "Warum Schweizer KMU uns wählen",
-    "subtitle": "Was Sie bei der Zusammenarbeit erwarten können",
+    "subtitle": "Keine bestellten Kundenzitate — stattdessen vier Zusagen, die Sie auf dieser Website überprüfen können.",
     "value_prop1": {
       "title": "Enterprise-Methoden, KMU-Preise",
-      "description": "13 Jahre Fortune-500-Automatisierungserfahrung für Ihr Unternehmen — ohne Enterprise-Budget."
+      "description": "13 Jahre Fortune-500-Automatisierungserfahrung für Ihr Unternehmen — ohne Enterprise-Budget.",
+      "link": "Werdegang ansehen"
     },
     "value_prop2": {
       "title": "Hands-on Umsetzung",
-      "description": "Wir arbeiten direkt mit Ihrem Team, um funktionierende Automatisierung aufzubauen. Keine Folien, keine Berichte in der Schublade — nur Ergebnisse."
+      "description": "Wir arbeiten direkt mit Ihrem Team, um funktionierende Automatisierung aufzubauen. Keine Folien, keine Berichte in der Schublade — nur Ergebnisse.",
+      "link": "Projekte ansehen"
     },
     "value_prop3": {
       "title": "Festpreis, keine Überraschungen",
-      "description": "Sie kennen die vollen Kosten vor Projektstart. Klarer Umfang, transparente Preise und 30 Tage Support inklusive."
+      "description": "Sie kennen die vollen Kosten vor Projektstart. Klarer Umfang, transparente Preise und 30 Tage Support inklusive.",
+      "link": "Preise ansehen"
+    },
+    "value_prop4": {
+      "title": "Radikale Transparenz",
+      "description": "Methode, Preise und Sicherheitsangaben sind vollständig publiziert — Sie wissen, woran Sie sind, bevor Sie uns kontaktieren.",
+      "link": "Offenlegung lesen"
     }
   },
   "faq": {
