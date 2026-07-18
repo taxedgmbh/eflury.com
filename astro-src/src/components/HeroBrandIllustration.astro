@@ -2,93 +2,96 @@
 /**
  * Homepage hero visual: the eFlury circuit-E orchestrating the business —
  * circuit traces (echoing the logo's own line-and-node language) run from
- * the brand mark to ledger, mail, and chart chips, through the human
- * approval gate. Pure inline SVG on design tokens; dark-mode adaptive.
+ * inputs to approved outcomes. Pure inline SVG on design tokens.
  */
 ---
 
-<svg viewBox="0 0 600 400" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="eFlury Consulting — AI automation, orchestrated" class="hero-brand">
+<svg viewBox="0 0 600 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="eFlury Consulting — AI automation, orchestrated" class="hero-brand">
   <defs>
-    <radialGradient id="hb-wash" cx="50%" cy="42%" r="65%">
-      <stop offset="0%" stop-color="var(--eflury-teal)" stop-opacity="0.14" />
+    <radialGradient id="hb-wash" cx="50%" cy="40%" r="70%">
+      <stop offset="0%" stop-color="var(--eflury-teal)" stop-opacity="0.16" />
       <stop offset="100%" stop-color="var(--eflury-teal)" stop-opacity="0" />
     </radialGradient>
   </defs>
 
-  <!-- panel -->
-  <rect x="0" y="0" width="600" height="400" rx="24" fill="var(--bg-secondary)" />
-  <rect x="0" y="0" width="600" height="400" rx="24" fill="url(#hb-wash)" />
+  <!-- panel: a crisp product card in both themes -->
+  <rect x="0" y="0" width="600" height="440" rx="24" fill="var(--card-bg)" />
+  <rect x="0" y="0" width="600" height="440" rx="24" fill="url(#hb-wash)" />
+  <rect x="0.75" y="0.75" width="598.5" height="438.5" rx="23.25" stroke="var(--border-color)" stroke-width="1.5" />
 
   <!-- circuit traces: logo-style lines ending in node dots -->
-  <g stroke="var(--eflury-teal)" stroke-width="2.5" stroke-linecap="round" opacity="0.85">
-    <path d="M247 160 L 156 122" />
-    <path d="M243 196 L 128 196" />
-    <path d="M247 232 L 156 272" />
-    <path d="M353 160 L 444 122" />
-    <path d="M357 196 L 472 196" />
-    <path d="M353 232 L 444 272" />
+  <g stroke="var(--eflury-teal)" stroke-width="3" stroke-linecap="round" opacity="0.9">
+    <path d="M225 145 L 176 122" />
+    <path d="M221 190 L 168 190" />
+    <path d="M225 235 L 176 258" />
+    <path d="M375 145 L 424 122" />
+    <path d="M379 190 L 432 190" />
+    <path d="M375 235 L 424 258" />
   </g>
   <g fill="var(--eflury-teal)">
-    <circle cx="150" cy="119" r="5" />
-    <circle cx="121" cy="196" r="5" />
-    <circle cx="150" cy="275" r="5" />
-    <circle cx="450" cy="119" r="5" />
-    <circle cx="479" cy="196" r="5" />
-    <circle cx="450" cy="275" r="5" />
+    <circle cx="170" cy="119" r="6" />
+    <circle cx="161" cy="190" r="6" />
+    <circle cx="170" cy="261" r="6" />
+    <circle cx="430" cy="119" r="6" />
+    <circle cx="439" cy="190" r="6" />
+    <circle cx="430" cy="261" r="6" />
   </g>
 
   <!-- left chips: inputs -->
   <g>
-    <rect x="42" y="86" width="104" height="52" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5" />
-    <rect x="56" y="100" width="44" height="9" rx="4.5" fill="var(--eflury-blue)" opacity="0.75" />
-    <rect x="56" y="117" width="74" height="7" rx="3.5" fill="var(--text-tertiary)" opacity="0.45" />
+    <rect x="30" y="88" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="1.5" />
+    <rect x="46" y="104" width="34" height="26" rx="5" stroke="var(--eflury-teal)" stroke-width="2.4" fill="none" />
+    <path d="M46 108 L 63 121 L 80 108" stroke="var(--eflury-teal)" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+    <rect x="92" y="107" width="52" height="9" rx="4.5" fill="var(--eflury-blue)" opacity="0.7" />
+    <rect x="92" y="124" width="40" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.5" />
   </g>
   <g>
-    <rect x="26" y="170" width="92" height="52" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5" />
-    <path d="M40 186 L 58 199 L 76 186" stroke="var(--eflury-teal)" stroke-width="2.2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
-    <rect x="40" y="182" width="36" height="26" rx="5" stroke="var(--eflury-teal)" stroke-width="2.2" fill="none" />
-    <rect x="84" y="190" width="22" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.45" />
+    <rect x="22" y="159" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="1.5" />
+    <text x="40" y="197" font-size="15" font-weight="800" fill="var(--text-secondary)" font-family="inherit">PDF</text>
+    <rect x="82" y="175" width="54" height="9" rx="4.5" fill="var(--eflury-navy)" opacity="0.6" />
+    <rect x="82" y="192" width="42" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.5" />
   </g>
   <g>
-    <rect x="42" y="240" width="104" height="52" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5" />
-    <text x="56" y="266" font-size="11" font-weight="700" fill="var(--text-secondary)" font-family="inherit">PDF</text>
-    <rect x="88" y="256" width="44" height="8" rx="4" fill="var(--eflury-navy)" opacity="0.5" />
-    <rect x="56" y="274" width="76" height="7" rx="3.5" fill="var(--text-tertiary)" opacity="0.45" />
+    <rect x="30" y="230" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="1.5" />
+    <rect x="46" y="246" width="26" height="32" rx="4" fill="none" stroke="var(--eflury-blue)" stroke-width="2.4" />
+    <path d="M52 256 L 66 256 M52 264 L 66 264" stroke="var(--eflury-blue)" stroke-width="2" stroke-linecap="round" />
+    <rect x="84" y="249" width="58" height="9" rx="4.5" fill="var(--eflury-teal)" opacity="0.65" />
+    <rect x="84" y="266" width="44" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.5" />
   </g>
 
   <!-- right chips: outcomes -->
   <g>
-    <rect x="454" y="86" width="110" height="52" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5" />
-    <rect x="468" y="118" width="12" height="10" rx="2" fill="var(--eflury-teal)" opacity="0.85" />
-    <rect x="486" y="106" width="12" height="22" rx="2" fill="var(--eflury-navy)" opacity="0.7" />
-    <rect x="504" y="98" width="12" height="30" rx="2" fill="var(--eflury-blue)" opacity="0.8" />
-    <rect x="526" y="102" width="26" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.45" />
+    <rect x="442" y="88" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="1.5" />
+    <rect x="458" y="126" width="14" height="14" rx="3" fill="var(--eflury-teal)" opacity="0.9" />
+    <rect x="478" y="112" width="14" height="28" rx="3" fill="var(--eflury-navy)" opacity="0.75" />
+    <rect x="498" y="102" width="14" height="38" rx="3" fill="var(--eflury-blue)" opacity="0.85" />
+    <rect x="522" y="108" width="32" height="9" rx="4.5" fill="var(--text-tertiary)" opacity="0.5" />
   </g>
   <g>
-    <rect x="482" y="170" width="92" height="52" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5" />
-    <rect x="496" y="184" width="42" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.5" />
-    <rect x="496" y="200" width="64" height="10" rx="5" fill="var(--eflury-teal)" opacity="0.8" />
+    <rect x="450" y="159" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="1.5" />
+    <rect x="466" y="175" width="66" height="9" rx="4.5" fill="var(--text-tertiary)" opacity="0.55" />
+    <rect x="466" y="193" width="96" height="12" rx="6" fill="var(--eflury-teal)" opacity="0.85" />
   </g>
   <g>
-    <rect x="454" y="240" width="110" height="52" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5" />
-    <circle cx="478" cy="266" r="12" fill="var(--success-50)" stroke="var(--eflury-teal)" stroke-width="2" />
-    <path d="M472.5 266 L 476.5 270 L 484 261.5" stroke="var(--teal-text)" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none" />
-    <rect x="498" y="256" width="52" height="8" rx="4" fill="var(--eflury-navy)" opacity="0.5" />
-    <rect x="498" y="272" width="40" height="7" rx="3.5" fill="var(--text-tertiary)" opacity="0.45" />
+    <rect x="442" y="230" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="1.5" />
+    <circle cx="470" cy="261" r="15" fill="var(--success-50)" stroke="var(--eflury-teal)" stroke-width="2.4" />
+    <path d="M463 261 L 468 266 L 478 255.5" stroke="var(--teal-text)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <rect x="494" y="248" width="60" height="9" rx="4.5" fill="var(--eflury-navy)" opacity="0.6" />
+    <rect x="494" y="266" width="46" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.5" />
   </g>
 
   <!-- center: the brand mark on its plate -->
   <g>
-    <rect x="240" y="126" width="120" height="120" rx="26" fill="#fff" stroke="var(--eflury-teal)" stroke-width="2.5" />
-    <image href="/images/favicon-tab.png" x="252" y="138" width="96" height="96" />
+    <rect x="225" y="115" width="150" height="150" rx="32" fill="#fff" stroke="var(--eflury-teal)" stroke-width="3" />
+    <image href="/images/favicon-tab.png" x="240" y="130" width="120" height="120" />
   </g>
 
-  <!-- wordmark under the mark -->
-  <text x="300" y="292" text-anchor="middle" font-size="21" font-weight="800" fill="var(--eflury-navy)" font-family="inherit" letter-spacing="-0.01em">eFlury <tspan fill="var(--eflury-teal)">Consulting</tspan></text>
-  <text x="300" y="318" text-anchor="middle" font-size="13" font-weight="500" fill="var(--text-secondary)" font-family="inherit">Advise · Build · Run</text>
+  <!-- wordmark -->
+  <text x="300" y="330" text-anchor="middle" font-size="27" font-weight="800" fill="var(--eflury-navy)" font-family="inherit" letter-spacing="-0.01em">eFlury <tspan fill="var(--eflury-teal)">Consulting</tspan></text>
+  <text x="300" y="362" text-anchor="middle" font-size="15" font-weight="600" fill="var(--text-secondary)" font-family="inherit" letter-spacing="0.06em">ADVISE · BUILD · RUN</text>
 
   <!-- grounding line -->
-  <line x1="220" y1="348" x2="380" y2="348" stroke="var(--border-color)" stroke-width="1.5" />
+  <line x1="240" y1="396" x2="360" y2="396" stroke="var(--eflury-teal)" stroke-width="2.5" stroke-linecap="round" opacity="0.5" />
 </svg>
 
 <style>
