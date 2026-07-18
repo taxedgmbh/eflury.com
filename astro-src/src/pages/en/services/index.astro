@@ -6,88 +6,36 @@ import Header from '../../../components/Header.astro';
 import Breadcrumbs from '../../../components/Breadcrumbs.astro';
 import Footer from '../../../components/Footer.astro';
 import AIChatbot from '../../../components/AIChatbot.astro';
-import { useTranslations } from '../../../i18n/utils';
-import { ArrowRight, Cpu, Server, Calculator, BarChart3, Database, ClipboardCheck, Activity } from 'lucide-astro';
+import { ArrowRight, FileText, Cpu, Server, Calculator, BarChart3, Database, ClipboardCheck, Activity } from 'lucide-astro';
 
 const lang = 'en';
-const t = useTranslations(lang);
 
-const services = [
-  {
-    icon: ClipboardCheck,
-    title: 'AI Audit',
-    description: 'One week, fixed price: process inventory with time-cost scoring, prioritized roadmap, and an ROI projection per initiative — ending in an honest go/no-go.',
-    link: '/en/services/ai-audit',
-    badge: 'Start Here',
-    metric: "CHF 4'900 · fully credited"
-  },
-  {
-    icon: Cpu,
-    title: 'Claude Skills Development',
-    description: 'Custom Claude Skills built for your specific workflows. Automate repetitive tasks with AI that understands your business.',
-    link: '/en/services/claude-skills',
-    badge: 'Most Popular',
-    metric: '15-30 hrs/week saved'
-  },
-  {
-    icon: Server,
-    title: 'MCP Server Integration',
-    description: 'Connect Claude to your business systems with Model Context Protocol. Seamless integration with databases, APIs, and enterprise software.',
-    link: '/en/services/mcp-integration',
-    badge: null,
-    metric: '5+ systems connected'
-  },
-  {
-    icon: Calculator,
-    title: 'Finance Process Automation',
-    description: 'Automate month-end close, reporting, and reconciliation. AI-powered finance automation with Bexio and ABACUS integration.',
-    link: '/en/services/finance-automation',
-    badge: null,
-    metric: '40 hrs/month saved'
-  },
-  {
-    icon: Database,
-    title: 'Data Quality with Agentic AI',
-    description: 'Autonomous AI agents that profile, clean, and monitor your business data. Deduplication, validation, and continuous quality checks — with human review built in.',
-    link: '/en/services/data-quality',
-    badge: 'New',
-    metric: 'Trustworthy data, measurable'
-  },
-  {
-    icon: BarChart3,
-    title: 'Power BI Consulting',
-    description: 'Custom Power BI dashboards and reports for Swiss businesses. From data modeling to executive dashboards with AI-powered insights.',
-    link: '/en/services/power-bi',
-    badge: null,
-    metric: '15 hrs/week saved'
-  },
-  {
-    icon: Activity,
-    title: 'Managed AI Operations',
-    description: 'We run what we build: monitoring, monthly metrics reports, improvement backlog, and re-validation after platform updates.',
-    link: '/en/services/managed-ai-operations',
-    badge: null,
-    metric: "From CHF 1'200/month"
-  }
+// BUILD-stage services (ADVISE and RUN are rendered as feature rows)
+const buildServices = [
+  { icon: Cpu, title: "Claude Skills", desc: "Custom Claude Skills for your specific workflows. Automate repetitive tasks with AI that understands your business.", link: "/en/services/claude-skills/", badge: null, metric: "The core of every package" },
+  { icon: Server, title: "MCP Server Integration", desc: "Connect Claude to your business systems via Model Context Protocol — databases, APIs, and business software.", link: "/en/services/mcp-integration/", badge: null, metric: "bexio · databases · Microsoft 365" },
+  { icon: Calculator, title: "Finance Process Automation", desc: "Automate month-end close, reporting, and reconciliations — AI-assisted, with bexio and ABACUS integration.", link: "/en/services/finance-automation/", badge: null, metric: "Month-end · payables · reporting" },
+  { icon: BarChart3, title: "Power BI Consulting", desc: "Custom Power BI dashboards and reports — from data modeling to the executive dashboard.", link: "/en/services/power-bi/", badge: null, metric: "Dashboards · Excel migration" },
+  { icon: Database, title: "Data Quality with Agentic AI", desc: "AI agents that profile, clean, and monitor your business data — with human control built in.", link: "/en/services/data-quality/", badge: "New", metric: "Includes a live demo" },
 ];
 ---
 
 <MainLayout
-  title="Services | eflury.com"
-  description={t('services_pages.index.description')}
-  keywords="Claude Skills, MCP integration, finance automation, Power BI consulting, Swiss AI services"
+  title="Services - AI Automation for Swiss SMEs | eflury.com"
+  description="Seven services along the Advise · Build · Run lifecycle: AI Audit, Claude Skills, MCP integration, finance automation, Power BI, data quality, and Managed AI Operations — at fixed prices."
+  keywords="Claude Skills, MCP integration, finance automation, Power BI consulting, AI audit, Swiss AI services"
   lang={lang}
 >
   <Header lang={lang} />
 
-  <Breadcrumbs lang={lang} items={[{ label: 'Services' }]} />
+  <Breadcrumbs lang={lang} items={[{ label: "Services" }]} />
 
   <main class="services-page">
     <section class="page-hero">
       <div class="container">
-        <h1 class="page-title">{t('services_pages.index.title')}</h1>
-        <p class="page-subtitle">{t('services_pages.index.subtitle')}</p>
-        <p class="page-description">{t('services_pages.index.description')}</p>
+        <span class="hero-badge">7 services · fixed prices · one lifecycle</span>
+        <h1 class="page-title">Services.</h1>
+        <p class="page-lead">Every service has its place in the lifecycle: we advise before we build — and we run what we built.</p>
       </div>
     </section>
 
@@ -97,47 +45,89 @@ const services = [
 
     <section class="offer">
       <div class="container">
+
+        <!-- ADVISE -->
+        <div class="stage-head">
+          <span class="stage-pill navy">Advise</span>
+          <span class="stage-line">Understand & prioritize</span>
+        </div>
+        <a href="/en/services/ai-audit/" class="feature-card">
+          <div class="icon-tile"><ClipboardCheck size={26} /></div>
+          <div class="feature-body">
+            <div class="feature-top">
+              <h2>AI Audit</h2>
+              <span class="start-badge">Start here</span>
+            </div>
+            <p>One week, fixed price: process inventory with time-cost scoring, prioritized roadmap, and ROI projection per initiative — ending in an honest go/no-go.</p>
+            <div class="feature-meta">
+              <span class="metric">CHF 4'900 · fully credited</span>
+              <span class="sample-link"><FileText size={14} /> See the sample report (PDF)</span>
+            </div>
+          </div>
+          <span class="go"><ArrowRight size={18} /></span>
+        </a>
+
+        <!-- BUILD -->
+        <div class="stage-head">
+          <span class="stage-pill teal">Build</span>
+          <span class="stage-line">Build & deploy</span>
+        </div>
         <div class="services-grid">
-          {services.map((service) => (
+          {buildServices.map((service) => (
             <a href={service.link} class="service-card">
               <div class="card-top">
-                <div class="icon-tile">
-                  <service.icon size={28} />
-                </div>
-                {service.badge && <span class="popular-badge">{service.badge}</span>}
+                <div class="icon-tile"><service.icon size={24} /></div>
+                {service.badge && <span class="new-badge">{service.badge}</span>}
               </div>
               <h2>{service.title}</h2>
-              <p>{service.description}</p>
+              <p>{service.desc}</p>
               <div class="card-bottom">
-                <span class="saving">{service.metric}</span>
-                <span class="go">
-                  <ArrowRight size={18} />
-                </span>
+                <span class="metric">{service.metric}</span>
+                <span class="go"><ArrowRight size={16} /></span>
               </div>
             </a>
           ))}
         </div>
 
-        <h2 class="explore-title">More to explore</h2>
+        <!-- RUN -->
+        <div class="stage-head">
+          <span class="stage-pill blue">Run</span>
+          <span class="stage-line">Operate & improve</span>
+        </div>
+        <a href="/en/services/managed-ai-operations/" class="feature-card">
+          <div class="icon-tile"><Activity size={26} /></div>
+          <div class="feature-body">
+            <div class="feature-top">
+              <h2>Managed AI Operations</h2>
+            </div>
+            <p>We run what we build: monitoring, a monthly metrics report, an improvement backlog, and re-validation after platform updates.</p>
+            <div class="feature-meta">
+              <span class="metric">From CHF 1'200/month</span>
+            </div>
+          </div>
+          <span class="go"><ArrowRight size={18} /></span>
+        </a>
+
+        <h2 class="explore-title">Explore more</h2>
         <div class="explore-grid">
-          <a href="/en/pricing" class="explore-card">
-            <h3>Pricing & Packages</h3>
-            <p>Transparent fixed prices — from micro projects to enterprise packages.</p>
+          <a href="/en/pricing/" class="explore-card">
+            <h3>Pricing & packages</h3>
+            <p>Transparent fixed prices — from the Micro project to the Enterprise package.</p>
           </a>
-          <a href="/en/skopaai" class="explore-card">
+          <a href="/en/skopaai/" class="explore-card">
             <h3>SkopaAI <span class="badge-new">New</span></h3>
-            <p>Pre-configured Mac mini with an AI assistant. Unbox, plug in, go.</p>
+            <p>Preconfigured Mac mini with AI assistant. Unpack, plug in, go.</p>
           </a>
-          <a href="/en/case-studies" class="explore-card">
-            <h3>Case Studies</h3>
+          <a href="/en/case-studies/" class="explore-card">
+            <h3>Case studies</h3>
             <p>Real projects, measurable results — including the Taxed GmbH case study.</p>
           </a>
         </div>
 
         <section class="cta-section">
           <h2>Not sure which service fits?</h2>
-          <p>Book a free 30-minute strategy call. We'll analyze your workflows and recommend the right approach.</p>
-          <a href={`/${lang}/#contact`} class="cta-button">
+          <p>Book a free 30-minute strategy call. We analyze your workflows and recommend the right approach.</p>
+          <a href="/en/contact/" class="cta-button">
             Book a free strategy call
             <ArrowRight size={18} />
           </a>
@@ -151,320 +141,377 @@ const services = [
 </MainLayout>
 
 <style>
-  /* Shared verbatim between en/ and de/ services index — edit both together. */
+  /* Generated for en/ and de/ from one template — edit both together. */
   .container {
     max-width: 1100px;
     margin: 0 auto;
     padding: 0 2rem;
   }
 
-  /* --- Hero band ------------------------------------------------------ */
   .page-hero {
-    position: relative;
     padding: 3.5rem 0 3rem;
-    background: linear-gradient(180deg, var(--bg-secondary) 0%, var(--bg-primary) 100%);
-    overflow: hidden;
+    background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
+    border-bottom: 1px solid var(--border-color);
     text-align: center;
   }
 
-  .page-hero::before {
-    content: '';
-    position: absolute;
-    top: -140px;
-    right: -100px;
-    width: 420px;
-    height: 420px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(13, 148, 136, 0.12), transparent 65%);
-    pointer-events: none;
-  }
-
-  .breadcrumb {
-    position: relative;
-    font-size: 0.875rem;
-    color: var(--text-tertiary);
-    margin-bottom: 1.5rem;
-  }
-
-  .breadcrumb a {
-    color: var(--text-secondary);
-    text-decoration: none;
-  }
-
-  .breadcrumb a:hover {
+  .hero-badge {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background: rgba(13, 148, 136, 0.1);
+    border-radius: 100px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
     color: var(--teal-text);
+    margin-bottom: 1.25rem;
   }
 
   .page-title {
-    position: relative;
-    font-size: clamp(2.25rem, 5vw, 3.25rem);
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
     font-weight: 800;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     color: var(--text-primary);
-    margin-bottom: 0.75rem;
+    margin: 0 0 0.75rem;
   }
 
-  .page-subtitle {
-    position: relative;
-    font-size: clamp(1.125rem, 2.5vw, 1.3125rem);
-    color: var(--teal-text);
-    font-weight: 650;
-    margin-bottom: 0.75rem;
-  }
-
-  .page-description {
-    position: relative;
-    font-size: 1.0625rem;
+  .page-lead {
+    font-size: 1.2rem;
+    line-height: 1.6;
     color: var(--text-secondary);
-    max-width: 620px;
+    max-width: 640px;
     margin: 0 auto;
-    line-height: 1.65;
   }
 
-  /* --- Service cards ----------------------------------------------------- */
   .offer {
-    padding: 3.5rem 0 4.5rem;
+    padding: 1rem 0 4rem;
   }
 
+  .stage-head {
+    display: flex;
+    align-items: center;
+    gap: 0.85rem;
+    margin: 3rem 0 1.25rem;
+  }
+
+  .stage-pill {
+    color: #fff;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.09em;
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius-full);
+  }
+
+  .stage-pill.navy { background: var(--surface-navy); }
+  .stage-pill.teal { background: var(--action-teal); }
+  .stage-pill.blue { background: var(--eflury-blue-mid); }
+
+  .stage-line {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  /* Feature rows (Advise / Run) */
+  .feature-card {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem 2rem;
+    text-decoration: none;
+    color: inherit;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--eflury-teal);
+  }
+
+  .feature-body {
+    flex: 1;
+    min-width: 0;
+  }
+
+  .feature-top {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.4rem;
+  }
+
+  .feature-card h2 {
+    font-size: 1.35rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .start-badge {
+    background: var(--action-teal);
+    color: #fff;
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    padding: 0.28rem 0.7rem;
+    border-radius: var(--radius-full);
+  }
+
+  .feature-card p {
+    font-size: 0.98rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 0.85rem;
+  }
+
+  .feature-meta {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .metric {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--teal-text);
+  }
+
+  .sample-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--link-color);
+  }
+
+  .icon-tile {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: var(--radius-md);
+    background: var(--primary-50);
+    border: 1px solid var(--primary-100);
+    color: var(--teal-text);
+    flex-shrink: 0;
+  }
+
+  .go {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-full);
+    background: var(--bg-secondary);
+    color: var(--teal-text);
+    flex-shrink: 0;
+    transition: all var(--transition-fast);
+  }
+
+  .feature-card:hover .go,
+  .service-card:hover .go {
+    background: var(--action-teal);
+    color: #fff;
+  }
+
+  /* Build grid */
   .services-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1.25rem;
   }
 
   .service-card {
     display: flex;
     flex-direction: column;
-    padding: 2rem;
     background: var(--card-bg);
     border: 1px solid var(--border-color);
-    border-radius: 18px;
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
     text-decoration: none;
-    transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+    color: inherit;
+    box-shadow: var(--shadow-sm);
+    transition: all var(--transition-base);
   }
 
   .service-card:hover {
-    transform: translateY(-4px);
-    border-color: var(--teal-text);
-    box-shadow: 0 12px 28px rgba(2, 37, 84, 0.1);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--eflury-teal);
   }
 
   .card-top {
     display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    margin-bottom: 1.25rem;
-  }
-
-  .icon-tile {
-    width: 56px;
-    height: 56px;
-    display: flex;
     align-items: center;
-    justify-content: center;
-    background: rgba(13, 148, 136, 0.1);
-    border-radius: 14px;
-    color: var(--teal-text);
+    justify-content: space-between;
+    margin-bottom: 1rem;
   }
 
-  .popular-badge {
-    padding: 0.3125rem 0.75rem;
-    background: var(--action-teal);
+  .card-top .icon-tile {
+    width: 46px;
+    height: 46px;
+  }
+
+  .new-badge {
+    background: var(--surface-navy);
     color: #fff;
-    font-size: 0.6875rem;
-    font-weight: 700;
-    border-radius: 999px;
+    font-size: 0.65rem;
+    font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.07em;
+    padding: 0.26rem 0.65rem;
+    border-radius: var(--radius-full);
   }
 
   .service-card h2 {
-    font-size: 1.3125rem;
+    font-size: 1.1rem;
     font-weight: 700;
     color: var(--text-primary);
-    margin: 0 0 0.625rem;
+    margin: 0 0 0.5rem;
   }
 
-  .service-card > p {
-    font-size: 0.9625rem;
+  .service-card p {
+    font-size: 0.9rem;
+    line-height: 1.6;
     color: var(--text-secondary);
-    line-height: 1.65;
+    margin: 0 0 1.1rem;
     flex: 1;
-    margin: 0 0 1.5rem;
   }
 
   .card-bottom {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-top: 1rem;
+    gap: 0.75rem;
     border-top: 1px solid var(--border-color);
+    padding-top: 0.9rem;
   }
 
-  .saving {
-    font-size: 0.875rem;
-    font-weight: 600;
-    color: var(--teal-text);
+  .card-bottom .go {
+    width: 32px;
+    height: 32px;
   }
 
-  .go {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 36px;
-    height: 36px;
-    background: var(--bg-secondary);
-    border-radius: 50%;
-    color: var(--text-secondary);
-    transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-  }
-
-  .service-card:hover .go {
-    background: var(--action-teal);
-    color: #fff;
-    transform: translateX(4px);
-  }
-
-  /* --- Explore row -------------------------------------------------------- */
+  /* Explore */
   .explore-title {
     text-align: center;
-    font-size: 1.375rem;
-    font-weight: 700;
+    font-size: 1.35rem;
     color: var(--text-primary);
-    margin: 3.5rem 0 0.5rem;
-  }
-
-  .explore-title::after {
-    content: '';
-    display: block;
-    width: 40px;
-    height: 3px;
-    border-radius: 2px;
-    background: var(--eflury-teal);
-    margin: 0.75rem auto 0;
+    margin: 3.5rem 0 1.25rem;
   }
 
   .explore-grid {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
     gap: 1.25rem;
-    margin-top: 1.75rem;
   }
 
   .explore-card {
-    display: flex;
-    flex-direction: column;
-    gap: 0.375rem;
-    padding: 1.375rem 1.5rem;
     background: var(--bg-secondary);
     border: 1px solid var(--border-color);
-    border-radius: 14px;
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.6rem;
     text-decoration: none;
-    transition: transform 0.25s ease, border-color 0.25s ease;
+    color: inherit;
+    transition: all var(--transition-base);
   }
 
   .explore-card:hover {
-    transform: translateY(-3px);
-    border-color: var(--teal-text);
+    border-color: var(--eflury-teal);
+    transform: translateY(-2px);
   }
 
   .explore-card h3 {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    margin: 0;
-    font-size: 1.0625rem;
+    font-size: 1.02rem;
     color: var(--text-primary);
-  }
-
-  .badge-new {
-    padding: 0.125rem 0.5rem;
-    background: var(--action-teal);
-    color: #fff;
-    font-size: 0.625rem;
-    font-weight: 700;
-    border-radius: 999px;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
+    margin: 0 0 0.4rem;
   }
 
   .explore-card p {
-    margin: 0;
-    font-size: 0.875rem;
-    color: var(--text-secondary);
+    font-size: 0.88rem;
     line-height: 1.55;
+    color: var(--text-secondary);
+    margin: 0;
   }
 
-  /* --- CTA ------------------------------------------------------------------ */
+  .badge-new {
+    background: var(--action-teal);
+    color: #fff;
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    padding: 0.2rem 0.55rem;
+    border-radius: var(--radius-full);
+    vertical-align: middle;
+    margin-left: 0.35rem;
+  }
+
+  /* CTA */
   .cta-section {
     margin-top: 3.5rem;
     text-align: center;
-    padding: 3.5rem 2rem;
-    background: linear-gradient(135deg, var(--eflury-navy) 0%, var(--eflury-teal) 130%);
-    border-radius: 20px;
+    background: var(--surface-navy);
+    border-radius: var(--radius-lg);
+    padding: 3rem 2rem;
   }
 
   .cta-section h2 {
-    font-size: clamp(1.5rem, 3vw, 1.875rem);
-    font-weight: 800;
     color: #fff;
-    margin: 0 0 0.875rem;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    margin: 0 0 0.75rem;
   }
 
   .cta-section p {
-    font-size: 1.0625rem;
-    color: rgba(255, 255, 255, 0.85);
-    margin: 0 auto 2rem;
-    max-width: 520px;
-    line-height: 1.6;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 560px;
+    margin: 0 auto 1.75rem;
   }
 
   .cta-button {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.9375rem 1.875rem;
-    background: #fff;
-    color: var(--eflury-navy);
-    font-size: 1rem;
+    background: var(--action-teal);
+    color: #fff;
     font-weight: 600;
-    border-radius: 12px;
+    padding: 0.95rem 1.9rem;
+    border-radius: var(--radius-md);
     text-decoration: none;
-    transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    transition: all var(--transition-fast);
   }
 
   .cta-button:hover {
-    background: rgba(255, 255, 255, 0.92);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
-  }
-
-  /* --- Responsive -------------------------------------------------------------- */
-  @media (max-width: 900px) {
-    .explore-grid {
-      grid-template-columns: 1fr;
-    }
+    background: var(--primary-700);
+    transform: translateY(-2px);
   }
 
   @media (max-width: 768px) {
     .container {
-      padding: 0 1.25rem;
+      padding: 0 1.5rem;
     }
 
-    .page-hero {
-      padding: 2.75rem 0 2.25rem;
+    .feature-card {
+      flex-direction: column;
+      align-items: flex-start;
     }
 
-    .services-grid {
-      grid-template-columns: 1fr;
-    }
-
-    .offer {
-      padding: 2.75rem 0 3.5rem;
-    }
-
-    .cta-section {
-      padding: 2.75rem 1.5rem;
+    .feature-card .go {
+      display: none;
     }
   }
 </style>
