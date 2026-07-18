@@ -1,0 +1,100 @@
+---
+/**
+ * Contact page visual: simplified Switzerland silhouette with the Grenchen
+ * home base as the brand-mark pin, major cities as dots, and dashed reach
+ * lines. Coordinates come from a rough equirectangular projection of the
+ * real border (lon 5.9–10.5, lat 45.8–47.85) — recognizable, not exact.
+ */
+import { type Language } from '../../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+const { lang } = Astro.props;
+const de = lang === 'de';
+
+const t = {
+  title: de ? 'SCHWEIZ · VOR ORT & REMOTE' : 'SWITZERLAND · ON-SITE & REMOTE',
+  base: 'Grenchen SO',
+  stamp: de ? '< 24 h Antwort' : '< 24 h response',
+  legend: de ? 'Vor Ort nach Vereinbarung · Remote: ganze Schweiz & EU' : 'On-site by arrangement · Remote: all of Switzerland & EU',
+  geneva: de ? 'Genf' : 'Geneva',
+  zurich: de ? 'Zürich' : 'Zurich',
+  lucerne: de ? 'Luzern' : 'Lucerne',
+};
+
+// Simplified national border, clockwise from Basel.
+const border = `M 199 69 L 220 72 L 270 64 L 300 43 L 325 50 L 355 54 L 395 76
+  L 405 88 L 400 145 L 428 152 L 453 174 L 485 211 L 450 254 L 385 247
+  L 370 269 L 340 323 L 315 291 L 285 265 L 250 262 L 235 281 L 195 308
+  L 145 313 L 120 284 L 120 247 L 55 279 L 37 270 L 50 232 L 85 184
+  L 90 159 L 130 123 L 140 94 L 150 79 L 175 86 Z`;
+
+// City dots with label anchors; Grenchen itself is the logo pin.
+const cities = [
+  { x: 204, y: 82, label: 'Basel', lx: 212, ly: 78, anchor: 'start' },
+  { x: 294, y: 98, label: t.zurich, lx: 302, ly: 94, anchor: 'start' },
+  { x: 378, y: 93, label: 'St. Gallen', lx: 370, ly: 82, anchor: 'end' },
+  { x: 271, y: 145, label: t.lucerne, lx: 280, ly: 150, anchor: 'start' },
+  { x: 185, y: 161, label: 'Bern', lx: 177, ly: 174, anchor: 'end' },
+  { x: 62, y: 262, label: t.geneva, lx: 70, ly: 258, anchor: 'start' },
+  { x: 335, y: 296, label: 'Lugano', lx: 346, ly: 301, anchor: 'start' },
+];
+
+const home = { x: 180, y: 124 };
+const reach = [cities[0], cities[1], cities[4], cities[5], cities[6]];
+---
+
+<svg viewBox="0 0 560 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" class="ill-swissmap">
+  <text x="30" y="30" font-size="11" font-weight="700" letter-spacing="0.12em" fill="var(--text-tertiary)" font-family="inherit">{t.title}</text>
+
+  <!-- country silhouette -->
+  <path d={border} fill="var(--primary-50)" stroke="var(--eflury-navy)" stroke-width="2" stroke-linejoin="round" opacity="0.9" />
+
+  <!-- dashed reach lines from Grenchen -->
+  <g stroke="var(--eflury-teal)" stroke-width="1.6" stroke-dasharray="2 6" stroke-linecap="round" opacity="0.7">
+    {reach.map((c) => (
+      <path d={`M ${home.x} ${home.y} L ${c.x} ${c.y}`} />
+    ))}
+  </g>
+
+  <!-- city dots + labels -->
+  <g>
+    {cities.map((c) => (
+      <g>
+        <circle cx={c.x} cy={c.y} r="4.5" fill="var(--eflury-blue)" opacity="0.85" />
+        <text x={c.lx} y={c.ly} text-anchor={c.anchor} font-size="11.5" font-weight="600" fill="var(--text-secondary)" font-family="inherit">{c.label}</text>
+      </g>
+    ))}
+  </g>
+
+  <!-- home base: brand callout in the empty north-west corner, leader to the pin -->
+  <g>
+    <path d={`M 122 88 Q 150 100 ${home.x - 5} ${home.y - 5}`} stroke="var(--eflury-teal)" stroke-width="1.8" fill="none" opacity="0.65" />
+    <rect x="74" y="44" width="48" height="48" rx="11" fill="#fff" stroke="var(--eflury-teal)" stroke-width="2.5" />
+    <image href="/images/favicon-tab.png" x="78" y="48" width="40" height="40" />
+    <text x="98" y="108" text-anchor="middle" font-size="12.5" font-weight="800" fill="var(--eflury-navy)" font-family="inherit">{t.base}</text>
+  </g>
+  <g>
+    <circle cx={home.x} cy={home.y} r="9" stroke="var(--eflury-teal)" stroke-width="2" fill="none" opacity="0.5" />
+    <circle cx={home.x} cy={home.y} r="5" fill="var(--eflury-teal)" />
+  </g>
+
+  <!-- response stamp in the empty north-east corner -->
+  <g transform="rotate(-7 470 112)">
+    <rect x="415" y="92" width="110" height="40" rx="9" fill="var(--card-bg)" stroke="var(--teal-text)" stroke-width="2.5" />
+    <text x="470" y="117" text-anchor="middle" font-size="14" font-weight="800" letter-spacing="0.03em" fill="var(--teal-text)" font-family="inherit">{t.stamp}</text>
+  </g>
+
+  <!-- legend + wordmark -->
+  <text x="30" y="362" font-size="12" font-weight="600" fill="var(--text-secondary)" font-family="inherit">{t.legend}</text>
+  <text x="530" y="362" text-anchor="end" font-size="13" font-weight="700" fill="var(--eflury-navy)" font-family="inherit">eFlury <tspan fill="var(--eflury-teal)">Consulting</tspan></text>
+</svg>
+
+<style>
+  .ill-swissmap {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>

@@ -4,10 +4,13 @@ import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2 } from 'lucide-a
 
 interface Props {
   lang: Language;
+  /** Hide the section header on pages that bring their own hero (e.g. /kontakt/). */
+  showHeader?: boolean;
 }
 
-const { lang } = Astro.props;
+const { lang, showHeader = true } = Astro.props;
 const t = useTranslations(lang);
+const de = lang === 'de';
 
 // Environment variables for third-party services
 const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAACNCvv3pA4hrcbKM';
@@ -15,10 +18,12 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
 
 <section class="contact section-padding" id="contact">
   <div class="container">
-    <div class="section-header">
-      <h2 class="section-title">{t('contact.title')}</h2>
-      <p class="section-subtitle">{t('contact.subtitle')}</p>
-    </div>
+    {showHeader && (
+      <div class="section-header">
+        <h2 class="section-title">{t('contact.title')}</h2>
+        <p class="section-subtitle">{t('contact.subtitle')}</p>
+      </div>
+    )}
 
     <div class="contact-wrapper">
       <div class="contact-info">
@@ -41,8 +46,15 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
               <Phone size={24} />
             </div>
             <div class="method-content">
-              <h4>{t('contact.phone')}</h4>
+              <h4>{de ? 'Telefon & WhatsApp' : 'Phone & WhatsApp'}</h4>
               <a href="tel:+41799107787">+41 79 910 77 87</a>
+              <div class="method-actions">
+                <a href="tel:+41799107787">{de ? 'Anrufen' : 'Call'}</a>
+                <span aria-hidden="true">·</span>
+                <a href="https://wa.me/41799107787" target="_blank" rel="noopener noreferrer" class="whatsapp-link">
+                  <MessageCircle size={14} /> WhatsApp
+                </a>
+              </div>
             </div>
           </div>
 
@@ -51,18 +63,15 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
               <MapPin size={24} />
             </div>
             <div class="method-content">
-              <h4>{t('contact.location')}</h4>
-              <p>Grenchen, Switzerland</p>
-            </div>
-          </div>
-
-          <div class="contact-method whatsapp-method">
-            <div class="method-icon">
-              <MessageCircle size={24} />
-            </div>
-            <div class="method-content">
-              <h4>{t('contact.whatsapp') || 'WhatsApp'}</h4>
-              <a href="https://wa.me/41799107787">{t('contact.whatsapp_number') || '+41 79 910 77 87'}</a>
+              <h4>{de ? 'Standort' : 'Location'}</h4>
+              <p>Keltenweg 4, 2540 Grenchen</p>
+              <div class="method-actions">
+                <a
+                  href="https://www.google.com/maps/search/?api=1&query=Keltenweg+4%2C+2540+Grenchen%2C+Schweiz"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >{de ? 'Route planen' : 'Get directions'}</a>
+              </div>
             </div>
           </div>
         </div>
@@ -300,6 +309,23 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
   .method-content p {
     margin: 0;
     color: var(--text-secondary);
+  }
+
+  .method-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-top: 0.3rem;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+  }
+
+  .method-actions a {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    color: var(--link-color);
+    font-weight: 600;
   }
 
   .contact-form {
@@ -601,19 +627,6 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
   .btn-primary:disabled:hover {
     transform: none;
     box-shadow: var(--shadow-sm);
-  }
-
-  /* WhatsApp method styling */
-  .whatsapp-method .method-icon {
-    background: #25D366;
-  }
-
-  .whatsapp-method .method-content a {
-    color: #25D366;
-  }
-
-  .whatsapp-method .method-content a:hover {
-    color: #128C7E;
   }
 
   /* Success panel (replaces the form after submission) */
