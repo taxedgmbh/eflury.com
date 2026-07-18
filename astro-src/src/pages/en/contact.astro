@@ -1,56 +1,57 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
-import IllustrationShowcase from '../../components/IllustrationShowcase.astro';
-import SwissReachIllustration from '../../components/illustrations/SwissReachIllustration.astro';
+import SwissMapIllustration from '../../components/illustrations/SwissMapIllustration.astro';
 import Header from '../../components/Header.astro';
 import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Contact from '../../components/Contact.astro';
 import Footer from '../../components/Footer.astro';
 import AIChatbot from '../../components/AIChatbot.astro';
+import { MapPin, Check, ExternalLink, MessageCircle } from 'lucide-astro';
 
-const lang = 'en';
+const lang = "en";
 
 const steps = [
   {
-    title: 'You reach out',
-    text: 'Use the form below, email, phone, or WhatsApp — whichever suits you.',
+    title: "You reach out",
+    text: "Use the form below, email, phone, or WhatsApp — whichever suits you.",
   },
   {
-    title: 'Reply within 24 hours',
-    text: 'Directly from Emanuel Flury — the person who builds the systems, not a gatekeeper.',
+    title: "Reply within 24 hours",
+    text: "Directly from Emanuel Flury — the person who builds the systems, not a gatekeeper.",
   },
   {
-    title: 'Free 30-minute call',
-    text: 'We walk through your case. If automation does not fit, we say so — a clear no is a clean outcome too.',
+    title: "Free 30-minute call",
+    text: "We walk through your case. If automation does not fit, we say so — a clear no is a clean outcome too.",
   },
 ];
+
+const reachItems = [
+  "On-site: Solothurn · Biel · Bern · Basel · Zurich area",
+  "Remote: all of Switzerland & EU",
+  "Reply within 24 hours, most calls scheduled within 3 days",
+];
+
+const mapsUrl = "https://www.google.com/maps/search/?api=1&query=Keltenweg+4%2C+2540+Grenchen%2C+Schweiz";
 ---
 
 <MainLayout
   title="Contact - eFlury Consulting"
-  description="Get in touch with eFlury Consulting: contact form, email, phone, or WhatsApp. Reply within 24 hours, then a free 30-minute call to walk through your case."
-  keywords="contact eFlury Consulting, AI automation consultation, free strategy call, Grenchen Switzerland"
+  description="Contact eFlury Consulting in Grenchen: form, email, phone, or WhatsApp. Reply within 24 hours, then a free 30-minute call about your case — on-site or remote across Switzerland."
+  keywords="contact eFlury Consulting, AI automation consulting, free strategy call, Grenchen Switzerland"
   lang={lang}
 >
   <Header lang={lang} />
 
-  <Breadcrumbs lang={lang} items={[{ label: 'Contact' }]} />
+  <Breadcrumbs lang={lang} items={[{ label: "Contact" }]} />
 
   <main class="contact-page">
     <section class="contact-hero">
       <div class="container">
-        <span class="hero-badge">Contact</span>
+        <span class="hero-badge">Contact · Reply < 24 h · Free</span>
         <h1>Let's talk.</h1>
-        <p class="lead">
-          Whether you have a concrete process in mind or are still exploring —
-          you get a reply within 24 hours, from the person who builds the systems.
-        </p>
+        <p class="lead">Whether you have a specific process in mind or are just exploring — you will hear back within 24 hours, from the person who builds the systems.</p>
       </div>
     </section>
-
-    <IllustrationShowcase>
-      <SwissReachIllustration lang="en" />
-    </IllustrationShowcase>
 
     <section class="next-steps">
       <div class="container">
@@ -64,14 +65,45 @@ const steps = [
             </li>
           ))}
         </ol>
-        <p class="imprint-note">
-          Company details and postal address: <a href="/en/imprint/">Imprint</a> ·
-          How we handle your data: <a href="/en/trust/">Trust &amp; Security</a>
-        </p>
       </div>
     </section>
 
-    <Contact lang={lang} />
+    <Contact lang={lang} showHeader={false} />
+
+    <section class="location">
+      <div class="container">
+        <h2 class="section-title">Location & reach</h2>
+        <p class="section-sub">Based in the Swiss Mittelland, working across the country — on-site or remote.</p>
+        <div class="location-grid">
+          <div class="map-panel">
+            <SwissMapIllustration lang={lang} />
+          </div>
+          <div class="addr-panel">
+            <div class="addr-head">
+              <span class="addr-icon"><MapPin size={20} /></span>
+              <span class="addr-label">Address</span>
+            </div>
+            <address>
+              <strong>eFlury Consulting</strong><br />
+              Keltenweg 4<br />
+              2540 Grenchen, Switzerland
+            </address>
+            <p class="addr-note">Meetings by arrangement — at your company, in Grenchen, or remote.</p>
+            <ul class="reach-list">
+              {reachItems.map((item) => (
+                <li><Check size={15} /><span>{item}</span></li>
+              ))}
+            </ul>
+            <a href={mapsUrl} target="_blank" rel="noopener noreferrer" class="directions-btn">
+              Get directions (Google Maps)
+              <ExternalLink size={15} />
+            </a>
+            <p class="effi-hint"><MessageCircle size={15} /> Quick question outside office hours? Effi, our chat in the bottom-right corner, answers instantly.</p>
+          </div>
+        </div>
+        <p class="legal-note" set:html={`Full company details in the <a href="/en/imprint/">imprint</a> · How we handle your data: <a href="/en/trust/">Trust &amp; Security</a>`} />
+      </div>
+    </section>
   </main>
 
   <Footer lang={lang} />
@@ -79,8 +111,15 @@ const steps = [
 </MainLayout>
 
 <style>
+  /* Generated for en/ and de/ from one template — edit both together. */
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
   .contact-hero {
-    padding: var(--spacing-3xl) var(--spacing-lg) var(--spacing-2xl);
+    padding: var(--spacing-3xl) 0 var(--spacing-2xl);
     background: linear-gradient(135deg, var(--primary-50) 0%, var(--secondary-50) 100%);
     border-bottom: 1px solid var(--border-color);
     text-align: center;
@@ -90,11 +129,13 @@ const steps = [
     display: inline-block;
     padding: 0.5rem 1rem;
     background: rgba(13, 148, 136, 0.1);
-    color: var(--teal-text);
     border-radius: 100px;
-    font-size: 0.875rem;
-    font-weight: 600;
-    margin-bottom: 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--teal-text);
+    margin-bottom: 1.25rem;
   }
 
   .contact-hero h1 {
@@ -114,13 +155,8 @@ const steps = [
   }
 
   .next-steps {
-    padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-3xl);
+    padding: var(--spacing-2xl) 0;
     background: var(--bg-primary);
-  }
-
-  .next-steps .container {
-    max-width: 1000px;
-    margin: 0 auto;
   }
 
   .next-steps h2 {
@@ -177,35 +213,192 @@ const steps = [
     margin: 0;
   }
 
-  .imprint-note {
+  /* Location & map */
+  .location {
+    padding: var(--spacing-2xl) 0 var(--spacing-3xl);
+    background: var(--bg-primary);
+  }
+
+  .section-title {
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    color: var(--text-primary);
+    margin: 0 0 0.5rem;
+  }
+
+  .section-sub {
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 560px;
+    margin: 0 auto var(--spacing-xl);
+  }
+
+  .location-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr;
+    gap: var(--spacing-lg);
+    align-items: stretch;
+  }
+
+  .map-panel {
+    background: var(--bg-secondary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .addr-panel {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
+    box-shadow: var(--shadow-sm);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .addr-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1rem;
+  }
+
+  .addr-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border-radius: var(--radius-md);
+    background: var(--primary-50);
+    border: 1px solid var(--primary-100);
+    color: var(--teal-text);
+  }
+
+  .addr-label {
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--text-tertiary);
+  }
+
+  address {
+    font-style: normal;
+    font-size: 1.02rem;
+    line-height: 1.65;
+    color: var(--text-primary);
+    margin-bottom: 0.9rem;
+  }
+
+  .addr-note {
+    font-size: 0.92rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin: 0 0 1.1rem;
+  }
+
+  .reach-list {
+    list-style: none;
+    margin: 0 0 1.4rem;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    flex-grow: 1;
+  }
+
+  .reach-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    font-size: 0.9rem;
+    line-height: 1.5;
+    color: var(--text-primary);
+  }
+
+  .reach-list li :global(svg) {
+    color: var(--teal-text);
+    flex-shrink: 0;
+    margin-top: 0.18rem;
+  }
+
+  .directions-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    background: var(--action-teal);
+    color: #fff;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 0.8rem 1.4rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    transition: all var(--transition-fast);
+  }
+
+  .directions-btn:hover {
+    background: var(--primary-700);
+    transform: translateY(-2px);
+  }
+
+  .effi-hint {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.5rem;
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-tertiary);
+    margin: 1.1rem 0 0;
+  }
+
+  .effi-hint :global(svg) {
+    flex-shrink: 0;
+    margin-top: 0.15rem;
+    color: var(--teal-text);
+  }
+
+  .legal-note {
     text-align: center;
     font-size: 0.9rem;
     color: var(--text-tertiary);
     margin: var(--spacing-xl) 0 0;
   }
 
-  .imprint-note a {
-    display: inline-flex;
-    align-items: center;
+  .legal-note :global(a) {
     color: var(--link-color);
     text-decoration: none;
   }
 
-  .imprint-note a:hover {
+  .legal-note :global(a:hover) {
     text-decoration: underline;
   }
 
+  @media (max-width: 900px) {
+    .location-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+
   @media (max-width: 768px) {
+    .container {
+      padding: 0 1.5rem;
+    }
+
     .contact-hero {
-      padding: var(--spacing-3xl) var(--spacing-md) var(--spacing-xl);
+      padding: var(--spacing-3xl) 0 var(--spacing-xl);
     }
 
     .contact-hero .lead {
       font-size: 1.05rem;
-    }
-
-    .next-steps {
-      padding: var(--spacing-xl) var(--spacing-md) var(--spacing-2xl);
     }
 
     .steps-grid {
@@ -215,6 +408,10 @@ const steps = [
 
     .step-card {
       padding: var(--spacing-lg);
+    }
+
+    .map-panel {
+      padding: 1rem;
     }
   }
 </style>
