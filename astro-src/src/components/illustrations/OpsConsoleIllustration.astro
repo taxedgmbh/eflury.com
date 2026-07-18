@@ -1,0 +1,78 @@
+---
+/**
+ * Decorative illustration for Managed AI Operations: the "eflury ops"
+ * monitoring console — health checks, an incident caught and fixed,
+ * uptime sparkline. Deliberately a dark console in BOTH themes
+ * (terminals are native dark); brand-signed in the title bar.
+ */
+---
+
+<svg viewBox="0 0 560 344" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" class="ill-ops">
+  <!-- console window (stays dark in both themes on purpose) -->
+  <rect x="8" y="8" width="544" height="328" rx="14" fill="#0f2744" />
+  <rect x="8" y="8" width="544" height="328" rx="14" stroke="rgba(255,255,255,0.14)" stroke-width="1.5" />
+  <!-- title bar -->
+  <path d="M8 22 a14 14 0 0 1 14 -14 h516 a14 14 0 0 1 14 14 v22 h-544 Z" fill="rgba(255,255,255,0.06)" />
+  <circle cx="30" cy="26" r="5" fill="#2dd4bf" opacity="0.8" />
+  <circle cx="48" cy="26" r="5" fill="#5AB8E8" opacity="0.8" />
+  <circle cx="66" cy="26" r="5" fill="rgba(255,255,255,0.35)" />
+  <text x="532" y="31" text-anchor="end" font-size="13" font-weight="700" fill="#fff" font-family="ui-monospace, SFMono-Regular, Menlo, monospace">eflury <tspan fill="#2dd4bf">ops</tspan></text>
+
+  <!-- log lines -->
+  <g font-family="ui-monospace, SFMono-Regular, Menlo, monospace" font-size="12.5">
+    <text x="32" y="76" fill="rgba(255,255,255,0.45)">06:00</text>
+    <text x="84" y="76" fill="rgba(255,255,255,0.85)">invoice-skill</text>
+    <text x="484" y="76" text-anchor="end" fill="#2dd4bf">OK</text>
+    <circle cx="512" cy="71" r="5" fill="#2dd4bf" />
+
+    <text x="32" y="106" fill="rgba(255,255,255,0.45)">06:00</text>
+    <text x="84" y="106" fill="rgba(255,255,255,0.85)">report-skill</text>
+    <text x="484" y="106" text-anchor="end" fill="#2dd4bf">OK</text>
+    <circle cx="512" cy="101" r="5" fill="#2dd4bf" />
+
+    <text x="32" y="136" fill="rgba(255,255,255,0.45)">06:01</text>
+    <text x="84" y="136" fill="rgba(255,255,255,0.85)">bexio-connector</text>
+    <text x="484" y="136" text-anchor="end" fill="#fcd34d">retry</text>
+    <circle cx="512" cy="131" r="5" fill="#fcd34d" />
+
+    <text x="32" y="166" fill="rgba(255,255,255,0.45)">06:04</text>
+    <text x="84" y="166" fill="rgba(255,255,255,0.85)">bexio-connector</text>
+    <text x="484" y="166" text-anchor="end" fill="#2dd4bf">fixed</text>
+    <g>
+      <circle cx="512" cy="161" r="7" fill="none" stroke="#2dd4bf" stroke-width="2" />
+      <path d="M508.5 161 L 511 163.5 L 516 158" stroke="#2dd4bf" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    </g>
+
+    <text x="32" y="196" fill="rgba(255,255,255,0.45)">06:05</text>
+    <text x="84" y="196" fill="rgba(255,255,255,0.85)">mail-triage</text>
+    <text x="484" y="196" text-anchor="end" fill="#2dd4bf">OK</text>
+    <circle cx="512" cy="191" r="5" fill="#2dd4bf" />
+  </g>
+
+  <line x1="32" y1="216" x2="528" y2="216" stroke="rgba(255,255,255,0.12)" stroke-width="1.5" />
+
+  <!-- uptime sparkline -->
+  <g>
+    <text x="32" y="244" font-size="12.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="rgba(255,255,255,0.45)">30d</text>
+    <path d="M84 262 L 104 258 L 124 260 L 144 252 L 164 256 L 184 248 L 204 252 L 224 246 L 244 250 L 264 242 L 284 246 L 304 240 L 324 244 L 344 238 L 364 240 L 384 234 L 404 238 L 424 232 L 444 234 L 464 230 L 484 232 L 504 228"
+      stroke="#2dd4bf" stroke-width="2.5" stroke-linecap="round" fill="none" />
+    <circle cx="504" cy="228" r="5" fill="#2dd4bf" />
+  </g>
+
+  <!-- monthly report chip -->
+  <g>
+    <rect x="32" y="284" width="204" height="34" rx="9" fill="rgba(255,255,255,0.07)" stroke="rgba(45,212,191,0.5)" stroke-width="1.5" />
+    <rect x="46" y="294" width="14" height="16" rx="2.5" fill="none" stroke="#5AB8E8" stroke-width="2" />
+    <text x="72" y="306" font-size="12.5" font-family="ui-monospace, SFMono-Regular, Menlo, monospace" fill="rgba(255,255,255,0.85)">monthly-report.pdf</text>
+  </g>
+
+  <text x="528" y="308" text-anchor="end" font-size="13" font-weight="700" fill="rgba(255,255,255,0.9)" font-family="inherit">eFlury <tspan fill="#2dd4bf">Consulting</tspan></text>
+</svg>
+
+<style>
+  .ill-ops {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>

@@ -1,5 +1,7 @@
 ---
 import ServiceLayout from '../../../layouts/ServiceLayout.astro';
+import IllustrationShowcase from '../../../components/IllustrationShowcase.astro';
+import OpsConsoleIllustration from '../../../components/illustrations/OpsConsoleIllustration.astro';
 
 const lang = 'de';
 
@@ -115,4 +117,8 @@ const serviceData = {
 };
 ---
 
-<ServiceLayout {...serviceData} />
+<ServiceLayout {...serviceData}>
+  <IllustrationShowcase slot="showcase">
+    <OpsConsoleIllustration />
+  </IllustrationShowcase>
+</ServiceLayout>
