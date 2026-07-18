@@ -1,0 +1,70 @@
+---
+/**
+ * Decorative on-brand illustration: a live dashboard.
+ * Pure inline SVG on CSS variables — adapts to dark mode automatically.
+ */
+---
+
+<svg viewBox="0 0 560 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" class="ill-dashboard">
+  <!-- window -->
+  <rect x="8" y="8" width="544" height="324" rx="14" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5" />
+  <!-- title bar -->
+  <rect x="8" y="8" width="544" height="36" rx="14" fill="var(--bg-secondary)" />
+  <rect x="8" y="30" width="544" height="14" fill="var(--bg-secondary)" />
+  <circle cx="30" cy="26" r="5" fill="var(--eflury-teal)" opacity="0.55" />
+  <circle cx="48" cy="26" r="5" fill="var(--eflury-blue)" opacity="0.55" />
+  <circle cx="66" cy="26" r="5" fill="var(--eflury-navy)" opacity="0.4" />
+  <rect x="420" y="19" width="112" height="14" rx="7" fill="var(--primary-50)" stroke="var(--primary-100)" />
+
+  <!-- KPI cards -->
+  <g>
+    <rect x="28" y="60" width="160" height="64" rx="10" fill="var(--primary-50)" stroke="var(--primary-100)" />
+    <rect x="42" y="74" width="56" height="8" rx="4" fill="var(--eflury-teal)" opacity="0.5" />
+    <rect x="42" y="92" width="92" height="14" rx="7" fill="var(--eflury-navy)" opacity="0.85" />
+  </g>
+  <g>
+    <rect x="200" y="60" width="160" height="64" rx="10" fill="var(--primary-50)" stroke="var(--primary-100)" />
+    <rect x="214" y="74" width="70" height="8" rx="4" fill="var(--eflury-blue)" opacity="0.5" />
+    <rect x="214" y="92" width="76" height="14" rx="7" fill="var(--eflury-navy)" opacity="0.85" />
+  </g>
+  <g>
+    <rect x="372" y="60" width="160" height="64" rx="10" fill="var(--primary-50)" stroke="var(--primary-100)" />
+    <rect x="386" y="74" width="48" height="8" rx="4" fill="var(--eflury-teal)" opacity="0.5" />
+    <rect x="386" y="92" width="100" height="14" rx="7" fill="var(--eflury-navy)" opacity="0.85" />
+  </g>
+
+  <!-- bar chart -->
+  <g>
+    <rect x="28" y="146" width="244" height="164" rx="10" fill="var(--bg-secondary)" />
+    <line x1="46" y1="284" x2="254" y2="284" stroke="var(--border-color)" stroke-width="1.5" />
+    <rect x="52" y="240" width="24" height="44" rx="4" fill="var(--eflury-teal)" opacity="0.85" />
+    <rect x="86" y="216" width="24" height="68" rx="4" fill="var(--eflury-navy)" opacity="0.8" />
+    <rect x="120" y="252" width="24" height="32" rx="4" fill="var(--eflury-blue)" opacity="0.8" />
+    <rect x="154" y="196" width="24" height="88" rx="4" fill="var(--eflury-teal)" opacity="0.85" />
+    <rect x="188" y="228" width="24" height="56" rx="4" fill="var(--eflury-navy)" opacity="0.8" />
+    <rect x="222" y="178" width="24" height="106" rx="4" fill="var(--eflury-blue)" opacity="0.85" />
+    <rect x="46" y="162" width="88" height="9" rx="4.5" fill="var(--text-tertiary)" opacity="0.55" />
+  </g>
+
+  <!-- line chart -->
+  <g>
+    <rect x="288" y="146" width="244" height="164" rx="10" fill="var(--bg-secondary)" />
+    <rect x="306" y="162" width="72" height="9" rx="4.5" fill="var(--text-tertiary)" opacity="0.55" />
+    <line x1="306" y1="284" x2="514" y2="284" stroke="var(--border-color)" stroke-width="1.5" />
+    <line x1="306" y1="248" x2="514" y2="248" stroke="var(--border-color)" stroke-width="1" opacity="0.6" />
+    <line x1="306" y1="212" x2="514" y2="212" stroke="var(--border-color)" stroke-width="1" opacity="0.6" />
+    <path d="M306 268 C 340 258, 356 232, 388 236 S 448 208, 472 196 S 504 186, 514 180"
+      stroke="var(--eflury-teal)" stroke-width="3" stroke-linecap="round" fill="none" />
+    <path d="M306 268 C 340 258, 356 232, 388 236 S 448 208, 472 196 S 504 186, 514 180 L 514 284 L 306 284 Z"
+      fill="var(--eflury-teal)" opacity="0.12" />
+    <circle cx="472" cy="196" r="5" fill="var(--eflury-teal)" />
+  </g>
+</svg>
+
+<style>
+  .ill-dashboard {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
