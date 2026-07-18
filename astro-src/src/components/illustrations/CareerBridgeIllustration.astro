@@ -1,8 +1,9 @@
 ---
 /**
- * About page visual: the brand story as a bridge — 13 years of enterprise
+ * About page visual: knowledge transfer as a bridge — 13 years of enterprise
  * automation on the left, Swiss SMEs on the right, the eFlury mark carrying
- * the know-how across. Token-driven, bilingual, dark-adaptive.
+ * the know-how back. Arc, arrowhead, and token positions are computed from
+ * the same quadratic curve, so nothing overlaps by accident.
  */
 import { type Language } from '../../i18n/utils';
 
@@ -18,10 +19,33 @@ const t = {
   leftSub: de ? '13 Jahre Konzern-Automatisierung' : '13 years of enterprise automation',
   right: de ? 'Schweizer KMU' : 'Swiss SMEs',
   rightSub: de ? 'Dieselbe Qualität, KMU-Format' : 'Same quality, SME scale',
+  transfer: de ? 'Wissenstransfer zurück ins KMU' : 'Knowledge transfer back to SMEs',
+  token1: de ? 'Methoden' : 'Methods',
+  token2: 'Standards',
 };
 
-// knowledge-transfer arc from the tower to the SME cluster
-const arc = 'M 168 130 Q 285 52 420 196';
+// quadratic arc from the tower roof to just above the SME roof
+const p0 = { x: 150, y: 114 };
+const c = { x: 285, y: 40 };
+const p2 = { x: 412, y: 184 };
+const q = (tt: number) => ({
+  x: (1 - tt) ** 2 * p0.x + 2 * (1 - tt) * tt * c.x + tt ** 2 * p2.x,
+  y: (1 - tt) ** 2 * p0.y + 2 * (1 - tt) * tt * c.y + tt ** 2 * p2.y,
+});
+const f = (n: number) => n.toFixed(1);
+const arc = `M ${p0.x} ${p0.y} Q ${c.x} ${c.y} ${p2.x} ${p2.y}`;
+
+// arrowhead along the end tangent, stopping short of the roof
+const dl = Math.hypot(p2.x - c.x, p2.y - c.y);
+const dir = { x: (p2.x - c.x) / dl, y: (p2.y - c.y) / dl };
+const tip = { x: p2.x + dir.x * 10, y: p2.y + dir.y * 10 };
+const back = { x: p2.x - dir.x * 4, y: p2.y - dir.y * 4 };
+const nrm = { x: -dir.y, y: dir.x };
+const head = `${f(tip.x)},${f(tip.y)} ${f(back.x + nrm.x * 7)},${f(back.y + nrm.y * 7)} ${f(back.x - nrm.x * 7)},${f(back.y - nrm.y * 7)}`;
+
+const apex = q(0.5);
+const tok1 = q(0.2);
+const tok2 = q(0.8);
 ---
 
 <svg viewBox="0 0 560 380" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" class="ill-bridge">
@@ -33,7 +57,7 @@ const arc = 'M 168 130 Q 285 52 420 196';
   <!-- enterprise tower -->
   <g>
     <rect x="70" y="120" width="92" height="180" fill="var(--surface-navy)" rx="3" />
-    <path d="M 100 120 L 100 96 M 100 96 L 100 92" stroke="var(--surface-navy)" stroke-width="3" stroke-linecap="round" />
+    <path d="M 100 120 L 100 96" stroke="var(--surface-navy)" stroke-width="3" stroke-linecap="round" />
     <circle cx="100" cy="90" r="3" fill="var(--eflury-teal)" />
     {[0, 1, 2, 3, 4, 5].map((row) => (
       <g>
@@ -62,17 +86,29 @@ const arc = 'M 168 130 Q 285 52 420 196';
   <text x="450" y="326" text-anchor="middle" font-size="13" font-weight="800" fill="var(--eflury-navy)" font-family="inherit">{t.right}</text>
   <text x="450" y="343" text-anchor="middle" font-size="11" fill="var(--text-secondary)" font-family="inherit">{t.rightSub}</text>
 
-  <!-- transfer arc with the mark at its apex -->
+  <!-- transfer arc with arrowhead -->
   <path d={arc} stroke="var(--eflury-teal)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.85" />
-  <polygon points="423,199 405,192 411,208" fill="var(--eflury-teal)" opacity="0.95" />
+  <polygon points={head} fill="var(--eflury-teal)" opacity="0.95" />
+
+  <!-- knowledge tokens riding the arc -->
+  {[
+    { p: tok1, label: t.token1 },
+    { p: tok2, label: t.token2 },
+  ].map(({ p, label }) => (
+    <g>
+      <rect x={f(p.x - 34)} y={f(p.y - 12)} width="68" height="24" rx="12" fill="var(--card-bg)" stroke="var(--eflury-teal)" stroke-width="1.8" />
+      <text x={f(p.x)} y={f(p.y + 4)} text-anchor="middle" font-size="11" font-weight="700" fill="var(--teal-text)" font-family="inherit">{label}</text>
+    </g>
+  ))}
+
+  <!-- the mark at the apex of the arc -->
   <g>
-    <circle cx="212" cy="97" r="4" fill="var(--eflury-blue)" opacity="0.8" />
-    <circle cx="352" cy="123" r="4" fill="var(--eflury-blue)" opacity="0.8" />
+    <rect x={f(apex.x - 26)} y={f(apex.y - 26)} width="52" height="52" rx="12" fill="#fff" stroke="var(--eflury-teal)" stroke-width="2.5" />
+    <image href="/images/favicon-tab.png" x={f(apex.x - 22)} y={f(apex.y - 22)} width="44" height="44" />
   </g>
-  <g>
-    <rect x="259" y="59" width="52" height="52" rx="12" fill="#fff" stroke="var(--eflury-teal)" stroke-width="2.5" />
-    <image href="/images/favicon-tab.png" x="263" y="63" width="44" height="44" />
-  </g>
+
+  <!-- what the arc means -->
+  <text x={f(apex.x)} y="178" text-anchor="middle" font-size="13.5" font-weight="800" fill="var(--teal-text)" font-family="inherit">{t.transfer}</text>
 
   <!-- wordmark -->
   <text x="530" y="368" text-anchor="end" font-size="13" font-weight="700" fill="var(--eflury-navy)" font-family="inherit">eFlury <tspan fill="var(--eflury-teal)">Consulting</tspan></text>
