@@ -10,10 +10,21 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Footer from '../../components/Footer.astro';
 import AIChatbot from '../../components/AIChatbot.astro';
 import PersonSchema from '../../components/PersonSchema.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
 import IllustrationShowcase from '../../components/IllustrationShowcase.astro';
 import CareerBridgeIllustration from '../../components/illustrations/CareerBridgeIllustration.astro';
 
 const lang = 'de';
+
+// Mirrors the visible FAQ section below — keep both in sync.
+const faqs = [
+  { question: "Wie arbeiten Sie mit KMU ausserhalb von Grenchen?", answer: "Ich arbeite remote mit Kunden in der ganzen Schweiz und darüber hinaus. Die meiste Arbeit erfolgt über Videocalls, Bildschirmfreigabe und sicheren Datenaustausch. Für Kick-off-Meetings und wichtige Meilensteine kann ich gerne vor Ort sein — die eigentliche Automatisierungsarbeit geschieht digital." },
+  { question: "Wie lange dauert ein typisches Projekt?", answer: "Die meisten Projekte dauern 4-12 Wochen, je nach Komplexität. Ein einfacher Claude Skill kann 2-3 Wochen dauern, während ein vollständiges Finanz-Automatisierungssystem 8-12 Wochen brauchen kann. Nach unserem Discovery-Call erhalten Sie einen präzisen Zeitplan." },
+  { question: "Brauche ich technisches Know-how in meinem Team?", answer: "Nein. Ich entwickle Lösungen für nicht-technische Anwender. Ihr Team nutzt einfache Oberflächen — sie müssen nicht programmieren oder KI verstehen. Ich übernehme die gesamte technische Komplexität, damit Sie sich auf Ihr Geschäft konzentrieren können." },
+  { question: "Wie gehen Sie mit Datensicherheit und Datenschutz um?", answer: "Alle Lösungen sind auf das revidierte Schweizer Datenschutzgesetz (revDSG) ausgelegt. Daten bleiben wo möglich auf Schweizer oder EU-Infrastruktur, Systemzugriffe sind wo immer möglich nur lesend, und ein Mensch gibt frei, bevor etwas das Haus verlässt. Jeder eingesetzte Dienst wird offengelegt." },
+  { question: "Wann sehe ich den ROI?", answer: "Unsere publizierten Projektschätzungen liegen bei rund 3–4 Monaten bis zur Amortisation; für meine eigene Firma sind es geschätzte 3,2 Monate. Eine detaillierte ROI-Prognose erhalten Sie im Audit — bevor Sie sich für die Umsetzung entscheiden." },
+  { question: "Was passiert nach der Implementierung?", answer: "Jedes Paket beinhaltet Schulungen für Ihr Team. Für laufenden Support biete ich Wartungspakete an, die Updates, Verfeinerungen und Priority-Support umfassen. Ihre Automatisierung funktioniert weiter, auch wenn sich Ihr Geschäft weiterentwickelt." },
+];
 ---
 
 <MainLayout
@@ -23,6 +34,7 @@ const lang = 'de';
   lang={lang}
 >
   <PersonSchema slot="head" />
+  <FAQSchema faqs={faqs} lang={lang} slot="head" />
 
   <Header lang={lang} />
 
@@ -170,7 +182,7 @@ const lang = 'de';
         </div>
 
         <p class="industries-note">
-          <strong>Enterprise-Hintergrund, KMU-Fokus:</strong> Ich habe 13 Jahre in einem Fortune-500-Konzern Automatisierung aufgebaut. Jetzt bringe ich diese Expertise zu Schweizer KMU, die dieselbe Qualität verdienen.
+          <strong>Enterprise-Hintergrund, KMU-Fokus:</strong> Ich habe 13 Jahre in einem Fortune-500-Konzern Automatisierung aufgebaut. Jetzt bringe ich diese Expertise zu Schweizer KMU, die dieselbe Qualität verdienen. Wo wir heute helfen: <a href="/de/branchen/">zu den Einsatzbereichen</a>.
         </p>
       </div>
     </section>
@@ -1180,11 +1192,11 @@ const lang = 'de';
     text-align: center;
   }
 
-  .cta h2 {
+  .about-page .cta h2 {
     color: #fff;
   }
 
-  .cta h2::after {
+  .about-page .cta h2::after {
     background: rgba(255, 255, 255, 0.5);
   }
 
