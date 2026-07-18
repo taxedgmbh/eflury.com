@@ -37,7 +37,7 @@ interface Props {
   processSteps: { title: string; description: string }[];
   faqs: FAQ[];
   /** Optional downloadable sample deliverable (e.g. the AI Audit sample report) */
-  sampleReport?: { title: string; note: string; cta: string; href: string };
+  sampleReport?: { title: string; note: string; cta: string; href: string; image?: string };
   ctaTitle: string;
   ctaDescription: string;
   ctaButtonText: string;
@@ -189,6 +189,11 @@ const breadcrumbSchema = {
       {sampleReport && (
         <section class="sample-section">
           <div class="sample-band">
+            {sampleReport.image && (
+              <a href={sampleReport.href} class="sample-thumb" download aria-hidden="true" tabindex="-1">
+                <img src={sampleReport.image} alt="" width="180" height="255" loading="lazy" />
+              </a>
+            )}
             <div class="sample-copy">
               <h2>{sampleReport.title}</h2>
               <p>{sampleReport.note}</p>
@@ -572,12 +577,31 @@ const breadcrumbSchema = {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 1.5rem;
+    gap: 1.75rem;
     flex-wrap: wrap;
     background: var(--primary-50);
     border: 1px solid var(--primary-100);
     border-radius: var(--radius-lg);
     padding: 1.75rem 2rem;
+  }
+
+  .sample-thumb {
+    flex-shrink: 0;
+    line-height: 0;
+  }
+
+  .sample-thumb img {
+    width: 180px;
+    height: auto;
+    border-radius: 8px;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-md);
+    background: #fff;
+    transition: transform var(--transition-fast);
+  }
+
+  .sample-thumb:hover img {
+    transform: translateY(-3px) rotate(-0.5deg);
   }
 
   .sample-copy h2 {
