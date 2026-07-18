@@ -1,9 +1,7 @@
 ---
 /**
- * Über Emanuel Aaron Flury
- * Vertrauenssignal-Seite - beantwortet "Wer ist diese Person und warum sollte ich ihm vertrauen?"
- * Erstellt von: Agent 02 (Trust Signal Designer)
- * 92% der B2B-Käufer besuchen die About-Seite vor dem Kauf
+ * Über Emanuel Aaron Flury — die eine Seite in seiner eigenen Stimme.
+ * Styles werden 1:1 mit der en/-Version geteilt; beide gemeinsam pflegen.
  */
 
 import MainLayout from '../../layouts/MainLayout.astro';
@@ -12,6 +10,8 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Footer from '../../components/Footer.astro';
 import AIChatbot from '../../components/AIChatbot.astro';
 import PersonSchema from '../../components/PersonSchema.astro';
+import IllustrationShowcase from '../../components/IllustrationShowcase.astro';
+import CareerBridgeIllustration from '../../components/illustrations/CareerBridgeIllustration.astro';
 
 const lang = 'de';
 ---
@@ -42,7 +42,7 @@ const lang = 'de';
               </svg>
               <span>Ansässig in Grenchen, Schweiz</span>
             </div>
-            <p class="tagline">Gründer von Taxed GmbH | Claude-Automatisierungsberater</p>
+            <p class="tagline">Gründer von eFlury Consulting · davor 13 Jahre Konzern-Automatisierung</p>
           </div>
 
           <div class="hero-image">
@@ -63,20 +63,20 @@ const lang = 'de';
     <section class="impact-stats">
       <div class="container">
         <div class="stats-grid">
-          <div class="stat-item" data-stat>
-            <span class="stat-value" data-suffix="">Fortune 500</span>
+          <div class="stat-item">
+            <span class="stat-value">Fortune 500</span>
             <span class="stat-label">Enterprise-Automatisierungs-Hintergrund</span>
           </div>
-          <div class="stat-item" data-stat>
-            <span class="stat-value" data-suffix="">~27.5 h/Woche</span>
+          <div class="stat-item">
+            <span class="stat-value">~27.5 h/Woche</span>
             <span class="stat-label">In der eigenen Firma automatisiert (geschätzt)</span>
           </div>
-          <div class="stat-item" data-stat>
-            <span class="stat-value" data-suffix="">DE/EN</span>
+          <div class="stat-item">
+            <span class="stat-value">DE/EN</span>
             <span class="stat-label">Zweisprachiger Service</span>
           </div>
-          <div class="stat-item" data-stat>
-            <span class="stat-value" data-target="13" data-suffix="+">13+</span>
+          <div class="stat-item">
+            <span class="stat-value">13+</span>
             <span class="stat-label">Jahre in Finanzen & Tech</span>
           </div>
         </div>
@@ -86,12 +86,12 @@ const lang = 'de';
     <!-- The Story Section -->
     <section class="story">
       <div class="container">
-        <h2>Vom Buchhalter zum KI-Automatisierungs-Pionier</h2>
+        <h2>Vom Buchhalter zum KI-Automatisierungs-Spezialisten</h2>
 
         <div class="story-content">
           <p class="lead">Ich habe nicht als Techie angefangen. Ich startete als Buchhalter, der in Excel-Tabellen versank.</p>
 
-          <p>2023 führte ich <strong>Taxed GmbH</strong>, meine Treuhandfirma in Biel/Bienne, und arbeitete 60-Stunden-Wochen. 20 dieser Stunden? Reine Fleissarbeit - Dateneingabe, Kunden-E-Mails, Report-Erstellung.</p>
+          <p>2023 führte ich <strong>Taxed GmbH</strong>, meine Treuhandfirma in Biel/Bienne, und arbeitete 60-Stunden-Wochen. 20 dieser Stunden waren reine Administration — Dateneingabe, Kunden-E-Mails, Report-Erstellung.</p>
 
           <p>Ich wusste, es muss einen besseren Weg geben.</p>
 
@@ -110,7 +110,7 @@ const lang = 'de';
 
           <p>Aber hier ist, was ich realisierte: <strong>Schweizer KMU brauchen keinen weiteren KI-Berater, der Versprechungen verkauft. Sie brauchen jemanden, der es getan hat. In ihrer Sprache. In ihrem Markt.</strong></p>
 
-          <p class="mission">Also machte ich es zu meiner Mission: 100 Schweizer KMU erfolgreich bei der Claude-Automatisierung begleiten. Transparente Preise. Klartext statt Buzzwords. Nur bewährte Resultate.</p>
+          <p class="mission">Also machte ich es zu meiner Mission: Schweizer KMU bei der Claude-Automatisierung zu begleiten — mit transparenten Preisen, publizierter Methode und ehrlichen Zahlen.</p>
 
           <p><strong>Das ist der eflury.com-Unterschied.</strong></p>
         </div>
@@ -118,6 +118,10 @@ const lang = 'de';
     </section>
 
     <!-- Industries Section -->
+        <IllustrationShowcase>
+      <CareerBridgeIllustration lang={lang} />
+    </IllustrationShowcase>
+
     <section class="industries">
       <div class="container">
         <h2>Mit wem ich gearbeitet habe</h2>
@@ -166,7 +170,7 @@ const lang = 'de';
         </div>
 
         <p class="industries-note">
-          <strong>Enterprise-Hintergrund, KMU-Fokus:</strong> Ich habe mit den grössten Unternehmen der Welt gearbeitet. Jetzt bringe ich diese Expertise zu Schweizer KMU, die dieselbe Qualitätsautomatisierung verdienen.
+          <strong>Enterprise-Hintergrund, KMU-Fokus:</strong> Ich habe 13 Jahre in einem Fortune-500-Konzern Automatisierung aufgebaut. Jetzt bringe ich diese Expertise zu Schweizer KMU, die dieselbe Qualität verdienen.
         </p>
       </div>
     </section>
@@ -189,7 +193,7 @@ const lang = 'de';
               <li><strong>Claude-Code-Implementierung</strong> (nicht ChatGPT, nicht andere Modelle - nur Claude)</li>
               <li><strong>Claude-Skills-Entwicklung</strong> (individuelle Skills für jeden Kunden)</li>
               <li><strong>Model Context Protocol (MCP)</strong> Integration</li>
-              <li><strong>Schweizer KMU-Prozessautomatisierung</strong> (10-50 Mitarbeiter)</li>
+              <li><strong>Schweizer KMU-Prozessautomatisierung</strong> (10–250 Mitarbeitende)</li>
               <li><strong>Buchhaltungs-/Finanzautomatisierung</strong> (mein Background)</li>
               <li><strong>Zweisprachiger Support</strong> (Deutsch/Englisch)</li>
             </ul>
@@ -214,7 +218,7 @@ const lang = 'de';
 
         <div class="why-claude">
           <h3>Warum Claude-exklusiv?</h3>
-          <p>Weil Schweizer KMU nicht 10 Tools brauchen. Sie brauchen EIN Tool, perfekt implementiert.</p>
+          <p>Weil Schweizer KMU nicht 10 Tools brauchen. Sie brauchen ein Tool, sauber implementiert.</p>
           <p><strong>Claude Code + Claude Skills + MCP = Alles, was Sie für 90% der KMU-Automatisierung brauchen.</strong></p>
         </div>
       </div>
@@ -224,7 +228,7 @@ const lang = 'de';
     <section class="method-summary">
       <div class="container">
         <h2>Wie wir arbeiten: Die eflury Method™</h2>
-        <p class="intro">Jeder Kunde durchläuft dasselbe bewährte 5-Phasen-Framework:</p>
+        <p class="intro">Jedes Projekt durchläuft dasselbe publizierte 5-Phasen-Framework:</p>
 
         <div class="phases">
           <div class="phase">
@@ -265,8 +269,8 @@ const lang = 'de';
 
         <p class="method-cta">
           <strong>Gesamtdauer: 4-12 Wochen (je nach Paket)</strong><br>
-          <a href="/de/methode">Mehr über den kompletten Prozess erfahren →</a><br>
-          <a href="/de/pricing">Service-Pakete ansehen →</a>
+          <a href="/de/methode/">Mehr über den kompletten Prozess erfahren →</a><br>
+          <a href="/de/pricing/">Service-Pakete ansehen →</a>
         </p>
       </div>
     </section>
@@ -306,7 +310,7 @@ const lang = 'de';
             </div>
           </div>
           <p class="disclaimer-note"><em>Kennzahlen sind Schätzungen basierend auf Workflow-Analysen.</em></p>
-          <a href="/de/case-studies/taxed-gmbh" class="btn-primary">Vollständige Fallstudie lesen →</a>
+          <a href="/de/case-studies/taxed-gmbh/" class="btn-primary">Vollständige Fallstudie lesen →</a>
         </div>
 
         <div class="compliance">
@@ -315,7 +319,7 @@ const lang = 'de';
             <li><span class="check-icon">✓</span> revDSG-konform (Schweizer Datenschutzgesetz)</li>
             <li><span class="check-icon">✓</span> In der Schweiz ansässig (Grenchen, SO)</li>
             <li><span class="check-icon">✓</span> Zweisprachiger Service (DE/EN)</li>
-            <li><span class="check-icon">✓</span> Transparente Preise (<a href="/de/pricing">Pakete ansehen</a>)</li>
+            <li><span class="check-icon">✓</span> Transparente Preise (<a href="/de/pricing/">Pakete ansehen</a>)</li>
           </ul>
         </div>
       </div>
@@ -326,7 +330,7 @@ const lang = 'de';
       <div class="container">
         <h2>Leben ausserhalb von Claude</h2>
 
-        <p>Wenn ich nicht gerade Prozesse automatisiere, finden Sie mich in <strong>Grenchen</strong> - der Uhrenhauptstadt der Schweiz.</p>
+        <p>Wenn ich nicht gerade Prozesse automatisiere, finden Sie mich in <strong>Grenchen</strong> — einer der Uhrenstädte der Schweiz.</p>
 
         <p>Warum Grenchen? Weil es der Ort ist, wo Präzisionstechnik auf Schweizer Tradition trifft. Das ist exakt mein Ansatz bei Claude-Automatisierung: <strong>Präzise, zuverlässig, Schweizer Qualität.</strong></p>
 
@@ -387,14 +391,14 @@ const lang = 'de';
           <details class="faq-item">
             <summary>Wie gehen Sie mit Datensicherheit und Datenschutz um?</summary>
             <div class="faq-answer">
-              <p>Alle Lösungen sind DSG-konform (Schweizer Datenschutz). Daten bleiben wo möglich in der Schweiz, und ich verwende Enterprise-Verschlüsselung. Für sensible Branchen kann ich zusätzliche Sicherheitsmassnahmen wie Air-Gapped-Systeme oder On-Premise-Deployment implementieren.</p>
+              <p>Alle Lösungen sind auf das revidierte Schweizer Datenschutzgesetz (revDSG) ausgelegt. Daten bleiben wo möglich auf Schweizer oder EU-Infrastruktur, Systemzugriffe sind wo immer möglich nur lesend, und ein Mensch gibt frei, bevor etwas das Haus verlässt. Jeder eingesetzte Dienst wird offengelegt — siehe <a href="/de/sicherheit/">Sicherheit &amp; Vertrauen</a>.</p>
             </div>
           </details>
 
           <details class="faq-item">
             <summary>Wann sehe ich den ROI?</summary>
             <div class="faq-answer">
-              <p>Die meisten Kunden sehen einen positiven ROI innerhalb von 3-6 Monaten. Meine eigene Firma erreichte die Amortisation in 3,2 Monaten. Ich erstelle detaillierte ROI-Prognosen während der Discovery-Phase, damit Sie genau wissen, was Sie erwarten können.</p>
+              <p>Unsere publizierten Projektschätzungen liegen bei rund 3–4 Monaten bis zur Amortisation; für meine eigene Firma sind es geschätzte 3,2 Monate. Eine detaillierte ROI-Prognose erhalten Sie im Audit — bevor Sie sich für die Umsetzung entscheiden.</p>
             </div>
           </details>
 
@@ -415,7 +419,7 @@ const lang = 'de';
         <p class="cta-text">Kostenlose 30-Minuten-Beratung. Kein Verkaufsgespräch. Nur ehrliche Beratung, ob Claude das Richtige für Sie ist.</p>
         <div class="cta-buttons">
           <a href="/de/kontakt/" class="btn-primary">Kostenlose Beratung buchen</a>
-          <a href="/de/pricing" class="btn-secondary">Preise ansehen</a>
+          <a href="/de/pricing/" class="btn-secondary">Preise ansehen</a>
         </div>
       </div>
     </section>
@@ -1335,36 +1339,3 @@ const lang = 'de';
 
 </style>
 
-<script>
-  // GSAP counter animation for impact stats
-  if (typeof window !== 'undefined') {
-    import('gsap').then(({ gsap }) => {
-      import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Final values are server-rendered; only animate 0 -> target when JS runs.
-        const counters = document.querySelectorAll('.stat-item .stat-value[data-target]');
-
-        counters.forEach((counter) => {
-          const target = parseFloat(counter.getAttribute('data-target') || '0');
-          const suffix = counter.getAttribute('data-suffix') || '';
-          const state = { value: 0 };
-
-          gsap.fromTo(state, { value: 0 }, {
-            value: target,
-            duration: 2,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: counter.closest('.stat-item'),
-              start: 'top 85%',
-              once: true,
-            },
-            onUpdate: () => {
-              counter.textContent = Math.round(state.value) + suffix;
-            },
-          });
-        });
-      });
-    });
-  }
-</script>
