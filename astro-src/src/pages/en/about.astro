@@ -10,10 +10,21 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Footer from '../../components/Footer.astro';
 import AIChatbot from '../../components/AIChatbot.astro';
 import PersonSchema from '../../components/PersonSchema.astro';
+import FAQSchema from '../../components/FAQSchema.astro';
 import IllustrationShowcase from '../../components/IllustrationShowcase.astro';
 import CareerBridgeIllustration from '../../components/illustrations/CareerBridgeIllustration.astro';
 
 const lang = 'en';
+
+// Mirrors the visible FAQ section below — keep both in sync.
+const faqs = [
+  { question: "How do you work with SMEs outside Grenchen?", answer: "I work remotely with clients across Switzerland and beyond. Most of my work is done through video calls, screen sharing, and secure file exchange. I can visit your office for kickoff meetings and key milestones — but the actual automation work happens digitally." },
+  { question: "What's the typical project duration?", answer: "Most projects take 4-12 weeks depending on complexity. A simple Claude Skill might take 2-3 weeks, while a full finance automation system could be 8-12 weeks. I'll give you a precise timeline after our discovery call." },
+  { question: "Do I need technical expertise on my team?", answer: "No. I design solutions for non-technical users. Your team will use simple interfaces — they won't need to code or understand AI. I handle all the technical complexity so you can focus on your business." },
+  { question: "How do you handle data security and privacy?", answer: "All solutions are built to comply with the Swiss FADP (revDSG). Data stays on Swiss or EU-hosted infrastructure where possible, system access is read-only wherever it can be, and a human approves anything before it leaves the house. Every service used in your project is disclosed." },
+  { question: "What's the ROI timeline?", answer: "Our published project estimates put payback at roughly 3–4 months; for my own firm the estimate is 3.2 months. You get a detailed ROI projection during the audit — before you commit to building anything." },
+  { question: "What happens after implementation?", answer: "Every package includes training for your team. For ongoing support, I offer maintenance packages that include updates, refinements, and priority support. Your automation keeps working even as your business evolves." },
+];
 ---
 
 <MainLayout
@@ -23,6 +34,7 @@ const lang = 'en';
   lang={lang}
 >
   <PersonSchema slot="head" />
+  <FAQSchema faqs={faqs} lang={lang} slot="head" />
 
   <Header lang={lang} />
 
@@ -170,7 +182,7 @@ const lang = 'en';
         </div>
 
         <p class="industries-note">
-          <strong>Enterprise background, SME focus:</strong> I spent 13 years building automation inside a Fortune 500 company. Now I bring that expertise to Swiss SMEs who deserve the same quality of automation.
+          <strong>Enterprise background, SME focus:</strong> I spent 13 years building automation inside a Fortune 500 company. Now I bring that expertise to Swiss SMEs who deserve the same quality of automation. See <a href="/en/industries/">where we help</a> today.
         </p>
       </div>
     </section>
@@ -1180,11 +1192,11 @@ const lang = 'en';
     text-align: center;
   }
 
-  .cta h2 {
+  .about-page .cta h2 {
     color: #fff;
   }
 
-  .cta h2::after {
+  .about-page .cta h2::after {
     background: rgba(255, 255, 255, 0.5);
   }
 
