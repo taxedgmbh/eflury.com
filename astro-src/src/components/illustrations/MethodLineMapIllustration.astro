@@ -1,0 +1,99 @@
+---
+/**
+ * Method page visual: the five phases as a Swiss railway line map —
+ * stations are phases, the go/no-go gates are railway signals, the
+ * journey starts at the eFlury depot and the last station loops
+ * (Optimization runs ongoing). Bilingual labels, token-driven.
+ */
+import { type Language } from '../../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+const { lang } = Astro.props;
+const de = lang === 'de';
+
+const t = {
+  title: de ? 'DIE EFLURY-METHODE · LINIENPLAN' : 'THE EFLURY METHOD · LINE MAP',
+  legend: de ? 'Go/No-Go-Signal nach jeder Phase' : 'Go/no-go signal after every phase',
+  ongoing: de ? 'laufend' : 'ongoing',
+  s1: 'Discovery',
+  s2: 'Design',
+  s3: 'Development',
+  s4: 'Deployment',
+  s5: 'Optimization',
+  w1: de ? 'Woche 1' : 'Week 1',
+  w2: de ? 'Woche 2' : 'Week 2',
+  w3: de ? 'Wochen 3–5' : 'Weeks 3–5',
+  w4: de ? 'Woche 6' : 'Week 6',
+};
+---
+
+<svg viewBox="0 0 560 300" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" class="ill-linemap">
+  <text x="30" y="40" font-size="11" font-weight="700" letter-spacing="0.12em" fill="var(--text-tertiary)" font-family="inherit">{t.title}</text>
+  <text x="530" y="40" text-anchor="end" font-size="12" font-weight="700" fill="var(--eflury-navy)" font-family="inherit">eFlury <tspan fill="var(--eflury-teal)">Consulting</tspan></text>
+
+  <!-- the line -->
+  <path d="M96 160 L 486 160" stroke="var(--eflury-teal)" stroke-width="6" stroke-linecap="round" />
+
+  <!-- depot: the brand mark -->
+  <g>
+    <rect x="30" y="128" width="64" height="64" rx="15" fill="#fff" stroke="var(--eflury-teal)" stroke-width="2.5" />
+    <image href="/images/favicon-tab.png" x="35" y="133" width="54" height="54" />
+  </g>
+
+  <!-- gate signals between stations -->
+  <g>
+    {[177, 262, 347, 432].map((x) => (
+      <g>
+        <path d={`M${x} 160 L ${x} 132`} stroke="var(--eflury-navy)" stroke-width="2" opacity="0.55" />
+        <circle cx={x} cy="122" r="9" fill="var(--success-50)" stroke="var(--eflury-teal)" stroke-width="2" />
+        <path d={`M${x - 4} 122 L ${x - 1} 125 L ${x + 5} 118`} stroke="var(--teal-text)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+      </g>
+    ))}
+  </g>
+
+  <!-- stations -->
+  <g>
+    <circle cx="134" cy="160" r="11" fill="var(--card-bg)" stroke="var(--eflury-navy)" stroke-width="3.5" />
+    <circle cx="219" cy="160" r="11" fill="var(--card-bg)" stroke="var(--eflury-navy)" stroke-width="3.5" />
+    <circle cx="304" cy="160" r="11" fill="var(--card-bg)" stroke="var(--eflury-navy)" stroke-width="3.5" />
+    <circle cx="389" cy="160" r="11" fill="var(--card-bg)" stroke="var(--eflury-navy)" stroke-width="3.5" />
+    <circle cx="474" cy="160" r="11" fill="var(--card-bg)" stroke="var(--eflury-teal)" stroke-width="3.5" />
+  </g>
+
+  <!-- ongoing loop at the last station -->
+  <path d="M 474 138 A 24 24 0 1 1 451 156" stroke="var(--eflury-teal)" stroke-width="2.5" stroke-dasharray="3 6" fill="none" stroke-linecap="round" />
+  <path d="M 447 162 L 450 154 L 457 160" stroke="var(--eflury-teal)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- station names (alternating above/below, SBB style) -->
+  <g font-family="inherit" font-weight="700" font-size="13" fill="var(--text-primary)">
+    <text x="134" y="200" text-anchor="middle">{t.s1}</text>
+    <text x="219" y="212" text-anchor="middle">{t.s2}</text>
+    <text x="304" y="200" text-anchor="middle">{t.s3}</text>
+    <text x="389" y="212" text-anchor="middle">{t.s4}</text>
+    <text x="474" y="200" text-anchor="middle">{t.s5}</text>
+  </g>
+  <g font-family="inherit" font-size="11" fill="var(--text-secondary)">
+    <text x="134" y="218" text-anchor="middle">{t.w1}</text>
+    <text x="219" y="230" text-anchor="middle">{t.w2}</text>
+    <text x="304" y="218" text-anchor="middle">{t.w3}</text>
+    <text x="389" y="230" text-anchor="middle">{t.w4}</text>
+    <text x="474" y="218" text-anchor="middle">{t.ongoing}</text>
+  </g>
+
+  <!-- legend -->
+  <g>
+    <circle cx="42" cy="266" r="8" fill="var(--success-50)" stroke="var(--eflury-teal)" stroke-width="2" />
+    <path d="M38.5 266 L 41 268.5 L 46 263" stroke="var(--teal-text)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <text x="58" y="270" font-size="11.5" font-weight="600" fill="var(--text-secondary)" font-family="inherit">{t.legend}</text>
+  </g>
+</svg>
+
+<style>
+  .ill-linemap {
+    display: block;
+    width: 100%;
+    height: auto;
+  }
+</style>
