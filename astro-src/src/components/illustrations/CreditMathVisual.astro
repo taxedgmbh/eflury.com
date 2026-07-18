@@ -1,0 +1,138 @@
+---
+/**
+ * Pricing visual: the audit-credit mechanic as big typography.
+ * Numbers mirror the published pricing (Micro CHF 5,900; audit CHF 4,900
+ * fully credited within 6 months). Theme-aware via design tokens.
+ */
+import { type Language } from '../../i18n/utils';
+
+interface Props {
+  lang: Language;
+}
+const { lang } = Astro.props;
+const de = lang === 'de';
+
+const t = {
+  micro: de ? "CHF 5'900" : 'CHF 5,900',
+  microLabel: de ? 'Micro-Paket' : 'Micro package',
+  audit: de ? "− CHF 4'900" : '− CHF 4,900',
+  auditLabel: de ? 'KI-Audit, voll angerechnet' : 'AI Audit, fully credited',
+  net: de ? "CHF 1'000" : 'CHF 1,000',
+  netLabel: de ? 'Netto für Phase 1' : 'Net for phase 1',
+  caption: de
+    ? 'Beispielrechnung: Wer innert 6 Monaten nach dem Audit umsetzt, zahlt das Audit faktisch nicht. Preise exkl. 8.1% MwSt.'
+    : 'Example: proceed within 6 months of the audit and the audit effectively costs nothing. Prices excl. 8.1% VAT.',
+};
+---
+
+<figure class="credit-math" aria-label={t.caption}>
+  <div class="cm-row">
+    <div class="cm-item">
+      <span class="cm-value navy">{t.micro}</span>
+      <span class="cm-label">{t.microLabel}</span>
+    </div>
+    <div class="cm-item">
+      <span class="cm-value teal">{t.audit}</span>
+      <span class="cm-label">{t.auditLabel}</span>
+    </div>
+    <span class="cm-equals" aria-hidden="true">=</span>
+    <div class="cm-item cm-result">
+      <span class="cm-value">{t.net}</span>
+      <span class="cm-label">{t.netLabel}</span>
+    </div>
+  </div>
+  <figcaption>{t.caption}</figcaption>
+</figure>
+
+<style>
+  .credit-math {
+    margin: 2rem 0 0;
+    text-align: center;
+  }
+
+  .cm-row {
+    display: flex;
+    align-items: stretch;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+  }
+
+  .cm-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.3rem;
+    padding: 1.1rem 1.5rem;
+    border-radius: var(--radius-md);
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    min-width: 170px;
+  }
+
+  .cm-value {
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+  }
+
+  .cm-value.navy {
+    color: var(--text-primary);
+  }
+
+  .cm-value.teal {
+    color: var(--teal-text);
+  }
+
+  .cm-label {
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+
+  .cm-equals {
+    align-self: center;
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--text-tertiary);
+  }
+
+  .cm-result {
+    background: var(--surface-navy);
+    border-color: var(--surface-navy);
+  }
+
+  .cm-result .cm-value {
+    color: #2dd4bf;
+  }
+
+  .cm-result .cm-label {
+    color: rgba(255, 255, 255, 0.75);
+  }
+
+  figcaption {
+    margin-top: 1rem;
+    font-size: 0.85rem;
+    color: var(--text-tertiary);
+  }
+
+  @media (max-width: 600px) {
+    .cm-row {
+      gap: 0.75rem;
+    }
+
+    .cm-item {
+      min-width: 0;
+      flex: 1 1 40%;
+      padding: 0.9rem 1rem;
+    }
+
+    .cm-equals {
+      flex-basis: 100%;
+      font-size: 1.5rem;
+    }
+  }
+</style>
