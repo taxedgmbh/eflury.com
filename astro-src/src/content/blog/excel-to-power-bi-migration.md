@@ -235,7 +235,7 @@ Migrating from Excel to Power BI isn't a technical exercise - it's a transformat
 
 Start small, show success, and build from there.
 
-Need support with your Power BI migration? [Schedule a free consultation](/en#contact).
+Need support with your Power BI migration? [Schedule a free consultation](/en/contact/).
 
 ---
 

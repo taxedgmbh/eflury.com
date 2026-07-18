@@ -655,7 +655,7 @@ Discover your specific opportunity in a complimentary assessment:
 
 **No sales pitch. No obligation. Just practical insights for your business.**
 
-[Book Your Free Assessment](/en#contact)
+[Book Your Free Assessment](/en/contact/)
 
 ### Option 2: AP Automation Readiness Checklist
 

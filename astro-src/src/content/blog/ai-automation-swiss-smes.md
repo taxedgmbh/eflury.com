@@ -286,7 +286,7 @@ The technology required to achieve these benefits is mature, proven, and readily
 
 **Are you ready to explore what AI automation could mean for your business?**
 
-I invite you to [book a complimentary 30-minute assessment](/en#contact) during which we will:
+I invite you to [book a complimentary 30-minute assessment](/en/contact/) during which we will:
 
 - Identify the specific automation opportunities within your organisation that offer the highest potential impact relative to implementation complexity
 - Calculate realistic ROI projections based on your particular circumstances, employee costs, and process volumes

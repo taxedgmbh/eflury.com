@@ -206,7 +206,7 @@ Power BI ist nicht nur ein Reporting-Tool - es ist eine Transformation, wie Ihr 
 
 Die Finanzteams, die erfolgreich sind, sind diejenigen, die weniger Zeit mit der Vorbereitung von Zahlen verbringen und mehr Zeit damit, zu erklären, was sie bedeuten und was zu tun ist.
 
-Bereit, Ihr Finanz-Reporting zu modernisieren? [Lassen Sie uns Ihre spezifischen Anforderungen besprechen](/de#contact).
+Bereit, Ihr Finanz-Reporting zu modernisieren? [Lassen Sie uns Ihre spezifischen Anforderungen besprechen](/de/kontakt/).
 
 ---
 

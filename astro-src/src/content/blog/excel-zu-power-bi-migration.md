@@ -235,7 +235,7 @@ Die Migration von Excel zu Power BI ist keine technische Übung - es ist eine Tr
 
 Starten Sie klein, zeigen Sie Erfolge, und bauen Sie von dort aus.
 
-Brauchen Sie Unterstützung bei Ihrer Power BI Migration? [Vereinbaren Sie ein kostenloses Beratungsgespräch](/de#contact).
+Brauchen Sie Unterstützung bei Ihrer Power BI Migration? [Vereinbaren Sie ein kostenloses Beratungsgespräch](/de/kontakt/).
 
 ---
 

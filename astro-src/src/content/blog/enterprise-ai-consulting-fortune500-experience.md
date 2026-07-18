@@ -151,4 +151,4 @@ For Swiss companies considering enterprise AI deployment, the most productive fi
 3. **Assess** your current technology stack's readiness
 4. **Define** a realistic roadmap with clear milestones
 
-*If your organization is evaluating AI capabilities and needs a partner with enterprise experience, [let's have a conversation about your specific situation](/en#contact).*
+*If your organization is evaluating AI capabilities and needs a partner with enterprise experience, [let's have a conversation about your specific situation](/en/contact/).*

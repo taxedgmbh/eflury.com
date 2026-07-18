@@ -200,7 +200,7 @@ Buchhaltungsautomatisierung ist für Schweizer KMU kein Luxus mehr - es ist notw
 
 Der Schlüssel zum Erfolg: Fangen Sie klein an, messen Sie die Ergebnisse, und erweitern Sie schrittweise.
 
-Möchten Sie wissen, welche Automatisierungspotenziale in Ihrer Buchhaltung stecken? [Vereinbaren Sie eine kostenlose Analyse](/de#contact).
+Möchten Sie wissen, welche Automatisierungspotenziale in Ihrer Buchhaltung stecken? [Vereinbaren Sie eine kostenlose Analyse](/de/kontakt/).
 
 ---
 

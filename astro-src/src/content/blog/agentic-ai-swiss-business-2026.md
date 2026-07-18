@@ -643,7 +643,7 @@ For organisations ready to move forward, I recommend the following immediate nex
 
 **Ready to explore what agentic AI could mean for your organisation?**
 
-I invite you to [schedule a complimentary 60-minute strategy session](/en#contact) where we will:
+I invite you to [schedule a complimentary 60-minute strategy session](/en/contact/) where we will:
 
 - Evaluate your specific processes against proven agentic AI use cases
 - Identify the highest-ROI opportunities for your organisation

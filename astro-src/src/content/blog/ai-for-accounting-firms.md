@@ -197,7 +197,7 @@ The accounting firms that invest in AI today will be tomorrow's winners.
 3. **Invest:** Plan budget for AI initiatives
 4. **Get support:** Work with experts
 
-Want to know how AI can specifically help your accounting firm? [Schedule a free consultation](/en#contact).
+Want to know how AI can specifically help your accounting firm? [Schedule a free consultation](/en/contact/).
 
 ---
 

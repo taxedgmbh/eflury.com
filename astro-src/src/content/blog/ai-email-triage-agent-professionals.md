@@ -127,4 +127,4 @@ The deployment process is designed to be non-disruptive:
 3. **Tuning (1 week):** Configuration refined based on your feedback
 4. **Handoff (ongoing):** Monthly optimization based on performance data
 
-*If email management is consuming more of your day than it should, [let's discuss whether an AI triage agent makes sense for your practice](/en#contact).*
+*If email management is consuming more of your day than it should, [let's discuss whether an AI triage agent makes sense for your practice](/en/contact/).*

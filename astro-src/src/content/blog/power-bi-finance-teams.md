@@ -206,7 +206,7 @@ Power BI isn't just a reporting tool—it's a transformation of how your finance
 
 The finance teams that thrive are those that spend less time preparing numbers and more time explaining what they mean and what to do about them.
 
-Ready to modernize your finance reporting? [Let's discuss your specific needs](/en#contact).
+Ready to modernize your finance reporting? [Let's discuss your specific needs](/en/contact/).
 
 ---
 

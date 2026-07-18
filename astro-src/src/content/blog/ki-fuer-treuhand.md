@@ -197,7 +197,7 @@ Die Treuhandfirmen, die heute in KI investieren, werden die Gewinner von morgen 
 3. **Investieren:** Planen Sie Budget für KI-Initiativen
 4. **Unterstützung holen:** Arbeiten Sie mit Experten zusammen
 
-Möchten Sie wissen, wie KI konkret in Ihrer Treuhandfirma helfen kann? [Vereinbaren Sie ein kostenloses Beratungsgespräch](/de#contact).
+Möchten Sie wissen, wie KI konkret in Ihrer Treuhandfirma helfen kann? [Vereinbaren Sie ein kostenloses Beratungsgespräch](/de/kontakt/).
 
 ---
 

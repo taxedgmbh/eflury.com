@@ -160,4 +160,4 @@ If you're a Swiss small business losing calls to voicemail or spending too much 
 2. **Categorize your calls** — what percentage are routine booking/inquiry?
 3. **Calculate the cost** — what does each missed call potentially cost you?
 
-If the numbers suggest opportunity, [let's talk about whether a voice AI receptionist makes sense for your business](/en#contact).
+If the numbers suggest opportunity, [let's talk about whether a voice AI receptionist makes sense for your business](/en/contact/).

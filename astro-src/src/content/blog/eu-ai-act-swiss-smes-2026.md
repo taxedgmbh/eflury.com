@@ -785,7 +785,7 @@ I offer complimentary 30-minute compliance assessments for Swiss SMEs to:
 - Discuss Swiss-specific considerations and upcoming domestic legislation
 - Answer your questions about the regulation and its practical implementation
 
-This is not a sales presentation—it is a practical, technical conversation about where your organization stands and what steps you need to take. [Schedule your compliance assessment today](/en#contact) to ensure your AI systems will be compliant when the deadline arrives.
+This is not a sales presentation—it is a practical, technical conversation about where your organization stands and what steps you need to take. [Schedule your compliance assessment today](/en/contact/) to ensure your AI systems will be compliant when the deadline arrives.
 
 ---
 

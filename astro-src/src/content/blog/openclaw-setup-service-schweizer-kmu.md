@@ -98,4 +98,4 @@ Wenn Sie ein Schweizer KMU sind und die Bereitstellung eines KI-Agenten in Betra
 
 Die erfolgreichsten Bereitstellungen beginnen klein und wachsen organisch, angetrieben von messbaren Ergebnissen statt von ehrgeizigen Transformationsplänen.
 
-*Interessiert zu erkunden, ob ein KI-Agent für Ihr Unternehmen funktionieren könnte? [Buchen Sie ein kostenloses 30-minütiges Erstgespräch](/de#contact).*
+*Interessiert zu erkunden, ob ein KI-Agent für Ihr Unternehmen funktionieren könnte? [Buchen Sie ein kostenloses 30-minütiges Erstgespräch](/de/kontakt/).*

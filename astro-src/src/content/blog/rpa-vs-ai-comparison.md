@@ -235,7 +235,7 @@ My recommendation for Swiss businesses new to automation:
 
 The key is starting somewhere. Analysis paralysis is the biggest barrier to automation success.
 
-Ready to determine the right automation mix for your business? [Let's analyze your processes together](/en#contact).
+Ready to determine the right automation mix for your business? [Let's analyze your processes together](/en/contact/).
 
 ---
 

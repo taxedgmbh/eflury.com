@@ -246,7 +246,7 @@ const breadcrumbSchema = {
         <h2 class="cta-title">{ctaTitle}</h2>
         <p class="cta-description">{ctaDescription}</p>
         <div class="cta-buttons">
-          <a href={`/${lang}/#contact`} class="cta-button primary">
+          <a href={lang === 'de' ? '/de/kontakt/' : '/en/contact/'} class="cta-button primary">
             {ctaButtonText}
             <ArrowRight size={18} />
           </a>

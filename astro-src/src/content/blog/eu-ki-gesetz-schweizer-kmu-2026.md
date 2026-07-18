@@ -785,7 +785,7 @@ Ich biete kostenlose 30-minütige Compliance-Bewertungen für Schweizer KMU an, 
 - Schweiz-spezifische Überlegungen und kommende inländische Gesetzgebung zu besprechen
 - Ihre Fragen zur Verordnung und ihrer praktischen Umsetzung zu beantworten
 
-Dies ist keine Verkaufspräsentation – es ist ein praktisches, technisches Gespräch darüber, wo Ihre Organisation steht und welche Schritte Sie unternehmen müssen. [Planen Sie heute Ihre Compliance-Bewertung](/de#contact), um sicherzustellen, dass Ihre KI-Systeme konform sein werden, wenn die Frist eintrifft.
+Dies ist keine Verkaufspräsentation – es ist ein praktisches, technisches Gespräch darüber, wo Ihre Organisation steht und welche Schritte Sie unternehmen müssen. [Planen Sie heute Ihre Compliance-Bewertung](/de/kontakt/), um sicherzustellen, dass Ihre KI-Systeme konform sein werden, wenn die Frist eintrifft.
 
 ---
 

@@ -715,7 +715,7 @@ Die Ära gefühlsbasierter AI-Ausgaben ist vorbei. Die Ära gemessener, verantwo
 
 **Sind Sie bereit, von AI-Experimentierung zu AI ROI-Verantwortlichkeit zu wechseln?**
 
-Ich lade Sie ein, [ein kostenloses 45-minütiges ROI-Assessment zu buchen](/de#contact), wo wir:
+Ich lade Sie ein, [ein kostenloses 45-minütiges ROI-Assessment zu buchen](/de/kontakt/), wo wir:
 
 - Das ROAI-Framework auf Ihre spezifische Geschäftssituation anwenden
 - Realistische 18-Monats-Projektionen mit Schweizer Arbeitsmarktökonomie berechnen

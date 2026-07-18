@@ -286,7 +286,7 @@ Die Technologie, die erforderlich ist, um diese Vorteile zu erzielen, ist ausger
 
 **Sind Sie bereit zu erkunden, was KI-Automatisierung für Ihr Unternehmen bedeuten könnte?**
 
-Ich lade Sie ein, [eine kostenlose 30-minütige Bewertung zu buchen](/de#contact), bei der wir:
+Ich lade Sie ein, [eine kostenlose 30-minütige Bewertung zu buchen](/de/kontakt/), bei der wir:
 
 - Die spezifischen Automatisierungsmöglichkeiten innerhalb Ihrer Organisation identifizieren, die das höchste Wirkungspotenzial im Verhältnis zur Implementierungskomplexität bieten
 - Realistische ROI-Projektionen basierend auf Ihren besonderen Umständen, Mitarbeiterkosten und Prozessvolumen berechnen

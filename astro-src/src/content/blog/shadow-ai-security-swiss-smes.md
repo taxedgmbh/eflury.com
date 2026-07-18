@@ -950,7 +950,7 @@ If you've read this far, you likely recognize that your organization needs to ad
 
 The statistics are clear, the regulatory requirements are established, and the technical solutions are available. The only remaining question is whether your organization will address shadow AI proactively—or wait until a breach forces your hand.
 
-**I invite you to [schedule a complimentary 45-minute Shadow AI Assessment](/en#contact) during which we will:**
+**I invite you to [schedule a complimentary 45-minute Shadow AI Assessment](/en/contact/) during which we will:**
 
 - **Evaluate your current shadow AI exposure** using proven assessment methodologies
 - **Identify your highest-risk use cases** based on your industry, data sensitivity, and employee roles

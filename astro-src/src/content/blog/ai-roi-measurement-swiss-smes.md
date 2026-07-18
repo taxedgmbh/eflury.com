@@ -715,7 +715,7 @@ The era of vibe-based AI spending is over. The era of measured, accountable, fin
 
 **Are you ready to move from AI experimentation to AI ROI accountability?**
 
-I invite you to [book a complimentary 45-minute ROI assessment](/en#contact) where we will:
+I invite you to [book a complimentary 45-minute ROI assessment](/en/contact/) where we will:
 
 - Apply the ROAI framework to your specific business situation
 - Calculate realistic 18-month projections using Swiss labor economics
