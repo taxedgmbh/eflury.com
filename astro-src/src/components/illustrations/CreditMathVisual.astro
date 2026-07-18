@@ -1,7 +1,7 @@
 ---
 /**
  * Pricing visual: the audit-credit mechanic as big typography.
- * Numbers mirror the published pricing (Micro CHF 5,900; audit CHF 4,900
+ * Numbers mirror the published pricing (Micro CHF 5'900; audit CHF 4'900
  * fully credited within 6 months). Theme-aware via design tokens.
  */
 import { type Language } from '../../i18n/utils';
@@ -13,11 +13,11 @@ const { lang } = Astro.props;
 const de = lang === 'de';
 
 const t = {
-  micro: de ? "CHF 5'900" : 'CHF 5,900',
+  micro: de ? "CHF 5'900" : "CHF 5'900",
   microLabel: de ? 'Micro-Paket' : 'Micro package',
-  audit: de ? "− CHF 4'900" : '− CHF 4,900',
+  audit: de ? "− CHF 4'900" : "− CHF 4'900",
   auditLabel: de ? 'KI-Audit, voll angerechnet' : 'AI Audit, fully credited',
-  net: de ? "CHF 1'000" : 'CHF 1,000',
+  net: de ? "CHF 1'000" : "CHF 1'000",
   netLabel: de ? 'Netto für Phase 1' : 'Net for phase 1',
   caption: de
     ? 'Beispielrechnung: Wer innert 6 Monaten nach dem Audit umsetzt, zahlt das Audit faktisch nicht. Preise exkl. 8.1% MwSt.'

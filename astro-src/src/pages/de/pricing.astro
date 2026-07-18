@@ -21,7 +21,7 @@ const t = useTranslations(lang);
 
 <MainLayout
   title="Transparente Preise - Claude-Automatisierungs-Pakete für Schweizer KMU | eflury.com"
-  description="Keine versteckten Gebühren, keine 'Kontaktieren Sie uns'-Preise. Sehen Sie exakte CHF-Kosten für Claude Code-Automatisierung: Starter (CHF 9'900), Professional (CHF 24'900), Enterprise (CHF 49'900). Geschätzte 3,2 Monate Amortisationszeit."
+  description="Keine versteckten Gebühren, keine «Kontaktieren Sie uns»-Preise. Exakte CHF-Kosten für Claude-Code-Automatisierung: Starter (CHF 9'900), Professional (CHF 24'900), Enterprise (CHF 49'900). Geschätzte 3.2 Monate Amortisation."
   keywords="Claude Automatisierung Preise Schweiz, KI Implementierung Kosten, Claude Skills Preise, transparente Preise Schweizer KMU, Automatisierung ROI Rechner"
   lang={lang}
 >
@@ -52,7 +52,7 @@ const t = useTranslations(lang);
           </div>
           <div class="stat">
             <Flag size={28} class="icon-lucide" />
-            <span class="label">Schweizer Fakturierung (inkl. MWST)</span>
+            <span class="label">Schweizer Rechnung in CHF</span>
           </div>
         </div>
       </div>
@@ -217,6 +217,18 @@ const t = useTranslations(lang);
         </div>
 
         <CreditMathVisual lang="de" />
+
+        <div class="micro-strip">
+          <div class="micro-head">
+            <span class="micro-tag">Micro</span>
+            <span class="micro-price">CHF 5'900</span>
+          </div>
+          <p>
+            Der kleinste Einstieg: 2 Wochen, 1 Claude Skill, 1 MCP-Integration — ideal für einen
+            einzelnen, klar umrissenen Prozess. Audit-Anrechnung gilt auch hier; Upgrade auf ein
+            grösseres Paket jederzeit möglich.
+          </p>
+        </div>
       </div>
     </section>
 
@@ -277,9 +289,9 @@ const t = useTranslations(lang);
             <tbody>
               <tr>
                 <td><strong>Ihr Preis</strong></td>
-                <td>CHF 9'900 <span class="table-savings">(-48%)</span></td>
-                <td><strong>CHF 24'900</strong> <span class="table-savings highlight">(-48%)</span></td>
-                <td>CHF 49'900 <span class="table-savings">(-31%)</span></td>
+                <td>CHF 9'900</td>
+                <td><strong>CHF 24'900</strong></td>
+                <td>CHF 49'900</td>
               </tr>
               <tr>
                 <td><strong>Zeitrahmen</strong></td>
@@ -721,25 +733,7 @@ const t = useTranslations(lang);
     margin-bottom: 3rem;
   }
 
-  .testimonial {
-    background: var(--card-bg);
-    border-radius: 1rem;
-    padding: 2rem;
-    margin: 0;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
-    position: relative;
-  }
 
-  .testimonial::before {
-    content: '"';
-    position: absolute;
-    top: 1rem;
-    left: 1.5rem;
-    font-size: 4rem;
-    color: var(--primary-200);
-    font-family: Georgia, serif;
-    line-height: 1;
-  }
 
   .testimonial p {
     font-size: 1rem;
@@ -786,19 +780,7 @@ const t = useTranslations(lang);
   }
 
   /* Comparison Table Enhancements */
-  .table-savings {
-    display: inline-block;
-    color: var(--teal-text);
-    font-size: 0.75rem;
-    font-weight: 700;
-  }
 
-  .table-savings.highlight {
-    background: var(--action-teal);
-    color: white;
-    padding: 0.125rem 0.5rem;
-    border-radius: 1rem;
-  }
 
   .highlight-row {
     background: var(--primary-50) !important;
@@ -1278,6 +1260,51 @@ const t = useTranslations(lang);
   }
 
   /* Add-Ons */
+  .micro-strip {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    padding: 1.1rem 1.5rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-left: 4px solid var(--eflury-teal);
+    border-radius: var(--radius-md);
+  }
+
+  .micro-head {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+  }
+
+  .micro-tag {
+    background: var(--action-teal);
+    color: #fff;
+    font-size: 0.7rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 0.3rem 0.7rem;
+    border-radius: var(--radius-full);
+  }
+
+  .micro-price {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  .micro-strip p {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    flex: 1;
+    min-width: 260px;
+  }
+
   .audit-band {
     margin-top: 2.5rem;
     padding: 1.25rem 1.75rem;

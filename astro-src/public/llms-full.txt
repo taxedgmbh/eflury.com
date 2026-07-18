@@ -6,12 +6,12 @@ Key facts:
 - Founder: Emanuel Flury — 13 years of enterprise automation background (Fortune 100, incl. Johnson & Johnson), founder of Taxed GmbH (Swiss fiduciary), UiPath RPA certified, MA Economics-Finance (University of Aberdeen)
 - Contact: me@eflury.com · +41 79 910 77 87 · Keltenweg 4, 2540 Grenchen, Switzerland
 - Languages: German and English (full bilingual site: /de/ and /en/)
-- Entry point: AI Audit — CHF 4,900 fixed, one week, fully credited toward implementation within 6 months
+- Entry point: AI Audit — CHF 4'900 fixed, one week, fully credited toward implementation within 6 months
 
 ## Services
 
-- [AI Audit](https://eflury.com/en/services/ai-audit/): One-week audit of automation potential, CHF 4,900 fixed, fully credited toward a later implementation package within 6 months
-- [Managed AI Operations](https://eflury.com/en/services/managed-ai-operations/): Ongoing operation, monitoring, and improvement of deployed automations, from CHF 1,200/month
+- [AI Audit](https://eflury.com/en/services/ai-audit/): One-week audit of automation potential, CHF 4'900 fixed, fully credited toward a later implementation package within 6 months
+- [Managed AI Operations](https://eflury.com/en/services/managed-ai-operations/): Ongoing operation, monitoring, and improvement of deployed automations, from CHF 1'200/month
 - [Claude Skills](https://eflury.com/en/services/claude-skills): Custom Claude Skills for recurring business processes
 - [MCP Integration](https://eflury.com/en/services/mcp-integration): Connecting AI to business systems (e.g. bexio, databases, internal tools) via Model Context Protocol
 - [Finance Automation](https://eflury.com/en/services/finance-automation): Month-end close, reconciliation, and reporting automation
@@ -20,7 +20,7 @@ Key facts:
 
 ## Pricing (fixed, in CHF, excl. 8.1% VAT)
 
-- [Pricing overview](https://eflury.com/en/pricing/): Micro CHF 5,900 (2 weeks, 1 Skill, 1 MCP integration) · Starter CHF 9,900 · Professional CHF 24,900 · Enterprise CHF 49,900. Add-ons: extra Claude Skill CHF 2,900, extra MCP integration CHF 3,500, Extended Support CHF 1,200/month, on-site workshop CHF 1,800/day
+- [Pricing overview](https://eflury.com/en/pricing/): Micro CHF 5'900 (2 weeks, 1 Skill, 1 MCP integration) · Starter CHF 9'900 · Professional CHF 24'900 · Enterprise CHF 49'900. Add-ons: extra Claude Skill CHF 2'900, extra MCP integration CHF 3'500, Extended Support CHF 1'200/month, on-site workshop CHF 1'800/day
 
 ## Method
 
@@ -40,7 +40,7 @@ Built for Swiss SME owners across industries — organized by business area, not
 
 ## Resources
 
-- [Sample AI Audit report](https://eflury.com/downloads/eflury-sample-audit-report-en.pdf): What the CHF 4,900 audit delivers — sample PDF for a fictional SME (German version: /downloads/eflury-sample-audit-report-de.pdf)
+- [Sample AI Audit report](https://eflury.com/downloads/eflury-sample-audit-report-en.pdf): What the CHF 4'900 audit delivers — sample PDF for a fictional SME (German version: /downloads/eflury-sample-audit-report-de.pdf)
 - [Guides](https://eflury.com/en/guides/): Free downloadable playbooks (EN/DE): EU AI Act for Swiss SMEs, revDSG & AI, Data Quality
 - [Blog / Insights](https://eflury.com/en/blog/): Practical articles on AI automation, accounting & finance, reporting, compliance, and security for Swiss SMEs
 - [Trust & Security](https://eflury.com/en/trust/): How client data is handled (revDSG, EU-hosted tooling)
@@ -54,19 +54,19 @@ Built for Swiss SME owners across industries — organized by business area, not
 
 ## Detail: AI Audit (the entry offer)
 
-- Fixed price CHF 4,900, one week, on-site or remote in German or English.
+- Fixed price CHF 4'900, one week, on-site or remote in German or English.
 - Deliverables: process inventory with automation scores, data-readiness check, prioritized automation roadmap with effort/impact estimates, and a fixed-price implementation quote.
-- The full CHF 4,900 is credited toward any implementation package booked within 6 months — the audit is effectively free if the project proceeds.
+- The full CHF 4'900 is credited toward any implementation package booked within 6 months — the audit is effectively free if the project proceeds.
 
 ## Detail: Implementation packages
 
 All packages are fixed-price, in CHF, excl. 8.1% Swiss VAT, and include hands-on implementation (not strategy decks):
 
-- Micro — CHF 5,900: 2 weeks, 1 custom Claude Skill, 1 MCP integration. For a single well-defined process.
-- Starter — CHF 9,900: entry package for a first automation initiative.
-- Professional — CHF 24,900: the most-chosen package; estimated ~48% below comparable Swiss market rates (basis: CHF 2,400/day IT-consultant day rates, Metrics.biz 2025).
-- Enterprise — CHF 49,900: broadest scope, multiple processes and integrations.
-- Add-ons: extra Claude Skill CHF 2,900 · extra MCP integration CHF 3,500 · Extended Support CHF 1,200/month · on-site workshop CHF 1,800/day.
+- Micro — CHF 5'900: 2 weeks, 1 custom Claude Skill, 1 MCP integration. For a single well-defined process.
+- Starter — CHF 9'900: entry package for a first automation initiative.
+- Professional — CHF 24'900: the most-chosen package; estimated ~48% below comparable Swiss market rates (basis: CHF 2'400/day IT-consultant day rates, Metrics.biz 2025).
+- Enterprise — CHF 49'900: broadest scope, multiple processes and integrations.
+- Add-ons: extra Claude Skill CHF 2'900 · extra MCP integration CHF 3'500 · Extended Support CHF 1'200/month · on-site workshop CHF 1'800/day.
 - Professional & Enterprise include ongoing support until the agreed automation goals are reached. ROI figures on the site are estimates based on typical project outcomes and can vary.
 
 ## Detail: The eFlury Method (POC → operational model)
@@ -75,7 +75,7 @@ All packages are fixed-price, in CHF, excl. 8.1% Swiss VAT, and include hands-on
 2. Design (week 2) — solution architecture, data flows, security review.
 3. Development (weeks 3–5) — build Skills/integrations, test against real cases.
 4. Deployment (week 6) — production rollout, team handover, documentation.
-5. Optimization (ongoing) — monitoring, measurement, expansion; optionally as Managed AI Operations from CHF 1,200/month.
+5. Optimization (ongoing) — monitoring, measurement, expansion; optionally as Managed AI Operations from CHF 1'200/month.
 
 ## Detail: Case studies (all figures are documented per-project estimates)
 
