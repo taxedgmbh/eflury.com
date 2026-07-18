@@ -1,9 +1,7 @@
 ---
 /**
- * About Emanuel Aaron Flury
- * Trust signal page - answers "Who is this person and why should I trust him?"
- * Created by: Agent 02 (Trust Signal Designer)
- * 92% of B2B buyers visit About page before purchasing
+ * About Emanuel Aaron Flury — the one page written in his own voice.
+ * Styles are shared verbatim with the de/ counterpart; edit both together.
  */
 
 import MainLayout from '../../layouts/MainLayout.astro';
@@ -12,6 +10,8 @@ import Breadcrumbs from '../../components/Breadcrumbs.astro';
 import Footer from '../../components/Footer.astro';
 import AIChatbot from '../../components/AIChatbot.astro';
 import PersonSchema from '../../components/PersonSchema.astro';
+import IllustrationShowcase from '../../components/IllustrationShowcase.astro';
+import CareerBridgeIllustration from '../../components/illustrations/CareerBridgeIllustration.astro';
 
 const lang = 'en';
 ---
@@ -42,7 +42,7 @@ const lang = 'en';
               </svg>
               <span>Based in Grenchen, Switzerland</span>
             </div>
-            <p class="tagline">Founder of Taxed GmbH | Claude Automation Consultant</p>
+            <p class="tagline">Founder of eFlury Consulting · previously 13 years in enterprise automation</p>
           </div>
 
           <div class="hero-image">
@@ -63,20 +63,20 @@ const lang = 'en';
     <section class="impact-stats">
       <div class="container">
         <div class="stats-grid">
-          <div class="stat-item" data-stat>
-            <span class="stat-value" data-suffix="">Fortune 500</span>
+          <div class="stat-item">
+            <span class="stat-value">Fortune 500</span>
             <span class="stat-label">Enterprise Automation Background</span>
           </div>
-          <div class="stat-item" data-stat>
-            <span class="stat-value" data-suffix="">~27.5 h/week</span>
+          <div class="stat-item">
+            <span class="stat-value">~27.5 h/week</span>
             <span class="stat-label">Automated in Our Own Firm (estimated)</span>
           </div>
-          <div class="stat-item" data-stat>
-            <span class="stat-value" data-suffix="">DE/EN</span>
+          <div class="stat-item">
+            <span class="stat-value">DE/EN</span>
             <span class="stat-label">Bilingual Service</span>
           </div>
-          <div class="stat-item" data-stat>
-            <span class="stat-value" data-target="13" data-suffix="+">13+</span>
+          <div class="stat-item">
+            <span class="stat-value">13+</span>
             <span class="stat-label">Years in Finance & Tech</span>
           </div>
         </div>
@@ -86,12 +86,12 @@ const lang = 'en';
     <!-- The Story Section -->
     <section class="story">
       <div class="container">
-        <h2>From Accountant to AI Automation Pioneer</h2>
+        <h2>From Accountant to AI Automation Specialist</h2>
 
         <div class="story-content">
           <p class="lead">I didn't start as a tech person. I started as an accountant, drowning in spreadsheets.</p>
 
-          <p>In 2023, I was running <strong>Taxed GmbH</strong>, my accounting firm in Biel/Bienne, working 60-hour weeks. 20 of those hours? Pure "admin BS" - data entry, client emails, report generation.</p>
+          <p>In 2023, I was running <strong>Taxed GmbH</strong>, my accounting firm in Biel/Bienne, working 60-hour weeks. 20 of those hours were pure administration — data entry, client emails, report generation.</p>
 
           <p>I knew there had to be a better way.</p>
 
@@ -110,7 +110,7 @@ const lang = 'en';
 
           <p>But here's what I realized: <strong>Swiss SMEs don't need another AI consultant selling promises. They need someone who's done it. In their language. In their market.</strong></p>
 
-          <p class="mission">So I made it my mission: Help 100 Swiss SMEs implement Claude automation. Transparent pricing. No BS. Just proven results.</p>
+          <p class="mission">So I made it my mission: help Swiss SMEs implement Claude automation — with transparent pricing, a published method, and honest numbers.</p>
 
           <p><strong>That's the eflury.com difference.</strong></p>
         </div>
@@ -118,6 +118,10 @@ const lang = 'en';
     </section>
 
     <!-- Industries Section -->
+        <IllustrationShowcase>
+      <CareerBridgeIllustration lang={lang} />
+    </IllustrationShowcase>
+
     <section class="industries">
       <div class="container">
         <h2>Who I've Worked With</h2>
@@ -166,7 +170,7 @@ const lang = 'en';
         </div>
 
         <p class="industries-note">
-          <strong>Enterprise background, SME focus:</strong> I've worked with the largest companies in the world. Now I bring that expertise to Swiss SMEs who deserve the same quality automation.
+          <strong>Enterprise background, SME focus:</strong> I spent 13 years building automation inside a Fortune 500 company. Now I bring that expertise to Swiss SMEs who deserve the same quality of automation.
         </p>
       </div>
     </section>
@@ -189,7 +193,7 @@ const lang = 'en';
               <li><strong>Claude Code implementation</strong> (not ChatGPT, not other models - just Claude)</li>
               <li><strong>Claude Skills development</strong> (custom Skills for each client)</li>
               <li><strong>Model Context Protocol (MCP)</strong> integration</li>
-              <li><strong>Swiss SME process automation</strong> (10-50 employees)</li>
+              <li><strong>Swiss SME process automation</strong> (10–250 employees)</li>
               <li><strong>Accounting/finance automation</strong> (my background)</li>
               <li><strong>Bilingual support</strong> (German/English)</li>
             </ul>
@@ -214,7 +218,7 @@ const lang = 'en';
 
         <div class="why-claude">
           <h3>Why Claude-Exclusive?</h3>
-          <p>Because Swiss SMEs don't need 10 tools. They need ONE tool, implemented perfectly.</p>
+          <p>Because Swiss SMEs don't need 10 tools. They need one tool, implemented properly.</p>
           <p><strong>Claude Code + Claude Skills + MCP = Everything you need for 90% of SME automation.</strong></p>
         </div>
       </div>
@@ -224,7 +228,7 @@ const lang = 'en';
     <section class="method-summary">
       <div class="container">
         <h2>How We Work: The eflury Method™</h2>
-        <p class="intro">Every client goes through the same proven 5-phase framework:</p>
+        <p class="intro">Every project goes through the same published 5-phase framework:</p>
 
         <div class="phases">
           <div class="phase">
@@ -265,8 +269,8 @@ const lang = 'en';
 
         <p class="method-cta">
           <strong>Total timeline: 4-12 weeks (depending on package)</strong><br>
-          <a href="/en/method">Learn more about the complete process →</a><br>
-          <a href="/en/pricing">See service packages →</a>
+          <a href="/en/method/">Learn more about the complete process →</a><br>
+          <a href="/en/pricing/">See service packages →</a>
         </p>
       </div>
     </section>
@@ -293,7 +297,7 @@ const lang = 'en';
               <span class="label">hours/week automated</span>
             </div>
             <div class="metric">
-              <span class="value">CHF 24K</span>
+              <span class="value">CHF 24'000</span>
               <span class="label">annual cost savings</span>
             </div>
             <div class="metric">
@@ -306,7 +310,7 @@ const lang = 'en';
             </div>
           </div>
           <p class="disclaimer-note"><em>Metrics are projected estimates based on workflow analysis.</em></p>
-          <a href="/en/case-studies/taxed-gmbh" class="btn-primary">Read Full Case Study →</a>
+          <a href="/en/case-studies/taxed-gmbh/" class="btn-primary">Read Full Case Study →</a>
         </div>
 
         <div class="compliance">
@@ -315,7 +319,7 @@ const lang = 'en';
             <li><span class="check-icon">✓</span> FADP (Swiss Data Privacy) compliant</li>
             <li><span class="check-icon">✓</span> Based in Switzerland (Grenchen, SO)</li>
             <li><span class="check-icon">✓</span> Bilingual service (DE/EN)</li>
-            <li><span class="check-icon">✓</span> Transparent pricing (<a href="/en/pricing">see packages</a>)</li>
+            <li><span class="check-icon">✓</span> Transparent pricing (<a href="/en/pricing/">see packages</a>)</li>
           </ul>
         </div>
       </div>
@@ -326,7 +330,7 @@ const lang = 'en';
       <div class="container">
         <h2>Life Outside Claude</h2>
 
-        <p>When I'm not automating processes, you'll find me in <strong>Grenchen</strong> - the watch capital of Switzerland.</p>
+        <p>When I'm not automating processes, you'll find me in <strong>Grenchen</strong> — one of Switzerland's watchmaking towns.</p>
 
         <p>Why Grenchen? Because it's where precision engineering meets Swiss tradition. That's exactly my approach to Claude automation: <strong>Precise, reliable, Swiss-quality.</strong></p>
 
@@ -387,14 +391,14 @@ const lang = 'en';
           <details class="faq-item">
             <summary>How do you handle data security and privacy?</summary>
             <div class="faq-answer">
-              <p>All solutions are FADP (Swiss Data Privacy) compliant. Data stays in Switzerland where possible, and I use enterprise-grade encryption. For sensitive industries, I can implement additional security measures like air-gapped systems or on-premise deployment.</p>
+              <p>All solutions are built to comply with the Swiss FADP (revDSG). Data stays on Swiss or EU-hosted infrastructure where possible, system access is read-only wherever it can be, and a human approves anything before it leaves the house. Every service used in your project is disclosed — see <a href="/en/trust/">Trust &amp; Security</a>.</p>
             </div>
           </details>
 
           <details class="faq-item">
             <summary>What's the ROI timeline?</summary>
             <div class="faq-answer">
-              <p>Most clients see positive ROI within 3-6 months. My own firm achieved payback in 3.2 months. I provide detailed ROI projections during the discovery phase so you know exactly what to expect.</p>
+              <p>Our published project estimates put payback at roughly 3–4 months; for my own firm the estimate is 3.2 months. You get a detailed ROI projection during the audit — before you commit to building anything.</p>
             </div>
           </details>
 
@@ -415,7 +419,7 @@ const lang = 'en';
         <p class="cta-text">Free 30-minute consultation. No sales pitch. Just honest advice on whether Claude is right for you.</p>
         <div class="cta-buttons">
           <a href="/en/contact/" class="btn-primary">Book Free Consultation</a>
-          <a href="/en/pricing" class="btn-secondary">See Pricing</a>
+          <a href="/en/pricing/" class="btn-secondary">See Pricing</a>
         </div>
       </div>
     </section>
@@ -1335,36 +1339,3 @@ const lang = 'en';
 
 </style>
 
-<script>
-  // GSAP counter animation for impact stats
-  if (typeof window !== 'undefined') {
-    import('gsap').then(({ gsap }) => {
-      import('gsap/ScrollTrigger').then(({ ScrollTrigger }) => {
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Final values are server-rendered; only animate 0 -> target when JS runs.
-        const counters = document.querySelectorAll('.stat-item .stat-value[data-target]');
-
-        counters.forEach((counter) => {
-          const target = parseFloat(counter.getAttribute('data-target') || '0');
-          const suffix = counter.getAttribute('data-suffix') || '';
-          const state = { value: 0 };
-
-          gsap.fromTo(state, { value: 0 }, {
-            value: target,
-            duration: 2,
-            ease: 'power2.out',
-            scrollTrigger: {
-              trigger: counter.closest('.stat-item'),
-              start: 'top 85%',
-              once: true,
-            },
-            onUpdate: () => {
-              counter.textContent = Math.round(state.value) + suffix;
-            },
-          });
-        });
-      });
-    });
-  }
-</script>
