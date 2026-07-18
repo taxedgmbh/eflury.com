@@ -123,4 +123,4 @@ If you're running an accounting or tax advisory firm in Switzerland and the docu
 2. **Assess your fit:** Not every firm's workflow is identical — we'll map your specific process
 3. **Pilot deployment:** Start with 10-20 clients to validate before full rollout
 
-*Ready to see how AI can transform your peak season? [Book a free consultation](/en#contact).*
+*Ready to see how AI can transform your peak season? [Book a free consultation](/en/contact/).*

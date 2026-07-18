@@ -127,4 +127,4 @@ Der Bereitstellungsprozess ist darauf ausgelegt, nicht störend zu sein:
 3. **Tuning (1 Woche):** Konfiguration basierend auf Ihrem Feedback verfeinert
 4. **Übergabe (laufend):** Monatliche Optimierung basierend auf Performance-Daten
 
-*Wenn E-Mail-Management mehr von Ihrem Tag beansprucht als es sollte, [lassen Sie uns besprechen, ob ein KI-Triage-Agent für Ihre Praxis Sinn macht](/de#contact).*
+*Wenn E-Mail-Management mehr von Ihrem Tag beansprucht als es sollte, [lassen Sie uns besprechen, ob ein KI-Triage-Agent für Ihre Praxis Sinn macht](/de/kontakt/).*

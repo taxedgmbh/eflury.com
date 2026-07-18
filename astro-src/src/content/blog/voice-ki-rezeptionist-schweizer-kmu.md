@@ -152,4 +152,4 @@ Wenn Sie ein Schweizer Kleinunternehmen sind, das Anrufe an die Mailbox verliert
 2. **Kategorisieren Sie Ihre Anrufe** — welcher Prozentsatz sind Routine-Buchungen/Anfragen?
 3. **Berechnen Sie die Kosten** — was kostet Sie potenziell jeder verpasste Anruf?
 
-Wenn die Zahlen eine Chance nahelegen, [lassen Sie uns darüber sprechen, ob ein Voice-KI-Rezeptionist für Ihr Unternehmen Sinn macht](/de#contact).
+Wenn die Zahlen eine Chance nahelegen, [lassen Sie uns darüber sprechen, ob ein Voice-KI-Rezeptionist für Ihr Unternehmen Sinn macht](/de/kontakt/).

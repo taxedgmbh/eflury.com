@@ -106,4 +106,4 @@ The Swiss SME market is massively underserved when it comes to AI agent deployme
 
 OpenClaw Setup-as-a-Service fills that gap perfectly: proven open-source technology, delivered as a managed service, by a local consultant who understands the Swiss business landscape.
 
-*Interested in exploring whether an AI agent could work for your business? [Book a free 30-minute assessment](/en#contact).*
+*Interested in exploring whether an AI agent could work for your business? [Book a free 30-minute assessment](/en/contact/).*

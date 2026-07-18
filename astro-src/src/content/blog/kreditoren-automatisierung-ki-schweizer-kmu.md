@@ -655,7 +655,7 @@ Entdecken Sie Ihre spezifische Chance in einer kostenlosen Bewertung:
 
 **Kein Verkaufsgespräch. Keine Verpflichtung. Nur praktische Erkenntnisse für Ihr Geschäft.**
 
-[Buchen Sie Ihre kostenlose Bewertung](/de#contact)
+[Buchen Sie Ihre kostenlose Bewertung](/de/kontakt/)
 
 ### Option 2: Kreditorenbuchhaltungs-Automatisierungs-Bereitschafts-Checkliste
 

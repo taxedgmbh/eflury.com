@@ -643,7 +643,7 @@ Für Organisationen, die bereit sind voranzuschreiten, empfehle ich die folgende
 
 **Bereit zu erkunden, was Agentic AI für Ihre Organisation bedeuten könnte?**
 
-Ich lade Sie ein, [eine kostenlose 60-minütige Strategiesitzung zu vereinbaren](/de#contact), in der wir:
+Ich lade Sie ein, [eine kostenlose 60-minütige Strategiesitzung zu vereinbaren](/de/kontakt/), in der wir:
 
 - Ihre spezifischen Prozesse gegen bewährte Agentic AI-Anwendungsfälle bewerten
 - Die höchst-ROI-Möglichkeiten für Ihre Organisation identifizieren

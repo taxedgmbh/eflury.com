@@ -200,7 +200,7 @@ Accounting automation is no longer a luxury for Swiss SMEs - it's necessary to r
 
 The key to success: Start small, measure results, and expand gradually.
 
-Want to know what automation potential exists in your accounting? [Schedule a free analysis](/en#contact).
+Want to know what automation potential exists in your accounting? [Schedule a free analysis](/en/contact/).
 
 ---
 

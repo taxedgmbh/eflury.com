@@ -235,7 +235,7 @@ Meine Empfehlung für Schweizer Unternehmen, die neu in der Automatisierung sind
 
 Der Schlüssel ist, irgendwo anzufangen. Analyse-Paralyse ist die grösste Barriere für Automatisierungserfolg.
 
-Bereit, den richtigen Automatisierungs-Mix für Ihr Unternehmen zu bestimmen? [Lassen Sie uns Ihre Prozesse gemeinsam analysieren](/de#contact).
+Bereit, den richtigen Automatisierungs-Mix für Ihr Unternehmen zu bestimmen? [Lassen Sie uns Ihre Prozesse gemeinsam analysieren](/de/kontakt/).
 
 ---
 

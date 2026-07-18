@@ -48,11 +48,11 @@ const t = useTranslations(lang);
       </ul>
 
       <div class="exit-actions">
-        <a href="#free-guide" class="exit-btn primary" data-action="guide">
+        <a href={lang === 'de' ? '/de/leitfaeden/' : '/en/guides/'} class="exit-btn primary" data-action="guide">
           {lang === 'de' ? 'Kostenlosen Guide holen' : 'Get Free Guide'}
           <ArrowRight size={16} />
         </a>
-        <a href="#contact" class="exit-btn secondary" data-action="contact">
+        <a href={lang === 'de' ? '/de/kontakt/' : '/en/contact/'} class="exit-btn secondary" data-action="contact">
           {lang === 'de' ? 'Lieber direkt sprechen' : 'Prefer to talk directly'}
         </a>
       </div>

@@ -950,7 +950,7 @@ Falls Sie bis hierher gelesen haben, erkennen Sie wahrscheinlich, dass Ihre Orga
 
 Die Statistiken sind klar, die regulatorischen Anforderungen sind etabliert und die technischen Lösungen sind verfügbar. Die einzige verbleibende Frage ist, ob Ihre Organisation Schatten-KI proaktiv adressieren wird – oder bis eine Verletzung Sie dazu zwingt, zu handeln.
 
-**Ich lade Sie ein, [eine kostenlose 45-minütige Schatten-KI-Bewertung zu buchen](/de#contact), während der wir:**
+**Ich lade Sie ein, [eine kostenlose 45-minütige Schatten-KI-Bewertung zu buchen](/de/kontakt/), während der wir:**
 
 - **Ihre aktuelle Schatten-KI-Exposition bewerten** mit bewährten Bewertungsmethodologien
 - **Ihre höchstrisiko-Anwendungsfälle identifizieren** basierend auf Ihrer Branche, Datensensibilität und Mitarbeiterrollen

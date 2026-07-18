@@ -123,4 +123,4 @@ Wenn Sie eine Buchhaltungs- oder Steuerberatungsfirma in der Schweiz führen und
 2. **Eignung prüfen:** Nicht jeder Firmen-Workflow ist identisch — wir kartieren Ihren spezifischen Prozess
 3. **Pilot-Bereitstellung:** Mit 10-20 Kunden beginnen, um vor dem vollen Rollout zu validieren
 
-*Bereit zu sehen, wie KI Ihre Hochsaison transformieren kann? [Buchen Sie eine kostenlose Beratung](/de#contact).*
+*Bereit zu sehen, wie KI Ihre Hochsaison transformieren kann? [Buchen Sie eine kostenlose Beratung](/de/kontakt/).*

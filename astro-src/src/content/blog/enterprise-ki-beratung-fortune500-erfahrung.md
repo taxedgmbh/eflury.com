@@ -143,4 +143,4 @@ Für Schweizer Unternehmen, die eine Enterprise-KI-Bereitstellung evaluieren, is
 3. **Die Bereitschaft** Ihres aktuellen Technologie-Stacks bewerten
 4. **Eine realistische Roadmap** mit klaren Meilensteinen definieren
 
-*Wenn Ihre Organisation KI-Fähigkeiten evaluiert und einen Partner mit Enterprise-Erfahrung braucht, [lassen Sie uns über Ihre spezifische Situation sprechen](/de#contact).*
+*Wenn Ihre Organisation KI-Fähigkeiten evaluiert und einen Partner mit Enterprise-Erfahrung braucht, [lassen Sie uns über Ihre spezifische Situation sprechen](/de/kontakt/).*
