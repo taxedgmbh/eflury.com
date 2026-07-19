@@ -1,6 +1,6 @@
 ---
 import { type Language, useTranslations } from '../i18n/utils';
-import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2 } from 'lucide-astro';
+import { Mail, Phone, MapPin, Send, MessageCircle, CheckCircle2, Check } from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -29,6 +29,12 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
       <div class="contact-info">
         <h3>{t('contact.info_title')}</h3>
         <p>{t('contact.info_description')}</p>
+
+        <ul class="info-benefits">
+          <li><Check size={15} /> {t('contact.benefits.ai_fit')}</li>
+          <li><Check size={15} /> {t('contact.benefits.process')}</li>
+          <li><Check size={15} /> {t('contact.benefits.timeline')}</li>
+        </ul>
 
         <div class="contact-methods">
           <div class="contact-method">
@@ -85,12 +91,6 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
             <p class="response-guarantee">{t('contact.response_guarantee') || 'Response within 24 hours'}</p>
           </div>
         </div>
-
-        <ul class="contact-benefits">
-          <li>{t('contact.benefits.ai_fit') || 'If AI automation fits your business'}</li>
-          <li>{t('contact.benefits.process') || 'Which process to automate first'}</li>
-          <li>{t('contact.benefits.timeline') || 'Realistic timeline and budget'}</li>
-        </ul>
 
         <div class="form-group">
           <label for="name">{t('contact.form.name')}</label>
@@ -446,17 +446,16 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
   }
 
   .field-hint {
-    display: block;
+    display: none;
     margin-top: 6px;
-    color: var(--text-tertiary);
+    color: var(--text-secondary);
     font-size: 13px;
     line-height: 1.38462;
-    transition: opacity var(--transition-base);
   }
 
   .form-group input:focus ~ .field-hint,
   .form-group textarea:focus ~ .field-hint {
-    color: var(--text-secondary);
+    display: block;
   }
 
   .form-group input.error ~ .field-hint,
@@ -735,33 +734,29 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
     color: var(--teal-text);
   }
 
-  /* Contact benefits list */
-  .contact-benefits {
+  /* What-you-learn list in the info column */
+  .info-benefits {
     list-style: none;
     padding: 0;
-    margin: 0 0 1.5rem 0;
-    background: rgba(13, 148, 136, 0.08);
-    border-radius: 12px;
-    padding: 1.25rem 1.5rem;
-    border: 1px solid rgba(13, 148, 136, 0.15);
-  }
-
-  .contact-benefits li {
+    margin: 0 0 2rem 0;
     display: flex;
-    align-items: center;
-    gap: 0.75rem;
-    color: var(--text-primary);
-    font-size: 15px;
-    line-height: 1.5;
-    padding: 0.4rem 0;
+    flex-direction: column;
+    gap: 0.5rem;
   }
 
-  .contact-benefits li::before {
-    content: '\2713';
+  .info-benefits li {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.55rem;
+    color: var(--text-primary);
+    font-size: 0.93rem;
+    line-height: 1.5;
+  }
+
+  .info-benefits li :global(svg) {
     color: var(--teal-text);
-    font-weight: 700;
-    font-size: 14px;
     flex-shrink: 0;
+    margin-top: 0.2rem;
   }
 
   @media (max-width: 768px) {
@@ -846,19 +841,6 @@ const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAAC
     .response-guarantee {
       font-size: 11px;
       padding: 0.25rem 0.5rem;
-    }
-
-    /* Contact benefits list */
-    .contact-benefits {
-      padding: 0.875rem 1rem;
-      margin: 0 0 1.25rem 0;
-      border-radius: 10px;
-    }
-
-    .contact-benefits li {
-      font-size: 13px;
-      line-height: 1.4;
-      padding: 0.35rem 0;
     }
 
     /* Form groups */
