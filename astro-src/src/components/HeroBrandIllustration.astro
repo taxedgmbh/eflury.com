@@ -2,7 +2,9 @@
 /**
  * Homepage hero visual: the eFlury circuit-E orchestrating the business —
  * circuit traces (echoing the logo's own line-and-node language) run from
- * inputs to approved outcomes. Pure inline SVG on design tokens.
+ * inputs to approved outcomes. Animated: work items flow in, the engine
+ * pulses, outcomes complete. Pure inline SVG on design tokens; motion via
+ * SMIL + CSS, fully disabled under prefers-reduced-motion.
  */
 ---
 
@@ -37,6 +39,36 @@
     <circle cx="430" cy="261" r="6" />
   </g>
 
+  <!-- work items flowing in and results flowing out (hidden under reduced motion) -->
+  <g class="flow-dots" fill="var(--eflury-blue)">
+    <circle r="4.5" opacity="0">
+      <animateMotion path="M170,119 L232,150" dur="2.4s" begin="0s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.15;0.8;1" dur="2.4s" begin="0s" repeatCount="indefinite" />
+    </circle>
+    <circle r="4.5" opacity="0">
+      <animateMotion path="M161,190 L228,190" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.15;0.8;1" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+    </circle>
+    <circle r="4.5" opacity="0">
+      <animateMotion path="M170,261 L232,232" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.15;0.8;1" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
+    </circle>
+  </g>
+  <g class="flow-dots" fill="var(--eflury-teal)">
+    <circle r="4.5" opacity="0">
+      <animateMotion path="M368,150 L430,119" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.15;0.8;1" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
+    </circle>
+    <circle r="4.5" opacity="0">
+      <animateMotion path="M372,190 L439,190" dur="2.4s" begin="2s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.15;0.8;1" dur="2.4s" begin="2s" repeatCount="indefinite" />
+    </circle>
+    <circle r="4.5" opacity="0">
+      <animateMotion path="M368,232 L430,261" dur="2.4s" begin="2.8s" repeatCount="indefinite" />
+      <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.15;0.8;1" dur="2.4s" begin="2.8s" repeatCount="indefinite" />
+    </circle>
+  </g>
+
   <!-- left chips: inputs -->
   <g>
     <rect x="30" y="88" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="1.5" />
@@ -62,25 +94,26 @@
   <!-- right chips: outcomes -->
   <g>
     <rect x="442" y="88" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="1.5" />
-    <rect x="458" y="126" width="14" height="14" rx="3" fill="var(--eflury-teal)" opacity="0.9" />
-    <rect x="478" y="112" width="14" height="28" rx="3" fill="var(--eflury-navy)" opacity="0.75" />
-    <rect x="498" y="102" width="14" height="38" rx="3" fill="var(--eflury-blue)" opacity="0.85" />
+    <rect class="bar bar-1" x="458" y="126" width="14" height="14" rx="3" fill="var(--eflury-teal)" opacity="0.9" />
+    <rect class="bar bar-2" x="478" y="112" width="14" height="28" rx="3" fill="var(--eflury-navy)" opacity="0.75" />
+    <rect class="bar bar-3" x="498" y="102" width="14" height="38" rx="3" fill="var(--eflury-blue)" opacity="0.85" />
     <rect x="522" y="108" width="32" height="9" rx="4.5" fill="var(--text-tertiary)" opacity="0.5" />
   </g>
   <g>
     <rect x="450" y="159" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="1.5" />
     <rect x="466" y="175" width="66" height="9" rx="4.5" fill="var(--text-tertiary)" opacity="0.55" />
-    <rect x="466" y="193" width="96" height="12" rx="6" fill="var(--eflury-teal)" opacity="0.85" />
+    <rect class="report-bar" x="466" y="193" width="96" height="12" rx="6" fill="var(--eflury-teal)" opacity="0.85" />
   </g>
   <g>
     <rect x="442" y="230" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="1.5" />
     <circle cx="470" cy="261" r="15" fill="var(--success-50)" stroke="var(--eflury-teal)" stroke-width="2.4" />
-    <path d="M463 261 L 468 266 L 478 255.5" stroke="var(--teal-text)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
+    <path class="check-draw" d="M463 261 L 468 266 L 478 255.5" stroke="var(--teal-text)" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none" />
     <rect x="494" y="248" width="60" height="9" rx="4.5" fill="var(--eflury-navy)" opacity="0.6" />
     <rect x="494" y="266" width="46" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.5" />
   </g>
 
   <!-- center: the brand mark on its plate -->
+  <rect class="pulse-ring" x="217" y="107" width="166" height="166" rx="36" stroke="var(--eflury-teal)" stroke-width="2" fill="none" opacity="0" />
   <g>
     <rect x="225" y="115" width="150" height="150" rx="32" fill="#fff" stroke="var(--eflury-teal)" stroke-width="3" />
     <image href="/images/favicon-tab.png" x="240" y="130" width="120" height="120" />
@@ -100,5 +133,64 @@
     width: 100%;
     height: auto;
     border-radius: 24px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .pulse-ring {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: hb-pulse 3.6s ease-in-out infinite;
+    }
+
+    .report-bar {
+      transform-box: fill-box;
+      transform-origin: left center;
+      animation: hb-fill 4.8s ease-in-out infinite;
+    }
+
+    .bar {
+      transform-box: fill-box;
+      transform-origin: center bottom;
+      animation: hb-breathe 3.2s ease-in-out infinite alternate;
+    }
+
+    .bar-2 { animation-delay: 0.5s; }
+    .bar-3 { animation-delay: 1s; }
+
+    .check-draw {
+      stroke-dasharray: 26;
+      animation: hb-check 4.8s ease-in-out infinite;
+    }
+  }
+
+  /* the flowing dots are SMIL-driven; remove them entirely for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .flow-dots {
+      display: none;
+    }
+  }
+
+  @keyframes hb-pulse {
+    0%, 100% { transform: scale(1); opacity: 0; }
+    50% { transform: scale(1.045); opacity: 0.55; }
+  }
+
+  @keyframes hb-fill {
+    0% { transform: scaleX(0.3); }
+    55% { transform: scaleX(1); }
+    88% { transform: scaleX(1); }
+    100% { transform: scaleX(0.3); }
+  }
+
+  @keyframes hb-breathe {
+    from { transform: scaleY(0.82); }
+    to { transform: scaleY(1); }
+  }
+
+  @keyframes hb-check {
+    0% { stroke-dashoffset: 26; }
+    30% { stroke-dashoffset: 0; }
+    88% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 26; }
   }
 </style>
