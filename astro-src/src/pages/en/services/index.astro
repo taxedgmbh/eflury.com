@@ -108,6 +108,12 @@ const buildServices = [
           <span class="go"><ArrowRight size={18} /></span>
         </a>
 
+        <h2 class="explore-title">What it looks like in practice</h2>
+        <p class="demo-sub">30 seconds, a fictional example from a painting business: from email intake to an approved quote — human in the loop.</p>
+        <div class="demo-frame">
+          <iframe src="/demo/quote-process-en.html" title="Demo: automated quote process (fictional example)" loading="lazy"></iframe>
+        </div>
+
         <h2 class="explore-title">Explore more</h2>
         <div class="explore-grid">
           <a href="/en/pricing/" class="explore-card">
@@ -459,6 +465,32 @@ const buildServices = [
     border-radius: var(--radius-full);
     vertical-align: middle;
     margin-left: 0.35rem;
+  }
+
+  /* Demo band */
+  .demo-sub {
+    text-align: center;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    max-width: 620px;
+    margin: 0 auto 1.5rem;
+  }
+
+  .demo-frame {
+    aspect-ratio: 16 / 9;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+    background: #0b1524;
+  }
+
+  .demo-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+    display: block;
   }
 
   /* CTA */
