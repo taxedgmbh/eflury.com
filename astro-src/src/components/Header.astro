@@ -1,7 +1,24 @@
 ---
 import { type Language, useTranslations, routes } from '../i18n/utils';
 import DarkModeToggle from './DarkModeToggle.astro';
-import { ChevronDown } from 'lucide-astro';
+import {
+  ChevronDown,
+  ClipboardCheck,
+  FileText,
+  Cpu,
+  Server,
+  Calculator,
+  BarChart3,
+  Database,
+  Activity,
+  Briefcase,
+  User,
+  Route,
+  FolderCheck,
+  Shield,
+  BadgeSwissFranc,
+  Users,
+} from 'lucide-astro';
 
 interface Props {
   lang: Language;
@@ -11,6 +28,7 @@ interface Props {
 const { lang, languageSwitchUrl } = Astro.props;
 const t = useTranslations(lang);
 const currentRoutes = routes[lang];
+const de = lang === 'de';
 
 // Generate language switch URLs that preserve the current page
 const currentPath = Astro.url.pathname;
@@ -34,6 +52,159 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
   // Replace /en/ or /de/ prefix with target language
   return currentPath.replace(/^\/(en|de)\//, `/${targetLang}/`);
 };
+
+// ---- mega menu content (approved design: lifecycle stages + proof rail) ----
+const servicesMenu = {
+  stages: [
+    {
+      pill: 'Advise',
+      cls: 'navy',
+      line: de ? 'Verstehen & priorisieren' : 'Understand & prioritize',
+      items: [
+        {
+          icon: ClipboardCheck,
+          title: de ? 'KI-Audit' : 'AI Audit',
+          sub: de ? "Roadmap in 1 Woche · CHF 4'900, voll angerechnet" : "Roadmap in 1 week · CHF 4'900, fully credited",
+          href: de ? '/de/services/ki-audit/' : '/en/services/ai-audit/',
+        },
+        {
+          icon: FileText,
+          title: de ? 'Musterbericht (PDF)' : 'Sample report (PDF)',
+          sub: de ? 'So sieht das Audit-Ergebnis aus' : 'What the audit result looks like',
+          href: de ? '/downloads/eflury-sample-audit-report-de.pdf' : '/downloads/eflury-sample-audit-report-en.pdf',
+        },
+      ],
+    },
+    {
+      pill: 'Build',
+      cls: 'teal',
+      line: de ? 'Bauen & einführen' : 'Build & roll out',
+      items: [
+        {
+          icon: Cpu,
+          title: 'Claude Skills',
+          sub: de ? 'Kernbaustein jedes Pakets' : 'Core building block of every package',
+          href: `/${lang}/services/claude-skills/`,
+        },
+        {
+          icon: Server,
+          title: 'MCP Integration',
+          sub: de ? 'bexio · Datenbanken · Microsoft 365' : 'bexio · databases · Microsoft 365',
+          href: `/${lang}/services/mcp-integration/`,
+        },
+        {
+          icon: Calculator,
+          title: de ? 'Finanz-Automatisierung' : 'Finance Automation',
+          sub: de ? 'Monatsabschluss · Kreditoren · Reporting' : 'Month-end close · payables · reporting',
+          href: de ? '/de/services/finanzen-automatisierung/' : '/en/services/finance-automation/',
+        },
+        {
+          icon: BarChart3,
+          title: 'Power BI',
+          sub: de ? 'Dashboards · Excel-Migration' : 'Dashboards · Excel migration',
+          href: `/${lang}/services/power-bi/`,
+        },
+        {
+          icon: Database,
+          title: de ? 'Datenqualität' : 'Data Quality',
+          badge: de ? 'Neu' : 'New',
+          sub: de ? 'KI-Agenten mit Live-Demo' : 'AI agents with live demo',
+          href: de ? '/de/services/datenqualitaet/' : '/en/services/data-quality/',
+        },
+      ],
+    },
+    {
+      pill: 'Run',
+      cls: 'blue',
+      line: de ? 'Betreiben & verbessern' : 'Run & improve',
+      items: [
+        {
+          icon: Activity,
+          title: 'Managed AI Operations',
+          sub: de ? "Monitoring & Betrieb · ab CHF 1'200/Monat" : "Monitoring & operations · from CHF 1'200/month",
+          href: de ? '/de/services/ki-betrieb/' : '/en/services/managed-ai-operations/',
+        },
+      ],
+    },
+  ],
+  rail: {
+    title: de ? 'Ein Lebenszyklus, Fixpreise' : 'One lifecycle, fixed prices',
+    sub: de
+      ? 'Wir beraten, bevor wir bauen — und betreiben, was wir gebaut haben.'
+      : "We advise before we build — and run what we've built.",
+    links: [
+      { label: de ? 'Preise & Pakete' : 'Pricing & packages', small: de ? "ab CHF 5'900" : "from CHF 5'900", href: `/${lang}/pricing/` },
+      { label: de ? 'Demo ansehen' : 'Watch the demo', small: de ? '30-Sek.-Beispiel' : '30-sec example', href: `/${lang}/services/#demo` },
+      { label: de ? 'Referenzen' : 'Case studies', small: '', href: `/${lang}/case-studies/` },
+    ],
+  },
+  bottomLink: { label: de ? 'Alle Leistungen im Überblick' : 'All services at a glance', href: `/${lang}/services/` },
+  bottomNote: de
+    ? 'Nicht sicher? Kostenloses 30-Min-Gespräch — wir sagen ehrlich, ob es passt.'
+    : "Not sure? Free 30-min call — we'll tell you honestly if it fits.",
+};
+
+const industriesMenu = {
+  items: [
+    {
+      icon: Calculator,
+      title: de ? 'Finanzen & Back Office' : 'Finance & Back Office',
+      sub: de
+        ? 'Kreditoren · Monatsabschluss · Mahnwesen — 2 dokumentierte Projekte'
+        : 'Payables · month-end close · dunning — 2 documented projects',
+      href: de ? '/de/branchen/finanzteams/' : '/en/industries/finance-teams/',
+    },
+    {
+      icon: Briefcase,
+      title: de ? 'Kundenkommunikation & Annahme' : 'Customer Communication & Intake',
+      sub: de
+        ? 'E-Mail-Triage · Telefon · WhatsApp · Offertanfragen — 1 Projekt'
+        : 'Email triage · phone · WhatsApp · quote requests — 1 project',
+      href: de ? '/de/branchen/dienstleister/' : '/en/industries/professional-services/',
+    },
+    {
+      icon: BarChart3,
+      title: de ? 'Reporting & Daten' : 'Reporting & Data',
+      sub: de
+        ? 'Power-BI-Dashboards · Excel-Migration · Datenqualität — 1 Projekt'
+        : 'Power BI dashboards · Excel migration · data quality — 1 project',
+      href: de ? '/de/branchen/reporting-daten/' : '/en/industries/reporting-data/',
+    },
+  ],
+  rail: {
+    title: de ? 'Verankert in Projekten' : 'Grounded in projects',
+    links: [
+      { label: de ? '~40 Std./Monat' : '~40 h/month', small: de ? 'Finanzprozesse' : 'finance processes', href: `/${lang}/case-studies/finance-automation/` },
+      { label: de ? '~15 Std./Woche' : '~15 h/week', small: 'Reporting', href: `/${lang}/case-studies/power-bi-reporting/` },
+      { label: de ? '~27.5 Std./Woche' : '~27.5 h/week', small: de ? 'eigene Firma' : 'our own firm', href: `/${lang}/case-studies/taxed-gmbh/` },
+    ],
+    sub: de ? 'Publizierte Schätzungen — jede Zahl führt zur Fallstudie.' : 'Published estimates — every number links to its case study.',
+  },
+  bottomLink: { label: de ? 'Alle Einsatzbereiche' : 'All business areas', href: currentRoutes.industries },
+  bottomNote: de ? 'Ihre Branche fehlt? Ihr Prozess vermutlich nicht.' : "Your industry missing? Your process probably isn't.",
+};
+
+const companyMenu = [
+  { icon: User, title: de ? 'Über uns' : 'About us', href: `/${lang}/about/` },
+  { icon: Route, title: de ? 'Unsere Methode' : 'Our method', href: de ? '/de/methode/' : '/en/method/' },
+  { icon: FolderCheck, title: de ? 'Referenzen' : 'Case studies', href: `/${lang}/case-studies/` },
+  { icon: Shield, title: de ? 'Sicherheit & Vertrauen' : 'Trust & Security', href: de ? '/de/sicherheit/' : '/en/trust/' },
+  { icon: BadgeSwissFranc, title: de ? 'Preise' : 'Pricing', href: `/${lang}/pricing/` },
+  { icon: Users, title: de ? 'Karriere' : 'Careers', href: de ? '/de/karriere/' : '/en/careers/' },
+];
+
+const englishLabelEN = de ? 'Englisch' : 'English';
+const germanLabelEN = de ? 'Deutsch' : 'German';
+
+// mini lifecycle orbit for the services rail (computed arcs, logo at center)
+const ocx = 120, ocy = 74, orr = 50;
+const orad = (d: number) => (d * Math.PI) / 180;
+const opt = (d: number) => [ocx + orr * Math.cos(orad(d)), ocy + orr * Math.sin(orad(d))];
+const oarc = (a: number, b: number) => {
+  const [x1, y1] = opt(a);
+  const [x2, y2] = opt(b);
+  return `M ${x1.toFixed(1)} ${y1.toFixed(1)} A ${orr} ${orr} 0 0 1 ${x2.toFixed(1)} ${y2.toFixed(1)}`;
+};
 ---
 
 <!-- Skip to Content Link for Accessibility -->
@@ -51,31 +222,124 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     <div class="nav-content">
       <ul class="nav-links" id="navLinks">
         <li><a href={`/${lang}/#home`}>{t('nav.home')}</a></li>
-        <li class="nav-dropdown">
-          <button class="nav-dropdown-trigger" aria-expanded="false" aria-haspopup="true">
+
+        <!-- Leistungen: mega panel -->
+        <li class="nav-mega" data-mega>
+          <button class="nav-mega-trigger" aria-expanded="false" aria-haspopup="true">
             {t('nav.services')}
             <ChevronDown size={14} class="dropdown-chevron" />
           </button>
-          <div class="nav-dropdown-menu">
-            <a href={`/${lang}/services`}>{t('nav.services_overview')}</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href={lang === 'de' ? '/de/services/ki-audit/' : '/en/services/ai-audit/'}>{lang === 'de' ? 'KI-Audit' : 'AI Audit'}</a>
-            <a href={`/${lang}/services/claude-skills`}>Claude Skills</a>
-            <a href={`/${lang}/services/mcp-integration`}>MCP Integration</a>
-            <a href={lang === 'de' ? `/${lang}/services/finanzen-automatisierung` : `/${lang}/services/finance-automation`}>{lang === 'de' ? 'Finanzautomatisierung' : 'Finance Automation'}</a>
-            <a href={`/${lang}/services/power-bi`}>Power BI</a>
-            <a href={lang === 'de' ? `/${lang}/services/datenqualitaet` : `/${lang}/services/data-quality`}>{lang === 'de' ? 'Datenqualität' : 'Data Quality'}</a>
-            <a href={lang === 'de' ? '/de/services/ki-betrieb/' : '/en/services/managed-ai-operations/'}>{lang === 'de' ? 'KI-Betrieb' : 'Managed Operations'}</a>
-            <div class="nav-dropdown-divider"></div>
-            <a href={`/${lang}/pricing`}>{t('nav.pricing')}</a>
-            <a href={`/${lang}/skopaai`} class="nav-skopaai">{t('nav.skopaai')}<span class="nav-badge">{t('nav.new')}</span></a>
-            <a href={`/${lang}/case-studies`}>{t('nav.case_studies')}</a>
+          <div class="mega-panel">
+            <div class="mega-inner">
+              <div class="mega-cols">
+                {servicesMenu.stages.map((stage) => (
+                  <div class="mega-stage">
+                    <div class="mega-stage-head">
+                      <span class:list={['mega-pill', stage.cls]}>{stage.pill}</span>
+                      <span class="mega-stage-line">{stage.line}</span>
+                    </div>
+                    <div class="mega-items">
+                      {stage.items.map((item) => (
+                        <a href={item.href} class="mega-item">
+                          <span class="mega-tile"><item.icon size={19} /></span>
+                          <span class="mega-item-body">
+                            <span class="mega-item-title">{item.title}{item.badge && <span class="mega-new">{item.badge}</span>}</span>
+                            <span class="mega-item-sub">{item.sub}</span>
+                          </span>
+                        </a>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div class="mega-rail">
+                <div class="mega-rail-art">
+                  <svg viewBox="0 0 240 148" fill="none" aria-hidden="true">
+                    <circle cx={ocx} cy={ocy} r={orr} stroke="var(--border-color)" stroke-width="1.5" stroke-dasharray="2 7" fill="none" />
+                    <path d={oarc(-80, 20)} stroke="var(--surface-navy)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.9" />
+                    <path d={oarc(40, 140)} stroke="var(--eflury-teal)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.9" />
+                    <path d={oarc(160, 260)} stroke="var(--eflury-blue)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.9" />
+                    <rect x={ocx - 21} y={ocy - 21} width="42" height="42" rx="10" fill="#fff" stroke="var(--eflury-teal)" stroke-width="2" />
+                    <image href="/images/favicon-tab.png" x={ocx - 17} y={ocy - 17} width="34" height="34" />
+                    <text x={ocx} y="142" text-anchor="middle" font-size="9.5" font-weight="800" letter-spacing="0.08em" fill="var(--text-secondary)" font-family="inherit">ADVISE · BUILD · RUN</text>
+                  </svg>
+                </div>
+                <div class="mega-rail-title">{servicesMenu.rail.title}</div>
+                <div class="mega-rail-sub">{servicesMenu.rail.sub}</div>
+                <div class="mega-rail-links">
+                  {servicesMenu.rail.links.map((l) => (
+                    <a href={l.href} class="mega-rail-link">{l.label} → {l.small && <small>{l.small}</small>}</a>
+                  ))}
+                </div>
+              </div>
+            </div>
+            <div class="mega-bottom">
+              <a href={servicesMenu.bottomLink.href} class="mega-bottom-link">{servicesMenu.bottomLink.label} →</a>
+              <span class="mega-bottom-note">{servicesMenu.bottomNote}</span>
+            </div>
           </div>
         </li>
-        <li><a href={currentRoutes.industries}>{t('nav.industries')}</a></li>
-        <li><a href={`/${lang}/about`}>{t('nav.about')}</a></li>
+
+        <!-- Einsatzbereiche: mega panel -->
+        <li class="nav-mega" data-mega>
+          <button class="nav-mega-trigger" aria-expanded="false" aria-haspopup="true">
+            {t('nav.industries')}
+            <ChevronDown size={14} class="dropdown-chevron" />
+          </button>
+          <div class="mega-panel mega-panel-mid">
+            <div class="mega-inner mega-inner-mid">
+              <div class="mega-cols">
+                <div class="mega-items mega-items-1col">
+                  {industriesMenu.items.map((item) => (
+                    <a href={item.href} class="mega-item">
+                      <span class="mega-tile"><item.icon size={19} /></span>
+                      <span class="mega-item-body">
+                        <span class="mega-item-title">{item.title}</span>
+                        <span class="mega-item-sub">{item.sub}</span>
+                      </span>
+                    </a>
+                  ))}
+                </div>
+              </div>
+              <div class="mega-rail">
+                <div class="mega-rail-title">{industriesMenu.rail.title}</div>
+                <div class="mega-rail-links">
+                  {industriesMenu.rail.links.map((l) => (
+                    <a href={l.href} class="mega-rail-link">{l.label} <small>{l.small}</small></a>
+                  ))}
+                </div>
+                <div class="mega-rail-sub">{industriesMenu.rail.sub}</div>
+              </div>
+            </div>
+            <div class="mega-bottom">
+              <a href={industriesMenu.bottomLink.href} class="mega-bottom-link">{industriesMenu.bottomLink.label} →</a>
+              <span class="mega-bottom-note">{industriesMenu.bottomNote}</span>
+            </div>
+          </div>
+        </li>
+
+        <!-- Unternehmen: compact dropdown -->
+        <li class="nav-mega nav-mega-small" data-mega>
+          <button class="nav-mega-trigger" aria-expanded="false" aria-haspopup="true">
+            {de ? 'Unternehmen' : 'Company'}
+            <ChevronDown size={14} class="dropdown-chevron" />
+          </button>
+          <div class="mega-panel mega-panel-small">
+            <div class="mega-items mega-items-1col mega-items-compact">
+              {companyMenu.map((item) => (
+                <a href={item.href} class="mega-item">
+                  <span class="mega-tile"><item.icon size={17} /></span>
+                  <span class="mega-item-body">
+                    <span class="mega-item-title">{item.title}</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        </li>
+
         <li><a href={`/${lang}/blog`}>{t('nav.blog')}</a></li>
-        <li><a href={lang === 'de' ? '/de/kontakt/' : '/en/contact/'}>{t('nav.contact')}</a></li>
+        <li class="mobile-contact"><a href={de ? '/de/kontakt/' : '/en/contact/'}>{t('nav.contact')}</a></li>
 
         <!-- Mobile-only: Dark Mode Toggle -->
         <li class="mobile-dark-toggle">
@@ -100,6 +364,8 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
       </ul>
 
       <div class="nav-actions">
+        <a href={de ? '/de/kontakt/' : '/en/contact/'} class="nav-cta">{de ? 'Strategiegespräch' : 'Strategy call'}</a>
+
         <DarkModeToggle />
 
         <!-- Share Button (Modern Web API) -->
@@ -191,14 +457,14 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     box-shadow: var(--shadow-sm);
     border-bottom-color: var(--border-color);
   }
-  
+
   [data-theme="dark"] .navbar {
     background: var(--nav-bg);
     border-bottom-color: var(--border-color);
   }
 
   .nav-container {
-    max-width: 1200px;
+    max-width: 1260px;
     margin: 0 auto;
     padding: 0 2rem;
     display: flex;
@@ -222,16 +488,13 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
   /* App-icon treatment: same white plate in both themes */
   .logo-icon {
     border-radius: 7px;
+    width: 32px;
+    height: 32px;
+    object-fit: contain;
   }
 
   .logo:hover {
     opacity: 0.8;
-  }
-
-  .logo-icon {
-    width: 32px;
-    height: 32px;
-    object-fit: contain;
   }
 
   .logo-text {
@@ -239,19 +502,20 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     font-weight: 700;
     letter-spacing: -0.015em;
     color: var(--text-primary);
+    white-space: nowrap;
   }
 
   .nav-content {
     display: flex;
     align-items: center;
-    gap: 2rem;
+    gap: 1.15rem;
   }
 
   .nav-links {
     display: flex;
     align-items: center;
     list-style: none;
-    gap: 2rem;
+    gap: 1.35rem;
     margin: 0;
     padding: 0;
   }
@@ -267,7 +531,7 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     color: var(--text-secondary);
     text-decoration: none;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 16px;
     letter-spacing: -0.011em;
     line-height: 1;
     transition: color var(--transition-base);
@@ -282,31 +546,16 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     color: var(--primary);
   }
 
-  .nav-skopaai {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.375rem;
+  /* ---- mega menu ------------------------------------------------------- */
+  .nav-mega {
+    position: static;
   }
 
-  .nav-badge {
-    display: inline-block;
-    background: var(--action-teal);
-    color: white;
-    font-size: 9px;
-    font-weight: 700;
-    padding: 2px 6px;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-    vertical-align: middle;
-  }
-
-  /* Services Dropdown */
-  .nav-dropdown {
+  .nav-mega-small {
     position: relative;
   }
 
-  .nav-dropdown-trigger {
+  .nav-mega-trigger {
     display: flex;
     align-items: center;
     gap: 0.25rem;
@@ -315,7 +564,7 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     color: var(--text-secondary);
     font-family: inherit;
     font-weight: 400;
-    font-size: 17px;
+    font-size: 16px;
     line-height: 1;
     letter-spacing: -0.011em;
     cursor: pointer;
@@ -324,7 +573,8 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     transition: color var(--transition-base);
   }
 
-  .nav-dropdown-trigger:hover {
+  .nav-mega-trigger:hover,
+  .nav-mega.open .nav-mega-trigger {
     color: var(--text-primary);
   }
 
@@ -332,71 +582,301 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     transition: transform var(--transition-fast);
   }
 
-  .nav-dropdown:hover .dropdown-chevron,
-  .nav-dropdown.active .dropdown-chevron {
+  .nav-mega.open .dropdown-chevron {
     transform: rotate(180deg);
   }
 
-  .nav-dropdown-menu {
+  .mega-panel {
     position: absolute;
-    top: calc(100% + 0.75rem);
+    top: calc(100% + 6px);
     left: 50%;
-    transform: translateX(-50%);
+    transform: translateX(-50%) translateY(8px);
+    width: min(1060px, calc(100vw - 32px));
     background: var(--card-bg);
-    border: 0.5px solid var(--border-color);
-    border-radius: var(--radius-md);
-    box-shadow: var(--shadow-md);
-    min-width: 200px;
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    box-shadow: 0 30px 70px rgba(15, 42, 70, 0.18);
     opacity: 0;
     visibility: hidden;
-    transition: all var(--transition-base);
-    z-index: 100;
-    backdrop-filter: var(--blur-light);
-    -webkit-backdrop-filter: var(--blur-light);
-    padding: 0.5rem 0;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 200;
+    overflow: hidden;
   }
 
-  .nav-dropdown:hover .nav-dropdown-menu,
-  .nav-dropdown.active .nav-dropdown-menu {
+  .nav-mega.open .mega-panel {
     opacity: 1;
     visibility: visible;
+    transform: translateX(-50%) translateY(0);
   }
 
-  .nav-dropdown-menu a {
+  @media (prefers-reduced-motion: reduce) {
+    .mega-panel {
+      transition: none;
+    }
+  }
+
+  .mega-panel-mid {
+    width: min(880px, calc(100vw - 32px));
+  }
+
+  .mega-panel-small {
+    width: 280px;
+    top: calc(100% + 12px);
+    padding: 0.5rem;
+  }
+
+  .mega-inner {
+    display: grid;
+    grid-template-columns: 1fr 290px;
+  }
+
+  .mega-inner-mid {
+    grid-template-columns: 1fr 265px;
+  }
+
+  .mega-cols {
+    padding: 1.5rem 1.75rem 1.25rem;
+  }
+
+  .mega-stage + .mega-stage {
+    margin-top: 1.05rem;
+  }
+
+  .mega-stage-head {
     display: flex;
     align-items: center;
-    gap: 0.5rem;
-    padding: 0.75rem 1rem;
-    color: var(--text-primary);
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 400;
-    transition: background-color var(--transition-fast);
+    gap: 0.65rem;
+    margin-bottom: 0.55rem;
   }
 
-  .nav-dropdown-menu a:hover {
+  .mega-pill {
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.09em;
+    text-transform: uppercase;
+    color: #fff;
+    padding: 0.22rem 0.7rem;
+    border-radius: var(--radius-full);
+  }
+
+  .mega-pill.navy { background: var(--surface-navy); }
+  .mega-pill.teal { background: var(--action-teal); }
+  .mega-pill.blue { background: var(--eflury-blue-mid); }
+
+  .mega-stage-line {
+    font-size: 0.78rem;
+    font-weight: 600;
+    color: var(--text-tertiary);
+  }
+
+  .mega-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.15rem 1rem;
+  }
+
+  .mega-items-1col {
+    grid-template-columns: 1fr;
+    gap: 0.3rem;
+  }
+
+  .nav-links .mega-item {
+    display: flex;
+    gap: 0.7rem;
+    padding: 0.5rem 0.6rem;
+    border-radius: 11px;
+    align-items: flex-start;
+    text-decoration: none;
+    transition: background var(--transition-fast);
+  }
+
+  .nav-links .mega-item:hover {
     background: var(--bg-secondary);
   }
 
-  .nav-dropdown-menu .nav-skopaai {
-    justify-content: flex-start;
+  .mega-tile {
+    width: 34px;
+    height: 34px;
+    border-radius: 9px;
+    background: rgba(13, 148, 136, 0.1);
+    border: 1px solid rgba(13, 148, 136, 0.22);
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    color: var(--teal-text);
   }
 
-  .nav-dropdown-menu .nav-badge {
-    font-size: 8px;
-    padding: 1px 5px;
+  .mega-item-body {
+    display: flex;
+    flex-direction: column;
+    gap: 0.06rem;
+    min-width: 0;
   }
 
-  .nav-dropdown-divider {
-    height: 1px;
-    background: var(--border-color);
-    margin: 0.5rem 0;
+  .nav-links .mega-item .mega-item-title {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .mega-new {
+    font-size: 0.56rem;
+    font-weight: 800;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--action-teal);
+    color: #fff;
+    padding: 0.12rem 0.45rem;
+    border-radius: var(--radius-full);
+  }
+
+  .mega-item-sub {
+    font-size: 0.78rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  .mega-items-compact .mega-item {
+    align-items: center;
+  }
+
+  .mega-items-compact .mega-tile {
+    width: 30px;
+    height: 30px;
+  }
+
+  /* right rail */
+  .mega-rail {
+    background: var(--bg-secondary);
+    border-left: 1px solid var(--border-color);
+    padding: 1.35rem 1.4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+  }
+
+  .mega-rail-art {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.7rem;
+  }
+
+  .mega-rail-art svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  .mega-rail-title {
+    font-size: 0.82rem;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  .mega-rail-sub {
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+    line-height: 1.5;
+    margin-top: -0.35rem;
+  }
+
+  .mega-rail-links {
+    display: flex;
+    flex-direction: column;
+    gap: 0.18rem;
+  }
+
+  .nav-links .mega-rail-link {
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--teal-text);
+    text-decoration: none;
+    padding: 0.28rem 0.4rem;
+    margin: 0 -0.4rem;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .nav-links .mega-rail-link:hover {
+    background: var(--bg-tertiary);
+    color: var(--teal-text);
+  }
+
+  .mega-rail-link small {
+    font-size: 0.72rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+  }
+
+  /* bottom bar */
+  .mega-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding: 0.7rem 1.75rem;
+  }
+
+  .nav-links .mega-bottom-link {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--teal-text);
+    text-decoration: none;
+  }
+
+  .nav-links .mega-bottom-link:hover {
+    text-decoration: underline;
+    color: var(--teal-text);
+  }
+
+  .mega-bottom-note {
+    font-size: 0.78rem;
+    color: var(--text-tertiary);
+    text-align: right;
+  }
+
+  /* CTA button (desktop) */
+  .nav-links .nav-cta,
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    background: var(--action-teal);
+    color: #fff;
+    font-size: 0.88rem;
+    font-weight: 700;
+    padding: 0.5rem 0.95rem;
+    border-radius: 10px;
+    text-decoration: none;
+    white-space: nowrap;
+    transition: background var(--transition-fast), transform var(--transition-fast);
+  }
+
+  .nav-cta:hover {
+    background: var(--primary-700);
+    transform: translateY(-1px);
+    color: #fff;
+  }
+
+  /* Desktop: contact lives in the CTA, not the link list */
+  @media (min-width: 769px) {
+    .nav-links > li.mobile-contact {
+      display: none;
+    }
   }
 
   .nav-actions {
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 0.7rem;
   }
 
   .share-button-nav {
@@ -423,9 +903,16 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     transform: scale(0.95);
   }
 
-  @media (min-width: 769px) {
+  @media (min-width: 1121px) {
     .share-button-nav {
       display: flex;
+    }
+  }
+
+  /* Tablet-width desktops: keep the full nav by slimming the brand */
+  @media (min-width: 769px) and (max-width: 1120px) {
+    .logo-text {
+      display: none;
     }
   }
 
@@ -453,7 +940,7 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     background: var(--bg-tertiary);
     border-color: var(--border-color);
   }
-  
+
   .language-current:active {
     background: var(--bg-secondary);
   }
@@ -503,7 +990,7 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
   .language-option:hover {
     background: var(--bg-secondary);
   }
-  
+
   .language-option:active {
     background: var(--bg-tertiary);
   }
@@ -541,7 +1028,6 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
   }
 
   /* Mobile-only elements - hidden on desktop by default */
-  /* Specificity must match .nav-links > li (added for vertical alignment) */
   .nav-links > li.mobile-dark-toggle,
   .nav-links > li.mobile-menu-section,
   .nav-links > li.mobile-language-options {
@@ -611,21 +1097,6 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
       background: var(--bg-secondary);
     }
 
-    /* Mobile menu footer with dark mode and language */
-    .mobile-menu-footer {
-      display: none;
-      margin-top: auto;
-      padding: 1.5rem;
-      padding-bottom: calc(1.5rem + env(safe-area-inset-bottom));
-      border-top: 0.5px solid var(--border-color);
-      background: var(--bg-secondary);
-    }
-
-    .nav-links.active ~ .mobile-menu-footer,
-    .mobile-menu-footer.active {
-      display: block;
-    }
-
     .mobile-menu-toggle {
       display: flex;
       z-index: 1001;
@@ -651,11 +1122,15 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
       gap: 0.5rem;
     }
 
-    /* Hide share button and dark mode on mobile header, but keep language selector */
+    /* Hide desktop CTA + dark toggle on mobile header, keep language selector */
     .nav-actions {
       display: flex;
       align-items: center;
       gap: var(--spacing-xs);
+    }
+
+    .nav-actions .nav-cta {
+      display: none;
     }
 
     .nav-actions :global(.dark-mode-toggle) {
@@ -703,6 +1178,90 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     .logo-text {
       font-size: 18px;
       display: none;
+    }
+
+    /* ---- mega menus become drawer accordions ---- */
+    .nav-mega,
+    .nav-mega-small {
+      position: static;
+      flex-direction: column;
+      align-items: stretch;
+    }
+
+    .nav-mega-trigger {
+      display: flex;
+      width: 100%;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem 1.5rem;
+      font-size: 17px;
+      font-weight: 500;
+      color: var(--text-primary);
+      min-height: 56px;
+    }
+
+    .mega-panel {
+      display: none;
+      position: static;
+      width: 100%;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      border: none;
+      border-radius: 0;
+      box-shadow: none;
+      background: var(--bg-secondary);
+      transition: none;
+      padding: 0;
+    }
+
+    .nav-mega.open .mega-panel {
+      display: block;
+      transform: none;
+    }
+
+    .mega-inner {
+      display: block;
+    }
+
+    .mega-cols {
+      padding: 0.75rem 1rem 0.5rem;
+    }
+
+    .mega-items {
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
+    }
+
+    .nav-links .mega-item {
+      padding: 0.55rem 0.5rem;
+      min-height: 0;
+    }
+
+    .nav-links .mega-item:active {
+      background: var(--bg-tertiary);
+    }
+
+    /* keep the drawer lean: no rail art / notes on mobile */
+    .mega-rail {
+      display: none;
+    }
+
+    .mega-bottom {
+      border-top: none;
+      padding: 0.15rem 1.5rem 0.9rem;
+    }
+
+    .mega-bottom-note {
+      display: none;
+    }
+
+    .mega-panel-small .mega-items {
+      padding: 0;
+    }
+
+    .mega-items-compact {
+      padding: 0.5rem 1rem 0.75rem;
     }
 
     /* Mobile menu language options */
@@ -772,7 +1331,7 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
       min-width: 51px;
       flex-shrink: 0;
       padding: 0;
-      background: var(--apple-gray-3); /* visible iOS-style off track on white */
+      background: var(--apple-gray-3);
       border: none;
       border-radius: 15.5px;
       position: relative;
@@ -816,70 +1375,86 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
     .nav-links.active .mobile-menu-section {
       display: block;
     }
-
-    /* Mobile dropdown - display as flat list */
-    .nav-dropdown {
-      position: static;
-    }
-
-    .nav-dropdown-trigger {
-      display: none;
-    }
-
-    /* Links already draw separators; the desktop divider doubles them */
-    .nav-dropdown-divider {
-      display: none;
-    }
-
-    .nav-dropdown-menu {
-      position: static;
-      width: 100%;
-      opacity: 1;
-      visibility: visible;
-      transform: none;
-      background: none;
-      border: none;
-      border-radius: 0;
-      box-shadow: none;
-      backdrop-filter: none;
-      -webkit-backdrop-filter: none;
-      padding: 0;
-      min-width: auto;
-    }
-
-    .nav-dropdown-menu a {
-      display: flex;
-      align-items: center;
-      padding: 1rem 1.5rem;
-      font-size: 17px;
-      font-weight: 500;
-      color: var(--text-primary);
-      min-height: 56px;
-      border-bottom: 0.5px solid var(--border-color);
-    }
-
-    .nav-dropdown-menu a:active {
-      background: var(--bg-secondary);
-    }
   }
 </style>
 
 <script>
   // Navbar scroll effect
   const navbar = document.getElementById('navbar');
-  let lastScroll = 0;
 
   window.addEventListener('scroll', () => {
-    const currentScroll = window.pageYOffset;
-
-    if (currentScroll > 100) {
+    if (window.pageYOffset > 100) {
       navbar?.classList.add('scrolled');
     } else {
       navbar?.classList.remove('scrolled');
     }
-
-    lastScroll = currentScroll;
   });
+
+  // ---- mega menu open/close (hover-intent on desktop, accordion on mobile)
+  const megas = Array.from(document.querySelectorAll<HTMLElement>('[data-mega]'));
+  const isDesktop = () => window.matchMedia('(min-width: 769px)').matches;
+  let openMega: HTMLElement | null = null;
+  let openTimer: ReturnType<typeof setTimeout> | undefined;
+  let closeTimer: ReturnType<typeof setTimeout> | undefined;
+
+  function setExpanded(li: HTMLElement, on: boolean) {
+    li.classList.toggle('open', on);
+    li.querySelector('.nav-mega-trigger')?.setAttribute('aria-expanded', String(on));
+  }
+
+  function openPanel(li: HTMLElement) {
+    if (openMega && openMega !== li) setExpanded(openMega, false);
+    setExpanded(li, true);
+    openMega = li;
+  }
+
+  function closePanel(li: HTMLElement) {
+    setExpanded(li, false);
+    if (openMega === li) openMega = null;
+  }
+
+  megas.forEach((li) => {
+    const trigger = li.querySelector<HTMLElement>('.nav-mega-trigger');
+
+    li.addEventListener('mouseenter', () => {
+      if (!isDesktop()) return;
+      clearTimeout(closeTimer);
+      openTimer = setTimeout(() => openPanel(li), 120);
+    });
+
+    li.addEventListener('mouseleave', () => {
+      if (!isDesktop()) return;
+      clearTimeout(openTimer);
+      closeTimer = setTimeout(() => closePanel(li), 180);
+    });
+
+    trigger?.addEventListener('click', (e) => {
+      e.preventDefault();
+      clearTimeout(openTimer);
+      clearTimeout(closeTimer);
+      li.classList.contains('open') ? closePanel(li) : openPanel(li);
+    });
+  });
+
+  document.addEventListener('click', (e) => {
+    if (openMega && !openMega.contains(e.target as Node)) closePanel(openMega);
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && openMega) {
+      const trigger = openMega.querySelector<HTMLElement>('.nav-mega-trigger');
+      closePanel(openMega);
+      trigger?.focus();
+    }
+  });
+
+  window.addEventListener(
+    'scroll',
+    () => {
+      if (openMega && isDesktop()) closePanel(openMega);
+    },
+    { passive: true }
+  );
 
   // Language selector toggle
   const langToggle = document.getElementById('langToggle');
@@ -955,7 +1530,7 @@ const getLanguageSwitchUrl = (targetLang: Language) => {
   });
 
   // Show share button if Web Share API is available (desktop only)
-  if (navigator.share && window.innerWidth >= 769) {
+  if (navigator.share && window.innerWidth >= 1121) {
     const shareButton = document.querySelector('.share-button-nav') as HTMLElement;
     if (shareButton) {
       shareButton.style.display = 'flex';
