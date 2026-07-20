@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex">
+<title>eFlury Demo — Quote Process, Painting Business</title>
+<style>
+  :root {
+    --navy: #0f2a46; --teal: #0d9488; --teal-dark: #096b62; --blue: #2f6fb3;
+    --bg: #f4f7f9; --card: #ffffff; --border: #dde5ec; --txt: #24313f; --mut: #64748b;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { width: 100%; height: 100%; overflow: hidden; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; background: #0b1524; }
+  .stage { position: absolute; left: 50%; top: 50%; width: 1280px; height: 720px; background: linear-gradient(150deg, #f7fafb 0%, #eef4f6 100%); overflow: hidden; transform-origin: center center; }
+  #playbtn { display: none; margin: 26px auto 0; align-items: center; gap: 10px; font-family: inherit; font-size: 18px; font-weight: 700; color: #0f2a46; background: #fff; border: none; border-radius: 12px; padding: 14px 28px; cursor: pointer; }
+
+  /* header bar */
+  .topbar { position: absolute; top: 0; left: 0; right: 0; height: 64px; display: flex; align-items: center; gap: 12px; padding: 0 36px; background: rgba(255,255,255,0.85); border-bottom: 1px solid var(--border); }
+  .topbar img { width: 34px; height: 34px; border-radius: 8px; border: 1px solid var(--border); }
+  .topbar .word { font-size: 20px; font-weight: 800; color: var(--navy); }
+  .topbar .word span { color: var(--teal); }
+  .topbar .demo-tag { margin-left: auto; font-size: 13px; font-weight: 700; letter-spacing: 0.08em; color: var(--mut); text-transform: uppercase; }
+  .topbar .demo-tag b { color: var(--teal); }
+
+  /* step rail */
+  .rail { position: absolute; bottom: 0; left: 0; right: 0; height: 74px; display: flex; align-items: center; justify-content: center; gap: 10px; background: rgba(255,255,255,0.92); border-top: 1px solid var(--border); padding: 0 30px; }
+  .step { display: flex; align-items: center; gap: 8px; padding: 8px 14px; border-radius: 999px; border: 1.5px solid var(--border); background: #fff; color: var(--mut); font-size: 14px; font-weight: 600; transition: all 0.45s ease; white-space: nowrap; }
+  .step .n { width: 22px; height: 22px; border-radius: 50%; background: var(--bg); border: 1.5px solid var(--border); display: grid; place-items: center; font-size: 12px; font-weight: 800; transition: all 0.45s ease; }
+  .step.on { border-color: var(--teal); color: var(--navy); box-shadow: 0 4px 14px rgba(13,148,136,0.18); }
+  .step.on .n { background: var(--teal); border-color: var(--teal); color: #fff; }
+  .step.done { color: var(--teal-dark); }
+  .step.done .n { background: #e6f4f2; border-color: var(--teal); color: var(--teal-dark); }
+  .arrow { color: #c3cfd9; font-size: 15px; }
+
+  /* scenes */
+  .scene { position: absolute; top: 64px; bottom: 74px; left: 0; right: 0; display: grid; place-items: center; opacity: 0; transform: translateY(18px); transition: opacity 0.55s ease, transform 0.55s ease; pointer-events: none; }
+  .scene.show { opacity: 1; transform: translateY(0); }
+  .scene.gone { opacity: 0; transform: translateY(-18px); }
+
+  .card { background: var(--card); border: 1px solid var(--border); border-radius: 20px; box-shadow: 0 22px 50px rgba(15,42,70,0.10); }
+
+  h2.scene-title { position: absolute; top: 26px; left: 0; right: 0; text-align: center; font-size: 22px; font-weight: 800; color: var(--navy); letter-spacing: -0.01em; }
+  h2.scene-title small { display: block; margin-top: 4px; font-size: 14.5px; font-weight: 600; color: var(--mut); }
+
+  /* scene 1: email */
+  .mail { width: 640px; padding: 26px 30px; }
+  .mail .mhead { display: flex; gap: 10px; align-items: center; border-bottom: 1px solid var(--border); padding-bottom: 12px; margin-bottom: 14px; }
+  .mail .dot { width: 38px; height: 38px; border-radius: 50%; background: #e8eef4; display: grid; place-items: center; font-weight: 800; color: var(--blue); }
+  .mail .from { font-size: 14.5px; color: var(--mut); }
+  .mail .subj { font-size: 17px; font-weight: 700; color: var(--navy); }
+  .mail .body { font-size: 16px; line-height: 1.65; color: var(--txt); }
+  .mail mark { background: rgba(13,148,136,0.16); border-radius: 4px; padding: 0 3px; color: inherit; transition: background 0.4s ease; }
+  .chips { display: flex; gap: 10px; margin-top: 18px; flex-wrap: wrap; }
+  .chip { opacity: 0; transform: translateY(8px) scale(0.95); transition: all 0.4s ease; display: inline-flex; align-items: center; gap: 6px; background: #e6f4f2; border: 1.5px solid var(--teal); color: var(--teal-dark); font-size: 14px; font-weight: 700; padding: 7px 13px; border-radius: 999px; }
+  .chip.pop { opacity: 1; transform: none; }
+
+  /* scene 2: geo */
+  .geo { display: flex; gap: 26px; align-items: stretch; }
+  .map { width: 380px; height: 330px; padding: 18px; position: relative; }
+  .map svg { width: 100%; height: 100%; }
+  .plan { width: 360px; padding: 22px 26px; }
+  .plan h3, .calc h3, .offer h3 { font-size: 16px; font-weight: 800; color: var(--navy); margin-bottom: 12px; display: flex; align-items: center; gap: 8px; }
+  .row { display: flex; justify-content: space-between; font-size: 15.5px; padding: 9px 0; border-bottom: 1px dashed var(--border); color: var(--txt); opacity: 0; transform: translateX(-10px); transition: all 0.4s ease; }
+  .row.pop { opacity: 1; transform: none; }
+  .row b { color: var(--navy); }
+  .row.total { border-bottom: none; font-weight: 800; color: var(--navy); font-size: 17px; }
+  .row.total span:last-child { color: var(--teal-dark); }
+  .src { margin-top: 10px; font-size: 12.5px; color: var(--mut); opacity: 0; transition: opacity 0.4s ease; }
+  .src.pop { opacity: 1; }
+
+  /* scene 3: calc */
+  .calc { width: 560px; padding: 26px 30px; }
+
+  /* scene 4: approval */
+  .approve { display: flex; gap: 26px; align-items: center; }
+  .offer { width: 480px; padding: 24px 28px; position: relative; }
+  .badge { position: absolute; top: 20px; right: 22px; font-size: 12.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; padding: 6px 12px; border-radius: 999px; background: #fff4e0; color: #a16207; border: 1.5px solid #eab308; transition: all 0.4s ease; }
+  .badge.ok { background: #e6f4f2; color: var(--teal-dark); border-color: var(--teal); }
+  .review { width: 300px; padding: 22px 24px; text-align: center; }
+  .review .avatar { width: 62px; height: 62px; border-radius: 50%; margin: 0 auto 10px; border: 2.5px solid var(--teal); object-fit: cover; display: block; }
+  .review p { font-size: 14.5px; color: var(--mut); line-height: 1.55; }
+  .review .who { font-size: 15.5px; font-weight: 800; color: var(--navy); margin-bottom: 2px; }
+  .btns { display: flex; gap: 10px; justify-content: center; margin-top: 14px; }
+  .btn { font-size: 14.5px; font-weight: 700; padding: 10px 18px; border-radius: 10px; border: 1.5px solid var(--border); background: #fff; color: var(--txt); transition: all 0.3s ease; }
+  .btn.primary { background: var(--teal-dark); border-color: var(--teal-dark); color: #fff; }
+  .btn.primary.clicked { transform: scale(0.94); box-shadow: 0 0 0 6px rgba(13,148,136,0.25); }
+
+  /* scene 5: send */
+  .sendwrap { position: relative; width: 900px; height: 340px; }
+  .doc { position: absolute; left: 60px; top: 40px; width: 250px; padding: 20px 22px; transition: all 1.1s cubic-bezier(0.5, 0, 0.3, 1); }
+  .doc .lines span { display: block; height: 9px; border-radius: 5px; background: #e2e9ef; margin: 9px 0; }
+  .doc .lines span:first-child { width: 65%; background: var(--teal); opacity: 0.75; }
+  .doc.fly { left: 610px; top: 90px; transform: scale(0.42) rotate(5deg); opacity: 0.25; }
+  .customer { position: absolute; right: 60px; top: 60px; width: 230px; padding: 22px; text-align: center; }
+  .customer .home { width: 56px; height: 56px; margin: 0 auto 8px; border-radius: 14px; background: #e8eef4; display: grid; place-items: center; }
+  .customer .who { font-weight: 800; color: var(--navy); font-size: 16px; }
+  .customer p { font-size: 13.5px; color: var(--mut); }
+  .stamp { position: absolute; left: 50%; bottom: 18px; transform: translateX(-50%) rotate(-4deg) scale(1.4); opacity: 0; border: 3px solid var(--teal-dark); color: var(--teal-dark); font-weight: 800; font-size: 19px; padding: 10px 22px; border-radius: 12px; background: rgba(255,255,255,0.9); transition: all 0.45s cubic-bezier(0.2, 1.4, 0.4, 1); }
+  .stamp.pop { opacity: 1; transform: translateX(-50%) rotate(-4deg) scale(1); }
+
+  /* scene 6: follow-up */
+  .follow { width: 620px; padding: 26px 30px; }
+  .tl { position: relative; margin: 16px 0 6px; padding-left: 26px; }
+  .tl::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2.5px; border-radius: 2px; background: var(--border); }
+  .tl .ev { position: relative; padding: 10px 0; opacity: 0; transform: translateX(-10px); transition: all 0.45s ease; }
+  .tl .ev.pop { opacity: 1; transform: none; }
+  .tl .ev::before { content: ''; position: absolute; left: -24.5px; top: 16px; width: 13px; height: 13px; border-radius: 50%; background: #fff; border: 3px solid var(--teal); }
+  .tl .when { font-size: 12.5px; font-weight: 800; letter-spacing: 0.06em; text-transform: uppercase; color: var(--teal-dark); }
+  .tl .what { font-size: 16px; font-weight: 600; color: var(--navy); }
+  .tl .sub { font-size: 13.5px; color: var(--mut); }
+
+  /* end card */
+  #end { background: linear-gradient(150deg, var(--navy) 0%, #17405f 60%, var(--teal-dark) 160%); position: absolute; inset: 0; z-index: 5; display: grid; place-items: center; opacity: 0; transition: opacity 0.8s ease; pointer-events: none; }
+  #end.show { opacity: 1; }
+  #intro { background: linear-gradient(150deg, var(--navy) 0%, #17405f 60%, var(--teal-dark) 160%); position: absolute; inset: 0; z-index: 6; display: grid; place-items: center; opacity: 1; transition: opacity 0.7s ease; pointer-events: none; }
+  #intro.hide { opacity: 0; }
+  #intro .q { font-size: 44px; font-weight: 800; color: #fff; letter-spacing: -0.01em; line-height: 1.25; text-align: center; }
+  #intro .q br + * { color: #5eead4; }
+  #intro .s { margin-top: 18px; font-size: 18px; font-weight: 600; color: rgba(255,255,255,0.8); text-align: center; }
+  #end .inner { text-align: center; color: #fff; }
+  #end img { width: 108px; height: 108px; border-radius: 24px; background: #fff; padding: 6px; margin-bottom: 22px; }
+  #end .w { font-size: 40px; font-weight: 800; letter-spacing: -0.01em; }
+  #end .w span { color: #5eead4; }
+  #end .s { margin-top: 8px; font-size: 17px; font-weight: 600; letter-spacing: 0.1em; color: rgba(255,255,255,0.85); }
+  #end .c { margin-top: 26px; font-size: 19px; color: rgba(255,255,255,0.92); }
+  #end .d { margin-top: 34px; font-size: 12.5px; color: rgba(255,255,255,0.55); }
+</style>
+</head>
+<body>
+<div class="stage">
+  <div class="topbar">
+    <img src="/images/favicon-tab.png" alt="">
+    <div class="word">eFlury <span>Consulting</span></div>
+    <div class="demo-tag">Example process · <b>Painting business</b></div>
+  </div>
+
+  <!-- Scene 1: email in -->
+  <section class="scene" id="s1">
+    <h2 class="scene-title">An inquiry comes in.<small>The AI reads along — and captures the key facts itself.</small></h2>
+    <div class="card mail">
+      <div class="mhead">
+        <div class="dot">M</div>
+        <div>
+          <div class="subj">Quote: apartment repaint</div>
+          <div class="from">m.keller@example.ch · today, 09:41</div>
+        </div>
+      </div>
+      <div class="body">Hello<br>We would like our <mark>3.5-room apartment</mark> repainted — <mark>living room, bedroom and kitchen</mark>, matt white. Address: <mark>Musterstrasse 12, 2540 Grenchen</mark>. Ideally by the end of the month.<br>Kind regards, M. Keller</div>
+      <div class="chips">
+        <span class="chip" id="c1">✓ 3 rooms, matt white</span>
+        <span class="chip" id="c2">✓ Musterstrasse 12, Grenchen</span>
+        <span class="chip" id="c3">✓ Timing: end of month</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 2: geo analysis -->
+  <section class="scene" id="s2">
+    <h2 class="scene-title">The areas come from geodata.<small>Address → building footprint → estimated wall area. No site visit needed.</small></h2>
+    <div class="geo">
+      <div class="card map">
+        <svg viewBox="0 0 340 300">
+          <g stroke="#d3dde6" stroke-width="1.6">
+            <path d="M0 70 L340 55" /><path d="M0 150 L340 140" /><path d="M0 235 L340 228" />
+            <path d="M70 0 L82 300" /><path d="M180 0 L188 300" /><path d="M275 0 L280 300" />
+          </g>
+          <g fill="#e4ecf2" stroke="#c9d6e0" stroke-width="1.5">
+            <rect x="96" y="78" width="52" height="40" rx="3"/><rect x="205" y="65" width="46" height="52" rx="3"/>
+            <rect x="98" y="165" width="44" height="46" rx="3"/><rect x="288" y="160" width="40" height="46" rx="3"/>
+          </g>
+          <rect id="foot" x="198" y="158" width="62" height="52" rx="3" fill="#e6f4f2" stroke="var(--teal)" stroke-width="0" />
+          <g id="pin" opacity="0">
+            <path d="M229 150 c-11 0 -18 8 -18 17 c0 12 18 27 18 27 s18 -15 18 -27 c0 -9 -7 -17 -18 -17z" fill="var(--teal-dark)"/>
+            <circle cx="229" cy="167" r="6.5" fill="#fff"/>
+          </g>
+          <text x="20" y="285" font-size="12.5" font-weight="700" fill="#8296a8">GIS · OFFICIAL SURVEY DATA</text>
+        </svg>
+      </div>
+      <div class="card plan">
+        <h3>Area estimate</h3>
+        <div class="row" id="r1"><span>Living room</span><b>~24 m² · walls 58 m²</b></div>
+        <div class="row" id="r2"><span>Bedroom</span><b>~16 m² · walls 46 m²</b></div>
+        <div class="row" id="r3"><span>Kitchen</span><b>~12 m² · walls 38 m²</b></div>
+        <div class="row total" id="r4"><span>Total wall area</span><span>≈ 142 m²</span></div>
+        <div class="src" id="r5">Source: building footprint (GIS) · assumes 2.4 m ceilings — verified at the appointment</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 3: calculation -->
+  <section class="scene" id="s3">
+    <h2 class="scene-title">The quote calculates itself.<small>Materials, time and price — at the firm&#8217;s own rates, not gut feeling.</small></h2>
+    <div class="card calc">
+      <h3>Calculation</h3>
+      <div class="row" id="k1"><span>142 m² × 2 coats</span><b>284 m²</b></div>
+      <div class="row" id="k2"><span>Matt white paint (0.13 L/m² coverage)</span><b>37 L</b></div>
+      <div class="row" id="k3"><span>Covering, masking, prep work</span><b>4.5 h</b></div>
+      <div class="row" id="k4"><span>Painting incl. drying windows</span><b>19 h</b></div>
+      <div class="row total" id="k5"><span>Quote total (incl. materials)</span><span>CHF 4'260</span></div>
+    </div>
+  </section>
+
+  <!-- Scene 4: human in the loop -->
+  <section class="scene" id="s4">
+    <h2 class="scene-title">Nothing goes out without a human.<small>The boss reviews the draft — the AI waits.</small></h2>
+    <div class="approve">
+      <div class="card offer">
+        <span class="badge" id="badge">Draft</span>
+        <h3>Quote no. 2026-114</h3>
+        <div class="row pop"><span>Interior repaint, 3 rooms, matt white</span><b>CHF 3'610</b></div>
+        <div class="row pop"><span>Materials &amp; prep</span><b>CHF 650</b></div>
+        <div class="row total pop"><span>Total excl. VAT</span><span>CHF 4'260</span></div>
+      </div>
+      <div class="card review">
+        <svg class="avatar" viewBox="0 0 64 64" aria-hidden="true"><circle cx="32" cy="32" r="32" fill="#e8eef4"/><circle cx="32" cy="25" r="11" fill="#8fa4b8"/><path d="M12 56 c2 -12 10 -18 20 -18 s18 6 20 18" fill="#8fa4b8"/></svg>
+        <div class="who">The master painter</div>
+        <p>Review in 30 seconds instead of calculating for 45 minutes.</p>
+        <div class="btns">
+          <button class="btn">Adjust</button>
+          <button class="btn primary" id="approveBtn">Approve</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Scene 5: send -->
+  <section class="scene" id="s5">
+    <h2 class="scene-title">Out it goes — in the firm&#8217;s name.<small>Cleanly formatted, every line item included. Emailed straight to the customer.</small></h2>
+    <div class="sendwrap">
+      <div class="card doc" id="doc">
+        <h3>Quote 2026-114 ✓</h3>
+        <div class="lines"><span></span><span></span><span></span><span style="width:45%"></span></div>
+      </div>
+      <div class="card customer">
+        <div class="home">
+          <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="var(--blue)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+        </div>
+        <div class="who">M. Keller</div>
+        <p>Musterstrasse 12<br>2540 Grenchen</p>
+      </div>
+      <div class="stamp" id="stamp">SENT — 12 MIN. AFTER RECEIPT</div>
+    </div>
+  </section>
+
+  <!-- Scene 6: follow-up -->
+  <section class="scene" id="s6">
+    <h2 class="scene-title">And nothing gets forgotten.<small>The system schedules its own reminders and tasks.</small></h2>
+    <div class="card follow">
+      <h3>Automatic follow-up</h3>
+      <div class="tl">
+        <div class="ev" id="e1"><div class="when">Today · 09:53</div><div class="what">Quote sent, lead recorded in the CRM</div><div class="sub">Status: awaiting reply</div></div>
+        <div class="ev" id="e2"><div class="when">Day 3</div><div class="what">Friendly reminder email</div><div class="sub">only goes out if no reply has arrived</div></div>
+        <div class="ev" id="e3"><div class="when">Day 7</div><div class="what">Task: quick phone call</div><div class="sub">with a call-notes template in the CRM, assigned to the boss</div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- intro hook -->
+  <div id="intro">
+    <div class="inner">
+      <div class="q">What if your quote<br>wrote itself?</div>
+      <div class="s">A 30-second example from a painting business</div>
+      <button id="playbtn">▶&nbsp; Play</button>
+    </div>
+  </div>
+
+  <!-- end card -->
+  <div id="end">
+    <div class="inner">
+      <img src="/images/favicon-tab.png" alt="">
+      <div class="w">eFlury <span>Consulting</span></div>
+      <div class="s">ADVISE · BUILD · RUN</div>
+      <div class="c">From inquiry to a quote in the inbox: 12 minutes.<br>Your process can do this too — let&#8217;s talk. <b>eflury.com</b></div>
+      <div class="d">Fictional example illustrating an automation process.</div>
+    </div>
+  </div>
+
+  <div class="rail">
+    <div class="step" id="st1"><span class="n">1</span>Email intake</div><span class="arrow">→</span>
+    <div class="step" id="st2"><span class="n">2</span>Geo analysis</div><span class="arrow">→</span>
+    <div class="step" id="st3"><span class="n">3</span>Calculation</div><span class="arrow">→</span>
+    <div class="step" id="st4"><span class="n">4</span>Approval</div><span class="arrow">→</span>
+    <div class="step" id="st5"><span class="n">5</span>Dispatch</div><span class="arrow">→</span>
+    <div class="step" id="st6"><span class="n">6</span>Follow-up</div>
+  </div>
+</div>
+
+<script>
+  const $ = (id) => document.getElementById(id);
+  const on = (id, cls = 'pop') => $(id) && $(id).classList.add(cls);
+
+  function scene(showId, stepN) {
+    document.querySelectorAll('.scene').forEach((s) => {
+      if (s.id === showId) { s.classList.add('show'); s.classList.remove('gone'); }
+      else if (s.classList.contains('show')) { s.classList.remove('show'); s.classList.add('gone'); }
+    });
+    for (let i = 1; i <= 6; i++) {
+      const st = $('st' + i);
+      st.classList.toggle('on', i === stepN);
+      st.classList.toggle('done', i < stepN);
+    }
+  }
+
+  // master timeline (ms, action)
+  const OFF = 2600;
+  const T = [
+    [OFF - 500, () => document.getElementById('intro').classList.add('hide')],
+    [400,   () => scene('s1', 1)],
+    [2300,  () => on('c1')], [2800, () => on('c2')], [3300, () => on('c3')],
+
+    [5300,  () => scene('s2', 2)],
+    [6100,  () => { $('pin').style.opacity = 1; $('foot').setAttribute('stroke-width', '3'); }],
+    [6900,  () => on('r1')], [7300, () => on('r2')], [7700, () => on('r3')],
+    [8300,  () => on('r4')], [8800, () => on('r5')],
+
+    [10600, () => scene('s3', 3)],
+    [11400, () => on('k1')], [11900, () => on('k2')], [12400, () => on('k3')],
+    [12900, () => on('k4')], [13600, () => on('k5')],
+
+    [15600, () => scene('s4', 4)],
+    [17600, () => $('approveBtn').classList.add('clicked')],
+    [18100, () => { $('badge').textContent = 'Approved ✓'; $('badge').classList.add('ok'); }],
+
+    [19900, () => scene('s5', 5)],
+    [20900, () => $('doc').classList.add('fly')],
+    [22100, () => on('stamp')],
+
+    [24100, () => scene('s6', 6)],
+    [24900, () => on('e1')], [25700, () => on('e2')], [26500, () => on('e3')],
+
+    [29000, () => $('end').classList.add('show')],
+  ];
+  // fit the fixed 1280x720 stage into whatever box embeds us
+  const stage = document.querySelector('.stage');
+  function fit() {
+    const s = Math.min(innerWidth / 1280, innerHeight / 720);
+    stage.style.transform = `translate(-50%, -50%) scale(${s})`;
+  }
+  addEventListener('resize', fit);
+  fit();
+
+  const BADGE0 = $('badge').textContent;
+  const HOLD = 5000;
+  const TOTAL = 29000 + OFF;
+
+  function reset() {
+    document.querySelectorAll('.scene').forEach((s) => s.classList.remove('show', 'gone'));
+    document.querySelectorAll('.step').forEach((s) => s.classList.remove('on', 'done'));
+    document.querySelectorAll('.pop').forEach((e) => e.classList.remove('pop'));
+    $('badge').textContent = BADGE0;
+    $('badge').classList.remove('ok');
+    $('doc').classList.remove('fly');
+    $('approveBtn').classList.remove('clicked');
+    $('pin').style.opacity = 0;
+    $('foot').setAttribute('stroke-width', '0');
+    $('end').classList.remove('show');
+    $('intro').classList.remove('hide');
+  }
+
+  function play() {
+    T.forEach(([t, fn], i) => setTimeout(fn, i === 0 ? t : t + OFF));
+    setTimeout(() => { reset(); setTimeout(play, 900); }, TOTAL + HOLD);
+  }
+
+  const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const btn = $('playbtn');
+  if (reduced) {
+    btn.style.display = 'inline-flex';
+    btn.addEventListener('click', () => { btn.style.display = 'none'; play(); }, { once: true });
+  } else {
+    setTimeout(play, 400);
+  }
+</script>
+</body>
+</html>
