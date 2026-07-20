@@ -224,7 +224,7 @@ const oarc = (a: number, b: number) => {
         <li><a href={`/${lang}/#home`}>{t('nav.home')}</a></li>
 
         <!-- Leistungen: mega panel -->
-        <li class="nav-mega" data-mega>
+        <li class="nav-mega" data-mega="services">
           <button class="nav-mega-trigger" aria-expanded="false" aria-haspopup="true">
             {t('nav.services')}
             <ChevronDown size={14} class="dropdown-chevron" />
@@ -281,7 +281,7 @@ const oarc = (a: number, b: number) => {
         </li>
 
         <!-- Einsatzbereiche: mega panel -->
-        <li class="nav-mega" data-mega>
+        <li class="nav-mega" data-mega="industries">
           <button class="nav-mega-trigger" aria-expanded="false" aria-haspopup="true">
             {t('nav.industries')}
             <ChevronDown size={14} class="dropdown-chevron" />
@@ -319,7 +319,7 @@ const oarc = (a: number, b: number) => {
         </li>
 
         <!-- Unternehmen: compact dropdown -->
-        <li class="nav-mega nav-mega-small" data-mega>
+        <li class="nav-mega nav-mega-small" data-mega="company">
           <button class="nav-mega-trigger" aria-expanded="false" aria-haspopup="true">
             {de ? 'Unternehmen' : 'Company'}
             <ChevronDown size={14} class="dropdown-chevron" />
@@ -410,6 +410,74 @@ const oarc = (a: number, b: number) => {
         <span></span>
         <span></span>
       </button>
+    </div>
+
+  <!-- Desktop: one shared mega panel with all three sections -->
+  <div class="mega-unified" id="megaUnified" data-section="services">
+    <div class="mu-inner">
+      <section class="mu-col mu-services">
+        <div class="mu-label">{t('nav.services')}</div>
+        {servicesMenu.stages.map((stage) => (
+          <div class="mega-stage">
+            <div class="mega-stage-head">
+              <span class:list={['mega-pill', stage.cls]}>{stage.pill}</span>
+              <span class="mega-stage-line">{stage.line}</span>
+            </div>
+            <div class="mega-items">
+              {stage.items.map((item) => (
+                <a href={item.href} class="mega-item">
+                  <span class="mega-tile"><item.icon size={18} /></span>
+                  <span class="mega-item-body">
+                    <span class="mega-item-title">{item.title}{item.badge && <span class="mega-new">{item.badge}</span>}</span>
+                    <span class="mega-item-sub">{item.sub}</span>
+                  </span>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))}
+      </section>
+      <section class="mu-col mu-industries">
+        <div class="mu-label">{t('nav.industries')}</div>
+        <div class="mega-items mega-items-1col">
+          {industriesMenu.items.map((item) => (
+            <a href={item.href} class="mega-item">
+              <span class="mega-tile"><item.icon size={18} /></span>
+              <span class="mega-item-body">
+                <span class="mega-item-title">{item.title}</span>
+                <span class="mega-item-sub">{item.sub}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+        <div class="mu-proof">
+          <div class="mega-rail-title">{industriesMenu.rail.title}</div>
+          {industriesMenu.rail.links.map((l) => (
+            <a href={l.href} class="mega-rail-link">{l.label} <small>{l.small}</small></a>
+          ))}
+          <div class="mu-proof-note">{industriesMenu.rail.sub}</div>
+        </div>
+      </section>
+      <section class="mu-col mu-company">
+        <div class="mu-label">{de ? 'Unternehmen' : 'Company'}</div>
+        <div class="mega-items mega-items-1col">
+          {companyMenu.map((item) => (
+            <a href={item.href} class="mega-item mega-item-compact">
+              <span class="mega-tile"><item.icon size={16} /></span>
+              <span class="mega-item-body">
+                <span class="mega-item-title">{item.title}</span>
+              </span>
+            </a>
+          ))}
+        </div>
+      </section>
+    </div>
+    <div class="mega-bottom">
+      <div class="mu-bottom-links">
+        <a href={servicesMenu.bottomLink.href} class="mega-bottom-link">{servicesMenu.bottomLink.label} →</a>
+        <a href={industriesMenu.bottomLink.href} class="mega-bottom-link">{industriesMenu.bottomLink.label} →</a>
+      </div>
+      <span class="mega-bottom-note">{servicesMenu.bottomNote}</span>
     </div>
   </div>
 </nav>
@@ -1376,6 +1444,223 @@ const oarc = (a: number, b: number) => {
       display: block;
     }
   }
+
+  /* ---- unified desktop mega panel -------------------------------------- */
+  @media (min-width: 769px) {
+    .nav-links .mega-panel {
+      display: none;
+    }
+  }
+
+  .nav-mega.hl .nav-mega-trigger {
+    color: var(--text-primary);
+  }
+
+  .nav-mega.hl .dropdown-chevron {
+    transform: rotate(180deg);
+  }
+
+  .mega-unified {
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%) translateY(8px);
+    width: min(1160px, calc(100vw - 32px));
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 18px;
+    box-shadow: 0 30px 70px rgba(15, 42, 70, 0.18);
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s ease;
+    z-index: 200;
+    overflow: hidden;
+  }
+
+  .navbar.mega-open .mega-unified {
+    opacity: 1;
+    visibility: visible;
+    transform: translateX(-50%) translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .mega-unified {
+      transition: none;
+    }
+  }
+
+  .mu-inner {
+    display: grid;
+    grid-template-columns: 1.55fr 1fr 0.72fr;
+  }
+
+  .mu-col {
+    padding: 1.35rem 1.45rem 1.15rem;
+  }
+
+  .mu-col + .mu-col {
+    border-left: 1px solid var(--border-color);
+  }
+
+  .mu-label {
+    font-size: 0.68rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--text-tertiary);
+    margin-bottom: 0.8rem;
+    transition: color 0.2s ease;
+  }
+
+  .mega-unified[data-section="services"] .mu-services .mu-label,
+  .mega-unified[data-section="industries"] .mu-industries .mu-label,
+  .mega-unified[data-section="company"] .mu-company .mu-label {
+    color: var(--teal-text);
+  }
+
+  .mega-unified .mega-item {
+    display: flex;
+    gap: 0.65rem;
+    padding: 0.42rem 0.55rem;
+    border-radius: 11px;
+    align-items: flex-start;
+    text-decoration: none;
+    transition: background var(--transition-fast);
+  }
+
+  .mega-unified .mega-item:hover {
+    background: var(--bg-secondary);
+  }
+
+  .mega-unified .mega-item-title {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    line-height: 1.3;
+  }
+
+  .mega-unified .mega-item-sub {
+    font-size: 0.76rem;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  .mega-unified .mega-item-compact {
+    align-items: center;
+    padding: 0.38rem 0.55rem;
+  }
+
+  .mega-unified .mega-item-compact .mega-tile {
+    width: 28px;
+    height: 28px;
+    border-radius: 8px;
+  }
+
+  .mega-unified .mega-stage + .mega-stage {
+    margin-top: 0.85rem;
+  }
+
+  .mega-unified .mega-stage-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .mega-unified .mega-items {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.08rem 0.8rem;
+  }
+
+  .mega-unified .mega-items-1col {
+    grid-template-columns: 1fr;
+    gap: 0.2rem;
+  }
+
+  .mega-unified .mu-proof {
+    margin-top: 0.85rem;
+    border-top: 1px dashed var(--border-color);
+    padding-top: 0.75rem;
+  }
+
+  .mega-unified .mega-rail-title {
+    font-size: 0.78rem;
+    font-weight: 800;
+    color: var(--text-primary);
+    margin-bottom: 0.3rem;
+  }
+
+  .mega-unified .mega-rail-link {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: var(--teal-text);
+    text-decoration: none;
+    display: flex;
+    gap: 0.35rem;
+    align-items: baseline;
+    flex-wrap: wrap;
+    padding: 0.2rem 0.35rem;
+    margin: 0 -0.35rem;
+    border-radius: 8px;
+  }
+
+  .mega-unified .mega-rail-link:hover {
+    background: var(--bg-secondary);
+  }
+
+  .mega-unified .mega-rail-link small {
+    font-size: 0.7rem;
+    font-weight: 500;
+    color: var(--text-tertiary);
+  }
+
+  .mega-unified .mu-proof-note {
+    font-size: 0.7rem;
+    color: var(--text-tertiary);
+    line-height: 1.45;
+    margin-top: 0.35rem;
+  }
+
+  .mega-unified .mega-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    border-top: 1px solid var(--border-color);
+    padding: 0.65rem 1.45rem;
+  }
+
+  .mu-bottom-links {
+    display: flex;
+    gap: 1.4rem;
+  }
+
+  .mega-unified .mega-bottom-link {
+    font-size: 0.83rem;
+    font-weight: 700;
+    color: var(--teal-text);
+    text-decoration: none;
+  }
+
+  .mega-unified .mega-bottom-link:hover {
+    text-decoration: underline;
+  }
+
+  .mega-unified .mega-bottom-note {
+    font-size: 0.76rem;
+    color: var(--text-tertiary);
+    text-align: right;
+  }
+
+  @media (max-width: 768px) {
+    .mega-unified {
+      display: none;
+    }
+  }
 </style>
 
 <script>
@@ -1390,68 +1675,92 @@ const oarc = (a: number, b: number) => {
     }
   });
 
-  // ---- mega menu open/close (hover-intent on desktop, accordion on mobile)
+  // ---- mega menu: ONE shared desktop panel, accordions in the drawer
   const megas = Array.from(document.querySelectorAll<HTMLElement>('[data-mega]'));
+  const unified = document.getElementById('megaUnified');
   const isDesktop = () => window.matchMedia('(min-width: 769px)').matches;
-  let openMega: HTMLElement | null = null;
+  let megaOpen = false;
   let openTimer: ReturnType<typeof setTimeout> | undefined;
   let closeTimer: ReturnType<typeof setTimeout> | undefined;
 
-  function setExpanded(li: HTMLElement, on: boolean) {
-    li.classList.toggle('open', on);
-    li.querySelector('.nav-mega-trigger')?.setAttribute('aria-expanded', String(on));
+  function syncTriggers() {
+    megas.forEach((li) => {
+      const active = megaOpen && li.dataset.mega === unified?.dataset.section;
+      li.classList.toggle('hl', active);
+      li.querySelector('.nav-mega-trigger')?.setAttribute('aria-expanded', String(megaOpen));
+    });
   }
 
-  function openPanel(li: HTMLElement) {
-    if (openMega && openMega !== li) setExpanded(openMega, false);
-    setExpanded(li, true);
-    openMega = li;
+  function openUnified(section?: string) {
+    clearTimeout(closeTimer);
+    if (section && unified) unified.dataset.section = section;
+    navbar?.classList.add('mega-open');
+    megaOpen = true;
+    syncTriggers();
   }
 
-  function closePanel(li: HTMLElement) {
-    setExpanded(li, false);
-    if (openMega === li) openMega = null;
+  function closeUnified() {
+    navbar?.classList.remove('mega-open');
+    megaOpen = false;
+    syncTriggers();
   }
 
   megas.forEach((li) => {
+    const key = li.dataset.mega;
     const trigger = li.querySelector<HTMLElement>('.nav-mega-trigger');
 
     li.addEventListener('mouseenter', () => {
       if (!isDesktop()) return;
       clearTimeout(closeTimer);
-      openTimer = setTimeout(() => openPanel(li), 120);
+      if (megaOpen) {
+        openUnified(key);
+      } else {
+        openTimer = setTimeout(() => openUnified(key), 120);
+      }
     });
 
     li.addEventListener('mouseleave', () => {
       if (!isDesktop()) return;
       clearTimeout(openTimer);
-      closeTimer = setTimeout(() => closePanel(li), 180);
+      closeTimer = setTimeout(closeUnified, 200);
     });
 
     trigger?.addEventListener('click', (e) => {
       e.preventDefault();
       clearTimeout(openTimer);
       clearTimeout(closeTimer);
-      li.classList.contains('open') ? closePanel(li) : openPanel(li);
+      if (isDesktop()) {
+        megaOpen && unified?.dataset.section === key ? closeUnified() : openUnified(key);
+      } else {
+        // drawer accordion
+        const open = li.classList.toggle('open');
+        trigger.setAttribute('aria-expanded', String(open));
+      }
     });
   });
 
+  unified?.addEventListener('mouseenter', () => clearTimeout(closeTimer));
+  unified?.addEventListener('mouseleave', () => {
+    if (isDesktop()) closeTimer = setTimeout(closeUnified, 200);
+  });
+
   document.addEventListener('click', (e) => {
-    if (openMega && !openMega.contains(e.target as Node)) closePanel(openMega);
+    const target = e.target as Node;
+    if (megaOpen && !unified?.contains(target) && !megas.some((li) => li.contains(target))) closeUnified();
   });
 
   document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && openMega) {
-      const trigger = openMega.querySelector<HTMLElement>('.nav-mega-trigger');
-      closePanel(openMega);
-      trigger?.focus();
+    if (e.key === 'Escape' && megaOpen) {
+      const active = megas.find((li) => li.classList.contains('hl'));
+      closeUnified();
+      active?.querySelector<HTMLElement>('.nav-mega-trigger')?.focus();
     }
   });
 
   window.addEventListener(
     'scroll',
     () => {
-      if (openMega && isDesktop()) closePanel(openMega);
+      if (megaOpen && isDesktop()) closeUnified();
     },
     { passive: true }
   );
