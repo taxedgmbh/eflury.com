@@ -67,12 +67,6 @@ const servicesMenu = {
           sub: de ? "Roadmap in 1 Woche · CHF 4'900, voll angerechnet" : "Roadmap in 1 week · CHF 4'900, fully credited",
           href: de ? '/de/services/ki-audit/' : '/en/services/ai-audit/',
         },
-        {
-          icon: FileText,
-          title: de ? 'Musterbericht (PDF)' : 'Sample report (PDF)',
-          sub: de ? 'So sieht das Audit-Ergebnis aus' : 'What the audit result looks like',
-          href: de ? '/downloads/eflury-sample-audit-report-de.pdf' : '/downloads/eflury-sample-audit-report-en.pdf',
-        },
       ],
     },
     {
@@ -150,24 +144,24 @@ const industriesMenu = {
       icon: Calculator,
       title: de ? 'Finanzen & Back Office' : 'Finance & Back Office',
       sub: de
-        ? 'Kreditoren · Monatsabschluss · Mahnwesen — 2 dokumentierte Projekte'
-        : 'Payables · month-end close · dunning — 2 documented projects',
+        ? 'Kreditoren · Monatsabschluss · Mahnwesen'
+        : 'Payables · month-end close · dunning',
       href: de ? '/de/branchen/finanzteams/' : '/en/industries/finance-teams/',
     },
     {
       icon: Briefcase,
       title: de ? 'Kundenkommunikation & Annahme' : 'Customer Communication & Intake',
       sub: de
-        ? 'E-Mail-Triage · Telefon · WhatsApp · Offertanfragen — 1 Projekt'
-        : 'Email triage · phone · WhatsApp · quote requests — 1 project',
+        ? 'E-Mail-Triage · Telefon · WhatsApp · Offertanfragen'
+        : 'Email triage · phone · WhatsApp · quote requests',
       href: de ? '/de/branchen/dienstleister/' : '/en/industries/professional-services/',
     },
     {
       icon: BarChart3,
       title: de ? 'Reporting & Daten' : 'Reporting & Data',
       sub: de
-        ? 'Power-BI-Dashboards · Excel-Migration · Datenqualität — 1 Projekt'
-        : 'Power BI dashboards · Excel migration · data quality — 1 project',
+        ? 'Power-BI-Dashboards · Excel-Migration · Datenqualität'
+        : 'Power BI dashboards · Excel migration · data quality',
       href: de ? '/de/branchen/reporting-daten/' : '/en/industries/reporting-data/',
     },
   ],
@@ -193,8 +187,13 @@ const companyMenu = [
   { icon: Users, title: de ? 'Karriere' : 'Careers', href: de ? '/de/karriere/' : '/en/careers/' },
 ];
 
-const englishLabelEN = de ? 'Englisch' : 'English';
-const germanLabelEN = de ? 'Deutsch' : 'German';
+const featureCard = {
+  img: '/images/demo-offerte-thumb.webp',
+  title: de ? 'Demo: Der Offertprozess' : 'Demo: The quote process',
+  sub: de ? '30 Sekunden — vom E-Mail zur freigegebenen Offerte.' : '30 seconds — from email to approved quote.',
+  href: `/${lang}/services/#demo`,
+  alt: de ? 'Standbild aus der Prozess-Demo' : 'Still from the process demo',
+};
 
 // mini lifecycle orbit for the services rail (computed arcs, logo at center)
 const ocx = 120, ocy = 74, orr = 50;
@@ -471,6 +470,27 @@ const oarc = (a: number, b: number) => {
           ))}
         </div>
       </section>
+      <aside class="mu-col mu-feature">
+        <a href={featureCard.href} class="mu-feature-card">
+          <span class="mu-feature-media">
+            <img src={featureCard.img} alt={featureCard.alt} width="640" height="360" loading="lazy" />
+            <span class="mu-play" aria-hidden="true">▶</span>
+          </span>
+          <span class="mu-feature-title">{featureCard.title}</span>
+          <span class="mu-feature-sub">{featureCard.sub}</span>
+        </a>
+        <div class="mu-orbit">
+          <svg viewBox="0 0 240 148" fill="none" aria-hidden="true">
+            <circle cx={ocx} cy={ocy} r={orr} stroke="var(--border-color)" stroke-width="1.5" stroke-dasharray="2 7" fill="none" />
+            <path d={oarc(-80, 20)} stroke="var(--surface-navy)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.9" />
+            <path d={oarc(40, 140)} stroke="var(--eflury-teal)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.9" />
+            <path d={oarc(160, 260)} stroke="var(--eflury-blue)" stroke-width="5" fill="none" stroke-linecap="round" opacity="0.9" />
+            <rect x={ocx - 21} y={ocy - 21} width="42" height="42" rx="10" fill="#fff" stroke="var(--eflury-teal)" stroke-width="2" />
+            <image href="/images/favicon-tab.png" x={ocx - 17} y={ocy - 17} width="34" height="34" />
+            <text x={ocx} y="142" text-anchor="middle" font-size="9.5" font-weight="800" letter-spacing="0.08em" fill="var(--text-secondary)" font-family="inherit">ADVISE · BUILD · RUN</text>
+          </svg>
+        </div>
+      </aside>
     </div>
     <div class="mega-bottom">
       <div class="mu-bottom-links">
@@ -1465,7 +1485,7 @@ const oarc = (a: number, b: number) => {
     top: 100%;
     left: 50%;
     transform: translateX(-50%) translateY(8px);
-    width: min(1160px, calc(100vw - 32px));
+    width: min(1220px, calc(100vw - 32px));
     background: var(--card-bg);
     border: 1px solid var(--border-color);
     border-radius: 18px;
@@ -1491,7 +1511,7 @@ const oarc = (a: number, b: number) => {
 
   .mu-inner {
     display: grid;
-    grid-template-columns: 1.55fr 1fr 0.72fr;
+    grid-template-columns: 1.42fr 0.98fr 0.6fr 252px;
   }
 
   .mu-col {
@@ -1654,6 +1674,90 @@ const oarc = (a: number, b: number) => {
     font-size: 0.76rem;
     color: var(--text-tertiary);
     text-align: right;
+  }
+
+  /* feature column: real imagery, as mega menus should have */
+  .mu-feature {
+    background: var(--bg-secondary);
+    display: flex;
+    flex-direction: column;
+    gap: 0.9rem;
+  }
+
+  .mega-unified .mu-feature-card {
+    display: block;
+    text-decoration: none;
+  }
+
+  .mu-feature-media {
+    position: relative;
+    display: block;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .mu-feature-media img {
+    display: block;
+    width: 100%;
+    height: auto;
+    transition: transform 0.25s ease;
+  }
+
+  .mega-unified .mu-feature-card:hover .mu-feature-media img {
+    transform: scale(1.03);
+  }
+
+  .mu-play {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(15, 42, 70, 0.78);
+    color: #fff;
+    display: grid;
+    place-items: center;
+    font-size: 13px;
+    padding-left: 3px;
+    transition: background 0.2s ease;
+  }
+
+  .mega-unified .mu-feature-card:hover .mu-play {
+    background: var(--action-teal);
+  }
+
+  .mu-feature-title {
+    display: block;
+    margin-top: 0.6rem;
+    font-size: 0.86rem;
+    font-weight: 800;
+    color: var(--text-primary);
+  }
+
+  .mu-feature-sub {
+    display: block;
+    margin-top: 0.15rem;
+    font-size: 0.75rem;
+    color: var(--text-secondary);
+    line-height: 1.45;
+  }
+
+  .mu-orbit {
+    margin-top: auto;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 0.6rem;
+  }
+
+  .mu-orbit svg {
+    display: block;
+    width: 100%;
+    height: auto;
   }
 
   @media (max-width: 768px) {
