@@ -418,6 +418,22 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://eflury.com/en/case-studies/llm-pipeline-showcase/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/case-studies/llm-pipeline-showcase/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/case-studies/llm-pipeline-showcase/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/case-studies/llm-pipeline-showcase/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://eflury.com/de/case-studies/llm-pipeline-showcase/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/case-studies/llm-pipeline-showcase/"/>
+    <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/case-studies/llm-pipeline-showcase/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://eflury.com/en/case-studies/llm-pipeline-showcase/"/>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://eflury.com/en/privacy/</loc>
     <xhtml:link rel="alternate" hreflang="en" href="https://eflury.com/en/privacy/"/>
     <xhtml:link rel="alternate" hreflang="de" href="https://eflury.com/de/datenschutz/"/>
