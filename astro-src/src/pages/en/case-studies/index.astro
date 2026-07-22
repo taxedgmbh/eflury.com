@@ -23,11 +23,12 @@ const caseStudies = [
     subtitle: 'How I Automated My Own Accounting Firm',
     industry: 'Tax Consulting',
     badge: 'My Own Firm',
-    stats: {
-      timeSaved: '27.5h/week',
-      savings: 'CHF 24K/year',
-      payback: '3.2 months',
-    },
+    badgeClass: 'own',
+    statsList: [
+      { value: '27.5h/week', label: 'Time Saved' },
+      { value: 'CHF 24K/year', label: 'Annual Savings' },
+      { value: '3.2 months', label: 'Payback' },
+    ],
     description: 'Complete automation of client onboarding, report generation, email responses, and tax calculations using Claude Skills and MCP integration with bexio.',
   },
   {
@@ -36,11 +37,12 @@ const caseStudies = [
     subtitle: 'Month-End Close Optimization',
     industry: 'Manufacturing',
     badge: 'Client Project',
-    stats: {
-      timeSaved: '40h/month',
-      savings: 'CHF 48K/year',
-      payback: '4.1 months',
-    },
+    badgeClass: 'client',
+    statsList: [
+      { value: '40h/month', label: 'Time Saved' },
+      { value: 'CHF 48K/year', label: 'Annual Savings' },
+      { value: '4.1 months', label: 'Payback' },
+    ],
     description: 'Automated reconciliation, variance analysis, and reporting for a Swiss manufacturing company, reducing month-end close from 12 days to 5 days.',
   },
   {
@@ -49,12 +51,27 @@ const caseStudies = [
     subtitle: 'Real-Time Business Intelligence',
     industry: 'Professional Services',
     badge: 'Client Project',
-    stats: {
-      timeSaved: '15h/week',
-      savings: 'CHF 36K/year',
-      payback: '2.8 months',
-    },
+    badgeClass: 'client',
+    statsList: [
+      { value: '15h/week', label: 'Time Saved' },
+      { value: 'CHF 36K/year', label: 'Annual Savings' },
+      { value: '2.8 months', label: 'Payback' },
+    ],
     description: 'Built a comprehensive Power BI solution connecting 7 data sources, enabling real-time KPI tracking and automated client reporting.',
+  },
+  {
+    slug: 'llm-pipeline-showcase',
+    title: 'Three LLMs, One Dunning Run',
+    subtitle: 'How a Python script puts AI to work, row by row',
+    industry: 'Tech Showcase',
+    badge: 'Code Published',
+    badgeClass: 'tech',
+    statsList: [
+      { value: '3 providers', label: 'Claude · GPT · Gemini' },
+      { value: '40 invoices', label: 'Processed row by row' },
+      { value: '< $1', label: 'API cost per run (projection)' },
+    ],
+    description: 'Not a client project but a runnable teaching piece: a Python script assesses open invoices with Claude, enforces JSON with GPT-5 mini and drafts reminder emails with Gemini — code, real model outputs and cost projection published in full.',
   },
 ];
 ---
@@ -95,7 +112,7 @@ const caseStudies = [
           </div>
         </div>
         <p class="stats-basis">
-          Aggregated from the three projects below — every figure is documented, per project, in its case study.
+          Aggregated from the three automation projects below — every figure is documented, per project, in its case study. The tech showcase (synthetic data) is not included.
         </p>
       </div>
     </section>
@@ -106,7 +123,7 @@ const caseStudies = [
         {caseStudies.map((study) => (
           <a href={`/en/case-studies/${study.slug}`} class="case-study-card">
             <div class="card-header">
-              <span class={`badge ${study.badge === 'My Own Firm' ? 'own' : 'client'}`}>
+              <span class={`badge ${study.badgeClass}`}>
                 {study.badge}
               </span>
               <span class="industry">{study.industry}</span>
@@ -117,18 +134,12 @@ const caseStudies = [
             <p class="description">{study.description}</p>
 
             <div class="stats-row">
-              <div class="stat-item">
-                <span class="stat-value">{study.stats.timeSaved}</span>
-                <span class="stat-label">Time Saved</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-value">{study.stats.savings}</span>
-                <span class="stat-label">Annual Savings</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-value">{study.stats.payback}</span>
-                <span class="stat-label">Payback</span>
-              </div>
+              {study.statsList.map((s) => (
+                <div class="stat-item">
+                  <span class="stat-value">{s.value}</span>
+                  <span class="stat-label">{s.label}</span>
+                </div>
+              ))}
             </div>
 
             <div class="card-cta">
@@ -286,6 +297,12 @@ const caseStudies = [
   .badge.client {
     background: var(--surface-navy);
     color: white;
+  }
+
+  .badge.tech {
+    background: transparent;
+    border: 1.5px solid var(--action-teal);
+    color: var(--teal-text);
   }
 
   .industry {

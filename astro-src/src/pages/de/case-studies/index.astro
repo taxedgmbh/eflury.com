@@ -23,11 +23,12 @@ const caseStudies = [
     subtitle: 'Wie ich meine eigene Treuhandfirma automatisiert habe',
     industry: 'Steuerberatung',
     badge: 'Eigene Firma',
-    stats: {
-      timeSaved: '27.5h/Woche',
-      savings: 'CHF 24K/Jahr',
-      payback: '3.2 Monate',
-    },
+    badgeClass: 'own',
+    statsList: [
+      { value: '27.5h/Woche', label: 'Zeit gespart' },
+      { value: 'CHF 24K/Jahr', label: 'Jährliche Einsparung' },
+      { value: '3.2 Monate', label: 'Amortisation' },
+    ],
     description: 'Vollständige Automatisierung von Kunden-Onboarding, Berichtserstellung, E-Mail-Antworten und Steuerberechnungen mit Claude Skills und MCP-Integration mit bexio.',
   },
   {
@@ -36,11 +37,12 @@ const caseStudies = [
     subtitle: 'Monatsabschluss-Optimierung',
     industry: 'Fertigung',
     badge: 'Kundenprojekt',
-    stats: {
-      timeSaved: '40h/Monat',
-      savings: 'CHF 48K/Jahr',
-      payback: '4.1 Monate',
-    },
+    badgeClass: 'client',
+    statsList: [
+      { value: '40h/Monat', label: 'Zeit gespart' },
+      { value: 'CHF 48K/Jahr', label: 'Jährliche Einsparung' },
+      { value: '4.1 Monate', label: 'Amortisation' },
+    ],
     description: 'Automatisierte Abstimmung, Abweichungsanalyse und Berichterstattung für ein Schweizer Fertigungsunternehmen, Reduktion des Monatsabschlusses von 12 auf 5 Tage.',
   },
   {
@@ -49,12 +51,27 @@ const caseStudies = [
     subtitle: 'Echtzeit Business Intelligence',
     industry: 'Professionelle Dienstleistungen',
     badge: 'Kundenprojekt',
-    stats: {
-      timeSaved: '15h/Woche',
-      savings: 'CHF 36K/Jahr',
-      payback: '2.8 Monate',
-    },
+    badgeClass: 'client',
+    statsList: [
+      { value: '15h/Woche', label: 'Zeit gespart' },
+      { value: 'CHF 36K/Jahr', label: 'Jährliche Einsparung' },
+      { value: '2.8 Monate', label: 'Amortisation' },
+    ],
     description: 'Umfassende Power BI-Lösung mit Anbindung an 7 Datenquellen für Echtzeit-KPI-Tracking und automatisierte Kundenberichterstattung.',
+  },
+  {
+    slug: 'llm-pipeline-showcase',
+    title: 'Drei LLMs, ein Mahnlauf',
+    subtitle: 'Wie ein Python-Skript KI Zeile für Zeile arbeiten lässt',
+    industry: 'Tech-Showcase',
+    badge: 'Code öffentlich',
+    badgeClass: 'tech',
+    statsList: [
+      { value: '3 Anbieter', label: 'Claude · GPT · Gemini' },
+      { value: '40 Posten', label: 'Zeile für Zeile verarbeitet' },
+      { value: '< $1', label: 'API-Kosten pro Lauf (Projektion)' },
+    ],
+    description: 'Kein Kundenprojekt, sondern ein lauffähiges Lehrstück: Ein Python-Skript beurteilt offene Posten mit Claude, erzwingt JSON mit GPT-5 mini und entwirft Mahn-E-Mails mit Gemini — Code, echte Modell-Ausgaben und Kostenrechnung offen publiziert.',
   },
 ];
 ---
@@ -95,7 +112,7 @@ const caseStudies = [
           </div>
         </div>
         <p class="stats-basis">
-          Aggregiert aus den drei Projekten unten — jede Zahl ist pro Projekt in der jeweiligen Fallstudie dokumentiert.
+          Aggregiert aus den drei Automatisierungsprojekten unten — jede Zahl ist pro Projekt in der jeweiligen Fallstudie dokumentiert. Der Tech-Showcase (synthetische Daten) ist nicht eingerechnet.
         </p>
       </div>
     </section>
@@ -106,7 +123,7 @@ const caseStudies = [
         {caseStudies.map((study) => (
           <a href={`/de/case-studies/${study.slug}`} class="case-study-card">
             <div class="card-header">
-              <span class={`badge ${study.badge === 'Eigene Firma' ? 'own' : 'client'}`}>
+              <span class={`badge ${study.badgeClass}`}>
                 {study.badge}
               </span>
               <span class="industry">{study.industry}</span>
@@ -117,18 +134,12 @@ const caseStudies = [
             <p class="description">{study.description}</p>
 
             <div class="stats-row">
-              <div class="stat-item">
-                <span class="stat-value">{study.stats.timeSaved}</span>
-                <span class="stat-label">Zeit gespart</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-value">{study.stats.savings}</span>
-                <span class="stat-label">Jährliche Einsparung</span>
-              </div>
-              <div class="stat-item">
-                <span class="stat-value">{study.stats.payback}</span>
-                <span class="stat-label">Amortisation</span>
-              </div>
+              {study.statsList.map((s) => (
+                <div class="stat-item">
+                  <span class="stat-value">{s.value}</span>
+                  <span class="stat-label">{s.label}</span>
+                </div>
+              ))}
             </div>
 
             <div class="card-cta">
@@ -341,6 +352,12 @@ const caseStudies = [
   .badge.client {
     background: var(--surface-navy);
     color: white;
+  }
+
+  .badge.tech {
+    background: transparent;
+    border: 1.5px solid var(--action-teal);
+    color: var(--teal-text);
   }
 
   .industry {
