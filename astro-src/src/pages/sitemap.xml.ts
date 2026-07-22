@@ -66,6 +66,7 @@ const staticPages: StaticPage[] = [
   { en: '/en/case-studies/taxed-gmbh/', de: '/de/case-studies/taxed-gmbh/', priority: '0.7', changefreq: 'monthly' },
   { en: '/en/case-studies/finance-automation/', de: '/de/case-studies/finance-automation/', priority: '0.7', changefreq: 'monthly' },
   { en: '/en/case-studies/power-bi-reporting/', de: '/de/case-studies/power-bi-reporting/', priority: '0.7', changefreq: 'monthly' },
+  { en: '/en/case-studies/llm-pipeline-showcase/', de: '/de/case-studies/llm-pipeline-showcase/', priority: '0.7', changefreq: 'monthly' },
 
   // Legal (localized slugs)
   { en: '/en/privacy/', de: '/de/datenschutz/', priority: '0.4', changefreq: 'yearly' },
