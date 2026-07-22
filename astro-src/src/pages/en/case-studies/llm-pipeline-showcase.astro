@@ -24,7 +24,8 @@ Notiz aus der Buchhaltung (Originalton, evtl. DE/FR/EN): «{notizen}»
 
 Empfiehl in 3–5 Sätzen das weitere Vorgehen. Regeln des Betriebs:
 - Zahlungszusagen, Ratenvereinbarungen, Streitfälle und Teilzahlungen NICHT stur weitermahnen.
-- Unklare Fälle (Insolvenzgerüchte, unzustellbare Post, Rechts-/Verrechnungsfragen) gehören zum Chef.
+- Unklare Fälle (Insolvenzgerüchte, unzustellbare Post, Rechts-/Verrechnungsfragen)
+  erfordern eine manuelle Prüfung durch die Geschäftsleitung — nicht mahnen.
 - Bei wichtigen Kunden bestimmt, aber beziehungsschonend formulieren.
 - Erkenne die Sprache des Kunden (de/fr/en) aus Notiz und Firmenname."""
 `;
@@ -74,7 +75,7 @@ const codeLoop = `    for p in posten:
                 prompt2 += f"\\n\\nDeine letzte Antwort war ungültig ({e}). Korrigiere sie."
 
         # Schritt 3: schreiben — nur wenn wirklich eine E-Mail raus soll
-        if entscheid["email_senden"] and entscheid["aktion"] not in ("zurueckstellen", "chef_fragen"):
+        if entscheid["email_senden"] and entscheid["aktion"] not in ("zurueckstellen", "manuelle_pruefung"):
             entwurf, t_in, t_out = schreiben(c_gemini, PROMPT_TEXT.format(**entscheid, **p))
             kosten_usd += (t_in * PREISE[MODELL_TEXT][0] + t_out * PREISE[MODELL_TEXT][1]) / 1e6
             # Pseudonym erst jetzt, lokal, wieder durch den Klarnamen ersetzen
@@ -103,12 +104,32 @@ const codeLoop = `    for p in posten:
     <!-- Hero -->
     <section class="hero">
       <div class="container">
-        <div class="badge-row">
-          <span class="badge tech">Tech Showcase</span>
-          <span class="badge code"><FileCode2 size={13} /> Code published</span>
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <div class="badge-row">
+              <span class="badge tech">Tech Showcase</span>
+              <span class="badge code"><FileCode2 size={13} /> Code published</span>
+            </div>
+            <h1>Three LLMs, one dunning run</h1>
+            <p class="subtitle">A Python script reads 40 open invoices, assesses each case, enforces clean JSON and drafts the reminder email — using the right model for each step.</p>
+            <ul class="hero-facts">
+              <li>40 invoices processed</li>
+              <li>0 invalid responses</li>
+              <li>2 languages detected</li>
+            </ul>
+          </div>
+          <div class="hero-terminal" aria-hidden="true">
+            <div class="term-bar"><span></span><span></span><span></span><em>mahnlauf.py — test run</em></div>
+            <pre class="term-body"><span class="t-cmd">$ python mahnlauf.py</span>
+<span class="t-nr">2026-1002</span>  <span class="t-act">zurueckstellen   </span> <span class="t-dim">risk medium</span>
+<span class="t-nr">2026-1004</span>  <span class="t-act">manuelle_pruefung</span> <span class="t-dim">risk high</span>
+<span class="t-nr">2026-1007</span>  <span class="t-act">erinnerung       </span> <span class="t-dim">risk medium</span>
+<span class="t-nr">2026-1013</span>  <span class="t-act">manuelle_pruefung</span> <span class="t-dim">risk medium</span>
+<span class="t-nr">2026-1017</span>  <span class="t-act">manuelle_pruefung</span> <span class="t-dim">risk high</span>
+<span class="t-ok">40/40 invoices processed · 21 drafts · 0 sent</span>
+<span class="t-caret">▌</span></pre>
+          </div>
         </div>
-        <h1>Three LLMs, one dunning run</h1>
-        <p class="subtitle">A Python script reads 40 open invoices, assesses each case, enforces clean JSON and drafts the reminder email — using the right model for each step.</p>
         <div class="honesty-banner">
           <p>Not a client project: a runnable teaching piece with synthetic data, real code and real model outputs. Script and dataset are available for download below.</p>
         </div>
@@ -118,6 +139,7 @@ const codeLoop = `    for p in posten:
     <!-- The question -->
     <section class="section">
       <div class="container narrow">
+        <span class="kicker">Context</span>
         <h2>The question almost everyone asks</h2>
         <blockquote class="pull-quote">“We can chat with AI now. But how do we use LLMs in daily operations — without someone typing prompts all day?”</blockquote>
         <p>The answer is unspectacular: take away the chat window. An LLM becomes a working tool when it sits inside a loop — a script feeds it one data row at a time, machine-checks every answer, and writes the result to wherever the work continues.</p>
@@ -128,6 +150,7 @@ const codeLoop = `    for p in posten:
     <!-- Scenario -->
     <section class="section alt">
       <div class="container">
+        <span class="kicker">Scenario</span>
         <h2>The scenario</h2>
         <p class="section-lead">The fictional Muster Handwerk AG has 40 open invoices. The receivables list looks the way such lists really look: bookkeeping notes in German, French and English, half-sentences, capital letters, contradictions. Four examples:</p>
         <div class="table-wrap">
@@ -174,68 +197,71 @@ const codeLoop = `    for p in posten:
     <!-- Pipeline -->
     <section class="section">
       <div class="container">
+        <span class="kicker">Architecture</span>
         <h2>The pipeline: three steps, three models</h2>
         <p class="section-lead">Every row passes through three steps. A different model handles each one — always the one that is sufficient for the job:</p>
         <div class="diagram-card">
           <svg viewBox="0 0 980 300" role="img" aria-label="Pipeline" class="pipe-svg">
   <defs>
     <marker id="ah" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
-      <path d="M0,0 L10,5 L0,10 z" fill="var(--teal-text, #0d9488)" />
+      <path d="M0,0 L10,5 L0,10 z" fill="var(--teal-text)" />
     </marker>
   </defs>
   <!-- flow arrows -->
-  <g stroke="var(--teal-text, #0d9488)" stroke-width="2" fill="none" marker-end="url(#ah)">
+  <g stroke="var(--teal-text)" stroke-width="2" fill="none" marker-end="url(#ah)">
     <line x1="148" y1="120" x2="180" y2="120" />
     <line x1="330" y1="120" x2="362" y2="120" />
     <line x1="512" y1="120" x2="544" y2="120" />
     <line x1="694" y1="120" x2="726" y2="120" />
   </g>
   <!-- human branch (decision comes from the structured JSON of step 2) -->
-  <g stroke="var(--eflury-navy, #0f2a46)" stroke-width="2" fill="none" stroke-dasharray="5 5">
+  <g stroke="var(--text-secondary)" stroke-width="2" fill="none" stroke-dasharray="5 5">
     <path d="M 620 168 L 620 196" marker-end="url(#ah)" />
   </g>
   <!-- nodes -->
   <g font-family="-apple-system, 'Segoe UI', sans-serif">
     <!-- CSV -->
-    <rect x="12" y="82" width="136" height="76" rx="14" fill="var(--card-bg, #fff)" stroke="var(--border-color, #dbe3ea)" stroke-width="1.5" />
-    <text x="80" y="115" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--text-primary, #10222f)">offene_posten.csv</text>
-    <text x="80" y="136" text-anchor="middle" font-size="11.5" fill="var(--text-secondary, #51636f)">40 rows</text>
+    <rect x="12" y="82" width="136" height="76" rx="14" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5" />
+    <text x="80" y="115" text-anchor="middle" font-size="13.5" font-weight="700" fill="var(--text-primary)">offene_posten.csv</text>
+    <text x="80" y="136" text-anchor="middle" font-size="11.5" fill="var(--text-secondary)">40 rows</text>
     <!-- pseudo -->
-    <rect x="182" y="82" width="148" height="76" rx="14" fill="var(--card-bg, #fff)" stroke="var(--border-color, #dbe3ea)" stroke-width="1.5" />
-    <text x="256" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary, #10222f)">Pseudonymization</text>
-    <text x="256" y="134" text-anchor="middle" font-size="10" fill="var(--text-secondary, #51636f)">“Jurablick AG” → KUNDE_04</text>
+    <rect x="182" y="82" width="148" height="76" rx="14" fill="var(--card-bg)" stroke="var(--border-color)" stroke-width="1.5" />
+    <text x="256" y="112" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary)">Pseudonymization</text>
+    <text x="256" y="134" text-anchor="middle" font-size="10" fill="var(--text-secondary)">“Jurablick AG” → KUNDE_04</text>
     <!-- step 1 -->
-    <rect x="364" y="76" width="148" height="88" rx="14" fill="var(--surface-navy, #0f2a46)" />
-    <circle cx="388" cy="100" r="11" fill="rgba(255,255,255,0.14)" />
-    <text x="388" y="104.5" text-anchor="middle" font-size="12" font-weight="800" fill="#5eead4">1</text>
-    <text x="404" y="105" font-size="13" font-weight="700" fill="#ffffff">Assess</text>
-    <text x="388" y="130" font-size="11" fill="rgba(255,255,255,0.75)">Claude Opus 4.8</text>
-    <text x="388" y="148" font-size="9.5" letter-spacing="1" fill="#5eead4">ANTHROPIC</text>
+    <rect x="364" y="76" width="148" height="88" rx="14" fill="var(--surface-navy)" />
+    <circle cx="388" cy="100" r="11" fill="rgba(255,255,255,0.16)" />
+    <text x="388" y="104.5" text-anchor="middle" font-size="12" font-weight="800" fill="rgba(255,255,255,0.95)">1</text>
+    <text x="404" y="105" font-size="13" font-weight="700" fill="rgba(255,255,255,0.98)">Assess</text>
+    <text x="388" y="130" font-size="11" fill="rgba(255,255,255,0.78)">Claude Opus 4.8</text>
+    <text x="388" y="148" font-size="9.5" letter-spacing="1.2" fill="rgba(255,255,255,0.55)">ANTHROPIC</text>
     <!-- step 2 -->
-    <rect x="546" y="76" width="148" height="88" rx="14" fill="var(--surface-navy, #0f2a46)" />
-    <circle cx="570" cy="100" r="11" fill="rgba(255,255,255,0.14)" />
-    <text x="570" y="104.5" text-anchor="middle" font-size="12" font-weight="800" fill="#5eead4">2</text>
-    <text x="586" y="105" font-size="13" font-weight="700" fill="#ffffff">Structure</text>
-    <text x="570" y="130" font-size="11" fill="rgba(255,255,255,0.75)">GPT-5 mini</text>
-    <text x="570" y="148" font-size="9.5" letter-spacing="1" fill="#5eead4">OPENAI</text>
+    <rect x="546" y="76" width="148" height="88" rx="14" fill="var(--surface-navy)" />
+    <circle cx="570" cy="100" r="11" fill="rgba(255,255,255,0.16)" />
+    <text x="570" y="104.5" text-anchor="middle" font-size="12" font-weight="800" fill="rgba(255,255,255,0.95)">2</text>
+    <text x="586" y="105" font-size="13" font-weight="700" fill="rgba(255,255,255,0.98)">Structure</text>
+    <text x="570" y="130" font-size="11" fill="rgba(255,255,255,0.78)">GPT-5 mini</text>
+    <text x="570" y="148" font-size="9.5" letter-spacing="1.2" fill="rgba(255,255,255,0.55)">OPENAI</text>
     <!-- step 3 -->
-    <rect x="728" y="76" width="148" height="88" rx="14" fill="var(--surface-navy, #0f2a46)" />
-    <circle cx="752" cy="100" r="11" fill="rgba(255,255,255,0.14)" />
-    <text x="752" y="104.5" text-anchor="middle" font-size="12" font-weight="800" fill="#5eead4">3</text>
-    <text x="768" y="105" font-size="13" font-weight="700" fill="#ffffff">Write</text>
-    <text x="752" y="130" font-size="11" fill="rgba(255,255,255,0.75)">Gemini 2.5 Flash</text>
-    <text x="752" y="148" font-size="9.5" letter-spacing="1" fill="#5eead4">GOOGLE</text>
+    <rect x="728" y="76" width="148" height="88" rx="14" fill="var(--surface-navy)" />
+    <circle cx="752" cy="100" r="11" fill="rgba(255,255,255,0.16)" />
+    <text x="752" y="104.5" text-anchor="middle" font-size="12" font-weight="800" fill="rgba(255,255,255,0.95)">3</text>
+    <text x="768" y="105" font-size="13" font-weight="700" fill="rgba(255,255,255,0.98)">Write</text>
+    <text x="752" y="130" font-size="11" fill="rgba(255,255,255,0.78)">Gemini 2.5 Flash</text>
+    <text x="752" y="148" font-size="9.5" letter-spacing="1.2" fill="rgba(255,255,255,0.55)">GOOGLE</text>
     <!-- output -->
-    <g stroke="var(--teal-text, #0d9488)" stroke-width="2" fill="none" marker-end="url(#ah)">
+    <g stroke="var(--teal-text)" stroke-width="2" fill="none" marker-end="url(#ah)">
       <path d="M 876 120 L 924 120 L 924 40 L 660 40" />
     </g>
-    <rect x="404" y="12" width="252" height="52" rx="14" fill="var(--card-bg, #fff)" stroke="var(--action-teal, #0d9488)" stroke-width="1.8" />
-    <text x="530" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary, #10222f)">Drafts + results CSV</text>
-    <text x="530" y="53" text-anchor="middle" font-size="10.5" fill="var(--teal-text, #0d9488)">nothing gets sent</text>
+    <rect x="404" y="12" width="252" height="52" rx="14" fill="var(--card-bg)" stroke="var(--action-teal)" stroke-width="1.8" />
+    <text x="530" y="35" text-anchor="middle" font-size="13" font-weight="700" fill="var(--text-primary)">Drafts + results CSV</text>
+    <text x="530" y="53" text-anchor="middle" font-size="10.5" fill="var(--teal-text)">nothing gets sent</text>
     <!-- human node -->
-    <rect x="562" y="202" width="230" height="48" rx="12" fill="var(--bg-secondary, #f4f7f9)" stroke="var(--border-color, #dbe3ea)" stroke-width="1.5" stroke-dasharray="5 4" />
-    <text x="677" y="224" text-anchor="middle" font-size="12" font-weight="700" fill="var(--eflury-navy, #0f2a46)">🧑‍💼 Edge cases → a human decides</text>
-    <text x="677" y="241" text-anchor="middle" font-size="10" fill="var(--text-secondary, #51636f)">zurueckstellen · chef_fragen</text>
+    <rect x="540" y="202" width="268" height="48" rx="12" fill="var(--bg-secondary)" stroke="var(--border-color)" stroke-width="1.5" stroke-dasharray="5 4" />
+    <circle cx="564" cy="221" r="5" fill="none" stroke="var(--teal-text)" stroke-width="1.8" />
+    <path d="M 556 236 Q 564 227 572 236" fill="none" stroke="var(--teal-text)" stroke-width="1.8" stroke-linecap="round" />
+    <text x="584" y="221" font-size="12" font-weight="700" fill="var(--text-primary)">Edge cases → a human decides</text>
+    <text x="584" y="238" font-size="10" fill="var(--text-secondary)">On hold · Manual review</text>
   </g>
 </svg>
         </div>
@@ -269,6 +295,7 @@ const codeLoop = `    for p in posten:
     <!-- Code -->
     <section class="section alt">
       <div class="container narrow">
+        <span class="kicker">Code</span>
         <h2>The code</h2>
         <p class="section-lead">The full script is a good 200 lines, runs with three API keys as environment variables and sends nothing — emails end up as drafts on disk. The three decisive parts (code comments in German — it is written for Swiss SMEs):</p>
 
@@ -289,8 +316,13 @@ const codeLoop = `    for p in posten:
     <!-- Results -->
     <section class="section">
       <div class="container">
+        <span class="kicker">Results</span>
         <h2>The test run: real outputs</h2>
-        <p class="section-lead">We ran the pipeline over all 40 invoices. Result: 18× friendly reminder, 3× reminder, 1× final reminder — and 18 cases the system deliberately did NOT dun, but put on hold or escalated to the boss. Those cases are the whole point: a rigid dunning program would have sent a reminder to the customer with a written instalment agreement.</p>
+        <p class="section-lead">We ran the pipeline over all 40 invoices. Result: 18× friendly reminder, 2× reminder, 1× final reminder — and 19 cases the system deliberately did NOT dun, but put on hold or referred to management for manual review. Those cases are the whole point: a rigid dunning program would still have sent a reminder to the customer whose payment promise was confirmed by phone.</p>
+          <div class="dist-wrap" role="img" aria-label="Friendly reminder: 18, Payment reminder: 2, Final reminder: 1, On hold: 5, Manual review: 14">
+            <div class="dist-bar"><span class="dist-seg" style="width:45.0%;background:var(--eflury-teal)" title="Friendly reminder: 18"></span><span class="dist-seg" style="width:5.0%;background:var(--success-700)" title="Payment reminder: 2"></span><span class="dist-seg" style="width:2.5%;background:var(--warning-500)" title="Final reminder: 1"></span><span class="dist-seg" style="width:12.5%;background:var(--primary-200)" title="On hold: 5"></span><span class="dist-seg" style="width:35.0%;background:var(--surface-navy)" title="Manual review: 14"></span></div>
+            <ul class="dist-legend"><li><span class="dot" style="background:var(--eflury-teal)"></span>Friendly reminder <b>18</b></li><li><span class="dot" style="background:var(--success-700)"></span>Payment reminder <b>2</b></li><li><span class="dot" style="background:var(--warning-500)"></span>Final reminder <b>1</b></li><li><span class="dot" style="background:var(--primary-200)"></span>On hold <b>5</b></li><li><span class="dot" style="background:var(--surface-navy)"></span>Manual review <b>14</b></li></ul>
+          </div>
         <div class="table-wrap">
           <table class="data-table">
             <thead>
@@ -300,76 +332,72 @@ const codeLoop = `    for p in posten:
             <tr>
               <td><strong>2026-1002</strong><br /><span class="td-sub">CHF 1'350.00 · 34 days overdue</span></td>
               <td class="td-note">hat angerufen, zahlt Ende Monat. tel. bestätigt 08.07.</td>
-              <td><span class="action-chip act-hold">On hold</span><br /><span class="td-sub">risk: medium</span></td>
-              <td class="td-note">Telefonische Zahlungszusage vom 08.07. liegt vor; Zusage abwarten, Wiedervorlage Anfang August.</td>
+              <td><span class="action-chip act-human">On hold</span><br /><span class="td-sub">risk: medium</span></td>
+              <td class="td-note">Zahlungszusage per Telefon am 08.07. bis Ende Monat; Mahnstopp bis Anfang August gesetzt.</td>
             </tr>
             <tr>
               <td><strong>2026-1004</strong><br /><span class="td-sub">CHF 23'760.00 · 67 days overdue</span></td>
               <td class="td-note">2. Mahnung per Post 12.06. KEINE Reaktion. grosser Folgeauftrag offen!!</td>
-              <td><span class="action-chip act-human">Escalate to boss</span><br /><span class="td-sub">risk: high</span></td>
-              <td class="td-note">67 Tage überfällig, zwei Mahnungen unbeantwortet, grosser Folgeauftrag blockiert. Direkte telefonische Klärung nötig, bei Misserfolg Chef übergeben.</td>
+              <td><span class="action-chip act-human">Manual review</span><br /><span class="td-sub">risk: high</span></td>
+              <td class="td-note">Wichtiger Kunde mit grossem Folgeauftrag; standardisierter Mahnlauf kontraproduktiv. Manuelle Prüfung durch Geschäftsleitung empfohlen.</td>
             </tr>
             <tr>
               <td><strong>2026-1007</strong><br /><span class="td-sub">CHF 4'870.00 · 51 days overdue</span></td>
               <td class="td-note">Teilzahlung CHF 2&#x27;000 am 30.06. eingegangen, Rest offen. war ok für ihn per mail</td>
-              <td><span class="action-chip act-soft">Friendly reminder</span><br /><span class="td-sub">risk: low</span></td>
-              <td class="td-note">Teilzahlung und Zahlungszusage liegen vor; freundliche Erinnerung an Restbetrag von CHF 2&#x27;870.00.</td>
+              <td><span class="action-chip act-auto">Friendly reminder</span><br /><span class="td-sub">risk: medium</span></td>
+              <td class="td-note">Teilzahlung geleistet, Restbetrag offen. Keine neue Zahlungszusage. Beziehungsschonende Erinnerung per E-Mail empfohlen.</td>
             </tr>
             <tr>
               <td><strong>2026-1009</strong><br /><span class="td-sub">CHF 6'540.00 · 88 days overdue</span></td>
               <td class="td-note">Gerücht vom Lieferanten: Zahlungsschwierigkeiten?? nichts konkretes. VORSICHT mit Ton</td>
-              <td><span class="action-chip act-human">Escalate to boss</span><br /><span class="td-sub">risk: high</span></td>
-              <td class="td-note">Rechnung CHF 6&#x27;540.00 seit 88 Tagen überfällig (2. Mahnung). Gerücht über Zahlungsschwierigkeiten – Fall zur Klärung an GL weiterleiten.</td>
+              <td><span class="action-chip act-human">Manual review</span><br /><span class="td-sub">risk: high</span></td>
+              <td class="td-note">88 Tage überfällig, 2. Mahnung, Gerücht über Zahlungsschwierigkeiten – Fall zur manuellen Prüfung durch Geschäftsleitung.</td>
             </tr>
             <tr>
               <td><strong>2026-1006</strong><br /><span class="td-sub">CHF 15'300.00 · 28 days overdue</span></td>
               <td class="td-note">says PO number missing on invoice – resend with PO 4711, then payment &#x27;immediately&#x27;</td>
-              <td><span class="action-chip act-hold">On hold</span><br /><span class="td-sub">risk: low</span></td>
-              <td class="td-note">Kunde beanstandet fehlende Bestellnummer, bittet um korrigierte Rechnung mit PO 4711 und sagt sofortige Zahlung zu.</td>
+              <td><span class="action-chip act-human">On hold</span><br /><span class="td-sub">risk: low</span></td>
+              <td class="td-note">Kunde beanstandet fehlende Bestellnummer, sagt Zahlung nach Korrektur zu. Mahnstopp, korrigierte Rechnung mit PO 4711 ausstellen.</td>
             </tr>
             <tr>
               <td><strong>2026-1023</strong><br /><span class="td-sub">CHF 430.00 · 63 days overdue</span></td>
-              <td class="td-note">Kleinbetrag. 2 Mahnungen raus. lohnt sich Betreibung überhaupt? CHEF FRAGEN</td>
-              <td><span class="action-chip act-human">Escalate to boss</span><br /><span class="td-sub">risk: medium</span></td>
-              <td class="td-note">Kleinbetrag von CHF 430, zwei Mahnungen erfolglos. Chef entscheiden, ob Betreibung lohnt.</td>
+              <td class="td-note">Kleinbetrag. 2 Mahnungen raus. lohnt sich eine Betreibung überhaupt?? KLÄREN</td>
+              <td><span class="action-chip act-auto">Final reminder</span><br /><span class="td-sub">risk: medium</span></td>
+              <td class="td-note">Kleinbetrag CHF 430, 63 Tage überfällig, 2. Mahnung. Letzte Zahlungsaufforderung mit Betreibungsandrohung, danach Prüfung mit GL.</td>
             </tr>
             </tbody>
           </table>
         </div>
 
-        <h3 class="emails-h">22 email drafts, three languages</h3>
+        <h3 class="emails-h">21 email drafts, three languages</h3>
         <p>Two examples from the run — unedited, exactly as the model filed them:</p>
         <div class="email-grid">
           <figure class="email-draft">
-            <figcaption><span class="email-tag">German · Payment reminder</span> Coiffeur Le Style · 2026-1017 · CHF 640.00</figcaption>
-            <pre>Betreff: 2. Mahnung – Rechnung 2026-1017 über CHF 640.00
+            <figcaption><span class="email-tag">German · Final reminder</span> Papeterie Central · 2026-1023 · CHF 430.00</figcaption>
+            <pre>Betreff: Letzte Zahlungserinnerung – Rechnung 2026-1023
 
-Guten Tag
+Sehr geehrte Damen und Herren
 
-Bereits am [Datum der ersten Mahnung] haben wir Sie an die offene Rechnung 2026-1017 über CHF 640.00 erinnert. Leider haben wir bis heute keinen Zahlungseingang verbuchen können. Die Rechnung ist nun seit 58 Tagen überfällig.
+Bereits am [Datum der ersten Mahnung] und [Datum der zweiten Mahnung] haben wir Sie an die offene Rechnung 2026-1023 über CHF 430.00 erinnert. Der Betrag ist seit 63 Tagen fällig.
 
-Wir bitten Sie, den offenen Betrag von CHF 640.00 innert 10 Tagen auf unser Konto [IBAN] zu überweisen. Sollte die Zahlung bereits erfolgt sein, betrachten Sie diese Erinnerung als gegenstandslos.
+Wir bitten Sie, den offenen Betrag von CHF 430.00 innerhalb der nächsten 10 Tage auf unser Konto [IBAN] zu überweisen. Sollte der Zahlungseingang bis dahin ausbleiben, sehen wir uns gezwungen, den Fall der Geschäftsleitung zur Prüfung weiterzuleiten und ein Betreibungsverfahren einzuleiten.
 
-Besten Dank für Ihre geschätzte Bemühung.
+Wir hoffen auf Ihre umgehende Zahlung und danken für Ihre geschätzte Aufmerksamkeit.
 
 Freundliche Grüsse
 Muster Handwerk AG</pre>
           </figure>
           <figure class="email-draft">
-            <figcaption><span class="email-tag">French · Final reminder</span> Clinique du Lac SA · 2026-1026 · CHF 27'890.00</figcaption>
-            <pre>Objet: Dernier rappel – Facture 2026-1026, CHF 27&#x27;890.00
+            <figcaption><span class="email-tag">French · Friendly reminder</span> Clinique du Lac SA · 2026-1026 · CHF 27'890.00</figcaption>
+            <pre>Objet: Rappel de paiement – Facture 2026-1026
 
 Madame, Monsieur,
 
-Nous faisons suite à notre précédent rappel et à votre promesse de paiement faite il y a deux semaines, malheureusement non tenue à ce jour.
+Nous faisons suite à notre précédent échange et à votre engagement de régler la facture 2026-1026 d’un montant de CHF 27 890.00. À ce jour, malgré votre promesse, ce montant est toujours impayé depuis 47 jours.
 
-La facture 2026-1026 d’un montant de CHF 27&#x27;890.00 est impayée depuis 47 jours. Nous vous accordons un ultime délai de 10 jours à compter de la réception de ce courrier.
+Nous vous prions de bien vouloir effectuer le virement sous 10 jours sur notre compte [IBAN].
 
-Passé ce délai, le dossier sera transmis à notre direction pour les suites nécessaires.
-
-Veuillez verser le montant sur notre compte [IBAN] en mentionnant la référence de la facture.
-
-Nous comptons sur votre règlement immédiat.
+Nous comptons sur votre respect de cet engagement et vous remercions de votre compréhension.
 
 Meilleures salutations,
 Muster Handwerk AG
@@ -387,6 +415,7 @@ Musterstrasse 1, 2540 Grenchen</pre>
     <!-- Cost -->
     <section class="section alt">
       <div class="container narrow">
+        <span class="kicker">Costs</span>
         <h2>What does a run cost?</h2>
         <p class="section-lead">Projection for the 40 invoices: text volumes measured in the test run, converted to tokens (~3.6 characters/token) and multiplied by the three providers' list prices (as of July 2026, USD per 1M tokens):</p>
         <div class="table-wrap">
@@ -398,25 +427,25 @@ Musterstrasse 1, 2540 Grenchen</pre>
             <tr>
               <td><strong>Assess</strong><br /><span class="td-sub">Claude Opus 4.8</span></td>
               <td>5.00 / 25.00</td>
-              <td>~8'342 / ~7'661</td>
-              <td><strong>~$0.23</strong></td>
+              <td>~8'998 / ~8'715</td>
+              <td><strong>~$0.26</strong></td>
             </tr>
             <tr>
               <td><strong>Structure</strong><br /><span class="td-sub">GPT-5 mini</span></td>
               <td>0.25 / 2.00</td>
-              <td>~14'061 / ~2'702</td>
+              <td>~15'242 / ~2'731</td>
               <td><strong>~$0.01</strong></td>
             </tr>
             <tr>
               <td><strong>Write</strong><br /><span class="td-sub">Gemini 2.5 Flash</span></td>
               <td>0.30 / 2.50</td>
-              <td>~4'098 / ~3'206</td>
+              <td>~3'907 / ~3'010</td>
               <td><strong>~$0.01</strong></td>
             </tr>
             </tbody>
           </table>
         </div>
-        <p class="cost-total">Total per run: ~$0.25 — with a weekly dunning run, roughly $1.09 per month.</p>
+        <p class="cost-total">Total per run: ~$0.28 — with a weekly dunning run, roughly $1.22 per month.</p>
         <p class="table-note">This is a projection, not a bill: token counts are estimated from character volumes; real provider invoices may differ. The order of magnitude is the point — the most expensive item in dunning is not the AI, it is the hour of manual work.</p>
       </div>
     </section>
@@ -424,10 +453,11 @@ Musterstrasse 1, 2540 Grenchen</pre>
     <!-- Security -->
     <section class="section">
       <div class="container">
+        <span class="kicker">Security</span>
         <h2>Security, privacy, limits</h2>
         <div class="sec-grid">
           <div class="sec-card"><ShieldCheck size={20} /><h3>Real names stay in-house</h3><p>Before every API call, customer names are replaced by pseudonyms (KUNDE_07) and only re-inserted locally in the finished draft. Providers see amounts and notes, but no names.</p></div>
-          <div class="sec-card"><ShieldCheck size={20} /><h3>Nothing goes out automatically</h3><p>The script sends not a single email — it writes drafts. And it flagged 18 of 40 cases as boss-matters or holds on its own, instead of dunning.</p></div>
+          <div class="sec-card"><ShieldCheck size={20} /><h3>Nothing goes out automatically</h3><p>The script sends not a single email — it writes drafts. And it flagged 19 of 40 cases for manual review or hold on its own, instead of dunning.</p></div>
           <div class="sec-card"><ShieldCheck size={20} /><h3>Keys do not belong in code</h3><p>API keys come from environment variables. There is not a single key in the published code — that is how it should be.</p></div>
           <div class="sec-card limits"><Scale size={20} /><h3>Limits</h3><p>An LLM can misread a note. Hence: drafts instead of sending, strict JSON validation, edge cases to a human. Automation here means: machine-prepare the 80% routine, leave the 20% judgement with people.</p></div>
         </div>
@@ -520,6 +550,13 @@ Musterstrasse 1, 2540 Grenchen</pre>
     color: var(--teal-text);
   }
 
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.15fr 0.85fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
   .hero h1 {
     font-size: clamp(2.2rem, 5vw, 3.25rem);
     font-weight: 800;
@@ -533,6 +570,82 @@ Musterstrasse 1, 2540 Grenchen</pre>
     color: var(--text-secondary);
     max-width: 46em;
     line-height: 1.6;
+  }
+
+  .hero-facts {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin: 1.5rem 0 0;
+    padding: 0;
+  }
+
+  .hero-facts li {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-full);
+    padding: 0.35rem 0.9rem;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--text-secondary);
+  }
+
+  .hero-terminal {
+    background: var(--surface-navy);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+
+  .term-bar {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 0.6rem 0.9rem;
+    background: rgba(255, 255, 255, 0.06);
+  }
+
+  .term-bar span {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.22);
+  }
+
+  .term-bar em {
+    margin-left: 0.6rem;
+    font-style: normal;
+    font-size: 0.72rem;
+    letter-spacing: 0.04em;
+    color: rgba(255, 255, 255, 0.55);
+  }
+
+  .term-body {
+    margin: 0;
+    padding: 1rem 1.1rem 1.2rem;
+    font-family: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+    font-size: 0.76rem;
+    line-height: 1.85;
+    color: rgba(255, 255, 255, 0.82);
+    overflow-x: auto;
+  }
+
+  .term-body .t-cmd { color: rgba(255, 255, 255, 0.95); font-weight: 600; }
+  .term-body .t-nr { color: rgba(255, 255, 255, 0.6); }
+  .term-body .t-act { color: var(--eflury-teal); font-weight: 600; }
+  .term-body .t-dim { color: rgba(255, 255, 255, 0.45); }
+  .term-body .t-ok { color: rgba(255, 255, 255, 0.92); font-weight: 600; }
+  .term-body .t-caret { color: var(--eflury-teal); }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .term-body .t-caret {
+      animation: t-blink 1.2s step-end infinite;
+    }
+  }
+
+  @keyframes t-blink {
+    50% { opacity: 0; }
   }
 
   .honesty-banner {
@@ -558,6 +671,16 @@ Musterstrasse 1, 2540 Grenchen</pre>
 
   .section.alt {
     background: var(--bg-secondary);
+  }
+
+  .kicker {
+    display: block;
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--teal-text);
+    margin-bottom: 0.5rem;
   }
 
   .section h2 {
@@ -656,22 +779,72 @@ Musterstrasse 1, 2540 Grenchen</pre>
   .action-chip {
     display: inline-block;
     padding: 0.2rem 0.65rem;
-    border-radius: 1rem;
+    border-radius: var(--radius-full);
     font-size: 0.75rem;
     font-weight: 700;
     white-space: nowrap;
   }
 
-  .act-soft { background: rgba(13, 148, 136, 0.12); color: var(--teal-text); }
-  .act-mid { background: rgba(15, 42, 70, 0.1); color: var(--eflury-navy); }
-  .act-hard { background: rgba(185, 28, 28, 0.1); color: #b91c1c; }
-  .act-hold { background: rgba(217, 119, 6, 0.12); color: #b45309; }
-  .act-human { background: rgba(37, 99, 235, 0.1); color: #1d4ed8; }
+  .act-auto {
+    background: var(--primary-50);
+    border: 1px solid var(--primary-200);
+    color: var(--teal-text);
+  }
 
-  :global([data-theme="dark"]) .act-mid { background: rgba(148, 190, 233, 0.16); color: #94bee9; }
-  :global([data-theme="dark"]) .act-hard { background: rgba(248, 113, 113, 0.14); color: #f87171; }
-  :global([data-theme="dark"]) .act-hold { background: rgba(251, 191, 36, 0.14); color: #fbbf24; }
-  :global([data-theme="dark"]) .act-human { background: rgba(96, 165, 250, 0.14); color: #60a5fa; }
+  .act-human {
+    background: var(--action-teal);
+    color: white;
+  }
+
+  /* Result distribution bar */
+  .dist-wrap {
+    margin-bottom: 1.75rem;
+  }
+
+  .dist-bar {
+    display: flex;
+    height: 16px;
+    border-radius: var(--radius-full);
+    overflow: hidden;
+    background: var(--bg-secondary);
+  }
+
+  .dist-seg {
+    display: block;
+    height: 100%;
+  }
+
+  .dist-seg + .dist-seg {
+    border-left: 2px solid var(--bg-primary);
+  }
+
+  .dist-legend {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    margin: 0.75rem 0 0;
+    padding: 0;
+  }
+
+  .dist-legend li {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.82rem;
+    color: var(--text-secondary);
+  }
+
+  .dist-legend b {
+    color: var(--text-primary);
+  }
+
+  .dist-legend .dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
 
   /* Diagram */
   .diagram-card {
@@ -775,7 +948,7 @@ Musterstrasse 1, 2540 Grenchen</pre>
     border-radius: 14px;
     overflow: hidden;
     box-shadow: var(--shadow-sm);
-    border: 1px solid rgba(15, 42, 70, 0.35);
+    border: 1px solid var(--border-color);
     margin-top: 0.75rem;
   }
 
@@ -907,11 +1080,11 @@ Musterstrasse 1, 2540 Grenchen</pre>
   }
 
   .sec-card.limits :global(svg) {
-    color: #b45309;
+    color: var(--warning-700);
   }
 
   :global([data-theme="dark"]) .sec-card.limits :global(svg) {
-    color: #fbbf24;
+    color: var(--warning-300);
   }
 
   .sec-card h3 {
@@ -995,7 +1168,7 @@ Musterstrasse 1, 2540 Grenchen</pre>
   }
 
   .btn-download:hover {
-    background: #0f766e;
+    background: var(--success-700);
     transform: translateY(-2px);
   }
 
@@ -1035,7 +1208,7 @@ Musterstrasse 1, 2540 Grenchen</pre>
   }
 
   .btn-primary:hover {
-    background: #0f766e;
+    background: var(--success-700);
     transform: translateY(-2px);
   }
 
@@ -1051,6 +1224,11 @@ Musterstrasse 1, 2540 Grenchen</pre>
 
     .hero {
       padding: 2rem 0 2.5rem;
+    }
+
+    .hero-grid {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
     }
 
     .pull-quote {
