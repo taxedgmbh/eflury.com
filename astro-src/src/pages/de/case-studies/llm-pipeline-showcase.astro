@@ -14,6 +14,7 @@ import { Code } from 'astro:components';
 import { ArrowRight, Download, ShieldCheck, FileCode2, Scale } from 'lucide-astro';
 
 const lang = 'de';
+const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAACNCvv3pA4hrcbKM';
 
 const codePrompt = `PROMPT_BEURTEILEN = """Du bist erfahrene:r Debitoren-Sachbearbeiter:in der Muster Handwerk AG,
 einem Schweizer KMU. Beurteile diesen offenen Posten (Stichtag {stichtag}):
@@ -473,15 +474,32 @@ Musterstrasse 1, 2540 Grenchen</pre>
           </ul>
         </div>
 
-        <div class="download-box">
-          <div>
+        <div class="download-box" id="zipGate" data-sitekey={turnstileSitekey} data-zip="/downloads/eflury-mahnlauf-showcase.zip">
+          <div class="dl-copy">
             <h3>Zum Selber-Ausprobieren</h3>
-            <p>Skript, Datensatz und Anleitung als ZIP — MIT-Lizenz, frei verwendbar. Wenn Sie es auf Ihre echte Debitorenliste loslassen wollen: Genau dabei helfen wir.</p>
+            <p>Skript, Datensatz und Anleitung als ZIP — MIT-Lizenz, frei verwendbar. Hinterlassen Sie Ihre geschäftliche E-Mail, und der Download startet direkt.</p>
           </div>
-          <a href="/downloads/eflury-mahnlauf-showcase.zip" class="btn-download" download>
-            <Download size={18} />
-            Download: Skript + Datensatz (ZIP)
-          </a>
+          <form class="zg-form" id="zgForm" novalidate>
+            <label class="zg-label" for="zg-email">Geschäftliche E-Mail</label>
+            <div class="zg-row">
+              <input type="email" id="zg-email" name="email" required autocomplete="email" placeholder="name@firma.ch" />
+              <button type="submit" id="zg-submit" class="btn-download">
+                <Download size={18} />
+                ZIP herunterladen
+              </button>
+            </div>
+            <input type="text" id="zg-hp" name="website" tabindex="-1" autocomplete="off" aria-hidden="true" class="zg-hp" />
+            <div id="zg-turnstile" class="zg-turnstile"></div>
+            <p class="zg-status" id="zg-status" role="status"></p>
+            <p class="zg-micro">Wir verwenden Ihre E-Mail, um uns einmalig persönlich zu melden — kein Newsletter, keine Weitergabe. Details in der <a href="/de/datenschutz/">Datenschutzerklärung</a>.</p>
+          </form>
+          <div class="zg-success" id="zgSuccess" hidden>
+            <p>Danke! Der Download startet — falls nicht, hier klicken:</p>
+            <a href="/downloads/eflury-mahnlauf-showcase.zip" class="btn-download" download>
+              <Download size={18} />
+              ZIP direkt herunterladen
+            </a>
+          </div>
         </div>
       </div>
     </section>
@@ -502,6 +520,132 @@ Musterstrasse 1, 2540 Grenchen</pre>
   <Footer lang={lang} />
   <AIChatbot />
 </MainLayout>
+
+<script>
+  import { submitHubSpotForm, HUBSPOT_FORMS } from '../../../scripts/hubspot-forms';
+
+  const gate = document.getElementById('zipGate') as HTMLDivElement | null;
+  const form = document.getElementById('zgForm') as HTMLFormElement | null;
+  const emailInput = document.getElementById('zg-email') as HTMLInputElement | null;
+  const submitBtn = document.getElementById('zg-submit') as HTMLButtonElement | null;
+  const status = document.getElementById('zg-status') as HTMLParagraphElement | null;
+  const success = document.getElementById('zgSuccess') as HTMLDivElement | null;
+  const pageLang = document.documentElement.lang || 'en';
+
+  // Bot protection: honeypot + lazily rendered Turnstile (same pattern as the footer)
+  let zgToken: string | null = null;
+  let zgWidgetRendered = false;
+
+  function renderZgTurnstile() {
+    const ts = (window as any).turnstile;
+    const container = document.getElementById('zg-turnstile');
+    if (!ts || !container || zgWidgetRendered) return;
+    zgWidgetRendered = true;
+    ts.render(container, {
+      sitekey: gate?.dataset.sitekey,
+      appearance: 'interaction-only',
+      callback: (token: string) => { zgToken = token; },
+      'expired-callback': () => { zgToken = null; },
+    });
+  }
+
+  function ensureTurnstileLoaded() {
+    if ((window as any).turnstile) {
+      renderZgTurnstile();
+      return;
+    }
+    if (!document.querySelector('script[src*="challenges.cloudflare.com"]')) {
+      const s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+      s.async = true;
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+    const poll = setInterval(() => {
+      if ((window as any).turnstile) {
+        clearInterval(poll);
+        renderZgTurnstile();
+      }
+    }, 250);
+    setTimeout(() => clearInterval(poll), 10000);
+  }
+
+  emailInput?.addEventListener('focus', ensureTurnstileLoaded, { once: true });
+
+  function startDownload() {
+    const zip = gate?.dataset.zip;
+    if (!zip) return;
+    const a = document.createElement('a');
+    a.href = zip;
+    a.setAttribute('download', '');
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+  }
+
+  function showSuccess() {
+    if (form) form.hidden = true;
+    if (success) success.hidden = false;
+    startDownload();
+    if ((window as any).trackEvent) {
+      (window as any).trackEvent('Conversion', 'zip_download_lead', 'LLM Showcase');
+    }
+  }
+
+  form?.addEventListener('submit', async (e) => {
+    e.preventDefault();
+
+    // Honeypot: bots fill hidden fields — pretend success, submit nothing.
+    const honeypot = (document.getElementById('zg-hp') as HTMLInputElement | null)?.value;
+    if (honeypot) {
+      showSuccess();
+      return;
+    }
+
+    const email = emailInput?.value?.trim() || '';
+    if (!email || !email.includes('@') || !email.includes('.')) {
+      if (status) {
+        status.className = 'zg-status error';
+        status.textContent = pageLang === 'de'
+          ? 'Bitte geben Sie eine gültige E-Mail-Adresse ein.'
+          : 'Please enter a valid email address.';
+      }
+      return;
+    }
+
+    // Turnstile gate: widget rendered but unsolved -> ask to complete.
+    // Script never loaded (blocked) -> fail open; HubSpot filters spam too.
+    if (!zgToken && zgWidgetRendered) {
+      if (status) {
+        status.className = 'zg-status error';
+        status.textContent = pageLang === 'de'
+          ? 'Bitte schliessen Sie kurz die Sicherheitsprüfung ab.'
+          : 'Please complete the quick security check.';
+      }
+      return;
+    }
+
+    if (submitBtn) submitBtn.disabled = true;
+
+    try {
+      await submitHubSpotForm(
+        HUBSPOT_FORMS.contact,
+        {
+          email,
+          message: '[Lead via ZIP-Download] Tech-Showcase LLM-Pipeline (Mahnlauf) — ' + window.location.pathname,
+        },
+        'ZIP download gate (LLM showcase)',
+      );
+      showSuccess();
+    } catch (error) {
+      // Fail open: the visitor still gets the file, we just lose the lead.
+      console.error('ZIP gate lead submission failed:', error);
+      showSuccess();
+    } finally {
+      if (submitBtn) submitBtn.disabled = false;
+    }
+  });
+</script>
 
 <style>
   .container {
@@ -1126,17 +1270,16 @@ Musterstrasse 1, 2540 Grenchen</pre>
     margin-bottom: 0.4rem;
   }
 
-  /* Download */
+  /* Download gate */
   .download-box {
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 1.1fr;
     align-items: center;
-    justify-content: space-between;
-    gap: 2rem;
+    gap: 2.5rem;
     background: var(--card-bg);
     border: 1.5px solid var(--action-teal);
     border-radius: 16px;
     padding: 1.75rem 2rem;
-    flex-wrap: wrap;
   }
 
   .download-box h3 {
@@ -1150,6 +1293,77 @@ Musterstrasse 1, 2540 Grenchen</pre>
     margin: 0;
     font-size: 0.95rem;
     max-width: 38em;
+  }
+
+  .zg-label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin-bottom: 0.4rem;
+  }
+
+  .zg-row {
+    display: flex;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+  }
+
+  .zg-row input {
+    flex: 1;
+    min-width: 200px;
+    padding: 0.7rem 1rem;
+    font-size: 1.0625rem;
+    font-family: inherit;
+    color: var(--text-primary);
+    background: var(--bg-primary);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-md);
+  }
+
+  .zg-row input:focus {
+    outline: 2px solid var(--action-teal);
+    outline-offset: 1px;
+    border-color: var(--action-teal);
+  }
+
+  .zg-hp {
+    position: absolute;
+    left: -9999px;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+  }
+
+  .zg-turnstile:not(:empty) {
+    margin-top: 0.75rem;
+  }
+
+  .zg-status {
+    margin: 0.6rem 0 0;
+    font-size: 0.85rem;
+    min-height: 1.2em;
+  }
+
+  .zg-status.error {
+    color: var(--warning-700);
+  }
+
+  .zg-micro {
+    margin: 0.75rem 0 0;
+    font-size: 0.78rem;
+    color: var(--text-tertiary);
+    line-height: 1.55;
+  }
+
+  .zg-micro a {
+    color: var(--teal-text);
+  }
+
+  .zg-success p {
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.9rem;
   }
 
   .btn-download {
@@ -1245,8 +1459,8 @@ Musterstrasse 1, 2540 Grenchen</pre>
     }
 
     .download-box {
-      flex-direction: column;
-      align-items: flex-start;
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
     }
   }
 </style>
