@@ -1,120 +1,285 @@
 ---
 import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
+import { Server, BarChart3, Inbox, Bot, Briefcase, ShieldCheck, Mail, MapPin, Phone, User, Scale, Globe, Clock } from 'lucide-astro';
 
 const lang = 'en';
 ---
 
 <ContentPageLayout
   title="Privacy Policy - eFlury Consulting"
-  description="Privacy Policy for Emanuel Flury - How we collect, use, and protect your personal data under Swiss and EU law."
+  description="Privacy policy of eflury.com under the Swiss revFADP: what data we process, which services are involved (Hostinger, HubSpot, Google Analytics, DeepSeek, Cloudflare), how long we keep it and what rights you have."
   lang={lang}
   heroTitle="Privacy Policy"
-  heroSubtitle="How we collect, use, and protect your personal data"
-  lastUpdated="July 11, 2026"
-  keywords="privacy policy, data protection, GDPR, Swiss DSG, personal data"
+  heroSubtitle="What data we process, with whom, for how long — fully disclosed"
+  lastUpdated="July 23, 2026"
+  keywords="privacy policy, revFADP, FADP, data protection, DeepSeek, HubSpot, Google Analytics, eFlury Consulting"
 >
-  <h2>1. Introduction</h2>
-  <p>Emanuel Flury ("we", "us", or "our") respects your privacy and is committed to protecting your personal data. This privacy policy explains how we collect, use, and safeguard your information when you visit our website eflury.com (the "Site").</p>
+  <p>This policy describes how we process personal data when you visit eflury.com or get in touch — under the revised Swiss Data Protection Act (revFADP) and, where applicable, the GDPR. We name every service we use, including the inconvenient details.</p>
 
-  <h2>2. Data Controller</h2>
-  <p>The data controller responsible for your personal data is:</p>
-  <div class="info-box">
-    <ul>
-      <li><strong>Name:</strong> eFlury Consulting, Emanuel Flury</li>
-      <li><strong>Address:</strong> Keltenweg 4, 2540 Grenchen, Switzerland</li>
-      <li><strong>Email:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-      <li><strong>Phone:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-    </ul>
+  <h2>1. Controller</h2>
+  <div class="dp-controller">
+    <dl class="dpc-grid">
+      <div class="dpc-row">
+        <dt><User size={16} /> Controller</dt>
+        <dd>Emanuel Aaron Flury<br />eFlury Consulting (sole proprietorship)</dd>
+      </div>
+      <div class="dpc-row">
+        <dt><MapPin size={16} /> Address</dt>
+        <dd>Keltenweg 4, 2540 Grenchen, Switzerland</dd>
+      </div>
+      <div class="dpc-row">
+        <dt><Mail size={16} /> Email</dt>
+        <dd><a href="mailto:me@eflury.com">me@eflury.com</a></dd>
+      </div>
+      <div class="dpc-row">
+        <dt><Phone size={16} /> Phone</dt>
+        <dd><a href="tel:+41799107787">+41 79 910 77 87</a></dd>
+      </div>
+    </dl>
   </div>
 
-  <h2>3. Data We Collect</h2>
-  <h3>Information You Provide</h3>
-  <ul>
-    <li>Contact information (name, email, phone number)</li>
-    <li>Messages sent through our contact form</li>
-    <li>Your email address when you subscribe to our newsletter or download a guide</li>
-    <li>Professional information for service inquiries</li>
-  </ul>
+  <h2>2. What We Process — Service by Service</h2>
+  <p>Instead of abstract categories: here is every data-processing activity on this website, listed individually.</p>
 
-  <h3>Automatically Collected Information</h3>
-  <ul>
-    <li>IP address (anonymized)</li>
-    <li>Browser type and version</li>
-    <li>Device information</li>
-    <li>Pages visited and time spent</li>
-    <li>Referral source</li>
-  </ul>
-
-  <h2>4. How We Use Your Data</h2>
-  <p>We use your personal data for the following purposes:</p>
-  <ul>
-    <li>Responding to your inquiries</li>
-    <li>Sending our newsletter (double opt-in: your subscription only becomes active after you confirm it via email; unsubscribe anytime via the link in each email or by writing to us)</li>
-    <li>Providing our consulting services</li>
-    <li>Improving our website and services</li>
-    <li>Sending relevant communications (with your consent)</li>
-    <li>Complying with legal obligations</li>
-  </ul>
-
-  <h2>5. Legal Basis for Processing</h2>
-  <p>Under the revised Swiss Data Protection Act (revDSG/FADP) and, where applicable, the GDPR, we process your data based on:</p>
-  <ul>
-    <li><strong>Consent:</strong> When you voluntarily provide information</li>
-    <li><strong>Contract:</strong> To fulfill service agreements</li>
-    <li><strong>Legitimate Interest:</strong> To improve our services and website</li>
-    <li><strong>Legal Obligation:</strong> To comply with applicable laws</li>
-  </ul>
-
-  <h2>6. Data Sharing — the services we use</h2>
-  <p>We do not sell your personal data. The following named service providers process data on our behalf:</p>
-  <ul>
-    <li><strong>Hostinger</strong> — hosting of this website (EU)</li>
-    <li><strong>HubSpot</strong> — processing of contact and newsletter form submissions and our customer database (EU data centre, Frankfurt; the provider is a US company certified under the Swiss–U.S. Data Privacy Framework, and certain service data may be processed in the USA)</li>
-    <li><strong>Google Analytics</strong> — web statistics (Google, USA; transfers safeguarded per section 7)</li>
-    <li><strong>Cloudflare Turnstile</strong> — spam protection on our forms; processes technical connection data (Cloudflare, USA; transfers safeguarded per section 7)</li>
-  </ul>
-  <p>Beyond these, data may be shared with professional advisors (accountants, lawyers) and with authorities when legally required. This list matches the disclosure on our <a href="/en/trust/">Trust &amp; Security</a> page.</p>
-
-  <h2>7. International Transfers</h2>
-  <p>Some of the providers above are US companies, so personal data may be transferred to the USA. Switzerland recognizes an adequate level of protection for US companies certified under the Swiss–U.S. Data Privacy Framework (in force since 15 September 2024); for providers or cases not covered by that certification, we rely on Standard Contractual Clauses.</p>
-
-  <h2>8. Data Retention</h2>
-  <p>We retain your data only as long as necessary for the purposes outlined in this policy, or as required by law. Contact data is typically retained for 3 years after your last interaction.</p>
-
-  <h2>9. Your Rights</h2>
-  <p>Under Swiss and EU data protection laws, you have the right to:</p>
-  <div class="info-box">
-    <ul>
-      <li>Access your personal data</li>
-      <li>Correct inaccurate data</li>
-      <li>Request deletion of your data</li>
-      <li>Restrict processing</li>
-      <li>Data portability</li>
-      <li>Object to processing</li>
-      <li>Withdraw consent</li>
-    </ul>
-  </div>
-  <p>To exercise these rights, contact us at <a href="mailto:me@eflury.com">me@eflury.com</a>.</p>
-
-  <h2>10. Cookies</h2>
-  <p>Our website uses cookies. For detailed information, please see our <a href="/en/cookies/">Cookie Policy</a>.</p>
-
-  <h2>11. Security</h2>
-  <p>We implement appropriate technical and organizational measures to protect your personal data, including encryption, secure servers, and regular security assessments.</p>
-
-  <h2>12. Changes to This Policy</h2>
-  <p>We may update this privacy policy periodically. We will notify you of significant changes by posting the new policy on this page.</p>
-
-  <h2>13. Contact Us</h2>
-  <p>For questions about this privacy policy or our data practices:</p>
-  <div class="info-box">
-    <ul>
-      <li><strong>Email:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-      <li><strong>Phone:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-      <li><strong>Address:</strong> Grenchen, Switzerland</li>
-    </ul>
+  <div class="dp-card">
+    <div class="dp-head"><Server size={18} /> <h3>Website &amp; server logs</h3></div>
+    <dl>
+      <div><dt>Purpose</dt><dd>Delivering the website, stability, abuse prevention</dd></div>
+      <div><dt>Data</dt><dd>IP address, browser type, pages visited, timestamp (technical log data)</dd></div>
+      <div><dt>Recipient &amp; location</dt><dd>Hostinger (hosting, EU)</dd></div>
+      <div><dt>Retention</dt><dd>Log data is rotated and deleted automatically by the host</dd></div>
+    </dl>
   </div>
 
-  <h2>14. Supervisory Authority</h2>
-  <p>You have the right to lodge a complaint with the Federal Data Protection and Information Commissioner (FDPIC) in Switzerland or your local data protection authority.</p>
+  <div class="dp-card">
+    <div class="dp-head"><BarChart3 size={18} /> <h3>Web statistics (Google Analytics 4)</h3></div>
+    <dl>
+      <div><dt>Purpose</dt><dd>Understanding which content is used, to improve the website</dd></div>
+      <div><dt>Data</dt><dd>Pseudonymized usage data (pages visited, time on page, device, approximate origin); GA4 does not store full IP addresses</dd></div>
+      <div><dt>Recipient &amp; location</dt><dd>Google (USA; certified under the Swiss–U.S. Data Privacy Framework)</dd></div>
+      <div><dt>Retention</dt><dd>Per Google Analytics settings, at most 14 months</dd></div>
+    </dl>
+  </div>
+
+  <div class="dp-card">
+    <div class="dp-head"><Inbox size={18} /> <h3>Forms &amp; CRM (HubSpot)</h3></div>
+    <dl>
+      <div><dt>Purpose</dt><dd>Answering contact requests, sending the newsletter (double opt-in, unsubscribe any time), following up on download requests, managing prospects</dd></div>
+      <div><dt>Data</dt><dd>Name, email, phone (optional), message or request context — depending on which form you use</dd></div>
+      <div><dt>Recipient &amp; location</dt><dd>HubSpot (CRM; EU data centre Frankfurt; the provider is a US company certified under the Swiss–U.S. Data Privacy Framework — certain service data may be processed in the USA)</dd></div>
+      <div><dt>Retention</dt><dd>Contact data as a rule 3 years after the last interaction; newsletter until you unsubscribe</dd></div>
+    </dl>
+  </div>
+
+  <div class="dp-card">
+    <div class="dp-head"><Bot size={18} /> <h3>Chat assistant "Effi"</h3></div>
+    <dl>
+      <div><dt>Purpose</dt><dd>Answering questions about our services directly on the website</dd></div>
+      <div><dt>Data</dt><dd>Your chat messages and the conversation history of the current session; contact details only if you provide them explicitly and consent to forwarding (then to HubSpot, see above)</dd></div>
+      <div><dt>Recipient &amp; location</dt><dd>DeepSeek (AI provider) — processing takes place on the provider's servers, presumably in China, a country without an adequate level of data protection within the meaning of the revFADP</dd></div>
+      <div><dt>Retention</dt><dd>We do not store chat histories; the history ends with the session. The AI provider's own policy applies on its side</dd></div>
+    </dl>
+    <div class="dp-note">
+      <p><strong>Plain language:</strong> What you type into the chat is transmitted to DeepSeek to generate the answer. Do not enter personal data, client data or confidential information there — for anything confidential, use the <a href="/en/contact/">contact form</a> or call us. Using the chat is voluntary; it only runs once you actively open it.</p>
+    </div>
+  </div>
+
+  <div class="dp-card">
+    <div class="dp-head"><Briefcase size={18} /> <h3>Job applications (career portal)</h3></div>
+    <dl>
+      <div><dt>Purpose</dt><dd>Processing your application and — if it fits — inclusion in the specialist pool</dd></div>
+      <div><dt>Data</dt><dd>Name, address, email, phone, salary expectation, workload, referral, and your documents (CV, certificates, cover letter)</dd></div>
+      <div><dt>Recipient &amp; location</dt><dd>Stored in an access-restricted directory of our hosting (EU); delivered by email to the owner; contact and key details (without files) additionally in the CRM (HubSpot, see above)</dd></div>
+      <div><dt>Retention</dt><dd>For the duration of the process; if added to the specialist pool, for as long as collaboration remains a possibility. Deletion any time on simple request</dd></div>
+    </dl>
+  </div>
+
+  <div class="dp-card">
+    <div class="dp-head"><ShieldCheck size={18} /> <h3>Spam protection (Cloudflare Turnstile)</h3></div>
+    <dl>
+      <div><dt>Purpose</dt><dd>Protecting our forms from automated abuse — without image puzzles</dd></div>
+      <div><dt>Data</dt><dd>Technical connection and device data for bot detection; only loads once you use a form</dd></div>
+      <div><dt>Recipient &amp; location</dt><dd>Cloudflare (USA; certified under the Swiss–U.S. Data Privacy Framework)</dd></div>
+      <div><dt>Retention</dt><dd>Per Cloudflare's policy; we only receive the check result</dd></div>
+    </dl>
+  </div>
+
+  <h2><Scale size={20} class="h-icon" /> 3. Legal Bases</h2>
+  <ul>
+    <li><strong>Consent</strong> — newsletter (double opt-in), forwarding your contact details from the chat, job applications</li>
+    <li><strong>Contract or pre-contractual steps</strong> — contact requests, quotes, project delivery</li>
+    <li><strong>Legitimate interest</strong> — operating and securing the website, web statistics, abuse prevention</li>
+    <li><strong>Legal obligation</strong> — retention where the law requires it</li>
+  </ul>
+
+  <h2><Globe size={20} class="h-icon" /> 4. Disclosure Abroad</h2>
+  <p>Data may reach the following countries: the <strong>EU</strong> (hosting, HubSpot data centre), the <strong>USA</strong> (Google, Cloudflare, HubSpot service data — each certified under the Swiss–U.S. Data Privacy Framework, which Switzerland has recognized as adequate since 15 September 2024; standard contractual clauses in addition) and — exclusively for the voluntary chat assistant — <strong>China</strong> (DeepSeek, no adequate level of protection; use is based on your voluntary input, see the plain-language note above).</p>
+
+  <h2><Clock size={20} class="h-icon" /> 5. Retention</h2>
+  <p>The periods are stated per service in section 2. The principle: we keep data only as long as the purpose requires or the law demands — after that, it is deleted.</p>
+
+  <h2>6. Your Rights</h2>
+  <div class="info-box">
+    <ul>
+      <li><strong>Access</strong> (Art. 25 FADP) — what data we process about you</li>
+      <li><strong>Rectification</strong> of inaccurate data</li>
+      <li><strong>Deletion</strong> of your data</li>
+      <li><strong>Data release and portability</strong> (Art. 28 FADP)</li>
+      <li><strong>Objection</strong> to processing and <strong>withdrawal</strong> of consent, at any time</li>
+    </ul>
+  </div>
+  <p>An email to <a href="mailto:me@eflury.com">me@eflury.com</a> is enough — you will receive a personal reply. You may also complain to the <strong>Swiss Federal Data Protection and Information Commissioner (FDPIC)</strong>; where the GDPR applies, also to your local supervisory authority.</p>
+
+  <h2>7. Cookies &amp; Local Storage</h2>
+  <p>Details on cookies are in the <a href="/en/cookies/">cookie policy</a>. In addition, your browser locally remembers (localStorage) your design preference (light/dark) — this information never leaves your device.</p>
+
+  <h2>8. Security</h2>
+  <p>Transmission is encrypted throughout (TLS), storage is access-restricted, and we minimize: forms only ask for what the purpose requires, and in our own AI demonstrations we pseudonymize data before API calls — the same standard we recommend to clients.</p>
+
+  <h2>9. Changes</h2>
+  <p>We update this policy when services or the legal situation change; the version published here is authoritative. The date of the last update is shown above.</p>
 </ContentPageLayout>
+
+<style>
+  .dp-controller {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+    padding: 0.35rem 1.5rem;
+    margin: 1.25rem 0 2rem;
+  }
+
+  .dpc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+  }
+
+  .dpc-row {
+    padding: 0.9rem 0;
+  }
+
+  .dpc-row dt {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--teal-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .dpc-row dd {
+    margin: 0;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .dpc-row dd a {
+    color: var(--teal-text);
+  }
+
+  .dp-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+    margin: 0 0 1.25rem;
+    overflow: hidden;
+  }
+
+  .dp-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .dp-head :global(svg) {
+    color: var(--teal-text);
+    flex-shrink: 0;
+  }
+
+  .dp-head h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .dp-card dl {
+    margin: 0;
+    padding: 0.5rem 1.5rem 0.9rem;
+  }
+
+  .dp-card dl > div {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--separator, var(--border-color));
+  }
+
+  .dp-card dl > div:last-child {
+    border-bottom: none;
+  }
+
+  .dp-card dt {
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--teal-text);
+    padding-top: 0.1rem;
+  }
+
+  .dp-card dd {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .dp-note {
+    margin: 0 1.5rem 1.25rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--action-teal);
+    border-radius: 0 10px 10px 0;
+  }
+
+  .dp-note p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .dp-note a {
+    color: var(--teal-text);
+  }
+
+  :global(.h-icon) {
+    color: var(--teal-text);
+    vertical-align: -3px;
+    margin-right: 0.35rem;
+  }
+
+  @media (max-width: 640px) {
+    .dpc-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .dp-card dl > div {
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
+    }
+  }
+</style>
