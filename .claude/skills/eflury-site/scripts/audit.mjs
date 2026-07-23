@@ -140,6 +140,7 @@ const localizedMap = {
   'trust': 'sicherheit',
   'contact': 'kontakt',
   'careers': 'karriere',
+  'careers/spontaneous-application': 'karriere/initiativbewerbung',
   'guides': 'leitfaeden',
   'industries': 'branchen',
   'industries/finance-teams': 'branchen/finanzteams',
