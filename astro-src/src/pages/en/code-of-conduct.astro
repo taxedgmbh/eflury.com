@@ -1,89 +1,132 @@
 ---
 import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
+import { Scale, UserCheck, Lock, ShieldCheck, Handshake, GraduationCap, Users, Bot, Mail } from 'lucide-astro';
 
 const lang = 'en';
 ---
 
 <ContentPageLayout
-  title="Code of Conduct - Emanuel Flury"
-  description="Code of Conduct for Emanuel Flury - Professional standards and ethical guidelines."
+  title="Code of Conduct - eFlury Consulting"
+  description="The eFlury Consulting code of conduct: honesty before sales, human-in-the-loop, confidentiality, responsible AI use — the same rules we actually deliver by."
   lang={lang}
   heroTitle="Code of Conduct"
-  heroSubtitle="Professional standards and ethical guidelines"
-  lastUpdated="January 4, 2025"
-  keywords="code of conduct, professional standards, ethics, business conduct"
+  heroSubtitle="How we work, decide and handle AI — set down bindingly"
+  lastUpdated="July 23, 2026"
+  keywords="code of conduct, business ethics, responsible AI, human-in-the-loop, confidentiality, eFlury Consulting"
 >
-  <h2>Our Pledge</h2>
-  <p>In the interest of fostering an open and welcoming environment, Emanuel Flury pledges to make participation in our projects and our community a harassment-free experience for everyone, regardless of age, body size, disability, ethnicity, sex characteristics, gender identity and expression, level of experience, education, socio-economic status, nationality, personal appearance, race, religion, or sexual identity and orientation.</p>
+  <p>This code applies to eFlury Consulting and to every specialist working on our projects. It is not a declaration for the gallery: it records the same rules we actually deliver by — published in our <a href="/en/method/">method</a> and on the <a href="/en/trust/">trust page</a>.</p>
 
-  <h2>Our Standards</h2>
-  <p>Examples of behavior that contributes to a positive environment include:</p>
+  <h2>Core Principles</h2>
+  <div class="coc-grid">
+    <div class="coc-card">
+      <Scale size={20} />
+      <h3>Honesty before sales</h3>
+      <p>Proof, not promises: figures are labelled as estimates, fictional examples are declared fictional. If an automation is not worth it, we say so — even if it costs us the engagement.</p>
+    </div>
+    <div class="coc-card">
+      <UserCheck size={20} />
+      <h3>Humans stay responsible</h3>
+      <p>AI prepares, people decide. Critical steps carry explicit approvals (human-in-the-loop) — a principle built into every solution we deliver.</p>
+    </div>
+    <div class="coc-card">
+      <Lock size={20} />
+      <h3>Confidentiality</h3>
+      <p>Client data, processes and trade secrets stay protected — contractually (NDA on request) and technically. We do not talk about client projects without consent.</p>
+    </div>
+    <div class="coc-card">
+      <ShieldCheck size={20} />
+      <h3>Data protection</h3>
+      <p>We process personal data in accordance with the Swiss Data Protection Act (revFADP). Details are set out in the <a href="/en/privacy/">privacy policy</a>.</p>
+    </div>
+    <div class="coc-card">
+      <Handshake size={20} />
+      <h3>Fixed scopes, fair prices</h3>
+      <p>Fixed prices, named deliverables, decision gates after every phase. No open-ended effort sinks, no hidden costs.</p>
+    </div>
+    <div class="coc-card">
+      <GraduationCap size={20} />
+      <h3>Quality &amp; continuous learning</h3>
+      <p>Documentation is part of the work, not an afterthought. We keep our knowledge of models, tools and regulation current — and pass it on.</p>
+    </div>
+  </div>
+
+  <h2><Bot size={20} class="h-icon" /> Responsible AI Use</h2>
   <div class="info-box">
     <ul>
-      <li>Using welcoming and inclusive language</li>
-      <li>Being respectful of differing viewpoints and experiences</li>
-      <li>Gracefully accepting constructive criticism</li>
-      <li>Focusing on what is best for the community and clients</li>
-      <li>Showing empathy towards other community members</li>
-      <li>Maintaining professional conduct in all interactions</li>
+      <li>Client data is not used to train AI models; where possible, we pseudonymize before every API call.</li>
+      <li>AI outputs are reviewed, never adopted blindly — where mistakes are costly, we produce drafts instead of automatic dispatch.</li>
+      <li>AI-generated examples and demos are declared as such.</li>
+      <li>We name the limits openly: language models can be wrong. We build processes so that errors surface before they cause damage.</li>
     </ul>
   </div>
 
-  <p>Examples of unacceptable behavior include:</p>
-  <ul>
-    <li>The use of sexualized language or imagery and unwelcome sexual attention or advances</li>
-    <li>Trolling, insulting/derogatory comments, and personal or political attacks</li>
-    <li>Public or private harassment</li>
-    <li>Publishing others' private information without explicit permission</li>
-    <li>Other conduct which could reasonably be considered inappropriate in a professional setting</li>
-  </ul>
+  <h2><Users size={20} class="h-icon" /> How We Treat Each Other</h2>
+  <p>We work respectfully, directly and without condescension — with clients, specialists and everyone who deals with us, regardless of origin, gender, age, religion, disability or sexual orientation. Harassment, demeaning comments and sharing private information without consent have no place in our work.</p>
 
-  <h2>Professional Conduct</h2>
-  <p>As a professional consultant, Emanuel Flury adheres to the following principles:</p>
-  <ul>
-    <li><strong>Integrity:</strong> Honest and transparent communication with all stakeholders</li>
-    <li><strong>Confidentiality:</strong> Protection of client information and intellectual property</li>
-    <li><strong>Quality:</strong> Delivery of high-quality work that meets or exceeds expectations</li>
-    <li><strong>Compliance:</strong> Adherence to all applicable laws, regulations, and industry standards</li>
-    <li><strong>Continuous Improvement:</strong> Staying current with industry best practices and technologies</li>
-  </ul>
-
-  <h2>Client Relations</h2>
-  <p>We are committed to:</p>
-  <ul>
-    <li>Clear and timely communication</li>
-    <li>Realistic expectations and deliverables</li>
-    <li>Transparency in pricing and project scope</li>
-    <li>Respect for client time and resources</li>
-    <li>Professional boundaries and conflict of interest avoidance</li>
-  </ul>
-
-  <h2>Data Protection & Privacy</h2>
-  <p>We are committed to protecting the privacy and security of all data entrusted to us in full compliance with the Swiss Data Protection Act (DSG) and other applicable regulations. See our <a href="/en/privacy/">Privacy Policy</a> for details.</p>
+  <h2>Conflicts of Interest</h2>
+  <p>We recommend tools and vendors based on their fit for the client, not on margin. Where our own interests exist — such as partnerships — we disclose them before making a recommendation.</p>
 
   <h2>Intellectual Property</h2>
-  <p>We respect intellectual property rights and expect the same from others. All work products are delivered according to agreed-upon terms and ownership agreements.</p>
+  <p>We respect intellectual property rights and expect the same from our partners. Work products are handed over according to the contractually agreed ownership and usage terms.</p>
 
-  <h2>Enforcement</h2>
-  <p>Instances of unacceptable behavior may be reported by contacting us at <a href="mailto:me@eflury.com">me@eflury.com</a>. All complaints will be reviewed and investigated and will result in a response that is deemed necessary and appropriate to the circumstances.</p>
+  <h2>Specialists in the Project Pool</h2>
+  <p>Anyone joining projects via our <a href="/en/careers/">career portal</a> commits to this code — the same standards for everyone working under the eFlury Consulting name.</p>
 
-  <h2>Swiss Professional Standards</h2>
-  <div class="info-box">
-    <p>Our conduct aligns with Swiss professional standards and business ethics, including compliance with:</p>
-    <ul>
-      <li>Swiss Data Protection Act (DSG)</li>
-      <li>Swiss Code of Obligations</li>
-      <li>Professional standards for tax and financial advisors in Switzerland</li>
-    </ul>
-  </div>
+  <h2><Mail size={20} class="h-icon" /> Reporting &amp; Enforcement</h2>
+  <p>Violations of this code can be reported to <a href="mailto:me@eflury.com">me@eflury.com</a>. Every report is reviewed personally and receives a response; consequences depend on severity and circumstances. Anyone reporting in good faith has nothing to fear.</p>
 
-  <h2>Contact</h2>
-  <p>For questions or concerns about this Code of Conduct:</p>
-  <div class="info-box">
-    <ul>
-      <li><strong>Email:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-      <li><strong>Phone:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-      <li><strong>Address:</strong> Grenchen, Switzerland</li>
-    </ul>
-  </div>
+  <h2>Governing Law</h2>
+  <p>Our conduct is governed by Swiss law, in particular the Data Protection Act (FADP) and the Code of Obligations (CO).</p>
 </ContentPageLayout>
+
+<style>
+  .coc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .coc-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 1.35rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .coc-card :global(svg) {
+    color: var(--teal-text);
+    margin-bottom: 0.6rem;
+  }
+
+  .coc-card h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.4rem;
+  }
+
+  .coc-card p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .coc-card p a {
+    color: var(--teal-text);
+  }
+
+  :global(.h-icon) {
+    color: var(--teal-text);
+    vertical-align: -3px;
+    margin-right: 0.35rem;
+  }
+
+  @media (max-width: 700px) {
+    .coc-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
