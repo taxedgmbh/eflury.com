@@ -1,89 +1,132 @@
 ---
 import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
+import { Scale, UserCheck, Lock, ShieldCheck, Handshake, GraduationCap, Users, Bot, Mail } from 'lucide-astro';
 
 const lang = 'de';
 ---
 
 <ContentPageLayout
-  title="Verhaltenskodex - Emanuel Flury"
-  description="Verhaltenskodex für Emanuel Flury - Professionelle Standards und ethische Richtlinien."
+  title="Verhaltenskodex - eFlury Consulting"
+  description="Der Verhaltenskodex von eFlury Consulting: Ehrlichkeit vor Verkauf, Human-in-the-Loop, Vertraulichkeit, verantwortungsvoller KI-Einsatz — dieselben Regeln, nach denen wir liefern."
   lang={lang}
   heroTitle="Verhaltenskodex"
-  heroSubtitle="Professionelle Standards und ethische Richtlinien"
-  lastUpdated="4. Januar 2025"
-  keywords="Verhaltenskodex, professionelle Standards, Ethik, Geschäftsverhalten"
+  heroSubtitle="Wie wir arbeiten, entscheiden und mit KI umgehen — verbindlich festgehalten"
+  lastUpdated="23. Juli 2026"
+  keywords="Verhaltenskodex, Geschäftsethik, verantwortungsvolle KI, Human-in-the-Loop, Vertraulichkeit, eFlury Consulting"
 >
-  <h2>Unser Versprechen</h2>
-  <p>Im Interesse der Förderung eines offenen und einladenden Umfelds verpflichtet sich Emanuel Flury, die Teilnahme an unseren Projekten und unserer Gemeinschaft zu einer belästigungsfreien Erfahrung für alle zu machen, unabhängig von Alter, Körpergrösse, Behinderung, Ethnizität, Geschlechtsmerkmalen, Geschlechtsidentität und -ausdruck, Erfahrungsniveau, Bildung, sozioökonomischem Status, Nationalität, persönlichem Erscheinungsbild, Rasse, Religion oder sexueller Identität und Orientierung.</p>
+  <p>Dieser Kodex gilt für eFlury Consulting und für alle Spezialistinnen und Spezialisten, die in unseren Projekten mitarbeiten. Er ist keine Deklaration für die Galerie: Er hält dieselben Regeln fest, nach denen wir tatsächlich liefern — publiziert in unserer <a href="/de/methode/">Methode</a> und auf der <a href="/de/sicherheit/">Vertrauensseite</a>.</p>
 
-  <h2>Unsere Standards</h2>
-  <p>Beispiele für Verhaltensweisen, die zu einem positiven Umfeld beitragen, sind:</p>
+  <h2>Grundprinzipien</h2>
+  <div class="coc-grid">
+    <div class="coc-card">
+      <Scale size={20} />
+      <h3>Ehrlichkeit vor Verkauf</h3>
+      <p>Beweise, keine Versprechen: Zahlen sind als Schätzungen gekennzeichnet, fiktive Beispiele als fiktiv deklariert. Lohnt sich eine Automatisierung nicht, sagen wir es — auch wenn es uns den Auftrag kostet.</p>
+    </div>
+    <div class="coc-card">
+      <UserCheck size={20} />
+      <h3>Mensch in der Verantwortung</h3>
+      <p>KI bereitet vor, Menschen entscheiden. Kritische Schritte haben explizite Freigaben (Human-in-the-Loop) — als Prinzip in jeder Lösung, die wir bauen.</p>
+    </div>
+    <div class="coc-card">
+      <Lock size={20} />
+      <h3>Vertraulichkeit</h3>
+      <p>Kundendaten, Prozesse und Geschäftsgeheimnisse bleiben geschützt — vertraglich (NDA auf Wunsch) und technisch. Wir sprechen nicht ohne Zustimmung über Kundenprojekte.</p>
+    </div>
+    <div class="coc-card">
+      <ShieldCheck size={20} />
+      <h3>Datenschutz</h3>
+      <p>Personendaten bearbeiten wir nach dem Schweizer Datenschutzgesetz (revDSG). Details stehen in der <a href="/de/datenschutz/">Datenschutzerklärung</a>.</p>
+    </div>
+    <div class="coc-card">
+      <Handshake size={20} />
+      <h3>Fixe Scopes, faire Preise</h3>
+      <p>Fixpreise, benannte Deliverables, Entscheidungs-Gates nach jeder Phase. Keine offenen Aufwandsfässer, keine versteckten Kosten.</p>
+    </div>
+    <div class="coc-card">
+      <GraduationCap size={20} />
+      <h3>Qualität &amp; Weiterlernen</h3>
+      <p>Dokumentation ist Teil der Arbeit, kein Nachtrag. Wir halten unser Wissen über Modelle, Werkzeuge und Regulierung aktuell — und geben es weiter.</p>
+    </div>
+  </div>
+
+  <h2><Bot size={20} class="h-icon" /> Verantwortungsvoller KI-Einsatz</h2>
   <div class="info-box">
     <ul>
-      <li>Verwendung einer einladenden und inklusiven Sprache</li>
-      <li>Respektvoller Umgang mit unterschiedlichen Standpunkten und Erfahrungen</li>
-      <li>Anmutiges Annehmen konstruktiver Kritik</li>
-      <li>Fokussierung auf das Beste für die Gemeinschaft und Kunden</li>
-      <li>Zeigen von Empathie gegenüber anderen Gemeinschaftsmitgliedern</li>
-      <li>Aufrechterhaltung professionellen Verhaltens in allen Interaktionen</li>
+      <li>Kundendaten werden nicht für das Training von KI-Modellen verwendet; wo möglich, pseudonymisieren wir vor jedem API-Aufruf.</li>
+      <li>KI-Ausgaben werden geprüft, nicht blind übernommen — wo Fehler teuer sind, entstehen Entwürfe statt automatischer Versand.</li>
+      <li>KI-generierte Beispiele und Demos deklarieren wir als solche.</li>
+      <li>Wir benennen Grenzen offen: Sprachmodelle können irren. Prozesse bauen wir so, dass Irrtümer auffallen, bevor sie Schaden anrichten.</li>
     </ul>
   </div>
 
-  <p>Beispiele für inakzeptables Verhalten sind:</p>
-  <ul>
-    <li>Die Verwendung sexualisierter Sprache oder Bilder und unerwünschte sexuelle Aufmerksamkeit oder Annäherungsversuche</li>
-    <li>Trolling, beleidigende/abwertende Kommentare und persönliche oder politische Angriffe</li>
-    <li>Öffentliche oder private Belästigung</li>
-    <li>Veröffentlichung privater Informationen anderer ohne ausdrückliche Genehmigung</li>
-    <li>Anderes Verhalten, das vernünftigerweise als unangemessen in einem professionellen Umfeld angesehen werden könnte</li>
-  </ul>
+  <h2><Users size={20} class="h-icon" /> Umgang miteinander</h2>
+  <p>Wir arbeiten respektvoll, direkt und ohne Herablassung — mit Kundinnen und Kunden, Spezialisten und allen, die mit uns zu tun haben, unabhängig von Herkunft, Geschlecht, Alter, Religion, Behinderung oder sexueller Orientierung. Belästigung, abwertende Kommentare und die Weitergabe privater Informationen ohne Zustimmung haben in unserer Arbeit keinen Platz.</p>
 
-  <h2>Professionelles Verhalten</h2>
-  <p>Als professioneller Berater hält sich Emanuel Flury an folgende Grundsätze:</p>
-  <ul>
-    <li><strong>Integrität:</strong> Ehrliche und transparente Kommunikation mit allen Stakeholdern</li>
-    <li><strong>Vertraulichkeit:</strong> Schutz von Kundeninformationen und geistigem Eigentum</li>
-    <li><strong>Qualität:</strong> Lieferung hochwertiger Arbeit, die Erwartungen erfüllt oder übertrifft</li>
-    <li><strong>Compliance:</strong> Einhaltung aller geltenden Gesetze, Vorschriften und Branchenstandards</li>
-    <li><strong>Kontinuierliche Verbesserung:</strong> Auf dem neuesten Stand der branchenbesten Praktiken und Technologien bleiben</li>
-  </ul>
-
-  <h2>Kundenbeziehungen</h2>
-  <p>Wir verpflichten uns zu:</p>
-  <ul>
-    <li>Klarer und zeitnaher Kommunikation</li>
-    <li>Realistischen Erwartungen und Liefergegenständen</li>
-    <li>Transparenz bei Preisgestaltung und Projektumfang</li>
-    <li>Respekt für Kundenzeit und -ressourcen</li>
-    <li>Professionellen Grenzen und Interessenkonfliktvermeidung</li>
-  </ul>
-
-  <h2>Datenschutz & Privatsphäre</h2>
-  <p>Wir verpflichten uns zum Schutz der Privatsphäre und Sicherheit aller uns anvertrauten Daten in voller Übereinstimmung mit dem Schweizer Datenschutzgesetz (DSG) und anderen anwendbaren Vorschriften. Details finden Sie in unserer <a href="/de/datenschutz/">Datenschutzerklärung</a>.</p>
+  <h2>Interessenkonflikte</h2>
+  <p>Wir empfehlen Werkzeuge und Anbieter nach Eignung für den Kunden, nicht nach Marge. Bestehen eigene Interessen — etwa Partnerschaften —, legen wir sie offen, bevor eine Empfehlung ausgesprochen wird.</p>
 
   <h2>Geistiges Eigentum</h2>
-  <p>Wir respektieren geistige Eigentumsrechte und erwarten das Gleiche von anderen. Alle Arbeitsprodukte werden gemäss den vereinbarten Bedingungen und Eigentumsvereinbarungen geliefert.</p>
+  <p>Wir respektieren geistige Eigentumsrechte und erwarten dasselbe von unseren Partnern. Arbeitsergebnisse werden gemäss den vertraglich vereinbarten Eigentums- und Nutzungsregeln übergeben.</p>
 
-  <h2>Durchsetzung</h2>
-  <p>Fälle von inakzeptablem Verhalten können gemeldet werden, indem Sie uns unter <a href="mailto:me@eflury.com">me@eflury.com</a> kontaktieren. Alle Beschwerden werden geprüft und untersucht und führen zu einer Reaktion, die als notwendig und den Umständen angemessen erachtet wird.</p>
+  <h2>Spezialisten im Projekt-Pool</h2>
+  <p>Wer über unser <a href="/de/karriere/">Karriereportal</a> in Projekte einsteigt, verpflichtet sich auf diesen Kodex — dieselben Standards für alle, die unter dem Namen eFlury Consulting arbeiten.</p>
 
-  <h2>Schweizer Berufsstandards</h2>
-  <div class="info-box">
-    <p>Unser Verhalten entspricht den Schweizer Berufsstandards und der Geschäftsethik, einschliesslich der Einhaltung von:</p>
-    <ul>
-      <li>Schweizer Datenschutzgesetz (DSG)</li>
-      <li>Schweizer Obligationenrecht</li>
-      <li>Berufsstandards für Steuer- und Finanzberater in der Schweiz</li>
-    </ul>
-  </div>
+  <h2><Mail size={20} class="h-icon" /> Meldung &amp; Durchsetzung</h2>
+  <p>Verstösse gegen diesen Kodex können an <a href="mailto:me@eflury.com">me@eflury.com</a> gemeldet werden. Jede Meldung wird persönlich geprüft und erhält eine Antwort; Konsequenzen richten sich nach Schwere und Umständen. Wer in gutem Glauben meldet, hat keine Nachteile zu befürchten.</p>
 
-  <h2>Kontakt</h2>
-  <p>Bei Fragen oder Bedenken zu diesem Verhaltenskodex:</p>
-  <div class="info-box">
-    <ul>
-      <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-      <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-      <li><strong>Adresse:</strong> Grenchen, Schweiz</li>
-    </ul>
-  </div>
+  <h2>Massgebliches Recht</h2>
+  <p>Unser Handeln richtet sich nach schweizerischem Recht, insbesondere dem Datenschutzgesetz (DSG) und dem Obligationenrecht (OR).</p>
 </ContentPageLayout>
+
+<style>
+  .coc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0 2rem;
+  }
+
+  .coc-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 1.35rem 1.5rem;
+    box-shadow: var(--shadow-sm);
+  }
+
+  .coc-card :global(svg) {
+    color: var(--teal-text);
+    margin-bottom: 0.6rem;
+  }
+
+  .coc-card h3 {
+    font-size: 1.02rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0 0 0.4rem;
+  }
+
+  .coc-card p {
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+    margin: 0;
+  }
+
+  .coc-card p a {
+    color: var(--teal-text);
+  }
+
+  :global(.h-icon) {
+    color: var(--teal-text);
+    vertical-align: -3px;
+    margin-right: 0.35rem;
+  }
+
+  @media (max-width: 700px) {
+    .coc-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
