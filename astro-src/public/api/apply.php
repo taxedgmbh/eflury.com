@@ -55,6 +55,9 @@ $vorname = $field('vorname');
 $nachname = $field('nachname');
 $email = $field('email');
 $telefon = $field('telefon');
+$adresse = $field('adresse');
+$plz = $field('plz');
+$ort = $field('ort');
 $gehalt = $field('gehalt');
 $pensum = $field('pensum');
 $empfohlen = $field('empfohlen');
@@ -62,13 +65,14 @@ $job = $field('job') ?: 'Initiativbewerbung';
 $lang = $field('lang') === 'en' ? 'en' : 'de';
 
 if ($vorname === '' || $nachname === '' || $gehalt === '' || $pensum === ''
+    || $adresse === '' || $plz === '' || $ort === ''
     || !filter_var($email, FILTER_VALIDATE_EMAIL)
     || ($_POST['datenschutz'] ?? '') !== '1') {
     http_response_code(400);
     echo json_encode(['error' => 'validation', 'message' => 'Required fields missing or invalid.']);
     exit;
 }
-foreach ([$vorname, $nachname, $telefon, $gehalt, $pensum, $empfohlen, $job] as $v) {
+foreach ([$vorname, $nachname, $telefon, $adresse, $plz, $ort, $gehalt, $pensum, $empfohlen, $job] as $v) {
     if (strlen($v) > 300) {
         http_response_code(400);
         echo json_encode(['error' => 'validation', 'message' => 'Field too long.']);
@@ -141,6 +145,7 @@ if (!file_exists($baseDir . '/.htaccess')) {
 $appDir = $baseDir . '/' . date('Ymd_His') . '_' . bin2hex(random_bytes(4));
 mkdir($appDir, 0750, true);
 $meta = "Stelle: $job\nName: $vorname $nachname\nE-Mail: $email\nTelefon: $telefon\n"
+      . "Adresse: $adresse, $plz $ort\n"
       . "Gehaltsvorstellung: $gehalt\nPensum: $pensum\nEmpfohlen von: $empfohlen\n"
       . "Sprache: $lang\nZeit: " . date('c') . "\n";
 file_put_contents($appDir . '/bewerbung.txt', $meta);
@@ -180,6 +185,7 @@ $mailSent = @mail($MAIL_TO, $subject, $mime, $headers);
 
 // ---- mirror the lead into HubSpot (text only) ----
 $message = "[Bewerbung über das Karriereportal]\n\nStelle: $job\nTelefon: " . ($telefon ?: '—')
+         . "\nAdresse: $adresse, $plz $ort"
          . "\nGehaltsvorstellung: $gehalt\nPensum: $pensum\nEmpfohlen von: " . ($empfohlen ?: '—')
          . "\n\nUnterlagen (per E-Mail an $MAIL_TO zugestellt, Kopie auf dem Server):\n" . $fileList;
 $payload = json_encode([
