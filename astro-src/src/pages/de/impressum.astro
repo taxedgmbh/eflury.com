@@ -1,41 +1,179 @@
 ---
 import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
+import { MapPin, Mail, Phone, User, Landmark, ShieldCheck } from 'lucide-astro';
 
 const lang = 'de';
 ---
 
 <ContentPageLayout
-  title="Impressum - Emanuel Flury"
-  description="Impressum von eflury.com - Anbieterkennzeichnung gemäss schweizerischem Recht."
+  title="Impressum - eFlury Consulting"
+  description="Impressum von eflury.com — Anbieterkennzeichnung gemäss Art. 3 Abs. 1 lit. s UWG: Firma, Rechtsform, Inhaber, Kontakt, Handelsregister- und UID-Angaben."
   lang={lang}
   heroTitle="Impressum"
   heroSubtitle="Anbieterkennzeichnung gemäss schweizerischem Recht"
-  lastUpdated="5. Juli 2026"
-  keywords="Impressum, Anbieterkennzeichnung, Kontaktadresse, eFlury Consulting"
+  lastUpdated="23. Juli 2026"
+  keywords="Impressum, Anbieterkennzeichnung, UWG, Einzelunternehmen, Kontaktadresse, eFlury Consulting"
 >
-  <h2>Kontaktadresse</h2>
-  <div class="info-box">
-    <ul>
-      <li><strong>Inhaber:</strong> Emanuel Aaron Flury</li>
-      <li><strong>Firma:</strong> eFlury Consulting</li>
-      <li><strong>Adresse:</strong> Keltenweg 4, 2540 Grenchen, Schweiz</li>
-      <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-      <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-    </ul>
+  <p class="imprint-lead">Angaben gemäss Art. 3 Abs. 1 lit. s des Bundesgesetzes gegen den unlauteren Wettbewerb (UWG).</p>
+
+  <div class="imprint-card">
+    <div class="ic-head">
+      <span class="ic-name">eFlury <span class="ic-accent">Consulting</span></span>
+      <span class="ic-chip">Einzelunternehmen (Schweiz)</span>
+    </div>
+    <dl class="ic-grid">
+      <div class="ic-row">
+        <dt><User size={17} /> Inhaber &amp; inhaltlich verantwortlich</dt>
+        <dd>Emanuel Aaron Flury</dd>
+      </div>
+      <div class="ic-row">
+        <dt><MapPin size={17} /> Adresse</dt>
+        <dd>Keltenweg 4<br />2540 Grenchen<br />Schweiz</dd>
+      </div>
+      <div class="ic-row">
+        <dt><Mail size={17} /> E-Mail</dt>
+        <dd><a href="mailto:me@eflury.com">me@eflury.com</a></dd>
+      </div>
+      <div class="ic-row">
+        <dt><Phone size={17} /> Telefon</dt>
+        <dd><a href="tel:+41799107787">+41 79 910 77 87</a></dd>
+      </div>
+    </dl>
   </div>
 
-  <h2>Vertretungsberechtigte Person</h2>
-  <p>Emanuel Aaron Flury, Inhaber</p>
+  <h2><Landmark size={20} class="h-icon" /> Handelsregister &amp; UID</h2>
+  <div class="info-box">
+    <p>eFlury Consulting ist ein Einzelunternehmen und derzeit <strong>nicht im Handelsregister eingetragen</strong>; entsprechend besteht keine UID-Nummer. Als Einzelunternehmen unterhalb der gesetzlichen Umsatzschwelle ist ein Eintrag nicht erforderlich (Art. 931 OR) — das ist vollständig legal, und wir sagen es hier lieber offen, als es zu verstecken. Sobald ein Eintrag erfolgt, publizieren wir Firmennummer und UID an dieser Stelle.</p>
+  </div>
+
+  <h2><ShieldCheck size={20} class="h-icon" /> Datenschutz</h2>
+  <p>Verantwortlicher für die Bearbeitung von Personendaten im Sinne des Datenschutzgesetzes (DSG) ist Emanuel Aaron Flury, Adresse wie oben. Welche Daten wir wie bearbeiten, steht in der <a href="/de/datenschutz/">Datenschutzerklärung</a>.</p>
 
   <h2>Haftungsausschluss</h2>
-  <p>Der Autor übernimmt keinerlei Gewähr hinsichtlich der inhaltlichen Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen auf dieser Website. Haftungsansprüche gegen den Autor wegen Schäden materieller oder immaterieller Art, welche aus dem Zugriff oder der Nutzung bzw. Nichtnutzung der veröffentlichten Informationen entstanden sind, werden ausgeschlossen. Ausführliche rechtliche Hinweise finden Sie im <a href="/de/haftungsausschluss/">Haftungsausschluss</a>.</p>
+  <p>Wir übernehmen keine Gewähr für die inhaltliche Richtigkeit, Genauigkeit, Aktualität, Zuverlässigkeit und Vollständigkeit der Informationen auf dieser Website. Haftungsansprüche wegen Schäden materieller oder immaterieller Art, die aus dem Zugriff, der Nutzung oder Nichtnutzung der veröffentlichten Informationen entstehen, werden im gesetzlich zulässigen Rahmen ausgeschlossen. Ausführliche rechtliche Hinweise finden Sie im <a href="/de/haftungsausschluss/">Haftungsausschluss</a>.</p>
 
   <h2>Haftung für Links</h2>
-  <p>Verweise und Links auf Webseiten Dritter liegen ausserhalb unseres Verantwortungsbereichs. Es wird jegliche Verantwortung für solche Webseiten abgelehnt. Der Zugriff und die Nutzung solcher Webseiten erfolgen auf eigene Gefahr des jeweiligen Nutzers.</p>
+  <p>Verweise und Links auf Websites Dritter liegen ausserhalb unseres Verantwortungsbereichs. Der Zugriff und die Nutzung solcher Websites erfolgen auf eigene Gefahr der Nutzerin oder des Nutzers.</p>
 
   <h2>Urheberrechte</h2>
-  <p>Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos oder anderen Dateien auf dieser Website gehören ausschliesslich Emanuel Aaron Flury oder den speziell genannten Rechteinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung des Urheberrechtsträgers im Voraus einzuholen.</p>
-
-  <h2>Datenschutz</h2>
-  <p>Informationen zur Bearbeitung von Personendaten finden Sie in unserer <a href="/de/datenschutz/">Datenschutzerklärung</a>.</p>
+  <p>Die Urheber- und alle anderen Rechte an Inhalten, Bildern, Fotos und anderen Dateien auf dieser Website gehören ausschliesslich Emanuel Aaron Flury oder den speziell genannten Rechteinhabern. Für die Reproduktion jeglicher Elemente ist die schriftliche Zustimmung des Urheberrechtsträgers im Voraus einzuholen.</p>
 </ContentPageLayout>
+
+<style>
+  .imprint-lead {
+    font-size: 0.9rem;
+    color: var(--text-tertiary);
+  }
+
+  .imprint-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    box-shadow: var(--shadow-sm);
+    overflow: hidden;
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  .ic-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    flex-wrap: wrap;
+    padding: 1.25rem 1.75rem;
+    background: var(--surface-navy);
+  }
+
+  .ic-name {
+    font-size: 1.35rem;
+    font-weight: 800;
+    color: white;
+    letter-spacing: -0.01em;
+  }
+
+  .ic-accent {
+    color: var(--eflury-teal);
+  }
+
+  .ic-chip {
+    padding: 0.28rem 0.85rem;
+    border-radius: var(--radius-full);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+
+  .ic-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0;
+    margin: 0;
+  }
+
+  .ic-row {
+    padding: 1.15rem 1.75rem;
+    border-top: 1px solid var(--border-color);
+  }
+
+  .ic-row:nth-child(odd) {
+    border-right: 1px solid var(--border-color);
+  }
+
+  .ic-row dt {
+    display: flex;
+    align-items: center;
+    gap: 0.45rem;
+    font-size: 0.75rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--teal-text);
+    margin-bottom: 0.35rem;
+  }
+
+  .ic-row dt :global(svg) {
+    flex-shrink: 0;
+  }
+
+  .ic-row dd {
+    margin: 0;
+    font-size: 1.02rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.55;
+  }
+
+  .ic-row dd a {
+    color: var(--teal-text);
+    text-decoration: none;
+  }
+
+  .ic-row dd a:hover {
+    text-decoration: underline;
+  }
+
+  :global(.h-icon) {
+    color: var(--teal-text);
+    vertical-align: -3px;
+    margin-right: 0.35rem;
+  }
+
+  @media (max-width: 640px) {
+    .ic-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .ic-row:nth-child(odd) {
+      border-right: none;
+    }
+
+    .ic-head,
+    .ic-row {
+      padding-left: 1.25rem;
+      padding-right: 1.25rem;
+    }
+  }
+</style>
