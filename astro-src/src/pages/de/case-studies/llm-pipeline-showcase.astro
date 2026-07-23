@@ -60,13 +60,13 @@ def schreiben(client, prompt: str):
 const codeLoop = `    for p in posten:
         # Schritt 1: beurteilen
         beurteilung, t_in, t_out = beurteilen(c_claude, PROMPT_BEURTEILEN.format(**p))
-        kosten_usd += (t_in * PREISE[MODELL_BEURTEILEN][0] + t_out * PREISE[MODELL_BEURTEILEN][1]) / 1e6
+        kosten_chf += (t_in * PREISE[MODELL_BEURTEILEN][0] + t_out * PREISE[MODELL_BEURTEILEN][1]) / 1e6 * KURS_USD_CHF
 
         # Schritt 2: strukturieren (1 Wiederholung bei ungültigem JSON)
         prompt2 = PROMPT_STRUKTUR.format(beurteilung=beurteilung, **p)
         for versuch in (1, 2):
             roh, t_in, t_out = strukturieren(c_openai, prompt2)
-            kosten_usd += (t_in * PREISE[MODELL_STRUKTUR][0] + t_out * PREISE[MODELL_STRUKTUR][1]) / 1e6
+            kosten_chf += (t_in * PREISE[MODELL_STRUKTUR][0] + t_out * PREISE[MODELL_STRUKTUR][1]) / 1e6 * KURS_USD_CHF
             try:
                 entscheid = json_pruefen(roh)
                 break
@@ -78,7 +78,7 @@ const codeLoop = `    for p in posten:
         # Schritt 3: schreiben — nur wenn wirklich eine E-Mail raus soll
         if entscheid["email_senden"] and entscheid["aktion"] not in ("zurueckstellen", "manuelle_pruefung"):
             entwurf, t_in, t_out = schreiben(c_gemini, PROMPT_TEXT.format(**entscheid, **p))
-            kosten_usd += (t_in * PREISE[MODELL_TEXT][0] + t_out * PREISE[MODELL_TEXT][1]) / 1e6
+            kosten_chf += (t_in * PREISE[MODELL_TEXT][0] + t_out * PREISE[MODELL_TEXT][1]) / 1e6 * KURS_USD_CHF
             # Pseudonym erst jetzt, lokal, wieder durch den Klarnamen ersetzen
             entwurf = entwurf.replace(p["kunde_pseudo"], p["kunde"])
             with open(f"entwuerfe/{p['rechnung_nr']}.txt", "w", encoding="utf-8") as f:
@@ -274,19 +274,19 @@ const codeLoop = `    for p in posten:
           <div class="model-card">
             <span class="model-step">1 · Beurteilen</span>
             <h3>Claude Opus 4.8</h3>
-            <span class="model-prov">Anthropic · $5 / $25 pro 1M Tokens</span>
+            <span class="model-prov">Anthropic · CHF 4.05 / 20.25 pro 1M Tokens</span>
             <p>Liest die chaotische Notiz und wägt ab: Zahlungszusage? Streitfall? Teilzahlung? Das stärkste Modell sitzt dort, wo Urteilsvermögen gefragt ist.</p>
           </div>
           <div class="model-card">
             <span class="model-step">2 · Strukturieren</span>
             <h3>GPT-5 mini</h3>
-            <span class="model-prov">OpenAI · $0.25 / $2 pro 1M Tokens</span>
+            <span class="model-prov">OpenAI · CHF 0.20 / 1.62 pro 1M Tokens</span>
             <p>Presst die Beurteilung in ein striktes JSON, das Software weiterverarbeiten kann. Formatarbeit — dafür reicht ein kleines, günstiges Modell.</p>
           </div>
           <div class="model-card">
             <span class="model-step">3 · Schreiben</span>
             <h3>Gemini 2.5 Flash</h3>
-            <span class="model-prov">Google · $0.30 / $2.50 pro 1M Tokens</span>
+            <span class="model-prov">Google · CHF 0.24 / 2.03 pro 1M Tokens</span>
             <p>Formuliert den E-Mail-Entwurf in der Sprache des Kunden — Deutsch, Französisch oder Englisch, im Ton, den Schritt 1 vorgegeben hat.</p>
           </div>
         </div>
@@ -422,36 +422,36 @@ Musterstrasse 1, 2540 Grenchen</pre>
       <div class="container narrow">
         <span class="kicker">Kosten</span>
         <h2>Was kostet so ein Lauf?</h2>
-        <p class="section-lead">Hochrechnung für die 40 Posten: gemessene Textmengen aus dem Testlauf, umgerechnet in Tokens (~3.6 Zeichen/Token) und multipliziert mit den Listenpreisen der drei Anbieter (Stand Juli 2026, USD pro 1 Mio. Tokens):</p>
+        <p class="section-lead">Hochrechnung für die 40 Posten: gemessene Textmengen aus dem Testlauf, umgerechnet in Tokens (~3.6 Zeichen/Token) und multipliziert mit den Listenpreisen der drei Anbieter (in USD publiziert, hier umgerechnet zum Kurs 1 USD = 0.81 CHF, Stand Juli 2026; Angaben in CHF pro 1 Mio. Tokens):</p>
         <div class="table-wrap">
           <table class="data-table cost-table">
             <thead>
-              <tr><th>Schritt</th><th>Preis in / out</th><th>Tokens in / out (40 Posten)</th><th>Kosten</th></tr>
+              <tr><th>Schritt</th><th>Preis in / out (CHF)</th><th>Tokens in / out (40 Posten)</th><th>Kosten</th></tr>
             </thead>
             <tbody>
             <tr>
               <td><strong>Beurteilen</strong><br /><span class="td-sub">Claude Opus 4.8</span></td>
-              <td>5.00 / 25.00</td>
+              <td>4.05 / 20.25</td>
               <td>~8'998 / ~8'715</td>
-              <td><strong>~$0.26</strong></td>
+              <td><strong>~CHF 0.21</strong></td>
             </tr>
             <tr>
               <td><strong>Strukturieren</strong><br /><span class="td-sub">GPT-5 mini</span></td>
-              <td>0.25 / 2.00</td>
+              <td>0.20 / 1.62</td>
               <td>~15'242 / ~2'731</td>
-              <td><strong>~$0.01</strong></td>
+              <td><strong>~CHF 0.01</strong></td>
             </tr>
             <tr>
               <td><strong>Schreiben</strong><br /><span class="td-sub">Gemini 2.5 Flash</span></td>
-              <td>0.30 / 2.50</td>
+              <td>0.24 / 2.03</td>
               <td>~3'907 / ~3'010</td>
-              <td><strong>~$0.01</strong></td>
+              <td><strong>~CHF 0.01</strong></td>
             </tr>
             </tbody>
           </table>
         </div>
-        <p class="cost-total">Total pro Lauf: ~$0.28 — bei einem wöchentlichen Mahnlauf rund $1.22 pro Monat.</p>
-        <p class="table-note">Das ist eine Projektion, keine Abrechnung: Tokenzahlen sind aus Zeichenmengen geschätzt, echte Provider-Rechnungen können abweichen. Die Grössenordnung ist der Punkt — der teuerste Posten im Mahnwesen ist nicht die KI, sondern die Stunde Handarbeit.</p>
+        <p class="cost-total">Total pro Lauf: ~CHF 0.23 — bei einem wöchentlichen Mahnlauf rund CHF 0.98 pro Monat.</p>
+        <p class="table-note">Das ist eine Projektion, keine Abrechnung: Tokenzahlen sind aus Zeichenmengen geschätzt, Wechselkurse bewegen sich, echte Provider-Rechnungen können abweichen. Die Grössenordnung ist der Punkt — der teuerste Posten im Mahnwesen ist nicht die KI, sondern die Stunde Handarbeit.</p>
       </div>
     </section>
 
@@ -474,7 +474,7 @@ Musterstrasse 1, 2540 Grenchen</pre>
           <li>Alle Daten synthetisch: Firmen, Beträge und Notizen sind erfunden.</li>
           <li>Der Code ist lauffähig, sofern Sie eigene API-Schlüssel der drei Anbieter einsetzen.</li>
           <li>Die gezeigten Ausgaben stammen aus einem Testlauf über einen einzelnen DeepSeek-Endpunkt (siehe oben) — nicht aus Läufen bei Anthropic, OpenAI oder Google.</li>
-          <li>Die Kostentabelle ist eine Hochrechnung aus geschätzten Tokenzahlen × Listenpreisen.</li>
+          <li>Die Kostentabelle ist eine Hochrechnung aus geschätzten Tokenzahlen × Listenpreisen der Anbieter (in USD publiziert, in CHF umgerechnet).</li>
           </ul>
         </div>
 

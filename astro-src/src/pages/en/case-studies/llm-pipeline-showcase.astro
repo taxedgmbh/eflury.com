@@ -60,13 +60,13 @@ def schreiben(client, prompt: str):
 const codeLoop = `    for p in posten:
         # Schritt 1: beurteilen
         beurteilung, t_in, t_out = beurteilen(c_claude, PROMPT_BEURTEILEN.format(**p))
-        kosten_usd += (t_in * PREISE[MODELL_BEURTEILEN][0] + t_out * PREISE[MODELL_BEURTEILEN][1]) / 1e6
+        kosten_chf += (t_in * PREISE[MODELL_BEURTEILEN][0] + t_out * PREISE[MODELL_BEURTEILEN][1]) / 1e6 * KURS_USD_CHF
 
         # Schritt 2: strukturieren (1 Wiederholung bei ungültigem JSON)
         prompt2 = PROMPT_STRUKTUR.format(beurteilung=beurteilung, **p)
         for versuch in (1, 2):
             roh, t_in, t_out = strukturieren(c_openai, prompt2)
-            kosten_usd += (t_in * PREISE[MODELL_STRUKTUR][0] + t_out * PREISE[MODELL_STRUKTUR][1]) / 1e6
+            kosten_chf += (t_in * PREISE[MODELL_STRUKTUR][0] + t_out * PREISE[MODELL_STRUKTUR][1]) / 1e6 * KURS_USD_CHF
             try:
                 entscheid = json_pruefen(roh)
                 break
@@ -78,7 +78,7 @@ const codeLoop = `    for p in posten:
         # Schritt 3: schreiben — nur wenn wirklich eine E-Mail raus soll
         if entscheid["email_senden"] and entscheid["aktion"] not in ("zurueckstellen", "manuelle_pruefung"):
             entwurf, t_in, t_out = schreiben(c_gemini, PROMPT_TEXT.format(**entscheid, **p))
-            kosten_usd += (t_in * PREISE[MODELL_TEXT][0] + t_out * PREISE[MODELL_TEXT][1]) / 1e6
+            kosten_chf += (t_in * PREISE[MODELL_TEXT][0] + t_out * PREISE[MODELL_TEXT][1]) / 1e6 * KURS_USD_CHF
             # Pseudonym erst jetzt, lokal, wieder durch den Klarnamen ersetzen
             entwurf = entwurf.replace(p["kunde_pseudo"], p["kunde"])
             with open(f"entwuerfe/{p['rechnung_nr']}.txt", "w", encoding="utf-8") as f:
@@ -274,19 +274,19 @@ const codeLoop = `    for p in posten:
           <div class="model-card">
             <span class="model-step">1 · Assess</span>
             <h3>Claude Opus 4.8</h3>
-            <span class="model-prov">Anthropic · $5 / $25 per 1M Tokens</span>
+            <span class="model-prov">Anthropic · CHF 4.05 / 20.25 per 1M Tokens</span>
             <p>Reads the messy note and weighs the case: payment promise? dispute? partial payment? The strongest model sits where judgement is required.</p>
           </div>
           <div class="model-card">
             <span class="model-step">2 · Structure</span>
             <h3>GPT-5 mini</h3>
-            <span class="model-prov">OpenAI · $0.25 / $2 per 1M Tokens</span>
+            <span class="model-prov">OpenAI · CHF 0.20 / 1.62 per 1M Tokens</span>
             <p>Presses the assessment into strict JSON that software can process. Formatting work — a small, cheap model is enough.</p>
           </div>
           <div class="model-card">
             <span class="model-step">3 · Write</span>
             <h3>Gemini 2.5 Flash</h3>
-            <span class="model-prov">Google · $0.30 / $2.50 per 1M Tokens</span>
+            <span class="model-prov">Google · CHF 0.24 / 2.03 per 1M Tokens</span>
             <p>Drafts the email in the customer's language — German, French or English, in the tone step 1 prescribed.</p>
           </div>
         </div>
@@ -422,36 +422,36 @@ Musterstrasse 1, 2540 Grenchen</pre>
       <div class="container narrow">
         <span class="kicker">Costs</span>
         <h2>What does a run cost?</h2>
-        <p class="section-lead">Projection for the 40 invoices: text volumes measured in the test run, converted to tokens (~3.6 characters/token) and multiplied by the three providers' list prices (as of July 2026, USD per 1M tokens):</p>
+        <p class="section-lead">Projection for the 40 invoices: text volumes measured in the test run, converted to tokens (~3.6 characters/token) and multiplied by the three providers' list prices (published in USD, converted here at 1 USD = 0.81 CHF as of July 2026; figures in CHF per 1M tokens):</p>
         <div class="table-wrap">
           <table class="data-table cost-table">
             <thead>
-              <tr><th>Step</th><th>Price in / out</th><th>Tokens in / out (40 invoices)</th><th>Cost</th></tr>
+              <tr><th>Step</th><th>Price in / out (CHF)</th><th>Tokens in / out (40 invoices)</th><th>Cost</th></tr>
             </thead>
             <tbody>
             <tr>
               <td><strong>Assess</strong><br /><span class="td-sub">Claude Opus 4.8</span></td>
-              <td>5.00 / 25.00</td>
+              <td>4.05 / 20.25</td>
               <td>~8'998 / ~8'715</td>
-              <td><strong>~$0.26</strong></td>
+              <td><strong>~CHF 0.21</strong></td>
             </tr>
             <tr>
               <td><strong>Structure</strong><br /><span class="td-sub">GPT-5 mini</span></td>
-              <td>0.25 / 2.00</td>
+              <td>0.20 / 1.62</td>
               <td>~15'242 / ~2'731</td>
-              <td><strong>~$0.01</strong></td>
+              <td><strong>~CHF 0.01</strong></td>
             </tr>
             <tr>
               <td><strong>Write</strong><br /><span class="td-sub">Gemini 2.5 Flash</span></td>
-              <td>0.30 / 2.50</td>
+              <td>0.24 / 2.03</td>
               <td>~3'907 / ~3'010</td>
-              <td><strong>~$0.01</strong></td>
+              <td><strong>~CHF 0.01</strong></td>
             </tr>
             </tbody>
           </table>
         </div>
-        <p class="cost-total">Total per run: ~$0.28 — with a weekly dunning run, roughly $1.22 per month.</p>
-        <p class="table-note">This is a projection, not a bill: token counts are estimated from character volumes; real provider invoices may differ. The order of magnitude is the point — the most expensive item in dunning is not the AI, it is the hour of manual work.</p>
+        <p class="cost-total">Total per run: ~CHF 0.23 — with a weekly dunning run, roughly CHF 0.98 per month.</p>
+        <p class="table-note">This is a projection, not a bill: token counts are estimated from character volumes, exchange rates move, and real provider invoices may differ. The order of magnitude is the point — the most expensive item in dunning is not the AI, it is the hour of manual work.</p>
       </div>
     </section>
 
@@ -474,7 +474,7 @@ Musterstrasse 1, 2540 Grenchen</pre>
           <li>All data synthetic: companies, amounts and notes are invented.</li>
           <li>The code is runnable, provided you supply your own API keys for the three providers.</li>
           <li>The outputs shown come from a test run through a single DeepSeek endpoint (see above) — not from runs at Anthropic, OpenAI or Google.</li>
-          <li>The cost table is a projection from estimated token counts × list prices.</li>
+          <li>The cost table is a projection from estimated token counts × the providers&#x27; list prices (published in USD, converted to CHF).</li>
           </ul>
         </div>
 
