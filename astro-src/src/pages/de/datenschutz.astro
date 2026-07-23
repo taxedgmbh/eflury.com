@@ -1,120 +1,285 @@
 ---
 import ContentPageLayout from '../../layouts/ContentPageLayout.astro';
+import { Server, BarChart3, Inbox, Bot, Briefcase, ShieldCheck, Mail, MapPin, Phone, User, Scale, Globe, Clock } from 'lucide-astro';
 
 const lang = 'de';
 ---
 
 <ContentPageLayout
-  title="Datenschutzerklärung - Emanuel Flury"
-  description="Datenschutzerklärung für Emanuel Flury - Wie wir Ihre persönlichen Daten sammeln, verwenden und schützen."
+  title="Datenschutzerklärung - eFlury Consulting"
+  description="Datenschutzerklärung von eflury.com nach revDSG: welche Daten wir bearbeiten, welche Dienste beteiligt sind (Hostinger, HubSpot, Google Analytics, DeepSeek, Cloudflare), wie lange wir speichern und welche Rechte Sie haben."
   lang={lang}
   heroTitle="Datenschutzerklärung"
-  heroSubtitle="Wie wir Ihre persönlichen Daten sammeln, verwenden und schützen"
-  lastUpdated="11. Juli 2026"
-  keywords="Datenschutz, DSGVO, DSG, persönliche Daten, Schweiz"
+  heroSubtitle="Welche Daten wir bearbeiten, mit wem, wie lange — vollständig offengelegt"
+  lastUpdated="23. Juli 2026"
+  keywords="Datenschutzerklärung, revDSG, DSG, Datenschutz, DeepSeek, HubSpot, Google Analytics, eFlury Consulting"
 >
-  <h2>1. Einleitung</h2>
-  <p>Emanuel Flury ("wir", "uns" oder "unser") respektiert Ihre Privatsphäre und verpflichtet sich zum Schutz Ihrer persönlichen Daten. Diese Datenschutzerklärung erläutert, wie wir Ihre Informationen sammeln, verwenden und schützen, wenn Sie unsere Website eflury.com (die "Website") besuchen.</p>
+  <p>Diese Erklärung beschreibt, wie wir Personendaten bearbeiten, wenn Sie eflury.com besuchen oder mit uns in Kontakt treten — nach dem revidierten Schweizer Datenschutzgesetz (revDSG) und, wo anwendbar, der DSGVO. Wir legen jeden eingesetzten Dienst namentlich offen, inklusive der unbequemen Details.</p>
 
-  <h2>2. Verantwortlicher</h2>
-  <p>Der für Ihre persönlichen Daten verantwortliche Datenverantwortliche ist:</p>
-  <div class="info-box">
-    <ul>
-      <li><strong>Name:</strong> eFlury Consulting, Emanuel Flury</li>
-      <li><strong>Adresse:</strong> Keltenweg 4, 2540 Grenchen, Schweiz</li>
-      <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-      <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-    </ul>
+  <h2>1. Verantwortlicher</h2>
+  <div class="dp-controller">
+    <dl class="dpc-grid">
+      <div class="dpc-row">
+        <dt><User size={16} /> Verantwortlicher</dt>
+        <dd>Emanuel Aaron Flury<br />eFlury Consulting (Einzelunternehmen)</dd>
+      </div>
+      <div class="dpc-row">
+        <dt><MapPin size={16} /> Adresse</dt>
+        <dd>Keltenweg 4, 2540 Grenchen, Schweiz</dd>
+      </div>
+      <div class="dpc-row">
+        <dt><Mail size={16} /> E-Mail</dt>
+        <dd><a href="mailto:me@eflury.com">me@eflury.com</a></dd>
+      </div>
+      <div class="dpc-row">
+        <dt><Phone size={16} /> Telefon</dt>
+        <dd><a href="tel:+41799107787">+41 79 910 77 87</a></dd>
+      </div>
+    </dl>
   </div>
 
-  <h2>3. Daten, die wir sammeln</h2>
-  <h3>Von Ihnen bereitgestellte Informationen</h3>
-  <ul>
-    <li>Kontaktinformationen (Name, E-Mail, Telefonnummer)</li>
-    <li>Nachrichten über unser Kontaktformular</li>
-    <li>Ihre E-Mail-Adresse bei Newsletter-Anmeldung oder Leitfaden-Download</li>
-    <li>Berufliche Informationen für Serviceanfragen</li>
-  </ul>
+  <h2>2. Was wir bearbeiten — Dienst für Dienst</h2>
+  <p>Statt abstrakter Kategorien: Hier ist jede Datenverarbeitung dieser Website einzeln aufgeführt.</p>
 
-  <h3>Automatisch gesammelte Informationen</h3>
-  <ul>
-    <li>IP-Adresse (anonymisiert)</li>
-    <li>Browsertyp und -version</li>
-    <li>Geräteinformationen</li>
-    <li>Besuchte Seiten und Verweildauer</li>
-    <li>Verweisquelle</li>
-  </ul>
-
-  <h2>4. Wie wir Ihre Daten verwenden</h2>
-  <p>Wir verwenden Ihre persönlichen Daten für folgende Zwecke:</p>
-  <ul>
-    <li>Beantwortung Ihrer Anfragen</li>
-    <li>Versand unseres Newsletters (Double-Opt-in: Ihr Abonnement wird erst nach Ihrer Bestätigung per E-Mail aktiv; Abmeldung jederzeit über den Link in jeder E-Mail oder per Nachricht an uns)</li>
-    <li>Bereitstellung unserer Beratungsdienstleistungen</li>
-    <li>Verbesserung unserer Website und Dienstleistungen</li>
-    <li>Versand relevanter Mitteilungen (mit Ihrer Einwilligung)</li>
-    <li>Erfüllung gesetzlicher Verpflichtungen</li>
-  </ul>
-
-  <h2>5. Rechtsgrundlage für die Verarbeitung</h2>
-  <p>Gemäss dem revidierten Schweizer Datenschutzgesetz (revDSG) und, wo anwendbar, der DSGVO verarbeiten wir Ihre Daten auf Grundlage von:</p>
-  <ul>
-    <li><strong>Einwilligung:</strong> Wenn Sie freiwillig Informationen bereitstellen</li>
-    <li><strong>Vertrag:</strong> Zur Erfüllung von Servicevereinbarungen</li>
-    <li><strong>Berechtigtes Interesse:</strong> Zur Verbesserung unserer Dienstleistungen und Website</li>
-    <li><strong>Rechtliche Verpflichtung:</strong> Zur Einhaltung geltender Gesetze</li>
-  </ul>
-
-  <h2>6. Weitergabe von Daten — die eingesetzten Dienste</h2>
-  <p>Wir verkaufen Ihre persönlichen Daten nicht. Folgende namentlich genannte Dienstleister verarbeiten Daten in unserem Auftrag:</p>
-  <ul>
-    <li><strong>Hostinger</strong> — Hosting dieser Website (EU)</li>
-    <li><strong>HubSpot</strong> — Verarbeitung von Kontakt- und Newsletter-Formularen sowie unserer Kundendatenbank (EU-Rechenzentrum Frankfurt; der Anbieter ist ein US-Unternehmen, zertifiziert unter dem Swiss–U.S. Data Privacy Framework; gewisse Servicedaten können in den USA verarbeitet werden)</li>
-    <li><strong>Google Analytics</strong> — Web-Statistik (Google, USA; Übermittlung abgesichert gemäss Abschnitt 7)</li>
-    <li><strong>Cloudflare Turnstile</strong> — Spam-Schutz auf unseren Formularen; verarbeitet technische Verbindungsdaten (Cloudflare, USA; Übermittlung abgesichert gemäss Abschnitt 7)</li>
-  </ul>
-  <p>Darüber hinaus können Daten mit Berufsberatern (Buchhalter, Anwälte) und mit Behörden geteilt werden, wenn gesetzlich vorgeschrieben. Diese Liste entspricht der Offenlegung auf unserer Seite <a href="/de/sicherheit/">Sicherheit &amp; Vertrauen</a>.</p>
-
-  <h2>7. Internationale Übertragungen</h2>
-  <p>Einige der oben genannten Anbieter sind US-Unternehmen; personenbezogene Daten können daher in die USA übermittelt werden. Die Schweiz anerkennt für US-Unternehmen mit Zertifizierung unter dem Swiss–U.S. Data Privacy Framework ein angemessenes Schutzniveau (in Kraft seit 15. September 2024); für nicht davon erfasste Anbieter oder Fälle stützen wir uns auf Standardvertragsklauseln.</p>
-
-  <h2>8. Datenaufbewahrung</h2>
-  <p>Wir bewahren Ihre Daten nur so lange auf, wie es für die in dieser Richtlinie beschriebenen Zwecke erforderlich ist oder wie es gesetzlich vorgeschrieben ist. Kontaktdaten werden in der Regel 3 Jahre nach Ihrer letzten Interaktion aufbewahrt.</p>
-
-  <h2>9. Ihre Rechte</h2>
-  <p>Gemäss dem Schweizer und EU-Datenschutzrecht haben Sie das Recht auf:</p>
-  <div class="info-box">
-    <ul>
-      <li>Zugang zu Ihren persönlichen Daten</li>
-      <li>Berichtigung unrichtiger Daten</li>
-      <li>Löschung Ihrer Daten</li>
-      <li>Einschränkung der Verarbeitung</li>
-      <li>Datenübertragbarkeit</li>
-      <li>Widerspruch gegen die Verarbeitung</li>
-      <li>Widerruf der Einwilligung</li>
-    </ul>
-  </div>
-  <p>Um diese Rechte auszuüben, kontaktieren Sie uns unter <a href="mailto:me@eflury.com">me@eflury.com</a>.</p>
-
-  <h2>10. Cookies</h2>
-  <p>Unsere Website verwendet Cookies. Detaillierte Informationen finden Sie in unserer <a href="/de/cookies/">Cookie-Richtlinie</a>.</p>
-
-  <h2>11. Sicherheit</h2>
-  <p>Wir implementieren angemessene technische und organisatorische Massnahmen zum Schutz Ihrer persönlichen Daten, einschliesslich Verschlüsselung, sicherer Server und regelmässiger Sicherheitsbewertungen.</p>
-
-  <h2>12. Änderungen dieser Richtlinie</h2>
-  <p>Wir können diese Datenschutzerklärung regelmässig aktualisieren. Wir werden Sie über wesentliche Änderungen informieren, indem wir die neue Richtlinie auf dieser Seite veröffentlichen.</p>
-
-  <h2>13. Kontakt</h2>
-  <p>Bei Fragen zu dieser Datenschutzerklärung oder unseren Datenpraktiken:</p>
-  <div class="info-box">
-    <ul>
-      <li><strong>E-Mail:</strong> <a href="mailto:me@eflury.com">me@eflury.com</a></li>
-      <li><strong>Telefon:</strong> <a href="tel:+41799107787">+41 79 910 77 87</a></li>
-      <li><strong>Adresse:</strong> Grenchen, Schweiz</li>
-    </ul>
+  <div class="dp-card">
+    <div class="dp-head"><Server size={18} /> <h3>Website &amp; Server-Logs</h3></div>
+    <dl>
+      <div><dt>Zweck</dt><dd>Auslieferung der Website, Stabilität, Missbrauchsabwehr</dd></div>
+      <div><dt>Daten</dt><dd>IP-Adresse, Browsertyp, aufgerufene Seiten, Zeitpunkt (technische Logdaten)</dd></div>
+      <div><dt>Empfänger &amp; Ort</dt><dd>Hostinger (Hosting, EU)</dd></div>
+      <div><dt>Aufbewahrung</dt><dd>Logdaten werden vom Hoster automatisch rotiert und gelöscht</dd></div>
+    </dl>
   </div>
 
-  <h2>14. Aufsichtsbehörde</h2>
-  <p>Sie haben das Recht, eine Beschwerde beim Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB) in der Schweiz oder bei Ihrer lokalen Datenschutzbehörde einzureichen.</p>
+  <div class="dp-card">
+    <div class="dp-head"><BarChart3 size={18} /> <h3>Web-Statistik (Google Analytics 4)</h3></div>
+    <dl>
+      <div><dt>Zweck</dt><dd>Verstehen, welche Inhalte genutzt werden, um die Website zu verbessern</dd></div>
+      <div><dt>Daten</dt><dd>Pseudonymisierte Nutzungsdaten (besuchte Seiten, Verweildauer, Gerät, ungefähre Herkunft); GA4 speichert keine vollständigen IP-Adressen</dd></div>
+      <div><dt>Empfänger &amp; Ort</dt><dd>Google (USA; zertifiziert unter dem Swiss–U.S. Data Privacy Framework)</dd></div>
+      <div><dt>Aufbewahrung</dt><dd>Gemäss Google-Analytics-Einstellungen, längstens 14 Monate</dd></div>
+    </dl>
+  </div>
+
+  <div class="dp-card">
+    <div class="dp-head"><Inbox size={18} /> <h3>Formulare &amp; CRM (HubSpot)</h3></div>
+    <dl>
+      <div><dt>Zweck</dt><dd>Kontaktanfragen beantworten, Newsletter versenden (Double-Opt-in, Abmeldung jederzeit), Download-Anfragen nachfassen, Interessenten verwalten</dd></div>
+      <div><dt>Daten</dt><dd>Name, E-Mail, Telefon (optional), Nachricht bzw. Anfrage-Kontext — je nachdem, welches Formular Sie nutzen</dd></div>
+      <div><dt>Empfänger &amp; Ort</dt><dd>HubSpot (CRM; EU-Rechenzentrum Frankfurt; der Anbieter ist ein US-Unternehmen, zertifiziert unter dem Swiss–U.S. Data Privacy Framework — gewisse Servicedaten können in den USA verarbeitet werden)</dd></div>
+      <div><dt>Aufbewahrung</dt><dd>Kontaktdaten in der Regel 3 Jahre nach der letzten Interaktion; Newsletter bis zur Abmeldung</dd></div>
+    </dl>
+  </div>
+
+  <div class="dp-card">
+    <div class="dp-head"><Bot size={18} /> <h3>Chat-Assistent «Effi»</h3></div>
+    <dl>
+      <div><dt>Zweck</dt><dd>Fragen zu unserem Angebot direkt auf der Website beantworten</dd></div>
+      <div><dt>Daten</dt><dd>Ihre Chat-Nachrichten und der Gesprächsverlauf der laufenden Sitzung; Kontaktdaten nur, wenn Sie sie ausdrücklich angeben und der Weiterleitung zustimmen (dann an HubSpot, siehe oben)</dd></div>
+      <div><dt>Empfänger &amp; Ort</dt><dd>DeepSeek (KI-Anbieter) — die Verarbeitung erfolgt auf Servern des Anbieters, mutmasslich in China, einem Land ohne angemessenes Datenschutzniveau im Sinne des revDSG</dd></div>
+      <div><dt>Aufbewahrung</dt><dd>Wir speichern Chatverläufe nicht; der Verlauf endet mit der Sitzung. Beim KI-Anbieter gilt dessen eigene Richtlinie</dd></div>
+    </dl>
+    <div class="dp-note">
+      <p><strong>Klartext:</strong> Was Sie in den Chat schreiben, wird zur Beantwortung an DeepSeek übermittelt. Geben Sie dort keine Personendaten, Kundendaten oder vertraulichen Informationen ein — für alles Vertrauliche nutzen Sie das <a href="/de/kontakt/">Kontaktformular</a> oder rufen Sie uns an. Die Nutzung des Chats ist freiwillig; er funktioniert erst, wenn Sie ihn aktiv öffnen.</p>
+    </div>
+  </div>
+
+  <div class="dp-card">
+    <div class="dp-head"><Briefcase size={18} /> <h3>Bewerbungen (Karriereportal)</h3></div>
+    <dl>
+      <div><dt>Zweck</dt><dd>Bearbeitung Ihrer Bewerbung und — wenn es passt — Aufnahme in den Spezialisten-Pool</dd></div>
+      <div><dt>Daten</dt><dd>Name, Adresse, E-Mail, Telefon, Gehaltsvorstellung, Pensum, Empfehlung sowie Ihre Unterlagen (CV, Zeugnisse, Anschreiben)</dd></div>
+      <div><dt>Empfänger &amp; Ort</dt><dd>Speicherung in einem zugriffsgeschützten Verzeichnis unseres Hostings (EU); Zustellung per E-Mail an den Inhaber; Kontaktdaten und Eckdaten (ohne Dateien) zusätzlich im CRM (HubSpot, siehe oben)</dd></div>
+      <div><dt>Aufbewahrung</dt><dd>Für die Dauer des Verfahrens; bei Aufnahme in den Spezialisten-Pool, solange die Zusammenarbeit in Frage kommt. Löschung jederzeit auf einfache Anfrage</dd></div>
+    </dl>
+  </div>
+
+  <div class="dp-card">
+    <div class="dp-head"><ShieldCheck size={18} /> <h3>Spam-Schutz (Cloudflare Turnstile)</h3></div>
+    <dl>
+      <div><dt>Zweck</dt><dd>Schutz unserer Formulare vor automatisiertem Missbrauch — ohne Bilderrätsel</dd></div>
+      <div><dt>Daten</dt><dd>Technische Verbindungs- und Gerätedaten zur Bot-Erkennung; wird erst geladen, wenn Sie ein Formular verwenden</dd></div>
+      <div><dt>Empfänger &amp; Ort</dt><dd>Cloudflare (USA; zertifiziert unter dem Swiss–U.S. Data Privacy Framework)</dd></div>
+      <div><dt>Aufbewahrung</dt><dd>Gemäss Cloudflare-Richtlinie; wir erhalten nur das Prüfergebnis</dd></div>
+    </dl>
+  </div>
+
+  <h2><Scale size={20} class="h-icon" /> 3. Rechtsgrundlagen</h2>
+  <ul>
+    <li><strong>Einwilligung</strong> — Newsletter (Double-Opt-in), Weiterleitung Ihrer Kontaktdaten aus dem Chat, Bewerbungen</li>
+    <li><strong>Vertrag bzw. Vertragsanbahnung</strong> — Kontaktanfragen, Angebote, Projektabwicklung</li>
+    <li><strong>Berechtigtes Interesse</strong> — Betrieb und Absicherung der Website, Web-Statistik, Missbrauchsabwehr</li>
+    <li><strong>Gesetzliche Pflicht</strong> — Aufbewahrung, wo das Gesetz es verlangt</li>
+  </ul>
+
+  <h2><Globe size={20} class="h-icon" /> 4. Bekanntgabe ins Ausland</h2>
+  <p>Daten können in folgende Länder gelangen: <strong>EU</strong> (Hosting, HubSpot-Rechenzentrum), <strong>USA</strong> (Google, Cloudflare, HubSpot-Servicedaten — jeweils zertifiziert unter dem Swiss–U.S. Data Privacy Framework, das die Schweiz seit dem 15. September 2024 als angemessen anerkennt; ergänzend Standardvertragsklauseln) und — ausschliesslich für den freiwilligen Chat-Assistenten — <strong>China</strong> (DeepSeek, kein angemessenes Schutzniveau; Nutzung beruht auf Ihrer freiwilligen Eingabe, siehe Klartext-Hinweis oben).</p>
+
+  <h2><Clock size={20} class="h-icon" /> 5. Aufbewahrung</h2>
+  <p>Die Fristen stehen bei jedem Dienst in Abschnitt 2. Grundsatz: Wir behalten Daten nur, solange der Zweck es erfordert oder das Gesetz es verlangt — danach werden sie gelöscht.</p>
+
+  <h2>6. Ihre Rechte</h2>
+  <div class="info-box">
+    <ul>
+      <li><strong>Auskunft</strong> (Art. 25 DSG) — welche Daten wir über Sie bearbeiten</li>
+      <li><strong>Berichtigung</strong> unrichtiger Daten</li>
+      <li><strong>Löschung</strong> Ihrer Daten</li>
+      <li><strong>Datenherausgabe und -übertragung</strong> (Art. 28 DSG)</li>
+      <li><strong>Widerspruch</strong> gegen eine Bearbeitung und <strong>Widerruf</strong> erteilter Einwilligungen, jederzeit</li>
+    </ul>
+  </div>
+  <p>Eine E-Mail an <a href="mailto:me@eflury.com">me@eflury.com</a> genügt — Sie erhalten eine persönliche Antwort. Zudem können Sie sich beim <strong>Eidgenössischen Datenschutz- und Öffentlichkeitsbeauftragten (EDÖB)</strong> beschweren; wo die DSGVO anwendbar ist, auch bei Ihrer lokalen Aufsichtsbehörde.</p>
+
+  <h2>7. Cookies &amp; lokale Speicherung</h2>
+  <p>Details zu Cookies stehen in der <a href="/de/cookies/">Cookie-Richtlinie</a>. Zusätzlich merkt sich Ihr Browser lokal (localStorage) Ihre Design-Einstellung (hell/dunkel) — diese Information verlässt Ihr Gerät nicht.</p>
+
+  <h2>8. Sicherheit</h2>
+  <p>Übertragung ausschliesslich verschlüsselt (TLS), zugriffsgeschützte Speicherung, Minimierung: Formulare fragen nur ab, was für den Zweck nötig ist, und in unseren eigenen KI-Demonstrationen pseudonymisieren wir Daten vor API-Aufrufen — derselbe Standard, den wir Kunden empfehlen.</p>
+
+  <h2>9. Änderungen</h2>
+  <p>Wir passen diese Erklärung an, wenn sich Dienste oder Rechtslage ändern; massgeblich ist die jeweils hier publizierte Fassung. Das Datum der letzten Aktualisierung steht oben.</p>
 </ContentPageLayout>
+
+<style>
+  .dp-controller {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+    padding: 0.35rem 1.5rem;
+    margin: 1.25rem 0 2rem;
+  }
+
+  .dpc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0;
+  }
+
+  .dpc-row {
+    padding: 0.9rem 0;
+  }
+
+  .dpc-row dt {
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-size: 0.72rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--teal-text);
+    margin-bottom: 0.25rem;
+  }
+
+  .dpc-row dd {
+    margin: 0;
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    line-height: 1.5;
+  }
+
+  .dpc-row dd a {
+    color: var(--teal-text);
+  }
+
+  .dp-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    box-shadow: var(--shadow-sm);
+    margin: 0 0 1.25rem;
+    overflow: hidden;
+  }
+
+  .dp-head {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    padding: 1rem 1.5rem;
+    background: var(--bg-secondary);
+    border-bottom: 1px solid var(--border-color);
+  }
+
+  .dp-head :global(svg) {
+    color: var(--teal-text);
+    flex-shrink: 0;
+  }
+
+  .dp-head h3 {
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text-primary);
+    margin: 0;
+  }
+
+  .dp-card dl {
+    margin: 0;
+    padding: 0.5rem 1.5rem 0.9rem;
+  }
+
+  .dp-card dl > div {
+    display: grid;
+    grid-template-columns: 160px 1fr;
+    gap: 1rem;
+    padding: 0.55rem 0;
+    border-bottom: 1px solid var(--separator, var(--border-color));
+  }
+
+  .dp-card dl > div:last-child {
+    border-bottom: none;
+  }
+
+  .dp-card dt {
+    font-size: 0.78rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--teal-text);
+    padding-top: 0.1rem;
+  }
+
+  .dp-card dd {
+    margin: 0;
+    font-size: 0.92rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .dp-note {
+    margin: 0 1.5rem 1.25rem;
+    padding: 0.9rem 1.1rem;
+    background: var(--bg-secondary);
+    border-left: 4px solid var(--action-teal);
+    border-radius: 0 10px 10px 0;
+  }
+
+  .dp-note p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+  }
+
+  .dp-note a {
+    color: var(--teal-text);
+  }
+
+  :global(.h-icon) {
+    color: var(--teal-text);
+    vertical-align: -3px;
+    margin-right: 0.35rem;
+  }
+
+  @media (max-width: 640px) {
+    .dpc-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .dp-card dl > div {
+      grid-template-columns: 1fr;
+      gap: 0.15rem;
+    }
+  }
+</style>
