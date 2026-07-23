@@ -31,12 +31,78 @@ const lang = 'de';
   <h2>Was Sie erwarten können</h2>
   <p>Dieselben Prinzipien, die wir Kunden publizieren, gelten intern: Entscheidungen schriftlich, Dokumentation als Teil der Arbeit (kein Nachtrag), fixe Scopes statt Heldentaten — und ehrliche No-Gos, wenn etwas nicht passt. Lesen Sie die <a href="/de/methode/">Methode</a> und die <a href="/de/sicherheit/">Vertrauensseite</a> — das ist die Arbeitskultur, publiziert.</p>
 
+  <h2>Offene Stellen</h2>
+  <p>Sobald eine konkrete Stelle offen ist, erscheint sie zuerst hier. Bis dahin gilt: Der Spezialisten-Pool ist laufend offen.</p>
+  <div class="job-cards">
+    <a href="/de/karriere/initiativbewerbung/" class="job-card">
+      <span class="jc-badge">Laufend offen</span>
+      <span class="jc-title">Initiativbewerbung — Spezialisten-Netzwerk</span>
+      <span class="jc-meta">KI/Automatisierung · BI &amp; Daten · Finanz — Grenchen SO / Remote (Schweiz) · Pensum nach Vereinbarung</span>
+      <span class="jc-cta">Zur Stelle &amp; Bewerbungsformular →</span>
+    </a>
+  </div>
+
   <h2>Initiativbewerbung</h2>
-  <p>Eine E-Mail an <a href="mailto:me@eflury.com?subject=Initiativbewerbung">me@eflury.com</a> mit dem Betreff «Initiativbewerbung». Kein Motivationsschreiben-Theater — es reicht:</p>
+  <p>Am einfachsten über das <a href="/de/karriere/initiativbewerbung/">Bewerbungsformular</a> — strukturiert, mit Upload für CV und Zeugnisse. Wer lieber schreibt: eine E-Mail an <a href="mailto:me@eflury.com?subject=Initiativbewerbung">me@eflury.com</a> mit dem Betreff «Initiativbewerbung» reicht ebenfalls. Kein Motivationsschreiben-Theater — es genügt:</p>
   <ul>
     <li>ein kurzer Lebenslauf oder Ihr LinkedIn-Profil,</li>
     <li>drei Sätze dazu, was Sie gebaut haben (Links schlagen Adjektive),</li>
     <li>was Sie suchen und ab wann Sie verfügbar sind.</li>
   </ul>
-  <p>Jede Bewerbung wird persönlich gelesen und beantwortet — von der Person, die mit Ihnen arbeiten würde, nicht von einem System. Sobald eine konkrete Stelle offen ist, erscheint sie zuerst auf dieser Seite.</p>
+  <p>Jede Bewerbung wird persönlich gelesen und beantwortet — von der Person, die mit Ihnen arbeiten würde, nicht von einem System.</p>
 </ContentPageLayout>
+
+<style>
+  .job-cards {
+    margin: 1.25rem 0 0.5rem;
+  }
+
+  .job-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 1.4rem 1.6rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .job-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--teal-text);
+  }
+
+  .jc-badge {
+    align-self: flex-start;
+    padding: 0.2rem 0.7rem;
+    border-radius: var(--radius-full);
+    background: var(--action-teal);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.35rem;
+  }
+
+  .jc-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .jc-meta {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .jc-cta {
+    margin-top: 0.5rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--teal-text);
+  }
+</style>

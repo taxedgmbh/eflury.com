@@ -31,12 +31,78 @@ const lang = 'en';
   <h2>What you can expect</h2>
   <p>The same principles we publish for clients apply inside: decisions in writing, documentation as part of the work (not an afterthought), fixed scopes instead of heroics, and honest no-gos when something does not fit. Read the <a href="/en/method/">method</a> and the <a href="/en/trust/">trust page</a> — that is the working culture, published.</p>
 
+  <h2>Open positions</h2>
+  <p>When a concrete role opens, it will be published here first. Until then: the specialist pool is always open.</p>
+  <div class="job-cards">
+    <a href="/en/careers/spontaneous-application/" class="job-card">
+      <span class="jc-badge">Always open</span>
+      <span class="jc-title">Spontaneous Application — Specialist Network</span>
+      <span class="jc-meta">AI/Automation · BI &amp; Data · Finance — Grenchen SO / Remote (Switzerland) · Workload by agreement</span>
+      <span class="jc-cta">View position &amp; application form →</span>
+    </a>
+  </div>
+
   <h2>Initiative application</h2>
-  <p>One email to <a href="mailto:me@eflury.com?subject=Initiative%20application">me@eflury.com</a> with the subject "Initiative application". No cover-letter theater — include:</p>
+  <p>Easiest via the <a href="/en/careers/spontaneous-application/">application form</a> — structured, with uploads for CV and certificates. If you prefer writing: one email to <a href="mailto:me@eflury.com?subject=Initiative%20application">me@eflury.com</a> with the subject "Initiative application" works too. No cover-letter theater — include:</p>
   <ul>
     <li>a short CV or your LinkedIn profile,</li>
     <li>three sentences on what you have built (links beat adjectives),</li>
     <li>what you are looking for and when you are available.</li>
   </ul>
-  <p>Every application is read and answered personally — by the person who would work with you, not a system. When a concrete role opens, it will be published on this page first.</p>
+  <p>Every application is read and answered personally — by the person who would work with you, not a system.</p>
 </ContentPageLayout>
+
+<style>
+  .job-cards {
+    margin: 1.25rem 0 0.5rem;
+  }
+
+  .job-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    background: var(--card-bg);
+    border: 1px solid var(--border-color);
+    border-radius: 14px;
+    padding: 1.4rem 1.6rem;
+    text-decoration: none;
+    transition: all 0.25s ease;
+  }
+
+  .job-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    border-color: var(--teal-text);
+  }
+
+  .jc-badge {
+    align-self: flex-start;
+    padding: 0.2rem 0.7rem;
+    border-radius: var(--radius-full);
+    background: var(--action-teal);
+    color: white;
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 0.35rem;
+  }
+
+  .jc-title {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: var(--text-primary);
+  }
+
+  .jc-meta {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+  }
+
+  .jc-cta {
+    margin-top: 0.5rem;
+    font-size: 0.92rem;
+    font-weight: 600;
+    color: var(--teal-text);
+  }
+</style>
