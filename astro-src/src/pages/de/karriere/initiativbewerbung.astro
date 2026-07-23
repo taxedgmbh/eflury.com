@@ -13,6 +13,7 @@ import AIChatbot from '../../../components/AIChatbot.astro';
 import { MapPin, Clock, Handshake, ArrowRight, Send } from 'lucide-astro';
 
 const lang = 'de';
+const turnstileSitekey = import.meta.env.PUBLIC_TURNSTILE_SITEKEY || '0x4AAAAAACNCvv3pA4hrcbKM';
 ---
 
 <MainLayout
@@ -92,13 +93,11 @@ const lang = 'de';
             </div>
           </li>
           </ol>
-
-          <p class="alt-apply" set:html={`Lieber per E-Mail? <a href="mailto:me@eflury.com?subject=Initiativbewerbung">me@eflury.com</a> mit Betreff «Initiativbewerbung».`} />
         </article>
 
         <!-- Application form (right) -->
         <aside class="job-apply" id="bewerben">
-          <form class="apply-form" id="applyForm" novalidate data-endpoint="/api/apply.php" data-job="Initiativbewerbung">
+          <form class="apply-form" id="applyForm" novalidate data-endpoint="/api/apply.php" data-job="Initiativbewerbung" data-sitekey={turnstileSitekey}>
             <h2>Für diesen Job bewerben</h2>
 
             <fieldset>
@@ -115,11 +114,25 @@ const lang = 'de';
               </div>
               <div class="af-field">
                 <label for="af-email">E-Mail <em>*</em></label>
-                <input type="email" id="af-email" name="email" required autocomplete="email" />
+                <input type="email" id="af-email" name="email" required autocomplete="email" placeholder="name@beispiel.ch" />
               </div>
               <div class="af-field">
                 <label for="af-telefon">Telefon</label>
-                <input type="tel" id="af-telefon" name="telefon" autocomplete="tel" />
+                <input type="tel" id="af-telefon" name="telefon" autocomplete="tel" placeholder="+41 79 123 45 67" />
+              </div>
+              <div class="af-field">
+                <label for="af-adresse">Strasse und Nr. <em>*</em></label>
+                <input type="text" id="af-adresse" name="adresse" required autocomplete="street-address" placeholder="Musterstrasse 12" />
+              </div>
+              <div class="af-row-2 af-row-plz">
+                <div class="af-field">
+                  <label for="af-plz">PLZ <em>*</em></label>
+                  <input type="text" id="af-plz" name="plz" required inputmode="numeric" autocomplete="postal-code" placeholder="2540" />
+                </div>
+                <div class="af-field">
+                  <label for="af-ort">Ort <em>*</em></label>
+                  <input type="text" id="af-ort" name="ort" required autocomplete="address-level2" placeholder="Grenchen" />
+                </div>
               </div>
             </fieldset>
 
@@ -128,16 +141,18 @@ const lang = 'de';
               <div class="af-field">
                 <label for="af-cv">CV/Lebenslauf <em>*</em></label>
                 <input type="file" id="af-cv" name="cv" required accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.zip" />
+                <p class="af-hint">PDF, Word, JPG/PNG oder ZIP — max. 8 MB pro Datei</p>
               </div>
               <div class="af-field">
                 <label for="af-zeugnisse">Zeugnisse & Diplome <em>*</em></label>
                 <input type="file" id="af-zeugnisse" name="zeugnisse[]" required multiple accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.zip" />
+                <p class="af-hint">PDF, Word, JPG/PNG oder ZIP — max. 8 MB pro Datei</p>
               </div>
               <div class="af-field">
                 <label for="af-anschreiben">Anschreiben</label>
                 <input type="file" id="af-anschreiben" name="anschreiben" accept=".pdf,.doc,.docx,.jpg,.jpeg,.png,.zip" />
+                <p class="af-hint">PDF, Word, JPG/PNG oder ZIP — max. 8 MB pro Datei</p>
               </div>
-              <p class="af-hint">PDF, Word, JPG/PNG oder ZIP — max. 8 MB pro Datei</p>
             </fieldset>
 
             <fieldset>
@@ -159,7 +174,7 @@ const lang = 'de';
               </div>
               <div class="af-field">
                 <label for="af-empfohlen">Empfohlen von</label>
-                <input type="text" id="af-empfohlen" name="empfohlen" />
+                <input type="text" id="af-empfohlen" name="empfohlen" placeholder="Name oder Kanal (z. B. LinkedIn)" />
               </div>
             </fieldset>
 
@@ -172,6 +187,8 @@ const lang = 'de';
             </fieldset>
 
             <input type="text" name="website" id="af-hp" tabindex="-1" autocomplete="off" aria-hidden="true" class="af-hp" />
+
+            <div id="af-turnstile" class="af-turnstile"></div>
 
             <p class="af-status" id="af-status" role="status"></p>
 
@@ -212,8 +229,11 @@ const lang = 'de';
       ? 'Eine Datei ist grösser als 8 MB — bitte verkleinern.'
       : 'One file exceeds 8 MB — please reduce its size.',
     fail: pageLang === 'de'
-      ? 'Übermittlung fehlgeschlagen. Bitte senden Sie Ihre Bewerbung direkt an me@eflury.com.'
-      : 'Submission failed. Please send your application directly to me@eflury.com.',
+      ? 'Übermittlung fehlgeschlagen. Bitte versuchen Sie es in ein paar Minuten erneut.'
+      : 'Submission failed. Please try again in a few minutes.',
+    turnstile: pageLang === 'de'
+      ? 'Bitte schliessen Sie kurz die Sicherheitsprüfung ab.'
+      : 'Please complete the quick security check.',
     sending: pageLang === 'de' ? 'Wird gesendet …' : 'Sending …',
   };
 
@@ -224,6 +244,46 @@ const lang = 'de';
     }
   }
 
+  // Bot protection: lazily rendered Turnstile (same pattern as the other forms)
+  let tsToken: string | null = null;
+  let tsRendered = false;
+
+  function renderTurnstile() {
+    const ts = (window as any).turnstile;
+    const container = document.getElementById('af-turnstile');
+    if (!ts || !container || tsRendered) return;
+    tsRendered = true;
+    ts.render(container, {
+      sitekey: form?.dataset.sitekey,
+      appearance: 'interaction-only',
+      callback: (token: string) => { tsToken = token; },
+      'expired-callback': () => { tsToken = null; },
+    });
+  }
+
+  function ensureTurnstile() {
+    if ((window as any).turnstile) {
+      renderTurnstile();
+      return;
+    }
+    if (!document.querySelector('script[src*="challenges.cloudflare.com"]')) {
+      const s = document.createElement('script');
+      s.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+      s.async = true;
+      s.defer = true;
+      document.head.appendChild(s);
+    }
+    const poll = setInterval(() => {
+      if ((window as any).turnstile) {
+        clearInterval(poll);
+        renderTurnstile();
+      }
+    }, 250);
+    setTimeout(() => clearInterval(poll), 10000);
+  }
+
+  form?.addEventListener('focusin', ensureTurnstile, { once: true });
+
   form?.addEventListener('submit', async (e) => {
     e.preventDefault();
     if (!form) return;
@@ -232,7 +292,7 @@ const lang = 'de';
     fd.append('job', form.dataset.job || '');
     fd.append('lang', pageLang);
 
-    const required = ['vorname', 'nachname', 'email', 'gehalt', 'pensum'];
+    const required = ['vorname', 'nachname', 'email', 'adresse', 'plz', 'ort', 'gehalt', 'pensum'];
     for (const k of required) {
       if (!String(fd.get(k) || '').trim()) {
         setError(MSG.required);
@@ -262,6 +322,13 @@ const lang = 'de';
     ];
     if (all.some((f) => f.size > 8 * 1024 * 1024)) {
       setError(MSG.size);
+      return;
+    }
+
+    // Turnstile gate: widget rendered but unsolved -> ask to complete.
+    // Script never loaded (blocked) -> fail open; server still rate-limits.
+    if (!tsToken && tsRendered) {
+      setError(MSG.turnstile);
       return;
     }
 
@@ -576,16 +643,52 @@ const lang = 'de';
     line-height: 1.5;
   }
 
+  .af-check {
+    cursor: pointer;
+  }
+
   .af-check input {
-    margin-top: 0.2rem;
-    width: 17px;
-    height: 17px;
-    accent-color: var(--action-teal);
+    /* The global iOS input reset (appearance: none) strips the native
+       checkbox rendering and the 44px touch-target minimum inflates it —
+       build a fully custom, visibly toggling checkbox instead. */
+    appearance: none;
+    -webkit-appearance: none;
+    margin-top: 0.1rem;
+    padding: 0;
+    width: 20px;
+    height: 20px;
+    min-width: 20px;
+    min-height: 20px;
+    border: 1.5px solid var(--border-color);
+    border-radius: 6px;
+    background: var(--bg-primary);
     flex-shrink: 0;
+    cursor: pointer;
+  }
+
+  .af-check input:checked {
+    background-color: var(--action-teal);
+    border-color: var(--action-teal);
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");
+    background-size: 13px;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .af-check input:focus-visible {
+    outline: 2px solid var(--action-teal);
+    outline-offset: 2px;
   }
 
   .af-check :global(a) {
     color: var(--teal-text);
+    display: inline;
+    min-width: 0;
+    min-height: 0;
+  }
+
+  .af-turnstile:not(:empty) {
+    margin: 0 0 0.9rem;
   }
 
   .af-hp {
