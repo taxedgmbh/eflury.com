@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Accept Offer — eFlury Consulting</title>
+<link rel="icon" href="/images/favicon-tab.png">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+         background: #f5f5f4; color: #10222f; min-height: 100vh; }
+  .bar { background: #0f2a46; padding: 16px 24px; }
+  .bar .brand { color: #fff; font-weight: 800; font-size: 19px; letter-spacing: -0.01em; text-decoration: none; }
+  .bar .brand span { color: #0d9488; }
+  .wrap { max-width: 680px; margin: 0 auto; padding: 40px 20px 60px; }
+  h1 { font-size: 26px; font-weight: 800; color: #0f2a46; margin-bottom: 6px; letter-spacing: -0.01em; }
+  .sub { color: #51636f; font-size: 15px; margin-bottom: 26px; }
+  .card { background: #fff; border: 1px solid #dbe3ea; border-radius: 16px; box-shadow: 0 1px 3px rgba(15,42,70,0.08); overflow: hidden; margin-bottom: 18px; }
+  .card-head { background: #0f2a46; color: #fff; padding: 14px 22px; font-weight: 700; font-size: 15px; }
+  .row { display: flex; justify-content: space-between; gap: 16px; padding: 13px 22px; border-bottom: 1px solid #eef1f4; font-size: 15px; }
+  .row:last-child { border-bottom: none; }
+  .row .k { color: #096b62; font-size: 11.5px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.06em; padding-top: 3px; white-space: nowrap; }
+  .row .v { font-weight: 600; text-align: right; overflow-wrap: anywhere; }
+  .agb-box { background: #f0fbfa; border-left: 4px solid #0d9488; border-radius: 0 10px 10px 0; padding: 14px 18px; font-size: 14px; color: #37485a; margin-bottom: 18px; line-height: 1.6; }
+  .agb-box a { color: #096b62; font-weight: 600; }
+  form .field { margin-bottom: 14px; }
+  label { display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 5px; color: #10222f; }
+  label em { color: #096b62; font-style: normal; }
+  input[type=text] { width: 100%; padding: 11px 14px; font-size: 16px; font-family: inherit; border: 1px solid #cdd7e0; border-radius: 10px; background: #fff; color: #10222f; }
+  input[type=text]:focus { outline: 2px solid #096b62; border-color: #096b62; }
+  .check { display: flex; gap: 10px; align-items: flex-start; font-size: 14.5px; color: #37485a; margin-bottom: 12px; line-height: 1.55; cursor: pointer; }
+  .check input { appearance: auto; -webkit-appearance: auto; width: 19px; height: 19px; margin-top: 2px; accent-color: #096b62; flex-shrink: 0; cursor: pointer; }
+  .check a { color: #096b62; }
+  .hp { position: absolute; left: -9999px; width: 1px; height: 1px; opacity: 0; }
+  .status { min-height: 20px; font-size: 14px; color: #b45309; margin: 8px 0; }
+  button.go { display: block; width: 100%; padding: 15px; background: #096b62; color: #fff; font-family: inherit; font-size: 17px; font-weight: 700; border: none; border-radius: 12px; cursor: pointer; }
+  button.go:hover { background: #0a5c54; }
+  button.go:disabled { opacity: 0.6; cursor: wait; }
+  .panel { background: #fff; border: 1px solid #dbe3ea; border-radius: 16px; padding: 26px; box-shadow: 0 1px 3px rgba(15,42,70,0.08); }
+  .panel.ok { border-color: #0d9488; }
+  .panel h2 { font-size: 19px; color: #0f2a46; margin-bottom: 8px; }
+  .panel p { font-size: 15px; color: #51636f; line-height: 1.65; }
+  .foot { margin-top: 34px; text-align: center; font-size: 12.5px; color: #8a97a5; line-height: 1.7; }
+  .foot a { color: #096b62; }
+  @media (max-width: 480px) { .row { flex-direction: column; gap: 2px; } .row .v { text-align: left; } }
+</style>
+</head>
+<body>
+<div class="bar"><a class="brand" href="https://eflury.com/en/">eFlury <span>Consulting</span></a></div>
+<div class="wrap">
+  <h1>Accept offer</h1>
+  <p class="sub">Review the key details, read the GTC — one click accepts the offer bindingly.</p>
+
+  <div id="state" class="panel"><p>Loading offer …</p></div>
+
+  <div id="main" style="display:none">
+    <div class="card">
+      <div class="card-head">Offer</div>
+      <div class="row"><span class="k">Offer no.</span><span class="v" id="o-nr"></span></div>
+      <div class="row"><span class="k">Service</span><span class="v" id="o-titel"></span></div>
+      <div class="row"><span class="k">Amount</span><span class="v" id="o-betrag"></span></div>
+      <div class="row"><span class="k">Client</span><span class="v" id="o-firma"></span></div>
+      <div class="row"><span class="k">Confirmation to</span><span class="v" id="o-email"></span></div>
+    </div>
+
+    <div class="agb-box">By accepting, the <a href="https://eflury.com/en/terms/" target="_blank" rel="noopener">General Terms and Conditions of eFlury Consulting</a> apply (version <span id="agbv"></span>). You will additionally receive the GTC as PDF with the confirmation email — together with this offer summary.</div>
+
+    <form id="f" novalidate>
+      <div class="field">
+        <label for="name">First and last name <em>*</em></label>
+        <input type="text" id="name" name="name" required autocomplete="name">
+      </div>
+      <div class="field">
+        <label for="funktion">Role in the company (optional)</label>
+        <input type="text" id="funktion" name="funktion" placeholder="e.g. Managing Director">
+      </div>
+      <label class="check"><input type="checkbox" id="c-agb"> <span>I have read and accept the <a href="https://eflury.com/en/terms/" target="_blank" rel="noopener">GTC</a>. <em>*</em></span></label>
+      <label class="check"><input type="checkbox" id="c-vm"> <span>I am authorized to accept this offer bindingly for the named company. <em>*</em></span></label>
+      <input type="text" name="website" id="hp" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <p class="status" id="status"></p>
+      <button type="submit" class="go" id="go">Accept offer bindingly</button>
+    </form>
+  </div>
+
+  <div class="foot">eFlury Consulting · Keltenweg 4, 2540 Grenchen, Switzerland · <a href="https://eflury.com/en/imprint/">Imprint</a> · <a href="https://eflury.com/en/privacy/">Privacy</a></div>
+</div>
+
+<script>
+(function () {
+  var q = new URLSearchParams(location.search);
+  var state = document.getElementById('state');
+  var main = document.getElementById('main');
+  var MSG = {
+    invalid: 'This link is invalid or has been modified. Please contact us: me@eflury.com', expired: 'This link has expired. Please contact us for a new one: me@eflury.com',
+    alreadyH: 'Already accepted', alreadyP: 'This offer has already been accepted bindingly. The confirmation with all details was delivered by email.',
+    required: 'Please enter your name and tick both confirmations.', fail: 'Submission failed. Please try again or contact us: me@eflury.com',
+    sending: 'Submitting …', btn: 'Accept offer bindingly',
+    okH: 'Thank you — the offer is accepted!', okP: 'You will receive a confirmation email with all key details and the GTC as PDF within a few minutes. We will be in touch to start the project.'
+  };
+
+  function showPanel(h, p, ok) {
+    state.className = 'panel' + (ok ? ' ok' : '');
+    state.innerHTML = '<h2></h2><p></p>';
+    state.querySelector('h2').textContent = h;
+    state.querySelector('p').textContent = p;
+    state.style.display = 'block';
+    main.style.display = 'none';
+  }
+
+  fetch('/api/accept.php?action=view&' + q.toString())
+    .then(function (r) { return r.json().then(function (d) { return { s: r.status, d: d }; }); })
+    .then(function (res) {
+      if (!res.d.ok) {
+        showPanel('', res.s === 410 ? MSG.expired : MSG.invalid, false);
+        return;
+      }
+      var o = res.d.offer;
+      if (o.already_accepted) { showPanel(MSG.alreadyH, MSG.alreadyP, true); return; }
+      ['nr', 'titel', 'betrag', 'firma', 'email'].forEach(function (k) {
+        document.getElementById('o-' + k).textContent = o[k];
+      });
+      document.getElementById('agbv').textContent = o.agb_version;
+      state.style.display = 'none';
+      main.style.display = 'block';
+    })
+    .catch(function () { showPanel('', MSG.invalid, false); });
+
+  document.getElementById('f').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var name = document.getElementById('name').value.trim();
+    var status = document.getElementById('status');
+    if (!name || !document.getElementById('c-agb').checked || !document.getElementById('c-vm').checked) {
+      status.textContent = MSG.required;
+      return;
+    }
+    var go = document.getElementById('go');
+    go.disabled = true;
+    status.textContent = MSG.sending;
+    var fd = new URLSearchParams(q);
+    fd.set('action', 'accept');
+    fd.set('name', name);
+    fd.set('funktion', document.getElementById('funktion').value.trim());
+    fd.set('agb', '1');
+    fd.set('vollmacht', '1');
+    fd.set('website', document.getElementById('hp').value);
+    fetch('/api/accept.php', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: fd.toString()
+    })
+      .then(function (r) { return r.json(); })
+      .then(function (d) {
+        if (!d.ok) throw new Error(d.message || 'failed');
+        showPanel(MSG.okH, MSG.okP, true);
+      })
+      .catch(function () {
+        status.textContent = MSG.fail;
+        go.disabled = false;
+      });
+  });
+})();
+</script>
+</body>
+</html>
