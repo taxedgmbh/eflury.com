@@ -9,7 +9,7 @@ name: Server Config
 # accept.php must leave the 503 unconfigured state); on any failure the
 # backup is restored automatically.
 #
-# Secrets consumed (rev 2026-07-24c):
+# Secrets consumed (rev 2026-07-24d):
 #   HOSTINGER_HOST / HOSTINGER_USER / HOSTINGER_SSH_KEY / HOSTINGER_PATH
 #   DEEPSEEK_API_KEY            — Effi chatbot (required)
 #   ACCEPT_SECRET               — offer-link signing (required for accept.php)
