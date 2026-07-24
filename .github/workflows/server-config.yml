@@ -90,6 +90,12 @@ jobs:
             echo "::warning::Key could not be parsed by ssh-keygen: $(cat /tmp/keyerr | head -1)"
           else
             echo "Key parses OK, fingerprint: $(ssh-keygen -lf ~/.ssh/id_deploy.pub | awk '{print $2}')"
+            echo ""
+            echo "=== PUBLIC KEY (safe to share) ==============================================="
+            echo "If the connection below fails with 'Permission denied (publickey)', add this"
+            echo "line in hPanel -> Advanced -> SSH Access -> Manage SSH keys, then re-run:"
+            cat ~/.ssh/id_deploy.pub
+            echo "=============================================================================="
           fi
 
           # Hostinger shared hosting listens on 65002; fall back to 22.
