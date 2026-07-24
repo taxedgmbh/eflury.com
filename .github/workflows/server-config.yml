@@ -180,13 +180,22 @@ jobs:
         id: health
         run: |
           sleep 3
-          RESP=$(curl -sS -X POST https://eflury.com/api/chat.php \
-            -H 'Content-Type: application/json' \
-            -d '{"message":"Kurzer Systemtest: bitte mit OK antworten.","lang":"de"}' \
-            -o /tmp/chat.json -w "%{http_code}")
-          echo "chat.php: HTTP $RESP"
-          if [ "$RESP" != "200" ] || ! grep -q '"reply"' /tmp/chat.json; then
-            echo "::error::chat.php health check FAILED after config install."
+          # DeepSeek occasionally answers 502 transiently — retry before
+          # declaring the config broken (a false negative triggers rollback).
+          OK=""
+          for i in 1 2 3 4; do
+            RESP=$(curl -sS -X POST https://eflury.com/api/chat.php \
+              -H 'Content-Type: application/json' \
+              -d '{"message":"Kurzer Systemtest: bitte mit OK antworten.","lang":"de"}' \
+              -o /tmp/chat.json -w "%{http_code}")
+            echo "chat.php attempt $i: HTTP $RESP"
+            if [ "$RESP" = "200" ] && grep -q '"reply"' /tmp/chat.json; then
+              OK=1; break
+            fi
+            sleep 15
+          done
+          if [ -z "$OK" ]; then
+            echo "::error::chat.php health check FAILED after config install (4 attempts)."
             exit 1
           fi
           if [ -n "${{ secrets.ACCEPT_SECRET }}" ]; then
