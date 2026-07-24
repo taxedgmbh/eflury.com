@@ -42,7 +42,9 @@ if (file_exists($configFile)) {
 }
 $SECRET = $config['ACCEPT_SECRET'] ?? '';
 $ADMIN_KEY = $config['ACCEPT_ADMIN_KEY'] ?? '';
-$HS_TOKEN = $config['HUBSPOT_PRIVATE_APP_TOKEN'] ?? '';
+// HubSpot Service Key (current model) or legacy private-app token — same
+// Bearer usage on api.hubapi.com either way.
+$HS_TOKEN = $config['HUBSPOT_SERVICE_KEY'] ?? $config['HUBSPOT_PRIVATE_APP_TOKEN'] ?? '';
 
 if ($SECRET === '') {
     http_response_code(503);
