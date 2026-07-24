@@ -1,0 +1,175 @@
+name: Server Config
+
+# Renders api/config.php from GitHub Actions secrets and installs it on
+# Hostinger over SSH — GitHub is the single source of truth for machine
+# secrets; the server file is generated, never hand-edited.
+#
+# Safety: existing config is backed up before overwrite; after install the
+# live endpoints are health-checked (chat.php must keep answering,
+# accept.php must leave the 503 unconfigured state); on any failure the
+# backup is restored automatically.
+#
+# Secrets consumed:
+#   HOSTINGER_HOST / HOSTINGER_USER / HOSTINGER_SSH_KEY / HOSTINGER_PATH
+#   DEEPSEEK_API_KEY            — Effi chatbot (required)
+#   ACCEPT_SECRET               — offer-link signing (required for accept.php)
+#   ACCEPT_ADMIN_KEY            — offer-link admin page (required for accept.php)
+#   HUBSPOT_PRIVATE_APP_TOKEN   — CRM mirror (optional)
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/server-config.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: server-config
+  cancel-in-progress: false
+
+jobs:
+  render-and-install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check required secrets
+        env:
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          ACCEPT_SECRET: ${{ secrets.ACCEPT_SECRET }}
+          ACCEPT_ADMIN_KEY: ${{ secrets.ACCEPT_ADMIN_KEY }}
+          SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          SSH_HOST: ${{ secrets.HOSTINGER_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_USER }}
+        run: |
+          missing=""
+          [ -z "$SSH_KEY" ] && missing="$missing HOSTINGER_SSH_KEY"
+          [ -z "$SSH_HOST" ] && missing="$missing HOSTINGER_HOST"
+          [ -z "$SSH_USER" ] && missing="$missing HOSTINGER_USER"
+          [ -z "$DEEPSEEK_API_KEY" ] && missing="$missing DEEPSEEK_API_KEY"
+          if [ -n "$missing" ]; then
+            echo "::error::Missing secrets:$missing — aborting without touching the server."
+            exit 1
+          fi
+          if [ -z "$ACCEPT_SECRET" ] || [ -z "$ACCEPT_ADMIN_KEY" ]; then
+            echo "::notice::ACCEPT_SECRET / ACCEPT_ADMIN_KEY not set yet — config will be rendered without them (accept.php stays disabled with 503). Add both secrets and re-run to enable offer acceptance."
+          fi
+          # Values are rendered into single-quoted PHP strings — reject the
+          # two characters that would break out of them.
+          for v in "$DEEPSEEK_API_KEY" "$ACCEPT_SECRET" "$ACCEPT_ADMIN_KEY"; do
+            case "$v" in
+              *"'"* | *"\\"*) echo "::error::A secret contains a quote or backslash — please regenerate it without those characters."; exit 1 ;;
+            esac
+          done
+
+      - name: Set up SSH
+        env:
+          SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          SSH_HOST: ${{ secrets.HOSTINGER_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_USER }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          # Hostinger shared hosting listens on 65002; fall back to 22.
+          PORT=""
+          for p in 65002 22; do
+            if ssh -i ~/.ssh/id_deploy -p "$p" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -o BatchMode=yes "$SSH_USER@$SSH_HOST" 'echo ok' >/dev/null 2>&1; then
+              PORT="$p"; break
+            fi
+          done
+          if [ -z "$PORT" ]; then
+            echo "::error::Could not connect via SSH on port 65002 or 22. Check HOSTINGER_HOST/USER/SSH_KEY (and that SSH is enabled in hPanel)."
+            exit 1
+          fi
+          echo "SSH_PORT=$PORT" >> "$GITHUB_ENV"
+          echo "Connected on port $PORT"
+
+      - name: Locate the site directory on the server
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_USER }}
+          BASE_PATH: ${{ secrets.HOSTINGER_PATH }}
+        run: |
+          rsh() { ssh -i ~/.ssh/id_deploy -p "$SSH_PORT" -o StrictHostKeyChecking=accept-new -o BatchMode=yes "$SSH_USER@$SSH_HOST" "$@"; }
+          SITE=""
+          for cand in "$BASE_PATH" "$BASE_PATH/public_html" "domains/eflury.com/public_html" "public_html"; do
+            [ -z "$cand" ] && continue
+            if rsh "test -f '$cand/api/chat.php'"; then SITE="$cand"; break; fi
+          done
+          if [ -z "$SITE" ]; then
+            echo "::error::Could not find api/chat.php under HOSTINGER_PATH or the usual locations — refusing to write anywhere."
+            exit 1
+          fi
+          echo "SITE_PATH=$SITE" >> "$GITHUB_ENV"
+          echo "Site directory: $SITE"
+
+      - name: Back up current config.php
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_USER }}
+        run: |
+          rsh() { ssh -i ~/.ssh/id_deploy -p "$SSH_PORT" -o BatchMode=yes "$SSH_USER@$SSH_HOST" "$@"; }
+          rsh "cd '$SITE_PATH/api' && { [ -f config.php ] && cp config.php config.php.bak && echo 'backup written' || echo 'no existing config (first install)'; }"
+
+      - name: Render and install config.php
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_USER }}
+          DEEPSEEK_API_KEY: ${{ secrets.DEEPSEEK_API_KEY }}
+          ACCEPT_SECRET: ${{ secrets.ACCEPT_SECRET }}
+          ACCEPT_ADMIN_KEY: ${{ secrets.ACCEPT_ADMIN_KEY }}
+          HUBSPOT_PRIVATE_APP_TOKEN: ${{ secrets.HUBSPOT_PRIVATE_APP_TOKEN }}
+        run: |
+          {
+            echo "<?php"
+            echo "// Generated by .github/workflows/server-config.yml — do NOT edit by hand."
+            echo "// Source of truth: GitHub Actions secrets. Rendered: $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "return ["
+            echo "    'DEEPSEEK_API_KEY' => '$DEEPSEEK_API_KEY',"
+            [ -n "$ACCEPT_SECRET" ] && echo "    'ACCEPT_SECRET' => '$ACCEPT_SECRET',"
+            [ -n "$ACCEPT_ADMIN_KEY" ] && echo "    'ACCEPT_ADMIN_KEY' => '$ACCEPT_ADMIN_KEY',"
+            [ -n "$HUBSPOT_PRIVATE_APP_TOKEN" ] && echo "    'HUBSPOT_PRIVATE_APP_TOKEN' => '$HUBSPOT_PRIVATE_APP_TOKEN',"
+            echo "];"
+          } > config.php
+          php -l config.php >/dev/null 2>&1 || sudo apt-get -qq install -y php-cli >/dev/null 2>&1 || true
+          scp -i ~/.ssh/id_deploy -P "$SSH_PORT" -o BatchMode=yes config.php "$SSH_USER@$SSH_HOST:$SITE_PATH/api/config.php"
+          ssh -i ~/.ssh/id_deploy -p "$SSH_PORT" -o BatchMode=yes "$SSH_USER@$SSH_HOST" "chmod 600 '$SITE_PATH/api/config.php'"
+          rm -f config.php
+          echo "config.php installed"
+
+      - name: Health check — chatbot must keep working
+        id: health
+        run: |
+          sleep 3
+          RESP=$(curl -sS -X POST https://eflury.com/api/chat.php \
+            -H 'Content-Type: application/json' \
+            -d '{"message":"Kurzer Systemtest: bitte mit OK antworten.","lang":"de"}' \
+            -o /tmp/chat.json -w "%{http_code}")
+          echo "chat.php: HTTP $RESP"
+          if [ "$RESP" != "200" ] || ! grep -q '"reply"' /tmp/chat.json; then
+            echo "::error::chat.php health check FAILED after config install."
+            exit 1
+          fi
+          if [ -n "${{ secrets.ACCEPT_SECRET }}" ]; then
+            CODE=$(curl -sS -o /dev/null -w "%{http_code}" -X POST https://eflury.com/api/accept.php -d "action=link&admin_key=wrong")
+            echo "accept.php with wrong admin key: HTTP $CODE (expect 403)"
+            if [ "$CODE" = "503" ]; then
+              echo "::error::accept.php still reports unconfigured (503)."
+              exit 1
+            fi
+          fi
+          echo "Health checks passed."
+
+      - name: Rollback on failure
+        if: failure()
+        env:
+          SSH_HOST: ${{ secrets.HOSTINGER_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_USER }}
+        run: |
+          if [ -n "$SITE_PATH" ] && [ -n "$SSH_PORT" ]; then
+            ssh -i ~/.ssh/id_deploy -p "$SSH_PORT" -o BatchMode=yes "$SSH_USER@$SSH_HOST" \
+              "cd '$SITE_PATH/api' && { [ -f config.php.bak ] && cp config.php.bak config.php && echo 'ROLLED BACK to previous config' || echo 'no backup to restore'; }"
+            curl -sS -o /dev/null -w "chat.php after rollback: HTTP %{http_code}\n" -X POST https://eflury.com/api/chat.php -H 'Content-Type: application/json' -d '{"message":"ping","lang":"de"}'
+          fi
