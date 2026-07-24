@@ -1,0 +1,79 @@
+name: Import DeepSeek Key From Server
+
+# One-shot sync: the only working DEEPSEEK_API_KEY lives in the server's
+# config.php (the GitHub copy is stale — health check proved it). This
+# workflow reads the key over SSH, masks it, and writes it into the
+# GitHub secret via the API. The key is never printed; only a short
+# fingerprint is logged for identity confirmation.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/import-deepseek-key.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  import:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Read key from server and store as GitHub secret
+        env:
+          SSH_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+          SSH_HOST: ${{ secrets.HOSTINGER_HOST }}
+          SSH_USER: ${{ secrets.HOSTINGER_USER }}
+          BASE_PATH: ${{ secrets.HOSTINGER_PATH }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          mkdir -p ~/.ssh
+          printf '%s\n' "$SSH_KEY" > ~/.ssh/id_deploy
+          chmod 600 ~/.ssh/id_deploy
+          rsh() { ssh -i ~/.ssh/id_deploy -p 65002 -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -o BatchMode=yes "$SSH_USER@$SSH_HOST" "$@"; }
+
+          SITE=""
+          for cand in "$BASE_PATH" "$BASE_PATH/public_html" "domains/eflury.com/public_html" "public_html"; do
+            [ -z "$cand" ] && continue
+            if rsh "test -f '$cand/api/chat.php'"; then SITE="$cand"; break; fi
+          done
+          [ -n "$SITE" ] || { echo "::error::Site directory not found."; exit 1; }
+
+          # Prefer the live config (rollback restored the working one);
+          # fall back to the backup.
+          KEY=$(rsh "php -r \"foreach (['$SITE/api/config.php','$SITE/api/config.php.bak'] as \\\$f) { if (is_file(\\\$f)) { \\\$c = require \\\$f; if (!empty(\\\$c['DEEPSEEK_API_KEY'])) { echo \\\$c['DEEPSEEK_API_KEY']; exit; } } }\"")
+          if [ -z "$KEY" ]; then
+            echo "::error::No DEEPSEEK_API_KEY found in server config or backup."
+            exit 1
+          fi
+          echo "::add-mask::$KEY"
+          case "$KEY" in
+            *"'"* | *"\\"*) echo "::error::Server key contains quote/backslash — manual handling needed."; exit 1 ;;
+          esac
+          export IMPORT_KEY="$KEY"
+
+          pip -q install pynacl requests >/dev/null
+          python3 - <<'EOF'
+          import os, base64, hashlib, requests
+          from nacl import encoding, public
+          key_val = os.environ['IMPORT_KEY']
+          pat = os.environ['GH_PAT']
+          repo = 'taxedgmbh/eflury.com'
+          h = {'Authorization': f'Bearer {pat}', 'Accept': 'application/vnd.github+json'}
+          pk = requests.get(f'https://api.github.com/repos/{repo}/actions/secrets/public-key', headers=h, timeout=30)
+          pk.raise_for_status()
+          pk = pk.json()
+          box = public.SealedBox(public.PublicKey(pk['key'].encode(), encoding.Base64Encoder()))
+          sealed = box.encrypt(key_val.encode())
+          r = requests.put(
+              f'https://api.github.com/repos/{repo}/actions/secrets/DEEPSEEK_API_KEY',
+              headers=h,
+              json={'encrypted_value': base64.b64encode(sealed).decode(), 'key_id': pk['key_id']},
+              timeout=30,
+          )
+          print('secret update HTTP', r.status_code)
+          assert r.status_code in (201, 204), r.text[:300]
+          print('imported key fingerprint (sha256, first 8):', hashlib.sha256(key_val.encode()).hexdigest()[:8])
+          EOF
+          echo "DEEPSEEK_API_KEY secret now matches the server's working key."
