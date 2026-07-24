@@ -100,7 +100,7 @@ for (const page of pages) {
   // 404 is an error page; root index.html is the noindex language-redirect
   // stub — neither carries the full social/hreflang head. demo/ files are
   // noindex iframe embeds, not pages.
-  if (is404 || rel === 'index.html' || rel.startsWith('demo/')) continue;
+  if (is404 || rel === 'index.html' || rel.startsWith('demo/') || rel.startsWith('offerte/') || rel.startsWith('offer/')) continue;
 
   // ---- head checks
   const head = html.slice(0, html.indexOf('</head>') + 7);
@@ -124,7 +124,7 @@ for (const page of pages) {
 for (const p of pages) {
   const rel = relative(ROOT, p);
   if (['index.html', '404.html'].includes(rel)) continue;
-  if (rel.startsWith('demo/')) continue; // embedded via iframe, not linked
+  if (rel.startsWith('demo/') || rel.startsWith('offerte/') || rel.startsWith('offer/')) continue; // iframes / transactional pages, not linked
   if ((inbound.get(p) || 0) === 0) errors.push(`orphan (no inbound links): ${rel}`);
 }
 
@@ -179,7 +179,7 @@ if (!existsSync(sitemapPath)) {
   for (const p of pages) {
     const rel = relative(ROOT, p);
     if (['index.html', '404.html'].includes(rel)) continue;
-    if (rel.startsWith('demo/')) continue; // iframe embeds, noindex — not site pages
+    if (rel.startsWith('demo/') || rel.startsWith('offerte/') || rel.startsWith('offer/')) continue; // iframe embeds / transactional, noindex — not site pages
     const urlPath = '/' + rel.replace(/index\.html$/, '').replace(/\.html$/, '/');
     if (!locPaths.has(urlPath)) errors.push(`page not in sitemap: ${rel}`);
   }
