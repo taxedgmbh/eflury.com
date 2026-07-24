@@ -100,21 +100,26 @@ jobs:
             echo "=============================================================================="
           fi
 
-          # Hostinger shared hosting listens on 65002; fall back to 22.
+          # Hostinger shared hosting listens on 65002 (fallback 22). The
+          # connection flaps per runner IP, so retry patiently.
           PORT=""
-          for p in 65002 22; do
-            echo "--- trying port $p ---"
-            if ssh -i ~/.ssh/id_deploy -p "$p" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -o BatchMode=yes "$SSH_USER@$SSH_HOST" 'echo ok' 2>/tmp/ssherr; then
-              PORT="$p"; break
-            fi
-            sed 's/^/  ssh: /' /tmp/ssherr | tail -3
+          for attempt in 1 2 3 4 5 6; do
+            for p in 65002 22; do
+              echo "--- attempt $attempt, port $p ---"
+              if ssh -i ~/.ssh/id_deploy -p "$p" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=12 -o BatchMode=yes "$SSH_USER@$SSH_HOST" 'echo ok' 2>/tmp/ssherr; then
+                PORT="$p"; break 2
+              fi
+              sed 's/^/  ssh: /' /tmp/ssherr | tail -2
+            done
+            echo "both ports failed — waiting 20s before retry"
+            sleep 20
           done
           if [ -z "$PORT" ]; then
-            echo "::error::Could not connect via SSH on port 65002 or 22 (see ssh messages above: 'Connection refused/timed out' = SSH not enabled or wrong host; 'Permission denied (publickey)' = key not registered in hPanel for this user)."
+            echo "::error::Could not connect via SSH after 6 attempts on ports 65002/22 (see ssh messages above: 'Connection refused/timed out' = SSH not enabled, wrong host, or runner IP blocked; 'Permission denied (publickey)' = key not registered in hPanel for this user)."
             exit 1
           fi
           echo "SSH_PORT=$PORT" >> "$GITHUB_ENV"
-          echo "Connected on port $PORT"
+          echo "Connected on port $PORT (attempt $attempt)"
 
       - name: Locate the site directory on the server
         env:
