@@ -72,15 +72,37 @@ jobs:
           mkdir -p ~/.ssh
           printf '%s\n' "$SSH_KEY" > ~/.ssh/id_deploy
           chmod 600 ~/.ssh/id_deploy
+
+          # Diagnose the key material without leaking it.
+          first=$(head -1 ~/.ssh/id_deploy)
+          case "$first" in
+            *"BEGIN OPENSSH PRIVATE KEY"*|*"BEGIN RSA PRIVATE KEY"*|*"BEGIN EC PRIVATE KEY"*|*"BEGIN PRIVATE KEY"*)
+              echo "Key material: private key header found." ;;
+            "ssh-rsa"*|"ssh-ed25519"*|"ecdsa-"*)
+              echo "::error::HOSTINGER_SSH_KEY contains a PUBLIC key (starts with ssh-…). The secret must hold the PRIVATE key (-----BEGIN … PRIVATE KEY-----)."; exit 1 ;;
+            *)
+              echo "::warning::HOSTINGER_SSH_KEY does not start with a recognizable key header — possibly mangled line breaks. Paste the private key file content unchanged." ;;
+          esac
+          if ! ssh-keygen -y -P '' -f ~/.ssh/id_deploy > ~/.ssh/id_deploy.pub 2>/tmp/keyerr; then
+            if grep -qi "incorrect passphrase\|passphrase" /tmp/keyerr; then
+              echo "::error::The private key is passphrase-protected — workflows cannot type a passphrase. Store a key WITHOUT passphrase."; exit 1
+            fi
+            echo "::warning::Key could not be parsed by ssh-keygen: $(cat /tmp/keyerr | head -1)"
+          else
+            echo "Key parses OK, fingerprint: $(ssh-keygen -lf ~/.ssh/id_deploy.pub | awk '{print $2}')"
+          fi
+
           # Hostinger shared hosting listens on 65002; fall back to 22.
           PORT=""
           for p in 65002 22; do
-            if ssh -i ~/.ssh/id_deploy -p "$p" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -o BatchMode=yes "$SSH_USER@$SSH_HOST" 'echo ok' >/dev/null 2>&1; then
+            echo "--- trying port $p ---"
+            if ssh -i ~/.ssh/id_deploy -p "$p" -o StrictHostKeyChecking=accept-new -o ConnectTimeout=10 -o BatchMode=yes "$SSH_USER@$SSH_HOST" 'echo ok' 2>/tmp/ssherr; then
               PORT="$p"; break
             fi
+            sed 's/^/  ssh: /' /tmp/ssherr | tail -3
           done
           if [ -z "$PORT" ]; then
-            echo "::error::Could not connect via SSH on port 65002 or 22. Check HOSTINGER_HOST/USER/SSH_KEY (and that SSH is enabled in hPanel)."
+            echo "::error::Could not connect via SSH on port 65002 or 22 (see ssh messages above: 'Connection refused/timed out' = SSH not enabled or wrong host; 'Permission denied (publickey)' = key not registered in hPanel for this user)."
             exit 1
           fi
           echo "SSH_PORT=$PORT" >> "$GITHUB_ENV"
