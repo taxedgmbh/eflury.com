@@ -1,0 +1,72 @@
+name: Rotate SSH Deploy Key
+
+# One-shot recovery/rotation: generates a fresh ed25519 keypair inside the
+# runner, writes the PRIVATE key straight into the HOSTINGER_SSH_KEY secret
+# via the GitHub API (encrypted with the repo public key, using GH_PAT),
+# and prints ONLY the public key for registration in hPanel.
+#
+# Guarded: does nothing if the stored secret already holds a valid private
+# key — so it cannot accidentally rotate a working setup.
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/rotate-ssh-key.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  rotate:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Guard — only rotate when the stored key is unusable
+        env:
+          CURRENT_KEY: ${{ secrets.HOSTINGER_SSH_KEY }}
+        run: |
+          printf '%s\n' "$CURRENT_KEY" > /tmp/cur
+          chmod 600 /tmp/cur
+          if ssh-keygen -y -P '' -f /tmp/cur >/dev/null 2>&1; then
+            echo "SKIP=1" >> "$GITHUB_ENV"
+            echo "::notice::HOSTINGER_SSH_KEY already holds a valid private key — nothing to rotate."
+          else
+            echo "Stored key is not a usable private key — rotating."
+          fi
+          rm -f /tmp/cur
+
+      - name: Generate keypair and store the private key as the secret
+        if: env.SKIP != '1'
+        env:
+          GH_PAT: ${{ secrets.GH_PAT }}
+        run: |
+          ssh-keygen -t ed25519 -N '' -C 'github-deploy@eflury.com' -f /tmp/newkey >/dev/null
+          pip -q install pynacl requests >/dev/null
+          python3 - <<'EOF'
+          import os, base64, requests
+          from nacl import encoding, public
+          pat = os.environ['GH_PAT']
+          repo = 'taxedgmbh/eflury.com'
+          h = {'Authorization': f'Bearer {pat}', 'Accept': 'application/vnd.github+json'}
+          pk = requests.get(f'https://api.github.com/repos/{repo}/actions/secrets/public-key', headers=h, timeout=30)
+          pk.raise_for_status()
+          pk = pk.json()
+          key = public.PublicKey(pk['key'].encode(), encoding.Base64Encoder())
+          sealed = public.SealedBox(key).encrypt(open('/tmp/newkey', 'rb').read())
+          r = requests.put(
+              f'https://api.github.com/repos/{repo}/actions/secrets/HOSTINGER_SSH_KEY',
+              headers=h,
+              json={'encrypted_value': base64.b64encode(sealed).decode(), 'key_id': pk['key_id']},
+              timeout=30,
+          )
+          print('secret update HTTP', r.status_code)
+          assert r.status_code in (201, 204), r.text[:300]
+          EOF
+          shred -u /tmp/newkey
+          echo ""
+          echo "=== NEW PUBLIC KEY ==========================================================="
+          echo "In hPanel -> Advanced -> SSH Access -> Manage SSH keys: DELETE the old key"
+          echo "and add this line instead, then run the 'Server Config' workflow:"
+          cat /tmp/newkey.pub
+          echo "=============================================================================="
