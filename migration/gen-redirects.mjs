@@ -45,6 +45,14 @@ const SLUG_OVERRIDES = {
   '/en/services/managed-ai-operations/': '/de/services/ki-betrieb/',
 };
 
+// --- source 4: pages already retired at the web-server layer (public/.htaccess) ---
+// These still exist as built HTML but Apache 301s them away, so pointing at them
+// would produce a two-hop chain. Collapse to the final destination instead.
+const RETIRED = {
+  '/en/industries/treuhand-accounting/': '/de/case-studies/taxed-gmbh/',
+  '/de/branchen/treuhand/': '/de/case-studies/taxed-gmbh/',
+};
+
 // --- source 1: the live route list, from the committed build output ---
 function walkRoutes(base, prefix) {
   const out = [];
@@ -89,10 +97,19 @@ for (const [key, g] of byKey) {
 const rows = [];
 const unresolved = [];
 for (const en of enRoutes) {
-  let de = SLUG_OVERRIDES[en] ?? blogPairs.get(en) ?? en.replace(/^\/en\//, '/de/');
+  let de = RETIRED[en] ?? SLUG_OVERRIDES[en] ?? blogPairs.get(en) ?? en.replace(/^\/en\//, '/de/');
+  // Never point at a URL that is itself retired — that would be a two-hop chain.
+  if (RETIRED[de]) de = RETIRED[de];
   if (!deRoutes.has(de)) unresolved.push([en, de]);
   rows.push([en, de]);
 }
+
+// German URLs retired at the server layer need their own rule in Next, since
+// .htaccess does not come with us.
+for (const [from, to] of Object.entries(RETIRED)) {
+  if (from.startsWith('/de/')) rows.push([from, to]);
+}
+rows.sort((a, b) => a[0].localeCompare(b[0]));
 
 if (unresolved.length) {
   console.error('FATAL: these /en/ routes resolve to a non-existent German URL:');
@@ -105,7 +122,10 @@ const covered = new Set(rows.map(([, de]) => de));
 const orphanDe = [...deRoutes].filter((d) => !covered.has(d)).sort();
 
 const body = rows
-  .map(([en, de]) => `  ['${en.replace(/\/$/, '')}', '${de.replace(/\/$/, '')}'],`)
+  // Source loses its trailing slash (Next normalises before matching), but the
+  // DESTINATION keeps one: emitting a slashless target makes trailingSlash:true
+  // append it with a second redirect, turning every rule into a two-hop chain.
+  .map(([en, de]) => `  ['${en.replace(/\/$/, '')}', '${de}'],`)
   .join('\n');
 
 mkdirSync(dirname(OUT), { recursive: true });
@@ -116,8 +136,8 @@ writeFileSync(OUT, `/**
  * Regenerating after the English content is deleted is impossible, which is
  * why this is checked in rather than derived at build time.
  *
- * ${rows.length} routes. Paths are written WITHOUT a trailing slash: Next
- * normalises before matching when \`trailingSlash: true\` is set.
+ * ${rows.length} routes. Sources omit the trailing slash (Next normalises before
+ * matching); destinations keep it, so each rule resolves in a single hop.
  */
 export const LEGACY_EN_TO_DE: ReadonlyArray<readonly [string, string]> = [
 ${body}

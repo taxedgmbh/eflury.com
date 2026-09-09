@@ -1,0 +1,30 @@
+import type { MetadataRoute } from 'next';
+import { SITE_URL } from '@/lib/site';
+import { STATIC_ROUTES, SITEMAP_EXCLUDE } from '@/lib/routes';
+import { getAllPosts } from '@/lib/content';
+
+/*
+ * Generated, not hand-written. The Astro sitemap was a literal array that rotted
+ * to 18 of 72 live URLs before anyone noticed; scripts/check-redirects.mjs now
+ * fails the build if a page on disk is missing from STATIC_ROUTES.
+ *
+ * No hreflang alternates: the site is German-only.
+ */
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+  const posts = await getAllPosts();
+
+  const staticEntries = STATIC_ROUTES.filter((r) => !SITEMAP_EXCLUDE.has(r.path)).map((r) => ({
+    url: `${SITE_URL}${r.path}`,
+    changeFrequency: r.changeFrequency,
+    priority: r.priority,
+  }));
+
+  const postEntries = posts.map((p) => ({
+    url: `${SITE_URL}/de/blog/${p.slug}/`,
+    lastModified: p.updatedDate ?? p.pubDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }));
+
+  return [...staticEntries, ...postEntries];
+}

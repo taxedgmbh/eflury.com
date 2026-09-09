@@ -1,0 +1,185 @@
+@import 'tailwindcss';
+
+/*
+ * Dark mode keeps the Astro site's contract: a `data-theme` attribute on <html>,
+ * set before paint by an inline script. Porting that contract unchanged means the
+ * anti-FOUC logic and any stored preference carry over.
+ */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/*
+ * Only the brand palette comes across from the Astro site's global.css. The
+ * ~139 other custom properties there — an Apple grey scale, semantic aliases,
+ * gradients, shadows, and a documented "legacy aliases for backward
+ * compatibility" block — are Tailwind's job now.
+ */
+@theme {
+  --color-navy: #022554;
+  --color-navy-dark: #0f2744;
+  --color-blue: #1490d0;
+  --color-blue-mid: #276297;
+  --color-teal: #0d9488;
+  --color-grey: #4d596d;
+  --color-grey-light: #9cadbe;
+
+  --font-sans:
+    ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial,
+    sans-serif;
+
+  --text-balance: balance;
+}
+
+/*
+ * Semantic surface tokens. Defined for light on :root, overridden for dark, so
+ * every component references a role rather than a colour.
+ */
+:root {
+  color-scheme: light;
+  --surface: #ffffff;
+  --surface-muted: #f7f8fa;
+  --surface-raised: #ffffff;
+  --border: #e3e7ed;
+  --text: #10203a;
+  --text-muted: #4d596d;
+  --accent: var(--color-blue);
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --surface: #0b1524;
+  --surface-muted: #101d30;
+  --surface-raised: #14243c;
+  --border: #24354f;
+  --text: #eef3f9;
+  --text-muted: #9cadbe;
+  --accent: #4fb3e8;
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* Visible keyboard focus. The Astro site suppressed zoom with
+     `maximum-scale=1, user-scalable=no`; that meta is deliberately not ported. */
+  :focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+}
+
+/* Long-form article typography, used by blog posts. */
+@layer components {
+  .prose-de {
+    --measure: 68ch;
+    max-width: var(--measure);
+    line-height: 1.7;
+  }
+  .prose-de > * + * {
+    margin-block-start: 1.15em;
+  }
+  .prose-de h2 {
+    margin-block-start: 2.2em;
+    font-size: 1.5rem;
+    font-weight: 650;
+    letter-spacing: -0.01em;
+  }
+  .prose-de h3 {
+    margin-block-start: 1.8em;
+    font-size: 1.2rem;
+    font-weight: 620;
+  }
+  .prose-de ul,
+  .prose-de ol {
+    padding-inline-start: 1.4em;
+  }
+  .prose-de ul {
+    list-style: disc;
+  }
+  .prose-de ol {
+    list-style: decimal;
+  }
+  .prose-de li + li {
+    margin-block-start: 0.4em;
+  }
+  .prose-de a {
+    color: var(--accent);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+  }
+  .prose-de blockquote {
+    border-inline-start: 3px solid var(--color-teal);
+    padding-inline-start: 1em;
+    color: var(--text-muted);
+    font-style: italic;
+  }
+  .prose-de code {
+    background: var(--surface-muted);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 0.1em 0.35em;
+    font-size: 0.9em;
+  }
+  .prose-de pre {
+    background: var(--color-navy-dark);
+    color: #e8eefb;
+    padding: 1rem 1.15rem;
+    border-radius: 10px;
+    overflow-x: auto;
+  }
+  .prose-de pre code {
+    background: none;
+    border: 0;
+    padding: 0;
+    font-size: 0.875rem;
+  }
+  .prose-de table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.925rem;
+    display: block;
+    overflow-x: auto;
+  }
+  .prose-de th,
+  .prose-de td {
+    border: 1px solid var(--border);
+    padding: 0.5rem 0.7rem;
+    text-align: start;
+  }
+  .prose-de th {
+    background: var(--surface-muted);
+    font-weight: 620;
+  }
+}

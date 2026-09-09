@@ -1,0 +1,55 @@
+# Firebase App Hosting — production backend (branch: main)
+# The staging backend overrides NEXT_PUBLIC_ENV=staging so app/robots.ts emits
+# Disallow: / and the *.hosted.app preview never gets indexed.
+
+runConfig:
+  # Every page is prerendered, so the CDN serves all HTML and Cloud Run only
+  # wakes for /api/*. That makes a cold start cost ~1s on the first chatbot
+  # message and nothing else.
+  minInstances: 0
+  # Hard cost ceiling, not a performance knob. Combined with the rate limits in
+  # Phase 3 this is what bounds the LLM spend.
+  maxInstances: 3
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
+  timeoutSeconds: 60
+
+env:
+  - variable: NEXT_PUBLIC_SITE_URL
+    value: https://eflury.com
+    availability: [BUILD, RUNTIME]
+
+  - variable: NEXT_PUBLIC_ENV
+    value: production
+    availability: [BUILD, RUNTIME]
+
+  # Same property as the Astro site so the GA4 history is continuous.
+  # NOTE: verify this is actually collecting — the shape is unusual for GA4
+  # (10 digits rather than 10 alphanumerics).
+  - variable: NEXT_PUBLIC_GA_ID
+    value: G-6320666588
+    availability: [BUILD, RUNTIME]
+
+  # --- Phase 3 (server routes). Uncommented when those land. ---
+  #
+  # Vertex AI needs no API key: the App Hosting service account authenticates
+  # via ADC. Grant it roles/aiplatform.user. europe-west6 is Zurich.
+  # - variable: VERTEX_LOCATION
+  #   value: europe-west6
+  #   availability: [RUNTIME]
+  #
+  # Turnstile's secret has never existed — the widget is currently client-side
+  # only, so it verifies nothing. Create it before wiring /api/contact.
+  # - variable: TURNSTILE_SECRET_KEY
+  #   secret: turnstileSecret
+  #   availability: [RUNTIME]
+  #
+  # - variable: RESEND_API_KEY
+  #   secret: resendApiKey
+  #   availability: [RUNTIME]
+  #
+  # Two of the three PHP endpoints already write to HubSpot.
+  # - variable: HUBSPOT_TOKEN
+  #   secret: hubspotToken
+  #   availability: [RUNTIME]

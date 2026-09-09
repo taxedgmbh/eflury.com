@@ -1,39 +1,38 @@
 # Dependencies
 node_modules/
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
+.pnp
+.pnp.js
 
-# Astro build output (in astro-src/)
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Astro (legacy, kept as migration reference until Phase 6)
+astro-src/node_modules/
 astro-src/dist/
-
-# Environment variables
-.env
-.env.local
-.env.*
-
-# API configuration (contains secrets)
-**/api/config.php
-
-# IDE files
-.vscode/
-.idea/
-*.swp
-*.swo
-*~
-
-# OS generated files
-.DS_Store
-._*
-Thumbs.db
-
-# Logs
-*.log
-
-# Test reports
 astro-src/playwright-report/
 astro-src/test-results/
 
-# Temporary folders
-tmp/
-temp/
+# Environment / secrets
+.env
+.env.local
+.env.*
+**/api/config.php
+
+# Firebase
+.firebase/
+firebase-debug.log
+firestore-debug.log
+
+# Editor / OS
+.vscode/
+.idea/
+.DS_Store
+._*
+Thumbs.db
+*.swp
+
+# Logs
+*.log
