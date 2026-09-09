@@ -222,6 +222,23 @@ export function legalGraph(slug: string, title: string) {
   );
 }
 
+export function contentPageGraph(route: string, title: string) {
+  return graph(
+    {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}${route}#page`,
+      url: `${SITE_URL}${route}`,
+      name: title,
+      isPartOf: { '@id': ID.website },
+      inLanguage: DEFAULT_LOCALE,
+    },
+    breadcrumbs([
+      { name: 'Start', path: '/de/' },
+      { name: title, path: route },
+    ])
+  );
+}
+
 /** Renders a graph as a JSON-LD script tag payload. */
 export function jsonLd(data: unknown): string {
   return JSON.stringify(data).replace(/</g, '\\u003c');

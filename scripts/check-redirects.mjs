@@ -49,6 +49,14 @@ for (const [from, to] of pairs) {
 const routesSrc = readFileSync(join(ROOT, 'src/lib/routes.ts'), 'utf8');
 const declared = new Set([...routesSrc.matchAll(/path:\s*'([^']+)'/g)].map((m) => m[1]));
 
+// STATIC_ROUTES spreads the long-form content pages in from pages.ts. This
+// parser is textual — App Hosting builds on Node 20, which cannot strip types —
+// so it has to follow that derivation explicitly rather than evaluate it.
+if (/\.\.\.Object\.values\(CONTENT_PAGES\)/.test(routesSrc)) {
+  const pagesSrc = readFileSync(join(ROOT, 'src/lib/pages.ts'), 'utf8');
+  for (const m of pagesSrc.matchAll(/route:\s*'([^']+)'/g)) declared.add(m[1]);
+}
+
 /** Every non-dynamic page.tsx under src/app/de must be registered in STATIC_ROUTES. */
 function walkPages(dir, urlPath, out) {
   for (const entry of readdirSync(dir)) {

@@ -12,10 +12,21 @@ export interface StaticRoute {
   changeFrequency: 'always' | 'hourly' | 'daily' | 'weekly' | 'monthly' | 'yearly' | 'never';
 }
 
+import { CONTENT_PAGES } from './pages';
+
 export const STATIC_ROUTES: StaticRoute[] = [
   { path: '/de/', priority: 1.0, changeFrequency: 'weekly' },
   { path: '/de/blog/', priority: 0.7, changeFrequency: 'weekly' },
   { path: '/de/services/', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/de/branchen/', priority: 0.8, changeFrequency: 'monthly' },
+  { path: '/de/case-studies/', priority: 0.8, changeFrequency: 'monthly' },
+
+  // Long-form content pages, derived so a new page cannot be missing from here.
+  ...Object.values(CONTENT_PAGES).map((p) => ({
+    path: p.route,
+    priority: p.priority,
+    changeFrequency: 'monthly' as const,
+  })),
 
   { path: '/de/impressum/', priority: 0.3, changeFrequency: 'yearly' },
   { path: '/de/datenschutz/', priority: 0.3, changeFrequency: 'yearly' },

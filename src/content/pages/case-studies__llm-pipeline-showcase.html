@@ -1,0 +1,115 @@
+<p>Tech-Showcase Code öffentlich</p>
+<p>Ein Python-Skript liest 40 offene Posten, beurteilt jeden Fall, erzwingt sauberes JSON und entwirft die Mahn-E-Mail — mit dem jeweils passenden Modell pro Schritt.</p> <ul> <li>40 Posten verarbeitet</li> <li>0 ungültige Antworten</li> <li>2 Sprachen erkannt</li> </ul>
+<em>mahnlauf.py — Testlauf</em>
+<p>$ python mahnlauf.py
+2026-1002 zurueckstellen Risiko mittel
+2026-1004 manuelle_pruefung Risiko hoch
+2026-1007 erinnerung Risiko mittel
+2026-1013 manuelle_pruefung Risiko mittel
+2026-1017 manuelle_pruefung Risiko hoch
+40/40 Posten verarbeitet · 21 Entwürfe · 0 versendet
+▌</p>
+<p>Kein Kundenprojekt: ein lauffähiges Lehrstück mit synthetischen Daten, echtem Code und echten Modell-Ausgaben. Skript und Datensatz stehen unten zum Download.</p>
+<p>Ausgangslage <h2>Die Frage, die fast jeder stellt</h2> <blockquote>«Chatten können wir jetzt. Aber wie nutzen wir LLMs im Tagesgeschäft — ohne dass jemand den ganzen Tag Prompts tippt?»</blockquote> <p>Die Antwort ist unspektakulär: Man nimmt das Chat-Fenster weg. Ein LLM wird zum Arbeitswerkzeug, wenn es in einer Schleife steckt — ein Skript füttert ihm eine Datenzeile nach der anderen, prüft jede Antwort maschinell und schreibt das Ergebnis dorthin, wo die Arbeit weitergeht.</p> <p>Genau das zeigt dieses Showcase an einem Prozess, den jedes KMU kennt: dem Mahnlauf.</p></p>
+<p>Szenario <h2>Das Szenario</h2> <p>Die fiktive Muster Handwerk AG hat 40 offene Posten. Die Debitorenliste sieht aus, wie solche Listen wirklich aussehen: Notizen der Buchhaltung in Deutsch, Französisch und Englisch, Halbsätze, Grossbuchstaben, Widersprüche. Vier Beispiele:</p> <table> <thead> <tr><th>Rechnung</th><th>Kunde</th><th>Betrag</th><th>Tage überfällig</th><th>Notiz der Buchhaltung</th></tr> </thead> <tbody> <tr> <td>2026-1002</td> <td>Café Bellevue GmbH</td> <td>CHF 1'350.00</td> <td>34</td> <td>hat angerufen, zahlt Ende Monat. tel. bestätigt 08.07.</td> </tr> <tr> <td>2026-1003</td> <td>Menuiserie Perrin Sàrl</td> <td>CHF 8'920.00</td> <td>41</td> <td>attend le décompte final avant de payer – à clarifier avec chef de projet</td> </tr> <tr> <td>2026-1009</td> <td>Elektro Wyss AG</td> <td>CHF 6'540.00</td> <td>88</td> <td>Gerücht vom Lieferanten: Zahlungsschwierigkeiten?? nichts konkretes. VORSICHT mit Ton</td> </tr> <tr> <td>2026-1031</td> <td>Tech Solutions Ltd</td> <td>CHF 21'430.00</td> <td>42</td> <td>invoice stuck in their approval workflow, says &#x27;processed next run&#x27; – 2nd time they say this</td> </tr> </tbody> </table></p>
+<p>Alle 40 Zeilen sind synthetisch — Firmen, Beträge und Notizen sind erfunden. Der komplette Datensatz liegt im Download.</p>
+<p>Architektur <h2>Die Pipeline: drei Schritte, drei Modelle</h2> <p>Jede Zeile durchläuft drei Schritte. Für jeden Schritt ist ein anderes Modell zuständig — jeweils das, das für die Aufgabe reicht:</p></p>
+<p>→ Diagramm ist seitlich wischbar</p> <p>Notation: Flussdiagramm nach ISO 5807 — Parallelogramm = Daten, Rechteck = Prozess, Doppelbalken = vordefinierter Prozess (API-Aufruf), Raute = Entscheidung, Trapez = manuelle Tätigkeit, Wellenform = Dokument.</p> 1 · Beurteilen <h3>Claude Opus 4.8</h3> Anthropic · CHF 4.05 / 20.25 pro 1M Tokens <p>Liest die chaotische Notiz und wägt ab: Zahlungszusage? Streitfall? Teilzahlung? Das stärkste Modell sitzt dort, wo Urteilsvermögen gefragt ist.</p>
+<p>2 · Strukturieren <h3>GPT-5 mini</h3> OpenAI · CHF 0.20 / 1.62 pro 1M Tokens <p>Presst die Beurteilung in ein striktes JSON, das Software weiterverarbeiten kann. Formatarbeit — dafür reicht ein kleines, günstiges Modell.</p></p>
+<p>3 · Schreiben <h3>Gemini 2.5 Flash</h3> Google · CHF 0.24 / 2.03 pro 1M Tokens <p>Formuliert den E-Mail-Entwurf in der Sprache des Kunden — Deutsch, Französisch oder Englisch, im Ton, den Schritt 1 vorgegeben hat.</p></p>
+<h3>Warum nicht einfach ein Modell für alles?</h3> <p>Ginge auch — die Aufteilung ist bewusst didaktisch. Sie zeigt zwei Dinge: Anbieter lassen sich pro Schritt austauschen (kein Lock-in), und das teure Modell arbeitet nur dort, wo es gebraucht wird. Bei 40 Posten ist das egal, bei 40'000 nicht mehr.</p>
+<p>Code <h2>Der Code</h2> <p>Das komplette Skript hat gut 200 Zeilen, läuft mit drei API-Schlüsseln als Umgebungsvariablen und versendet nichts — E-Mails landen als Entwürfe auf der Festplatte. Die drei entscheidenden Stellen:</p> <h3>Der Prompt für Schritt 1 — Geschäftsregeln in Klartext</h3> <p>Die «Regeln des Betriebs» stehen direkt im Prompt. Das ist der Teil, den Sie ohne Programmierkenntnisse selbst anpassen können:</p> <code>PROMPT_BEURTEILEN = """Du bist erfahrene:r Debitoren-Sachbearbeiter:in der Muster Handwerk AG,
+einem Schweizer KMU. Beurteile diesen offenen Posten (Stichtag {stichtag}):</p>
+<p>Rechnung {rechnung_nr} an {kunde_pseudo} über CHF {betrag_chf},
+fällig seit {tage_ueberfaellig} Tagen, bisherige Mahnungen: {mahnstufe}.
+Notiz aus der Buchhaltung (Originalton, evtl. DE/FR/EN): «{notizen}»</p>
+<p>Empfiehl in 3–5 Sätzen das weitere Vorgehen. Regeln des Betriebs:
+- Zahlungszusagen, Ratenvereinbarungen, Streitfälle und Teilzahlungen NICHT stur weitermahnen.
+- Unklare Fälle (Insolvenzgerüchte, unzustellbare Post, Rechts-/Verrechnungsfragen)
+ erfordern eine manuelle Prüfung durch die Geschäftsleitung — nicht mahnen.
+- Bei wichtigen Kunden bestimmt, aber beziehungsschonend formulieren.
+- Erkenne die Sprache des Kunden (de/fr/en) aus Notiz und Firmenname."""</code></p>
+<h3>Drei Anbieter, drei offizielle SDKs</h3> <p>Jeder Schritt ist ein kurzer Funktionsaufruf nach der offiziellen SDK-Dokumentation des jeweiligen Anbieters — inklusive Token-Zählung für den Kostenzähler:</p> <code>def beurteilen(client, prompt: str):
+ """Schritt 1 — Claude: liest den Fall und empfiehlt das Vorgehen."""
+ msg = client.messages.create(
+ model=MODELL_BEURTEILEN,
+ max_tokens=600,
+ thinking={"type": "adaptive"},
+ messages=[{"role": "user", "content": prompt}],
+ )
+ text = "".join(b.text for b in msg.content if b.type == "text")
+ return text, msg.usage.input_tokens, msg.usage.output_tokens
+<p>def strukturieren(client, prompt: str):
+ """Schritt 2 — GPT-5 mini: erzwingt sauberes JSON."""
+ r = client.chat.completions.create(
+ model=MODELL_STRUKTUR,
+ response_format={"type": "json_object"},
+ messages=[{"role": "user", "content": prompt}],
+ )
+ return r.choices[0].message.content, r.usage.prompt_tokens, r.usage.completion_tokens</p>
+<p>def schreiben(client, prompt: str):
+ """Schritt 3 — Gemini: formuliert den E-Mail-Entwurf."""
+ r = client.models.generate_content(model=MODELL_TEXT, contents=prompt)
+ u = r.usage_metadata
+ return r.text, u.prompt_token_count, u.candidates_token_count</code></p>
+<h3>Die Schleife — prüfen, wiederholen, protokollieren</h3> <p>Das JSON aus Schritt 2 wird maschinell validiert (erlaubte Aktionen, Fristen, Sprachen). Ist es ungültig, bekommt das Modell genau einen zweiten Versuch mit der Fehlermeldung — danach bricht der Lauf ab, statt Müll zu produzieren:</p> <code> for p in posten:
+ # Schritt 1: beurteilen
+ beurteilung, t_in, t_out = beurteilen(c_claude, PROMPT_BEURTEILEN.format(**p))
+ kosten_chf += (t_in * PREISE[MODELL_BEURTEILEN][0] + t_out * PREISE[MODELL_BEURTEILEN][1]) / 1e6 * KURS_USD_CHF
+<p># Schritt 2: strukturieren (1 Wiederholung bei ungültigem JSON)
+ prompt2 = PROMPT_STRUKTUR.format(beurteilung=beurteilung, **p)
+ for versuch in (1, 2):
+ roh, t_in, t_out = strukturieren(c_openai, prompt2)
+ kosten_chf += (t_in * PREISE[MODELL_STRUKTUR][0] + t_out * PREISE[MODELL_STRUKTUR][1]) / 1e6 * KURS_USD_CHF
+ try:
+ entscheid = json_pruefen(roh)
+ break
+ except (ValueError, json.JSONDecodeError) as e:
+ if versuch == 2:
+ raise SystemExit(f"{p['rechnung_nr']}: JSON nach 2 Versuchen ungültig — {e}")
+ prompt2 += f"\n\nDeine letzte Antwort war ungültig ({e}). Korrigiere sie."</p>
+<p># Schritt 3: schreiben — nur wenn wirklich eine E-Mail raus soll
+ if entscheid["email_senden"] and entscheid["aktion"] not in ("zurueckstellen", "manuelle_pruefung"):
+ entwurf, t_in, t_out = schreiben(c_gemini, PROMPT_TEXT.format(**entscheid, **p))
+ kosten_chf += (t_in * PREISE[MODELL_TEXT][0] + t_out * PREISE[MODELL_TEXT][1]) / 1e6 * KURS_USD_CHF
+ # Pseudonym erst jetzt, lokal, wieder durch den Klarnamen ersetzen
+ entwurf = entwurf.replace(p["kunde_pseudo"], p["kunde"])
+ with open(f"entwuerfe/{p['rechnung_nr']}.txt", "w", encoding="utf-8") as f:
+ f.write(entwurf)</p>
+<p>ergebnisse.append({"rechnung_nr": p["rechnung_nr"], "kunde": p["kunde"],
+ "betrag_chf": p["betrag_chf"], "tage": p["tage_ueberfaellig"],
+ **{k: entscheid[k] for k in ("aktion", "sprache", "ton",
+ "frist_tage", "risiko", "grund")}})
+ print(f"{p['rechnung_nr']} {entscheid['aktion']:&#x3C;16} {entscheid['risiko']:&#x3C;7} {entscheid['grund']}")</code></p>
+<p>Resultate <h2>Der Testlauf: echte Ausgaben</h2> <p>Emanuel hat die Pipeline über alle 40 Posten laufen lassen. Ergebnis: 18× freundliche Erinnerung, 2× Mahnung, 1× letzte Mahnung — und 19 Fälle, die das System bewusst NICHT gemahnt hat, sondern zurückgestellt oder der Geschäftsleitung zur manuellen Prüfung vorgelegt. Genau diese Fälle sind der Punkt: Ein stures Mahnprogramm hätte dem Kunden mit telefonisch bestätigter Zahlungszusage trotzdem eine Mahnung geschickt.</p></p>
+<ul><li>Freundliche Erinnerung <b>18</b></li><li>Mahnung <b>2</b></li><li>Letzte Mahnung <b>1</b></li><li>Zurückstellen <b>5</b></li><li>Manuelle Prüfung <b>14</b></li></ul>
+<table> <thead> <tr><th>Fall</th><th>Notiz (Original)</th><th>Entscheid</th><th>Begründung des Modells</th></tr> </thead> <tbody> <tr> <td><strong>2026-1002</strong><br>CHF 1'350.00 · 34 Tage überfällig</td> <td>hat angerufen, zahlt Ende Monat. tel. bestätigt 08.07.</td> <td>Zurückstellen<br>Risiko: mittel</td> <td>Zahlungszusage per Telefon am 08.07. bis Ende Monat; Mahnstopp bis Anfang August gesetzt.</td> </tr> <tr> <td><strong>2026-1004</strong><br>CHF 23'760.00 · 67 Tage überfällig</td> <td>2. Mahnung per Post 12.06. KEINE Reaktion. grosser Folgeauftrag offen!!</td> <td>Manuelle Prüfung<br>Risiko: hoch</td> <td>Wichtiger Kunde mit grossem Folgeauftrag; standardisierter Mahnlauf kontraproduktiv. Manuelle Prüfung durch Geschäftsleitung empfohlen.</td> </tr> <tr> <td><strong>2026-1007</strong><br>CHF 4'870.00 · 51 Tage überfällig</td> <td>Teilzahlung CHF 2&#x27;000 am 30.06. eingegangen, Rest offen. war ok für ihn per mail</td> <td>Freundliche Erinnerung<br>Risiko: mittel</td> <td>Teilzahlung geleistet, Restbetrag offen. Keine neue Zahlungszusage. Beziehungsschonende Erinnerung per E-Mail empfohlen.</td> </tr> <tr> <td><strong>2026-1009</strong><br>CHF 6'540.00 · 88 Tage überfällig</td> <td>Gerücht vom Lieferanten: Zahlungsschwierigkeiten?? nichts konkretes. VORSICHT mit Ton</td> <td>Manuelle Prüfung<br>Risiko: hoch</td> <td>88 Tage überfällig, 2. Mahnung, Gerücht über Zahlungsschwierigkeiten – Fall zur manuellen Prüfung durch Geschäftsleitung.</td> </tr> <tr> <td><strong>2026-1006</strong><br>CHF 15'300.00 · 28 Tage überfällig</td> <td>says PO number missing on invoice – resend with PO 4711, then payment &#x27;immediately&#x27;</td> <td>Zurückstellen<br>Risiko: tief</td> <td>Kunde beanstandet fehlende Bestellnummer, sagt Zahlung nach Korrektur zu. Mahnstopp, korrigierte Rechnung mit PO 4711 ausstellen.</td> </tr> <tr> <td><strong>2026-1023</strong><br>CHF 430.00 · 63 Tage überfällig</td> <td>Kleinbetrag. 2 Mahnungen raus. lohnt sich eine Betreibung überhaupt?? KLÄREN</td> <td>Letzte Mahnung<br>Risiko: mittel</td> <td>Kleinbetrag CHF 430, 63 Tage überfällig, 2. Mahnung. Letzte Zahlungsaufforderung mit Betreibungsandrohung, danach Prüfung mit GL.</td> </tr> </tbody> </table>
+<h3>21 E-Mail-Entwürfe, drei Sprachen</h3> <p>Zwei Beispiele aus dem Lauf — unverändert, wie das Modell sie abgelegt hat:</p> <figure> <figcaption>Deutsch · Letzte Mahnung Papeterie Central · 2026-1023 · CHF 430.00</figcaption> Betreff: Letzte Zahlungserinnerung – Rechnung 2026-1023
+<p>Sehr geehrte Damen und Herren</p>
+<p>Bereits am [Datum der ersten Mahnung] und [Datum der zweiten Mahnung] haben wir Sie an die offene Rechnung 2026-1023 über CHF 430.00 erinnert. Der Betrag ist seit 63 Tagen fällig.</p>
+<p>Wir bitten Sie, den offenen Betrag von CHF 430.00 innerhalb der nächsten 10 Tage auf unser Konto [IBAN] zu überweisen. Sollte der Zahlungseingang bis dahin ausbleiben, sehen wir uns gezwungen, den Fall der Geschäftsleitung zur Prüfung weiterzuleiten und ein Betreibungsverfahren einzuleiten.</p>
+<p>Wir hoffen auf Ihre umgehende Zahlung und danken für Ihre geschätzte Aufmerksamkeit.</p>
+<p>Freundliche Grüsse
+Muster Handwerk AG </figure> <figure> <figcaption>Französisch · Freundliche Erinnerung Clinique du Lac SA · 2026-1026 · CHF 27'890.00</figcaption> Objet: Rappel de paiement – Facture 2026-1026</p>
+<p>Madame, Monsieur,</p>
+<p>Nous faisons suite à notre précédent échange et à votre engagement de régler la facture 2026-1026 d’un montant de CHF 27 890.00. À ce jour, malgré votre promesse, ce montant est toujours impayé depuis 47 jours.</p>
+<p>Nous vous prions de bien vouloir effectuer le virement sous 10 jours sur notre compte [IBAN].</p>
+<p>Nous comptons sur votre respect de cet engagement et vous remercions de votre compréhension.</p>
+<p>Meilleures salutations,
+Muster Handwerk AG
+Musterstrasse 1, 2540 Grenchen </figure></p>
+<h3> So wurden diese Ausgaben erzeugt</h3> <p>In seiner Entwicklungsumgebung liegen keine Schlüssel von Anthropic, OpenAI oder Google. Der Testlauf lief deshalb mit exakt denselben Prompts und derselben Validierung über einen einzigen OpenAI-kompatiblen Endpunkt (DeepSeek — dasselbe Modell, das den Chat auf dieser Website antreibt). Der veröffentlichte Code ruft die drei Anbieter gemäss deren offiziellen SDKs auf; die gezeigten Entscheide und Entwürfe sind echte, unbearbeitete Modell-Ausgaben aus diesem Testlauf.</p>
+<p>Kosten <h2>Was kostet so ein Lauf?</h2> <p>Hochrechnung für die 40 Posten: gemessene Textmengen aus dem Testlauf, umgerechnet in Tokens (~3.6 Zeichen/Token) und multipliziert mit den Listenpreisen der drei Anbieter (in USD publiziert, hier umgerechnet zum Kurs 1 USD = 0.81 CHF, Stand Juli 2026; Angaben in CHF pro 1 Mio. Tokens):</p> <table> <thead> <tr><th>Schritt</th><th>Preis in / out (CHF)</th><th>Tokens in / out (40 Posten)</th><th>Kosten</th></tr> </thead> <tbody> <tr> <td><strong>Beurteilen</strong><br>Claude Opus 4.8</td> <td>4.05 / 20.25</td> <td>~8'998 / ~8'715</td> <td><strong>~CHF 0.21</strong></td> </tr> <tr> <td><strong>Strukturieren</strong><br>GPT-5 mini</td> <td>0.20 / 1.62</td> <td>~15'242 / ~2'731</td> <td><strong>~CHF 0.01</strong></td> </tr> <tr> <td><strong>Schreiben</strong><br>Gemini 2.5 Flash</td> <td>0.24 / 2.03</td> <td>~3'907 / ~3'010</td> <td><strong>~CHF 0.01</strong></td> </tr> </tbody> </table></p>
+<p>Total pro Lauf: ~CHF 0.23 — bei einem wöchentlichen Mahnlauf rund CHF 0.98 pro Monat.</p> <p>Das ist eine Projektion, keine Abrechnung: Tokenzahlen sind aus Zeichenmengen geschätzt, Wechselkurse bewegen sich, echte Provider-Rechnungen können abweichen. Die Grössenordnung ist der Punkt — der teuerste Posten im Mahnwesen ist nicht die KI, sondern die Stunde Handarbeit.</p>
+<p>Sicherheit <h2>Sicherheit, Datenschutz, Grenzen</h2> <h3>Klarnamen bleiben im Haus</h3><p>Vor jedem API-Aufruf werden Kundennamen durch Pseudonyme ersetzt (KUNDE_07) und erst im fertigen Entwurf lokal wieder eingesetzt. Die Anbieter sehen Beträge und Notizen, aber keine Namen.</p></p>
+<h3>Nichts geht automatisch raus</h3><p>Das Skript versendet keine einzige E-Mail — es schreibt Entwürfe. Und 19 von 40 Fällen hat es selbst zur manuellen Prüfung markiert oder zurückgestellt, statt zu mahnen.</p>
+<h3>Schlüssel gehören nicht in den Code</h3><p>API-Schlüssel kommen aus Umgebungsvariablen. Im veröffentlichten Code steht kein einziger Schlüssel — so gehört das.</p>
+<h3>Grenzen</h3><p>Ein LLM kann eine Notiz falsch deuten. Deshalb: Entwürfe statt Versand, strikte JSON-Validierung, Sonderfälle zum Menschen. Automatisierung heisst hier: 80% Routine maschinell vorbereiten, 20% Urteil beim Menschen lassen.</p>
+<h3>Transparenz</h3> <ul> <li>Kein Kundenprojekt — ein Lehrstück, gebaut für diese Website.</li> <li>Alle Daten synthetisch: Firmen, Beträge und Notizen sind erfunden.</li> <li>Der Code ist lauffähig, sofern Sie eigene API-Schlüssel der drei Anbieter einsetzen.</li> <li>Die gezeigten Ausgaben stammen aus einem Testlauf über einen einzelnen DeepSeek-Endpunkt (siehe oben) — nicht aus Läufen bei Anthropic, OpenAI oder Google.</li> <li>Die Kostentabelle ist eine Hochrechnung aus geschätzten Tokenzahlen × Listenpreisen der Anbieter (in USD publiziert, in CHF umgerechnet).</li> </ul>
+<h3>Zum Selber-Ausprobieren</h3> <p>Skript, Datensatz und Anleitung als ZIP — MIT-Lizenz, frei verwendbar. Hinterlassen Sie Ihre geschäftliche E-Mail, und der Download startet direkt.</p>
+<p>Danke! Der Download startet — falls nicht, hier klicken:</p> <a href="/downloads/eflury-mahnlauf-showcase.zip"> 
+ZIP direkt herunterladen
+</a>
+<h2>Welcher Ihrer Prozesse hat eine «Notizen-Spalte»?</h2> <p>Mahnwesen, Offertwesen, Bestellabwicklung, Support-Postfach — wo Text anfällt, funktioniert dieses Muster. Im kostenlosen Erstgespräch finden Emanuel det Prozess mit dem besten Verhältnis von Aufwand zu Wirkung.</p> <a href="/de/kontakt/">
+Kostenloses Strategiegespräch
+ </a>
