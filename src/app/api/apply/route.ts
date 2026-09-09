@@ -16,10 +16,10 @@ import { PERSON } from '@/lib/site';
  * and does not survive the migration. And Turnstile is verified, where the PHP
  * version relied on a per-session counter that a bot resets by dropping cookies.
  *
- * apply.php also mirrored to a HubSpot Forms v3 endpoint. That is deliberately
- * not carried over yet: the account's portal and form IDs belong in
- * configuration rather than in source, and the CRM mirror can be added once the
- * HubSpot credentials are provisioned alongside the other secrets.
+ * apply.php also mirrored applications into a HubSpot Forms endpoint. That is
+ * deliberately dropped rather than deferred — eflury.com no longer uses HubSpot.
+ * Firestore holds the record and the notification carries signed links, so the
+ * CRM was the only consumer and it has no replacement here.
  */
 
 export const runtime = 'nodejs';

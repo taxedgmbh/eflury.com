@@ -229,7 +229,13 @@ function toThirdPerson(text, opts) {
     // relative clauses: "die wir für Sie bauen" -> "die er für Sie baut";
     // the verb sits at the end of the clause, after intervening words
     t = t.replace(
-      new RegExp(`\\b(die|das|was|den|dem|wie|Was|Wie|Die|Das)\\s+wir\\s+([^,.;!?]{0,60}?)\\s*(${VERB})\\b`, 'g'),
+      // The middle group must end on a word boundary. Without the required
+      // space it could stop mid-word — "Wie wir in Projekten ... arbeiten"
+      // matched mid="in P" and verb="rojekten", producing "in P rojektet".
+      new RegExp(
+        `\\b(die|das|was|den|dem|wie|Was|Wie|Die|Das)\\s+wir\\s+(?:([^,.;!?]{0,60}?)\\s+)?(${VERB})\\b`,
+        'g'
+      ),
       (m, rel, mid, verb) =>
         `${rel} ${/^[A-Z]/.test(rel) ? 'Emanuel' : 'er'} ${mid ? mid + ' ' : ''}${conjugate(verb)}`
     );
