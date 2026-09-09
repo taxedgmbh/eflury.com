@@ -28,6 +28,8 @@ export interface MailInput {
   text: string;
   replyTo?: string;
   to?: string;
+  /** Base64 content, e.g. the accepted terms PDF on an offer receipt. */
+  attachments?: { filename: string; content: string }[];
 }
 
 export async function sendNotification(input: MailInput): Promise<boolean> {
@@ -42,6 +44,7 @@ export async function sendNotification(input: MailInput): Promise<boolean> {
       subject: input.subject,
       text: input.text,
       ...(input.replyTo ? { replyTo: input.replyTo } : {}),
+      ...(input.attachments?.length ? { attachments: input.attachments } : {}),
     });
     if (error) {
       console.error('[mail] send rejected', error);

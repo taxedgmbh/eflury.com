@@ -31,25 +31,53 @@ env:
     value: G-6320666588
     availability: [BUILD, RUNTIME]
 
-  # --- Phase 3 (server routes). Uncommented when those land. ---
-  #
   # Vertex AI needs no API key: the App Hosting service account authenticates
-  # via ADC. Grant it roles/aiplatform.user. europe-west6 is Zurich.
-  # - variable: VERTEX_LOCATION
-  #   value: europe-west6
-  #   availability: [RUNTIME]
-  #
-  # Turnstile's secret has never existed — the widget is currently client-side
-  # only, so it verifies nothing. Create it before wiring /api/contact.
-  # - variable: TURNSTILE_SECRET_KEY
-  #   secret: turnstileSecret
-  #   availability: [RUNTIME]
-  #
-  # - variable: RESEND_API_KEY
-  #   secret: resendApiKey
-  #   availability: [RUNTIME]
-  #
-  # Two of the three PHP endpoints already write to HubSpot.
+  # via ADC. Grant it roles/aiplatform.user. europe-west6 is Zurich, chosen for
+  # Swiss data residency.
+  - variable: VERTEX_LOCATION
+    value: europe-west6
+    availability: [RUNTIME]
+
+  - variable: UPLOADS_BUCKET
+    value: eflury-com-uploads
+    availability: [RUNTIME]
+
+  # --- Secrets. Create with:
+  #       firebase apphosting:secrets:set <name>
+  #       firebase apphosting:secrets:grantaccess <name> --backend eflury-web
+  #     Version-pin in production (secret: turnstileSecret@3) so a bad rotation
+  #     cannot take the site down.
+
+  # Never existed: the Astro site rendered the Turnstile widget but never called
+  # siteverify, so no secret was ever provisioned.
+  - variable: TURNSTILE_SECRET_KEY
+    secret: turnstileSecret
+    availability: [RUNTIME]
+
+  - variable: RESEND_API_KEY
+    secret: resendApiKey
+    availability: [RUNTIME]
+
+  # Signs offer-acceptance links. MUST be the same value as ACCEPT_SECRET in the
+  # Hostinger api/config.php, or links already sent to clients stop validating —
+  # they carry a 60-day TTL, so some will be in flight at cutover.
+  # See migration/verify-offer-signing.md.
+  - variable: ACCEPT_SECRET
+    secret: acceptSecret
+    availability: [RUNTIME]
+
+  - variable: ACCEPT_ADMIN_KEY
+    secret: acceptAdminKey
+    availability: [RUNTIME]
+
+  # Rotating salt for hashed IPs in the rate limiter, and for signing newsletter
+  # confirmation links.
+  - variable: IP_HASH_SALT
+    secret: ipHashSalt
+    availability: [RUNTIME]
+
+  # Two PHP endpoints already mirror into HubSpot. The CRM mirror is not yet
+  # ported; add the credential when it is.
   # - variable: HUBSPOT_TOKEN
   #   secret: hubspotToken
   #   availability: [RUNTIME]
