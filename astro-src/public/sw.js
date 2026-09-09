@@ -1,88 +1,39 @@
-// Service Worker for PWA functionality
-const CACHE_NAME = 'eflury-v3';
-const RUNTIME_CACHE = 'eflury-runtime-v3';
+/**
+ * TOMBSTONE SERVICE WORKER — do not delete this file before 2027-03.
+ *
+ * The previous worker (eflury-v3) cached every 200 response with no allow-list,
+ * no origin check and no max-age, and only self-invalidated when its CACHE_NAME
+ * constant was hand-edited. Left in place, it would keep serving Hostinger-era
+ * HTML to returning visitors long after the site moves to Firebase — and its
+ * offline document fallback was `caches.match('/')`, i.e. the noindex redirect
+ * shim.
+ *
+ * This replacement unregisters itself and empties every cache. It ships to the
+ * OLD site first so the installed base drains while that site is still the one
+ * being served; killing the worker during the cutover instead would leave a
+ * window where stale HTML is served from an origin that no longer exists.
+ *
+ * There is deliberately NO fetch listener. A service worker with no fetch
+ * handler is bypassed entirely by the browser, so nothing is intercepted even
+ * in the window between install and activate.
+ *
+ * The registration call in MainLayout.astro was replaced with an unregister at
+ * the same time. Shipping this file while that call still existed would cause
+ * a register -> unregister -> register churn on every page load.
+ */
 
-// Assets to cache on install
-const PRECACHE_ASSETS = [
-  '/en/',
-  '/de/',
-  '/en/about/',
-  '/de/about/',
-  '/en/pricing/',
-  '/de/pricing/',
-  '/favicon.svg',
-  '/manifest.json',
-  '/images/portraits/emanuel-aaron-flury-portrait.webp',
-];
+self.addEventListener('install', () => self.skipWaiting());
 
-// Install event - cache assets
-self.addEventListener('install', (event) => {
-  event.waitUntil(
-    caches.open(CACHE_NAME)
-      .then((cache) => cache.addAll(PRECACHE_ASSETS))
-      .then(() => self.skipWaiting())
-  );
-});
-
-// Activate event - clean up old caches
 self.addEventListener('activate', (event) => {
   event.waitUntil(
-    caches.keys().then((cacheNames) => {
-      return Promise.all(
-        cacheNames
-          .filter((name) => name !== CACHE_NAME && name !== RUNTIME_CACHE)
-          .map((name) => caches.delete(name))
-      );
-    }).then(() => self.clients.claim())
+    (async () => {
+      for (const key of await caches.keys()) {
+        await caches.delete(key);
+      }
+      await self.registration.unregister();
+      for (const client of await self.clients.matchAll({ type: 'window' })) {
+        client.navigate(client.url);
+      }
+    })()
   );
 });
-
-// Fetch event - network first, fallback to cache
-self.addEventListener('fetch', (event) => {
-  // Skip non-GET requests
-  if (event.request.method !== 'GET') return;
-
-  event.respondWith(
-    fetch(event.request)
-      .then((response) => {
-        // Clone the response
-        const responseToCache = response.clone();
-
-        // Cache only clean same-origin responses; never cache redirects or
-        // mid-deploy snapshots that could pin a broken page
-        if (response.status === 200 && response.type === 'basic' && !response.redirected) {
-          caches.open(RUNTIME_CACHE).then((cache) => {
-            cache.put(event.request, responseToCache);
-          });
-        }
-
-        return response;
-      })
-      .catch(() => {
-        // Network failed, try cache
-        return caches.match(event.request).then((cachedResponse) => {
-          if (cachedResponse) {
-            return cachedResponse;
-          }
-          // Return offline page if available
-          if (event.request.destination === 'document') {
-            return caches.match('/en/');
-          }
-        });
-      })
-  );
-});
-
-// Background sync for form submissions
-self.addEventListener('sync', (event) => {
-  if (event.tag === 'contact-form-sync') {
-    event.waitUntil(syncContactForm());
-  }
-});
-
-async function syncContactForm() {
-  // Get pending form data from IndexedDB
-  // Submit and clear on success
-  console.log('Background sync: Contact form');
-}
-

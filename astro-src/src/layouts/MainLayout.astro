@@ -207,18 +207,24 @@ const twitterImage = 'https://eflury.com/images/og-image.png';
     <meta name="format-detection" content="telephone=no" />
     <meta name="mobile-web-app-capable" content="yes" />
 
-    <!-- Service Worker Registration -->
+    <!--
+      Service Worker teardown (was: registration).
+
+      Retiring the PWA ahead of the Firebase migration. /sw.js is now a tombstone
+      that unregisters itself; this block must NOT re-register it, or every page
+      load would churn register -> unregister -> register. Belt and braces for
+      clients whose existing registration has not yet run its update check.
+    -->
     <script is:inline>
       if ('serviceWorker' in navigator) {
-        window.addEventListener('load', () => {
-          navigator.serviceWorker.register('/sw.js')
-            .then((registration) => {
-              console.log('SW registered:', registration.scope);
-            })
-            .catch((error) => {
-              console.log('SW registration failed:', error);
-            });
-        });
+        navigator.serviceWorker.getRegistrations()
+          .then((rs) => rs.forEach((r) => r.unregister()))
+          .catch(() => {});
+      }
+      if (window.caches) {
+        caches.keys()
+          .then((ks) => ks.forEach((k) => caches.delete(k)))
+          .catch(() => {});
       }
     </script>
 
