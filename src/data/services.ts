@@ -7,8 +7,11 @@
  * Extracted rather than retyped — it is ~2,000 lines of German marketing copy
  * that has already been reviewed, and retyping it would introduce drift.
  *
- * The copy still speaks as "wir". Rewriting it to first person is a content
- * task for the repositioning, not a migration task; see the note in the plan.
+ * Voice was shifted from the company "wir" to third person by
+ * migration/voice-to-third-person.mjs. That script leaves two things alone,
+ * because both use "wir" to mean the reader rather than Emanuel: quoted client
+ * speech («Wir müssten etwas mit KI machen») and FAQ questions ("Sind unsere
+ * Daten sicher?").
  */
 export interface ServiceStep { title: string; description: string }
 export interface ServiceBenefit { title: string; description: string }
@@ -57,11 +60,11 @@ export const SERVICES: Service[] = [
       "Sie brauchen etwas, das Partner oder Verwaltungsrat lesen können: Zahlen und Prioritäten statt Schlagworte"
     ],
     solutionTitle: "Eine Woche. Echte Zahlen. Ein klares Go oder No-Go.",
-    solutionDescription: "Das KI-Audit ist Phase 1 der eflury Method™ als eigenständiges Produkt: Wir interviewen die Menschen, die Ihre Prozesse tatsächlich ausführen (2–3 Stunden Aufwand für Ihr Team), prüfen die relevanten Systeme mit Lesezugriff und bewerten jeden Kandidatenprozess nach Zeitkosten und Automatisierungspotenzial. Sie erhalten ein Prozessinventar mit Zeitkosten-Scoring, eine priorisierte Automatisierungs-Roadmap und eine ROI-Projektion pro Initiative — schriftlich, und sie gehören Ihnen. Genau diese Grundlagenarbeit überspringen gescheiterte KI-Projekte: Gartner prognostiziert, dass Organisationen bis 2026 rund 60% der KI-Projekte abbrechen, die nicht durch KI-taugliche Daten gestützt sind. Das Audit sagt Ihnen vor jedem Build, ob Ihre Prozesse und Daten bereit sind — und welche Initiative sich zuerst amortisiert.",
+    solutionDescription: "Das KI-Audit ist Phase 1 der eflury Method™ als eigenständiges Produkt: Emanuel interviewt die Menschen, die Ihre Prozesse tatsächlich ausführen (2–3 Stunden Aufwand für Ihr Team), prüfen die relevanten Systeme mit Lesezugriff und bewerten jeden Kandidatenprozess nach Zeitkosten und Automatisierungspotenzial. Sie erhalten ein Prozessinventar mit Zeitkosten-Scoring, eine priorisierte Automatisierungs-Roadmap und eine ROI-Projektion pro Initiative — schriftlich, und sie gehören Ihnen. Genau diese Grundlagenarbeit überspringen gescheiterte KI-Projekte: Gartner prognostiziert, dass Organisationen bis 2026 rund 60% der KI-Projekte abbrechen, die nicht durch KI-taugliche Daten gestützt sind. Das Audit sagt Ihnen vor jedem Build, ob Ihre Prozesse und Daten bereit sind — und welche Initiative sich zuerst amortisiert.",
     benefits: [
       {
         "title": "Eine Entscheidungsgrundlage, kein Pitch",
-        "description": "Drei benannte Deliverables: Prozessinventar mit Zeitkosten-Scoring, priorisierte Roadmap, ROI-Projektion pro Initiative. Alles schriftlich, alles Ihres — nutzbar mit uns oder mit jedem anderen."
+        "description": "Drei benannte Deliverables: Prozessinventar mit Zeitkosten-Scoring, priorisierte Roadmap, ROI-Projektion pro Initiative. Alles schriftlich, alles Ihres — nutzbar mit Emanuel oder mit jedem anderen."
       },
       {
         "title": "Ein No-Go ist ein sauberes Resultat",
@@ -69,7 +72,7 @@ export const SERVICES: Service[] = [
       },
       {
         "title": "Minimale Belastung für Ihr Team",
-        "description": "Ihr Beitrag: 2–3 Stunden Interviews und Lesezugriff auf die relevanten Systeme. Den Rest übernehmen wir — Ihr Betrieb läuft weiter."
+        "description": "Ihr Beitrag: 2–3 Stunden Interviews und Lesezugriff auf die relevanten Systeme. Den Rest übernimmt Emanuel — Ihr Betrieb läuft weiter."
       },
       {
         "title": "Geht nahtlos in den Build über",
@@ -84,7 +87,7 @@ export const SERVICES: Service[] = [
       },
       {
         "title": "System-Review",
-        "description": "Prüfung der relevanten Systeme mit Lesezugriff (z.B. bexio, ABACUS, Microsoft 365) — unter denselben offengelegten Sicherheitsstandards wie alle unsere Arbeit."
+        "description": "Prüfung der relevanten Systeme mit Lesezugriff (z.B. bexio, ABACUS, Microsoft 365) — unter denselben offengelegten Sicherheitsstandards wie die gesamte Arbeit."
       },
       {
         "title": "Scoring & Roadmap",
@@ -92,7 +95,7 @@ export const SERVICES: Service[] = [
       },
       {
         "title": "Ergebnis-Workshop",
-        "description": "Wir gehen den Bericht gemeinsam durch und fällen einen Go/No-Go-Entscheid — auf Basis der Zahlen, nicht unseres Eindrucks."
+        "description": "Sie gehen den Bericht gemeinsam durch und fällen einen Go/No-Go-Entscheid — auf Basis der Zahlen, nicht eines Bauchgefühls."
       }
     ],
     sampleReport: {
@@ -109,7 +112,7 @@ export const SERVICES: Service[] = [
       },
       {
         "question": "Was kostet das Audit?",
-        "answer": "CHF 4’900, fix — schriftlich bestätigt, bevor wir starten, keine Tagessätze, kein offenes Ende. Und vollständig angerechnet: Gehen Sie innert 6 Monaten in ein Umsetzungspaket über, zählt die Audit-Gebühr voll daran. Pakete inklusive Build sind transparent auf der Preisseite publiziert, ab CHF 9’900 — das Audit ist damit faktisch die risikobefreite erste Woche Ihres Projekts."
+        "answer": "CHF 4’900, fix — schriftlich bestätigt, bevor die Arbeit beginnt, keine Tagessätze, kein offenes Ende. Und vollständig angerechnet: Gehen Sie innert 6 Monaten in ein Umsetzungspaket über, zählt die Audit-Gebühr voll daran. Pakete inklusive Build sind transparent auf der Preisseite publiziert, ab CHF 9’900 — das Audit ist damit faktisch die risikobefreite erste Woche Ihres Projekts."
       },
       {
         "question": "Was, wenn die Antwort lautet: nicht automatisieren?",
@@ -117,11 +120,11 @@ export const SERVICES: Service[] = [
       },
       {
         "question": "Sind unsere Daten während des Audits sicher?",
-        "answer": "Das Audit arbeitet mit Lesezugriff: Agenten und wir greifen über MCP-Konnektoren auf Ihre Systeme zu, ohne etwas zurückzuschreiben. Bei sensiblen Daten arbeiten wir mit Stichproben oder Redaktion. Das vollständige Setup — inklusive aller eingesetzten Dienste — ist auf unserer Seite Sicherheit & Vertrauen offengelegt, ausgerichtet am revDSG."
+        "answer": "Das Audit arbeitet mit Lesezugriff: Agenten und Emanuel greifen über MCP-Konnektoren auf Ihre Systeme zu, ohne etwas zurückzuschreiben. Bei sensiblen Daten arbeitet Emanuel mit Stichproben oder Redaktion. Das vollständige Setup — inklusive aller eingesetzten Dienste — ist auf seiner Seite Sicherheit & Vertrauen offengelegt, ausgerichtet am revDSG."
       },
       {
         "question": "Können wir die Roadmap ohne Sie umsetzen?",
-        "answer": "Ja. Die Deliverables sind so geschrieben, dass jeder kompetente Umsetzer damit arbeiten kann — kein Lock-in ist ein erklärtes Prinzip unserer Methode. Machen Sie mit uns weiter, startet das Design ohne wiederholte Discovery auf den Audit-Ergebnissen."
+        "answer": "Ja. Die Deliverables sind so geschrieben, dass jeder kompetente Umsetzer damit arbeiten kann — kein Lock-in ist ein erklärtes Prinzip seiner Methode. Machen Sie mit Emanuel weiter, startet das Design ohne wiederholte Discovery auf den Audit-Ergebnissen."
       },
       {
         "question": "Wie viel Zeit kostet es unser Team?",
@@ -129,7 +132,7 @@ export const SERVICES: Service[] = [
       }
     ],
     ctaTitle: "Finden Sie heraus, welcher Prozess sich zuerst amortisiert",
-    ctaDescription: "Buchen Sie ein kostenloses 30-Minuten-Gespräch. Wir schauen Ihre Situation gemeinsam an — am Ende des Gesprächs wissen Sie, ob ein Audit für Sie sinnvoll ist.",
+    ctaDescription: "Buchen Sie ein kostenloses 30-Minuten-Gespräch. Sie gehen Ihre Situation gemeinsam durch — am Ende des Gesprächs wissen Sie, ob ein Audit für Sie sinnvoll ist.",
     ctaButtonText: "Kostenloses Audit-Gespräch buchen",
     relatedCaseStudy: {
       "title": "Finanzprozess-Automatisierung bei einem Schweizer Fertigungsunternehmen",
@@ -145,7 +148,7 @@ export const SERVICES: Service[] = [
     serviceType: "Finanzprozess-Automatisierung",
     heroTitle: "Automatisieren Sie Ihre Finanzprozesse",
     heroSubtitle: "Finanz-Spezialist",
-    heroDescription: "Vom Monatsabschluss bis zur täglichen Abstimmung — wir bauen KI-Automatisierungen, die Finanzteams 30-50 Stunden pro Monat sparen und gleichzeitig Genauigkeit und Compliance verbessern.",
+    heroDescription: "Vom Monatsabschluss bis zur täglichen Abstimmung — Emanuel baut KI-Automatisierungen, die Finanzteams 30-50 Stunden pro Monat sparen und gleichzeitig Genauigkeit und Compliance verbessern.",
     problemTitle: "Herausforderungen im Finanzteam",
     problems: [
       "Der Monatsabschluss dauert Tage mit manueller Datensammlung und Abstimmung",
@@ -154,7 +157,7 @@ export const SERVICES: Service[] = [
       "Compliance-Dokumentation ist zeitaufwändig und fehleranfällig"
     ],
     solutionTitle: "KI-gestützte Finanzautomatisierung",
-    solutionDescription: "Wir kombinieren Claude KI mit Ihren bestehenden Finanztools (Bexio, ABACUS, Excel), um die repetitive Arbeit zu automatisieren. Ihr Team konzentriert sich auf Analyse und Entscheidungen, während KI die Datenverarbeitung übernimmt.",
+    solutionDescription: "Emanuel kombiniert Claude KI mit Ihren bestehenden Finanztools (Bexio, ABACUS, Excel), um die repetitive Arbeit zu automatisieren. Ihr Team konzentriert sich auf Analyse und Entscheidungen, während KI die Datenverarbeitung übernimmt.",
     benefits: [
       {
         "title": "Schnellerer Monatsabschluss",
@@ -177,11 +180,11 @@ export const SERVICES: Service[] = [
     processSteps: [
       {
         "title": "Prozess-Mapping",
-        "description": "Wir dokumentieren Ihre aktuellen Finanz-Workflows und Schmerzpunkte."
+        "description": "Emanuel dokumentiert Ihre aktuellen Finanz-Workflows und Schmerzpunkte."
       },
       {
         "title": "Automatisierungs-Design",
-        "description": "Wir entwerfen KI-Workflows, die sich in Ihre Buchhaltungssoftware integrieren."
+        "description": "Emanuel entwirft KI-Workflows, die sich in Ihre Buchhaltungssoftware integrieren."
       },
       {
         "title": "Entwicklung & Test",
@@ -189,13 +192,13 @@ export const SERVICES: Service[] = [
       },
       {
         "title": "Parallellauf & Schulung",
-        "description": "Wir laufen alte und neue Prozesse parallel, dann schulen wir Ihr Team."
+        "description": "Alte und neue Prozesse laufen eine Zeit lang parallel, danach schult Emanuel Ihr Team."
       }
     ],
     faqs: [
       {
         "question": "Mit welcher Buchhaltungssoftware integrieren Sie?",
-        "answer": "Wir sind spezialisiert auf Schweizer Buchhaltungssoftware: Bexio, ABACUS und Infoniqa. Wir arbeiten auch mit internationalen Tools wie Xero, QuickBooks und SAP."
+        "answer": "Emanuel ist spezialisiert auf Schweizer Buchhaltungssoftware: Bexio, ABACUS und Infoniqa. Emanuel arbeitet auch mit internationalen Tools wie Xero, QuickBooks und SAP."
       },
       {
         "question": "Wie viel Zeit können wir realistisch sparen?",
@@ -203,7 +206,7 @@ export const SERVICES: Service[] = [
       },
       {
         "question": "Ist KI genau genug für Finanzdaten?",
-        "answer": "Moderne KI erreicht 99%+ Genauigkeit bei strukturierten Datenaufgaben. Wir bauen immer menschliche Überprüfungspunkte für wichtige Entscheidungen ein."
+        "answer": "Moderne KI erreicht 99%+ Genauigkeit bei strukturierten Datenaufgaben. Emanuel baut immer menschliche Überprüfungspunkte für wichtige Entscheidungen ein."
       },
       {
         "question": "Was ist mit Compliance und Prüfungsanforderungen?",
@@ -231,7 +234,7 @@ export const SERVICES: Service[] = [
     serviceType: "Power BI Beratung",
     heroTitle: "Power BI Dashboards, die Entscheidungen antreiben",
     heroSubtitle: "BI Spezialist",
-    heroDescription: "Wir bauen Power BI Dashboards, die Ihre Daten in handlungsrelevante Erkenntnisse verwandeln. Von Executive KPI-Übersichten bis zu detaillierten operativen Ansichten — designed für wie Ihr Team tatsächlich arbeitet.",
+    heroDescription: "Emanuel baut Power BI Dashboards, die Ihre Daten in handlungsrelevante Erkenntnisse verwandeln. Von Executive KPI-Übersichten bis zu detaillierten operativen Ansichten — designed für wie Ihr Team tatsächlich arbeitet.",
     problemTitle: "Daten ohne Richtung",
     problems: [
       "Daten verstreut über Excel-Dateien, ERP und mehrere Systeme",
@@ -240,7 +243,7 @@ export const SERVICES: Service[] = [
       "Keine Single Source of Truth für wichtige Geschäftskennzahlen"
     ],
     solutionTitle: "Power BI richtig gemacht",
-    solutionDescription: "Wir erstellen Power BI-Lösungen, die alle Ihre Datenquellen in live, interaktive Dashboards verbinden. Automatische Aktualisierung, mobiler Zugriff und Erkenntnisse, die tatsächlich genutzt werden.",
+    solutionDescription: "Emanuel erstellt Power BI-Lösungen, die alle Ihre Datenquellen in live, interaktive Dashboards verbinden. Automatische Aktualisierung, mobiler Zugriff und Erkenntnisse, die tatsächlich genutzt werden.",
     benefits: [
       {
         "title": "Single Source of Truth",
@@ -263,11 +266,11 @@ export const SERVICES: Service[] = [
     processSteps: [
       {
         "title": "Anforderungsermittlung",
-        "description": "Wir definieren Ihre Schlüsselfragen, Metriken und wie Entscheidungen getroffen werden."
+        "description": "Emanuel definiert Ihre Schlüsselfragen, Metriken und wie Entscheidungen getroffen werden."
       },
       {
         "title": "Datenmodellierung",
-        "description": "Wir bauen ein robustes Datenmodell, das Ihre verschiedenen Datenquellen verbindet."
+        "description": "Emanuel baut ein robustes Datenmodell, das Ihre verschiedenen Datenquellen verbindet."
       },
       {
         "title": "Dashboard-Design",
@@ -285,15 +288,15 @@ export const SERVICES: Service[] = [
       },
       {
         "question": "Wir haben noch keine Power BI-Lizenz. Was brauchen wir?",
-        "answer": "Power BI Desktop ist kostenlos. Für Sharing brauchen Sie Power BI Pro (CHF 9.40/Nutzer/Monat) oder Premium. Wir helfen bei der richtigen Lizenzwahl."
+        "answer": "Power BI Desktop ist kostenlos. Für Sharing brauchen Sie Power BI Pro (CHF 9.40/Nutzer/Monat) oder Premium. Emanuel hilft bei der richtigen Lizenzwahl."
       },
       {
         "question": "Wie lange dauert ein Power BI-Projekt?",
-        "answer": "Einfache Dashboards: 2-3 Wochen. Umfassende BI-Lösungen mit mehreren Dashboards: 6-8 Wochen. Wir arbeiten iterativ mit laufendem Feedback."
+        "answer": "Einfache Dashboards: 2-3 Wochen. Umfassende BI-Lösungen mit mehreren Dashboards: 6-8 Wochen. Emanuel arbeitet iterativ mit laufendem Feedback."
       },
       {
         "question": "Können Sie Claude KI mit Power BI integrieren?",
-        "answer": "Ja. Nutzer können Fragen in natürlicher Sprache stellen und erhalten sofortige Antworten aus Ihren Power BI-Daten. Das ist eine einzigartige Fähigkeit, die wir anbieten."
+        "answer": "Ja. Nutzer können Fragen in natürlicher Sprache stellen und erhalten sofortige Antworten aus Ihren Power BI-Daten. Das ist eine einzigartige Fähigkeit, die Emanuel anbietet."
       },
       {
         "question": "Was ist die Investition für Power BI Beratung?",
@@ -301,7 +304,7 @@ export const SERVICES: Service[] = [
       }
     ],
     ctaTitle: "Verwandeln Sie Ihre Daten in Erkenntnisse",
-    ctaDescription: "Lassen Sie uns besprechen, wie Power BI Ihrem Team helfen kann, schneller bessere Entscheidungen zu treffen.",
+    ctaDescription: "Besprechen Sie mit Emanuel, wie Power BI Ihrem Team helfen kann, schneller bessere Entscheidungen zu treffen.",
     ctaButtonText: "Power BI Beratungsgespräch buchen",
     relatedCaseStudy: {
       "title": "Power BI Erfolgsgeschichte",
@@ -343,10 +346,10 @@ export const SERVICES: Service[] = [
       },
       {
         "title": "Kontextfenster, richtig eingesetzt",
-        "description": "Grosse Kontextfenster ermöglichen Prüfungen über ganze Datensätze — aber publizierte Forschung (NVIDIA RULER, Chromas Context-Rot-Studie) zeigt: Der effektive Kontext ist kleiner als der beworbene. Unsere Agenten kombinieren deshalb langen Kontext fürs Schlussfolgern mit direkten MCP-Datenbankabfragen und Batch-Verarbeitung, statt naiv \"eine Million Zeilen zu lesen\"."
+        "description": "Grosse Kontextfenster ermöglichen Prüfungen über ganze Datensätze — aber publizierte Forschung (NVIDIA RULER, Chromas Context-Rot-Studie) zeigt: Der effektive Kontext ist kleiner als der beworbene. Seine Agenten kombinieren deshalb langen Kontext fürs Schlussfolgern mit direkten MCP-Datenbankabfragen und Batch-Verarbeitung, statt naiv \"eine Million Zeilen zu lesen\"."
       }
     ],
-    processTitle: "So bringen wir Ihre Daten in Ordnung",
+    processTitle: "So bringt Emanuel Ihre Daten in Ordnung",
     processSteps: [
       {
         "title": "Datenqualitäts-Audit",
@@ -368,11 +371,11 @@ export const SERVICES: Service[] = [
     faqs: [
       {
         "question": "Was haben KI-Kontextfenster mit Datenqualität zu tun?",
-        "answer": "Das Kontextfenster ist das Arbeitsgedächtnis des Modells. Aktuelle Claude-Modelle halten 200’000 bis 1 Million Tokens — mehrere hundert bis rund 2’500 Seiten oder Zehntausende Datensätze. Damit kann ein Agent Schema, Datenkatalog, Geschäftsregeln und grosse Stichproben gleichzeitig betrachten — genau das macht semantische Deduplizierung und tabellenübergreifende Konsistenzprüfungen möglich. Die Forschung (\"Lost in the Middle\", NVIDIAs RULER-Benchmark, Chromas Context-Rot-Studie 2025) zeigt aber: Modelle bauen deutlich vor der beworbenen Grenze ab. Deshalb kippen wir nie Ihre Datenbank in einen Prompt: Agenten fragen sie über MCP ab, verarbeiten in Batches und reservieren das Kontextfenster fürs Schlussfolgern. Das ist der Unterschied zwischen einer Demo und einem System, dem Sie vertrauen können."
+        "answer": "Das Kontextfenster ist das Arbeitsgedächtnis des Modells. Aktuelle Claude-Modelle halten 200’000 bis 1 Million Tokens — mehrere hundert bis rund 2’500 Seiten oder Zehntausende Datensätze. Damit kann ein Agent Schema, Datenkatalog, Geschäftsregeln und grosse Stichproben gleichzeitig betrachten — genau das macht semantische Deduplizierung und tabellenübergreifende Konsistenzprüfungen möglich. Die Forschung (\"Lost in the Middle\", NVIDIAs RULER-Benchmark, Chromas Context-Rot-Studie 2025) zeigt aber: Modelle bauen deutlich vor der beworbenen Grenze ab. Deshalb kippt Emanuel nie Ihre Datenbank in einen Prompt: Agenten fragen sie über MCP ab, verarbeiten in Batches und reservieren das Kontextfenster fürs Schlussfolgern. Das ist der Unterschied zwischen einer Demo und einem System, dem Sie vertrauen können."
       },
       {
         "question": "Sind meine Daten sicher? Was ist mit dem revDSG?",
-        "answer": "Ihre Daten bleiben in Ihren Systemen; Agenten greifen über MCP-Konnektoren lesend zu. Bei sensiblen Datensätzen arbeiten wir mit Stichproben oder Redaktion, nutzen wo nötig EU-/Schweiz-gehostete Deployment-Optionen und dokumentieren jeden Verarbeitungsschritt. Anthropic trainiert seine Modelle standardmässig nicht auf API-Daten, und EU-Hosting (z.B. Frankfurt) ist verfügbar. Sie erhalten ein Bearbeitungsverzeichnis und ein revDSG-konformes Setup — keine Black Box."
+        "answer": "Ihre Daten bleiben in Ihren Systemen; Agenten greifen über MCP-Konnektoren lesend zu. Bei sensiblen Datensätzen arbeitet Emanuel mit Stichproben oder Redaktion, nutzen wo nötig EU-/Schweiz-gehostete Deployment-Optionen und dokumentieren jeden Verarbeitungsschritt. Anthropic trainiert seine Modelle standardmässig nicht auf API-Daten, und EU-Hosting (z.B. Frankfurt) ist verfügbar. Sie erhalten ein Bearbeitungsverzeichnis und ein revDSG-konformes Setup — keine Black Box."
       },
       {
         "question": "Halluziniert die KI nicht einfach \"Korrekturen\"?",
@@ -380,19 +383,19 @@ export const SERVICES: Service[] = [
       },
       {
         "question": "Was unterscheidet das von Informatica, Talend und den klassischen Tools?",
-        "answer": "Das sind exzellente Enterprise-Plattformen — und selbst sie werden agentisch: Gartner hat die Kategorie 2024 in \"Augmented Data Quality Solutions\" umbenannt, und die etablierten Anbieter bauen Natural-Language-Regel-Agenten ein. Die Evidenz spricht für den Ansatz: In einem 2026 publizierten Benchmark aus einem echten Produktions-Deduplizierungsworkflow schlug LLM-basiertes Matching das langjährig eingesetzte regelbasierte System deutlich. Unser Service bringt dieses Muster zu Schweizer KMU in KMU-Massstab: Wochen statt Quartale, Fixpreise, gebaut auf Claude und MCP gegen die Systeme, die Sie bereits nutzen — bexio, ABACUS, Microsoft 365."
+        "answer": "Das sind exzellente Enterprise-Plattformen — und selbst sie werden agentisch: Gartner hat die Kategorie 2024 in \"Augmented Data Quality Solutions\" umbenannt, und die etablierten Anbieter bauen Natural-Language-Regel-Agenten ein. Die Evidenz spricht für den Ansatz: In einem 2026 publizierten Benchmark aus einem echten Produktions-Deduplizierungsworkflow schlug LLM-basiertes Matching das langjährig eingesetzte regelbasierte System deutlich. Sein Service bringt dieses Muster zu Schweizer KMU in KMU-Massstab: Wochen statt Quartale, Fixpreise, gebaut auf Claude und MCP gegen die Systeme, die Sie bereits nutzen — bexio, ABACUS, Microsoft 365."
       },
       {
         "question": "Was kostet das, und wie lange dauert es?",
-        "answer": "Das Datenqualitäts-Audit dauert etwa eine Woche und liefert einen bewerteten Report plus priorisierten Bereinigungsplan — das allein ist oft ein Augenöffner. Ein typisches Bereinigungs- und Monitoring-Setup dauert 4–8 Wochen. Die Preise folgen denselben transparenten Fixpreis-Paketen wie alle unsere Services."
+        "answer": "Das Datenqualitäts-Audit dauert etwa eine Woche und liefert einen bewerteten Report plus priorisierten Bereinigungsplan — das allein ist oft ein Augenöffner. Ein typisches Bereinigungs- und Monitoring-Setup dauert 4–8 Wochen. Die Preise folgen denselben transparenten Fixpreis-Paketen wie alle seine Services."
       },
       {
         "question": "Agentic AI ist stark gehypt. Warum sollte dieses Projekt gelingen?",
-        "answer": "Berechtigte Frage — Gartner erwartet, dass über 40% der Agentic-AI-Projekte bis 2027 abgebrochen werden, meist wegen unklarem Geschäftsnutzen. Datenqualität ist das Gegenbeispiel, weil die Ausgangslage messbar ist, bevor wir starten: Duplikatquote, Fehlerquote, Stunden manueller Bereinigung pro Monat. Diese Kennzahlen definieren wir im Audit — und Sie sehen sie nach jedem Bereinigungs-Batch. Wenn sie sich nicht bewegen, sehen Sie auch das."
+        "answer": "Berechtigte Frage — Gartner erwartet, dass über 40% der Agentic-AI-Projekte bis 2027 abgebrochen werden, meist wegen unklarem Geschäftsnutzen. Datenqualität ist das Gegenbeispiel, weil die Ausgangslage messbar ist, bevor die Arbeit beginnt: Duplikatquote, Fehlerquote, Stunden manueller Bereinigung pro Monat. Diese Kennzahlen definiert Emanuel im Audit — und Sie sehen sie nach jedem Bereinigungs-Batch. Wenn sie sich nicht bewegen, sehen Sie auch das."
       }
     ],
     ctaTitle: "Finden Sie heraus, wie sauber Ihre Daten wirklich sind",
-    ctaDescription: "Buchen Sie ein kostenloses 30-Minuten-Gespräch. Wir schauen gemeinsam auf einen Ihrer Datensätze — und wir sagen Ihnen ehrlich, was Agenten beheben können und was nicht.",
+    ctaDescription: "Buchen Sie ein kostenloses 30-Minuten-Gespräch. Sie schauen gemeinsam auf einen Ihrer Datensätze — und Emanuel sagt Ihnen ehrlich, was Agenten beheben können und was nicht.",
     ctaButtonText: "Kostenlosen Daten-Check buchen",
     relatedCaseStudy: {
       "title": "Finanzprozess-Automatisierung bei einem Schweizer Fertigungsbetrieb",
@@ -408,7 +411,7 @@ export const SERVICES: Service[] = [
     serviceType: "Claude Skills Entwicklung",
     heroTitle: "Massgeschneiderte Claude Skills für Ihr Unternehmen",
     heroSubtitle: "Claude Spezialist",
-    heroDescription: "Wir entwickeln individuelle Claude Skills, die Ihre spezifischen Workflows automatisieren — von Dokumentenverarbeitung bis Datenanalyse. Jeder Skill spart Ihrem Team wöchentlich Stunden.",
+    heroDescription: "Emanuel entwickelt individuelle Claude Skills, die Ihre spezifischen Workflows automatisieren — von Dokumentenverarbeitung bis Datenanalyse. Jeder Skill spart Ihrem Team wöchentlich Stunden.",
     problemTitle: "Kommt Ihnen das bekannt vor?",
     problems: [
       "Ihr Team verbringt Stunden mit repetitiven Dokumentenaufgaben, die KI erledigen könnte",
@@ -417,7 +420,7 @@ export const SERVICES: Service[] = [
       "Sie brauchen Automatisierung, die mit Ihrer bestehenden Schweizer Business-Software funktioniert"
     ],
     solutionTitle: "Individuelle Claude Skills — Für Sie gebaut",
-    solutionDescription: "Wir entwickeln Claude Skills, die exakt auf Ihre Workflows zugeschnitten sind. Keine generischen Vorlagen — individuelle KI, die Ihr Geschäft versteht, sich in Ihre Tools integriert und messbare Zeiteinsparungen liefert.",
+    solutionDescription: "Emanuel entwickelt Claude Skills, die exakt auf Ihre Workflows zugeschnitten sind. Keine generischen Vorlagen — individuelle KI, die Ihr Geschäft versteht, sich in Ihre Tools integriert und messbare Zeiteinsparungen liefert.",
     benefits: [
       {
         "title": "Massgeschneidert für Ihre Workflows",
@@ -436,19 +439,19 @@ export const SERVICES: Service[] = [
         "description": "Skills werden mit der Zeit intelligenter, basierend auf Ihrem Feedback."
       }
     ],
-    processTitle: "So entwickeln wir Ihre Skills",
+    processTitle: "So entwickelt Emanuel Ihre Skills",
     processSteps: [
       {
         "title": "Workflow-Analyse",
-        "description": "Wir untersuchen Ihre aktuellen Prozesse, um die besten Automatisierungsmöglichkeiten zu identifizieren."
+        "description": "Emanuel untersucht Ihre aktuellen Prozesse, um die besten Automatisierungsmöglichkeiten zu identifizieren."
       },
       {
         "title": "Skill-Design",
-        "description": "Wir definieren exakt, was jeder Skill tun soll, inklusive Inputs, Outputs und Sonderfälle."
+        "description": "Emanuel definiert exakt, was jeder Skill tun soll, inklusive Inputs, Outputs und Sonderfälle."
       },
       {
         "title": "Entwicklung & Testing",
-        "description": "Wir bauen und testen jeden Skill gründlich mit Ihren echten Daten."
+        "description": "Emanuel baut und testen jeden Skill gründlich mit Ihren echten Daten."
       },
       {
         "title": "Schulung & Übergabe",
@@ -466,7 +469,7 @@ export const SERVICES: Service[] = [
       },
       {
         "question": "Können Skills mit meiner bestehenden Software arbeiten?",
-        "answer": "Ja. Wir sind spezialisiert auf die Integration von Claude Skills mit Schweizer Business-Software, einschliesslich Bexio, ABACUS, Microsoft 365 und individuellen Systemen via APIs oder MCP."
+        "answer": "Ja. Emanuel ist spezialisiert auf die Integration von Claude Skills mit Schweizer Business-Software, einschliesslich Bexio, ABACUS, Microsoft 365 und individuellen Systemen via APIs oder MCP."
       },
       {
         "question": "Was ist der Unterschied zwischen Claude Skills und ChatGPT?",
@@ -478,7 +481,7 @@ export const SERVICES: Service[] = [
       }
     ],
     ctaTitle: "Bereit zur Automatisierung mit Claude Skills?",
-    ctaDescription: "Buchen Sie ein kostenloses 30-Minuten-Gespräch. Wir analysieren Ihre Workflows und identifizieren Ihre wirkungsvollsten Automatisierungsmöglichkeiten.",
+    ctaDescription: "Buchen Sie ein kostenloses 30-Minuten-Gespräch. Emanuel analysiert Ihre Workflows und identifizieren Ihre wirkungsvollsten Automatisierungsmöglichkeiten.",
     ctaButtonText: "Skills-Strategiegespräch buchen",
     relatedCaseStudy: {
       "title": "Claude Skills in Aktion",
@@ -494,7 +497,7 @@ export const SERVICES: Service[] = [
     serviceType: "MCP Server Integration",
     heroTitle: "Verbinden Sie Claude mit Ihren Geschäftssystemen",
     heroSubtitle: "MCP Spezialist",
-    heroDescription: "Model Context Protocol (MCP) ermöglicht Claude die direkte Interaktion mit Ihren Datenbanken, APIs und Software. Wir bauen individuelle MCP-Integrationen, die Claude in eine echte Business-Automatisierungsplattform verwandeln.",
+    heroDescription: "Model Context Protocol (MCP) ermöglicht Claude die direkte Interaktion mit Ihren Datenbanken, APIs und Software. Emanuel baut individuelle MCP-Integrationen, die Claude in eine echte Business-Automatisierungsplattform verwandeln.",
     problemTitle: "Die Integrations-Herausforderung",
     problems: [
       "KI-Tools können nicht auf Ihre internen Datenbanken und Systeme zugreifen",
@@ -503,7 +506,7 @@ export const SERVICES: Service[] = [
       "Sicherheitsbedenken verhindern die Verbindung von KI mit sensiblen Geschäftssystemen"
     ],
     solutionTitle: "MCP — Das fehlende Glied",
-    solutionDescription: "Model Context Protocol ist Anthropics Standard zur sicheren Verbindung von Claude mit externen Systemen. Wir entwerfen und implementieren individuelle MCP-Server, die Claude kontrollierten Zugriff auf Ihre Geschäftsdaten geben.",
+    solutionDescription: "Model Context Protocol ist Anthropics Standard zur sicheren Verbindung von Claude mit externen Systemen. Emanuel entwirft und implementieren individuelle MCP-Server, die Claude kontrollierten Zugriff auf Ihre Geschäftsdaten geben.",
     benefits: [
       {
         "title": "Direkter Systemzugriff",
@@ -526,15 +529,15 @@ export const SERVICES: Service[] = [
     processSteps: [
       {
         "title": "System-Audit",
-        "description": "Wir analysieren Ihre aktuellen Systeme und identifizieren Integrationsmöglichkeiten."
+        "description": "Emanuel analysiert Ihre aktuellen Systeme und identifizieren Integrationsmöglichkeiten."
       },
       {
         "title": "Architektur-Design",
-        "description": "Wir entwerfen die MCP-Server-Architektur mit Fokus auf Sicherheit und Performance."
+        "description": "Emanuel entwirft die MCP-Server-Architektur mit Fokus auf Sicherheit und Performance."
       },
       {
         "title": "Entwicklung & Deployment",
-        "description": "Wir bauen und deployen individuelle MCP-Server, entweder Cloud-gehostet oder On-Premise."
+        "description": "Emanuel baut und deployen individuelle MCP-Server, entweder Cloud-gehostet oder On-Premise."
       },
       {
         "title": "Testing & Sicherheitsreview",
@@ -564,7 +567,7 @@ export const SERVICES: Service[] = [
       }
     ],
     ctaTitle: "Verbinden Sie Ihre Systeme mit KI",
-    ctaDescription: "Lassen Sie uns besprechen, wie MCP Claude in eine integrierte Automatisierungsplattform für Ihr Unternehmen verwandeln kann.",
+    ctaDescription: "Besprechen Sie mit Emanuel, wie MCP Claude in eine integrierte Automatisierungsplattform für Ihr Unternehmen verwandeln kann.",
     ctaButtonText: "MCP-Beratungsgespräch buchen",
     relatedCaseStudy: {
       "title": "MCP in Produktion",
@@ -578,9 +581,9 @@ export const SERVICES: Service[] = [
     metaDescription: "Laufender Betrieb Ihrer KI-Automatisierungen: Monitoring, monatlicher Kennzahlenbericht, Verbesserungs-Backlog und Re-Validierung nach Plattform-Updates — ab publiziertem Tarif von CHF 1'200/Monat.",
     keywords: "Managed AI Operations, KI-Monitoring, Automatisierung Support, Claude Skills Wartung, Schweizer KMU, Extended Support",
     serviceType: "Managed AI Operations",
-    heroTitle: "Bauen ist die halbe Arbeit. Wir übernehmen die andere Hälfte.",
+    heroTitle: "Bauen ist die halbe Arbeit. Emanuel übernimmt die andere Hälfte.",
     heroSubtitle: "Managed AI Operations",
-    heroDescription: "Automatisierungen schaffen nur Wert, solange sie funktionieren. Wir betreiben die Systeme, die wir für Sie bauen: regelmässige Health-Checks, ein monatlicher schriftlicher Kennzahlenbericht, ein priorisiertes Verbesserungs-Backlog — und Re-Validierung, wenn sich die KI-Plattformen darunter ändern. Ohne dass Sie einen KI-Engineer einstellen müssen.",
+    heroDescription: "Automatisierungen schaffen nur Wert, solange sie funktionieren. Emanuel betreibt die Systeme, die er für Sie baut: regelmässige Health-Checks, ein monatlicher schriftlicher Kennzahlenbericht, ein priorisiertes Verbesserungs-Backlog — und Re-Validierung, wenn sich die KI-Plattformen darunter ändern. Ohne dass Sie einen KI-Engineer einstellen müssen.",
     problemTitle: "Kommt Ihnen das bekannt vor?",
     problems: [
       "Beim Go-live funktionierte die Automatisierung — sechs Monate später kann niemand sagen, ob sie noch performt",
@@ -590,7 +593,7 @@ export const SERVICES: Service[] = [
       "Sie wollen den Nutzen der KI-Automatisierung, ohne einen KI-Engineer auf der Lohnliste zu haben"
     ],
     solutionTitle: "Betrieb als Produkt: gemessen, monatlich, schriftlich",
-    solutionDescription: "Managed AI Operations ist Phase 5 der eflury Method™ — Optimierung — als kontinuierlicher Service. Wir übernehmen den Betrieb der Automatisierungen, die wir gebaut haben: regelmässige Health-Checks, Monitoring von Fehlerraten und Nutzung sowie ein monatlicher schriftlicher Kennzahlenbericht mit Zeitersparnis, Fehlerraten und Nutzung — denselben Zahlen, die der ursprüngliche Business Case versprochen hat. Jeder Bericht kommt mit einem priorisierten Verbesserungs-Backlog, und ein kurzes monatliches Review ist alles, was es Ihr Team an Zeit kostet. Werden Claude-Modelle oder APIs aktualisiert, testen wir Ihre Workflows gegen die Änderungen und passen an, wo nötig — damit Ihre Automatisierungen mit der Plattform Schritt halten, statt still zu degradieren.",
+    solutionDescription: "Managed AI Operations ist Phase 5 der eflury Method™ — Optimierung — als kontinuierlicher Service. Emanuel übernimmt den Betrieb der Automatisierungen, die er gebaut hat: regelmässige Health-Checks, Monitoring von Fehlerraten und Nutzung sowie ein monatlicher schriftlicher Kennzahlenbericht mit Zeitersparnis, Fehlerraten und Nutzung — denselben Zahlen, die der ursprüngliche Business Case versprochen hat. Jeder Bericht kommt mit einem priorisierten Verbesserungs-Backlog, und ein kurzes monatliches Review ist alles, was es Ihr Team an Zeit kostet. Werden Claude-Modelle oder APIs aktualisiert, testet Emanuel Ihre Workflows gegen die Änderungen und passen an, wo nötig — damit Ihre Automatisierungen mit der Plattform Schritt halten, statt still zu degradieren.",
     benefits: [
       {
         "title": "Betriebskompetenz ohne Einstellung",
@@ -602,18 +605,18 @@ export const SERVICES: Service[] = [
       },
       {
         "title": "Ein publizierter Preis",
-        "description": "Der laufende Betrieb startet beim publizierten Extended-Support-Tarif unserer Preisseite: CHF 1’200/Monat mit 4-Stunden-Reaktionszeit und monatlichen Check-ins. Grössere Setups erhalten eine schriftliche Fixofferte."
+        "description": "Der laufende Betrieb startet beim publizierten Extended-Support-Tarif seiner Preisseite: CHF 1’200/Monat mit 4-Stunden-Reaktionszeit und monatlichen Check-ins. Grössere Setups erhalten eine schriftliche Fixofferte."
       },
       {
         "title": "Kein Lock-in, nie",
-        "description": "Die Dokumentation bleibt als Teil des Service aktuell. Sie können den Betrieb jederzeit selbst übernehmen — kein Lock-in ist ein erklärtes Prinzip unserer Methode."
+        "description": "Die Dokumentation bleibt als Teil des Service aktuell. Sie können den Betrieb jederzeit selbst übernehmen — kein Lock-in ist ein erklärtes Prinzip seiner Methode."
       }
     ],
     processTitle: "So läuft der Service",
     processSteps: [
       {
         "title": "Übergabe & Baseline",
-        "description": "Wir dokumentieren den Ist-Zustand und vereinbaren die relevanten Kennzahlen: Zeitersparnis, Fehlerraten, Nutzung — jeden Monat gleich gemessen."
+        "description": "Emanuel dokumentiert den Ist-Zustand und vereinbaren die relevanten Kennzahlen: Zeitersparnis, Fehlerraten, Nutzung — jeden Monat gleich gemessen."
       },
       {
         "title": "Monitoring & Health-Checks",
@@ -625,17 +628,17 @@ export const SERVICES: Service[] = [
       },
       {
         "title": "Verbesserungen & Re-Validierung",
-        "description": "Backlog-Punkte werden zu Fixpreisen umgesetzt; nach Modell- oder API-Updates testen wir Ihre Workflows neu und passen an, wo nötig."
+        "description": "Backlog-Punkte werden zu Fixpreisen umgesetzt; nach Modell- oder API-Updates testet Emanuel Ihre Workflows neu und passen an, wo nötig."
       }
     ],
     faqs: [
       {
         "question": "Was kostet es?",
-        "answer": "Der Ausgangspunkt ist auf unserer Preisseite publiziert: Extended Support für CHF 1’200/Monat, mit 4-Stunden-Reaktionszeit und monatlichen Check-ins. Setups mit mehr Systemen oder strengeren Anforderungen erhalten vor dem Start eine schriftliche Fixofferte — keine Tagessätze, kein offenes Ende."
+        "answer": "Der Ausgangspunkt ist auf seiner Preisseite publiziert: Extended Support für CHF 1’200/Monat, mit 4-Stunden-Reaktionszeit und monatlichen Check-ins. Setups mit mehr Systemen oder strengeren Anforderungen erhalten vor dem Start eine schriftliche Fixofferte — keine Tagessätze, kein offenes Ende."
       },
       {
         "question": "Brauchen wir das überhaupt?",
-        "answer": "Ehrlich: vielleicht nicht. Jedes Projekt übergeben wir mit vollständiger Dokumentation und Team-Schulung, sodass Sie ohne uns betreiben können — das ist unser No-Lock-in-Prinzip. Managed Operations ist für Teams, die die Betriebskompetenz lieber einkaufen als aufbauen. Beides sind saubere Entscheidungen."
+        "answer": "Ehrlich: vielleicht nicht. Jedes Projekt übergebt Emanuel mit vollständiger Dokumentation und Team-Schulung, sodass Sie ohne Emanuel betreiben können — das ist sein No-Lock-in-Prinzip. Managed Operations ist für Teams, die die Betriebskompetenz lieber einkaufen als aufbauen. Beides sind saubere Entscheidungen."
       },
       {
         "question": "Was steht im Monatsbericht?",
@@ -643,19 +646,19 @@ export const SERVICES: Service[] = [
       },
       {
         "question": "Warum brauchen Automatisierungen überhaupt laufende Betreuung?",
-        "answer": "Weil sich ihre Umgebung bewegt: KI-Modelle werden aktualisiert, APIs ändern sich, Ihre Prozesse und Daten entwickeln sich weiter. Ein Workflow, der beim Go-live getestet wurde, kann unter einer neuen Modellversion oder einem geänderten Eingabeformat still degradieren. Re-Validierung nach Plattformänderungen ist genau die Arbeit, die intern nie priorisiert wird — also machen wir sie zu jemandes explizitem Job."
+        "answer": "Weil sich ihre Umgebung bewegt: KI-Modelle werden aktualisiert, APIs ändern sich, Ihre Prozesse und Daten entwickeln sich weiter. Ein Workflow, der beim Go-live getestet wurde, kann unter einer neuen Modellversion oder einem geänderten Eingabeformat still degradieren. Re-Validierung nach Plattformänderungen ist genau die Arbeit, die intern nie priorisiert wird — also macht Emanuel sie zu jemandes explizitem Job."
       },
       {
         "question": "Betreiben Sie auch Systeme, die Sie nicht gebaut haben?",
-        "answer": "Am liebsten betreiben wir, was wir gebaut haben — das kennen wir Zeile für Zeile. Bei bestehenden Claude/MCP-Setups von Dritten starten wir mit einem KI-Audit, um den Ist-Zustand zu dokumentieren; danach ist die Betriebsübernahme meist unkompliziert."
+        "answer": "Am liebsten betreibt Emanuel, was er gebaut hat — das kennt Emanuel Zeile für Zeile. Bei bestehenden Claude/MCP-Setups von Dritten startet Emanuel mit einem KI-Audit, um den Ist-Zustand zu dokumentieren; danach ist die Betriebsübernahme meist unkompliziert."
       },
       {
         "question": "Was passiert im Betrieb mit unseren Daten?",
-        "answer": "Dieselben Regeln wie in jedem Projekt: Ihre Daten bleiben in Ihren Systemen, der Zugriff erfolgt lesend über MCP-Konnektoren, und Änderungen brauchen menschliche Freigabe. Jeder Dienst, auf den wir uns stützen, ist auf unserer Seite Sicherheit & Vertrauen offengelegt."
+        "answer": "Dieselben Regeln wie in jedem Projekt: Ihre Daten bleiben in Ihren Systemen, der Zugriff erfolgt lesend über MCP-Konnektoren, und Änderungen brauchen menschliche Freigabe. Jeder Dienst, auf den er sich stützt, ist auf der Seite Sicherheit & Vertrauen offengelegt."
       }
     ],
     ctaTitle: "Sorgen Sie dafür, dass sich Ihre Automatisierungen weiter verdienen",
-    ctaDescription: "Buchen Sie ein kostenloses 30-Minuten-Gespräch. Wir schauen an, was heute bei Ihnen läuft — und sagen Ihnen ehrlich, ob sich Managed Operations in Ihrem Fall lohnt.",
+    ctaDescription: "Buchen Sie ein kostenloses 30-Minuten-Gespräch. Emanuel schaut an, was heute bei Ihnen läuft — und sagen Ihnen ehrlich, ob sich Managed Operations in Ihrem Fall lohnt.",
     ctaButtonText: "Kostenloses Betriebs-Gespräch buchen",
     relatedCaseStudy: {
       "title": "Power BI Executive Dashboard für ein Dienstleistungsunternehmen",

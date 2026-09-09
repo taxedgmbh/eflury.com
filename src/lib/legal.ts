@@ -20,11 +20,11 @@ export const LEGAL_PAGES = {
   },
   datenschutz: {
     title: 'Datenschutzerklärung',
-    description: 'Wie ich Personendaten bearbeite — nach revDSG und, wo anwendbar, DSGVO.',
+    description: 'Wie Personendaten bearbeitet werden — nach revDSG und, wo anwendbar, DSGVO.',
   },
   nutzungsbedingungen: {
     title: 'Nutzungsbedingungen',
-    description: 'Bedingungen für die Nutzung dieser Website und meiner Leistungen.',
+    description: 'Bedingungen für die Nutzung dieser Website und der angebotenen Leistungen.',
   },
   cookies: {
     title: 'Cookie-Richtlinie',
@@ -36,7 +36,7 @@ export const LEGAL_PAGES = {
   },
   verhaltenskodex: {
     title: 'Verhaltenskodex',
-    description: 'Wie ich arbeite und was Kundinnen und Kunden von mir erwarten können.',
+    description: 'Wie Emanuel Flury arbeitet und was Kundinnen und Kunden von ihm erwarten können.',
   },
 } as const;
 

@@ -23,7 +23,7 @@ export default async function BlogIndex() {
       <div className="mx-auto max-w-5xl px-6 pt-20 pb-10">
         <h1 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">Blog</h1>
         <p className="mt-4 max-w-xl font-serif text-lg leading-relaxed text-[var(--text-muted)]">
-          Was ich in Projekten gelernt habe, aufgeschrieben. Meist zu
+          Was Emanuel Flury in Projekten gelernt hat, aufgeschrieben. Meist zu
           Automatisierung, Power BI und dem, was in Schweizer KMU wirklich
           funktioniert.
         </p>

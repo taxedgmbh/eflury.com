@@ -26,7 +26,7 @@ const LEGAL = [
 ];
 
 const MORE = [
-  { href: '/de/about/', label: 'Über mich' },
+  { href: '/de/about/', label: 'Profil' },
   { href: '/de/methode/', label: 'Methode' },
   { href: '/de/sicherheit/', label: 'Sicherheit' },
   { href: '/de/leitfaeden/', label: 'Leitfäden' },

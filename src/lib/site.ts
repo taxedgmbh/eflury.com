@@ -48,7 +48,7 @@ export const VENTURES = [
     external: true,
     role: 'Gründer',
     place: 'Biel/Bienne',
-    what: 'Treuhand und Buchhaltung für Schweizer KMU. Die Firma, an der ich zuerst ausprobiere, was ich anderen empfehle.',
+    what: 'Treuhand und Buchhaltung für Schweizer KMU. Die Firma, an der er zuerst ausprobiert, was er anderen empfiehlt.',
   },
   {
     id: 'skopa',

@@ -7,7 +7,7 @@ import { homeGraph, jsonLd } from '@/lib/schema';
 export const metadata: Metadata = {
   title: `${PERSON.shortName} — Unternehmer`,
   description:
-    'Emanuel Flury, Unternehmer in Grenchen. Gründer von Taxed GmbH und SkopaAI. Ich baue Firmen, die Routinearbeit an Software abgeben — und begleite Schweizer KMU dabei.',
+    'Emanuel Flury, Unternehmer in Grenchen. Gründer von Taxed GmbH und SkopaAI. Er baut Firmen, die Routinearbeit an Software abgeben — und begleitet Schweizer KMU dabei.',
   alternates: { canonical: '/de/' },
 };
 
@@ -39,9 +39,10 @@ export default async function HomePage() {
           Unternehmer in {ADDRESS.addressLocality}, Kanton Solothurn
         </p>
         <p className="mt-8 max-w-xl font-serif text-lg leading-relaxed">
-          Ich baue Firmen, die Routinearbeit an Software abgeben. Was in meiner
-          eigenen Treuhandfirma funktioniert, gebe ich an andere Schweizer KMU
-          weiter — nicht als Folien, sondern als Prozesse, die laufen.
+          Emanuel Flury baut Firmen, die Routinearbeit an Software abgeben. Was
+          in seiner eigenen Treuhandfirma funktioniert, gibt er an andere
+          Schweizer KMU weiter — nicht als Folien, sondern als Prozesse, die
+          laufen.
         </p>
       </section>
 
@@ -130,7 +131,7 @@ export default async function HomePage() {
           <div className="min-w-0 max-w-lg">
             <p className="font-serif text-lg leading-relaxed">
               Wenn Sie einen Prozess im Kopf haben, der Sie jede Woche Stunden
-              kostet: schreiben Sie mir, was er tut und wie oft. Das reicht für
+              kostet: schreiben Sie ihm, was er tut und wie oft. Das reicht für
               eine erste Einschätzung.
             </p>
             <p className="mt-5">
