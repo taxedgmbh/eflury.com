@@ -1,36 +1,52 @@
 import Link from 'next/link';
-import { PERSON, VENTURES } from '@/lib/site';
+import { PERSON, VENTURES, ADDRESS } from '@/lib/site';
 
 /*
- * Phase 1 chrome: deliberately restrained. The full redesign lands in Phase 2 —
- * this exists so the blog pipeline can be reviewed on a real page rather than on
- * unstyled markup, and so the header/footer contract is settled early.
- *
- * No language switcher: the site is German-only now.
+ * Labels are German; slugs are not. The URLs stay exactly as they are — renaming
+ * a working German URL during a redesign buys nothing and costs a redirect — so
+ * "Leistungen" points at /de/services/ and "Referenzen" at /de/case-studies/.
+ * The vocabulary is lifted from the existing site's own nav.
  */
-
 const NAV = [
-  { href: '/de/', label: 'Start' },
+  { href: '/de/services/', label: 'Leistungen' },
+  { href: '/de/branchen/', label: 'Einsatzbereiche' },
+  { href: '/de/case-studies/', label: 'Referenzen' },
+  { href: '/de/pricing/', label: 'Preise' },
   { href: '/de/blog/', label: 'Blog' },
+  { href: '/de/kontakt/', label: 'Kontakt' },
+];
+
+const LEGAL = [
+  { href: '/de/impressum/', label: 'Impressum' },
+  { href: '/de/datenschutz/', label: 'Datenschutz' },
+  { href: '/de/nutzungsbedingungen/', label: 'Nutzungsbedingungen' },
+  { href: '/de/cookies/', label: 'Cookies' },
+  { href: '/de/haftungsausschluss/', label: 'Haftungsausschluss' },
+  { href: '/de/verhaltenskodex/', label: 'Verhaltenskodex' },
+];
+
+const MORE = [
+  { href: '/de/about/', label: 'Über mich' },
+  { href: '/de/methode/', label: 'Methode' },
+  { href: '/de/sicherheit/', label: 'Sicherheit' },
+  { href: '/de/leitfaeden/', label: 'Leitfäden' },
+  { href: '/de/karriere/', label: 'Karriere' },
 ];
 
 export function Header() {
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-[var(--surface)]/85 backdrop-blur-md">
-      <div className="mx-auto flex h-16 max-w-5xl items-center justify-between px-5">
-        <Link
-          href="/de/"
-          className="text-[0.95rem] font-semibold tracking-tight text-[var(--text)]"
-        >
+    <header className="border-b border-[var(--rule)] bg-[var(--surface)]">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-baseline gap-x-8 gap-y-3 px-6 py-5">
+        <Link href="/de/" className="font-semibold tracking-tight text-[var(--text)]">
           {PERSON.shortName}
         </Link>
-        <nav aria-label="Hauptnavigation">
-          <ul className="flex items-center gap-6 text-sm">
+        <nav aria-label="Hauptnavigation" className="ms-auto">
+          <ul className="flex flex-wrap items-baseline gap-x-6 gap-y-2 text-[0.9375rem]">
             {NAV.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-[var(--text-muted)] transition-colors hover:text-[var(--text)]"
+                  className="text-[var(--text-muted)] underline-offset-4 hover:text-[var(--text)] hover:underline hover:decoration-[var(--accent)]"
                 >
                   {item.label}
                 </Link>
@@ -45,46 +61,79 @@ export function Header() {
 
 export function Footer() {
   return (
-    <footer className="mt-24 border-t border-[var(--border)] bg-[var(--surface-muted)]">
-      <div className="mx-auto max-w-5xl px-5 py-12">
-        <div className="grid gap-10 sm:grid-cols-2">
+    <footer className="mt-28 border-t border-[var(--rule)] bg-[var(--surface-sunken)]">
+      <div className="mx-auto max-w-5xl px-6 py-14">
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-4">
           <div>
-            <p className="text-sm font-semibold text-[var(--text)]">{PERSON.name}</p>
-            <p className="mt-1 text-sm text-[var(--text-muted)]">Grenchen, Schweiz</p>
+            <p className="font-semibold">{PERSON.name}</p>
+            <p className="mt-2 text-sm leading-relaxed text-[var(--text-muted)]">
+              {ADDRESS.streetAddress}
+              <br />
+              {ADDRESS.postalCode} {ADDRESS.addressLocality}
+            </p>
             <p className="mt-3 text-sm">
-              <a
-                href={`mailto:${PERSON.email}`}
-                className="text-[var(--accent)] hover:underline"
-              >
+              <a href={`mailto:${PERSON.email}`} className="text-[var(--link)] hover:underline">
                 {PERSON.email}
+              </a>
+              <br />
+              <a href={`tel:${PERSON.telephone}`} className="text-[var(--text-muted)] hover:text-[var(--text)]">
+                {PERSON.telephoneDisplay}
               </a>
             </p>
           </div>
 
           <div>
-            <p className="text-sm font-semibold text-[var(--text)]">Unternehmen</p>
+            <h2 className="text-sm font-semibold">Unternehmen</h2>
             <ul className="mt-2 space-y-1.5 text-sm">
               {VENTURES.map((v) => (
                 <li key={v.id}>
                   {v.external ? (
                     <a
                       href={v.url}
-                      className="text-[var(--text-muted)] transition-colors hover:text-[var(--text)]"
                       rel="me noopener"
+                      className="text-[var(--text-muted)] hover:text-[var(--text)]"
                     >
-                      {v.name} ↗
+                      {v.name}
                     </a>
                   ) : (
-                    <span className="text-[var(--text-muted)]">{v.name}</span>
+                    <Link href="/de/services/" className="text-[var(--text-muted)] hover:text-[var(--text)]">
+                      {v.name}
+                    </Link>
                   )}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-sm font-semibold">Mehr</h2>
+            <ul className="mt-2 space-y-1.5 text-sm">
+              {MORE.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-[var(--text-muted)] hover:text-[var(--text)]">
+                    {l.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <div>
+            <h2 className="text-sm font-semibold">Rechtliches</h2>
+            <ul className="mt-2 space-y-1.5 text-sm">
+              {LEGAL.map((l) => (
+                <li key={l.href}>
+                  <Link href={l.href} className="text-[var(--text-muted)] hover:text-[var(--text)]">
+                    {l.label}
+                  </Link>
                 </li>
               ))}
             </ul>
           </div>
         </div>
 
-        <p className="mt-10 text-xs text-[var(--text-muted)]">
-          © {new Date().getFullYear()} {PERSON.name}
+        <p className="mt-12 border-t border-[var(--rule)] pt-6 text-sm text-[var(--text-faint)]">
+          © {new Date().getFullYear()} {PERSON.name}, {ADDRESS.addressLocality}
         </p>
       </div>
     </footer>

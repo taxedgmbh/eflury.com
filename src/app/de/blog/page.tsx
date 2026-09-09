@@ -6,7 +6,7 @@ import { blogIndexGraph, jsonLd } from '@/lib/schema';
 export const metadata: Metadata = {
   title: 'Blog',
   description:
-    'Beiträge zu KI-Automatisierung, Power BI und Prozessoptimierung für Schweizer KMU.',
+    'Beiträge zu KI-Automatisierung, Power BI und Prozessen in Schweizer KMU — aus der Praxis, mit Zahlen.',
   alternates: { canonical: '/de/blog/' },
 };
 
@@ -20,39 +20,46 @@ export default async function BlogIndex() {
         dangerouslySetInnerHTML={{ __html: jsonLd(blogIndexGraph()) }}
       />
 
-      <div className="mx-auto max-w-3xl px-5 pt-16 pb-8">
-        <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">Blog</h1>
-        <p className="mt-3 text-[var(--text-muted)]">
-          {posts.length} Beiträge zu KI-Automatisierung, Power BI und Prozessen in
-          Schweizer KMU.
+      <div className="mx-auto max-w-5xl px-6 pt-20 pb-10">
+        <h1 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">Blog</h1>
+        <p className="mt-4 max-w-xl font-serif text-lg leading-relaxed text-[var(--text-muted)]">
+          Was ich in Projekten gelernt habe, aufgeschrieben. Meist zu
+          Automatisierung, Power BI und dem, was in Schweizer KMU wirklich
+          funktioniert.
         </p>
       </div>
 
-      <ul className="mx-auto max-w-3xl divide-y divide-[var(--border)] border-t border-[var(--border)] px-5">
-        {posts.map((post) => (
-          <li key={post.slug}>
-            <Link href={`/de/blog/${post.slug}/`} className="group block py-6">
-              <h2 className="text-lg font-medium tracking-tight group-hover:text-[var(--accent)]">
-                {post.title}
-              </h2>
-              <p className="mt-2 text-sm text-[var(--text-muted)]">{post.description}</p>
-              <p className="mt-3 flex flex-wrap items-center gap-x-2 text-xs text-[var(--text-muted)]">
-                <time dateTime={post.pubDate.toISOString()}>{formatDate(post.pubDate)}</time>
-                <span aria-hidden>·</span>
-                <span>{readingTime(post.body)} Min. Lesezeit</span>
-                {post.tags.slice(0, 2).map((t) => (
-                  <span
-                    key={t}
-                    className="rounded-full border border-[var(--border)] px-2 py-0.5"
-                  >
-                    {t}
+      {/*
+        The rail carries publication dates here, which are genuinely ordinal —
+        so the tick reads as a mark on a scale rather than as decoration. On the
+        home page the same rail carries roles, and deliberately has no ticks.
+      */}
+      <div className="mx-auto max-w-5xl px-6">
+        <ul className="border-t border-[var(--rule-strong)]">
+          {posts.map((post) => (
+            <li key={post.slug} className="border-b border-[var(--rule)]">
+              <Link href={`/de/blog/${post.slug}/`} className="rail group py-7">
+                <p className="rail-tick">
+                  <time dateTime={post.pubDate.toISOString()}>
+                    {formatDate(post.pubDate)}
+                  </time>
+                  <span className="block text-[var(--text-faint)]">
+                    {readingTime(post.body)} Min.
                   </span>
-                ))}
-              </p>
-            </Link>
-          </li>
-        ))}
-      </ul>
+                </p>
+                <div className="min-w-0">
+                  <h2 className="max-w-2xl font-serif text-xl leading-snug font-medium group-hover:text-[var(--link)]">
+                    {post.title}
+                  </h2>
+                  <p className="mt-2 max-w-2xl leading-relaxed text-[var(--text-muted)]">
+                    {post.description}
+                  </p>
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </div>
     </>
   );
 }

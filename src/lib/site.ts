@@ -42,20 +42,13 @@ export const ADDRESS = {
  */
 export const VENTURES = [
   {
-    id: 'eflury',
-    name: 'eFlury Consulting',
-    url: SITE_URL,
-    external: false,
-    role: 'Inhaber',
-    tagline: 'KI-Automatisierung für Schweizer KMU.',
-  },
-  {
     id: 'taxed',
     name: 'Taxed GmbH',
     url: 'https://taxed.ch',
     external: true,
     role: 'Gründer',
-    tagline: 'Treuhand und Buchhaltung, weitgehend automatisiert.',
+    place: 'Biel/Bienne',
+    what: 'Treuhand und Buchhaltung für Schweizer KMU. Die Firma, an der ich zuerst ausprobiere, was ich anderen empfehle.',
   },
   {
     id: 'skopa',
@@ -63,7 +56,17 @@ export const VENTURES = [
     url: 'https://skopa.ai',
     external: true,
     role: 'Gründer',
-    tagline: 'Vorkonfigurierte KI-Assistenz, einsatzbereit ab Werk.',
+    place: 'Grenchen',
+    what: 'Vorkonfigurierte KI-Assistenz als Gerät. Auspacken, anschliessen, per Nachricht bedienen.',
+  },
+  {
+    id: 'eflury',
+    name: 'eFlury Consulting',
+    url: SITE_URL,
+    external: false,
+    role: 'Inhaber',
+    place: 'Grenchen',
+    what: 'Beratung und Umsetzung: Prozesse, die ohne tägliches Zutun laufen.',
   },
 ] as const;
 

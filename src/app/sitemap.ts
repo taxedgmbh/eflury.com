@@ -2,6 +2,7 @@ import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site';
 import { STATIC_ROUTES, SITEMAP_EXCLUDE } from '@/lib/routes';
 import { getAllPosts } from '@/lib/content';
+import { SERVICES } from '@/data/services';
 
 /*
  * Generated, not hand-written. The Astro sitemap was a literal array that rotted
@@ -26,5 +27,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.6,
   }));
 
-  return [...staticEntries, ...postEntries];
+  const serviceEntries = SERVICES.map((s) => ({
+    url: `${SITE_URL}/de/services/${s.slug}/`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.7,
+  }));
+
+  return [...staticEntries, ...serviceEntries, ...postEntries];
 }

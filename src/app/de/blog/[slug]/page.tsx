@@ -85,49 +85,56 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         dangerouslySetInnerHTML={{ __html: jsonLd(blogPostGraph(post)) }}
       />
 
-      <article className="mx-auto max-w-3xl px-5 pt-12 pb-16">
-        <nav aria-label="Brotkrumen" className="text-sm text-[var(--text-muted)]">
-          <Link href="/de/blog/" className="hover:text-[var(--text)]">
-            ← Blog
+      <article className="mx-auto max-w-5xl px-6 pt-12 pb-16">
+        <nav aria-label="Brotkrumen" className="text-sm">
+          <Link href="/de/blog/" className="text-[var(--text-muted)] hover:text-[var(--text)]">
+            Blog
           </Link>
         </nav>
 
-        <header className="mt-6">
-          <h1 className="text-3xl font-semibold tracking-tight sm:text-4xl">{post.title}</h1>
-          <p className="mt-4 text-lg text-[var(--text-muted)]">{post.description}</p>
-          <p className="mt-5 flex flex-wrap items-center gap-x-2 border-t border-[var(--border)] pt-5 text-sm text-[var(--text-muted)]">
-            <span>{post.author}</span>
-            <span aria-hidden>·</span>
-            <time dateTime={post.pubDate.toISOString()}>{formatDate(post.pubDate)}</time>
-            <span aria-hidden>·</span>
-            <span>{readingTime(post.body)} Min. Lesezeit</span>
+        <header className="mt-8 border-b border-[var(--rule-strong)] pb-8">
+          <h1 className="max-w-3xl font-serif text-[2.1rem] leading-[1.15] font-medium tracking-[-0.02em] sm:text-[2.6rem]">
+            {post.title}
+          </h1>
+          <p className="mt-5 max-w-2xl font-serif text-lg leading-relaxed text-[var(--text-muted)]">
+            {post.description}
           </p>
-          {post.updatedDate ? (
-            <p className="mt-1 text-sm text-[var(--text-muted)]">
-              Aktualisiert am{' '}
-              <time dateTime={post.updatedDate.toISOString()}>
-                {formatDate(post.updatedDate)}
-              </time>
+          <div className="rail mt-8">
+            <p className="rail-tick">
+              <time dateTime={post.pubDate.toISOString()}>{formatDate(post.pubDate)}</time>
+              <span className="block text-[var(--text-faint)]">
+                {readingTime(post.body)} Min.
+              </span>
             </p>
-          ) : null}
+            <p className="text-sm text-[var(--text-muted)]">
+              {post.author}
+              {post.updatedDate ? (
+                <span className="block text-[var(--text-faint)]">
+                  Aktualisiert am{' '}
+                  <time dateTime={post.updatedDate.toISOString()}>
+                    {formatDate(post.updatedDate)}
+                  </time>
+                </span>
+              ) : null}
+            </p>
+          </div>
         </header>
 
-        <div className="prose-de mt-10">
+        <div className="prose-de mt-12">
           <MDXRemote source={post.body} options={mdxOptions} />
         </div>
 
         {post.tags.length > 0 ? (
-          <ul className="mt-12 flex flex-wrap gap-2 border-t border-[var(--border)] pt-6">
-            {post.tags.map((t) => (
-              <li
-                key={t}
-                className="rounded-full border border-[var(--border)] px-3 py-1 text-xs text-[var(--text-muted)]"
-              >
-                {t}
-              </li>
-            ))}
-          </ul>
+          <div className="rail mt-16 border-t border-[var(--rule)] pt-6">
+            <h2 className="rail-label">Themen</h2>
+            <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-[var(--text-muted)]">
+              {post.tags.map((t) => (
+                <li key={t}>{t}</li>
+              ))}
+            </ul>
+          </div>
         ) : null}
+
       </article>
     </>
   );

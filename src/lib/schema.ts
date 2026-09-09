@@ -56,7 +56,7 @@ function identityNodes(): Node[] {
     '@id': ID.org(v.id),
     name: v.name,
     url: v.url,
-    description: v.tagline,
+    description: v.what,
     founder: { '@id': ID.person },
   }));
 
@@ -137,6 +137,87 @@ export function blogPostGraph(post: Post) {
       { name: 'Start', path: '/de/' },
       { name: 'Blog', path: '/de/blog/' },
       { name: post.title, path: `/de/blog/${post.slug}/` },
+    ])
+  );
+}
+
+export function servicesIndexGraph() {
+  return graph(
+    {
+      '@type': 'CollectionPage',
+      '@id': `${SITE_URL}/de/services/#page`,
+      url: `${SITE_URL}/de/services/`,
+      name: 'Leistungen',
+      isPartOf: { '@id': ID.website },
+      inLanguage: DEFAULT_LOCALE,
+    },
+    breadcrumbs([
+      { name: 'Start', path: '/de/' },
+      { name: 'Leistungen', path: '/de/services/' },
+    ])
+  );
+}
+
+/**
+ * FAQPage is emitted only when the service actually renders those questions.
+ * The Astro site put a global English FAQPage in MainLayout on every page,
+ * which both collided with the per-service one and shipped English markup on
+ * German URLs.
+ */
+export function serviceGraph(service: {
+  slug: string;
+  serviceType: string;
+  heroTitle: string;
+  metaDescription: string;
+  faqs: { question: string; answer: string }[];
+}) {
+  const url = `${SITE_URL}/de/services/${service.slug}/`;
+  const nodes: Node[] = [
+    {
+      '@type': 'Service',
+      '@id': `${url}#service`,
+      url,
+      name: service.serviceType,
+      description: service.metaDescription,
+      provider: { '@id': ID.org('eflury') },
+      areaServed: { '@type': 'Country', name: 'Schweiz' },
+      inLanguage: DEFAULT_LOCALE,
+    },
+    breadcrumbs([
+      { name: 'Start', path: '/de/' },
+      { name: 'Leistungen', path: '/de/services/' },
+      { name: service.serviceType, path: `/de/services/${service.slug}/` },
+    ]),
+  ];
+
+  if (service.faqs.length > 0) {
+    nodes.push({
+      '@type': 'FAQPage',
+      '@id': `${url}#faq`,
+      mainEntity: service.faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    });
+  }
+
+  return graph(...nodes);
+}
+
+export function legalGraph(slug: string, title: string) {
+  return graph(
+    {
+      '@type': 'WebPage',
+      '@id': `${SITE_URL}/de/${slug}/#page`,
+      url: `${SITE_URL}/de/${slug}/`,
+      name: title,
+      isPartOf: { '@id': ID.website },
+      inLanguage: DEFAULT_LOCALE,
+    },
+    breadcrumbs([
+      { name: 'Start', path: '/de/' },
+      { name: title, path: `/de/${slug}/` },
     ])
   );
 }
