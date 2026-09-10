@@ -1,0 +1,203 @@
+/**
+ * Homepage hero visual, ported from HeroBrandIllustration.astro.
+ *
+ * Emanuel built this: the eFlury circuit-E orchestrating the business — circuit
+ * traces echoing the logo's own line-and-node language run from inputs to
+ * approved outcomes, work items flow in, the engine pulses, outcomes complete.
+ * The first rebuild dropped it and substituted generic icons, which is a large
+ * part of why the page stopped looking like eflury.com.
+ *
+ * Carried over as-is rather than redrawn. Only the attribute names change, to
+ * JSX camelCase; the geometry, timing and token names are untouched, so it still
+ * responds to the theme and still disables its motion under
+ * prefers-reduced-motion.
+ */
+export function HeroBrandIllustration() {
+  return (
+    <>
+      <style>{`.hero-brand {
+    display: block;
+    width: 100%;
+    height: auto;
+    border-radius: 24px;
+  }
+
+  @media (prefers-reduced-motion: no-preference) {
+    .pulse-ring {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: hb-pulse 3.6s ease-in-out infinite;
+    }
+
+    .report-bar {
+      transform-box: fill-box;
+      transform-origin: left center;
+      animation: hb-fill 4.8s ease-in-out infinite;
+    }
+
+    .bar {
+      transform-box: fill-box;
+      transform-origin: center bottom;
+      animation: hb-breathe 3.2s ease-in-out infinite alternate;
+    }
+
+    .bar-2 { animation-delay: 0.5s; }
+    .bar-3 { animation-delay: 1s; }
+
+    .check-draw {
+      stroke-dasharray: 26;
+      animation: hb-check 4.8s ease-in-out infinite;
+    }
+  }
+
+  /* the flowing dots are SMIL-driven; remove them entirely for reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .flow-dots {
+      display: none;
+    }
+  }
+
+  @keyframes hb-pulse {
+    0%, 100% { transform: scale(1); opacity: 0; }
+    50% { transform: scale(1.045); opacity: 0.55; }
+  }
+
+  @keyframes hb-fill {
+    0% { transform: scaleX(0.3); }
+    55% { transform: scaleX(1); }
+    88% { transform: scaleX(1); }
+    100% { transform: scaleX(0.3); }
+  }
+
+  @keyframes hb-breathe {
+    from { transform: scaleY(0.82); }
+    to { transform: scaleY(1); }
+  }
+
+  @keyframes hb-check {
+    0% { stroke-dashoffset: 26; }
+    30% { stroke-dashoffset: 0; }
+    88% { stroke-dashoffset: 0; }
+    100% { stroke-dashoffset: 26; }
+  }`}</style>
+      <svg viewBox="0 0 600 440" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="eFlury Consulting — AI automation, orchestrated" className="hero-brand">
+        <defs>
+          <radialGradient id="hb-wash" cx="50%" cy="40%" r="70%">
+            <stop offset="0%" stopColor="var(--eflury-teal)" stopOpacity="0.16" />
+            <stop offset="100%" stopColor="var(--eflury-teal)" stopOpacity="0" />
+          </radialGradient>
+        </defs>
+
+        {/*panel: a crisp product card in both themes */}
+        <rect x="0" y="0" width="600" height="440" rx="24" fill="var(--card-bg)" />
+        <rect x="0" y="0" width="600" height="440" rx="24" fill="url(#hb-wash)" />
+        <rect x="0.75" y="0.75" width="598.5" height="438.5" rx="23.25" stroke="var(--border-color)" strokeWidth="1.5" />
+
+        {/*circuit traces: logo-style lines ending in node dots */}
+        <g stroke="var(--eflury-teal)" strokeWidth="3" strokeLinecap="round" opacity="0.9">
+          <path d="M225 145 L 176 122" />
+          <path d="M221 190 L 168 190" />
+          <path d="M225 235 L 176 258" />
+          <path d="M375 145 L 424 122" />
+          <path d="M379 190 L 432 190" />
+          <path d="M375 235 L 424 258" />
+        </g>
+        <g fill="var(--eflury-teal)">
+          <circle cx="170" cy="119" r="6" />
+          <circle cx="161" cy="190" r="6" />
+          <circle cx="170" cy="261" r="6" />
+          <circle cx="430" cy="119" r="6" />
+          <circle cx="439" cy="190" r="6" />
+          <circle cx="430" cy="261" r="6" />
+        </g>
+
+        {/*work items flowing in and results flowing out (hidden under reduced motion) */}
+        <g className="flow-dots" fill="var(--eflury-blue)">
+          <circle r="4.5" opacity="0">
+            <animateMotion path="M170,119 L232,150" dur="2.4s" begin="0s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.15;0.8;1" dur="2.4s" begin="0s" repeatCount="indefinite" />
+          </circle>
+          <circle r="4.5" opacity="0">
+            <animateMotion path="M161,190 L228,190" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.15;0.8;1" dur="2.4s" begin="0.8s" repeatCount="indefinite" />
+          </circle>
+          <circle r="4.5" opacity="0">
+            <animateMotion path="M170,261 L232,232" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;0.9;0.9;0" keyTimes="0;0.15;0.8;1" dur="2.4s" begin="1.6s" repeatCount="indefinite" />
+          </circle>
+        </g>
+        <g className="flow-dots" fill="var(--eflury-teal)">
+          <circle r="4.5" opacity="0">
+            <animateMotion path="M368,150 L430,119" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.15;0.8;1" dur="2.4s" begin="1.2s" repeatCount="indefinite" />
+          </circle>
+          <circle r="4.5" opacity="0">
+            <animateMotion path="M372,190 L439,190" dur="2.4s" begin="2s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.15;0.8;1" dur="2.4s" begin="2s" repeatCount="indefinite" />
+          </circle>
+          <circle r="4.5" opacity="0">
+            <animateMotion path="M368,232 L430,261" dur="2.4s" begin="2.8s" repeatCount="indefinite" />
+            <animate attributeName="opacity" values="0;0.95;0.95;0" keyTimes="0;0.15;0.8;1" dur="2.4s" begin="2.8s" repeatCount="indefinite" />
+          </circle>
+        </g>
+
+        {/*left chips: inputs */}
+        <g>
+          <rect x="30" y="88" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" strokeWidth="1.5" />
+          <rect x="46" y="104" width="34" height="26" rx="5" stroke="var(--eflury-teal)" strokeWidth="2.4" fill="none" />
+          <path d="M46 108 L 63 121 L 80 108" stroke="var(--eflury-teal)" strokeWidth="2.4" fill="none" strokeLinecap="round" strokeLinejoin="round" />
+          <rect x="92" y="107" width="52" height="9" rx="4.5" fill="var(--eflury-blue)" opacity="0.7" />
+          <rect x="92" y="124" width="40" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.5" />
+        </g>
+        <g>
+          <rect x="22" y="159" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" strokeWidth="1.5" />
+          <text x="40" y="197" fontSize="15" fontWeight="800" fill="var(--text-secondary)" fontFamily="inherit">PDF</text>
+          <rect x="82" y="175" width="54" height="9" rx="4.5" fill="var(--eflury-navy)" opacity="0.6" />
+          <rect x="82" y="192" width="42" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.5" />
+        </g>
+        <g>
+          <rect x="30" y="230" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" strokeWidth="1.5" />
+          <rect x="46" y="246" width="26" height="32" rx="4" fill="none" stroke="var(--eflury-blue)" strokeWidth="2.4" />
+          <path d="M52 256 L 66 256 M52 264 L 66 264" stroke="var(--eflury-blue)" strokeWidth="2" strokeLinecap="round" />
+          <rect x="84" y="249" width="58" height="9" rx="4.5" fill="var(--eflury-teal)" opacity="0.65" />
+          <rect x="84" y="266" width="44" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.5" />
+        </g>
+
+        {/*right chips: outcomes */}
+        <g>
+          <rect x="442" y="88" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" strokeWidth="1.5" />
+          <rect className="bar bar-1" x="458" y="126" width="14" height="14" rx="3" fill="var(--eflury-teal)" opacity="0.9" />
+          <rect className="bar bar-2" x="478" y="112" width="14" height="28" rx="3" fill="var(--eflury-navy)" opacity="0.75" />
+          <rect className="bar bar-3" x="498" y="102" width="14" height="38" rx="3" fill="var(--eflury-blue)" opacity="0.85" />
+          <rect x="522" y="108" width="32" height="9" rx="4.5" fill="var(--text-tertiary)" opacity="0.5" />
+        </g>
+        <g>
+          <rect x="450" y="159" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" strokeWidth="1.5" />
+          <rect x="466" y="175" width="66" height="9" rx="4.5" fill="var(--text-tertiary)" opacity="0.55" />
+          <rect className="report-bar" x="466" y="193" width="96" height="12" rx="6" fill="var(--eflury-teal)" opacity="0.85" />
+        </g>
+        <g>
+          <rect x="442" y="230" width="128" height="62" rx="14" fill="var(--bg-secondary)" stroke="var(--border-color)" strokeWidth="1.5" />
+          <circle cx="470" cy="261" r="15" fill="var(--success-50)" stroke="var(--eflury-teal)" strokeWidth="2.4" />
+          <path className="check-draw" d="M463 261 L 468 266 L 478 255.5" stroke="var(--teal-text)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+          <rect x="494" y="248" width="60" height="9" rx="4.5" fill="var(--eflury-navy)" opacity="0.6" />
+          <rect x="494" y="266" width="46" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.5" />
+        </g>
+
+        {/*center: the brand mark on its plate */}
+        <rect className="pulse-ring" x="217" y="107" width="166" height="166" rx="36" stroke="var(--eflury-teal)" strokeWidth="2" fill="none" opacity="0" />
+        <g>
+          <rect x="225" y="115" width="150" height="150" rx="32" fill="#fff" stroke="var(--eflury-teal)" strokeWidth="3" />
+          <image href="/images/favicon-tab.png" x="240" y="130" width="120" height="120" />
+        </g>
+
+        {/*wordmark */}
+        <text x="300" y="330" textAnchor="middle" fontSize="27" fontWeight="800" fill="var(--eflury-navy)" fontFamily="inherit" letterSpacing="-0.01em">eFlury <tspan fill="var(--eflury-teal)">Consulting</tspan></text>
+        <text x="300" y="362" textAnchor="middle" fontSize="15" fontWeight="600" fill="var(--text-secondary)" fontFamily="inherit" letterSpacing="0.06em">ADVISE · BUILD · RUN</text>
+
+        {/*grounding line */}
+        <line x1="240" y1="396" x2="360" y2="396" stroke="var(--eflury-teal)" strokeWidth="2.5" strokeLinecap="round" opacity="0.5" />
+      </svg>
+    </>
+  );
+}

@@ -10,6 +10,8 @@ import { SERVICES } from '@/data/services';
 import { getAllPosts, formatDate } from '@/lib/content';
 import { homeGraph, jsonLd } from '@/lib/schema';
 import { Section, SectionHeading, Card, IconTile, Pill, Stat, Button } from '@/components/ui';
+import { HeroBrandIllustration } from '@/components/HeroBrandIllustration';
+import { TechPartners } from '@/components/TechPartners';
 
 export const metadata: Metadata = {
   title: `${PERSON.shortName} — Unternehmer`,
@@ -109,23 +111,30 @@ export default async function HomePage() {
           aria-hidden
           className="pointer-events-none absolute inset-0 bg-[radial-gradient(ellipse_at_72%_-10%,color-mix(in_srgb,var(--accent)_16%,transparent),transparent_62%)]"
         />
-        <div className="relative mx-auto max-w-6xl px-6 pt-20 pb-16 sm:pt-28 sm:pb-20">
-          <Pill icon={Award}>Enterprise-Methoden, KMU-Preise</Pill>
-          <h1 className="mt-6 max-w-4xl text-[2.6rem] leading-[1.05] font-bold tracking-[-0.035em] sm:text-[3.75rem]">
-            KI-Automatisierung für Schweizer KMU. Strategisch geplant. Praktisch umgesetzt.
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
-            Emanuel Flury bringt die Automatisierungsstrategien von Fortune-500-Unternehmen
-            zu Ihrem KMU — ohne Enterprise-Budget. Vom KI-Audit mit ehrlichem Go/No-Go bis
-            zum betreuten Betrieb: Fixpreise, dokumentierte Projekte, messbare Stunden.
-          </p>
-          <div className="mt-9 flex flex-wrap items-center gap-3">
-            <Button href="/de/kontakt/">Kostenloses Strategiegespräch</Button>
-            <Button href="/de/methode/" variant="ghost">Methode entdecken</Button>
+        <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pt-20 pb-16 sm:pt-24 sm:pb-20 lg:grid-cols-[1.05fr_1fr]">
+          <div>
+            <Pill icon={Award}>Enterprise-Methoden, KMU-Preise</Pill>
+            <h1 className="mt-6 text-[2.4rem] leading-[1.06] font-bold tracking-[-0.035em] sm:text-[3.35rem]">
+              KI-Automatisierung für Schweizer KMU. Strategisch geplant. Praktisch umgesetzt.
+            </h1>
+            <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--text-muted)]">
+              Emanuel Flury bringt die Automatisierungsstrategien von Fortune-500-Unternehmen
+              zu Ihrem KMU — ohne Enterprise-Budget. Vom KI-Audit mit ehrlichem Go/No-Go bis
+              zum betreuten Betrieb: Fixpreise, dokumentierte Projekte, messbare Stunden.
+            </p>
+            <div className="mt-9 flex flex-wrap items-center gap-3">
+              <Button href="/de/kontakt/">Kostenloses Strategiegespräch</Button>
+              <Button href="/de/methode/" variant="ghost">Methode entdecken</Button>
+            </div>
+            <p className="mt-4 text-sm text-[var(--text-faint)]">
+              Unverbindlich, 30 Minuten, vertraulich
+            </p>
           </div>
-          <p className="mt-4 text-sm text-[var(--text-faint)]">
-            Unverbindlich, 30 Minuten, vertraulich
-          </p>
+
+          {/* Emanuel's own hero artwork, not a stock illustration. */}
+          <div className="lg:pl-4">
+            <HeroBrandIllustration />
+          </div>
         </div>
       </section>
 
@@ -157,6 +166,10 @@ export default async function HomePage() {
         <div className="mt-12 flex flex-wrap justify-center gap-3">
           <Pill icon={ShieldCheck}>Schweizer Datenschutz</Pill>
           <Pill icon={Award}>Fortune 500 Erfahrung</Pill>
+        </div>
+
+        <div className="mt-14 border-t border-[var(--rule)] pt-12">
+          <TechPartners />
         </div>
       </Section>
 

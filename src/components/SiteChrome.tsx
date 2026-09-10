@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { PERSON, VENTURES, ADDRESS } from '@/lib/site';
 
 /*
@@ -37,8 +38,23 @@ export function Header() {
   return (
     <header className="border-b border-[var(--rule)] bg-[var(--surface)]">
       <div className="mx-auto flex max-w-5xl flex-wrap items-baseline gap-x-8 gap-y-3 px-6 py-5">
-        <Link href="/de/" className="font-semibold tracking-tight text-[var(--text)]">
-          {PERSON.shortName}
+        {/*
+          The brand mark eflury.com already uses. Kept alongside the person's
+          name rather than the "eFlury Consulting" wordmark, since the site is
+          now the umbrella for all three ventures rather than the consultancy.
+        */}
+        <Link href="/de/" className="flex items-center gap-2.5">
+          <Image
+            src="/images/favicon-tab.png"
+            alt=""
+            width={30}
+            height={30}
+            className="rounded-md"
+            priority
+          />
+          <span className="font-semibold tracking-tight text-[var(--text)]">
+            {PERSON.shortName}
+          </span>
         </Link>
         <nav aria-label="Hauptnavigation" className="ms-auto">
           <ul className="flex flex-wrap items-baseline gap-x-6 gap-y-2 text-[0.9375rem]">

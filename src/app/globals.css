@@ -53,6 +53,22 @@
   --accent-text: #0b7c72;
   /* Brand blue darkened to 5.78:1 for links. */
   --link: #1364a0;
+
+  /*
+   * Aliases for the hero illustration, which Emanuel authored against the Astro
+   * stylesheet's token names. Aliasing is safer than rewriting 150 lines of
+   * hand-tuned SVG, and it keeps the artwork theme-aware for free.
+   */
+  --eflury-teal: var(--accent);
+  --eflury-blue: #1490d0;
+  --eflury-navy: #022554;
+  --card-bg: var(--surface-raised);
+  --border-color: var(--rule);
+  --bg-secondary: var(--surface);
+  --text-secondary: var(--text-muted);
+  --text-tertiary: var(--text-faint);
+  --teal-text: var(--accent-text);
+  --success-50: #eefaf7;
 }
 
 [data-theme='dark'] {
@@ -69,6 +85,17 @@
   --accent: #14b8a6;
   --accent-text: #14b8a6;
   --link: #5ab8e8;
+
+  --eflury-teal: var(--accent);
+  --eflury-blue: #5ab8e8;
+  --eflury-navy: #e8eef6;
+  --card-bg: var(--surface-raised);
+  --border-color: var(--rule);
+  --bg-secondary: var(--surface-sunken);
+  --text-secondary: var(--text-muted);
+  --text-tertiary: var(--text-faint);
+  --teal-text: var(--accent-text);
+  --success-50: #0d2b2a;
 }
 
 @layer base {
