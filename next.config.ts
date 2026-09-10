@@ -54,6 +54,24 @@ const nextConfig: NextConfig = {
   async headers() {
     return [
       {
+        /*
+         * Keep the App Hosting preview host out of the index.
+         *
+         * Until DNS moves, this backend and eflury.com serve *different* sites,
+         * and every page here canonicalises to eflury.com — which is still the
+         * Astro build. Left indexable that is a duplicate-content signal
+         * pointing at content that does not match.
+         *
+         * Scoped to *.hosted.app by host, so it stops applying by itself once
+         * the custom domain is attached. robots.txt cannot express this: it is
+         * generated at build time and the backend builds with
+         * NEXT_PUBLIC_ENV=production, which is correct for the real domain.
+         */
+        source: '/:path*',
+        has: [{ type: 'host', value: '(?<preview>.*\\.hosted\\.app)' }],
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      {
         // Must never be cached: the tombstone has to reach clients promptly.
         source: '/sw.js',
         headers: [
