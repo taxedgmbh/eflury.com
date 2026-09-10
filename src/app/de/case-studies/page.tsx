@@ -31,7 +31,7 @@ export default function CaseStudiesIndex() {
       />
       <div className="mx-auto max-w-5xl px-6 pt-20 pb-10">
         <h1 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">Referenzen</h1>
-        <p className="mt-5 max-w-2xl font-serif text-lg leading-relaxed text-[var(--text-muted)]">
+        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
           Vier Projekte, jeweils mit dem, was vorher war, was gebaut wurde und was
           messbar herauskam. Das erste ist die eigene Firma.
         </p>
@@ -46,7 +46,7 @@ export default function CaseStudiesIndex() {
                   <h2 className="text-xl font-semibold tracking-tight group-hover:text-[var(--link)]">
                     {a.title}
                   </h2>
-                  <p className="mt-2 max-w-2xl font-serif leading-relaxed text-[var(--text-muted)]">
+                  <p className="mt-2 max-w-2xl leading-relaxed text-[var(--text-muted)]">
                     {a.description}
                   </p>
                 </div>

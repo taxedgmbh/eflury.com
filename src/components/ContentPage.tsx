@@ -15,7 +15,7 @@ export async function ContentPage({ page }: { page: ContentPageKey }) {
         <header className="border-b border-[var(--rule-strong)] pb-8">
           <h1 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">{meta.title}</h1>
           {'standfirst' in meta && meta.standfirst ? (
-            <p className="mt-5 max-w-2xl font-serif text-lg leading-relaxed text-[var(--text-muted)]">
+            <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
               {meta.standfirst}
             </p>
           ) : null}

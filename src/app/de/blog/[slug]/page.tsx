@@ -93,10 +93,10 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         </nav>
 
         <header className="mt-8 border-b border-[var(--rule-strong)] pb-8">
-          <h1 className="max-w-3xl font-serif text-[2.1rem] leading-[1.15] font-medium tracking-[-0.02em] sm:text-[2.6rem]">
+          <h1 className="max-w-3xl text-[2.1rem] leading-[1.15] font-medium tracking-[-0.02em] sm:text-[2.6rem]">
             {post.title}
           </h1>
-          <p className="mt-5 max-w-2xl font-serif text-lg leading-relaxed text-[var(--text-muted)]">
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
             {post.description}
           </p>
           <div className="rail mt-8">

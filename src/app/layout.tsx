@@ -1,7 +1,6 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import './globals.css';
-import { sans, serif } from './fonts';
 import { SITE_URL, PERSON, GA_ID, IS_PRODUCTION } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -57,7 +56,7 @@ const SW_KILL = `if('serviceWorker' in navigator){navigator.serviceWorker.getReg
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" className={`${sans.variable} ${serif.variable}`} suppressHydrationWarning>
+    <html lang="de" suppressHydrationWarning>
       <head>
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>

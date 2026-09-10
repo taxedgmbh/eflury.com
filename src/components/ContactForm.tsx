@@ -63,7 +63,7 @@ export function ContactForm() {
   if (status === 'sent') {
     return (
       <div className="max-w-xl border-t border-[var(--rule-strong)] pt-6">
-        <p className="font-serif text-lg leading-relaxed">
+        <p className="text-lg leading-relaxed">
           Danke — die Nachricht ist angekommen. Emanuel meldet sich innert 24 Stunden.
         </p>
       </div>

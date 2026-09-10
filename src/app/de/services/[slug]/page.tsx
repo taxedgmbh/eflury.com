@@ -57,7 +57,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <h1 className="mt-3 max-w-3xl text-[2.2rem] leading-[1.1] font-semibold tracking-[-0.028em] sm:text-[3rem]">
             {service.heroTitle}
           </h1>
-          <p className="mt-6 max-w-2xl font-serif text-lg leading-relaxed text-[var(--text-muted)]">
+          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
             {service.heroDescription}
           </p>
         </header>
@@ -69,12 +69,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             Ausgangslage
           </h2>
           <div className="min-w-0">
-            <p className="max-w-2xl font-serif text-xl leading-snug">{service.problemTitle}</p>
+            <p className="max-w-2xl text-xl leading-snug">{service.problemTitle}</p>
             <ul className="mt-6 max-w-2xl border-t border-[var(--rule)]">
               {service.problems.map((p) => (
                 <li
                   key={p}
-                  className="border-b border-[var(--rule)] py-3.5 font-serif leading-relaxed text-[var(--text-muted)]"
+                  className="border-b border-[var(--rule)] py-3.5 leading-relaxed text-[var(--text-muted)]"
                 >
                   {p}
                 </li>
@@ -90,8 +90,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             Ansatz
           </h2>
           <div className="min-w-0">
-            <p className="max-w-2xl font-serif text-xl leading-snug">{service.solutionTitle}</p>
-            <p className="mt-5 max-w-2xl font-serif leading-relaxed text-[var(--text-muted)]">
+            <p className="max-w-2xl text-xl leading-snug">{service.solutionTitle}</p>
+            <p className="mt-5 max-w-2xl leading-relaxed text-[var(--text-muted)]">
               {service.solutionDescription}
             </p>
 
@@ -99,7 +99,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {service.benefits.map((b) => (
                 <div key={b.title} className="border-b border-[var(--rule)] py-5">
                   <dt className="font-semibold">{b.title}</dt>
-                  <dd className="mt-1.5 font-serif leading-relaxed text-[var(--text-muted)]">
+                  <dd className="mt-1.5 leading-relaxed text-[var(--text-muted)]">
                     {b.description}
                   </dd>
                 </div>
@@ -120,7 +120,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             Ablauf
           </h2>
           <div className="min-w-0">
-            <p className="max-w-2xl font-serif text-xl leading-snug">{service.processTitle}</p>
+            <p className="max-w-2xl text-xl leading-snug">{service.processTitle}</p>
             <ol className="mt-6 max-w-2xl border-t border-[var(--rule)]">
               {service.processSteps.map((step, i) => (
                 <li
@@ -129,13 +129,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 >
                   <span
                     aria-hidden
-                    className="pt-0.5 font-medium tabular-nums text-[var(--accent)]"
+                    className="pt-0.5 font-medium tabular-nums text-[var(--accent-text)]"
                   >
                     {i + 1}
                   </span>
                   <div>
                     <p className="font-semibold">{step.title}</p>
-                    <p className="mt-1.5 font-serif leading-relaxed text-[var(--text-muted)]">
+                    <p className="mt-1.5 leading-relaxed text-[var(--text-muted)]">
                       {step.description}
                     </p>
                   </div>
@@ -158,7 +158,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                   <summary className="cursor-pointer list-none font-medium marker:content-none">
                     {f.question}
                   </summary>
-                  <p className="mt-2.5 font-serif leading-relaxed text-[var(--text-muted)]">
+                  <p className="mt-2.5 leading-relaxed text-[var(--text-muted)]">
                     {f.answer}
                   </p>
                 </details>
@@ -174,8 +174,8 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             Nächster Schritt
           </h2>
           <div className="min-w-0 max-w-2xl">
-            <p className="font-serif text-xl leading-snug">{service.ctaTitle}</p>
-            <p className="mt-4 font-serif leading-relaxed text-[var(--text-muted)]">
+            <p className="text-xl leading-snug">{service.ctaTitle}</p>
+            <p className="mt-4 leading-relaxed text-[var(--text-muted)]">
               {service.ctaDescription}
             </p>
             <p className="mt-6">
@@ -200,7 +200,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               <li key={s.slug}>
                 <Link
                   href={`/de/services/${s.slug}/`}
-                  className="font-serif text-lg text-[var(--link)] hover:underline"
+                  className="text-lg text-[var(--link)] hover:underline"
                 >
                   {s.serviceType}
                 </Link>

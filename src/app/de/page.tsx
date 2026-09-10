@@ -35,10 +35,10 @@ export default async function HomePage() {
         <h1 className="text-[2.6rem] leading-[1.05] font-semibold tracking-[-0.03em] sm:text-6xl">
           {PERSON.name}
         </h1>
-        <p className="mt-4 font-serif text-xl leading-snug text-[var(--text-muted)] italic">
+        <p className="mt-4 text-xl leading-snug text-[var(--text-muted)]">
           Unternehmer in {ADDRESS.addressLocality}, Kanton Solothurn
         </p>
-        <p className="mt-8 max-w-xl font-serif text-lg leading-relaxed">
+        <p className="mt-8 max-w-xl text-lg leading-relaxed">
           Emanuel Flury baut Firmen, die Routinearbeit an Software abgeben. Was
           in seiner eigenen Treuhandfirma funktioniert, gibt er an andere
           Schweizer KMU weiter — nicht als Folien, sondern als Prozesse, die
@@ -80,7 +80,7 @@ export default async function HomePage() {
                     </Link>
                   )}
                 </p>
-                <p className="mt-2.5 max-w-2xl font-serif text-[1.0625rem] leading-relaxed text-[var(--text-muted)]">
+                <p className="mt-2.5 max-w-2xl text-[1.0625rem] leading-relaxed text-[var(--text-muted)]">
                   {v.what}
                 </p>
                 {v.external ? (
@@ -104,7 +104,7 @@ export default async function HomePage() {
               {posts.map((p) => (
                 <li key={p.slug} className="border-b border-[var(--rule)]">
                   <Link href={`/de/blog/${p.slug}/`} className="group block py-5">
-                    <p className="font-serif text-lg leading-snug group-hover:text-[var(--link)]">
+                    <p className="text-lg leading-snug group-hover:text-[var(--link)]">
                       {p.title}
                     </p>
                     <p className="mt-1.5 text-sm text-[var(--text-faint)]">
@@ -129,7 +129,7 @@ export default async function HomePage() {
             Kontakt
           </h2>
           <div className="min-w-0 max-w-lg">
-            <p className="font-serif text-lg leading-relaxed">
+            <p className="text-lg leading-relaxed">
               Wenn Sie einen Prozess im Kopf haben, der Sie jede Woche Stunden
               kostet: schreiben Sie ihm, was er tut und wie oft. Das reicht für
               eine erste Einschätzung.

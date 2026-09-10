@@ -22,7 +22,7 @@ export default async function BlogIndex() {
 
       <div className="mx-auto max-w-5xl px-6 pt-20 pb-10">
         <h1 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">Blog</h1>
-        <p className="mt-4 max-w-xl font-serif text-lg leading-relaxed text-[var(--text-muted)]">
+        <p className="mt-4 max-w-xl text-lg leading-relaxed text-[var(--text-muted)]">
           Was Emanuel Flury in Projekten gelernt hat, aufgeschrieben. Meist zu
           Automatisierung, Power BI und dem, was in Schweizer KMU wirklich
           funktioniert.
@@ -48,7 +48,7 @@ export default async function BlogIndex() {
                   </span>
                 </p>
                 <div className="min-w-0">
-                  <h2 className="max-w-2xl font-serif text-xl leading-snug font-medium group-hover:text-[var(--link)]">
+                  <h2 className="max-w-2xl text-xl leading-snug font-medium group-hover:text-[var(--link)]">
                     {post.title}
                   </h2>
                   <p className="mt-2 max-w-2xl leading-relaxed text-[var(--text-muted)]">

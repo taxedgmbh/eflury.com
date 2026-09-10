@@ -104,7 +104,7 @@ export function ChatWidget() {
         </div>
 
         <div ref={log} className="flex-1 space-y-3 overflow-y-auto px-4 py-4" aria-live="polite">
-          <p className="font-serif text-[0.95rem] leading-relaxed text-[var(--text-muted)]">
+          <p className="text-[0.95rem] leading-relaxed text-[var(--text-muted)]">
             {GREETING}
           </p>
           {turns.map((turn, i) => (
@@ -113,7 +113,7 @@ export function ChatWidget() {
               className={
                 turn.role === 'user'
                   ? 'ms-auto max-w-[85%] rounded-md bg-[var(--surface-sunken)] px-3 py-2 text-[0.95rem]'
-                  : 'max-w-[92%] font-serif text-[0.95rem] leading-relaxed'
+                  : 'max-w-[92%] text-[0.95rem] leading-relaxed'
               }
             >
               {turn.role === 'model' ? (

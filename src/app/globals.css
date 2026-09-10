@@ -8,39 +8,50 @@
 @custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
 
 /*
- * Grenchen is a watchmaking town — Breitling, Eterna and Fortis are headquartered
- * there. The palette borrows the discipline of instrument design rather than its
- * imagery: a cool plate blue-black, technical-drawing paper, and a single warm
- * note of movement brass.
+ * The palette is eflury.com's own, carried over unchanged: navy #022554, teal
+ * #0d9488, blue #1490D0, with the dark-mode variants the existing site already
+ * defines. The layout keeps the register-and-rail structure built for the
+ * rebuild; only the colours and typeface come from the brand.
  *
- * Only the brand anchors survive from the Astro site's global.css; the ~139 other
- * custom properties there (an Apple grey scale, semantic aliases, gradients,
- * shadows, and a "legacy aliases" block) are Tailwind's job now.
+ * Two hues are darkened, and only where they carry small text. Brand teal is
+ * 3.46:1 on the page background and brand blue 3.27:1 — both fine for marks,
+ * rules and large text, both short of the 4.5:1 that body-size text needs. So
+ * the brand values are used for the tick marks, list markers, underline
+ * decoration and selection, and darkened variants for links and inline labels.
+ *
+ * No webfonts. The existing site runs on the system stack, and matching it means
+ * one less network request and no swap on first paint.
  */
 @theme {
-  --color-ink: #0a1a2f;
-  --color-ink-soft: #1c3050;
-  --color-paper: #edf0f4;
-  --color-brass: #8c6d3f;
-  --color-brass-bright: #b08d55;
-  --color-rule: #c3ccd8;
-  --color-link: #1364a0;
+  --color-navy: #022554;
+  --color-navy-dark: #0f2744;
+  --color-blue: #1490d0;
+  --color-blue-mid: #276297;
+  --color-teal: #0d9488;
+  --color-grey: #4d596d;
+  --color-grey-light: #9cadbe;
 
-  --font-sans: var(--font-sans), ui-sans-serif, system-ui, sans-serif;
-  --font-serif: var(--font-serif), ui-serif, Georgia, serif;
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: var(--font-sans);
 }
 
 :root {
   color-scheme: light;
   --surface: #f4f6f9;
   --surface-raised: #ffffff;
-  --surface-sunken: #e6eaf0;
-  --rule: #c3ccd8;
+  --surface-sunken: #e9edf3;
+  --rule: #d2dae4;
   --rule-strong: #9aa8ba;
-  --text: #0a1a2f;
-  --text-muted: #4a5b73;
-  --text-faint: #71809a;
-  --accent: #8c6d3f;
+  --text: #022554;
+  --text-muted: #4d596d;
+  --text-faint: #6f7f96;
+  /* Brand teal, for marks and decoration rather than small text. */
+  --accent: #0d9488;
+  /* Same hue, darkened to 4.68:1 where it sits behind words. */
+  --accent-text: #0b7c72;
+  /* Brand blue darkened to 5.78:1 for links. */
   --link: #1364a0;
 }
 
@@ -53,9 +64,11 @@
   --rule-strong: #3a5271;
   --text: #e8eef6;
   --text-muted: #a3b3c8;
-  --text-faint: #7386a0;
-  --accent: #c09a63;
-  --link: #6cb6e8;
+  --text-faint: #7f92ab;
+  /* The dark-mode values the existing site already defines. */
+  --accent: #14b8a6;
+  --accent-text: #14b8a6;
+  --link: #5ab8e8;
 }
 
 @layer base {
@@ -159,24 +172,23 @@
 
   /* Long-form German. Serif, generous leading, measure under 70 characters. */
   .prose-de {
-    font-family: var(--font-serif);
     font-size: 1.0625rem;
-    line-height: 1.72;
-    max-width: 40rem;
+    line-height: 1.7;
+    /* ~68 characters. A sans needs a slightly shorter measure than the serif
+       it replaces to stay comfortable at this size. */
+    max-width: 38rem;
     color: var(--text);
   }
   .prose-de > * + * {
     margin-block-start: 1.2em;
   }
   .prose-de h2 {
-    font-family: var(--font-sans);
     font-size: 1.3125rem;
     margin-block-start: 2.4em;
     padding-block-start: 0.9em;
     border-block-start: 1px solid var(--rule);
   }
   .prose-de h3 {
-    font-family: var(--font-sans);
     font-size: 1.0625rem;
     margin-block-start: 1.9em;
   }
@@ -234,7 +246,6 @@
     overflow-x: auto;
     width: 100%;
     border-collapse: collapse;
-    font-family: var(--font-sans);
     font-size: 0.9rem;
   }
   .prose-de th,
@@ -249,7 +260,6 @@
     border-block-end-color: var(--rule-strong);
   }
   .prose-de figure figcaption {
-    font-family: var(--font-sans);
     font-size: 0.8125rem;
     color: var(--text-faint);
   }
@@ -267,7 +277,6 @@
     }
   }
   .legal-prose dt {
-    font-family: var(--font-sans);
     font-size: 0.875rem;
     color: var(--text-muted);
   }
