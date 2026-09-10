@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SERVICES } from '@/data/services';
 import { servicesIndexGraph, jsonLd } from '@/lib/schema';
+import { illustrationFor } from '@/lib/illustrations';
 
 export const metadata: Metadata = {
   title: 'Leistungen',
@@ -11,6 +12,8 @@ export const metadata: Metadata = {
 };
 
 export default function ServicesIndex() {
+  const Illustration = illustrationFor('index:services');
+
   return (
     <>
       <script
@@ -25,6 +28,11 @@ export default function ServicesIndex() {
           Audit: eine Woche, ein Fixpreis, und am Ende eine schriftliche
           Entscheidungsgrundlage — auch wenn sie gegen ein Projekt spricht.
         </p>
+        {Illustration ? (
+          <div className="mt-10">
+            <Illustration />
+          </div>
+        ) : null}
       </div>
 
       <div className="mx-auto max-w-5xl px-6">

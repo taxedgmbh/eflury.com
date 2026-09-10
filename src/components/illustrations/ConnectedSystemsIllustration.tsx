@@ -1,0 +1,69 @@
+import { IllustrationBrand } from './IllustrationBrand';
+
+/**
+ * Decorative on-brand illustration: AI agent connected to business systems
+ * via MCP, with a human approval gate. Inline SVG on CSS variables.
+ *
+ * Ported from ConnectedSystemsIllustration.astro. Geometry and timing unchanged; the lang prop is gone
+ * because the site is German-only, so its label ternaries resolve to German.
+ */
+export function ConnectedSystemsIllustration() {
+  return (
+    <>
+      <style>{`.ill-systems {
+    display: block;
+    width: 100%;
+    height: auto;
+  }`}</style>
+      <svg viewBox="0 0 560 344" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true" className="ill-systems">
+        {/* connection lines */}
+        <g stroke="var(--eflury-teal)" strokeWidth="2" strokeDasharray="1 7" strokeLinecap="round" opacity="0.8">
+          <path d="M232 170 L 128 92" />
+          <path d="M232 170 L 122 232" />
+          <path d="M328 170 L 432 92" />
+          <path d="M328 170 L 438 232" />
+        </g>
+        {/* human gate line (solid) */}
+        <path d="M280 214 L 280 268" stroke="var(--eflury-navy)" strokeWidth="2" strokeLinecap="round" opacity="0.7" />
+      
+        {/* center: the agent, carrying the real brand mark */}
+        <g>
+          <rect x="220" y="122" width="120" height="96" rx="18" fill="var(--primary-50)" stroke="var(--eflury-teal)" strokeWidth="2" />
+          <rect x="253" y="136" width="54" height="54" rx="12" fill="#fff" stroke="var(--border-color)" />
+          <image href="/images/favicon-tab.png" x="257" y="140" width="46" height="46" />
+          <rect x="244" y="200" width="72" height="8" rx="4" fill="var(--eflury-navy)" opacity="0.35" />
+        </g>
+      
+        {/* satellites */}
+        <g>
+          <rect x="56" y="52" width="120" height="60" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" strokeWidth="1.5" />
+          <rect x="72" y="68" width="52" height="9" rx="4.5" fill="var(--eflury-blue)" opacity="0.7" />
+          <rect x="72" y="86" width="88" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.45" />
+        </g>
+        <g>
+          <rect x="50" y="200" width="120" height="60" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" strokeWidth="1.5" />
+          <rect x="66" y="216" width="64" height="9" rx="4.5" fill="var(--eflury-teal)" opacity="0.7" />
+          <rect x="66" y="234" width="88" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.45" />
+        </g>
+        <g>
+          <rect x="384" y="52" width="120" height="60" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" strokeWidth="1.5" />
+          <rect x="400" y="68" width="44" height="9" rx="4.5" fill="var(--eflury-navy)" opacity="0.6" />
+          <rect x="400" y="86" width="88" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.45" />
+        </g>
+        <g>
+          <rect x="390" y="200" width="120" height="60" rx="12" fill="var(--card-bg)" stroke="var(--border-color)" strokeWidth="1.5" />
+          <rect x="406" y="216" width="56" height="9" rx="4.5" fill="var(--eflury-blue)" opacity="0.7" />
+          <rect x="406" y="234" width="88" height="8" rx="4" fill="var(--text-tertiary)" opacity="0.45" />
+        </g>
+      
+        <IllustrationBrand x={412} y={330} />
+      
+        {/* human approval gate */}
+        <g>
+          <circle cx="280" cy="292" r="24" fill="var(--success-50)" stroke="var(--eflury-teal)" strokeWidth="2" />
+          <path d="M269 292 L 277 300 L 292 284" stroke="var(--teal-text)" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+        </g>
+      </svg>
+    </>
+  );
+}

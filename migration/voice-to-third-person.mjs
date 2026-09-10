@@ -198,6 +198,7 @@ function withProtectedRegions(text, fn, { protectDoubleQuotes = false, protectQu
   // predige, automatisierte ich mein eigenes Geschäft." is signed by Emanuel, and
   // a signed quote stays in the speaker's own words even on a third-person page.
   let masked = text
+    .replace(/<svg[\s\S]*?<\/svg>/gi, stash)
     .replace(/<figure[\s\S]*?<\/figure>/gi, stash)
     .replace(/<blockquote[\s\S]*?<\/blockquote>/gi, stash)
     .replace(/«[^»]*»/g, stash);

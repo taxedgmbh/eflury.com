@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation';
 import { SERVICES, getService } from '@/data/services';
 import { serviceGraph, jsonLd } from '@/lib/schema';
 import { PERSON } from '@/lib/site';
+import { illustrationFor } from '@/lib/illustrations';
 
 export const dynamicParams = false;
 
@@ -37,6 +38,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
   if (!service) notFound();
 
   const others = SERVICES.filter((s) => s.slug !== service.slug).slice(0, 3);
+  const Illustration = illustrationFor(`service:${service.slug}`);
 
   return (
     <>
@@ -60,6 +62,11 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
             {service.heroDescription}
           </p>
+          {Illustration ? (
+            <div className="mt-10 max-w-3xl">
+              <Illustration />
+            </div>
+          ) : null}
         </header>
       </div>
 

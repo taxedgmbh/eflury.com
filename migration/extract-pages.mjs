@@ -26,7 +26,19 @@ const KEEP = new Set(['h2','h3','h4','p','ul','ol','li','strong','em','b','i','a
   'table','thead','tbody','tr','th','td','blockquote','br','code','dl','dt','dd','figure','figcaption']);
 
 function clean(html) {
-  html = html.replace(/<(script|style|noscript|svg|form|button|iframe)[\s\S]*?<\/\1>/gi, '');
+  /*
+   * SVG is preserved verbatim rather than stripped. Some of it is decorative
+   * icons, but some is real artwork — the ISO 5807 pipeline flowchart in the
+   * LLM case study is the centrepiece of that page. Attribute cleaning below
+   * would destroy any of it, so the blocks are masked out and restored intact.
+   */
+  const svgs = [];
+  html = html.replace(/<svg[\s\S]*?<\/svg>/gi, (m) => {
+    svgs.push(m);
+    return `\u0000SVG${svgs.length - 1}\u0000`;
+  });
+
+  html = html.replace(/<(script|style|noscript|form|button|iframe)[\s\S]*?<\/\1>/gi, '');
   html = html.replace(/<h1[\s\S]*?<\/h1>/i, '');
   html = html.replace(/<a[^>]*href="\/de\/"[^>]*>[\s\S]*?<\/a>/i, '');
   html = html.replace(/<\/(div|section|article|header|footer|aside)>/gi, '\n\n');
@@ -57,7 +69,8 @@ function clean(html) {
     })
     .filter(Boolean)
     .join('\n')
-    .trim();
+    .trim()
+    .replace(/\u0000SVG(\d+)\u0000/g, (_, i) => svgs[Number(i)]);
 }
 
 mkdirSync('src/content/pages', { recursive: true });

@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { CONTENT_PAGES } from '@/lib/pages';
 import { contentPageGraph, jsonLd } from '@/lib/schema';
+import { illustrationFor } from '@/lib/illustrations';
 
 export const metadata: Metadata = {
   title: 'Einsatzbereiche',
@@ -23,6 +24,8 @@ const AREAS = Object.values(CONTENT_PAGES).filter(
 );
 
 export default function BranchenIndex() {
+  const Illustration = illustrationFor('index:branchen');
+
   return (
     <>
       <script
@@ -35,6 +38,12 @@ export default function BranchenIndex() {
           Die Arbeit sieht je nach Abteilung anders aus, die Regel bleibt dieselbe:
           KI schlägt vor, Menschen entscheiden.
         </p>
+
+        {Illustration ? (
+          <div className="mt-10">
+            <Illustration />
+          </div>
+        ) : null}
       </div>
       <div className="mx-auto max-w-5xl px-6">
         <ul className="border-t border-[var(--rule-strong)]">

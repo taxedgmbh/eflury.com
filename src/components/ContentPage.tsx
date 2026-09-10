@@ -1,9 +1,12 @@
 import { CONTENT_PAGES, getPageHtml, type ContentPageKey } from '@/lib/pages';
 import { contentPageGraph, jsonLd } from '@/lib/schema';
+import { illustrationFor } from '@/lib/illustrations';
 
 export async function ContentPage({ page }: { page: ContentPageKey }) {
   const meta = CONTENT_PAGES[page];
   const html = await getPageHtml(meta.file);
+  // Emanuel drew one illustration per page; this is where it belongs.
+  const Illustration = illustrationFor(`page:${page}`);
 
   return (
     <>
@@ -20,6 +23,12 @@ export async function ContentPage({ page }: { page: ContentPageKey }) {
             </p>
           ) : null}
         </header>
+        {Illustration ? (
+          <div className="mt-10">
+            <Illustration />
+          </div>
+        ) : null}
+
         <div
           className="prose-de legal-prose mt-10"
           dangerouslySetInnerHTML={{ __html: html }}
