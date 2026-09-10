@@ -1,3 +1,4 @@
+import Image from 'next/image';
 /**
  * Case-studies hub visual: the three documented projects compared on the
  * one metric they share — estimated payback in months. All figures are
@@ -150,7 +151,7 @@ export function ResultsWallVisual() {
   }`}</style>
       <figure className="results-wall">
         <div className="rw-head">
-          <img src="/images/favicon-tab.png" alt="" width="26" height="26" className="rw-mark" />
+          <Image src="/images/favicon-tab.png" alt="" width={28} height={28} className="rw-mark" />
           <h3>{t.title}</h3>
         </div>
         <div className="rw-rows">

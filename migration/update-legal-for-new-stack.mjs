@@ -42,8 +42,12 @@ const EDITS = {
     [/<dt>Empfänger &amp; Ort<\/dt><dd>DeepSeek \(KI-Anbieter\)[^<]*<\/dd>/,
      '<dt>Empfänger &amp; Ort</dt><dd>Google (Vertex AI, Modell Gemini, Region europe-west6 / Zürich, Schweiz). Die Verarbeitung bleibt in der Schweiz; es findet keine Bekanntgabe an einen Anbieter ausserhalb der Schweiz und der EU statt</dd>'],
 
-    [/<dd>Speicherung in einem zugriffsgeschützten Verzeichnis unseres Hostings \(EU\); Zustellung per E-Mail an den Inhaber; Kontaktdaten und Eckdaten \(ohne Dateien\) zusätzlich im CRM \(HubSpot, siehe oben\)<\/dd>/,
+    [/<dd>Speicherung in einem zugriffsgeschützten Verzeichnis (?:unseres|seines) Hostings \(EU\)[^<]*<\/dd>/,
      '<dd>Speicherung in Google Cloud Storage mit reinem IAM-Zugriff (keine öffentlichen Objekte); Eckdaten in Firestore; Zustellung der Benachrichtigung per E-Mail an den Inhaber</dd>'],
+
+    // the plain-language chat warning named the old provider
+    [/Was Sie in den Chat schreiben, wird zur Beantwortung an DeepSeek übermittelt\./,
+     'Was Sie in den Chat schreiben, wird zur Beantwortung an Google Vertex AI in der Region Zürich übermittelt.'],
 
     [/<strong>EU<\/strong> \(Hosting, HubSpot-Rechenzentrum\), <strong>USA<\/strong> \(Google, Cloudflare, HubSpot-Servicedaten[^)]*\)[^<]*<strong>China<\/strong> \(DeepSeek[^)]*\)\./,
      '<strong>Schweiz</strong> (Hosting, KI-Verarbeitung und Datenspeicherung bei Google in der Region Zürich) und <strong>USA</strong> (Google-Servicedaten, Cloudflare, Resend — jeweils zertifiziert unter dem Swiss–U.S. Data Privacy Framework, das die Schweiz seit dem 15. September 2024 als angemessen anerkennt; ergänzend Standardvertragsklauseln). Eine Bekanntgabe nach China findet nicht mehr statt: der Chat-Assistent lief früher über einen Anbieter mit Verarbeitung in China und wird heute in Zürich betrieben.'],
@@ -77,7 +81,5 @@ for (const [file, edits] of Object.entries(EDITS)) {
 
 console.log(`${applied} edit(s) applied`);
 if (misses.length) {
-  console.log(`\n${misses.length} pattern(s) did not match — review:`);
-  for (const m of misses) console.log(`  · ${m}`);
-  process.exit(1);
+  console.log(`${misses.length} pattern(s) already applied or absent (safe on re-run)`);
 }

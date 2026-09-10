@@ -15,6 +15,15 @@ const PAGES = {
 const KEEP = new Set(['h2','h3','h4','p','ul','ol','li','strong','em','b','i','a','table','thead','tbody','tr','th','td','blockquote','br','code','dl','dt','dd']);
 
 function clean(html) {
+  // SVG is masked out and restored intact: the attribute cleaning below would
+  // destroy it, and these pages carry real icons (15 in the privacy policy
+  // alone). extract-pages.mjs got this fix; this one had been missed.
+  const svgs = [];
+  html = html.replace(/<svg[\s\S]*?<\/svg>/gi, (m) => {
+    svgs.push(m);
+    return `\u0000SVG${svgs.length - 1}\u0000`;
+  });
+
   // drop scripts, styles, nav, header, footer, and the page's own h1
   html = html.replace(/<(script|style|noscript)[\s\S]*?<\/\1>/gi, '');
   html = html.replace(/<h1[\s\S]*?<\/h1>/i, '');
@@ -55,7 +64,7 @@ function clean(html) {
     .filter(Boolean)
     .join('\n');
 
-  return html.trim();
+  return html.trim().replace(/\u0000SVG(\d+)\u0000/g, (_, i) => svgs[Number(i)]);
 }
 
 for (const [slug, title] of Object.entries(PAGES)) {

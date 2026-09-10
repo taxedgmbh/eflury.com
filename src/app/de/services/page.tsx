@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Workflow } from 'lucide-react';
 import { SERVICES } from '@/data/services';
 import { servicesIndexGraph, jsonLd } from '@/lib/schema';
 import { illustrationFor } from '@/lib/illustrations';
+import { IconTile } from '@/components/ui';
 
 export const metadata: Metadata = {
   title: 'Leistungen',
@@ -40,7 +42,7 @@ export default function ServicesIndex() {
           {SERVICES.map((s) => (
             <li key={s.slug} className="border-b border-[var(--rule)]">
               <Link href={`/de/services/${s.slug}/`} className="rail group py-7">
-                <p className="rail-label">{s.serviceType}</p>
+                <span className="inline-flex"><IconTile icon={Workflow} /></span>
                 <div className="min-w-0">
                   <h2 className="max-w-2xl text-xl font-semibold tracking-tight group-hover:text-[var(--link)]">
                     {s.heroTitle}

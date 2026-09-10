@@ -12,6 +12,7 @@ import { homeGraph, jsonLd } from '@/lib/schema';
 import { Section, SectionHeading, Card, IconTile, Pill, Stat, Button } from '@/components/ui';
 import { HeroBrandIllustration } from '@/components/HeroBrandIllustration';
 import { TechPartners } from '@/components/TechPartners';
+import { TechStack } from '@/components/TechStack';
 
 export const metadata: Metadata = {
   title: `${PERSON.shortName} — Unternehmer`,
@@ -212,7 +213,13 @@ export default async function HomePage() {
         </ul>
       </Section>
 
-      <Section tone="sunken" labelledBy="unternehmen">
+      <Section tone="sunken" labelledBy="technologien">
+        <div id="technologien">
+          <TechStack />
+        </div>
+      </Section>
+
+      <Section labelledBy="unternehmen">
         <SectionHeading
           id="unternehmen"
           title="Drei Unternehmen, ein Prinzip"
@@ -246,7 +253,7 @@ export default async function HomePage() {
         </ul>
       </Section>
 
-      <Section labelledBy="zusagen">
+      <Section tone="sunken" labelledBy="zusagen">
         <SectionHeading
           id="zusagen"
           title="Warum Schweizer KMU ihn wählen"
@@ -271,7 +278,7 @@ export default async function HomePage() {
         </ul>
       </Section>
 
-      <Section tone="sunken" labelledBy="leitfaden">
+      <Section labelledBy="leitfaden">
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
             <Pill icon={FileText}>Kostenloser Download</Pill>
@@ -297,7 +304,7 @@ export default async function HomePage() {
         </div>
       </Section>
 
-      <Section labelledBy="blog">
+      <Section tone="sunken" labelledBy="blog">
         <SectionHeading id="blog" title="Aus der Praxis" subtitle="Was in Projekten gelernt wurde, aufgeschrieben." />
         <ul className="mt-12 grid gap-5 lg:grid-cols-3">
           {posts.map((p) => (
@@ -319,7 +326,7 @@ export default async function HomePage() {
         </p>
       </Section>
 
-      <Section tone="sunken" labelledBy="kontakt">
+      <Section labelledBy="kontakt">
         <div className="mx-auto max-w-2xl text-center">
           <SectionHeading
             id="kontakt"

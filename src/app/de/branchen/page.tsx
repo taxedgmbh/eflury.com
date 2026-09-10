@@ -1,8 +1,10 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { Building2 } from 'lucide-react';
 import { CONTENT_PAGES } from '@/lib/pages';
 import { contentPageGraph, jsonLd } from '@/lib/schema';
 import { illustrationFor } from '@/lib/illustrations';
+import { IconTile } from '@/components/ui';
 
 export const metadata: Metadata = {
   title: 'Einsatzbereiche',
@@ -50,7 +52,7 @@ export default function BranchenIndex() {
           {AREAS.map((a) => (
             <li key={a.route} className="border-b border-[var(--rule)]">
               <Link href={a.route} className="rail group py-7">
-                <p className="rail-label">Einsatzbereich</p>
+                <span className="inline-flex"><IconTile icon={Building2} /></span>
                 <div className="min-w-0">
                   <h2 className="text-xl font-semibold tracking-tight group-hover:text-[var(--link)]">
                     {a.title}

@@ -1,10 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import { CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { SERVICES, getService } from '@/data/services';
 import { serviceGraph, jsonLd } from '@/lib/schema';
 import { PERSON } from '@/lib/site';
 import { illustrationFor } from '@/lib/illustrations';
+import { Card, IconTile } from '@/components/ui';
 
 export const dynamicParams = false;
 
@@ -81,8 +83,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {service.problems.map((p) => (
                 <li
                   key={p}
-                  className="border-b border-[var(--rule)] py-3.5 leading-relaxed text-[var(--text-muted)]"
+                  className="flex gap-3 border-b border-[var(--rule)] py-3.5 leading-relaxed text-[var(--text-muted)]"
                 >
+                  <AlertCircle
+                    className="mt-1 h-4 w-4 shrink-0 text-[var(--text-faint)]"
+                    strokeWidth={1.75}
+                    aria-hidden
+                  />
                   {p}
                 </li>
               ))}
@@ -102,14 +109,17 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
               {service.solutionDescription}
             </p>
 
-            <dl className="mt-10 max-w-2xl border-t border-[var(--rule)]">
+            <dl className="mt-10 grid max-w-3xl gap-4 sm:grid-cols-2">
               {service.benefits.map((b) => (
-                <div key={b.title} className="border-b border-[var(--rule)] py-5">
-                  <dt className="font-semibold">{b.title}</dt>
-                  <dd className="mt-1.5 leading-relaxed text-[var(--text-muted)]">
+                <Card key={b.title} className="h-full">
+                  <span className="inline-flex">
+                    <IconTile icon={CheckCircle2} />
+                  </span>
+                  <dt className="mt-4 font-semibold">{b.title}</dt>
+                  <dd className="mt-2 leading-relaxed text-[var(--text-muted)]">
                     {b.description}
                   </dd>
-                </div>
+                </Card>
               ))}
             </dl>
           </div>
@@ -162,10 +172,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <div className="min-w-0 max-w-2xl border-t border-[var(--rule)]">
               {service.faqs.map((f) => (
                 <details key={f.question} className="group border-b border-[var(--rule)] py-4">
-                  <summary className="cursor-pointer list-none font-medium marker:content-none">
+                  <summary className="flex cursor-pointer list-none items-start gap-3 font-medium marker:content-none">
+                    <ChevronDown
+                      className="mt-1 h-4 w-4 shrink-0 text-[var(--accent-text)] transition-transform group-open:rotate-180"
+                      strokeWidth={2}
+                      aria-hidden
+                    />
                     {f.question}
                   </summary>
-                  <p className="mt-2.5 leading-relaxed text-[var(--text-muted)]">
+                  <p className="mt-2.5 ps-7 leading-relaxed text-[var(--text-muted)]">
                     {f.answer}
                   </p>
                 </details>
