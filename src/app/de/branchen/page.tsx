@@ -1,7 +1,13 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { Building2 } from 'lucide-react';
-import { CONTENT_PAGES } from '@/lib/pages';
+import { Calculator, Briefcase, BarChart3, Check, ArrowRight } from 'lucide-react';
+import { CONTENT_PAGES, AREA_HIGHLIGHTS } from '@/lib/pages';
+
+const AREA_ICONS = {
+  '/de/branchen/finanzteams/': Calculator,
+  '/de/branchen/dienstleister/': Briefcase,
+  '/de/branchen/reporting-daten/': BarChart3,
+} as const;
 import { contentPageGraph, jsonLd } from '@/lib/schema';
 import { illustrationFor } from '@/lib/illustrations';
 import { IconTile } from '@/components/ui';
@@ -52,13 +58,29 @@ export default function BranchenIndex() {
           {AREAS.map((a) => (
             <li key={a.route} className="border-b border-[var(--rule)]">
               <Link href={a.route} className="rail group py-7">
-                <span className="inline-flex"><IconTile icon={Building2} /></span>
+                <span className="inline-flex"><IconTile icon={AREA_ICONS[a.route as keyof typeof AREA_ICONS] ?? Briefcase} /></span>
                 <div className="min-w-0">
                   <h2 className="text-xl font-semibold tracking-tight group-hover:text-[var(--link)]">
                     {a.title}
                   </h2>
                   <p className="mt-2 max-w-2xl leading-relaxed text-[var(--text-muted)]">
                     {a.description}
+                  </p>
+                  <ul className="mt-4 grid gap-2 sm:grid-cols-2">
+                    {(AREA_HIGHLIGHTS[a.route] ?? []).map((h) => (
+                      <li key={h} className="flex items-start gap-2 text-sm text-[var(--text-muted)]">
+                        <Check
+                          className="mt-0.5 h-4 w-4 shrink-0 text-[var(--accent-text)]"
+                          strokeWidth={2.25}
+                          aria-hidden
+                        />
+                        {h}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--link)]">
+                    Mehr erfahren
+                    <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
                   </p>
                 </div>
               </Link>

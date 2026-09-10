@@ -1,7 +1,14 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { FileBarChart } from 'lucide-react';
+import { Building2, Calculator, BarChart3, Workflow, ArrowRight } from 'lucide-react';
 import { CONTENT_PAGES } from '@/lib/pages';
+
+const STUDY_ICONS = {
+  '/de/case-studies/taxed-gmbh/': Building2,
+  '/de/case-studies/finance-automation/': Calculator,
+  '/de/case-studies/power-bi-reporting/': BarChart3,
+  '/de/case-studies/llm-pipeline-showcase/': Workflow,
+} as const;
 import { contentPageGraph, jsonLd } from '@/lib/schema';
 import { illustrationFor } from '@/lib/illustrations';
 import { IconTile } from '@/components/ui';
@@ -52,13 +59,17 @@ export default function CaseStudiesIndex() {
           {STUDIES.map((a) => (
             <li key={a.route} className="border-b border-[var(--rule)]">
               <Link href={a.route} className="rail group py-7">
-                <span className="inline-flex"><IconTile icon={FileBarChart} /></span>
+                <span className="inline-flex"><IconTile icon={STUDY_ICONS[a.route as keyof typeof STUDY_ICONS] ?? Workflow} /></span>
                 <div className="min-w-0">
                   <h2 className="text-xl font-semibold tracking-tight group-hover:text-[var(--link)]">
                     {a.title}
                   </h2>
                   <p className="mt-2 max-w-2xl leading-relaxed text-[var(--text-muted)]">
                     {a.description}
+                  </p>
+                  <p className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--link)]">
+                    Fallstudie lesen
+                    <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
                   </p>
                 </div>
               </Link>

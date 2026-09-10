@@ -170,3 +170,28 @@ export type ContentPageKey = keyof typeof CONTENT_PAGES;
 export const getPageHtml = cache(async (file: string): Promise<string> => {
   return readFile(path.join(process.cwd(), 'src/content/pages', `${file}.html`), 'utf8');
 });
+
+/**
+ * What gets automated in each area, from the Astro hub cards. Shown on
+ * /de/branchen/ so a visitor can recognise their own work before clicking.
+ */
+export const AREA_HIGHLIGHTS: Record<string, string[]> = {
+  '/de/branchen/finanzteams/': [
+    'Kreditorenerfassung & Freigabe',
+    'Monatsabschluss & Abstimmungen',
+    'Mahnwesen & Zahlungserinnerungen',
+    'Finanz-Stammdaten & Kontrollen',
+  ],
+  '/de/branchen/dienstleister/': [
+    'E-Mail-Triage & Antwortentwürfe',
+    'Telefonannahme & Rückrufe',
+    'WhatsApp-Geschäftskommunikation',
+    'Offertanfragen & Auftragsannahme',
+  ],
+  '/de/branchen/reporting-daten/': [
+    'Power-BI-Dashboards statt Handarbeit',
+    'Excel-Migration & Datenmodell',
+    'Datenqualität mit KI-Agenten',
+    'Automatische Report-Verteilung',
+  ],
+};

@@ -669,3 +669,17 @@ export const SERVICES: Service[] = [
 ];
 
 export const getService = (slug: string) => SERVICES.find((s) => s.slug === slug);
+
+/**
+ * Icon per service, matching the marks the Astro service cards used.
+ * Kept here rather than in the page so the index and the homepage agree.
+ */
+export const SERVICE_ICONS: Record<string, string> = {
+  'ki-audit': 'ClipboardCheck',
+  'claude-skills': 'Cpu',
+  'mcp-integration': 'Server',
+  'finanzen-automatisierung': 'Calculator',
+  'power-bi': 'BarChart3',
+  'datenqualitaet': 'Database',
+  'ki-betrieb': 'Activity',
+};

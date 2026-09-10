@@ -4,6 +4,8 @@ import {
   Landmark, Factory, Briefcase, HeartPulse,
   ShieldCheck, Award, ClipboardCheck, Wrench, Activity,
   ArrowRight, FileText, CheckCircle2,
+  Clock, TrendingUp, CalendarClock, Sparkles, Mail, Phone, MapPin,
+  Briefcase as BriefcaseIcon, Wrench as WrenchIcon, BadgeSwissFranc, Eye,
 } from 'lucide-react';
 import { VENTURES, PERSON, ADDRESS } from '@/lib/site';
 import { SERVICES } from '@/data/services';
@@ -65,24 +67,28 @@ const LIFECYCLE = [
 
 const PROMISES = [
   {
+    icon: BriefcaseIcon,
     title: 'Enterprise-Methoden, KMU-Preise',
     body: '13 Jahre Automatisierungserfahrung aus einem Fortune-500-Konzern — ohne Enterprise-Budget.',
     href: '/de/about/',
     link: 'Werdegang ansehen',
   },
   {
+    icon: WrenchIcon,
     title: 'Umsetzung statt Folien',
     body: 'Emanuel arbeitet direkt mit Ihrem Team an Automatisierungen, die laufen. Keine Berichte für die Schublade.',
     href: '/de/case-studies/',
     link: 'Projekte ansehen',
   },
   {
+    icon: BadgeSwissFranc,
     title: 'Fixpreis, keine Überraschungen',
     body: 'Der Preis steht schriftlich fest, bevor die Arbeit beginnt. Keine Tagessätze, kein offenes Ende.',
     href: '/de/pricing/',
     link: 'Preise ansehen',
   },
   {
+    icon: Eye,
     title: 'Ein No-Go ist ein Resultat',
     body: 'Lohnt sich Automatisierung in Ihrem Fall nicht, steht das im Bericht — bevor Sie für einen Build bezahlt haben.',
     href: '/de/methode/',
@@ -114,7 +120,7 @@ export default async function HomePage() {
         />
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pt-20 pb-16 sm:pt-24 sm:pb-20 lg:grid-cols-[1.05fr_1fr]">
           <div>
-            <Pill icon={Award}>Enterprise-Methoden, KMU-Preise</Pill>
+            <Pill icon={Sparkles}>Enterprise-Methoden, KMU-Preise</Pill>
             <h1 className="mt-6 text-[2.4rem] leading-[1.06] font-bold tracking-[-0.035em] sm:text-[3.35rem]">
               KI-Automatisierung für Schweizer KMU. Strategisch geplant. Praktisch umgesetzt.
             </h1>
@@ -138,6 +144,36 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
+
+      <Section labelledBy="belege">
+        <h2 id="belege" className="sr-only">
+          Belege
+        </h2>
+        <dl className="grid gap-6 sm:grid-cols-3">
+          {[
+            { icon: Clock, value: '~220 h/Monat', label: 'Geschätzte Zeitersparnis, kombiniert' },
+            { icon: TrendingUp, value: '~CHF 108K', label: 'Geschätzte Jahresersparnis, kombiniert' },
+            { icon: CalendarClock, value: '2.8–4.1 Monate', label: 'Geschätzte Amortisation, pro Projekt' },
+          ].map((p) => (
+            <Card key={p.value} className="text-center">
+              <span className="inline-flex justify-center">
+                <IconTile icon={p.icon} />
+              </span>
+              <dt className="mt-4 text-2xl font-bold tracking-tight text-[var(--accent-text)]">
+                {p.value}
+              </dt>
+              <dd className="mt-1.5 text-sm text-[var(--text-muted)]">{p.label}</dd>
+            </Card>
+          ))}
+        </dl>
+        <p className="mt-8 text-center text-sm text-[var(--text-muted)]">
+          Aggregiert aus drei dokumentierten Projekten — jede Zahl ist pro Projekt in
+          der Fallstudie belegt.{' '}
+          <Link href="/de/case-studies/" className="font-semibold text-[var(--link)] hover:underline">
+            Zu den Fallstudien
+          </Link>
+        </p>
+      </Section>
 
       <Section tone="sunken" labelledBy="vertrauen">
         <SectionHeading
@@ -263,7 +299,7 @@ export default async function HomePage() {
           {PROMISES.map((p) => (
             <li key={p.title}>
               <Card className="flex h-full flex-col">
-                <span className="inline-flex"><IconTile icon={CheckCircle2} /></span>
+                <span className="inline-flex"><IconTile icon={p.icon} /></span>
                 <h3 className="mt-5 text-lg font-bold tracking-tight">{p.title}</h3>
                 <p className="mt-2.5 leading-relaxed text-[var(--text-muted)]">{p.body}</p>
                 <p className="mt-auto pt-5">
@@ -337,9 +373,25 @@ export default async function HomePage() {
             <Button href="/de/kontakt/">Kostenloses Strategiegespräch</Button>
             <Button href={`mailto:${PERSON.email}`} variant="ghost" external>{PERSON.email}</Button>
           </div>
-          <p className="mt-5 text-sm text-[var(--text-faint)]">
-            {ADDRESS.postalCode} {ADDRESS.addressLocality} · Antwort innert 24 Stunden
-          </p>
+          <ul className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-[var(--text-muted)]">
+            <li className="inline-flex items-center gap-2">
+              <Mail className="h-4 w-4 text-[var(--accent-text)]" strokeWidth={1.75} aria-hidden />
+              <a href={`mailto:${PERSON.email}`} className="hover:text-[var(--text)]">
+                {PERSON.email}
+              </a>
+            </li>
+            <li className="inline-flex items-center gap-2">
+              <Phone className="h-4 w-4 text-[var(--accent-text)]" strokeWidth={1.75} aria-hidden />
+              <a href={`tel:${PERSON.telephone}`} className="hover:text-[var(--text)]">
+                {PERSON.telephoneDisplay}
+              </a>
+            </li>
+            <li className="inline-flex items-center gap-2">
+              <MapPin className="h-4 w-4 text-[var(--accent-text)]" strokeWidth={1.75} aria-hidden />
+              {ADDRESS.postalCode} {ADDRESS.addressLocality}
+            </li>
+          </ul>
+          <p className="mt-5 text-sm text-[var(--text-faint)]">Antwort innert 24 Stunden</p>
         </div>
       </Section>
     </>
