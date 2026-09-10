@@ -20,8 +20,17 @@ env:
     value: https://eflury.com
     availability: [BUILD, RUNTIME]
 
+  # staging until DNS moves. app/robots.ts emits Disallow: / for anything other
+  # than "production", which keeps the *.hosted.app preview out of the index
+  # while eflury.com still serves the Astro site — two different sites, with
+  # every page here canonicalising to the other one.
+  #
+  # A host-based X-Robots-Tag was tried first and does not work: App Hosting's
+  # envoy layer rewrites Host before Next sees it, so the rule never matches.
+  #
+  # FLIP THIS TO production AS PART OF THE DNS CUTOVER.
   - variable: NEXT_PUBLIC_ENV
-    value: production
+    value: staging
     availability: [BUILD, RUNTIME]
 
   # Same property as the Astro site so the GA4 history is continuous.
