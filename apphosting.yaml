@@ -42,37 +42,43 @@ env:
     value: eflury-com-uploads
     availability: [RUNTIME]
 
-  # --- Secrets. Create with:
-  #       firebase apphosting:secrets:set <name>
-  #       firebase apphosting:secrets:grantaccess <name> --backend eflury-web
-  #     Version-pin in production (secret: turnstileSecret@3) so a bad rotation
-  #     cannot take the site down.
-
-  # Never existed: the Astro site rendered the Turnstile widget but never called
-  # siteverify, so no secret was ever provisioned.
-  - variable: TURNSTILE_SECRET_KEY
-    secret: turnstileSecret
-    availability: [RUNTIME]
-
-  - variable: RESEND_API_KEY
-    secret: resendApiKey
-    availability: [RUNTIME]
-
-  # Signs offer-acceptance links. MUST be the same value as ACCEPT_SECRET in the
-  # Hostinger api/config.php, or links already sent to clients stop validating —
-  # they carry a 60-day TTL, so some will be in flight at cutover.
-  # See migration/verify-offer-signing.md.
-  - variable: ACCEPT_SECRET
-    secret: acceptSecret
-    availability: [RUNTIME]
-
-  - variable: ACCEPT_ADMIN_KEY
-    secret: acceptAdminKey
-    availability: [RUNTIME]
-
-  # Rotating salt for hashed IPs in the rate limiter, and for signing newsletter
-  # confirmation links.
-  - variable: IP_HASH_SALT
-    secret: ipHashSalt
-    availability: [RUNTIME]
-
+  # --- Secrets: NOT YET PROVISIONED -------------------------------------
+  #
+  # Commented out deliberately. An env var pointing at a secret that does not
+  # exist fails the entire rollout, so the site could not deploy at all. With
+  # them absent the 73 static pages serve normally and the server routes
+  # degrade the way they were built to: /api/chat returns its fallback reply,
+  # /api/contact and /api/apply refuse submissions with a clear message rather
+  # than accepting them unverified.
+  #
+  # Uncomment each line as its secret is created:
+  #   firebase apphosting:secrets:set <name> --project eflury-com-prod
+  #   firebase apphosting:secrets:grantaccess <name> --backend eflury-com-prod
+  #
+  # turnstileSecret — has never existed. The Astro site rendered the widget but
+  #   never verified the token. Create it in the Cloudflare dashboard.
+  # resendApiKey    — needs a Resend account with a verified sending domain.
+  # acceptSecret    — MUST equal ACCEPT_SECRET in the Hostinger api/config.php,
+  #   or offer links already in clients' inboxes stop validating (60-day TTL).
+  # acceptAdminKey  — any random string; only used to mint new offer links.
+  # ipHashSalt      — any random string; salts hashed IPs in the rate limiter.
+  #
+  # - variable: TURNSTILE_SECRET_KEY
+  #   secret: turnstileSecret
+  #   availability: [RUNTIME]
+  #
+  # - variable: RESEND_API_KEY
+  #   secret: resendApiKey
+  #   availability: [RUNTIME]
+  #
+  # - variable: ACCEPT_SECRET
+  #   secret: acceptSecret
+  #   availability: [RUNTIME]
+  #
+  # - variable: ACCEPT_ADMIN_KEY
+  #   secret: acceptAdminKey
+  #   availability: [RUNTIME]
+  #
+  # - variable: IP_HASH_SALT
+  #   secret: ipHashSalt
+  #   availability: [RUNTIME]
