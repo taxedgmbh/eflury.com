@@ -2,6 +2,7 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { PERSON, VENTURES, ADDRESS } from '@/lib/site';
 import { NewsletterForm } from './NewsletterForm';
+import { ThemeToggle } from './ThemeToggle';
 
 /*
  * Labels are German; slugs are not. The URLs stay exactly as they are — renaming
@@ -71,6 +72,7 @@ export function Header() {
             ))}
           </ul>
         </nav>
+        <ThemeToggle />
       </div>
     </header>
   );

@@ -1,33 +1,17 @@
 {
-  "name": "eFlury Consulting - AI Automation for Swiss SMEs",
-  "short_name": "eFlury",
-  "description": "AI automation consultant helping Swiss SMEs implement Claude, Make, and workflow automation with enterprise methods at SME prices.",
-  "start_url": "/",
-  "display": "standalone",
-  "background_color": "#ffffff",
-  "theme_color": "#022554",
-  "orientation": "portrait-primary",
-  "icons": [
-    {
-      "src": "/images/icon-192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "any"
-    },
-    {
-      "src": "/images/icon-512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "any maskable"
-    }
-  ],
-  "categories": [
-    "business",
-    "technology",
-    "productivity"
-  ],
-  "lang": "en",
+  "name": "Emanuel Flury — Unternehmer",
+  "short_name": "Emanuel Flury",
+  "description": "Unternehmer in Grenchen. Gründer von Taxed GmbH und SkopaAI, und Begleiter von Schweizer KMU bei der Automatisierung.",
+  "lang": "de",
   "dir": "ltr",
+  "start_url": "/de/",
   "scope": "/",
-  "prefer_related_applications": false
+  "display": "browser",
+  "background_color": "#f4f6f9",
+  "theme_color": "#022554",
+  "icons": [
+    { "src": "/images/icon-192.png", "sizes": "192x192", "type": "image/png" },
+    { "src": "/images/icon-512.png", "sizes": "512x512", "type": "image/png" },
+    { "src": "/images/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
 }

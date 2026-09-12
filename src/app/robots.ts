@@ -13,7 +13,17 @@ export default function robots(): MetadataRoute.Robots {
 
   return {
     rules: [
-      { userAgent: '*', allow: '/' },
+      {
+        userAgent: '*',
+        allow: '/',
+        /*
+         * Transactional, reached only by a signed link — nothing here should be
+         * indexed. admin.html is the console that mints those links; it is
+         * admin-key protected server-side, but there is no reason for it to sit
+         * in a search index.
+         */
+        disallow: ['/offerte/', '/offer/', '/demo/'],
+      },
       // Answer engines are welcome — carried over from the Astro robots.txt.
       { userAgent: 'GPTBot', allow: '/' },
       { userAgent: 'ChatGPT-User', allow: '/' },
