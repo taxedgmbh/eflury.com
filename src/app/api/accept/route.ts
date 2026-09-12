@@ -16,7 +16,7 @@ import {
   AGB_VERSION,
   type Offer,
 } from '@/lib/server/offer';
-import { SITE_URL, PERSON, ADDRESS } from '@/lib/site';
+import { SITE_URL, PERSON, ADDRESS, LEGAL_ENTITY } from '@/lib/site';
 
 /**
  * Offer acceptance, ported from accept.php.
@@ -264,7 +264,7 @@ export async function POST(request: Request) {
         : `The accepted GTC version is attached and permanently available at ${AGB.en.url}.`,
       '',
       de ? 'Freundliche Grüsse' : 'Kind regards',
-      `eFlury Consulting, ${PERSON.name}`,
+      `${LEGAL_ENTITY.name}, ${LEGAL_ENTITY.owner}`,
       `${ADDRESS.streetAddress}, ${ADDRESS.postalCode} ${ADDRESS.addressLocality} · ${PERSON.email} · ${PERSON.telephoneDisplay}`,
     ].join('\n'),
     attachments: attachment ? [attachment] : undefined,

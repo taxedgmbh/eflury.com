@@ -20,6 +20,31 @@ export const PERSON = {
   sameAs: ['https://www.linkedin.com/in/emanuelflury'],
 } as const;
 
+/**
+ * The legal entity behind eflury.com, in one place.
+ *
+ * Today this is a sole proprietorship with no Handelsregister entry and no UID —
+ * which is lawful below the revenue threshold (Art. 931 OR) and is stated openly
+ * in the Impressum rather than glossed over. The chat prompt carries a hard rule
+ * never to invent a UID, because a model doing so would be a real problem.
+ *
+ * eflury.com is Emanuel's Unternehmer page rather than a company site, so these
+ * facts are the true ones. If the business later moves into a GmbH, changing it
+ * here changes the Impressum, the chatbot's legal section and the
+ * offer-acceptance receipt together, instead of leaving three copies to drift.
+ */
+export const LEGAL_ENTITY = {
+  name: 'eFlury Consulting',
+  form: 'Einzelunternehmen',
+  owner: 'Emanuel Aaron Flury',
+  registered: false,
+  /** Null while unregistered. Never invent one. */
+  uid: null as string | null,
+  /** One sentence, reused verbatim by the Impressum and the chat prompt. */
+  registrationNote:
+    'eFlury Consulting ist ein Einzelunternehmen und nicht im Handelsregister eingetragen; entsprechend besteht keine UID-Nummer. Als Einzelunternehmen unterhalb der gesetzlichen Umsatzschwelle ist ein Eintrag nicht erforderlich (Art. 931 OR).',
+} as const;
+
 export const ADDRESS = {
   streetAddress: 'Keltenweg 4',
   postalCode: '2540',

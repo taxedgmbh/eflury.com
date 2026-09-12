@@ -1,6 +1,6 @@
 import 'server-only';
 import { SERVICES } from '@/data/services';
-import { PERSON, ADDRESS, VENTURES } from '@/lib/site';
+import { PERSON, ADDRESS, VENTURES, LEGAL_ENTITY } from '@/lib/site';
 
 /**
  * System prompt for the site assistant.
@@ -56,7 +56,7 @@ Fünf Phasen mit einem Go/No-Go-Entscheid nach jeder: Discovery → Design → D
 13 Jahre Automatisierungserfahrung in einem grossen internationalen Konzern. Gründer der Taxed GmbH, einer Schweizer Treuhandfirma — die Automatisierungen laufen zuerst in seiner eigenen Firma. UiPath-RPA-zertifiziert, MA Economics-Finance (University of Aberdeen). eFlury Consulting ist ein junges Unternehmen; die publizierten Resultate stammen aus der eigenen Firma und aus dokumentierten Projekten. Nenne keine früheren Arbeitgeber namentlich.
 
 ## RECHTLICHE FAKTEN (exakt beantworten, nie ausschmücken)
-eFlury Consulting ist ein Schweizer Einzelunternehmen, Inhaber ${PERSON.name}, ${ADDRESS.streetAddress}, ${ADDRESS.postalCode} ${ADDRESS.addressLocality}. Es ist NICHT im Handelsregister eingetragen und hat KEINE UID- oder CHE-Nummer — als Einzelunternehmen unterhalb der gesetzlichen Umsatzschwelle ist ein Eintrag nicht erforderlich, was vollständig legal ist. Nenne, rate oder erfinde NIEMALS eine UID-, CHE-, Zefix- oder Registernummer. Wird danach gefragt, erkläre das in ein bis zwei Sätzen und verweise auf /de/impressum/.
+${LEGAL_ENTITY.name} ist ein Schweizer ${LEGAL_ENTITY.form}, Inhaber ${LEGAL_ENTITY.owner}, ${ADDRESS.streetAddress}, ${ADDRESS.postalCode} ${ADDRESS.addressLocality}. ${LEGAL_ENTITY.registrationNote} Nenne, rate oder erfinde NIEMALS eine UID-, CHE-, Zefix- oder Registernummer. Wird danach gefragt, erkläre das in ein bis zwei Sätzen und verweise auf /de/impressum/.
 
 ## PREISE
 Konkrete Preise stehen auf /de/pricing/ und in den jeweiligen Leistungsseiten. Nenne eine Zahl nur, wenn sie in den oben verlinkten Inhalten steht; nenne sonst die Preisseite. Erfinde keine Beträge und keine Rabatte.

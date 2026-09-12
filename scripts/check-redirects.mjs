@@ -199,6 +199,28 @@ for (const file of contentFiles) {
   }
 }
 
+/*
+ * The Impressum is extracted HTML and cannot import LEGAL_ENTITY, so the two can
+ * drift. If the entity ever moves into a GmbH, flipping the flag in site.ts
+ * without rewriting the Impressum would leave a false legal statement on a page
+ * whose whole job is to be accurate — so make that fail the build.
+ */
+const siteSrc = readFileSync(join(ROOT, 'src/lib/site.ts'), 'utf8');
+const registered = /registered:\s*true/.test(siteSrc);
+const impressum = readFileSync(join(ROOT, 'src/content/legal/impressum.html'), 'utf8');
+const saysUnregistered = /nicht im Handelsregister eingetragen/.test(impressum);
+
+if (registered && saysUnregistered) {
+  errors.push(
+    'LEGAL_ENTITY.registered is true but the Impressum still says "nicht im Handelsregister eingetragen"'
+  );
+}
+if (!registered && !saysUnregistered) {
+  errors.push(
+    'LEGAL_ENTITY.registered is false but the Impressum no longer states the non-registration'
+  );
+}
+
 // ------------------------------------------------------------------ report ---
 if (notes.length) {
   console.log(`check-redirects: ${notes.length} note(s)`);
