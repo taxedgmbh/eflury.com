@@ -33,6 +33,17 @@ env:
     value: staging
     availability: [BUILD, RUNTIME]
 
+  # Public by design — Cloudflare Turnstile sitekeys are meant to ship to the
+  # browser; the secret half is in Secret Manager. Carried over from the Astro
+  # site so the same Cloudflare widget config applies.
+  #
+  # NEXT_PUBLIC_ is inlined at build time, so this needs BUILD availability:
+  # with it absent the widget silently never renders and every form fails on a
+  # missing token, no matter what the secret is set to.
+  - variable: NEXT_PUBLIC_TURNSTILE_SITEKEY
+    value: "0x4AAAAAACNCvv3pA4hrcbKM"
+    availability: [BUILD, RUNTIME]
+
   # Same property as the Astro site so the GA4 history is continuous.
   # NOTE: verify this is actually collecting — the shape is unusual for GA4
   # (10 digits rather than 10 alphanumerics).

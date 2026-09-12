@@ -264,6 +264,44 @@ for (const url of indexDirs(publicDir)) {
   }
 }
 
+/*
+ * Every NEXT_PUBLIC_* the code reads must be declared in apphosting.yaml.
+ *
+ * These are inlined at build time, so an undeclared one is simply `undefined` in
+ * the browser with no error anywhere — which is how NEXT_PUBLIC_TURNSTILE_SITEKEY
+ * came to be referenced by Turnstile.tsx and defined nowhere. The widget never
+ * rendered, so no token was ever minted, so every form failed on a missing token
+ * while the secret looked correctly provisioned.
+ */
+const apphosting = readFileSync(join(ROOT, 'apphosting.yaml'), 'utf8');
+const declaredEnv = new Set(
+  [...apphosting.matchAll(/^\s*-\s*variable:\s*([A-Z0-9_]+)/gm)].map((m) => m[1])
+);
+
+const publicVars = new Set();
+function scanForPublicEnv(dir) {
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    if (statSync(full).isDirectory()) {
+      scanForPublicEnv(full);
+    } else if (/\.(tsx?|mjs)$/.test(entry)) {
+      for (const m of readFileSync(full, 'utf8').matchAll(/process\.env\.(NEXT_PUBLIC_[A-Z0-9_]+)/g)) {
+        publicVars.add(m[1]);
+      }
+    }
+  }
+}
+scanForPublicEnv(join(ROOT, 'src'));
+
+for (const name of publicVars) {
+  if (!declaredEnv.has(name)) {
+    errors.push(
+      `${name} is read in src/ but not declared in apphosting.yaml — it will be ` +
+        `undefined in the browser with no error`
+    );
+  }
+}
+
 // ------------------------------------------------------------------ report ---
 if (notes.length) {
   console.log(`check-redirects: ${notes.length} note(s)`);
