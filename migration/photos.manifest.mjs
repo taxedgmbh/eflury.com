@@ -39,4 +39,32 @@ export const PHOTOS = [
     alt: 'Treppenläufe übereinander, von unten gesehen — eine Stufe nach der anderen.',
     use: 'Methode/Phasen — fünf Schritte mit Entscheid nach jedem.',
   },
+  {
+    id: 'watchmaker',
+    title: 'File:Watchmaker (184539829).jpeg',
+    focus: '50% 45%',
+    alt: 'Uhrmacher an der Werkbank, über ein Werk gebeugt, Werkzeug in der Hand.',
+    use: 'Über Emanuel / Karriere — Handwerk, und Grenchen ist eine Uhrenstadt.',
+  },
+  {
+    id: 'market-hall',
+    title: 'File:Woolwich Public Market Hall, Grade 2 Listed Building. 2016-03-05.jpg',
+    focus: '50% 55%',
+    alt: 'Stahlfachwerk einer Markthalle: viele gleiche Felder, unter einem Dach.',
+    use: 'Einsatzbereiche — verschiedene Branchen, dieselbe Konstruktion darunter.',
+  },
+  {
+    id: 'watch-movement',
+    title: 'File:Nomos Tangente neomatik 41 Update, Ref. 180, DUW 6101 -- 2023 -- 0012X.jpg',
+    focus: '50% 50%',
+    alt: 'Offenes Uhrwerk in Grossaufnahme: Räderwerk, Brücken und Schrauben.',
+    use: 'Fallstudien — gemessene Resultate, nicht geschätzte.',
+  },
+  {
+    id: 'reading-room',
+    title: 'File:Main Reading Room of the New York City Public Library on 5th Avenue ca, 1910-1920.jpg',
+    focus: '50% 50%',
+    alt: 'Grosser Lesesaal einer Bibliothek, Tischreihen unter hohen Fenstern.',
+    use: 'Leitfäden — Nachschlagen statt Raten.',
+  },
 ];

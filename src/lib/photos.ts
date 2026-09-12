@@ -49,6 +49,50 @@ export const PHOTO_CREDITS: PhotoCredit[] = [
     "alt": "Treppenläufe übereinander, von unten gesehen — eine Stufe nach der anderen.",
     "focus": "50% 50%",
     "aspect": 1.5
+  },
+  {
+    "id": "watchmaker",
+    "licence": "CC0",
+    "licenceUrl": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "artist": "Yılmaz Kilim",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWatchmaker_(184539829).jpeg",
+    "attribution": false,
+    "alt": "Uhrmacher an der Werkbank, über ein Werk gebeugt, Werkzeug in der Hand.",
+    "focus": "50% 45%",
+    "aspect": 1.7778
+  },
+  {
+    "id": "market-hall",
+    "licence": "CC BY 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/4.0",
+    "artist": "J K Thorne",
+    "page": "https://commons.wikimedia.org/wiki/File%3AWoolwich_Public_Market_Hall%2C_Grade_2_Listed_Building._2016-03-05.jpg",
+    "attribution": true,
+    "alt": "Stahlfachwerk einer Markthalle: viele gleiche Felder, unter einem Dach.",
+    "focus": "50% 55%",
+    "aspect": 1.3333
+  },
+  {
+    "id": "watch-movement",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Anil Öztas",
+    "page": "https://commons.wikimedia.org/wiki/File%3ANomos_Tangente_neomatik_41_Update%2C_Ref._180%2C_DUW_6101_--_2023_--_0012X.jpg",
+    "attribution": true,
+    "alt": "Offenes Uhrwerk in Grossaufnahme: Räderwerk, Brücken und Schrauben.",
+    "focus": "50% 50%",
+    "aspect": 1.5
+  },
+  {
+    "id": "reading-room",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "artist": "Unknown authorUnknown author",
+    "page": "https://commons.wikimedia.org/wiki/File%3AMain_Reading_Room_of_the_New_York_City_Public_Library_on_5th_Avenue_ca%2C_1910-1920.jpg",
+    "attribution": false,
+    "alt": "Grosser Lesesaal einer Bibliothek, Tischreihen unter hohen Fenstern.",
+    "focus": "50% 50%",
+    "aspect": 1.2806
   }
 ];
 

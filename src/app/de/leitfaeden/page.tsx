@@ -4,6 +4,7 @@ import { CONTENT_PAGES, getPageHtml } from '@/lib/pages';
 import { contentPageGraph, jsonLd } from '@/lib/schema';
 import { GuideRequestForm } from '@/components/GuideRequestForm';
 import { Card, IconTile } from '@/components/ui';
+import { PhotoBand } from '@/components/PhotoBand';
 
 const meta = CONTENT_PAGES.leitfaeden;
 
@@ -65,14 +66,16 @@ export default async function LeitfaedenPage() {
         dangerouslySetInnerHTML={{ __html: jsonLd(contentPageGraph(meta.route, meta.title)) }}
       />
 
+      <PhotoBand
+        id="reading-room"
+        as="h1"
+        size="opener"
+        eyebrow={meta.title}
+        heading="Nachschlagen statt raten."
+        lead="Schriftliche Leitfäden zu den Fragen, die in Projekten immer wieder auftauchen. Kostenlos, als PDF, gegen Ihre E-Mail-Adresse."
+      />
+
       <div className="mx-auto max-w-5xl px-6 pt-16 pb-20">
-        <header className="border-b border-[var(--rule-strong)] pb-8">
-          <h1 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">{meta.title}</h1>
-          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
-            Schriftliche Leitfäden zu den Fragen, die in Projekten immer wieder
-            auftauchen. Kostenlos, als PDF, gegen Ihre E-Mail-Adresse.
-          </p>
-        </header>
 
         <div
           className="prose-de legal-prose mt-10"

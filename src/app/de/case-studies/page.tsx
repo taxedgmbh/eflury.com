@@ -12,6 +12,7 @@ const STUDY_ICONS = {
 import { contentPageGraph, jsonLd } from '@/lib/schema';
 import { illustrationFor } from '@/lib/illustrations';
 import { IconTile } from '@/components/ui';
+import { PhotoBand } from '@/components/PhotoBand';
 
 export const metadata: Metadata = {
   title: 'Referenzen',
@@ -41,12 +42,21 @@ export default function CaseStudiesIndex() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(contentPageGraph('/de/case-studies/', 'Referenzen')) }}
       />
-      <div className="mx-auto max-w-5xl px-6 pt-20 pb-10">
-        <h1 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">Referenzen</h1>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
-          Vier Projekte, jeweils mit dem, was vorher war, was gebaut wurde und was
-          messbar herauskam. Das erste ist die eigene Firma.
-        </p>
+      {/*
+       * An open watch movement: the page's claim is that the numbers were
+       * measured rather than estimated, and this is what measurement looks like
+       * in a town that makes watches.
+       */}
+      <PhotoBand
+        id="watch-movement"
+        as="h1"
+        size="opener"
+        eyebrow="Referenzen"
+        heading="Vier Projekte, gemessen statt geschätzt."
+        lead="Jeweils mit dem, was vorher war, was gebaut wurde und was messbar herauskam. Das erste ist die eigene Firma."
+      />
+
+      <div className="mx-auto max-w-5xl px-6 pt-16 pb-10">
 
         {Illustration ? (
           <div className="mt-10">

@@ -25,9 +25,24 @@ interface PhotoBandProps {
   cta?: { href: string; label: string };
   /** Tall for a page opener, shorter for a band between sections. */
   size?: 'opener' | 'band';
+  /**
+   * A page opener carries the page's h1; a band between sections carries an h2.
+   * Passing the level rather than always emitting h2 keeps the document outline
+   * correct — a page whose only heading is an h2 is a real a11y defect, not a
+   * cosmetic one.
+   */
+  as?: 'h1' | 'h2';
 }
 
-export function PhotoBand({ id, eyebrow, heading, lead, cta, size = 'band' }: PhotoBandProps) {
+export function PhotoBand({
+  id,
+  eyebrow,
+  heading,
+  lead,
+  cta,
+  size = 'band',
+  as: Heading = 'h2',
+}: PhotoBandProps) {
   const image = photo(id);
 
   const height =
@@ -86,7 +101,7 @@ export function PhotoBand({ id, eyebrow, heading, lead, cta, size = 'band' }: Ph
       <div className="mx-auto w-full max-w-6xl px-6 pt-16 pb-12 sm:pt-20 sm:pb-14">
         <p className="text-[0.8125rem] font-medium tracking-[0.02em] text-white/90">{eyebrow}</p>
         <span aria-hidden className="mt-4 block h-[3px] w-10 bg-[var(--accent)]" />
-        <h2
+        <Heading
           className={`mt-5 max-w-[28ch] font-semibold tracking-[-0.03em] text-white ${
             size === 'opener'
               ? 'text-[2.1rem] leading-[1.05] sm:text-[3rem]'
@@ -94,7 +109,7 @@ export function PhotoBand({ id, eyebrow, heading, lead, cta, size = 'band' }: Ph
           }`}
         >
           {heading}
-        </h2>
+        </Heading>
         {lead ? (
           <p className="mt-5 max-w-[54ch] text-[1.0625rem] leading-relaxed text-white/90">{lead}</p>
         ) : null}

@@ -11,6 +11,7 @@ const AREA_ICONS = {
 import { contentPageGraph, jsonLd } from '@/lib/schema';
 import { illustrationFor } from '@/lib/illustrations';
 import { IconTile } from '@/components/ui';
+import { PhotoBand } from '@/components/PhotoBand';
 
 export const metadata: Metadata = {
   title: 'Einsatzbereiche',
@@ -40,12 +41,21 @@ export default function BranchenIndex() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(contentPageGraph('/de/branchen/', 'Einsatzbereiche')) }}
       />
-      <div className="mx-auto max-w-5xl px-6 pt-20 pb-10">
-        <h1 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">Einsatzbereiche</h1>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
-          Die Arbeit sieht je nach Abteilung anders aus, die Regel bleibt dieselbe:
-          KI schlägt vor, Menschen entscheiden.
-        </p>
+      {/*
+       * A market hall: many identical bays, different trades under one roof —
+       * which is the page's argument, that the construction underneath does not
+       * change with the department.
+       */}
+      <PhotoBand
+        id="market-hall"
+        as="h1"
+        size="opener"
+        eyebrow="Einsatzbereiche"
+        heading="Andere Abteilung, dieselbe Regel."
+        lead="Die Arbeit sieht je nach Abteilung anders aus, die Regel bleibt dieselbe: KI schlägt vor, Menschen entscheiden."
+      />
+
+      <div className="mx-auto max-w-5xl px-6 pt-16 pb-10">
 
         {Illustration ? (
           <div className="mt-10">

@@ -23,6 +23,20 @@ export interface ContentPage {
   description: string;
   /** Shown under the title. */
   standfirst?: string;
+  /**
+   * Photo id from migration/photos.manifest.mjs. Present means the page opens
+   * with the title set over the photograph instead of over the page background.
+   * Absent is the right answer for pages whose job is to be read rather than
+   * looked at — the legal pages, and the contact page.
+   */
+  photo?: string;
+  /**
+   * Headline for a photographic opener. The title is a nav label — "Profil",
+   * "Methode" — which reads as a caption when set 48px over a full-bleed
+   * photograph. This is the sentence that belongs there instead; the title
+   * becomes the small label above it and the standfirst becomes the lead.
+   */
+  openerHeading?: string;
   priority: number;
 }
 
@@ -35,6 +49,8 @@ export const CONTENT_PAGES = {
       'Emanuel Flury — vom Buchhalter über 13 Jahre Fortune-500-Automatisierung zum Unternehmer in Grenchen.',
     standfirst:
       'Vom Buchhalter, der in Excel versank, über dreizehn Jahre Automatisierung im Konzern, zurück in die eigene Firma.',
+    photo: 'watchmaker',
+    openerHeading: 'Zuerst in der eigenen Firma gebaut.',
     priority: 0.8,
   },
   methode: {
@@ -44,6 +60,8 @@ export const CONTENT_PAGES = {
     description:
       'Fünf Phasen von der Analyse bis zum Betrieb — mit einem ehrlichen Go/No-Go am Ende der ersten.',
     standfirst: 'Wie ein Projekt abläuft, und woran Sie merken, dass es nicht laufen sollte.',
+    photo: 'stair-flights',
+    openerHeading: 'Fünf Phasen — und nach jeder ein Entscheid.',
     priority: 0.7,
   },
   sicherheit: {
@@ -53,6 +71,8 @@ export const CONTENT_PAGES = {
     description:
       'Wie in Projekten mit Ihren Daten gearbeitet wird: Lesezugriff statt Kopien, menschliche Freigabe für Änderungen.',
     standfirst: 'Vollständig offengelegt, damit Sie es prüfen können statt es glauben zu müssen.',
+    photo: 'switching-station',
+    openerHeading: 'Lesezugriff statt Kopien. Nichts ohne Freigabe.',
     priority: 0.6,
   },
   leitfaeden: {
@@ -61,6 +81,8 @@ export const CONTENT_PAGES = {
     title: 'Leitfäden',
     description:
       'Schriftliche Leitfäden zu revDSG, EU AI Act, Datenqualität und Automatisierung — als PDF zum Mitnehmen.',
+    photo: 'reading-room',
+    openerHeading: 'Nachschlagen statt raten.',
     priority: 0.6,
   },
   skopaai: {
