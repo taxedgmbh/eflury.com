@@ -3,7 +3,14 @@ import Link from 'next/link';
 import { Check } from 'lucide-react';
 import { CONTENT_PAGES } from '@/lib/pages';
 import { contentPageGraph, jsonLd } from '@/lib/schema';
-import { PACKAGES, AUDIT_CREDIT, ADD_ONS, PRICING_FAQS, COMPARISON_ROWS } from '@/data/pricing';
+import {
+  PACKAGES,
+  AUDIT_CREDIT,
+  ADD_ONS,
+  PRICING_FAQS,
+  COMPARISON_ROWS,
+  chf,
+} from '@/data/pricing';
 import { PhotoBand } from '@/components/PhotoBand';
 import { Card } from '@/components/ui';
 
@@ -24,10 +31,6 @@ export const metadata: Metadata = {
  * meant to demonstrate. Nothing here is new information — it is the same
  * prices and inclusions, put back into the shape they were written in.
  */
-
-function chf(amount: number): string {
-  return `CHF ${Math.abs(amount).toLocaleString('de-CH').replace(/'/g, '’')}`;
-}
 
 export default function PricingPage() {
   return (
@@ -55,8 +58,8 @@ export default function PricingPage() {
         </h2>
         <p className="lead mt-4 max-w-2xl">
           Alle enthalten die vollständige eflury Method™. Die Reihenfolge ist die
-          Reihenfolge der Grösse — Micro ist der kleinste sinnvolle Einstieg, nicht
-          eine abgespeckte Variante.
+          Reihenfolge der Grösse — Micro ist der kleinste sinnvolle Einstieg, keine
+          abgespeckte Variante.
         </p>
 
         <ul className="mt-12 grid gap-6 lg:grid-cols-2">

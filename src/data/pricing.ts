@@ -18,6 +18,19 @@
  * "4-Stunden-Workshop" in the other came to disagree in wording.
  */
 
+/**
+ * The one place a franc amount is formatted.
+ *
+ * toLocaleString('de-CH') returns a straight apostrophe as the thousands
+ * separator. The cards were putting their prices through a local helper that
+ * swapped it for a typographic one while the comparison table used
+ * toLocaleString directly, so the same price rendered as CHF 5’900 in the card
+ * and CHF 5'900 in the table, three sections apart on one page.
+ */
+export function chf(amount: number): string {
+  return `CHF ${Math.abs(amount).toLocaleString('de-CH').replace(/'/g, '\u2019')}`;
+}
+
 export interface PricingPackage {
   slug: string;
   name: string;
@@ -292,7 +305,7 @@ export const PRICING_FAQS: PricingFaq[] = [
 
 /** Rows of the comparison table, derived so they cannot drift from the cards. */
 export const COMPARISON_ROWS = [
-  { label: 'Preis', value: (p: PricingPackage) => `CHF ${p.price.toLocaleString('de-CH')}` },
+  { label: 'Preis', value: (p: PricingPackage) => chf(p.price) },
   { label: 'Dauer', value: (p: PricingPackage) => `${p.weeks} Wochen` },
   { label: 'Claude Skills', value: (p: PricingPackage) => p.skills },
   { label: 'MCP-Integrationen', value: (p: PricingPackage) => p.integrations },
