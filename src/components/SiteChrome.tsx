@@ -40,13 +40,13 @@ const MORE = [
 export function Header() {
   return (
     <header className="border-b border-[var(--rule)] bg-[var(--surface)]">
-      <div className="mx-auto flex max-w-5xl flex-wrap items-baseline gap-x-8 gap-y-3 px-6 py-5">
+      <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-8 gap-y-1 px-6 py-3">
         {/*
           The brand mark eflury.com already uses. Kept alongside the person's
           name rather than the "eFlury Consulting" wordmark, since the site is
           now the umbrella for all three ventures rather than the consultancy.
         */}
-        <Link href="/de/" className="flex items-center gap-2.5">
+        <Link href="/de/" className="tap gap-2.5">
           <Image
             src="/images/favicon-tab.png"
             alt=""
@@ -60,12 +60,12 @@ export function Header() {
           </span>
         </Link>
         <nav aria-label="Hauptnavigation" className="ms-auto">
-          <ul className="flex flex-wrap items-baseline gap-x-6 gap-y-2 text-[0.9375rem]">
+          <ul className="flex flex-wrap items-center gap-x-6 text-[0.9375rem]">
             {NAV.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="text-[var(--text-muted)] underline-offset-4 hover:text-[var(--text)] hover:underline hover:decoration-[var(--accent)]"
+                  className="tap text-[var(--text-muted)] underline-offset-4 hover:text-[var(--text)] hover:underline hover:decoration-[var(--accent)]"
                 >
                   {item.label}
                 </Link>
@@ -96,7 +96,7 @@ export function Footer() {
                 {PERSON.email}
               </a>
               <br />
-              <a href={`tel:${PERSON.telephone}`} className="text-[var(--text-muted)] hover:text-[var(--text)]">
+              <a href={`tel:${PERSON.telephone}`} className="tap text-[var(--text-muted)] hover:text-[var(--text)]">
                 {PERSON.telephoneDisplay}
               </a>
             </p>
@@ -111,12 +111,12 @@ export function Footer() {
                     <a
                       href={v.url}
                       rel="me noopener"
-                      className="text-[var(--text-muted)] hover:text-[var(--text)]"
+                      className="tap text-[var(--text-muted)] hover:text-[var(--text)]"
                     >
                       {v.name}
                     </a>
                   ) : (
-                    <Link href="/de/services/" className="text-[var(--text-muted)] hover:text-[var(--text)]">
+                    <Link href="/de/services/" className="tap text-[var(--text-muted)] hover:text-[var(--text)]">
                       {v.name}
                     </Link>
                   )}
@@ -130,7 +130,7 @@ export function Footer() {
             <ul className="mt-2 space-y-1.5 text-sm">
               {MORE.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-[var(--text-muted)] hover:text-[var(--text)]">
+                  <Link href={l.href} className="tap text-[var(--text-muted)] hover:text-[var(--text)]">
                     {l.label}
                   </Link>
                 </li>
@@ -143,7 +143,7 @@ export function Footer() {
             <ul className="mt-2 space-y-1.5 text-sm">
               {LEGAL.map((l) => (
                 <li key={l.href}>
-                  <Link href={l.href} className="text-[var(--text-muted)] hover:text-[var(--text)]">
+                  <Link href={l.href} className="tap text-[var(--text-muted)] hover:text-[var(--text)]">
                     {l.label}
                   </Link>
                 </li>

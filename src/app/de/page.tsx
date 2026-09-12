@@ -269,10 +269,11 @@ export default async function HomePage({
                 <h3 className="mt-5 text-xl font-bold tracking-tight">{stage.title}</h3>
                 <p className="mt-3 leading-relaxed text-[var(--text-muted)]">{stage.body}</p>
                 {stage.links ? (
-                  <ul className="mt-5 space-y-2.5 border-t border-[var(--rule)] pt-5">
+                  // space-y dropped: .tap gives each row its own 44px height
+                  <ul className="mt-5 border-t border-[var(--rule)] pt-3">
                     {stage.links.map((l) => (
                       <li key={l.href}>
-                        <Link href={l.href} className="font-medium text-[var(--link)] hover:underline">
+                        <Link href={l.href} className="tap font-medium text-[var(--link)] hover:underline">
                           {l.label}
                         </Link>
                       </li>
@@ -280,7 +281,7 @@ export default async function HomePage({
                   </ul>
                 ) : null}
                 <p className="mt-auto pt-6">
-                  <Link href={stage.href} className="inline-flex items-center gap-1.5 font-semibold text-[var(--link)] hover:underline">
+                  <Link href={stage.href} className="tap gap-1.5 font-semibold text-[var(--link)] hover:underline">
                     Mehr erfahren
                     <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
                   </Link>
@@ -418,13 +419,13 @@ export default async function HomePage({
           <ul className="mt-8 flex flex-wrap justify-center gap-x-8 gap-y-3 text-sm text-[var(--text-muted)]">
             <li className="inline-flex items-center gap-2">
               <Mail className="h-4 w-4 text-[var(--accent-text)]" strokeWidth={1.75} aria-hidden />
-              <a href={`mailto:${PERSON.email}`} className="hover:text-[var(--text)]">
+              <a href={`mailto:${PERSON.email}`} className="tap hover:text-[var(--text)]">
                 {PERSON.email}
               </a>
             </li>
             <li className="inline-flex items-center gap-2">
               <Phone className="h-4 w-4 text-[var(--accent-text)]" strokeWidth={1.75} aria-hidden />
-              <a href={`tel:${PERSON.telephone}`} className="hover:text-[var(--text)]">
+              <a href={`tel:${PERSON.telephone}`} className="tap hover:text-[var(--text)]">
                 {PERSON.telephoneDisplay}
               </a>
             </li>

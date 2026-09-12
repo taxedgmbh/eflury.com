@@ -109,7 +109,7 @@ export function Breadcrumbs({ trail }: { trail: { name: string; href?: string }[
           <li key={item.name} className="flex items-center gap-2">
             {i > 0 ? <span aria-hidden className="text-[var(--text-faint)]">/</span> : null}
             {item.href ? (
-              <Link href={item.href} className="hover:text-[var(--text)]">
+              <Link href={item.href} className="tap hover:text-[var(--text)]">
                 {item.name}
               </Link>
             ) : (
@@ -133,7 +133,7 @@ export function TagLinks({ tags }: { tags: readonly string[] }) {
           <li key={t}>
             <Link
               href={`/de/blog/tag/${tagSlug(t)}/`}
-              className="inline-block rounded-full border border-[var(--rule)] px-3 py-1 text-sm text-[var(--text-muted)] hover:border-[var(--rule-strong)] hover:text-[var(--text)]"
+              className="tap rounded-full border border-[var(--rule)] px-4 text-sm text-[var(--text-muted)] hover:border-[var(--rule-strong)] hover:text-[var(--text)]"
             >
               {t}
             </Link>

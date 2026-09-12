@@ -90,7 +90,7 @@ export function NewsletterForm() {
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="rounded-sm bg-[var(--text)] px-4 py-2 text-sm font-medium text-[var(--surface)] disabled:opacity-60"
+        className="tap rounded-sm bg-[var(--text)] px-4 text-sm font-medium text-[var(--surface)] disabled:opacity-60"
       >
         {status === 'sending' ? 'Wird gesendet …' : 'Anmelden'}
       </button>

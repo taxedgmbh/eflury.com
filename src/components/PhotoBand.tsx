@@ -116,7 +116,7 @@ export function PhotoBand({
         {cta ? (
           <Link
             href={cta.href}
-            className="mt-7 inline-flex items-center gap-2 rounded-full bg-white/95 px-5 py-2.5 text-[0.95rem] font-medium text-[var(--navy,#022554)] transition-colors hover:bg-white"
+            className="tap mt-7 gap-2 rounded-full bg-white/95 px-5 text-[0.95rem] font-medium text-[var(--navy,#022554)] transition-colors hover:bg-white"
           >
             {cta.label}
             <span aria-hidden>→</span>

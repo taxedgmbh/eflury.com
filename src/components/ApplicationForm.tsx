@@ -181,7 +181,7 @@ export function ApplicationForm() {
       </fieldset>
 
       <label className="flex items-start gap-3 text-sm">
-        <input type="checkbox" name="datenschutz" value="1" required className="mt-1 h-4 w-4 accent-[var(--accent-text)]" />
+        <input type="checkbox" name="datenschutz" value="1" required className="mt-1 h-5 w-5 accent-[var(--accent-text)]" />
         <span className="text-[var(--text-muted)]">
           Ich bin einverstanden, dass meine Angaben und Unterlagen zur Bearbeitung
           meiner Bewerbung gemäss{' '}
@@ -207,7 +207,7 @@ export function ApplicationForm() {
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="rounded-sm bg-[var(--text)] px-5 py-2.5 text-[0.95rem] font-medium text-[var(--surface)] disabled:opacity-60"
+        className="tap rounded-sm bg-[var(--text)] px-5 text-[0.95rem] font-medium text-[var(--surface)] disabled:opacity-60"
       >
         {status === 'sending' ? 'Wird gesendet …' : 'Bewerbung senden'}
       </button>

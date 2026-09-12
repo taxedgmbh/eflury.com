@@ -54,7 +54,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
 
       <div className="mx-auto max-w-5xl px-6 pt-12 pb-6">
         <nav aria-label="Brotkrumen" className="text-sm">
-          <Link href="/de/services/" className="text-[var(--text-muted)] hover:text-[var(--text)]">
+          <Link href="/de/services/" className="tap text-[var(--text-muted)] hover:text-[var(--text)]">
             Leistungen
           </Link>
         </nav>
@@ -310,12 +310,12 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
           <h2 id="weitere" className="rail-label">
             Weitere Leistungen
           </h2>
-          <ul className="min-w-0 space-y-2">
+          <ul className="min-w-0">
             {others.map((s) => (
               <li key={s.slug}>
                 <Link
                   href={`/de/services/${s.slug}/`}
-                  className="text-lg text-[var(--link)] hover:underline"
+                  className="tap text-lg text-[var(--link)] hover:underline"
                 >
                   {s.serviceType}
                 </Link>

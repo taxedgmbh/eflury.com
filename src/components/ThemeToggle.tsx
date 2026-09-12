@@ -47,7 +47,7 @@ export function ThemeToggle() {
   // Render nothing until mounted: the server cannot know the stored preference,
   // and guessing produces a flash of the wrong icon on every load.
   if (theme === null) {
-    return <span className="inline-block h-9 w-9" aria-hidden />;
+    return <span className="inline-block h-11 w-11" aria-hidden />;
   }
 
   const toDark = theme === 'light';
@@ -57,7 +57,7 @@ export function ThemeToggle() {
       onClick={toggle}
       aria-pressed={theme === 'dark'}
       title={toDark ? 'Dunkles Design' : 'Helles Design'}
-      className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-[var(--rule)] text-[var(--text-muted)] hover:border-[var(--rule-strong)] hover:text-[var(--text)]"
+      className="tap-square rounded-full border border-[var(--rule)] text-[var(--text-muted)] hover:border-[var(--rule-strong)] hover:text-[var(--text)]"
     >
       {toDark ? (
         <Moon className="h-4 w-4" strokeWidth={1.75} aria-hidden />

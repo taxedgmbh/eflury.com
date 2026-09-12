@@ -142,6 +142,34 @@
     outline: 2px solid var(--link);
     outline-offset: 3px;
   }
+}
+
+@layer components {
+  /*
+   * Apple's HIG puts the minimum touch target at 44x44pt, and WCAG 2.2's
+   * Target Size (2.5.8) at 24x24px. Measured at phone width this site had
+   * header nav links 18px tall, footer links 17px, and both icon buttons at
+   * 36px — all of them standalone controls with no exception to hide behind.
+   *
+   * The fix is a minimum height with the content centred, not padding, so the
+   * visual rhythm of a nav row does not change by 26px per link. Links inside
+   * running prose are deliberately excluded: WCAG exempts inline links, and
+   * padding them would wreck the line spacing of a paragraph to no benefit.
+   */
+  .tap {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /* Same rule for a control that is square by nature, e.g. an icon button. */
+  .tap-square {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+  }
 
   h1,
   h2,
