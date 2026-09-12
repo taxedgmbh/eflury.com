@@ -1,12 +1,12 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import { CheckCircle2, AlertCircle, ChevronDown } from 'lucide-react';
+import { CheckCircle2, AlertCircle, ChevronDown, ArrowRight, FileText } from 'lucide-react';
 import { notFound } from 'next/navigation';
 import { SERVICES, getService } from '@/data/services';
 import { serviceGraph, jsonLd } from '@/lib/schema';
 import { PERSON } from '@/lib/site';
 import { illustrationFor } from '@/lib/illustrations';
-import { Card, IconTile } from '@/components/ui';
+import { Card, IconTile, Button } from '@/components/ui';
 
 export const dynamicParams = false;
 
@@ -190,6 +190,56 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
       ) : null}
 
+      {service.sampleReport ? (
+        <section className="mx-auto max-w-5xl px-6 pt-16" aria-labelledby="muster">
+          <div className="rail">
+            <h2 id="muster" className="rail-label">Musterbericht</h2>
+            <Card className="min-w-0 max-w-2xl">
+              <span className="inline-flex"><IconTile icon={FileText} /></span>
+              <p className="mt-5 text-xl font-bold tracking-tight">{service.sampleReport.title}</p>
+              <p className="mt-3 leading-relaxed text-[var(--text-muted)]">
+                {service.sampleReport.note}
+              </p>
+              <p className="mt-5">
+                <a
+                  href={service.sampleReport.href}
+                  download
+                  className="inline-flex items-center gap-1.5 font-semibold text-[var(--link)] hover:underline"
+                >
+                  {service.sampleReport.cta}
+                  <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+                </a>
+              </p>
+            </Card>
+          </div>
+        </section>
+      ) : null}
+
+      {service.relatedCaseStudy ? (
+        <section className="mx-auto max-w-5xl px-6 pt-16" aria-labelledby="beleg">
+          <div className="rail">
+            <h2 id="beleg" className="rail-label">Beleg</h2>
+            <Card className="min-w-0 max-w-2xl">
+              <p className="text-xs font-semibold tracking-[0.08em] text-[var(--accent-text)] uppercase">
+                {service.relatedCaseStudy.metric}
+              </p>
+              <p className="mt-3 text-lg font-bold tracking-tight">
+                {service.relatedCaseStudy.title}
+              </p>
+              <p className="mt-4">
+                <Link
+                  href={`${service.relatedCaseStudy.link.replace(/\/$/, '')}/`}
+                  className="inline-flex items-center gap-1.5 font-semibold text-[var(--link)] hover:underline"
+                >
+                  Fallstudie lesen
+                  <ArrowRight className="h-4 w-4" strokeWidth={2} aria-hidden />
+                </Link>
+              </p>
+            </Card>
+          </div>
+        </section>
+      ) : null}
+
       <section className="mx-auto max-w-5xl px-6 pt-20" aria-labelledby="cta">
         <div className="rail border-t border-[var(--rule-strong)] pt-8">
           <h2 id="cta" className="rail-label">
@@ -200,12 +250,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
             <p className="mt-4 leading-relaxed text-[var(--text-muted)]">
               {service.ctaDescription}
             </p>
-            <p className="mt-6">
-              <a
-                href={`mailto:${PERSON.email}`}
-                className="text-[var(--link)] underline underline-offset-4 hover:decoration-[var(--accent)]"
-              >
-                {service.ctaButtonText}
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <Button href="/de/kontakt/">{service.ctaButtonText}</Button>
+              <Button href="/de/pricing/" variant="ghost">Preise ansehen</Button>
+            </div>
+            <p className="mt-4 text-sm text-[var(--text-faint)]">
+              Oder direkt:{' '}
+              <a href={`mailto:${PERSON.email}`} className="text-[var(--link)] hover:underline">
+                {PERSON.email}
               </a>
             </p>
           </div>

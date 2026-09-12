@@ -67,6 +67,22 @@ export const getAllTags = cache(async (): Promise<string[]> => {
   return [...tags].sort((a, b) => a.localeCompare(b, 'de'));
 });
 
+/**
+ * URL slug for a tag: lowercased, umlauts transliterated, everything else
+ * collapsed to hyphens. Matching is done on this rather than the raw tag, so a
+ * change of casing does not move the URL.
+ */
+export function tagSlug(tag: string): string {
+  return tag
+    .toLowerCase()
+    .replace(/ä/g, 'ae')
+    .replace(/ö/g, 'oe')
+    .replace(/ü/g, 'ue')
+    .replace(/ß/g, 'ss')
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/^-|-$/g, '');
+}
+
 /** Reading time in minutes, German-tuned (~200 wpm for technical prose). */
 export function readingTime(body: string): number {
   return Math.max(1, Math.round(body.trim().split(/\s+/).length / 200));

@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site';
 import { STATIC_ROUTES, SITEMAP_EXCLUDE } from '@/lib/routes';
-import { getAllPosts } from '@/lib/content';
+import { getAllPosts, getAllTags, tagSlug } from '@/lib/content';
 import { SERVICES } from '@/data/services';
 
 /*
@@ -33,5 +33,13 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.7,
   }));
 
-  return [...staticEntries, ...serviceEntries, ...postEntries];
+  // Tag archives are real, indexable pages; they were missing from the sitemap
+  // because they are generated from content rather than from a page.tsx.
+  const tagEntries = (await getAllTags()).map((tag) => ({
+    url: `${SITE_URL}/de/blog/tag/${tagSlug(tag)}/`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.4,
+  }));
+
+  return [...staticEntries, ...serviceEntries, ...postEntries, ...tagEntries];
 }

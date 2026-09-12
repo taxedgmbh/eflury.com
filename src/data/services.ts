@@ -16,6 +16,16 @@
 export interface ServiceStep { title: string; description: string }
 export interface ServiceBenefit { title: string; description: string }
 export interface ServiceFaq { question: string; answer: string }
+/** Cross-link to the case study that proves the service. */
+export interface RelatedCaseStudy { title: string; link: string; metric: string }
+/** Gated sample deliverable — currently only the KI-Audit has one. */
+export interface SampleReport {
+  title: string;
+  note: string;
+  cta: string;
+  href: string;
+  image: string;
+}
 
 export interface Service {
   slug: string;
@@ -37,8 +47,8 @@ export interface Service {
   ctaTitle: string;
   ctaDescription: string;
   ctaButtonText: string;
-  relatedCaseStudy?: unknown;
-  sampleReport?: unknown;
+  relatedCaseStudy?: RelatedCaseStudy;
+  sampleReport?: SampleReport;
 }
 
 export const SERVICES: Service[] = [

@@ -36,8 +36,12 @@ export const STATIC_ROUTES: StaticRoute[] = [
   { path: '/de/verhaltenskodex/', priority: 0.3, changeFrequency: 'yearly' },
 ];
 
-/** Routes that exist but must never be advertised to crawlers. */
-export const SITEMAP_EXCLUDE = new Set<string>(['/de/danke/']);
+/**
+ * Routes that exist but must never be advertised to crawlers. Empty today —
+ * it previously listed /de/danke/, a thank-you page that never came across from
+ * the Astro site, so the exclusion was guarding nothing.
+ */
+export const SITEMAP_EXCLUDE = new Set<string>();
 
 /**
  * Dynamic route families whose members come from data, not from a page.tsx.

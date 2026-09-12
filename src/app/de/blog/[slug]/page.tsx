@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
+import Image from 'next/image';
 import { notFound } from 'next/navigation';
 import { MDXRemote } from 'next-mdx-remote-client/rsc';
 import remarkGfm from 'remark-gfm';
 import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { getAllPosts, getPost, formatDate, readingTime } from '@/lib/content';
+import { AuthorBio, RelatedPosts, Breadcrumbs, TagLinks } from '@/components/blog-parts';
 import { blogPostGraph, jsonLd } from '@/lib/schema';
 import { PERSON } from '@/lib/site';
 
@@ -77,6 +78,7 @@ const mdxOptions: React.ComponentProps<typeof MDXRemote>['options'] = {
 export default async function BlogPost({ params }: { params: Promise<{ slug: string }> }) {
   const post = await getPost((await params).slug);
   if (!post) notFound();
+  const all = await getAllPosts();
 
   return (
     <>
@@ -86,11 +88,13 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
       />
 
       <article className="mx-auto max-w-5xl px-6 pt-12 pb-16">
-        <nav aria-label="Brotkrumen" className="text-sm">
-          <Link href="/de/blog/" className="text-[var(--text-muted)] hover:text-[var(--text)]">
-            Blog
-          </Link>
-        </nav>
+        <Breadcrumbs
+          trail={[
+            { name: 'Start', href: '/de/' },
+            { name: 'Blog', href: '/de/blog/' },
+            { name: post.title },
+          ]}
+        />
 
         <header className="mt-8 border-b border-[var(--rule-strong)] pb-8">
           <h1 className="max-w-3xl text-[2.1rem] leading-[1.15] font-medium tracking-[-0.02em] sm:text-[2.6rem]">
@@ -120,20 +124,26 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           </div>
         </header>
 
+        {post.heroImage ? (
+          <Image
+            src={post.heroImage}
+            alt={post.heroImageAlt ?? ''}
+            width={1200}
+            height={630}
+            priority
+            className="mt-10 w-full rounded-xl border border-[var(--rule)]"
+          />
+        ) : null}
+
         <div className="prose-de mt-12">
           <MDXRemote source={post.body} options={mdxOptions} />
         </div>
 
-        {post.tags.length > 0 ? (
-          <div className="rail mt-16 border-t border-[var(--rule)] pt-6">
-            <h2 className="rail-label">Themen</h2>
-            <ul className="flex flex-wrap gap-x-5 gap-y-1.5 text-sm text-[var(--text-muted)]">
-              {post.tags.map((t) => (
-                <li key={t}>{t}</li>
-              ))}
-            </ul>
-          </div>
-        ) : null}
+        <TagLinks tags={post.tags} />
+
+        <AuthorBio />
+
+        <RelatedPosts current={post} all={all} />
 
       </article>
     </>
