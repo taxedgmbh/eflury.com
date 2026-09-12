@@ -7,6 +7,8 @@ import { serviceGraph, jsonLd } from '@/lib/schema';
 import { PERSON } from '@/lib/site';
 import { illustrationFor } from '@/lib/illustrations';
 import { Card, IconTile, Button } from '@/components/ui';
+import { MethodTrustBand } from '@/components/MethodTrustBand';
+import { DataQualityShowcase } from '@/components/DataQualityShowcase';
 
 export const dynamicParams = false;
 
@@ -190,6 +192,13 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
       ) : null}
 
+      {service.slug === 'datenqualitaet' ? (
+        <section className="mx-auto max-w-5xl px-6 pt-16" aria-labelledby="konkret">
+          <h2 id="konkret" className="sr-only">Ein konkretes Beispiel</h2>
+          <DataQualityShowcase />
+        </section>
+      ) : null}
+
       {service.sampleReport ? (
         <section className="mx-auto max-w-5xl px-6 pt-16" aria-labelledby="muster">
           <div className="rail">
@@ -260,6 +269,15 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
                 {PERSON.email}
               </a>
             </p>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-6 pt-16" aria-labelledby="vorgehen">
+        <div className="rail">
+          <h2 id="vorgehen" className="rail-label">Vorgehen &amp; Daten</h2>
+          <div className="min-w-0">
+            <MethodTrustBand />
           </div>
         </div>
       </section>
