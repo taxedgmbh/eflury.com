@@ -4,6 +4,44 @@ import { useRef, useState } from 'react';
 import { Turnstile, type TurnstileHandle } from './Turnstile';
 import { PERSON } from '@/lib/site';
 
+/**
+ * Shown whenever a submission does not get through — a failed security check, a
+ * missing secret, a network error, anything.
+ *
+ * A real enquiry arrived the week this was written: thirty employees, seven
+ * admin seats, a full advise-build-run brief. Losing one of those to a 403 the
+ * visitor cannot act on is far worse than any spam it would let through, and
+ * the form is not the only way to reach him.
+ */
+function DirectChannels() {
+  return (
+    <div className="mt-4 rounded-xl border border-[var(--rule)] bg-[var(--surface-sunken)] p-4 text-sm">
+      <p className="font-medium text-[var(--text)]">Sie erreichen Emanuel auch direkt:</p>
+      <ul className="mt-2 space-y-1">
+        <li>
+          <a href={`mailto:${PERSON.email}`} className="text-[var(--link)] hover:underline">
+            {PERSON.email}
+          </a>
+        </li>
+        <li>
+          <a href={`tel:${PERSON.telephone}`} className="text-[var(--link)] hover:underline">
+            {PERSON.telephoneDisplay}
+          </a>
+        </li>
+        <li>
+          <a
+            href={`https://wa.me/${PERSON.telephone.replace('+', '')}`}
+            className="text-[var(--link)] hover:underline"
+            rel="noopener"
+          >
+            WhatsApp
+          </a>
+        </li>
+      </ul>
+    </div>
+  );
+}
+
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
 const field =
@@ -148,9 +186,10 @@ export function ContactForm() {
       />
 
       {error ? (
-        <p role="alert" className="text-sm text-[var(--text)]">
-          {error}
-        </p>
+        <div role="alert">
+          <p className="text-sm text-[var(--text)]">{error}</p>
+          <DirectChannels />
+        </div>
       ) : null}
 
       <button
