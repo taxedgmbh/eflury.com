@@ -17,6 +17,18 @@ const ROOT = process.cwd();
 const errors = [];
 const notes = [];
 
+/*
+ * The App Hosting adapter renames next.config.ts to next.config.original.ts and
+ * writes a thin wrapper in its place, then runs this gate through `npm run
+ * build`. Reading next.config.ts directly therefore sees the generated wrapper
+ * and none of our redirects or rewrites — which failed every rollout while
+ * passing locally. Read whichever file actually holds the config.
+ */
+function readNextConfig() {
+  const original = join(ROOT, 'next.config.original.ts');
+  return readFileSync(existsSync(original) ? original : join(ROOT, 'next.config.ts'), 'utf8');
+}
+
 // ---------------------------------------------------------------- redirects --
 const redirectsSrc = readFileSync(join(ROOT, 'src/lib/legacy-redirects.ts'), 'utf8');
 const pairs = [...redirectsSrc.matchAll(/\['([^']+)',\s*'([^']+)'\]/g)].map((m) => [m[1], m[2]]);
@@ -157,7 +169,7 @@ for (const file of walkFiles(join(ROOT, 'public'))) {
   if (!/\.(html|js|json|txt)$/.test(file)) continue;
   for (const m of readFileSync(file, 'utf8').matchAll(/["'`]([^"'`\s]*\.php)\b/g)) {
     const rel = file.replace(`${ROOT}/`, '');
-    if (!redirectsSrc.includes(m[1]) && !readFileSync(join(ROOT, 'next.config.ts'), 'utf8').includes(m[1])) {
+    if (!redirectsSrc.includes(m[1]) && !readNextConfig().includes(m[1])) {
       phpRefs.set(`${rel} -> ${m[1]}`, true);
     }
   }
@@ -228,7 +240,7 @@ if (!registered && !saysUnregistered) {
  * two URLs /api/accept mints links to, came to be dead on the preview while
  * answering 200 on the live site.
  */
-const configSrc = readFileSync(join(ROOT, 'next.config.ts'), 'utf8');
+const configSrc = readNextConfig();
 const publicDir = join(ROOT, 'public');
 
 function indexDirs(dir, prefix = '') {
