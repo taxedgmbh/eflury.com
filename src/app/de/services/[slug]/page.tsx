@@ -9,6 +9,7 @@ import { illustrationFor } from '@/lib/illustrations';
 import { Card, IconTile, Button } from '@/components/ui';
 import { MethodTrustBand } from '@/components/MethodTrustBand';
 import { DataQualityShowcase } from '@/components/DataQualityShowcase';
+import { PhotoBand } from '@/components/PhotoBand';
 
 export const dynamicParams = false;
 
@@ -51,28 +52,50 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         dangerouslySetInnerHTML={{ __html: jsonLd(serviceGraph(service)) }}
       />
 
-      <div className="mx-auto max-w-5xl px-6 pt-12">
+      <div className="mx-auto max-w-5xl px-6 pt-12 pb-6">
         <nav aria-label="Brotkrumen" className="text-sm">
           <Link href="/de/services/" className="text-[var(--text-muted)] hover:text-[var(--text)]">
             Leistungen
           </Link>
         </nav>
 
-        <header className="mt-8 border-b border-[var(--rule-strong)] pb-10">
-          <p className="rail-label">{service.serviceType}</p>
-          <h1 className="mt-3 max-w-3xl text-[2.2rem] leading-[1.1] font-semibold tracking-[-0.028em] sm:text-[3rem]">
-            {service.heroTitle}
-          </h1>
-          <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
-            {service.heroDescription}
-          </p>
-          {Illustration ? (
-            <div className="mt-10 max-w-3xl">
-              <Illustration />
-            </div>
-          ) : null}
-        </header>
+        {/*
+         * Only the ruled header is conditional. The illustration is not replaced
+         * by the photograph — they do different jobs: the photograph says what
+         * kind of work this is, the diagram says how it runs, and the drawings
+         * are Emanuel's own.
+         */}
+        {service.photo ? null : (
+          <header className="mt-8 border-b border-[var(--rule-strong)] pb-10">
+            <p className="rail-label">{service.serviceType}</p>
+            <h1 className="mt-3 max-w-3xl text-[2.2rem] leading-[1.1] font-semibold tracking-[-0.028em] sm:text-[3rem]">
+              {service.heroTitle}
+            </h1>
+            <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
+              {service.heroDescription}
+            </p>
+          </header>
+        )}
       </div>
+
+      {service.photo ? (
+        <PhotoBand
+          id={service.photo}
+          as="h1"
+          size="opener"
+          eyebrow={service.serviceType}
+          heading={service.heroTitle}
+          lead={service.heroDescription}
+        />
+      ) : null}
+
+      {Illustration ? (
+        <div className="mx-auto max-w-5xl px-6 pt-14">
+          <div className="max-w-3xl">
+            <Illustration />
+          </div>
+        </div>
+      ) : null}
 
       <section className="mx-auto max-w-5xl px-6 pt-12" aria-labelledby="problem">
         <div className="rail">

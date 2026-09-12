@@ -46,6 +46,22 @@ function text(field) {
   return String(field.value).replace(/<[^>]+>/g, '').replace(/\s+/g, ' ').trim();
 }
 
+/*
+ * Commons artist fields are hand-entered wikitext and arrive dirty. Two cases
+ * showed up in the first fifteen files and both render badly on the credits
+ * page: a value duplicated by stripped markup ("Unknown authorUnknown author"),
+ * and one already prefixed with "Photo:", which the page renders as
+ * "Foto: Photo: Andreas Praefcke".
+ */
+function cleanArtist(raw) {
+  let value = raw.replace(/^(photo|foto|bild|image)\s*[:by]*\s*/i, '').trim();
+  const half = value.length / 2;
+  if (value.length % 2 === 0 && value.slice(0, half) === value.slice(half)) {
+    value = value.slice(0, half);
+  }
+  return value.trim();
+}
+
 async function metadata(title) {
   const url = new URL(API);
   url.search = new URLSearchParams({
@@ -70,7 +86,7 @@ async function metadata(title) {
     height: info.height,
     licence: text(meta.LicenseShortName),
     licenceUrl: text(meta.LicenseUrl),
-    artist: text(meta.Artist),
+    artist: cleanArtist(text(meta.Artist)),
     page: `https://commons.wikimedia.org/wiki/${encodeURIComponent(title.replace(/ /g, '_'))}`,
   };
 }

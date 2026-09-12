@@ -14,6 +14,7 @@ const ICON_FOR: Record<string, keyof typeof ICONS> = {
   'ki-betrieb': 'Activity',
 };
 import { servicesIndexGraph, jsonLd } from '@/lib/schema';
+import { PhotoBand } from '@/components/PhotoBand';
 import { illustrationFor } from '@/lib/illustrations';
 import { IconTile } from '@/components/ui';
 
@@ -34,13 +35,21 @@ export default function ServicesIndex() {
         dangerouslySetInnerHTML={{ __html: jsonLd(servicesIndexGraph()) }}
       />
 
-      <div className="mx-auto max-w-5xl px-6 pt-20 pb-10">
-        <h1 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">Leistungen</h1>
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
-          Sieben Leistungen, die aufeinander aufbauen. Der übliche Einstieg ist das
-          Audit: eine Woche, ein Fixpreis, und am Ende eine schriftliche
-          Entscheidungsgrundlage — auch wenn sie gegen ein Projekt spricht.
-        </p>
+      {/*
+       * A 1924 machine shop: rows of lathes, each set up for a different job off
+       * one shop floor. That is the page — seven services that build on each
+       * other, not a catalogue of unrelated products.
+       */}
+      <PhotoBand
+        id="machine-shop"
+        as="h1"
+        size="opener"
+        eyebrow="Leistungen"
+        heading="Sieben Leistungen, die aufeinander aufbauen."
+        lead="Der übliche Einstieg ist das Audit: eine Woche, ein Fixpreis, und am Ende eine schriftliche Entscheidungsgrundlage — auch wenn sie gegen ein Projekt spricht."
+      />
+
+      <div className="mx-auto max-w-5xl px-6 pt-16 pb-10">
         {Illustration ? (
           <div className="mt-10">
             <Illustration />

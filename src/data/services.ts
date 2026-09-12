@@ -49,11 +49,19 @@ export interface Service {
   ctaButtonText: string;
   relatedCaseStudy?: RelatedCaseStudy;
   sampleReport?: SampleReport;
+  /**
+   * Photo id from migration/photos.manifest.mjs. Each one is picked to restate
+   * what the service does rather than to look technical — a micrometer for an
+   * audit, a ledger kept by hand for the process that replaces it, one line
+   * shaft driving many machines for a set of skills on one model.
+   */
+  photo?: string;
 }
 
 export const SERVICES: Service[] = [
   {
     slug: "ki-audit",
+    photo: "micrometer",
     metaTitle: "KI-Audit - Automatisierungs-Assessment zum Fixpreis | eflury.com",
     metaDescription: "Einwöchiges Audit zum Fixpreis: Prozessinventar mit Zeitkosten-Scoring, priorisierte Automatisierungs-Roadmap, ROI-Projektion pro Initiative — und ein ehrliches Go/No-Go.",
     keywords: "KI-Audit, Automatisierungs-Assessment, KI-Readiness, Prozessinventar, ROI-Projektion, Schweizer KMU, Fixpreis",
@@ -152,6 +160,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "finanzen-automatisierung",
+    photo: "ledger-book",
     metaTitle: "Finanzprozess-Automatisierung",
     metaDescription: "Automatisieren Sie Monatsabschluss, Reporting und Abstimmungen. KI-gestützte Finanzautomatisierung für Schweizer KMU mit Bexio- und ABACUS-Integration.",
     keywords: "Finanzautomatisierung, Monatsabschluss, Reporting-Automatisierung, Bexio-Integration, ABACUS-Automatisierung, Schweizer Buchhaltung",
@@ -238,6 +247,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "power-bi",
+    photo: "ops-centre",
     metaTitle: "Power BI Beratung & Dashboard-Entwicklung",
     metaDescription: "Individuelle Power BI Dashboards und Reports für Schweizer Unternehmen. Von Datenmodellierung bis Executive Dashboards mit KI-gestützten Erkenntnissen.",
     keywords: "Power BI Beratung, Dashboard-Entwicklung, Business Intelligence, Schweizer BI-Berater, Datenvisualisierung",
@@ -324,6 +334,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "datenqualitaet",
+    photo: "card-catalogue",
     metaTitle: "Datenqualität mit Agentic AI | eflury.com",
     metaDescription: "KI-Agenten, die Ihre Geschäftsdaten profilieren, deduplizieren, validieren und überwachen — mit menschlichen Freigabe-Gates und Schweizer Datenschutz.",
     keywords: "Datenqualität, Agentic AI, Datenbereinigung, Deduplizierung, Stammdaten, Datenvalidierung, Schweizer KMU, Claude, MCP",
@@ -415,6 +426,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "claude-skills",
+    photo: "lathe-workshop",
     metaTitle: "Claude Skills Entwicklung",
     metaDescription: "Massgeschneiderte Claude Skills für Ihre spezifischen Workflows. Automatisieren Sie repetitive Aufgaben mit KI, die Ihr Geschäft versteht.",
     keywords: "Claude Skills, Claude Code, KI Automatisierung, individuelle KI-Entwicklung, Schweizer KI-Berater",
@@ -501,6 +513,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "mcp-integration",
+    photo: "engine-room",
     metaTitle: "MCP Server Integration",
     metaDescription: "Verbinden Sie Claude mit Ihren Geschäftssystemen über Model Context Protocol. Nahtlose Integration mit Datenbanken, APIs und Unternehmenssoftware.",
     keywords: "MCP Integration, Model Context Protocol, Claude Integration, API Automatisierung, Schweizer Business-Automatisierung",
@@ -587,6 +600,7 @@ export const SERVICES: Service[] = [
   },
   {
     slug: "ki-betrieb",
+    photo: "control-room",
     metaTitle: "Managed AI Operations - Betrieb Ihrer Automatisierungen | eflury.com",
     metaDescription: "Laufender Betrieb Ihrer KI-Automatisierungen: Monitoring, monatlicher Kennzahlenbericht, Verbesserungs-Backlog und Re-Validierung nach Plattform-Updates — ab publiziertem Tarif von CHF 1'200/Monat.",
     keywords: "Managed AI Operations, KI-Monitoring, Automatisierung Support, Claude Skills Wartung, Schweizer KMU, Extended Support",

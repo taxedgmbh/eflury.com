@@ -87,12 +87,100 @@ export const PHOTO_CREDITS: PhotoCredit[] = [
     "id": "reading-room",
     "licence": "Public domain",
     "licenceUrl": "",
-    "artist": "Unknown authorUnknown author",
+    "artist": "Unknown author",
     "page": "https://commons.wikimedia.org/wiki/File%3AMain_Reading_Room_of_the_New_York_City_Public_Library_on_5th_Avenue_ca%2C_1910-1920.jpg",
     "attribution": false,
     "alt": "Grosser Lesesaal einer Bibliothek, Tischreihen unter hohen Fenstern.",
     "focus": "50% 50%",
     "aspect": 1.2806
+  },
+  {
+    "id": "card-catalogue",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Fuje23",
+    "page": "https://commons.wikimedia.org/wiki/File%3AKansallisarkisto_Helsinki_Rauhankatu_17_luettelohuone_kortistokaappi_2026_02_23.jpg",
+    "attribution": true,
+    "alt": "Karteikartenschrank im Lesesaal eines Staatsarchivs, Schublade an Schublade.",
+    "focus": "50% 50%",
+    "aspect": 1.5
+  },
+  {
+    "id": "machine-shop",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "artist": "Godber, Albert Percy, 1875-1949",
+    "page": "https://commons.wikimedia.org/wiki/File%3AInterior_of_the_machine_shop_at_the_Petone_Railway_Workshops%2C_1924_ATLIB_299540.png",
+    "attribution": false,
+    "alt": "Grosse Maschinenwerkstatt mit Drehbänken in langer Reihe, 1924.",
+    "focus": "50% 55%",
+    "aspect": 1.384
+  },
+  {
+    "id": "lathe-workshop",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "artist": "Fortepan — ID 62666: Adományozó/Donor: Veszprém Megyei Levéltár/Klauszer.",
+    "page": "https://commons.wikimedia.org/wiki/File%3ALine_shaft%2C_boring_machine%2C_workshop%2C_lathe%2C_belt_drive_Fortepan_62666.jpg",
+    "attribution": false,
+    "alt": "Werkstatt mit Transmissionsantrieb: eine Welle treibt mehrere Maschinen an.",
+    "focus": "50% 45%",
+    "aspect": 0.7673
+  },
+  {
+    "id": "micrometer",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "Mauro Cateb",
+    "page": "https://commons.wikimedia.org/wiki/File%3A2_Micrometers.JPG",
+    "attribution": true,
+    "alt": "Zwei Bügelmessschrauben, auf Hundertstel genau ablesbar.",
+    "focus": "50% 50%",
+    "aspect": 1.3369
+  },
+  {
+    "id": "control-room",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Consejo General de Educación de Entre Ríos",
+    "page": "https://commons.wikimedia.org/wiki/File%3AAprender_(Entre_R%C3%ADos)_-_Tunel_subfluvial_(02).jpg",
+    "attribution": true,
+    "alt": "Leitstand mit Anzeigen und Schaltern, von dem aus ein Betrieb überwacht wird.",
+    "focus": "50% 50%",
+    "aspect": 1.4998
+  },
+  {
+    "id": "engine-room",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "artist": "ezioman",
+    "page": "https://commons.wikimedia.org/wiki/File%3AMachine_shop%2C_icebreaker_suur_t%C5%8Dll%2C_maritime_museum%2C_tallinn%2C_estonia.jpg",
+    "attribution": true,
+    "alt": "Maschinenraum eines Eisbrechers: Wellen, Lager und Leitungen ineinander greifend.",
+    "focus": "50% 50%",
+    "aspect": 1.3333
+  },
+  {
+    "id": "ops-centre",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "RobertHillier1972 at English Wikipedia",
+    "page": "https://commons.wikimedia.org/wiki/File%3AADPCentralOps.JPG",
+    "attribution": true,
+    "alt": "Operations-Zentrale mit Bildschirmreihen und Arbeitsplätzen.",
+    "focus": "50% 50%",
+    "aspect": 1.5998
+  },
+  {
+    "id": "ledger-book",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "artist": "Andreas Praefcke",
+    "page": "https://commons.wikimedia.org/wiki/File%3AGesch%C3%A4ftsbuch_1833-49_Museum_Senftenberg.jpg",
+    "attribution": false,
+    "alt": "Aufgeschlagenes Geschäftsbuch von 1833, Spalten von Hand geführt.",
+    "focus": "50% 45%",
+    "aspect": 1.3432
   }
 ];
 

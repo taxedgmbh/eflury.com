@@ -67,4 +67,62 @@ export const PHOTOS = [
     alt: 'Grosser Lesesaal einer Bibliothek, Tischreihen unter hohen Fenstern.',
     use: 'Leitfäden — Nachschlagen statt Raten.',
   },
+  {
+    id: 'card-catalogue',
+    title:
+      'File:Kansallisarkisto Helsinki Rauhankatu 17 luettelohuone kortistokaappi 2026 02 23.jpg',
+    focus: '50% 50%',
+    alt: 'Karteikartenschrank im Lesesaal eines Staatsarchivs, Schublade an Schublade.',
+    use: 'Datenqualität — ein Datensatz ist nur so gut wie seine Ordnung.',
+  },
+  {
+    id: 'machine-shop',
+    title:
+      'File:Interior of the machine shop at the Petone Railway Workshops, 1924 ATLIB 299540.png',
+    focus: '50% 55%',
+    alt: 'Grosse Maschinenwerkstatt mit Drehbänken in langer Reihe, 1924.',
+    use: 'Leistungen — eine Werkstatt, nicht ein Katalog.',
+  },
+  {
+    id: 'lathe-workshop',
+    title: 'File:Line shaft, boring machine, workshop, lathe, belt drive Fortepan 62666.jpg',
+    focus: '50% 45%',
+    alt: 'Werkstatt mit Transmissionsantrieb: eine Welle treibt mehrere Maschinen an.',
+    use: 'Claude Skills — ein Antrieb, viele Werkzeuge.',
+  },
+  {
+    id: 'micrometer',
+    title: 'File:2 Micrometers.JPG',
+    focus: '50% 50%',
+    alt: 'Zwei Bügelmessschrauben, auf Hundertstel genau ablesbar.',
+    use: 'KI-Audit — zuerst messen, dann urteilen.',
+  },
+  {
+    id: 'control-room',
+    title: 'File:Aprender (Entre Ríos) - Tunel subfluvial (02).jpg',
+    focus: '50% 50%',
+    alt: 'Leitstand mit Anzeigen und Schaltern, von dem aus ein Betrieb überwacht wird.',
+    use: 'Betreuter Betrieb — jemand schaut hin, auch wenn es läuft.',
+  },
+  {
+    id: 'engine-room',
+    title: 'File:Machine shop, icebreaker suur tōll, maritime museum, tallinn, estonia.jpg',
+    focus: '50% 50%',
+    alt: 'Maschinenraum eines Eisbrechers: Wellen, Lager und Leitungen ineinander greifend.',
+    use: 'MCP-Integration — Systeme, die miteinander verbunden sind.',
+  },
+  {
+    id: 'ops-centre',
+    title: 'File:ADPCentralOps.JPG',
+    focus: '50% 50%',
+    alt: 'Operations-Zentrale mit Bildschirmreihen und Arbeitsplätzen.',
+    use: 'Power BI — Zahlen an einem Ort, für alle dieselben.',
+  },
+  {
+    id: 'ledger-book',
+    title: 'File:Geschäftsbuch 1833-49 Museum Senftenberg.jpg',
+    focus: '50% 45%',
+    alt: 'Aufgeschlagenes Geschäftsbuch von 1833, Spalten von Hand geführt.',
+    use: 'Finanzprozesse — dieselbe Arbeit, bevor sie automatisiert wurde.',
+  },
 ];
