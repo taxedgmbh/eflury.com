@@ -75,6 +75,10 @@ function clean(html) {
     // An <a> whose only content was a stripped image is an invisible,
     // unlabelled link. Drop it rather than ship a focusable void.
     .replace(/\sdata-astro-cid-[\w-]+(?:="[^"]*")?/g, '')
+    // trailingSlash: true means a slashless internal link costs an extra 308
+    .replace(/href="(\/de\/[^"#?]*[^/"#?])"/g, (m, p) =>
+      /\.[a-z0-9]{2,5}$/.test(p) ? m : `href="${p}/"`
+    )
     .replace(/<a href="[^"]*">\s*<\/a>/g, '')
     // <p> cannot nest; the browser auto-closes it into orphaned fragments.
     .replace(/<p>(\s*)(<(?:h[234]|ul|ol|dl|table|blockquote)[\s>])/g, '$1$2');

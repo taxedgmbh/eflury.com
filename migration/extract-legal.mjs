@@ -68,7 +68,11 @@ function clean(html) {
     .trim()
     .replace(/\u0000SVG(\d+)\u0000/g, (_, i) => svgs[Number(i)])
     // after restore: the masked SVG blocks carry the attributes too
-    .replace(/\sdata-astro-cid-[\w-]+(?:="[^"]*")?/g, '');
+    .replace(/\sdata-astro-cid-[\w-]+(?:="[^"]*")?/g, '')
+    // trailingSlash: true means a slashless internal link costs an extra 308
+    .replace(/href="(\/de\/[^"#?]*[^/"#?])"/g, (m, p) =>
+      /\.[a-z0-9]{2,5}$/.test(p) ? m : `href="${p}/"`
+    );
 }
 
 for (const [slug, title] of Object.entries(PAGES)) {
