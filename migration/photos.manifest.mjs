@@ -189,4 +189,11 @@ export const PHOTOS = [
     alt: 'Gestapelte und gebündelte Sendungen, nach Ziel geordnet.',
     use: 'Kreditoren-Fallstudie — Belege, die sich selbst einordnen.',
   },
+  {
+    id: 'composing-room',
+    title: 'File:Boston Herald composing room (NYPL b11707587-G90F368 043ZF).tiff',
+    focus: '50% 50%',
+    alt: 'Setzerei einer Zeitung: Setzmaschinen in Reihe, Kästen mit Lettern.',
+    use: 'Blog — Aufgeschriebenes, bevor es gedruckt wird.',
+  },
 ];

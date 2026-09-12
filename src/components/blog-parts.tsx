@@ -3,6 +3,8 @@ import Image from 'next/image';
 import { PERSON } from '@/lib/site';
 import { tagSlug, formatDate, type Post } from '@/lib/content';
 import { Card } from './ui';
+import { PhotoThumb } from './PhotoThumb';
+import { photoIdForPost } from '@/lib/post-photos';
 
 /**
  * Author block on a post, ported from AuthorBio.astro.
@@ -84,6 +86,7 @@ export function RelatedPosts({ current, all }: { current: Post; all: Post[] }) {
           <li key={p.slug}>
             <Link href={`/de/blog/${p.slug}/`} className="block h-full">
               <Card className="flex h-full flex-col transition-colors hover:border-[var(--rule-strong)]">
+                <PhotoThumb id={photoIdForPost(p)} variant="card" className="mb-4" />
                 <p className="text-xs tracking-[0.06em] text-[var(--text-faint)] uppercase">
                   <time dateTime={p.pubDate.toISOString()}>{formatDate(p.pubDate)}</time>
                 </p>

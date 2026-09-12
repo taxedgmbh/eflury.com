@@ -280,6 +280,17 @@ export const PHOTO_CREDITS: PhotoCredit[] = [
     "alt": "Gestapelte und gebündelte Sendungen, nach Ziel geordnet.",
     "focus": "50% 50%",
     "aspect": 1.2884
+  },
+  {
+    "id": "composing-room",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "artist": "Scan by NYPL",
+    "page": "https://commons.wikimedia.org/wiki/File%3ABoston_Herald_composing_room_(NYPL_b11707587-G90F368_043ZF).tiff",
+    "attribution": false,
+    "alt": "Setzerei einer Zeitung: Setzmaschinen in Reihe, Kästen mit Lettern.",
+    "focus": "50% 50%",
+    "aspect": 1.628
   }
 ];
 

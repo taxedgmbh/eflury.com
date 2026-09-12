@@ -7,6 +7,8 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import { getAllPosts, getPost, formatDate, readingTime } from '@/lib/content';
 import { AuthorBio, RelatedPosts, Breadcrumbs, TagLinks } from '@/components/blog-parts';
+import { PhotoThumb } from '@/components/PhotoThumb';
+import { photoIdForPost, photoForPost } from '@/lib/post-photos';
 import { blogPostGraph, jsonLd } from '@/lib/schema';
 import { PERSON } from '@/lib/site';
 
@@ -124,6 +126,17 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
           </div>
         </header>
 
+        {/*
+         * No post carries a heroImage, so every article fell back to nothing.
+         * The mapped photograph fills that in — chosen from the post's tags in
+         * src/lib/post-photos.ts rather than stored per file, so a new post gets
+         * one without anybody remembering to add it.
+         *
+         * Not a PhotoBand: post titles here run to fifteen words, which over a
+         * photograph is five lines of reversed text at the top of a long read.
+         * The ruled header keeps the title legible and the picture still lands
+         * above the first paragraph.
+         */}
         {post.heroImage ? (
           <Image
             src={post.heroImage}
@@ -133,7 +146,16 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
             priority
             className="mt-10 w-full rounded-xl border border-[var(--rule)]"
           />
-        ) : null}
+        ) : (
+          <div className="mt-10 max-w-3xl">
+            <PhotoThumb
+              id={photoIdForPost(post)}
+              variant="wide"
+              alt={photoForPost(post).alt}
+              className="border border-[var(--rule)]"
+            />
+          </div>
+        )}
 
         <div className="prose-de mt-12">
           <MDXRemote source={post.body} options={mdxOptions} />

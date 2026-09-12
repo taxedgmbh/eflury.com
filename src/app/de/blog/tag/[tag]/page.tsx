@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { getAllPosts, getAllTags, formatDate, readingTime, tagSlug } from '@/lib/content';
+import { photoIdForPost } from '@/lib/post-photos';
+import { PhotoThumb } from '@/components/PhotoThumb';
 import { contentPageGraph, jsonLd } from '@/lib/schema';
 
 /**
@@ -77,13 +79,19 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
                     {readingTime(post.body)} Min.
                   </span>
                 </p>
-                <div className="min-w-0">
-                  <h2 className="max-w-2xl text-xl leading-snug font-medium group-hover:text-[var(--link)]">
-                    {post.title}
-                  </h2>
-                  <p className="mt-2 max-w-2xl leading-relaxed text-[var(--text-muted)]">
-                    {post.description}
-                  </p>
+                {/* Same row shape as the blog index, so the two read alike. */}
+                <div className="flex min-w-0 flex-col gap-5 sm:flex-row-reverse sm:items-start sm:gap-6">
+                  <div className="min-w-0 flex-1">
+                    <h2 className="max-w-2xl text-xl leading-snug font-medium group-hover:text-[var(--link)]">
+                      {post.title}
+                    </h2>
+                    <p className="mt-2 max-w-2xl leading-relaxed text-[var(--text-muted)]">
+                      {post.description}
+                    </p>
+                  </div>
+                  <div className="sm:w-48 sm:shrink-0">
+                    <PhotoThumb id={photoIdForPost(post)} />
+                  </div>
                 </div>
               </Link>
             </li>
