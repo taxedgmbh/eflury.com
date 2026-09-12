@@ -16,8 +16,15 @@ import { cache } from 'react';
  * the same shape.
  */
 export interface ContentPage {
-  /** File in src/content/pages, with "/" written as "__". */
-  file: string;
+  /**
+   * File in src/content/pages, with "/" written as "__".
+   *
+   * Optional because a page can outgrow extracted HTML. /de/pricing/ did: the
+   * extractor had flattened its cards into prose, so it is now rendered from
+   * src/data/pricing.ts and its old HTML is deleted rather than left on disk to
+   * be found later and mistaken for the source of truth.
+   */
+  file?: string;
   route: string;
   title: string;
   description: string;
@@ -95,7 +102,6 @@ export const CONTENT_PAGES = {
     priority: 0.6,
   },
   pricing: {
-    file: 'pricing',
     route: '/de/pricing/',
     title: 'Preise',
     description:

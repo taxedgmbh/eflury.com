@@ -222,8 +222,19 @@ export function legalGraph(slug: string, title: string) {
   );
 }
 
-export function contentPageGraph(route: string, title: string) {
-  return graph(
+/**
+ * `faqs` is optional and emitted only where the page actually renders those
+ * questions on screen — /de/pricing/ does, with ten of them. Marking up
+ * questions a visitor cannot see is exactly what Google's structured-data
+ * guidelines forbid, and the site already has one FAQPage-related scar from the
+ * Astro era.
+ */
+export function contentPageGraph(
+  route: string,
+  title: string,
+  faqs?: { question: string; answer: string }[]
+) {
+  const nodes: Node[] = [
     {
       '@type': 'WebPage',
       '@id': `${SITE_URL}${route}#page`,
@@ -235,8 +246,22 @@ export function contentPageGraph(route: string, title: string) {
     breadcrumbs([
       { name: 'Start', path: '/de/' },
       { name: title, path: route },
-    ])
-  );
+    ]),
+  ];
+
+  if (faqs?.length) {
+    nodes.push({
+      '@type': 'FAQPage',
+      '@id': `${SITE_URL}${route}#faq`,
+      mainEntity: faqs.map((f) => ({
+        '@type': 'Question',
+        name: f.question,
+        acceptedAnswer: { '@type': 'Answer', text: f.answer },
+      })),
+    });
+  }
+
+  return graph(...nodes);
 }
 
 /** Renders a graph as a JSON-LD script tag payload. */

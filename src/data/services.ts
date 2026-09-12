@@ -603,7 +603,7 @@ export const SERVICES: Service[] = [
     photo: "control-room",
     metaTitle: "Managed AI Operations - Betrieb Ihrer Automatisierungen | eflury.com",
     metaDescription: "Laufender Betrieb Ihrer KI-Automatisierungen: Monitoring, monatlicher Kennzahlenbericht, Verbesserungs-Backlog und Re-Validierung nach Plattform-Updates — ab publiziertem Tarif von CHF 1'200/Monat.",
-    keywords: "Managed AI Operations, KI-Monitoring, Automatisierung Support, Claude Skills Wartung, Schweizer KMU, Extended Support",
+    keywords: "Managed AI Operations, KI-Monitoring, Automatisierung Support, Claude Skills Wartung, Schweizer KMU, Erweiterter Support",
     serviceType: "Managed AI Operations",
     heroTitle: "Bauen ist die halbe Arbeit. Emanuel übernimmt die andere Hälfte.",
     heroSubtitle: "Managed AI Operations",
@@ -629,7 +629,7 @@ export const SERVICES: Service[] = [
       },
       {
         "title": "Ein publizierter Preis",
-        "description": "Der laufende Betrieb startet beim publizierten Extended-Support-Tarif seiner Preisseite: CHF 1’200/Monat mit 4-Stunden-Reaktionszeit und monatlichen Check-ins. Grössere Setups erhalten eine schriftliche Fixofferte."
+        "description": "Der laufende Betrieb startet beim publizierten Tarif für Erweiterten Support auf seiner Preisseite: CHF 1’200/Monat mit 4-Stunden-Reaktionszeit und monatlichen Check-ins. Grössere Setups erhalten eine schriftliche Fixofferte."
       },
       {
         "title": "Kein Lock-in, nie",
@@ -658,7 +658,7 @@ export const SERVICES: Service[] = [
     faqs: [
       {
         "question": "Was kostet es?",
-        "answer": "Der Ausgangspunkt ist auf seiner Preisseite publiziert: Extended Support für CHF 1’200/Monat, mit 4-Stunden-Reaktionszeit und monatlichen Check-ins. Setups mit mehr Systemen oder strengeren Anforderungen erhalten vor dem Start eine schriftliche Fixofferte — keine Tagessätze, kein offenes Ende."
+        "answer": "Der Ausgangspunkt ist auf seiner Preisseite publiziert: Erweiterter Support für CHF 1’200/Monat, mit 4-Stunden-Reaktionszeit und monatlichen Check-ins. Setups mit mehr Systemen oder strengeren Anforderungen erhalten vor dem Start eine schriftliche Fixofferte — keine Tagessätze, kein offenes Ende."
       },
       {
         "question": "Brauchen wir das überhaupt?",

@@ -11,6 +11,13 @@ export async function ContentPage({ page }: { page: ContentPageKey }) {
    * here is cheaper than an `in` guard per optional field.
    */
   const meta: ContentPageMeta = CONTENT_PAGES[page];
+  /*
+   * ContentPage is only for pages backed by extracted HTML. A page rendered
+   * from typed data — /de/pricing/ — has no file and does not come through
+   * here, so an absent one is a wiring mistake worth failing on rather than
+   * rendering an empty body.
+   */
+  if (!meta.file) throw new Error(`CONTENT_PAGES.${page} has no file; it cannot use ContentPage`);
   const html = await getPageHtml(meta.file);
   // Emanuel drew one illustration per page; this is where it belongs.
   const Illustration = illustrationFor(`page:${page}`);

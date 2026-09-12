@@ -34,7 +34,9 @@ export default function PricingPage() {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: jsonLd(contentPageGraph(meta.route, meta.title)) }}
+        dangerouslySetInnerHTML={{
+          __html: jsonLd(contentPageGraph(meta.route, meta.title, PRICING_FAQS)),
+        }}
       />
 
       <PhotoBand

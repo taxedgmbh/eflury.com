@@ -302,6 +302,42 @@ for (const name of publicVars) {
   }
 }
 
+/*
+ * Content files and their references must match exactly in both directions.
+ *
+ * /de/pricing/ outgrew its extracted HTML — the extractor had flattened its
+ * pricing cards into unreadable prose — and the file stayed on disk afterwards,
+ * still holding the old prices and the old "48% sparen" wording, with
+ * CONTENT_PAGES still pointing at it. Nothing rendered it, so nothing caught
+ * it; the next person to look would reasonably have taken it for the source of
+ * truth. Assert both directions so neither an orphan file nor a dangling
+ * reference can sit there quietly.
+ */
+const pagesSrc = readFileSync(join(ROOT, 'src/lib/pages.ts'), 'utf8');
+const referencedFiles = new Set(
+  [...pagesSrc.matchAll(/^\s*file: '([^']+)'/gm)].map((m) => m[1])
+);
+const contentDir = join(ROOT, 'src/content/pages');
+const contentOnDisk = new Set(
+  readdirSync(contentDir)
+    .filter((f) => f.endsWith('.html'))
+    .map((f) => f.replace(/\.html$/, ''))
+);
+
+for (const name of referencedFiles) {
+  if (!contentOnDisk.has(name)) {
+    errors.push(`CONTENT_PAGES references src/content/pages/${name}.html, which does not exist`);
+  }
+}
+for (const name of contentOnDisk) {
+  if (!referencedFiles.has(name)) {
+    errors.push(
+      `src/content/pages/${name}.html is referenced by no CONTENT_PAGES entry — ` +
+        `delete it or wire it up, do not leave stale content on disk`
+    );
+  }
+}
+
 // ------------------------------------------------------------------ report ---
 if (notes.length) {
   console.log(`check-redirects: ${notes.length} note(s)`);
