@@ -16,8 +16,26 @@ export type TurnstileResult =
 
 const ENDPOINT = 'https://challenges.cloudflare.com/turnstile/v0/siteverify';
 
-/** Hostnames Cloudflare may legitimately report for our own widget. */
-const ALLOWED_HOSTS = new Set(['eflury.com', 'www.eflury.com', 'localhost']);
+/**
+ * Hostnames Cloudflare may legitimately report for our own widget.
+ *
+ * The App Hosting preview is served from a *.hosted.app domain. It cannot be
+ * derived from SITE_URL, which stays https://eflury.com on staging so that
+ * canonicals point at the real domain — so without this, a genuine token solved
+ * on the preview is rejected as wrong-host and every form keeps failing even
+ * after the secret is provisioned.
+ *
+ * Any *.hosted.app host is accepted, but only while NEXT_PUBLIC_ENV is not
+ * "production": that backend is noindexed, transitional, and holds no data worth
+ * a cross-site token replay. Production stays pinned to the real domain, which
+ * is where the check actually has to hold.
+ */
+const PINNED_HOSTS = new Set(['eflury.com', 'www.eflury.com', 'localhost']);
+
+function hostAllowed(hostname: string): boolean {
+  if (PINNED_HOSTS.has(hostname)) return true;
+  return !serverEnv.isProduction && hostname.endsWith('.hosted.app');
+}
 
 export async function verifyTurnstile(
   token: string | undefined | null,
@@ -51,7 +69,7 @@ export async function verifyTurnstile(
 
   // Cloudflare echoes the hostname the widget was solved on. Without this check
   // a token minted on an attacker's page using our sitekey would be accepted.
-  if (data.hostname && !ALLOWED_HOSTS.has(data.hostname)) {
+  if (data.hostname && !hostAllowed(data.hostname)) {
     return { ok: false, reason: 'wrong-host' };
   }
 

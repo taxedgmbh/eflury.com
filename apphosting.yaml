@@ -60,21 +60,22 @@ env:
   # /api/contact and /api/apply refuse submissions with a clear message rather
   # than accepting them unverified.
   #
-  # Uncomment each line as its secret is created:
+  # Uncomment each line as its secret is created (turnstileSecret is done):
   #   firebase apphosting:secrets:set <name> --project eflury-com-prod
   #   firebase apphosting:secrets:grantaccess <name> --backend eflury-com-prod
   #
-  # turnstileSecret — has never existed. The Astro site rendered the widget but
-  #   never verified the token. Create it in the Cloudflare dashboard.
+  # turnstileSecret — PROVISIONED 2026-09-12. The hostname on the Cloudflare
+  #   widget must include the *.hosted.app preview host, or the widget refuses
+  #   to render there and no token is minted at all.
   # resendApiKey    — needs a Resend account with a verified sending domain.
   # acceptSecret    — MUST equal ACCEPT_SECRET in the Hostinger api/config.php,
   #   or offer links already in clients' inboxes stop validating (60-day TTL).
   # acceptAdminKey  — any random string; only used to mint new offer links.
   # ipHashSalt      — any random string; salts hashed IPs in the rate limiter.
   #
-  # - variable: TURNSTILE_SECRET_KEY
-  #   secret: turnstileSecret
-  #   availability: [RUNTIME]
+  - variable: TURNSTILE_SECRET_KEY
+    secret: turnstileSecret
+    availability: [RUNTIME]
   #
   # - variable: RESEND_API_KEY
   #   secret: resendApiKey
