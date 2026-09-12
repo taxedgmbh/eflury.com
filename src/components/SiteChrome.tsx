@@ -37,9 +37,25 @@ const MORE = [
   { href: '/de/karriere/', label: 'Karriere' },
 ];
 
+/*
+ * Sticky and translucent, which is the one piece of Apple's chrome worth
+ * copying outright: on pages this long the nav is otherwise a scroll to the top
+ * away, and backdrop-blur keeps the page visible underneath rather than
+ * covering it with an opaque bar.
+ *
+ * The 80% background is a floor, not a preference — where backdrop-filter is
+ * unsupported the header still has to be opaque enough to read against a
+ * photograph scrolling beneath it. supports() takes it more translucent only
+ * where the blur will actually render.
+ *
+ * Sticky from md up only. Below that the nav wraps to three rows — about 210px,
+ * or 29% of a phone screen — and pinning that is a worse trade than scrolling
+ * to the top. The proper fix is a disclosure menu, which needs real focus
+ * management and is a separate piece of work rather than a class.
+ */
 export function Header() {
   return (
-    <header className="border-b border-[var(--rule)] bg-[var(--surface)]">
+      <header className="top-0 z-50 border-b border-[var(--rule)] bg-[var(--surface)]/80 backdrop-blur-xl md:sticky supports-[backdrop-filter]:bg-[var(--surface)]/70">
       <div className="mx-auto flex max-w-5xl flex-wrap items-center gap-x-8 gap-y-1 px-6 py-3">
         {/*
           The brand mark eflury.com already uses. Kept alongside the person's

@@ -40,7 +40,7 @@ export default function BildnachweisPage() {
 
       <div className="mx-auto max-w-3xl px-6 pt-16 pb-20">
         <header className="border-b border-[var(--rule-strong)] pb-8">
-          <h1 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">{TITLE}</h1>
+          <h1 className="display">{TITLE}</h1>
           <p className="mt-5 text-lg leading-relaxed text-[var(--text-muted)]">
             Die Fotografien auf dieser Website stammen von Wikimedia Commons und stehen
             unter freien Lizenzen. Hier stehen Urheber, Lizenz und Quelle jedes Bildes.

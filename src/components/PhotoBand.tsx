@@ -102,16 +102,13 @@ export function PhotoBand({
         <p className="text-[0.8125rem] font-medium tracking-[0.02em] text-white/90">{eyebrow}</p>
         <span aria-hidden className="mt-4 block h-[3px] w-10 bg-[var(--accent)]" />
         <Heading
-          className={`mt-5 max-w-[28ch] font-semibold tracking-[-0.03em] text-white ${
-            size === 'opener'
-              ? 'text-[2.1rem] leading-[1.05] sm:text-[3rem]'
-              : 'text-[1.75rem] leading-[1.1] sm:text-[2.35rem]'
-          }`}
+          /* On the shared scale: a page opener is display, a mid-page band a step down. */
+          className={`mt-5 max-w-[28ch] text-white ${size === 'opener' ? 'display' : 'title'}`}
         >
           {heading}
         </Heading>
         {lead ? (
-          <p className="mt-5 max-w-[54ch] text-[1.0625rem] leading-relaxed text-white/90">{lead}</p>
+          <p className="lead mt-5 max-w-[54ch] text-white/90">{lead}</p>
         ) : null}
         {cta ? (
           <Link

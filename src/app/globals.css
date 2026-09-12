@@ -77,6 +77,35 @@
   --radius-lg: 16px;
   --radius-full: 9999px;
   --shadow-sm: 0 2px 8px rgba(2, 37, 84, 0.08);
+
+  /*
+   * Display type scale.
+   *
+   * Before this there was no scale: twelve different arbitrary heading sizes
+   * across the pages (text-[1.9rem], text-[2.1rem], text-[2.2rem],
+   * text-[2.25rem], text-[2.4rem], text-4xl, text-5xl …), each chosen locally.
+   * That is what makes a page feel unresolved regardless of how good any single
+   * heading looks — and a defined scale is the actual discipline behind the
+   * Apple pages this is modelled on, not any particular size.
+   *
+   * clamp() rather than breakpoints so a heading scales continuously with the
+   * viewport instead of jumping at sm:. Tracking tightens as size grows, which
+   * is how SF Pro is designed to be set — the optical sizes want less letter
+   * spacing the larger they get.
+   *
+   * Body sits at 17px, not 16. It is Apple's body size and a measurable
+   * readability gain on long German sentences; the compounding effect on a
+   * 30-minute read is the reason to take the extra pixel.
+   */
+  --text-display: clamp(2.375rem, 5.2vw, 3.75rem);
+  --text-title: clamp(1.875rem, 3.2vw, 2.625rem);
+  --text-heading: clamp(1.3125rem, 1.9vw, 1.625rem);
+  --text-lead: clamp(1.0625rem, 1.15vw, 1.25rem);
+  --text-body: 1.0625rem;
+
+  --track-display: -0.032em;
+  --track-title: -0.026em;
+  --track-heading: -0.018em;
 }
 
 [data-theme='dark'] {
@@ -119,10 +148,28 @@
     -webkit-text-size-adjust: 100%;
   }
 
+  /*
+   * Consequence of making the header sticky: without this every in-page anchor
+   * — the service pages' #problem and #ansatz, the careers page's #bewerben,
+   * and every auto-linked heading in a post — scrolls its target to y=0, which
+   * is underneath the header. scroll-padding-top on the scroll container fixes
+   * all of them at once, where a scroll-margin per target would have to be
+   * remembered each time.
+   *
+   * Measured, not guessed: the header is a 44px control row inside py-3, so 68px
+   * plus a little air.
+   */
+  html {
+    scroll-padding-top: 5rem;
+  }
+
   body {
     background: var(--surface);
     color: var(--text);
     font-family: var(--font-sans);
+    /* 17px, matching the display scale's body step. See --text-body. */
+    font-size: var(--text-body);
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
     font-synthesis-weight: none;
   }
@@ -160,6 +207,41 @@
     display: inline-flex;
     align-items: center;
     min-height: 44px;
+  }
+
+  /*
+   * One class per step of the scale, so a heading is chosen by its role in the
+   * page rather than by picking a pixel value.
+   */
+  .display {
+    font-size: var(--text-display);
+    line-height: 1.05;
+    letter-spacing: var(--track-display);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  .title {
+    font-size: var(--text-title);
+    line-height: 1.1;
+    letter-spacing: var(--track-title);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  .heading {
+    font-size: var(--text-heading);
+    line-height: 1.25;
+    letter-spacing: var(--track-heading);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  .lead {
+    font-size: var(--text-lead);
+    line-height: 1.55;
+    color: var(--text-muted);
+    text-wrap: pretty;
   }
 
   /* Same rule for a control that is square by nature, e.g. an icon button. */

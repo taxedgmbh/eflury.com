@@ -148,7 +148,7 @@ export default async function HomePage({
         <div className="relative mx-auto grid max-w-6xl items-center gap-12 px-6 pt-20 pb-16 sm:pt-24 sm:pb-20 lg:grid-cols-[1.05fr_1fr]">
           <div>
             <Pill icon={Sparkles}>Enterprise-Methoden, KMU-Preise</Pill>
-            <h1 className="mt-6 text-[2.4rem] leading-[1.06] font-bold tracking-[-0.035em] sm:text-[3.35rem]">
+            <h1 className="mt-6 display">
               KI-Automatisierung für Schweizer KMU. Strategisch geplant. Praktisch umgesetzt.
             </h1>
             <p className="mt-6 max-w-xl text-lg leading-relaxed text-[var(--text-muted)]">
@@ -361,7 +361,7 @@ export default async function HomePage({
         <div className="grid items-center gap-10 lg:grid-cols-2">
           <div>
             <Pill icon={FileText}>Kostenloser Download</Pill>
-            <h2 id="leitfaden" className="mt-6 text-[1.9rem] leading-tight font-bold tracking-[-0.025em] sm:text-[2.4rem]">
+            <h2 id="leitfaden" className="mt-6 title">
               Das KI-Implementierungs-Playbook für Schweizer KMU
             </h2>
             <p className="mt-4 leading-relaxed text-[var(--text-muted)]">

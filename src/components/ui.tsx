@@ -27,12 +27,12 @@ export function SectionHeading({
     <div className={centred ? 'mx-auto max-w-2xl text-center' : 'max-w-2xl'}>
       <h2
         id={id}
-        className="text-[1.9rem] leading-tight font-bold tracking-[-0.025em] text-[var(--text)] sm:text-[2.4rem]"
+        className="title text-[var(--text)]"
       >
         {title}
       </h2>
       {subtitle ? (
-        <p className="mt-4 text-[1.0625rem] leading-relaxed text-[var(--text-muted)]">
+        <p className="lead mt-4">
           {subtitle}
         </p>
       ) : null}
@@ -141,7 +141,7 @@ export function Section({
       aria-labelledby={labelledBy}
       className={`${tone === 'sunken' ? 'bg-[var(--surface-sunken)]' : ''} ${className}`}
     >
-      <div className="mx-auto max-w-6xl px-6 py-20 sm:py-24">{children}</div>
+      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">{children}</div>
     </section>
   );
 }

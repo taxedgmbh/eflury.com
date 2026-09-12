@@ -62,7 +62,7 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
             Blog
           </Link>
         </nav>
-        <h1 className="mt-6 text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">{tag}</h1>
+        <h1 className="mt-6 display">{tag}</h1>
         <p className="mt-4 text-[var(--text-muted)]">
           {posts.length} {posts.length === 1 ? 'Beitrag' : 'Beiträge'}
         </p>

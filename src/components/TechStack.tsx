@@ -79,7 +79,7 @@ export function TechStack() {
   return (
     <div>
       <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-[1.9rem] leading-tight font-bold tracking-[-0.025em] sm:text-[2.4rem]">
+        <h2 className="title">
           Technologien, die Emanuel einsetzt
         </h2>
         <p className="mt-4 text-[1.0625rem] leading-relaxed text-[var(--text-muted)]">

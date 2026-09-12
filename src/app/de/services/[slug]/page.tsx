@@ -68,7 +68,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         {service.photo ? null : (
           <header className="mt-8 border-b border-[var(--rule-strong)] pb-10">
             <p className="rail-label">{service.serviceType}</p>
-            <h1 className="mt-3 max-w-3xl text-[2.2rem] leading-[1.1] font-semibold tracking-[-0.028em] sm:text-[3rem]">
+            <h1 className="mt-3 max-w-3xl display">
               {service.heroTitle}
             </h1>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">

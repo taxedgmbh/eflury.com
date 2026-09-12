@@ -29,7 +29,7 @@ export default async function KontaktPage() {
 
       <div className="mx-auto max-w-5xl px-6 pt-16 pb-20">
         <header className="border-b border-[var(--rule-strong)] pb-8">
-          <h1 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">Kontakt</h1>
+          <h1 className="display">Kontakt</h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
             Ein kostenloses Gespräch von dreissig Minuten, unverbindlich und
             vertraulich. Am Ende wissen Sie, ob sich ein Projekt lohnt — auch wenn

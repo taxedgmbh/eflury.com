@@ -41,7 +41,7 @@ export async function ContentPage({ page }: { page: ContentPageKey }) {
       <div className="mx-auto max-w-5xl px-6 pt-16 pb-20">
         {meta.photo ? null : (
           <header className="border-b border-[var(--rule-strong)] pb-8">
-            <h1 className="text-4xl font-semibold tracking-[-0.03em] sm:text-5xl">{meta.title}</h1>
+            <h1 className="display">{meta.title}</h1>
             {meta.standfirst ? (
               <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">
                 {meta.standfirst}
