@@ -221,6 +221,37 @@ if (!registered && !saysUnregistered) {
   );
 }
 
+/*
+ * Apache resolved /offerte/ to public/offerte/index.html via DirectoryIndex.
+ * Next serves public/ by exact path only, so every such directory URL 404s
+ * unless next.config.ts rewrites it — which is how /offerte/ and /offer/, the
+ * two URLs /api/accept mints links to, came to be dead on the preview while
+ * answering 200 on the live site.
+ */
+const configSrc = readFileSync(join(ROOT, 'next.config.ts'), 'utf8');
+const publicDir = join(ROOT, 'public');
+
+function indexDirs(dir, prefix = '') {
+  const out = [];
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    if (!statSync(full).isDirectory()) continue;
+    if (existsSync(join(full, 'index.html'))) out.push(`${prefix}/${entry}/`);
+    out.push(...indexDirs(full, `${prefix}/${entry}`));
+  }
+  return out;
+}
+
+for (const url of indexDirs(publicDir)) {
+  const rewritten = configSrc.includes(`source: '${url}'`);
+  if (!rewritten) {
+    errors.push(
+      `public${url}index.html has no directory-index rewrite, so ${url} will 404 ` +
+        `(add { source: '${url}', destination: '${url}index.html' } to rewrites())`
+    );
+  }
+}
+
 // ------------------------------------------------------------------ report ---
 if (notes.length) {
   console.log(`check-redirects: ${notes.length} note(s)`);

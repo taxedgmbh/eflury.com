@@ -60,6 +60,26 @@ const nextConfig: NextConfig = {
     ];
   },
 
+  /*
+   * Apache served public/offerte/index.html for a request to /offerte/ via
+   * DirectoryIndex. Next has no equivalent: it serves files out of public/ by
+   * exact path only, so /offerte/ and /offer/ 404 while /offerte/index.html
+   * answers 200.
+   *
+   * These are the offer-acceptance pages, and /api/accept mints links pointing
+   * at exactly these two directory URLs — so without this rewrite every link
+   * sent to a client lands on a 404. Both return 200 on eflury.com today.
+   *
+   * /demo/ is deliberately absent: it holds two named files and no index, and
+   * the live site answers 403 there.
+   */
+  async rewrites() {
+    return [
+      { source: '/offerte/', destination: '/offerte/index.html' },
+      { source: '/offer/', destination: '/offer/index.html' },
+    ];
+  },
+
   async headers() {
     return [
       {
