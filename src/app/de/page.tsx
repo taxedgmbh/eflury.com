@@ -13,6 +13,7 @@ import { getAllPosts, formatDate } from '@/lib/content';
 import { homeGraph, jsonLd } from '@/lib/schema';
 import { Section, SectionHeading, Card, IconTile, Pill, Stat, Button } from '@/components/ui';
 import { HeroBrandIllustration } from '@/components/HeroBrandIllustration';
+import { PhotoBand } from '@/components/PhotoBand';
 import { TechPartners } from '@/components/TechPartners';
 import { TechStack } from '@/components/TechStack';
 
@@ -200,6 +201,21 @@ export default async function HomePage({
           </Link>
         </p>
       </Section>
+
+      {/*
+       * The photograph is the argument, not the decoration: the same window
+       * axis repeated to the vanishing point is what a process that runs
+       * identically every month looks like. It replaced a radial-gradient wash
+       * that said nothing.
+       */}
+      <PhotoBand
+        id="facade-bays"
+        eyebrow="Wiederholung ohne Aufwand"
+        heading="Derselbe Ablauf, jeden Monat — ohne dass jemand ihn anstösst."
+        lead="Was heute Stunden kostet, weil es jedes Mal von Hand läuft, läuft danach von selbst: mit festem Eingang, festem Ausgang und einer Prüfung, die sich meldet, wenn etwas nicht stimmt."
+        cta={{ href: '/de/methode/', label: 'Wie Emanuel arbeitet' }}
+      />
+
 
       <Section tone="sunken" labelledBy="vertrauen">
         <SectionHeading

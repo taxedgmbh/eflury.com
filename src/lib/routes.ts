@@ -34,6 +34,10 @@ export const STATIC_ROUTES: StaticRoute[] = [
   { path: '/de/cookies/', priority: 0.3, changeFrequency: 'yearly' },
   { path: '/de/haftungsausschluss/', priority: 0.3, changeFrequency: 'yearly' },
   { path: '/de/verhaltenskodex/', priority: 0.3, changeFrequency: 'yearly' },
+
+  // Required by the CC BY licences on the photography, so it is a real page
+  // rather than a footer line — see src/lib/photos.ts.
+  { path: '/de/bildnachweis/', priority: 0.2, changeFrequency: 'yearly' },
 ];
 
 /**

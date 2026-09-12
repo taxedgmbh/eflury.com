@@ -26,6 +26,7 @@ const LEGAL = [
   { href: '/de/cookies/', label: 'Cookies' },
   { href: '/de/haftungsausschluss/', label: 'Haftungsausschluss' },
   { href: '/de/verhaltenskodex/', label: 'Verhaltenskodex' },
+  { href: '/de/bildnachweis/', label: 'Bildnachweis' },
 ];
 
 const MORE = [
