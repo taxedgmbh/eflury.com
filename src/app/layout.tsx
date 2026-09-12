@@ -58,6 +58,18 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de" suppressHydrationWarning>
       <head>
+        {/*
+          Feed autodiscovery, emitted directly rather than through the Metadata
+          API. Every page sets its own `alternates.canonical`, and Next replaces
+          the parent's `alternates` object wholesale instead of merging — so a
+          `types` entry on the root layout never survives to the page.
+        */}
+        <link
+          rel="alternate"
+          type="application/rss+xml"
+          title={`${PERSON.shortName} — Blog`}
+          href="/de/rss.xml"
+        />
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>
       <body>

@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { PERSON, VENTURES, ADDRESS } from '@/lib/site';
+import { NewsletterForm } from './NewsletterForm';
 
 /*
  * Labels are German; slugs are not. The URLs stay exactly as they are — renaming
@@ -145,6 +146,13 @@ export function Footer() {
                 </li>
               ))}
             </ul>
+          </div>
+        </div>
+
+        <div className="mt-12 border-t border-[var(--rule)] pt-10">
+          <h2 className="text-sm font-semibold">Auf dem Laufenden bleiben</h2>
+          <div className="mt-3 max-w-md">
+            <NewsletterForm />
           </div>
         </div>
 

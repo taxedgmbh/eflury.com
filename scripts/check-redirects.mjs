@@ -10,7 +10,7 @@
  * Reads the TS sources textually rather than importing them: App Hosting builds
  * on Node 20, which cannot strip types.
  */
-import { readFileSync, readdirSync, statSync } from 'node:fs';
+import { readFileSync, readdirSync, statSync, existsSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
@@ -90,6 +90,14 @@ for (const route of declared) {
 // A redirect must never point at a URL the site does not serve, and must never
 // need a second hop to get there. Blog targets are
 // checked against the content directory; everything else against the page tree.
+const serviceSlugs = new Set(
+  [
+    ...readFileSync(join(ROOT, 'src/data/services.ts'), 'utf8').matchAll(
+      /^\s*slug: ["']([^"']+)["']/gm
+    ),
+  ].map((m) => m[1])
+);
+
 const postSlugs = new Set(
   readdirSync(join(ROOT, 'src/content/blog'))
     .filter((f) => f.endsWith('.md'))
@@ -103,8 +111,91 @@ for (const [from, to] of pairs) {
   const blog = to.match(/^\/de\/blog\/([^/]+)\/$/);
   if (blog) {
     if (!postSlugs.has(blog[1])) errors.push(`Redirect ${from} targets a missing post: ${to}`);
+  } else if (serviceSlugs.has(to.replace(/^\/de\/services\/|\/$/g, ''))) {
+    // dynamic family: /de/services/[slug] — enumerated from data, not page.tsx
   } else if (!onDisk.has(to)) {
-    notes.push(`Redirect target not yet built (expected until Phase 2 lands): ${from} -> ${to}`);
+    errors.push(`Redirect target does not exist: ${from} -> ${to}`);
+  }
+}
+
+// ------------------------------------------------- non-HTML URLs & anchors ---
+/*
+ * The route walk above only sees page.tsx files, which is how /de/rss.xml,
+ * /llms.txt and /llms-full.txt were missed: all three return 200 on the live
+ * site and 404d here, and the "53/53 routes covered" check never looked at
+ * anything that was not an index.html.
+ */
+const NON_HTML_ROUTES = ['/de/rss.xml', '/llms.txt', '/llms-full.txt', '/robots.txt', '/sitemap.xml'];
+for (const route of NON_HTML_ROUTES) {
+  const segment = route.replace(/^\//, '');
+  const asRoute = join(ROOT, 'src/app', segment, 'route.ts');
+  const asFile = join(ROOT, 'public', segment);
+  const generated = /^\/(robots|sitemap)/.test(route)
+    ? existsSync(join(ROOT, 'src/app', `${segment.replace(/\.(txt|xml)$/, '')}.ts`))
+    : false;
+  if (!existsSync(asRoute) && !existsSync(asFile) && !generated) {
+    errors.push(`Live site serves ${route}, but nothing here does (no route.ts, no public file)`);
+  }
+}
+
+/*
+ * public/ still contains pages carried over from Astro. They were POSTing to
+ * /api/accept.php long after the PHP backend was gone, so the whole offer flow
+ * 404d — and a grep for "/api/accept" matched it as a substring, which is how
+ * it was reported as working.
+ */
+function walkFiles(dir, out = []) {
+  for (const entry of readdirSync(dir)) {
+    const full = join(dir, entry);
+    if (statSync(full).isDirectory()) walkFiles(full, out);
+    else out.push(full);
+  }
+  return out;
+}
+const phpRefs = new Map();
+for (const file of walkFiles(join(ROOT, 'public'))) {
+  if (!/\.(html|js|json|txt)$/.test(file)) continue;
+  for (const m of readFileSync(file, 'utf8').matchAll(/["'`]([^"'`\s]*\.php)\b/g)) {
+    const rel = file.replace(`${ROOT}/`, '');
+    if (!redirectsSrc.includes(m[1]) && !readFileSync(join(ROOT, 'next.config.ts'), 'utf8').includes(m[1])) {
+      phpRefs.set(`${rel} -> ${m[1]}`, true);
+    }
+  }
+}
+for (const ref of phpRefs.keys()) {
+  errors.push(`public file references a .php path with no rewrite: ${ref}`);
+}
+
+/*
+ * In-page anchors. Five were dangling — #bewerben pointed at a form that had
+ * been stripped out, #pricing and #solution at sections that never came across.
+ */
+const contentFiles = [
+  ...walkFiles(join(ROOT, 'src/content/pages')),
+  ...walkFiles(join(ROOT, 'src/content/legal')),
+].filter((f) => f.endsWith('.html'));
+
+const ids = new Set();
+for (const file of [...contentFiles, ...walkFiles(join(ROOT, 'src/app')).filter((f) => f.endsWith('.tsx'))]) {
+  const src = readFileSync(file, 'utf8');
+  for (const m of src.matchAll(/\bid=["'{`]?([A-Za-z][\w-]*)/g)) ids.add(m[1]);
+}
+for (const file of contentFiles) {
+  const src = readFileSync(file, 'utf8');
+  for (const m of src.matchAll(/href="#([\w-]+)"/g)) {
+    if (!ids.has(m[1])) {
+      errors.push(`Dangling anchor #${m[1]} in ${file.replace(`${ROOT}/`, '')}`);
+    }
+  }
+}
+
+/* trailingSlash: true means a slashless internal link costs an extra 308 hop. */
+for (const file of contentFiles) {
+  const src = readFileSync(file, 'utf8');
+  for (const m of src.matchAll(/href="(\/de\/[^"#?]*[^/"#?])"/g)) {
+    if (!/\.[a-z0-9]{2,5}$/.test(m[1])) {
+      notes.push(`Internal link without trailing slash (extra 308): ${m[1]} in ${file.split('/').pop()}`);
+    }
   }
 }
 

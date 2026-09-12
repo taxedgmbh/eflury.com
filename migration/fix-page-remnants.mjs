@@ -13,6 +13,17 @@
 import { readFileSync, writeFileSync } from 'node:fs';
 
 const EDITS = {
+  /*
+   * Two CTAs on the SkopaAI page pointed at #pricing and #solution — sections
+   * of the old full landing page that the slim version does not carry. SkopaAI
+   * is its own company with its own site now, so the honest destination is the
+   * product page rather than an anchor that goes nowhere.
+   */
+  'src/content/pages/skopaai.html': [
+    ['href="#pricing"', 'href="https://skopa.ai/de/"'],
+    ['href="#solution"', 'href="https://skopa.ai/de/"'],
+  ],
+
   'src/content/pages/karriere__initiativbewerbung.html': [
     [
       '<h2>Vielen Dank für Ihre Bewerbung!</h2> <p>Ihre Unterlagen sind eingegangen. Sie werden persönlich gelesen und beantwortet — von der Person, die mit Ihnen arbeiten würde.</p>\n',

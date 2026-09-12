@@ -103,8 +103,25 @@ const PLAYBOOK = [
   'Häufige Fallstricke und wie Sie diese vermeiden',
 ];
 
-export default async function HomePage() {
+/**
+ * /api/newsletter/confirm redirects here with ?newsletter=… after a
+ * double-opt-in link is followed. Nothing read it, so a visitor who had just
+ * confirmed landed on an unchanged homepage with no acknowledgement.
+ */
+const NEWSLETTER_NOTICE: Record<string, string> = {
+  bestaetigt: 'Anmeldung bestätigt — danke. Sie hören gelegentlich von Emanuel.',
+  abgelaufen: 'Dieser Bestätigungslink ist abgelaufen. Melden Sie sich unten erneut an.',
+  ungueltig: 'Dieser Bestätigungslink ist ungültig. Melden Sie sich unten erneut an.',
+  fehler: 'Die Bestätigung hat nicht geklappt. Bitte versuchen Sie es erneut.',
+};
+
+export default async function HomePage({
+  searchParams,
+}: {
+  searchParams: Promise<{ newsletter?: string }>;
+}) {
   const posts = (await getAllPosts()).slice(0, 3);
+  const notice = NEWSLETTER_NOTICE[(await searchParams).newsletter ?? ''];
 
   return (
     <>
@@ -112,6 +129,15 @@ export default async function HomePage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: jsonLd(homeGraph()) }}
       />
+
+      {notice ? (
+        <p
+          role="status"
+          className="border-b border-[var(--rule)] bg-[var(--surface-sunken)] px-6 py-3 text-center text-sm text-[var(--text)]"
+        >
+          {notice}
+        </p>
+      ) : null}
 
       <section className="relative overflow-hidden">
         <div
