@@ -181,6 +181,105 @@ export const PHOTO_CREDITS: PhotoCredit[] = [
     "alt": "Aufgeschlagenes Geschäftsbuch von 1833, Spalten von Hand geführt.",
     "focus": "50% 45%",
     "aspect": 1.3432
+  },
+  {
+    "id": "calculating-machine",
+    "licence": "CC BY-SA 4.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "artist": "Dr. Bernd Gross",
+    "page": "https://commons.wikimedia.org/wiki/File%3AArchimedes_Rechenmaschine_TSD.JPG",
+    "attribution": true,
+    "alt": "Mechanische Rechenmaschine mit Kurbel und Zahlenrollen.",
+    "focus": "50% 50%",
+    "aspect": 1.7794
+  },
+  {
+    "id": "slide-rule",
+    "licence": "CC BY-SA 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "artist": "Guian Bolisay from NYC, USA",
+    "page": "https://commons.wikimedia.org/wiki/File%3AAsliderule.jpg",
+    "attribution": true,
+    "alt": "Rechenschieber, aufgezogen auf eine Ablesung.",
+    "focus": "50% 50%",
+    "aspect": 1.5
+  },
+  {
+    "id": "circular-recorder",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "ArnoldReinhold",
+    "page": "https://commons.wikimedia.org/wiki/File%3ACircular_chart_recorder.agr.jpg",
+    "attribution": true,
+    "alt": "Rundschreiber, der einen Messwert fortlaufend auf Papier zieht.",
+    "focus": "50% 45%",
+    "aspect": 0.75
+  },
+  {
+    "id": "chart-recorders",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "Z22",
+    "page": "https://commons.wikimedia.org/wiki/File%3AChart_recorders_of_a_control_panel.JPG",
+    "attribution": true,
+    "alt": "Reihe von Schreibern in einer Schalttafel, alle auf denselben Zeitmassstab.",
+    "focus": "50% 50%",
+    "aspect": 1.3333
+  },
+  {
+    "id": "balance-scale",
+    "licence": "CC BY-SA 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "artist": "Abaddon1337",
+    "page": "https://commons.wikimedia.org/wiki/File%3ABalance_L'Isle_1.jpg",
+    "attribution": true,
+    "alt": "Balkenwaage mit zwei Schalen im Gleichgewicht.",
+    "focus": "50% 45%",
+    "aspect": 1.3333
+  },
+  {
+    "id": "workbench",
+    "licence": "CC BY 3.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/3.0",
+    "artist": "Linda Spashett Storye book",
+    "page": "https://commons.wikimedia.org/wiki/File%3ACliffecastlemus_031.jpg",
+    "attribution": true,
+    "alt": "Werkbank mit geordnetem Werkzeug, bereit zur Arbeit.",
+    "focus": "50% 50%",
+    "aspect": 1.36
+  },
+  {
+    "id": "genoa-ledger",
+    "licence": "Public domain",
+    "licenceUrl": "",
+    "artist": "User:FA2010",
+    "page": "https://commons.wikimedia.org/wiki/File%3AGenua_Libro_delle_Colonne_359_1485_img01.jpg",
+    "attribution": false,
+    "alt": "Doppelseite eines Rechnungsbuchs von 1485, in Spalten geführt.",
+    "focus": "50% 45%",
+    "aspect": 1.47
+  },
+  {
+    "id": "sorting-office",
+    "licence": "CC BY-SA 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by-sa/2.0",
+    "artist": "Dr Neil Clifton",
+    "page": "https://commons.wikimedia.org/wiki/File%3ABethnal_Green%2C_Royal_Mail_sorting_office%2C_Emma_Street_-_geograph.org.uk_-_1726886.jpg",
+    "attribution": true,
+    "alt": "Sortierhalle einer Post, Behälter und Fächer in langen Reihen.",
+    "focus": "50% 50%",
+    "aspect": 1.3333
+  },
+  {
+    "id": "invoice-sorting",
+    "licence": "CC BY 2.0",
+    "licenceUrl": "https://creativecommons.org/licenses/by/2.0",
+    "artist": "USMC Archives from Quantico, USA",
+    "page": "https://commons.wikimedia.org/wiki/File%3A%22Sorted_Again%22_(9524917342).jpg",
+    "attribution": true,
+    "alt": "Gestapelte und gebündelte Sendungen, nach Ziel geordnet.",
+    "focus": "50% 50%",
+    "aspect": 1.2884
   }
 ];
 

@@ -101,6 +101,8 @@ export const CONTENT_PAGES = {
     description:
       'Fixpreise statt Tagessätze. Was Automatisierung kostet, steht hier — nicht erst nach einem Verkaufsgespräch.',
     standfirst: 'Weil Schweizer KMU Transparenz schätzen und versteckte Preise Zeit kosten.',
+    photo: 'balance-scale',
+    openerHeading: 'Der Preis steht, bevor die Arbeit beginnt.',
     priority: 0.8,
   },
   kontakt: {
@@ -117,6 +119,8 @@ export const CONTENT_PAGES = {
     title: 'Karriere',
     description:
       'Derzeit keine ausgeschriebenen Stellen — Initiativbewerbungen sind ausdrücklich willkommen.',
+    photo: 'workbench',
+    openerHeading: 'Der Platz ist eingerichtet, bevor jemand kommt.',
     priority: 0.4,
   },
   'karriere__initiativbewerbung': {
@@ -133,6 +137,8 @@ export const CONTENT_PAGES = {
     title: 'Dienstleister',
     description:
       'Posteingang, Telefon und Terminvereinbarung automatisieren — für Dienstleister mit viel Kundenkontakt.',
+    photo: 'slide-rule',
+    openerHeading: 'Verrechenbare Stunden, ohne Nachtragen.',
     priority: 0.7,
   },
   'branchen__finanzteams': {
@@ -141,6 +147,8 @@ export const CONTENT_PAGES = {
     title: 'Finanzteams',
     description:
       'Monatsabschluss, Reporting und die Datenarbeit darunter — automatisiert für Finanz- und Back-Office-Teams.',
+    photo: 'calculating-machine',
+    openerHeading: 'Der Abschluss läuft, während Sie ihn prüfen.',
     priority: 0.7,
   },
   'branchen__reporting-daten': {
@@ -149,6 +157,8 @@ export const CONTENT_PAGES = {
     title: 'Reporting & Daten',
     description:
       'Systeme verbinden, Daten bereinigen, Reports automatisieren — damit Zahlen stimmen, bevor sie jemand liest.',
+    photo: 'circular-recorder',
+    openerHeading: 'Laufend aufgezeichnet statt monatlich zusammengesucht.',
     priority: 0.7,
   },
   'case-studies__taxed-gmbh': {
@@ -158,6 +168,8 @@ export const CONTENT_PAGES = {
     description:
       'Wie Emanuel Flury seine eigene Treuhandfirma automatisierte — 18 Stunden Verwaltung pro Woche auf 3 reduziert.',
     standfirst: 'Die eigene Firma als erster Kunde. Das Treuhandwesen ist stark reguliert — funktioniert es hier, funktioniert es auch bei Ihnen.',
+    photo: 'genoa-ledger',
+    openerHeading: 'Die eigene Firma als erster Kunde.',
     priority: 0.8,
   },
   'case-studies__finance-automation': {
@@ -166,6 +178,8 @@ export const CONTENT_PAGES = {
     title: 'Finanzautomatisierung',
     description:
       'Abstimmung, Abweichungsanalyse und Abschlusskalender automatisiert — Präzisionsfertiger im Raum Zürich.',
+    photo: 'invoice-sorting',
+    openerHeading: 'Belege, die sich selbst einordnen.',
     priority: 0.7,
   },
   'case-studies__power-bi-reporting': {
@@ -174,6 +188,8 @@ export const CONTENT_PAGES = {
     title: 'Power-BI-Reporting',
     description:
       'Von verstreuten Excel-Dateien zu einem Reporting, dem das Team traut — Dienstleister im Raum Bern.',
+    photo: 'chart-recorders',
+    openerHeading: 'Ein Berichtsstand für alle.',
     priority: 0.7,
   },
   'case-studies__llm-pipeline-showcase': {
@@ -183,6 +199,8 @@ export const CONTENT_PAGES = {
     description:
       'Ein vollständiger Mahnlauf über 40 Posten: Risikobewertung, Priorisierung und 21 E-Mail-Entwürfe in drei Sprachen.',
     standfirst: 'Die Beispielbriefe auf dieser Seite stehen unverändert so, wie das Modell sie abgelegt hat.',
+    photo: 'sorting-office',
+    openerHeading: 'Mahnungen, die das Modell schreibt und ein Mensch freigibt.',
     priority: 0.7,
   },
 } as const satisfies Record<string, ContentPage>;
