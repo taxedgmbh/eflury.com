@@ -76,6 +76,22 @@ const PHRASES = [
   ['unserer Methode', 'seiner Methode'],
   ['Wir sind spezialisiert auf', 'Emanuel ist spezialisiert auf'],
   ['Sprechen wir über', 'Sprechen Sie mit Emanuel über'],
+
+  // Six sentences the general rules mangled. Each was checked against the
+  // original German in the built site, not guessed from the broken output:
+  //   "wie wir wachsen"       -> conjugation missed, gave "wie er wachsen"
+  //   "lesen"/"liefern"       -> gave "lest"/"liefernt"
+  //   "kennenlernen möchten"  -> gave "kennenlernt möchten"
+  //   "helfen können"         -> gave "helfen könnt"
+  //   "ohne uns weiterbetreiben" -> left without an object once "uns" went
+  ['Wir besetzen Projekte, wie wir wachsen — und lesen jede Initiativbewerbung',
+   'Emanuel besetzt Projekte, wie er wächst — und liest jede Initiativbewerbung'],
+  ['Wie wir liefern', 'Wie Emanuel liefert'],
+  ['wen wir kennenlernen möchten', 'wen Emanuel kennenlernen möchte'],
+  ['Wen wir kennenlernen möchten', 'Wen Emanuel kennenlernen möchte'],
+  ['ob und wie wir helfen können', 'ob und wie er helfen kann'],
+  ['Sie können jederzeit ohne uns weiterbetreiben.',
+   'Sie können den Betrieb jederzeit ohne Emanuel weiterführen.'],
   ['Fallstudie Meine eigene Firma', 'Fallstudie: die eigene Firma'],
   ['Wie ich meine eigene Treuhandfirma mit Claude AI automatisierte',
    'Wie Emanuel Flury seine eigene Treuhandfirma mit Claude AI automatisierte'],

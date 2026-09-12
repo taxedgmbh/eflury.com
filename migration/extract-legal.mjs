@@ -64,7 +64,11 @@ function clean(html) {
     .filter(Boolean)
     .join('\n');
 
-  return html.trim().replace(/\u0000SVG(\d+)\u0000/g, (_, i) => svgs[Number(i)]);
+  return html
+    .trim()
+    .replace(/\u0000SVG(\d+)\u0000/g, (_, i) => svgs[Number(i)])
+    // after restore: the masked SVG blocks carry the attributes too
+    .replace(/\sdata-astro-cid-[\w-]+(?:="[^"]*")?/g, '');
 }
 
 for (const [slug, title] of Object.entries(PAGES)) {

@@ -57,6 +57,7 @@ function clean(html) {
     KEEP.has(tag.toLowerCase()) ? `</${tag.toLowerCase()}>` : ''
   );
   html = html.replace(/<!--[\s\S]*?-->/g, '');
+  html = html.replace(/\sdata-astro-cid-[\w-]+(?:="[^"]*")?/g, '');
   html = html.replace(/[ \t]+/g, ' ').replace(/\n{3,}/g, '\n\n');
 
   return html
@@ -70,7 +71,13 @@ function clean(html) {
     .filter(Boolean)
     .join('\n')
     .trim()
-    .replace(/\u0000SVG(\d+)\u0000/g, (_, i) => svgs[Number(i)]);
+    .replace(/\u0000SVG(\d+)\u0000/g, (_, i) => svgs[Number(i)])
+    // An <a> whose only content was a stripped image is an invisible,
+    // unlabelled link. Drop it rather than ship a focusable void.
+    .replace(/\sdata-astro-cid-[\w-]+(?:="[^"]*")?/g, '')
+    .replace(/<a href="[^"]*">\s*<\/a>/g, '')
+    // <p> cannot nest; the browser auto-closes it into orphaned fragments.
+    .replace(/<p>(\s*)(<(?:h[234]|ul|ol|dl|table|blockquote)[\s>])/g, '$1$2');
 }
 
 mkdirSync('src/content/pages', { recursive: true });

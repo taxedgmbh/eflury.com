@@ -45,6 +45,15 @@ const nextConfig: NextConfig = {
       // that still points at it.
       { source: '/api/chat.php', destination: '/api/chat/', statusCode: 301 },
 
+      /*
+       * The offer pages in public/offerte/ and public/offer/ are carried over
+       * verbatim from the Astro site and still POST to the PHP path. Without
+       * this, every acceptance and every link-minting call 404s — the whole
+       * contract flow is dead. Found by reading the files rather than grepping:
+       * a search for "/api/accept" matches "/api/accept.php" as a substring.
+       */
+      { source: '/api/accept.php', destination: '/api/accept/', statusCode: 308 },
+
       // Last-resort net. The enumerated list above is exhaustive against the built
       // route tree, so this should never fire.
       { source: '/en/:path*', destination: '/de/', statusCode: 301 },
