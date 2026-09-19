@@ -76,7 +76,7 @@ export default function PricingPage() {
                     <p className="mt-1.5 text-[var(--text-muted)]">{p.fit}</p>
                   </div>
                   {p.badge ? (
-                    <span className="shrink-0 rounded-full bg-[var(--accent-text)] px-3 py-1 text-[0.8125rem] font-medium text-white">
+                    <span className="shrink-0 rounded-full bg-[var(--accent-text)] px-3 py-1 micro font-medium text-white">
                       {p.badge}
                     </span>
                   ) : null}
@@ -84,7 +84,7 @@ export default function PricingPage() {
 
                 <div className="mt-7 border-t border-[var(--rule)] pt-6">
                   <p className="flex flex-wrap items-baseline gap-x-3">
-                    <span className="text-[2rem] leading-none font-semibold tracking-[-0.02em]">
+                    <span className="stat">
                       {chf(p.price)}
                     </span>
                     <span className="text-sm text-[var(--text-faint)]">
@@ -99,20 +99,20 @@ export default function PricingPage() {
                    * number gains.
                    */}
                   {p.reference ? (
-                    <p className="mt-2.5 text-[0.9375rem] text-[var(--text-muted)]">
+                    <p className="mt-2.5 small text-[var(--text-muted)]">
                       Dieselbe Arbeit zu Schweizer Beratersätzen von CHF 2’400 pro Tag:{' '}
                       rund {chf(p.reference)}.
                     </p>
                   ) : null}
                   {p.instalments ? (
-                    <p className="mt-1.5 text-[0.9375rem] text-[var(--text-muted)]">
+                    <p className="mt-1.5 small text-[var(--text-muted)]">
                       Auf Wunsch {p.instalments} — die Hälfte bei Auftrag, die Hälfte bei
                       Deployment.
                     </p>
                   ) : null}
                 </div>
 
-                <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 border-t border-[var(--rule)] pt-6 text-[0.9375rem]">
+                <dl className="mt-6 grid grid-cols-2 gap-x-6 gap-y-3 border-t border-[var(--rule)] pt-6 small">
                   <div>
                     <dt className="text-[var(--text-faint)]">Dauer</dt>
                     <dd className="mt-0.5 font-medium">{p.weeks} Wochen</dd>
@@ -123,10 +123,10 @@ export default function PricingPage() {
                   </div>
                 </dl>
 
-                <h4 className="mt-7 text-[0.8125rem] font-medium tracking-[0.04em] text-[var(--text-faint)] uppercase">
+                <h4 className="mt-7 micro font-medium tracking-[0.04em] text-[var(--text-faint)] uppercase">
                   Enthalten
                 </h4>
-                <ul className="mt-3 space-y-2.5 text-[0.9375rem]">
+                <ul className="mt-3 space-y-2.5 small">
                   {p.includes.map((item) => (
                     <li key={item} className="flex gap-2.5 leading-relaxed">
                       <Check
@@ -145,7 +145,7 @@ export default function PricingPage() {
                  * undercut the one thing this page is for.
                  */}
                 {p.roiHours ? (
-                  <p className="mt-7 border-t border-[var(--rule)] pt-5 text-[0.9375rem] text-[var(--text-muted)]">
+                  <p className="mt-7 border-t border-[var(--rule)] pt-5 small text-[var(--text-muted)]">
                     Angestrebte Ersparnis: {p.roiHours} — geschätzt aus vergleichbaren
                     Projekten, nicht zugesichert.
                   </p>
@@ -175,7 +175,7 @@ export default function PricingPage() {
             <p className="max-w-2xl text-xl leading-snug">{AUDIT_CREDIT.note}</p>
 
             <div className="mt-8 max-w-md rounded-xl border border-[var(--rule)] bg-[var(--surface-raised)] p-6">
-              <dl className="space-y-3 text-[0.9375rem]">
+              <dl className="space-y-3 small">
                 <div className="flex items-baseline justify-between gap-4">
                   <dt className="text-[var(--text-muted)]">{AUDIT_CREDIT.example.base.label}</dt>
                   <dd className="font-medium tabular-nums">
@@ -217,7 +217,7 @@ export default function PricingPage() {
         </h2>
         {/* Wide content scrolls inside its own container, never the page. */}
         <div className="mt-8 overflow-x-auto">
-          <table className="w-full min-w-[44rem] border-collapse text-left text-[0.9375rem]">
+          <table className="w-full min-w-[44rem] border-collapse text-left small">
             <caption className="sr-only">
               Die vier Pakete im Vergleich: Preis, Dauer, Umfang und angestrebte Ersparnis.
             </caption>

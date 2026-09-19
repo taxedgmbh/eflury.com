@@ -245,7 +245,7 @@ Der häufigste einzelne Fehler bei AI ROI-Messung ist, die falschen Metriken zu 
 
 **Zeitersparnis pro Prozess**
 - *Was zu messen ist:* Wöchentlich eingesparte Stunden, bewertet zu vollständig belasteten Arbeitssätzen
-- *Wie zu messen:* Zeitstudien vor und nach Implementierung (minimum 4 Wochen jeweils)
+- *Wie zu messen:* Zeitstudien vor und nach Implementierung (mindestens 4 Wochen jeweils)
 - *Schweizer KMU-Benchmark:* 15-40 Stunden pro Woche für typische Büroautomatisierung
 - *Häufiger Fehler:* Grundgehalt statt vollständig belastete Kosten verwenden
 

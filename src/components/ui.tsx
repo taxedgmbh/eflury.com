@@ -88,7 +88,7 @@ export function Pill({ icon: Icon, children }: { icon?: LucideIcon; children: Re
 export function Stat({ value, label }: { value: string; label: string }) {
   return (
     <div className="text-center">
-      <p className="text-[2.25rem] leading-none font-bold tracking-tight text-[var(--accent-text)]">
+      <p className="stat text-[var(--accent-text)]">
         {value}
       </p>
       <p className="mt-2 text-xs tracking-[0.08em] text-[var(--text-muted)] uppercase">{label}</p>
@@ -105,7 +105,7 @@ type ButtonProps = {
 
 export function Button({ href, children, variant = 'primary', external }: ButtonProps) {
   const base =
-    'inline-flex items-center justify-center rounded-xl px-6 py-3 text-[0.95rem] font-semibold transition-colors';
+    'inline-flex items-center justify-center rounded-xl px-6 py-3 small font-semibold transition-colors';
   const styles =
     variant === 'primary'
       ? 'bg-[var(--accent-text)] text-white hover:bg-[color-mix(in_srgb,var(--accent-text)_88%,black)]'

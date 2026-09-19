@@ -99,7 +99,7 @@ export function PhotoBand({
       />
 
       <div className="mx-auto w-full max-w-6xl px-6 pt-16 pb-12 sm:pt-20 sm:pb-14">
-        <p className="text-[0.8125rem] font-medium tracking-[0.02em] text-white/90">{eyebrow}</p>
+        <p className="micro font-medium tracking-[0.02em] text-white/90">{eyebrow}</p>
         <span aria-hidden className="mt-4 block h-[3px] w-10 bg-[var(--accent)]" />
         <Heading
           /* On the shared scale: a page opener is display, a mid-page band a step down. */
@@ -113,7 +113,7 @@ export function PhotoBand({
         {cta ? (
           <Link
             href={cta.href}
-            className="tap mt-7 gap-2 rounded-full bg-white/95 px-5 text-[0.95rem] font-medium text-[var(--navy,#022554)] transition-colors hover:bg-white"
+            className="tap mt-7 gap-2 rounded-full bg-white/95 px-5 small font-medium text-[var(--navy,#022554)] transition-colors hover:bg-white"
           >
             {cta.label}
             <span aria-hidden>→</span>

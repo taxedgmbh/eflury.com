@@ -102,6 +102,16 @@
   --text-heading: clamp(1.3125rem, 1.9vw, 1.625rem);
   --text-lead: clamp(1.0625rem, 1.15vw, 1.25rem);
   --text-body: 1.0625rem;
+  /*
+   * The scale stopped at body, so every page below it invented its own small
+   * size: 0.95rem in thirteen places and 0.9375rem in eight — 15.2px and 15px,
+   * indistinguishable on screen and two values for one job. And a displayed
+   * number was 2rem on the pricing card but 2.25rem in a Stat. Four more steps
+   * so nothing below body has to be guessed either.
+   */
+  --text-small: 0.9375rem;
+  --text-micro: 0.8125rem;
+  --text-stat: clamp(1.875rem, 2.6vw, 2.25rem);
 
   --track-display: -0.032em;
   --track-title: -0.026em;
@@ -242,6 +252,27 @@
     line-height: 1.55;
     color: var(--text-muted);
     text-wrap: pretty;
+  }
+
+  /* Secondary copy: card bodies, table cells, captions. */
+  .small {
+    font-size: var(--text-small);
+    line-height: 1.55;
+  }
+
+  /* Labels and eyebrows, where the word is doing less work than its position. */
+  .micro {
+    font-size: var(--text-micro);
+    line-height: 1.4;
+  }
+
+  /* A displayed figure — a price, a measured result. Not a heading. */
+  .stat {
+    font-size: var(--text-stat);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
   }
 
   /* Same rule for a control that is square by nature, e.g. an icon button. */

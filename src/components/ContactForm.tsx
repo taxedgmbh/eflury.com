@@ -155,7 +155,7 @@ export function ContactForm() {
       <button
         type="submit"
         disabled={status === 'sending'}
-        className="tap rounded-sm bg-[var(--text)] px-5 text-[0.95rem] font-medium text-[var(--surface)] disabled:opacity-60"
+        className="tap rounded-sm bg-[var(--text)] px-5 small font-medium text-[var(--surface)] disabled:opacity-60"
       >
         {status === 'sending' ? 'Wird gesendet …' : 'Nachricht senden'}
       </button>

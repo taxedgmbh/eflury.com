@@ -76,7 +76,7 @@ export function Header() {
           </span>
         </Link>
         <nav aria-label="Hauptnavigation" className="ms-auto">
-          <ul className="flex flex-wrap items-center gap-x-6 text-[0.9375rem]">
+          <ul className="flex flex-wrap items-center gap-x-6 small">
             {NAV.map((item) => (
               <li key={item.href}>
                 <Link

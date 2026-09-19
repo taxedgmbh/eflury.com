@@ -52,14 +52,14 @@ export default function BildnachweisPage() {
             <h2 id="mit-nennung" className="text-xl font-bold tracking-tight">
               Mit Namensnennung
             </h2>
-            <p className="mt-2 text-[0.95rem] leading-relaxed text-[var(--text-muted)]">
+            <p className="mt-2 small leading-relaxed text-[var(--text-muted)]">
               Diese Lizenzen verlangen die Nennung des Urhebers.
             </p>
             <dl className="mt-6 divide-y divide-[var(--rule)]">
               {needsCredit.map((p) => (
                 <div key={p.id} className="py-5">
                   <dt className="font-medium">{p.alt}</dt>
-                  <dd className="mt-1.5 text-[0.95rem] leading-relaxed text-[var(--text-muted)]">
+                  <dd className="mt-1.5 small leading-relaxed text-[var(--text-muted)]">
                     Foto: {p.artist} ·{' '}
                     <a
                       href={p.licenceUrl}
@@ -84,14 +84,14 @@ export default function BildnachweisPage() {
             <h2 id="ohne-nennung" className="text-xl font-bold tracking-tight">
               Ohne Nennungspflicht
             </h2>
-            <p className="mt-2 text-[0.95rem] leading-relaxed text-[var(--text-muted)]">
+            <p className="mt-2 small leading-relaxed text-[var(--text-muted)]">
               CC0 und gemeinfreie Bilder verlangen keine Nennung. Sie steht hier trotzdem.
             </p>
             <dl className="mt-6 divide-y divide-[var(--rule)]">
               {free.map((p) => (
                 <div key={p.id} className="py-5">
                   <dt className="font-medium">{p.alt}</dt>
-                  <dd className="mt-1.5 text-[0.95rem] leading-relaxed text-[var(--text-muted)]">
+                  <dd className="mt-1.5 small leading-relaxed text-[var(--text-muted)]">
                     Foto: {p.artist || 'unbekannt'} · {p.licence} ·{' '}
                     <a href={p.page} rel="noopener" className="text-[var(--link)] hover:underline">
                       Quelle auf Wikimedia Commons

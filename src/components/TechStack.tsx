@@ -82,7 +82,7 @@ export function TechStack() {
         <h2 className="title">
           Technologien, die Emanuel einsetzt
         </h2>
-        <p className="mt-4 text-[1.0625rem] leading-relaxed text-[var(--text-muted)]">
+        <p className="lead mt-4">
           Etablierte Werkzeuge statt Blackbox-Eigenentwicklungen — mit
           EU/CH-Hosting-Optionen. Welche Dienste in Ihrem Projekt laufen, legt er
           offen.

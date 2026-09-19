@@ -104,7 +104,7 @@ export function ChatWidget() {
         </div>
 
         <div ref={log} className="flex-1 space-y-3 overflow-y-auto px-4 py-4" aria-live="polite">
-          <p className="text-[0.95rem] leading-relaxed text-[var(--text-muted)]">
+          <p className="small leading-relaxed text-[var(--text-muted)]">
             {GREETING}
           </p>
           {turns.map((turn, i) => (
@@ -112,8 +112,8 @@ export function ChatWidget() {
               key={i}
               className={
                 turn.role === 'user'
-                  ? 'ms-auto max-w-[85%] rounded-md bg-[var(--surface-sunken)] px-3 py-2 text-[0.95rem]'
-                  : 'max-w-[92%] text-[0.95rem] leading-relaxed'
+                  ? 'ms-auto max-w-[85%] rounded-md bg-[var(--surface-sunken)] px-3 py-2 small'
+                  : 'max-w-[92%] small leading-relaxed'
               }
             >
               {turn.role === 'model' ? (
@@ -138,7 +138,7 @@ export function ChatWidget() {
             onChange={(e) => setDraft(e.target.value)}
             maxLength={2000}
             placeholder="Ihre Frage"
-            className="min-w-0 flex-1 rounded-sm border border-[var(--rule)] bg-[var(--surface)] px-3 py-2 text-[0.95rem] outline-none focus-visible:border-[var(--link)]"
+            className="min-w-0 flex-1 rounded-sm border border-[var(--rule)] bg-[var(--surface)] px-3 py-2 small outline-none focus-visible:border-[var(--link)]"
           />
           <button
             type="submit"

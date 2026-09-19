@@ -953,7 +953,7 @@ Die Statistiken sind klar, die regulatorischen Anforderungen sind etabliert und 
 **Ich lade Sie ein, [eine kostenlose 45-minütige Schatten-KI-Bewertung zu buchen](/de/kontakt/), während der wir:**
 
 - **Ihre aktuelle Schatten-KI-Exposition bewerten** mit bewährten Bewertungsmethodologien
-- **Ihre höchstrisiko-Anwendungsfälle identifizieren** basierend auf Ihrer Branche, Datensensibilität und Mitarbeiterrollen
+- **Ihre Höchstrisiko-Anwendungsfälle identifizieren** basierend auf Ihrer Branche, Datensensibilität und Mitarbeiterrollen
 - **Ein massgeschneidertes Governance-Framework gestalten**, das Sicherheit mit Produktivität ausbalanciert
 - **Ihren spezifischen ROI berechnen** einschliesslich Verletzungskostenvermeidung, Compliance-Risikoreduktion und Produktivitätsgewinne
 - **Eine 90-Tage-Implementierungs-Roadmap erstellen** mit klaren Meilensteinen und Ressourcenanforderungen

@@ -6,7 +6,7 @@ import { PERSON } from '@/lib/site';
  */
 
 export const field =
-  'w-full min-h-11 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] px-3 py-2.5 text-[0.95rem] text-[var(--text)] outline-none focus-visible:border-[var(--link)]';
+  'w-full min-h-11 rounded-sm border border-[var(--rule)] bg-[var(--surface-raised)] px-3 py-2.5 small text-[var(--text)] outline-none focus-visible:border-[var(--link)]';
 
 export const label = 'block text-sm font-medium';
 
