@@ -52,7 +52,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         dangerouslySetInnerHTML={{ __html: jsonLd(serviceGraph(service)) }}
       />
 
-      <div className="mx-auto max-w-5xl px-6 pt-12 pb-6">
+      <div className="mx-auto max-w-5xl px-6 pt-10 pb-6">
         <nav aria-label="Brotkrumen" className="text-sm">
           <Link href="/de/services/" className="tap text-[var(--text-muted)] hover:text-[var(--text)]">
             Leistungen
@@ -90,14 +90,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       ) : null}
 
       {Illustration ? (
-        <div className="mx-auto max-w-5xl px-6 pt-14">
+        <div className="mx-auto max-w-5xl px-6 pt-16 sm:pt-24">
           <div className="max-w-3xl">
             <Illustration />
           </div>
         </div>
       ) : null}
 
-      <section className="mx-auto max-w-5xl px-6 pt-12" aria-labelledby="problem">
+      <section className="mx-auto max-w-5xl px-6 pt-16 sm:pt-24" aria-labelledby="problem">
         <div className="rail">
           <h2 id="problem" className="rail-label">
             Ausgangslage
@@ -123,7 +123,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 pt-16" aria-labelledby="ansatz">
+      <section className="mx-auto max-w-5xl px-6 pt-16 sm:pt-24" aria-labelledby="ansatz">
         <div className="rail">
           <h2 id="ansatz" className="rail-label">
             Ansatz
@@ -156,7 +156,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         genuinely is a sequence, so the numbers carry information rather than
         decorate the layout.
       */}
-      <section className="mx-auto max-w-5xl px-6 pt-16" aria-labelledby="ablauf">
+      <section className="mx-auto max-w-5xl px-6 pt-16 sm:pt-24" aria-labelledby="ablauf">
         <div className="rail">
           <h2 id="ablauf" className="rail-label">
             Ablauf
@@ -189,7 +189,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       </section>
 
       {service.faqs.length > 0 ? (
-        <section className="mx-auto max-w-5xl px-6 pt-16" aria-labelledby="fragen">
+        <section className="mx-auto max-w-5xl px-6 pt-16 sm:pt-24" aria-labelledby="fragen">
           <div className="rail">
             <h2 id="fragen" className="rail-label">
               Häufige Fragen
@@ -216,14 +216,14 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       ) : null}
 
       {service.slug === 'datenqualitaet' ? (
-        <section className="mx-auto max-w-5xl px-6 pt-16" aria-labelledby="konkret">
+        <section className="mx-auto max-w-5xl px-6 pt-16 sm:pt-24" aria-labelledby="konkret">
           <h2 id="konkret" className="sr-only">Ein konkretes Beispiel</h2>
           <DataQualityShowcase />
         </section>
       ) : null}
 
       {service.sampleReport ? (
-        <section className="mx-auto max-w-5xl px-6 pt-16" aria-labelledby="muster">
+        <section className="mx-auto max-w-5xl px-6 pt-16 sm:pt-24" aria-labelledby="muster">
           <div className="rail">
             <h2 id="muster" className="rail-label">Musterbericht</h2>
             <Card className="min-w-0 max-w-2xl">
@@ -248,7 +248,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
       ) : null}
 
       {service.relatedCaseStudy ? (
-        <section className="mx-auto max-w-5xl px-6 pt-16" aria-labelledby="beleg">
+        <section className="mx-auto max-w-5xl px-6 pt-16 sm:pt-24" aria-labelledby="beleg">
           <div className="rail">
             <h2 id="beleg" className="rail-label">Beleg</h2>
             <Card className="min-w-0 max-w-2xl">
@@ -272,7 +272,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </section>
       ) : null}
 
-      <section className="mx-auto max-w-5xl px-6 pt-20" aria-labelledby="cta">
+      <section className="mx-auto max-w-5xl px-6 pt-16 sm:pt-24" aria-labelledby="cta">
         <div className="rail border-t border-[var(--rule-strong)] pt-8">
           <h2 id="cta" className="rail-label">
             Nächster Schritt
@@ -296,7 +296,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 pt-16" aria-labelledby="vorgehen">
+      <section className="mx-auto max-w-5xl px-6 pt-16 sm:pt-24" aria-labelledby="vorgehen">
         <div className="rail">
           <h2 id="vorgehen" className="rail-label">Vorgehen &amp; Daten</h2>
           <div className="min-w-0">
@@ -305,7 +305,7 @@ export default async function ServicePage({ params }: { params: Promise<{ slug: 
         </div>
       </section>
 
-      <section className="mx-auto max-w-5xl px-6 pt-20" aria-labelledby="weitere">
+      <section className="mx-auto max-w-5xl px-6 pt-16 sm:pt-24" aria-labelledby="weitere">
         <div className="rail border-t border-[var(--rule)] pt-8">
           <h2 id="weitere" className="rail-label">
             Weitere Leistungen

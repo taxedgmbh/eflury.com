@@ -56,7 +56,7 @@ export default async function TagPage({ params }: { params: Promise<{ tag: strin
           __html: jsonLd(contentPageGraph(`/de/blog/tag/${tagSlug(tag)}/`, tag)),
         }}
       />
-      <div className="mx-auto max-w-5xl px-6 pt-20 pb-10">
+      <div className="mx-auto max-w-5xl px-6 pt-12 sm:pt-16 pb-10">
         <nav aria-label="Brotkrumen" className="text-sm">
           <Link href="/de/blog/" className="text-[var(--text-muted)] hover:text-[var(--text)]">
             Blog

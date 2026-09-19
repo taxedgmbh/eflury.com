@@ -27,7 +27,7 @@ export default async function KontaktPage() {
         dangerouslySetInnerHTML={{ __html: jsonLd(contentPageGraph(meta.route, meta.title)) }}
       />
 
-      <div className="mx-auto max-w-5xl px-6 pt-16 pb-20">
+      <div className="mx-auto max-w-5xl px-6 pt-12 sm:pt-16 pb-20">
         <header className="border-b border-[var(--rule-strong)] pb-8">
           <h1 className="display">Kontakt</h1>
           <p className="mt-5 max-w-2xl text-lg leading-relaxed text-[var(--text-muted)]">

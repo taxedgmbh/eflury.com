@@ -125,6 +125,28 @@ export function Button({ href, children, variant = 'primary', external }: Button
   );
 }
 
+/**
+ * Vertical rhythm, in one place because it was in five.
+ *
+ * Before this, section top padding was pt-12, pt-14, pt-16, pt-20 and pt-24
+ * across the routes, and the service page used four of them for the same kind
+ * of block — its first section was tighter than the seven that followed it,
+ * which is backwards. The values now mean something:
+ *
+ *   pt-10  a utility row: breadcrumbs, nothing above it but chrome
+ *   pt-16  the first content block on a page, under an opener or a plain top.
+ *          Less than a section break because PhotoBand already carries its own
+ *          bottom padding, so the visible gap is the sum of the two.
+ *   pt-24  between sections. Matches this component's py-24, which is what the
+ *          home page and the pricing page were already using.
+ *
+ * All of them step down on a phone — pt-16 sm:pt-24, pt-12 sm:pt-16, and
+ * py-16 sm:py-24 lg:py-32 here. A flat 96px between sections is about a quarter
+ * of a 390px viewport, which is generous on a desktop and wasteful on a phone.
+ *
+ * The home page hero keeps pt-20 sm:pt-24: it sits directly under the sticky
+ * header and is the page's own top, not a section within one.
+ */
 export function Section({
   children,
   className = '',
@@ -141,7 +163,7 @@ export function Section({
       aria-labelledby={labelledBy}
       className={`${tone === 'sunken' ? 'bg-[var(--surface-sunken)]' : ''} ${className}`}
     >
-      <div className="mx-auto max-w-6xl px-6 py-24 sm:py-32">{children}</div>
+      <div className="mx-auto max-w-6xl px-6 py-16 sm:py-24 lg:py-32">{children}</div>
     </section>
   );
 }

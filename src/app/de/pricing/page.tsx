@@ -52,7 +52,7 @@ export default function PricingPage() {
       />
 
       {/* ---- packages ---------------------------------------------------- */}
-      <section className="mx-auto max-w-6xl px-6 pt-20" aria-labelledby="pakete">
+      <section className="mx-auto max-w-6xl px-6 pt-12 sm:pt-16" aria-labelledby="pakete">
         <h2 id="pakete" className="title">
           Vier Pakete
         </h2>
@@ -166,7 +166,7 @@ export default function PricingPage() {
       </section>
 
       {/* ---- audit credit, directly under the packages it applies to ----- */}
-      <section className="mx-auto max-w-6xl px-6 pt-24" aria-labelledby="anrechnung">
+      <section className="mx-auto max-w-6xl px-6 pt-16 sm:pt-24" aria-labelledby="anrechnung">
         <div className="rail">
           <h2 id="anrechnung" className="rail-label">
             Anrechnung
@@ -217,7 +217,7 @@ export default function PricingPage() {
       </section>
 
       {/* ---- comparison, derived from the same data ---------------------- */}
-      <section className="mx-auto max-w-6xl px-6 pt-24" aria-labelledby="vergleich">
+      <section className="mx-auto max-w-6xl px-6 pt-16 sm:pt-24" aria-labelledby="vergleich">
         <h2 id="vergleich" className="title">
           Vergleich
         </h2>
@@ -258,7 +258,7 @@ export default function PricingPage() {
       </section>
 
       {/* ---- add-ons ----------------------------------------------------- */}
-      <section className="mx-auto max-w-6xl px-6 pt-24" aria-labelledby="zusatz">
+      <section className="mx-auto max-w-6xl px-6 pt-16 sm:pt-24" aria-labelledby="zusatz">
         <h2 id="zusatz" className="title">
           Dazu buchbar
         </h2>
@@ -283,7 +283,7 @@ export default function PricingPage() {
       </section>
 
       {/* ---- FAQs -------------------------------------------------------- */}
-      <section className="mx-auto max-w-6xl px-6 pt-24 pb-24" aria-labelledby="fragen">
+      <section className="mx-auto max-w-6xl px-6 pt-16 sm:pt-24 pb-24" aria-labelledby="fragen">
         <h2 id="fragen" className="title">
           Fragen zum Preis
         </h2>

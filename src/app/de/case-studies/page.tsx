@@ -56,7 +56,7 @@ export default function CaseStudiesIndex() {
         lead="Jeweils mit dem, was vorher war, was gebaut wurde und was messbar herauskam. Das erste ist die eigene Firma."
       />
 
-      <div className="mx-auto max-w-5xl px-6 pt-16 pb-10">
+      <div className="mx-auto max-w-5xl px-6 pt-12 sm:pt-16 pb-10">
 
         {Illustration ? (
           <div className="mt-10">

@@ -89,7 +89,7 @@ export default async function BlogPost({ params }: { params: Promise<{ slug: str
         dangerouslySetInnerHTML={{ __html: jsonLd(blogPostGraph(post)) }}
       />
 
-      <article className="mx-auto max-w-5xl px-6 pt-12 pb-16">
+      <article className="mx-auto max-w-5xl px-6 pt-10 pb-16">
         <Breadcrumbs
           trail={[
             { name: 'Start', href: '/de/' },

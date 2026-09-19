@@ -37,7 +37,7 @@ export default async function BlogIndex() {
         so the tick reads as a mark on a scale rather than as decoration. On the
         home page the same rail carries roles, and deliberately has no ticks.
       */}
-      <div className="mx-auto max-w-5xl px-6 pt-14">
+      <div className="mx-auto max-w-5xl px-6 pt-12 sm:pt-16">
         <ul className="border-t border-[var(--rule-strong)]">
           {posts.map((post) => (
             <li key={post.slug} className="border-b border-[var(--rule)]">

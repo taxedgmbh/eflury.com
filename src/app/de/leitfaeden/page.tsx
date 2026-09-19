@@ -75,7 +75,7 @@ export default async function LeitfaedenPage() {
         lead="Schriftliche Leitfäden zu den Fragen, die in Projekten immer wieder auftauchen. Kostenlos, als PDF, gegen Ihre E-Mail-Adresse."
       />
 
-      <div className="mx-auto max-w-5xl px-6 pt-16 pb-20">
+      <div className="mx-auto max-w-5xl px-6 pt-12 sm:pt-16 pb-20">
 
         <div
           className="prose-de legal-prose mt-10"

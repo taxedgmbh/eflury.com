@@ -55,7 +55,7 @@ export default function BranchenIndex() {
         lead="Die Arbeit sieht je nach Abteilung anders aus, die Regel bleibt dieselbe: KI schlägt vor, Menschen entscheiden."
       />
 
-      <div className="mx-auto max-w-5xl px-6 pt-16 pb-10">
+      <div className="mx-auto max-w-5xl px-6 pt-12 sm:pt-16 pb-10">
 
         {Illustration ? (
           <div className="mt-10">

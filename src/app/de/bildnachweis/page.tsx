@@ -38,7 +38,7 @@ export default function BildnachweisPage() {
         dangerouslySetInnerHTML={{ __html: jsonLd(contentPageGraph(ROUTE, TITLE)) }}
       />
 
-      <div className="mx-auto max-w-3xl px-6 pt-16 pb-20">
+      <div className="mx-auto max-w-3xl px-6 pt-12 sm:pt-16 pb-20">
         <header className="border-b border-[var(--rule-strong)] pb-8">
           <h1 className="display">{TITLE}</h1>
           <p className="mt-5 text-lg leading-relaxed text-[var(--text-muted)]">

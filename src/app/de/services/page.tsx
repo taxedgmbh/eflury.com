@@ -49,7 +49,7 @@ export default function ServicesIndex() {
         lead="Der übliche Einstieg ist das Audit: eine Woche, ein Fixpreis, und am Ende eine schriftliche Entscheidungsgrundlage — auch wenn sie gegen ein Projekt spricht."
       />
 
-      <div className="mx-auto max-w-5xl px-6 pt-16 pb-10">
+      <div className="mx-auto max-w-5xl px-6 pt-12 sm:pt-16 pb-10">
         {Illustration ? (
           <div className="mt-10">
             <Illustration />
