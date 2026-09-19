@@ -109,8 +109,19 @@
    * number was 2rem on the pricing card but 2.25rem in a Stat. Four more steps
    * so nothing below body has to be guessed either.
    */
-  --text-small: 0.9375rem;
-  --text-micro: 0.8125rem;
+  /*
+   * These match Tailwind's text-sm and text-xs exactly, and that is the point.
+   * Before this the site had five sizes below the 17px body — 15, 14, 13 and
+   * 12px — because .small/.micro were invented at 15/13 while 59 places already
+   * used text-sm and 10 used text-xs. Worse, 15px against a 17px body is not a
+   * step anybody perceives as deliberate.
+   *
+   * Aligning the tokens rather than rewriting 25 call sites collapses it to
+   * three steps: 17 body, 14 secondary, 12 label. .small and .micro survive as
+   * the semantic spellings; text-sm and text-xs now mean the same thing.
+   */
+  --text-small: 0.875rem;
+  --text-micro: 0.75rem;
   --text-stat: clamp(1.875rem, 2.6vw, 2.25rem);
 
   --track-display: -0.032em;
@@ -329,7 +340,12 @@
    * both would make the mark decoration.
    */
   .rail-label {
-    font-size: 0.8125rem;
+    /*
+     * On the scale rather than 0.8125rem: it was the only 13px on any page, one
+     * pixel off --text-micro, which is a difference nobody perceives as a step
+     * and everybody has to maintain.
+     */
+    font-size: var(--text-micro);
     color: var(--text-muted);
     letter-spacing: 0.01em;
   }
@@ -337,7 +353,8 @@
   .rail-tick {
     position: relative;
     padding-inline-start: 0.95rem;
-    font-size: 0.8125rem;
+    /* Must match .rail-label: they are the two halves of one rail. */
+    font-size: var(--text-micro);
     font-variant-numeric: tabular-nums;
     color: var(--text-faint);
     letter-spacing: 0.01em;
@@ -356,7 +373,7 @@
 
   /* Long-form German. Serif, generous leading, measure under 70 characters. */
   .prose-de {
-    font-size: 1.0625rem;
+    font-size: var(--text-body);
     line-height: 1.7;
     /* ~68 characters. A sans needs a slightly shorter measure than the serif
        it replaces to stay comfortable at this size. */
@@ -367,13 +384,19 @@
     margin-block-start: 1.2em;
   }
   .prose-de h2 {
+    /*
+     * Deliberately not var(--text-heading), which clamps up to 26px. That step
+     * is for section headings on a page; a subheading inside a long read should
+     * not shout, and the rule above it already does the separating. Left as its
+     * own value on purpose, not by omission.
+     */
     font-size: 1.3125rem;
     margin-block-start: 2.4em;
     padding-block-start: 0.9em;
     border-block-start: 1px solid var(--rule);
   }
   .prose-de h3 {
-    font-size: 1.0625rem;
+    font-size: var(--text-body);
     margin-block-start: 1.9em;
   }
   .prose-de ul,
@@ -419,7 +442,7 @@
     padding: 1rem 1.15rem;
     border-radius: 4px;
     overflow-x: auto;
-    font-size: 0.875rem;
+    font-size: var(--text-small);
   }
   .prose-de pre code {
     background: none;
@@ -430,7 +453,8 @@
     overflow-x: auto;
     width: 100%;
     border-collapse: collapse;
-    font-size: 0.9rem;
+    /* Was 0.9rem — 14.4px, the only such value in the stylesheet. */
+    font-size: var(--text-small);
   }
   .prose-de th,
   .prose-de td {
@@ -444,7 +468,7 @@
     border-block-end-color: var(--rule-strong);
   }
   .prose-de figure figcaption {
-    font-size: 0.8125rem;
+    font-size: var(--text-micro);
     color: var(--text-faint);
   }
 
@@ -461,7 +485,7 @@
     }
   }
   .legal-prose dt {
-    font-size: 0.875rem;
+    font-size: var(--text-small);
     color: var(--text-muted);
   }
   .legal-prose dd {

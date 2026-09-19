@@ -190,7 +190,13 @@ export default function PricingPage() {
                 </div>
                 <div className="flex items-baseline justify-between gap-4 border-t border-[var(--rule-strong)] pt-3">
                   <dt className="font-medium">{AUDIT_CREDIT.example.net.label}</dt>
-                  <dd className="text-lg font-semibold tabular-nums">
+                  {/*
+                     * text-xl, not text-lg: this is the answer to the sum above
+                     * it, and 18px against a 17px body is not a size difference
+                     * anyone reads as emphasis — the weight was doing all the
+                     * work on its own.
+                     */}
+                  <dd className="text-xl font-semibold tabular-nums">
                     {chf(AUDIT_CREDIT.example.net.amount)}
                   </dd>
                 </div>
