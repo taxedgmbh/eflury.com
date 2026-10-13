@@ -13,7 +13,7 @@ import { getAllPosts, formatDate } from '@/lib/content';
 import { homeGraph, jsonLd } from '@/lib/schema';
 import { Section, SectionHeading, Card, IconTile, Pill, Stat, Button } from '@/components/ui';
 import { HeroBrandIllustration } from '@/components/HeroBrandIllustration';
-import { PhotoBand } from '@/components/PhotoBand';
+import { AutomationScroll } from '@/components/automation-scene/AutomationScroll';
 import { TechPartners } from '@/components/TechPartners';
 import { TechStack } from '@/components/TechStack';
 
@@ -203,18 +203,12 @@ export default async function HomePage({
       </Section>
 
       {/*
-       * The photograph is the argument, not the decoration: the same window
-       * axis repeated to the vanishing point is what a process that runs
-       * identically every month looks like. It replaced a radial-gradient wash
-       * that said nothing.
+       * Beraten · Bauen · Betreiben as a machine that assembles on scroll. It
+       * replaced the facade photograph that stood here, which made the same
+       * argument — two consecutive "this runs by itself" moments is one too
+       * many. The facade image stays in the manifest and on /de/bildnachweis/.
        */}
-      <PhotoBand
-        id="facade-bays"
-        eyebrow="Wiederholung ohne Aufwand"
-        heading="Derselbe Ablauf, jeden Monat — ohne dass jemand ihn anstösst."
-        lead="Was heute Stunden kostet, weil es jedes Mal von Hand läuft, läuft danach von selbst: mit festem Eingang, festem Ausgang und einer Prüfung, die sich meldet, wenn etwas nicht stimmt."
-        cta={{ href: '/de/methode/', label: 'Wie Emanuel arbeitet' }}
-      />
+      <AutomationScroll />
 
 
       <Section tone="sunken" labelledBy="vertrauen">
