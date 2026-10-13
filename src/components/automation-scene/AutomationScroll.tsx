@@ -3,11 +3,16 @@
 import dynamic from 'next/dynamic';
 import Link from 'next/link';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { DESK_FOOTAGE, footageFrame } from '@/lib/footage';
+import { FrameSequence } from './FrameSequence';
 import { Poster } from './Poster';
 
 /**
- * Beraten · Bauen · Betreiben, as a machine that assembles while the visitor
- * scrolls.
+ * Beraten · Bauen · Betreiben: first a filmed person typing the work by hand,
+ * then a machine that assembles and takes it over, while the visitor scrolls.
+ *
+ * The person is illustrative stock footage of manual work — not Emanuel, and
+ * not anyone who works with him.
  *
  * The three stages are the method the homepage already states, and the copy
  * below restates claims the site already makes elsewhere — the Go/No-Go audit,
@@ -52,7 +57,8 @@ function webglAvailable(): boolean {
 
 export function AutomationScroll() {
   const track = useRef<HTMLDivElement>(null);
-  const [load, setLoad] = useState(false);
+  const [near, setNear] = useState(false);
+  const [webgl, setWebgl] = useState(false);
   const [ready, setReady] = useState(false);
 
   /*
@@ -69,17 +75,20 @@ export function AutomationScroll() {
     return travel > 0 ? Math.min(1, Math.max(0, -rect.top / travel)) : 0;
   }, []);
 
-  // Fetch three.js only when the section is within a viewport of being seen,
-  // and never for a visitor who has asked for less motion or has no WebGL —
-  // they keep the poster, which is drawn from the same layout.
+  // Fetch the film frames and three.js only when the section is within a
+  // viewport of being seen, and never for a visitor who has asked for less
+  // motion — they keep a still of the film and the poster, which is drawn from
+  // the same layout. Without WebGL the film still plays and the poster stands
+  // in for the machine.
   useEffect(() => {
     const el = track.current;
     if (!el) return;
-    if (matchMedia('(prefers-reduced-motion: reduce)').matches || !webglAvailable()) return;
+    if (matchMedia('(prefers-reduced-motion: reduce)').matches) return;
     const observer = new IntersectionObserver(
       (entries) => {
         if (entries.some((e) => e.isIntersecting)) {
-          setLoad(true);
+          setNear(true);
+          setWebgl(webglAvailable());
           observer.disconnect();
         }
       },
@@ -117,26 +126,44 @@ export function AutomationScroll() {
       >
         <div
           aria-hidden
-          className="flex items-center py-8 md:col-start-2 md:row-start-1 md:self-start motion-safe:sticky motion-safe:top-0 motion-safe:z-10 motion-safe:h-[46svh] motion-safe:bg-[var(--surface)] motion-safe:py-0 md:motion-safe:top-[4.25rem] md:motion-safe:h-[calc(100svh-4.25rem)] md:motion-safe:bg-transparent"
+          className="flex flex-col items-center gap-6 py-8 md:col-start-2 md:row-start-1 md:self-start motion-safe:sticky motion-safe:top-0 motion-safe:z-10 motion-safe:h-[46svh] motion-safe:bg-[var(--surface)] motion-safe:py-0 md:motion-safe:top-[4.25rem] md:motion-safe:h-[calc(100svh-4.25rem)] md:motion-safe:bg-transparent"
         >
+          {/* Without motion: one still of the film above the machine drawing. */}
+          {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP; next/image is unoptimised on App Hosting */}
+          <img
+            src={footageFrame(DESK_FOOTAGE, Math.floor(DESK_FOOTAGE.frames / 2), DESK_FOOTAGE.widths[1])}
+            alt=""
+            width={DESK_FOOTAGE.widths[1]}
+            height={Math.round(DESK_FOOTAGE.widths[1] / DESK_FOOTAGE.aspect)}
+            loading="lazy"
+            decoding="async"
+            className="w-full rounded-[var(--radius-md)] motion-safe:hidden"
+          />
           <div className="relative h-full w-full">
             <div hidden={ready} className="flex items-center motion-safe:absolute motion-safe:inset-0">
               <Poster />
             </div>
-            {load ? (
+            {near && webgl ? (
               <div className="absolute inset-0">
                 <Scene measure={measure} onReady={() => setReady(true)} />
               </div>
             ) : null}
+            {near ? <FrameSequence measure={measure} /> : null}
           </div>
         </div>
 
         <div className="pb-16 sm:pb-24 md:col-start-1 md:row-start-1">
           <ol>
-            {STAGES.map((s) => (
+            {STAGES.map((s, i) => (
               <li
                 key={s.step}
-                className="py-8 motion-safe:flex motion-safe:min-h-[70svh] motion-safe:flex-col motion-safe:justify-center motion-safe:py-0 md:motion-safe:min-h-[85svh]"
+                // Stage 1 holds the film and the sorting after it, so it runs
+                // longer than the other two.
+                className={`py-8 motion-safe:flex motion-safe:flex-col motion-safe:justify-center motion-safe:py-0 ${
+                  i === 0
+                    ? 'motion-safe:min-h-[105svh] md:motion-safe:min-h-[125svh]'
+                    : 'motion-safe:min-h-[70svh] md:motion-safe:min-h-[85svh]'
+                }`}
               >
                 <p className="small font-medium text-[var(--accent-text)]">{s.step}</p>
                 <h3 className="heading mt-2 max-w-[22ch]">{s.title}</h3>

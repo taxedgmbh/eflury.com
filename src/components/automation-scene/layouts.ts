@@ -255,5 +255,18 @@ export function span(p: number, a: number, b: number): number {
   return Math.min(1, Math.max(0, (p - a) / (b - a)));
 }
 
-/** The three stages as fractions of the section's scroll. */
-export const STAGE = { beraten: [0, 0.33], bauen: [0.33, 0.66], betreiben: [0.66, 1] } as const;
+/**
+ * The timeline as fractions of the section's scroll.
+ *
+ * Beraten is the longest stage because it has two halves: the filmed person
+ * typing the work by hand, then — as the film fades out over the 3D scene —
+ * the loose documents settling into piles. The machine takes over from there.
+ */
+export const STAGE = {
+  beraten: [0, 0.42],
+  footage: [0, 0.3],
+  crossfade: [0.28, 0.36],
+  sorting: [0.3, 0.42],
+  bauen: [0.42, 0.7],
+  betreiben: [0.7, 1],
+} as const;

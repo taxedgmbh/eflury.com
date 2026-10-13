@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import { DESK_FOOTAGE } from '@/lib/footage';
 import { PHOTO_CREDITS } from '@/lib/photos';
 import { contentPageGraph, jsonLd } from '@/lib/schema';
 
@@ -23,7 +24,7 @@ const ROUTE = '/de/bildnachweis/';
 export const metadata: Metadata = {
   title: TITLE,
   description:
-    'Herkunft und Lizenzen der auf eflury.com verwendeten Fotografien, mit Nennung der Urheber.',
+    'Herkunft und Lizenzen der auf eflury.com verwendeten Fotografien und Filmaufnahmen, mit Nennung der Urheber.',
   alternates: { canonical: ROUTE },
 };
 
@@ -42,8 +43,9 @@ export default function BildnachweisPage() {
         <header className="border-b border-[var(--rule-strong)] pb-8">
           <h1 className="display">{TITLE}</h1>
           <p className="mt-5 text-lg leading-relaxed text-[var(--text-muted)]">
-            Die Fotografien auf dieser Website stammen von Wikimedia Commons und stehen
-            unter freien Lizenzen. Hier stehen Urheber, Lizenz und Quelle jedes Bildes.
+            Die Fotografien auf dieser Website stammen von Wikimedia Commons, die Filmaufnahme
+            auf der Startseite von Mixkit; alle stehen unter freien Lizenzen. Hier stehen Urheber,
+            Lizenz und Quelle jedes Bildes.
           </p>
         </header>
 
@@ -102,6 +104,34 @@ export default function BildnachweisPage() {
             </dl>
           </section>
         ) : null}
+
+        <section className="mt-12" aria-labelledby="film">
+          <h2 id="film" className="text-xl font-bold tracking-tight">
+            Film
+          </h2>
+          <p className="mt-2 small leading-relaxed text-[var(--text-muted)]">
+            Die Lizenz verlangt keine Nennung. Sie steht hier trotzdem.
+          </p>
+          <dl className="mt-6 divide-y divide-[var(--rule)]">
+            <div className="py-5">
+              <dt className="font-medium">{DESK_FOOTAGE.alt}</dt>
+              <dd className="mt-1.5 small leading-relaxed text-[var(--text-muted)]">
+                Film: «{DESK_FOOTAGE.title}», Mixkit ·{' '}
+                <a
+                  href={DESK_FOOTAGE.licenceUrl}
+                  rel="license noopener"
+                  className="text-[var(--link)] hover:underline"
+                >
+                  {DESK_FOOTAGE.licence}
+                </a>{' '}
+                ·{' '}
+                <a href={DESK_FOOTAGE.page} rel="noopener" className="text-[var(--link)] hover:underline">
+                  Quelle auf Mixkit
+                </a>
+              </dd>
+            </div>
+          </dl>
+        </section>
       </div>
     </>
   );

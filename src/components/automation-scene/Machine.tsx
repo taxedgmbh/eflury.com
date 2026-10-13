@@ -256,7 +256,7 @@ export function Machine({
     const mesh = tiles.current;
     if (!mesh) return;
     const { dummy, pose } = scratch;
-    const sorting = span(p, 0, 0.3);
+    const sorting = span(p, ...STAGE.sorting);
     // Staggered so the documents move one after another rather than as a
     // block: each takes a share of the stage and starts a little after the
     // one before, and the last arrives exactly as the stage ends.

@@ -4,7 +4,7 @@ import { Canvas, useFrame, useThree } from '@react-three/fiber';
 import { useEffect, useRef, type RefObject } from 'react';
 import { PCFShadowMap, PerspectiveCamera, Vector3 } from 'three';
 import { Machine } from './Machine';
-import { ease, span } from './layouts';
+import { STAGE, ease, span } from './layouts';
 import { usePalette } from './palette';
 
 /**
@@ -85,8 +85,10 @@ function CameraRig({ shown }: { shown: RefObject<number> }) {
   useFrame((state) => {
     const camera = state.camera as PerspectiveCamera;
     const p = shown.current ?? 0;
-    const toBuild = ease(span(p, 0.22, 0.42));
-    const toRun = ease(span(p, 0.58, 0.78));
+    // Each blend straddles a stage boundary, so the camera is already moving
+    // as the next stage's motion begins.
+    const toBuild = ease(span(p, STAGE.sorting[0] + 0.06, STAGE.bauen[0] + 0.08));
+    const toRun = ease(span(p, STAGE.betreiben[0] - 0.08, STAGE.betreiben[0] + 0.1));
     const { dir, at } = scratch.current;
 
     dir.copy(VIEWS[0].dir).lerp(VIEWS[1].dir, toBuild).lerp(VIEWS[2].dir, toRun).normalize();
