@@ -39,7 +39,7 @@ export function PersonalHome() {
           <BrandWord word="BUILD" img="palms" />
           <p className="eyebrow">Ventures</p>
           <h2>Three businesses. One standard.</h2>
-          <p className="section-lead">Each business has its own website and channels. This is where they come together.</p>
+          <p className="section-lead">Skopa and Taxed each have their own website. This is where all three come together.</p>
           <div className="v-grid">
             {VENTURES.map((v) => {
               const external = !v.href.startsWith('#');

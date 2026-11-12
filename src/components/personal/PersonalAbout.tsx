@@ -8,7 +8,7 @@ const CHAPTERS = [
     Icon: GraduationCap,
     kicker: 'Foundation',
     title: 'Finance',
-    text: 'MA in Finance-Economics from the University of Aberdeen, with an exchange year at the University of Wisconsin-La Crosse. Plus a certificate as a tax specialist.',
+    text: 'MA in Finance-Economics from the University of Aberdeen, with an exchange year at the University of Wisconsin–La Crosse. Plus a certificate as a tax specialist.',
   },
   {
     Icon: Workflow,

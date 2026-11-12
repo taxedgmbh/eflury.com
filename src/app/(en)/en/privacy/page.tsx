@@ -51,7 +51,7 @@ export default function PrivacyPage() {
       <h2>Hosting and server logs</h2>
       <p>
         The website runs on Firebase App Hosting, a service of Google Cloud, in Google&rsquo;s data centre region in the
-        Netherlands (europe-west4). Google processes this on behalf of the website owner. Every visit is logged
+        Netherlands (europe-west4). Google processes this data on behalf of the website owner. Every visit is logged
         technically: the IP address, date and time, the page requested, the browser and operating system. This is
         needed to deliver the website and keep it secure (legitimate interest, Art. 6(1)(f) GDPR). Google keeps these
         logs for a limited time and may process data in other countries, including the USA, under the safeguards of

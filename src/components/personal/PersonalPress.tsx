@@ -9,7 +9,7 @@ import { ROLES } from './data';
 const SHORT_BIO =
   'Emanuel Flury is a Swiss entrepreneur from Grenchen who builds companies where finance, tax and technology meet: Skopa AG, Taxed GmbH and EF Real Estate.';
 
-const LONG_BIO = `Emanuel Flury is a Swiss entrepreneur based in Grenchen. He holds an MA in Finance-Economics from the University of Aberdeen, with an exchange year at the University of Wisconsin-La Crosse, and a certificate as a tax specialist. After years spent automating finance processes in large organisations, he now builds companies where finance, tax and technology meet. He is ${ROLES.skopa} of Skopa AG, which brings artificial intelligence and automation to businesses; ${ROLES.taxed} of Taxed GmbH, which advises expats living in Switzerland on tax; and ${ROLES.estate.toLowerCase()} of EF Real Estate, which holds residential property as private equity.`;
+const LONG_BIO = `Emanuel Flury is a Swiss entrepreneur based in Grenchen. He holds an MA in Finance-Economics from the University of Aberdeen, with an exchange year at the University of Wisconsin–La Crosse, and a certificate as a tax specialist. After years spent automating finance processes in large organisations, he now builds companies where finance, tax and technology meet. He is ${ROLES.skopa} of Skopa AG, which brings artificial intelligence and automation to businesses; ${ROLES.taxed} of Taxed GmbH, which advises expats living in Switzerland on tax; and ${ROLES.estate.toLowerCase()} of EF Real Estate, which holds residential property as private equity.`;
 
 const FILES = [
   {
