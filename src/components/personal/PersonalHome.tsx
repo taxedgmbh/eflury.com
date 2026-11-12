@@ -1,8 +1,9 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { BrandWord } from './BrandWord';
 import { MediaYouTube } from './MediaYouTube';
 import { PersonalAbout } from './PersonalAbout';
 import { PersonalPress } from './PersonalPress';
+import { PersonalPrivate } from './PersonalPrivate';
 import { PersonalVoices } from './PersonalVoices';
 import { RealEstate } from './RealEstate';
 import { REGISTRY, ROLES } from './data';
@@ -13,7 +14,8 @@ const VENTURES: {
   name: string;
   text: string;
   href: string;
-  link: string;
+  /** The card's call to action. */
+  cta: string;
   logo: { src: string; w: number; h: number };
   registry?: { year: number; canton: string; uid: string; zefix: string };
 }[] = [
@@ -21,8 +23,8 @@ const VENTURES: {
     tag: 'Technology',
     name: 'Skopa AG',
     text: `Artificial intelligence and quantum computing. Role: ${ROLES.skopa}.`,
-    href: 'https://skopa.ai',
-    link: 'skopa.ai',
+    href: 'https://skopa.ai/?utm_source=eflury.com&utm_medium=referral&utm_campaign=ventures',
+    cta: 'Discover Skopa',
     logo: { src: '/images/brands/skopa-white.svg', w: 96, h: 32 },
     registry: REGISTRY.skopa,
   },
@@ -30,8 +32,8 @@ const VENTURES: {
     tag: 'Tax',
     name: 'Taxed GmbH',
     text: `Tax advice for expats living in Switzerland, with an office in Biel/Bienne. Role: ${ROLES.taxed}.`,
-    href: 'https://taxed.ch',
-    link: 'taxed.ch',
+    href: 'https://taxed.ch/?utm_source=eflury.com&utm_medium=referral&utm_campaign=ventures',
+    cta: 'Get tax advice',
     logo: { src: '/images/brands/taxed-icon.webp', w: 36, h: 36 },
     registry: REGISTRY.taxed,
   },
@@ -40,12 +42,12 @@ const VENTURES: {
     name: 'EF Real Estate',
     text: `Residential property held as private equity. Role: ${ROLES.estate}.`,
     href: '#real-estate',
-    link: 'The three properties',
+    cta: 'See the properties',
     logo: { src: '/images/brands/ef-real-estate-mark.svg', w: 35, h: 36 },
   },
 ];
 
-/** Ventures → EF Real Estate → YouTube → About → Recommendations → Press kit → YouTube call to action. */
+/** Ventures → EF Real Estate → YouTube → About → Private → Recommendations → Press kit → YouTube call to action. */
 export function PersonalHome() {
   return (
     <>
@@ -80,14 +82,20 @@ export function PersonalHome() {
                       href={v.href}
                       target={external ? '_blank' : undefined}
                       rel={external ? 'noopener' : undefined}
-                      className="v-link"
+                      className="pf-btn pf-btn-line v-btn"
                     >
-                      {v.link} <ArrowUpRight size={16} aria-hidden />
+                      {v.cta} <ArrowUpRight size={18} aria-hidden />
                     </a>
                   </div>
                 </article>
               );
             })}
+          </div>
+          <div className="v-cta">
+            <p>Working on something in technology, tax or property? Let&rsquo;s talk about it.</p>
+            <a href="#contact" className="pf-btn pf-btn-fill">
+              Get in touch <ArrowRight size={18} aria-hidden />
+            </a>
           </div>
         </div>
       </section>
@@ -97,6 +105,8 @@ export function PersonalHome() {
       <MediaYouTube />
 
       <PersonalAbout />
+
+      <PersonalPrivate />
 
       <PersonalVoices />
 
@@ -109,10 +119,10 @@ export function PersonalHome() {
           <h2 id="follow-title">Follow the journey on YouTube.</h2>
           <p className="section-lead">What I learn while building — tech, tax and real estate.</p>
           <div className="cta-row">
-            <a href={`${YT_HANDLE_URL}?sub_confirmation=1`} target="_blank" rel="noopener" className="bh-btn bh-btn-fill">
+            <a href={`${YT_HANDLE_URL}?sub_confirmation=1`} target="_blank" rel="noopener" className="pf-btn pf-btn-fill">
               Subscribe
             </a>
-            <a href={YT_HANDLE_URL} target="_blank" rel="noopener" className="bh-btn bh-btn-line">
+            <a href={YT_HANDLE_URL} target="_blank" rel="noopener" className="pf-btn pf-btn-line">
               Open channel <ArrowUpRight size={16} aria-hidden />
             </a>
           </div>

@@ -815,3 +815,31 @@
 
 /* Contact block uses the same 1120px content column as every other section. */
 .pb .pf-cta .pf-wrap { max-width: 1120px; }
+
+/* ---- Button standard (all call-to-action buttons use .pf-btn) ----
+   Desktop: one size (52px high, at least 18rem wide), side by side.
+   Phones and tablets (< 768px): every button full width, stacked, so no row
+   mixes half-width and full-width buttons. Copy buttons follow the same rule. */
+.pb .bh-cta, .pb .yt-actions, .pb .cta-row, .pb .pf-cta-actions { display: flex; flex-wrap: wrap; gap: var(--spacing-md); }
+.pb .bh-cta { justify-content: center; }
+.pb .v-btn { align-self: flex-start; min-width: 0; width: 100%; }
+@media (max-width: 767px) {
+  .pb .bh-cta, .pb .yt-actions, .pb .cta-row, .pb .pf-cta-actions { flex-direction: column; width: 100%; }
+  .pb .pr-copy { align-self: stretch; justify-content: center; min-height: 52px; }
+}
+
+/* Ventures: closing call to action under the cards */
+.pb .v-cta { display: flex; align-items: center; justify-content: space-between; gap: var(--spacing-lg); flex-wrap: wrap; margin-top: var(--spacing-2xl); padding: var(--spacing-xl); border: 1px solid rgb(255 255 255 / 0.1); border-radius: var(--radius-lg); background: rgb(255 255 255 / 0.03); }
+.pb .v-cta p { margin: 0; font-size: 1.15rem; line-height: 1.5; max-width: 560px; }
+@media (max-width: 767px) { .pb .v-cta { flex-direction: column; align-items: stretch; } }
+
+/* Private section */
+.pb .pv-french { display: flex; gap: var(--spacing-lg); align-items: flex-start; padding: var(--spacing-xl); border-radius: var(--radius-lg); background: rgb(255 255 255 / 0.04); border: 1px solid rgb(255 255 255 / 0.1); border-top: 3px solid var(--text-blue); max-width: 760px; }
+.pb .pv-icon { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 48px; height: 48px; border-radius: 50%; background: rgb(20 144 208 / 0.15); color: var(--text-blue); }
+.pb .pv-kicker { margin: 0 0 4px; color: var(--text-blue); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.14em; text-transform: uppercase; }
+.pb .pv-french h3 { margin: 0 0 var(--spacing-sm); font-size: 1.35rem; color: var(--eflury-white); }
+.pb .pv-french p { margin: 0 0 var(--spacing-sm); line-height: 1.65; color: rgb(255 255 255 / 0.85); }
+.pb .pv-french .pv-fr { margin: var(--spacing-md) 0 0; font-style: italic; color: var(--eflury-white); }
+.pb .pv-photos-title { margin-top: var(--spacing-2xl); }
+@media (max-width: 767px) { .pb .pv-french { flex-direction: column; padding: var(--spacing-lg); } }
+.pb .pr-copy { min-height: 52px; font-size: 17px; }

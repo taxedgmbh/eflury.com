@@ -8,6 +8,7 @@ import {
   Menu,
   MessageCircle,
   Newspaper,
+  Sunset,
   User,
   X,
 } from 'lucide-react';
@@ -187,6 +188,7 @@ export function PersonalHeader() {
               <span className="mm-venture-top">
                 {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
                 <img src="/images/brands/ef-real-estate-mark.svg" alt="" width={42} height={44} />
+                <ArrowUpRight size={16} aria-hidden />
               </span>
               <span className="mm-tag">Private equity</span>
               <span className="mm-card-title">EF Real Estate</span>
@@ -226,6 +228,15 @@ export function PersonalHeader() {
                 <span>
                   <span className="mm-card-title">My story</span>
                   <span className="mm-muted">Where I come from and what I work on.</span>
+                </span>
+              </a>
+              <a href="/en/#private" className="mm-row">
+                <span className="mm-icon">
+                  <Sunset size={20} aria-hidden />
+                </span>
+                <span>
+                  <span className="mm-card-title">Private</span>
+                  <span className="mm-muted">Beyond work, and learning French.</span>
                 </span>
               </a>
               <a href="/en/#press" className="mm-row">
@@ -276,7 +287,7 @@ export function PersonalHeader() {
               Taxed GmbH <ArrowUpRight size={14} aria-hidden />
             </a>
             <a href="/en/#real-estate" onClick={closeMobile}>
-              EF Real Estate
+              EF Real Estate <ArrowUpRight size={14} aria-hidden />
             </a>
           </details>
           <details className="pm-group">
@@ -285,6 +296,9 @@ export function PersonalHeader() {
             </summary>
             <a href="/en/#about" onClick={closeMobile}>
               My story
+            </a>
+            <a href="/en/#private" onClick={closeMobile}>
+              Private
             </a>
             <a href="/en/#press" onClick={closeMobile}>
               Press kit

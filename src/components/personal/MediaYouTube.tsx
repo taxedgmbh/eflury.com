@@ -45,10 +45,10 @@ export async function MediaYouTube() {
             <p className="yt-lead">Start with the 70-second intro. New videos appear here automatically.</p>
           </div>
           <div className="yt-actions">
-            <a href={subscribe} target="_blank" rel="noopener me" className="yt-btn yt-btn-fill">
+            <a href={subscribe} target="_blank" rel="noopener me" className="pf-btn pf-btn-fill">
               Subscribe
             </a>
-            <a href={YT_HANDLE_URL} target="_blank" rel="noopener me" className="yt-btn yt-btn-line">
+            <a href={YT_HANDLE_URL} target="_blank" rel="noopener me" className="pf-btn pf-btn-line">
               Open channel <ArrowUpRight size={15} aria-hidden />
             </a>
           </div>

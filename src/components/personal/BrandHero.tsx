@@ -77,10 +77,10 @@ export function BrandHero() {
           <span>3 properties</span>
         </p>
         <div className="bh-cta">
-          <a href="#ventures" className="bh-btn bh-btn-fill">
+          <a href="#ventures" className="pf-btn pf-btn-fill">
             What I build <ArrowRight size={18} aria-hidden />
           </a>
-          <a href="#contact" className="bh-btn bh-btn-line">
+          <a href="#contact" className="pf-btn pf-btn-line">
             Get in touch
           </a>
         </div>
