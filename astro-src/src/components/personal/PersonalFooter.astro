@@ -122,18 +122,19 @@ const socials = [
           <li><a class="pf-link" href="#contact">{t.contact}</a></li>
           <li><a class="pf-link" href={`${base}services/`}>{t.archive}</a></li>
         </ul>
-        <p class="pf-col-title pf-gap">{t.legal}</p>
-        <ul class="pf-list">
-          <li><a class="pf-link" href={r.imprint}>{t.imprint}</a></li>
-          <li><a class="pf-link" href={r.privacy}>{t.privacy}</a></li>
-          <li><a class="pf-link" href={r.terms}>{t.terms}</a></li>
-          <li><a class="pf-link" href={r.cookies}>{t.cookies}</a></li>
-        </ul>
       </div>
     </div>
 
     <div class="pf-bottom">
-      <p>© {year} Emanuel Flury · Grenchen · {t.rights}</p>
+      <div class="pf-legal">
+        <p>© {year} Emanuel Flury · Grenchen</p>
+        <nav aria-label={t.legal}>
+          <a href={r.imprint}>{t.imprint}</a>
+          <a href={r.privacy}>{t.privacy}</a>
+          <a href={r.terms}>{t.terms}</a>
+          <a href={r.cookies}>{t.cookies}</a>
+        </nav>
+      </div>
       <p class="pf-tag">TECH <b>·</b> TAX <b>·</b> REAL ESTATE</p>
       <div class="pf-bottom-right">
         <p class="pf-lang">
@@ -203,6 +204,10 @@ const socials = [
 
   .pf-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--spacing-md); padding: var(--spacing-lg) 0; border-top: 1px solid rgb(255 255 255 / 0.08); font-size: 0.85rem; }
   .pf-bottom p { margin: 0; opacity: 0.75; }
+  .pf-legal { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-xs) var(--spacing-lg); }
+  .pf-legal nav { display: flex; flex-wrap: wrap; gap: var(--spacing-md); }
+  .pf-legal a { display: inline-flex; align-items: center; min-height: 32px; color: var(--eflury-white); opacity: 0.75; text-decoration: none; }
+  .pf-legal a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
   .pf-tag { letter-spacing: 0.24em; font-weight: 600; }
   .pf-tag b { color: var(--eflury-blue); }
   .pf-bottom-right { display: flex; align-items: center; gap: var(--spacing-md); }
