@@ -774,3 +774,20 @@
 /* WhatsApp in the mobile menu */
 .pb .ph-mobile a.pm-wa { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; margin-top: var(--spacing-xl); padding: 0 var(--spacing-lg); border: 1.5px solid rgb(255 255 255 / 0.45); border-bottom: 1.5px solid rgb(255 255 255 / 0.45); border-radius: var(--radius-full); color: var(--eflury-white); font-weight: 600; font-size: 17px; text-decoration: none; }
 .pb .ph-mobile a.pm-wa + .pm-cta { margin-top: var(--spacing-md); }
+
+/* Contact QR (vCard) */
+.pb .pf-qr-row { display: flex; align-items: center; gap: var(--spacing-xl); margin-top: var(--spacing-2xl); }
+.pb .pf-qr { flex: none; padding: 12px; background: #fff; border-radius: var(--radius-lg); line-height: 0; }
+.pb .pf-qr img { width: 168px; height: 168px; image-rendering: pixelated; }
+.pb .pf-qr-title { margin: 0 0 6px; font-weight: 700; font-size: 1.1rem; }
+.pb .pf-qr-text p { margin: 0; color: rgb(255 255 255 / 0.8); line-height: 1.55; max-width: 420px; }
+.pb .pf-qr-btn { margin-top: var(--spacing-md); display: inline-flex; }
+.pb .pf-qr-mob { display: none; }
+@media (max-width: 767px) {
+  .pb .pf-qr { display: none; }
+  .pb .pf-qr-desk { display: none; }
+  .pb .pf-qr-mob { display: inline; }
+}
+
+.pb .legal .legal-contact { list-style: none; padding: 0; margin: 12px 0 16px; }
+.pb .legal strong { color: var(--eflury-white); }

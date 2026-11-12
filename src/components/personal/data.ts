@@ -54,6 +54,7 @@ export const REGISTRY = {
 export const LEGAL = [
   { label: 'Imprint', href: '/en/imprint/' },
   { label: 'Privacy', href: '/en/privacy/' },
+  { label: 'Terms', href: '/en/terms/' },
 ] as const;
 
 export const fmtShort = new Intl.DateTimeFormat('en-GB', {

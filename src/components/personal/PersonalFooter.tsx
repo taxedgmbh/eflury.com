@@ -1,4 +1,4 @@
-import { ArrowUp, ArrowUpRight, Mail, MessageCircle } from 'lucide-react';
+import { ArrowUp, ArrowUpRight, Contact, Mail, MessageCircle } from 'lucide-react';
 import { EMAIL, LEGAL, LINKEDIN, PHONE, ROLES, SOCIALS, WHATSAPP } from './data';
 import { SocialIcon } from './SocialIcon';
 
@@ -31,6 +31,29 @@ export function PersonalFooter() {
             </a>
             <a href={LINKEDIN} target="_blank" rel="noopener me" className="pf-btn pf-btn-line">
               <SocialIcon name="LinkedIn" /> Connect on LinkedIn
+            </a>
+          </div>
+        </div>
+        {/*
+          The QR holds the vCard itself (not a link), so scanning it adds the
+          contact offline. Generated from public/press/emanuel-flury.vcf with
+          segno; regenerate it when the card changes. On phones the code is
+          hidden and the same card is offered as a download instead.
+        */}
+        <div className="pf-wrap pf-qr-row">
+          <div className="pf-qr">
+            {/* eslint-disable-next-line @next/next/no-img-element -- static SVG */}
+            <img src="/images/contact-qr.svg" alt="QR code with Emanuel Flury's contact card" width={168} height={168} />
+          </div>
+          <div className="pf-qr-text">
+            <p className="pf-qr-title">Save my contact</p>
+            <p>
+              <span className="pf-qr-desk">Scan with your phone camera to add </span>
+              <span className="pf-qr-mob">Add </span>
+              name, mobile and WhatsApp, email and website to your contacts.
+            </p>
+            <a href="/press/emanuel-flury.vcf" download className="pf-btn pf-btn-line pf-qr-btn">
+              <Contact size={18} aria-hidden /> Save contact
             </a>
           </div>
         </div>
