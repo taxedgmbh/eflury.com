@@ -6,12 +6,13 @@ import {
   ChevronDown,
   Mail,
   Menu,
+  MessageCircle,
   Newspaper,
   User,
   X,
 } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { EMAIL, ROLES, SOCIALS } from './data';
+import { EMAIL, PHONE, ROLES, SOCIALS, WHATSAPP } from './data';
 
 type Panel = 'ventures' | 'about';
 
@@ -254,6 +255,9 @@ export function PersonalHeader() {
               <a href={`mailto:${EMAIL}`} className="mm-mail">
                 <Mail size={16} aria-hidden /> {EMAIL}
               </a>
+              <a href={WHATSAPP} target="_blank" rel="noopener" className="mm-mail">
+                <MessageCircle size={16} aria-hidden /> WhatsApp {PHONE}
+              </a>
             </div>
           </div>
           <Strip />
@@ -291,6 +295,9 @@ export function PersonalHeader() {
               </a>
             ))}
           </details>
+          <a href={WHATSAPP} target="_blank" rel="noopener" className="pm-wa" onClick={closeMobile}>
+            <MessageCircle size={18} aria-hidden /> WhatsApp
+          </a>
           <a href="/en/#contact" className="pm-cta" onClick={closeMobile}>
             Contact
           </a>

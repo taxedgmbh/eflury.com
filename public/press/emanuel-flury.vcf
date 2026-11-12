@@ -3,9 +3,11 @@ VERSION:3.0
 N:Flury;Emanuel;Aaron;;
 FN:Emanuel Flury
 TITLE:Entrepreneur
+TEL;TYPE=CELL:+41799107787
 EMAIL;TYPE=INTERNET:me@eflury.com
 URL:https://eflury.com/en/
 X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/emanuelflury
+X-SOCIALPROFILE;TYPE=whatsapp:https://wa.me/41799107787
 ADR;TYPE=WORK:;;;Grenchen;;;Switzerland
 NOTE:Managing Director of Skopa AG\, Managing Director (Mandate) of Taxed GmbH\, owner of EF Real Estate.
 END:VCARD

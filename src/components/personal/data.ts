@@ -9,6 +9,9 @@
 
 export const EMAIL = 'me@eflury.com';
 export const LINKEDIN = 'https://www.linkedin.com/in/emanuelflury';
+/** Personal mobile, reachable on WhatsApp. wa.me takes the number without + or 00. */
+export const PHONE = '+41 79 910 77 87';
+export const WHATSAPP = 'https://wa.me/41799107787';
 
 export const SOCIALS = [
   { name: 'LinkedIn', href: LINKEDIN, handle: 'in/emanuelflury' },

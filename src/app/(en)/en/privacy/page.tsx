@@ -79,15 +79,20 @@ export default function PrivacyPage() {
         The website sets no cookies. Fonts and scripts are served from this website itself, not from third parties.
       </p>
 
-      <h2>Email</h2>
+      <h2>Email and WhatsApp</h2>
       <p>
-        If you write an email, your address and message are used only to reply to you. The mailbox is hosted by Apple
-        (iCloud Mail). Emails are deleted once they are no longer needed.
+        If you write an email or a WhatsApp message, your contact details and message are used only to reply to you.
+        The mailbox is hosted by Apple (iCloud Mail). WhatsApp is a service of Meta Platforms Ireland Ltd.; using it is
+        your choice, and{' '}
+        <a href="https://www.whatsapp.com/legal/privacy-policy-eea" target="_blank" rel="noopener">
+          WhatsApp&rsquo;s privacy policy
+        </a>{' '}
+        applies to the chat. Messages are deleted once they are no longer needed.
       </p>
 
       <h2>Links to social networks</h2>
       <p>
-        Links to LinkedIn, Instagram, TikTok, YouTube, Facebook and GitHub are plain links. No data is sent to those
+        Links to LinkedIn, Instagram, TikTok, YouTube, Facebook, GitHub and WhatsApp are plain links. No data is sent to those
         networks unless you click a link; after that, their privacy policies apply.
       </p>
 

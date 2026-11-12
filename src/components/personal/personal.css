@@ -770,3 +770,7 @@
 /* YouTube call to action (replaces the Follow along pills) */
 .pb .cta-lead { margin-left: auto; margin-right: auto; }
 .pb .cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-md); }
+
+/* WhatsApp in the mobile menu */
+.pb .ph-mobile a.pm-wa { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; margin-top: var(--spacing-xl); padding: 0 var(--spacing-lg); border: 1.5px solid rgb(255 255 255 / 0.45); border-bottom: 1.5px solid rgb(255 255 255 / 0.45); border-radius: var(--radius-full); color: var(--eflury-white); font-weight: 600; font-size: 17px; text-decoration: none; }
+.pb .ph-mobile a.pm-wa + .pm-cta { margin-top: var(--spacing-md); }

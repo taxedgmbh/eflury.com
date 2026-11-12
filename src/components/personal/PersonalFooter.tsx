@@ -1,5 +1,5 @@
-import { ArrowUp, ArrowUpRight, Mail } from 'lucide-react';
-import { EMAIL, LEGAL, LINKEDIN, ROLES, SOCIALS } from './data';
+import { ArrowUp, ArrowUpRight, Mail, MessageCircle } from 'lucide-react';
+import { EMAIL, LEGAL, LINKEDIN, PHONE, ROLES, SOCIALS, WHATSAPP } from './data';
 import { SocialIcon } from './SocialIcon';
 
 export function PersonalFooter() {
@@ -26,6 +26,9 @@ export function PersonalFooter() {
             <a href={`mailto:${EMAIL}`} className="pf-btn pf-btn-fill">
               <Mail size={18} aria-hidden /> Send an email
             </a>
+            <a href={WHATSAPP} target="_blank" rel="noopener" className="pf-btn pf-btn-line">
+              <MessageCircle size={18} aria-hidden /> WhatsApp
+            </a>
             <a href={LINKEDIN} target="_blank" rel="noopener me" className="pf-btn pf-btn-line">
               <SocialIcon name="LinkedIn" /> Connect on LinkedIn
             </a>
@@ -47,6 +50,9 @@ export function PersonalFooter() {
             <p className="pf-lead">I build companies where finance, tax and technology meet.</p>
             <a href={`mailto:${EMAIL}`} className="pf-mail">
               <Mail size={16} aria-hidden /> {EMAIL}
+            </a>
+            <a href={WHATSAPP} target="_blank" rel="noopener" className="pf-mail">
+              <MessageCircle size={16} aria-hidden /> WhatsApp {PHONE}
             </a>
             <ul className="pf-social" aria-label="Follow">
               {SOCIALS.map((s) => (

@@ -33,6 +33,8 @@ export default function ImprintPage() {
         {ADDRESS.addressCountry}
         <br />
         <a href={`mailto:${PERSON.email}`}>{PERSON.email}</a>
+        <br />
+        <a href={`tel:${PERSON.telephone}`}>{PERSON.telephoneDisplay}</a> (phone and WhatsApp)
       </address>
       <p>
         This is the personal website of Emanuel Flury. It sells nothing and is not the website of a company. The

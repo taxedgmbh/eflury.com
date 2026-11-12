@@ -49,6 +49,7 @@ export function personalHomeGraph(socials: readonly string[]) {
         jobTitle: 'Entrepreneur',
         description: HOME_DESCRIPTION,
         email: `mailto:${PERSON.email}`,
+        telephone: PERSON.telephone,
         url,
         image: {
           '@type': 'ImageObject',
