@@ -1,5 +1,6 @@
 ---
 import { type Language } from '../../i18n/utils';
+import BrandWord from './BrandWord.astro';
 import { Home, KeyRound, Building2 } from 'lucide-astro';
 
 interface Props { lang: Language }
@@ -33,6 +34,7 @@ const t = de
 
 <section id="real-estate" class="re">
   <div class="re-wrap">
+    <BrandWord word="GROW" img="jungle" />
     <div class="re-head">
       <img src="/images/brands/ef-real-estate-mark.svg" alt="" width="104" height="108" class="re-mark" />
       <div>
@@ -66,7 +68,7 @@ const t = de
 </section>
 
 <style>
-  .re { background: var(--surface-navy); color: var(--eflury-white); padding: var(--spacing-4xl) 0; position: relative; overflow: hidden; }
+  .re { background: linear-gradient(rgb(0 0 0 / 0.18), rgb(0 0 0 / 0.18)), var(--surface-navy); border-top: 1px solid rgb(255 255 255 / 0.06); color: var(--eflury-white); padding: var(--spacing-4xl) 0; position: relative; overflow: hidden; }
   .re-wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--spacing-lg); }
   .re-head { display: flex; align-items: center; gap: var(--spacing-lg); }
   .re-mark { width: 88px; height: auto; }

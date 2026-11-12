@@ -1,0 +1,36 @@
+---
+// The photo-in-letters word from the social media rows (BUILD, DREAM, LEAD …).
+// Decorative: the section's real heading stays in its <h2>.
+interface Props { word: string; img: string; align?: 'left' | 'center' }
+const { word, img, align = 'left' } = Astro.props;
+---
+
+<p class={`bw bw-${align}`} aria-hidden="true" data-bw style={`background-image:url(/images/hero/${img}.webp)`}>{word}</p>
+
+<script>
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('is-in'); io.unobserve(e.target); } });
+  }, { threshold: 0.25 });
+  document.querySelectorAll('[data-bw]').forEach((el) => io.observe(el));
+</script>
+
+<style>
+  @font-face { font-family: 'Montserrat'; font-weight: 800; font-display: swap; src: url('/fonts/montserrat-latin-800-normal.woff2') format('woff2'); }
+  .bw {
+    margin: 0 0 var(--spacing-md);
+    font-family: 'Montserrat', sans-serif; font-weight: 800;
+    font-size: clamp(3.6rem, 11vw, 9rem); line-height: 0.88; letter-spacing: 0.01em;
+    color: transparent; background-size: 140% auto; background-position: 0% 50%;
+    -webkit-background-clip: text; background-clip: text;
+    filter: drop-shadow(0 14px 30px rgb(0 0 0 / 0.4));
+    opacity: 0; transform: translateY(24px);
+    transition: opacity 0.9s var(--ease-out), transform 0.9s var(--ease-out);
+    animation: bw-pan 22s ease-in-out infinite alternate;
+  }
+  .bw-center { text-align: center; }
+  .bw:global(.is-in) { opacity: 1; transform: none; }
+  @keyframes bw-pan { to { background-position: 100% 50%; background-size: 155% auto; } }
+  @media (prefers-reduced-motion: reduce) {
+    .bw { animation: none; transition: none; opacity: 1; transform: none; }
+  }
+</style>

@@ -1,5 +1,6 @@
 ---
 import { type Language } from '../../i18n/utils';
+import BrandWord from './BrandWord.astro';
 import { ArrowRight, GraduationCap, Workflow, Rocket } from 'lucide-astro';
 
 interface Props { lang: Language }
@@ -54,6 +55,7 @@ const t = de
     </div>
 
     <div class="ab-text">
+      <BrandWord word="LEAD" img="arches" />
       <p class="ab-eyebrow">{t.eyebrow}</p>
       <h2>{t.title}</h2>
       <p class="ab-lead">{t.text}</p>
@@ -81,7 +83,7 @@ const t = de
 </section>
 
 <style>
-  .ab { background: var(--bg-primary); padding: var(--spacing-4xl) 0; }
+  .ab { background: linear-gradient(rgb(0 0 0 / 0.18), rgb(0 0 0 / 0.18)), var(--surface-navy); color: var(--eflury-white); padding: var(--spacing-4xl) 0; }
   .ab-wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--spacing-lg); display: grid; grid-template-columns: 0.85fr 1.15fr; gap: var(--spacing-3xl); align-items: center; }
 
   .ab-photo-card {
@@ -102,19 +104,19 @@ const t = de
   .ab-badge > span { display: flex; flex-direction: column; }
   .ab-badge strong { font-size: 1.05rem; }
   .ab-badge span span { font-size: 0.85rem; opacity: 0.75; }
-  .ab-quote { margin: var(--spacing-lg) 0 0; text-align: center; color: var(--text-tertiary); font-weight: 600; letter-spacing: 0.08em; }
+  .ab-quote { margin: var(--spacing-lg) 0 0; text-align: center; color: var(--eflury-white); opacity: 0.7; font-weight: 600; letter-spacing: 0.08em; }
 
-  .ab-eyebrow { margin: 0 0 var(--spacing-sm); color: var(--teal-text); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; }
-  .ab h2 { margin: 0 0 var(--spacing-md); font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.1; color: var(--text-primary); }
-  .ab-lead { margin: 0 0 var(--spacing-xl); font-size: 1.15rem; line-height: 1.6; color: var(--text-secondary); }
+  .ab-eyebrow { margin: 0 0 var(--spacing-sm); color: var(--eflury-blue); font-weight: 600; font-size: 0.85rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .ab h2 { margin: 0 0 var(--spacing-md); font-size: clamp(2rem, 4vw, 2.9rem); line-height: 1.1; color: var(--eflury-white); }
+  .ab-lead { margin: 0 0 var(--spacing-xl); font-size: 1.15rem; line-height: 1.6; color: var(--eflury-white); opacity: 0.8; }
 
   .ab-chapters { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--spacing-md); }
-  .ab-chapters li { display: flex; gap: var(--spacing-md); padding: var(--spacing-lg); border-radius: var(--radius-lg); background: var(--card-bg); box-shadow: var(--shadow-sm); }
-  .ab-icon { flex: none; display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: var(--radius-md); background: var(--primary-50); color: var(--teal-text); }
-  .ab-kicker { margin: 0; color: var(--teal-text); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
-  .ab-chapters h3 { margin: 2px 0 4px; font-size: 1.2rem; color: var(--text-primary); }
-  .ab-chapters p:last-child { margin: 0; color: var(--text-secondary); line-height: 1.55; }
-  .ab-link { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--spacing-xl); color: var(--link-color); font-weight: 600; text-decoration: none; }
+  .ab-chapters li { display: flex; gap: var(--spacing-md); padding: var(--spacing-lg); border-radius: var(--radius-lg); background: rgb(255 255 255 / 0.04); border: 1px solid rgb(255 255 255 / 0.09); }
+  .ab-icon { flex: none; display: inline-flex; width: 44px; height: 44px; align-items: center; justify-content: center; border-radius: var(--radius-md); background: rgb(255 255 255 / 0.08); color: var(--eflury-blue); }
+  .ab-kicker { margin: 0; color: var(--eflury-blue); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.1em; text-transform: uppercase; }
+  .ab-chapters h3 { margin: 2px 0 4px; font-size: 1.2rem; color: var(--eflury-white); }
+  .ab-chapters p:last-child { margin: 0; color: var(--eflury-white); opacity: 0.75; line-height: 1.55; }
+  .ab-link { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--spacing-xl); color: var(--eflury-white); font-weight: 600; text-decoration: none; }
 
   @media (max-width: 860px) {
     .ab-wrap { grid-template-columns: 1fr; gap: var(--spacing-2xl); }
