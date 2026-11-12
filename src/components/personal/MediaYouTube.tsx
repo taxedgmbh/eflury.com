@@ -13,8 +13,8 @@ function Card({ v, lead }: { v: YtVideo; lead?: boolean }) {
       <YouTubePlayer
         id={v.id}
         title={v.title}
-        src={thumb(v.id, lead ? 'maxresdefault' : 'hqdefault')}
-        fallback={lead ? thumb(v.id) : undefined}
+        src={v.thumb ? (lead ? v.thumb.src : v.thumb.small) : thumb(v.id, lead ? 'maxresdefault' : 'hqdefault')}
+        fallback={!v.thumb && lead ? thumb(v.id) : undefined}
         width={lead ? 1280 : 480}
         height={lead ? 720 : 360}
         size={lead ? 34 : 22}

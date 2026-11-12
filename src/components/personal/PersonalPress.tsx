@@ -55,7 +55,7 @@ const FILES: {
     href: '/press/emanuel-flury.vcf',
     icon: Contact,
     title: 'Contact card',
-    meta: 'vCard for your phone or address book',
+    meta: 'vCard with photo, phone, WhatsApp and address',
   },
 ];
 

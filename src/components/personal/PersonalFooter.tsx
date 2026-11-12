@@ -50,7 +50,7 @@ export function PersonalFooter() {
             <p>
               <span className="pf-qr-desk">Scan with your phone camera to add </span>
               <span className="pf-qr-mob">Add </span>
-              name, mobile and WhatsApp, email and website to your contacts.
+              name, photo, mobile and WhatsApp, email, address and website to your contacts.
             </p>
             <a href="/press/emanuel-flury.vcf" download className="pf-btn pf-btn-line pf-qr-btn">
               <Contact size={18} aria-hidden /> Save contact

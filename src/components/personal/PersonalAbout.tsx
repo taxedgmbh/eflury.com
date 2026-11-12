@@ -34,6 +34,7 @@ const ON_THE_ROAD: Photo[] = [
   { base: `${ME}restaurant-thinking`, alt: 'Emanuel Flury at a restaurant table, thinking', width: 1536, height: 2048 },
   { base: `${ME}airport-hall`, alt: 'Emanuel Flury smiling in an airport hall', width: 1600, height: 2133 },
   { base: `${ME}terminal`, alt: 'Emanuel Flury in an airport terminal', width: 1600, height: 2133 },
+  { base: `${ME}crossing`, alt: 'Emanuel Flury from behind at a street crossing, towers ahead', width: 1600, height: 2133 },
 ];
 
 export function PersonalAbout() {

@@ -17,6 +17,8 @@ export interface YtVideo {
   title: string;
   published: Date;
   isShort: boolean;
+  /** Own thumbnail served from this site, instead of YouTube's auto frame. */
+  thumb?: { src: string; small: string };
 }
 
 /**
@@ -29,6 +31,7 @@ export const PINNED_VIDEO: YtVideo = {
   title: 'Who is Emanuel Flury? Tech, tax and real estate in 70 seconds',
   published: new Date('2026-11-12T16:15:49Z'),
   isShort: false,
+  thumb: { src: '/images/me/intro-video-1280.webp', small: '/images/me/intro-video-640.webp' },
 };
 
 /** The pinned intro first, then the newest other uploads from the feed. */

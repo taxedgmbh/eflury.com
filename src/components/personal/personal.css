@@ -747,7 +747,7 @@
 
 /* Photo strip (PhotoGallery layout="strip"), About section */
 .pb .ab-photos-title { margin-top: var(--spacing-xl); }
-.pb .ps { list-style: none; margin: var(--spacing-sm) 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--spacing-sm); }
+.pb .ps { list-style: none; margin: var(--spacing-sm) 0 0; padding: 0; display: grid; grid-template-columns: repeat(6, 1fr); gap: var(--spacing-sm); }
 @media (max-width: 767px) { .pb .ps { grid-template-columns: repeat(3, 1fr); } }
 .pb .ps-item { all: unset; display: block; cursor: zoom-in; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 3 / 4; }
 .pb .ps-item:focus-visible { outline: 2px solid var(--text-blue); outline-offset: 2px; }
@@ -791,3 +791,15 @@
 
 .pb .legal .legal-contact { list-style: none; padding: 0; margin: 12px 0 16px; }
 .pb .legal strong { color: var(--eflury-white); }
+
+/* Apple HIG: every tap target at least 44 × 44 pt on touch screens.
+   Padding grows the hit area; negative margins keep the visual layout. */
+@media (pointer: coarse) {
+  .pb .ph-burger { min-width: 44px; min-height: 44px; margin: -10px -10px -10px 0; }
+  .pb .ph-brand { min-height: 44px; }
+  .pb .v-link, .pb .band .text-link, .pb .text-link { min-height: 44px; }
+  .pb .v-reg a { min-height: 44px; margin: -12px 0; }
+  .pb .pf-link, .pb .pf-legal a { min-height: 44px; }
+  .pb .pf-legal a { min-width: 44px; justify-content: center; }
+  .pb .legal .legal-contact a { display: inline-flex; align-items: center; min-height: 44px; margin: -12px 0; }
+}
