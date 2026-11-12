@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { type Language } from '../../i18n/utils';
 import RealEstate from './RealEstate.astro';
+import PersonalAbout from './PersonalAbout.astro';
 import MediaYouTube from './MediaYouTube.astro';
 import { ArrowRight, ArrowUpRight, Mail } from 'lucide-astro';
 
@@ -121,14 +122,7 @@ const fmt = new Intl.DateTimeFormat(de ? 'de-CH' : 'en-GB', { day: 'numeric', mo
   </div>
 </section>
 
-<section id="about" class="band alt">
-  <div class="wrap narrow">
-    <p class="eyebrow">{t.aboutEyebrow}</p>
-    <h2>{t.aboutTitle}</h2>
-    <p class="section-lead">{t.aboutText}</p>
-    <a href={`/${lang}/about/`} class="text-link">{t.aboutLink} <ArrowRight size={16} /></a>
-  </div>
-</section>
+<PersonalAbout lang={lang} />
 
 <section class="band">
   <div class="wrap narrow center">
