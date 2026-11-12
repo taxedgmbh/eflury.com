@@ -803,3 +803,13 @@
   .pb .pf-legal a { min-width: 44px; justify-content: center; }
   .pb .legal .legal-contact a { display: inline-flex; align-items: center; min-height: 44px; margin: -12px 0; }
 }
+
+/* Contact buttons: one width for all four (email, WhatsApp, LinkedIn, save
+   contact), labels centred. Full width on phones. */
+.pb .pf-btn { justify-content: center; min-width: 18rem; box-sizing: border-box; }
+@media (max-width: 767px) {
+  .pb .pf-cta-actions { width: 100%; flex-direction: column; }
+  .pb .pf-qr-row { display: block; }
+  .pb .pf-qr-text { width: 100%; }
+  .pb .pf-btn, .pb .pf-qr-btn { display: flex; width: 100%; min-width: 0; }
+}
