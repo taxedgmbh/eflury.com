@@ -3,6 +3,7 @@ import { BrandWord } from './BrandWord';
 import { MediaYouTube } from './MediaYouTube';
 import { PersonalAbout } from './PersonalAbout';
 import { PersonalPress } from './PersonalPress';
+import { PersonalVoices } from './PersonalVoices';
 import { RealEstate } from './RealEstate';
 import { ROLES, SOCIALS } from './data';
 
@@ -30,7 +31,7 @@ const VENTURES = [
   },
 ];
 
-/** Ventures → EF Real Estate → YouTube → About → Press kit → Follow along. */
+/** Ventures → EF Real Estate → YouTube → About → Recommendations → Press kit → Follow along. */
 export function PersonalHome() {
   return (
     <>
@@ -68,6 +69,8 @@ export function PersonalHome() {
       <MediaYouTube />
 
       <PersonalAbout />
+
+      <PersonalVoices />
 
       <PersonalPress />
 

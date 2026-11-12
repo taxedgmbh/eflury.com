@@ -698,3 +698,17 @@
 .pb .pr-file-title { display: block; font-weight: 700; }
 .pb .pr-file-meta { display: block; font-size: 0.85rem; color: rgb(255 255 255 / 0.65); }
 .pb .pr-file-dl { margin-left: auto; flex: none; opacity: 0.7; }
+
+/* Recommendations (PersonalVoices) */
+.pb .vo-grid { display: grid; gap: var(--spacing-md); grid-template-columns: 1fr; margin-top: var(--spacing-xl); }
+@media (min-width: 900px) { .pb .vo-grid { grid-template-columns: repeat(3, 1fr); } }
+.pb .vo-card {
+  margin: 0; padding: var(--spacing-xl) var(--spacing-lg); display: flex; flex-direction: column; justify-content: space-between; gap: var(--spacing-lg);
+  border: 1px solid rgb(255 255 255 / 0.12); border-radius: var(--radius-lg); background: rgb(255 255 255 / 0.04);
+  border-top: 3px solid var(--eflury-blue);
+}
+.pb .vo-quote { margin: 0; }
+.pb .vo-quote p { margin: 0; font-size: 1.08rem; line-height: 1.65; color: rgb(255 255 255 / 0.9); }
+.pb .vo-name { display: block; font-weight: 700; }
+.pb .vo-role { display: block; font-size: 0.85rem; color: var(--text-blue); margin-top: 2px; }
+.pb .vo-more { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--spacing-xl); }
