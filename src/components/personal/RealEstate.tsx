@@ -23,6 +23,15 @@ const OWN_HOME: Photo[] = [
   { base: `${RE}own-home-garage`, alt: 'Renovated garage with laundry corner', width: 1600, height: 1200 },
 ];
 
+const APARTMENT: Photo[] = [
+  { base: `${RE}apartment-building`, alt: 'The apartment building in evening light', width: 1600, height: 1200 },
+  { base: `${RE}apartment-living-room`, alt: 'Living room with balcony door', width: 1600, height: 1200 },
+  { base: `${RE}apartment-living-room-2`, alt: 'Living room with stone accent wall', width: 1600, height: 1200 },
+  { base: `${RE}apartment-kitchen`, alt: 'Renovated kitchen', width: 1600, height: 1200 },
+  { base: `${RE}apartment-bedroom`, alt: 'Bedroom with new floor', width: 1600, height: 1200 },
+  { base: `${RE}apartment-bathroom`, alt: 'Bathroom with bathtub', width: 1600, height: 1200 },
+];
+
 const CARDS: { Icon: typeof Home; type: string; region: string; text: string; photos?: Photo[] }[] = [
   {
     Icon: Home,
@@ -38,7 +47,13 @@ const CARDS: { Icon: typeof Home; type: string; region: string; text: string; ph
     text: 'A house I rent out.',
     photos: RENTAL_HOUSE,
   },
-  { Icon: Building2, type: 'Apartment', region: 'Seeland · Canton of Bern', text: 'An apartment I rent out.' },
+  {
+    Icon: Building2,
+    type: 'Apartment',
+    region: 'Seeland · Canton of Bern',
+    text: 'An apartment I rent out.',
+    photos: APARTMENT,
+  },
 ];
 
 export function RealEstate() {
