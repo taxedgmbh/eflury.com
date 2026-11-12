@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { type Language } from '../../i18n/utils';
 import RealEstate from './RealEstate.astro';
+import MediaYouTube from './MediaYouTube.astro';
 import { ArrowRight, ArrowUpRight, Mail } from 'lucide-astro';
 
 interface Props { lang: Language }
@@ -100,6 +101,8 @@ const fmt = new Intl.DateTimeFormat(de ? 'de-CH' : 'en-GB', { day: 'numeric', mo
 </section>
 
 <RealEstate lang={lang} />
+
+<MediaYouTube lang={lang} />
 
 <section id="writing" class="band">
   <div class="wrap">
