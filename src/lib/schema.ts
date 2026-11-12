@@ -1,4 +1,4 @@
-import { SITE_URL, PERSON } from './site';
+import { SITE_URL, PERSON, PORTRAIT, HOME_TITLE, HOME_DESCRIPTION } from './site';
 
 /** Stable @id for the one Person this site is about. */
 const ID = { person: `${SITE_URL}/#person` } as const;
@@ -9,8 +9,9 @@ export function jsonLd(data: unknown): string {
 }
 
 /**
- * The personal homepage: one Person, roles exactly as on LinkedIn, and the
- * page itself.
+ * The homepage as a ProfilePage (Google's type for a page about one person)
+ * whose mainEntity is the Person, plus the WebSite node Google reads the site
+ * name from. Roles exactly as on LinkedIn.
  */
 export function personalHomeGraph(socials: readonly string[]) {
   const url = `${SITE_URL}/en/`;
@@ -18,28 +19,53 @@ export function personalHomeGraph(socials: readonly string[]) {
     '@context': 'https://schema.org',
     '@graph': [
       {
+        '@type': 'WebSite',
+        '@id': `${SITE_URL}/#website`,
+        url: `${SITE_URL}/`,
+        name: 'Emanuel Flury',
+        inLanguage: 'en',
+        publisher: { '@id': ID.person },
+      },
+      {
+        '@type': 'ProfilePage',
+        '@id': `${url}#webpage`,
+        url,
+        name: HOME_TITLE,
+        description: HOME_DESCRIPTION,
+        inLanguage: 'en',
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        mainEntity: { '@id': ID.person },
+        primaryImageOfPage: { '@id': `${SITE_URL}/#portrait` },
+      },
+      {
         '@type': 'Person',
         '@id': ID.person,
         name: PERSON.shortName,
         alternateName: PERSON.name,
+        givenName: 'Emanuel',
+        additionalName: 'Aaron',
+        familyName: 'Flury',
         jobTitle: 'Entrepreneur',
-        email: PERSON.email,
+        description: HOME_DESCRIPTION,
+        email: `mailto:${PERSON.email}`,
         url,
+        image: {
+          '@type': 'ImageObject',
+          '@id': `${SITE_URL}/#portrait`,
+          url: `${SITE_URL}${PORTRAIT.url}`,
+          width: PORTRAIT.width,
+          height: PORTRAIT.height,
+          caption: 'Emanuel Flury',
+        },
         sameAs: [...socials, 'https://skopa.ai', 'https://taxed.ch'],
-        address: { '@type': 'PostalAddress', addressLocality: 'Grenchen', addressCountry: 'CH' },
+        nationality: { '@type': 'Country', name: 'Switzerland' },
+        address: { '@type': 'PostalAddress', addressLocality: 'Grenchen', addressRegion: 'SO', addressCountry: 'CH' },
         alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Aberdeen' },
+        knowsAbout: ['Artificial intelligence', 'Business automation', 'Swiss tax', 'Finance', 'Residential real estate'],
         worksFor: [
           { '@type': 'Organization', name: 'Skopa AG', url: 'https://skopa.ai' },
           { '@type': 'Organization', name: 'Taxed GmbH', url: 'https://taxed.ch' },
         ],
-      },
-      {
-        '@type': 'WebPage',
-        '@id': `${url}#webpage`,
-        url,
-        name: 'Emanuel Flury · Entrepreneur',
-        about: { '@id': ID.person },
-        inLanguage: 'en',
       },
     ],
   };

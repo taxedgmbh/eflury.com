@@ -1,10 +1,11 @@
 import type { MetadataRoute } from 'next';
 import { SITE_URL } from '@/lib/site';
 
+/*
+ * Indexable pages only: the imprint and privacy policy are noindex. The
+ * homepage changes with every build (YouTube feed, copy), so lastModified is
+ * the build time.
+ */
 export default function sitemap(): MetadataRoute.Sitemap {
-  return [
-    { url: `${SITE_URL}/en/`, changeFrequency: 'weekly', priority: 1 },
-    { url: `${SITE_URL}/en/imprint/`, changeFrequency: 'yearly', priority: 0.2 },
-    { url: `${SITE_URL}/en/privacy/`, changeFrequency: 'yearly', priority: 0.2 },
-  ];
+  return [{ url: `${SITE_URL}/en/`, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 }];
 }

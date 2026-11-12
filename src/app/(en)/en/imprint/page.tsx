@@ -4,7 +4,19 @@ import { ADDRESS, PERSON } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Imprint',
+  description: 'Imprint of eflury.com, the personal website of Emanuel Flury, Grenchen, Switzerland.',
   alternates: { canonical: '/en/imprint/' },
+  openGraph: {
+    type: 'website',
+    url: '/en/imprint/',
+    title: 'Imprint · Emanuel Flury',
+    description: 'Imprint of eflury.com, the personal website of Emanuel Flury, Grenchen, Switzerland.',
+    siteName: 'Emanuel Flury',
+    locale: 'en_GB',
+  },
+  // Required pages, not ones anyone should land on from a search. Links are
+  // still followed.
+  robots: { index: false, follow: true },
 };
 
 export default function ImprintPage() {

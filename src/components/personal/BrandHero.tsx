@@ -37,20 +37,30 @@ export function BrandHero() {
       <div className="bh-content">
         {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark, nothing to optimise */}
         <img className="bh-mark" src="/images/ef-mark-white.svg" alt="" width={250} height={200} />
-        <h1 id="bh-title" className="bh-word">
-          {FILLS.map((f, i) => (
+        {/*
+          One heading with the name once; the three other photo fills that
+          cross-fade over it are decoration, so search engines and screen
+          readers read "Emanuel Flury" once instead of four times.
+        */}
+        <div className="bh-word">
+          <h1 id="bh-title" className="bh-fill bh-fill-0" style={{ backgroundImage: `url(/images/hero/${FILLS[0]}.webp)` }}>
+            EMANUEL
+            <br />
+            FLURY
+          </h1>
+          {FILLS.slice(1).map((f, i) => (
             <span
               key={f}
-              className={`bh-fill bh-fill-${i}`}
+              className={`bh-fill bh-fill-${i + 1}`}
               style={{ backgroundImage: `url(/images/hero/${f}.webp)` }}
-              aria-hidden={i > 0 ? true : undefined}
+              aria-hidden
             >
               EMANUEL
               <br />
               FLURY
             </span>
           ))}
-        </h1>
+        </div>
         <p className="bh-sub">ENTREPRENEUR</p>
         <p className="bh-lead">I build companies where finance, tax and technology meet.</p>
         <div className="bh-cta">

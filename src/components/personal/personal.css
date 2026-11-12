@@ -315,6 +315,9 @@
   }
   .bh-fill {
     grid-area: 1 / 1;
+    margin: 0;
+    font: inherit;
+    letter-spacing: inherit;
     color: transparent;
     background-size: 135% auto;
     background-position: 0% 50%;

@@ -4,7 +4,19 @@ import { ADDRESS, PERSON } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Privacy policy',
+  description: 'How eflury.com handles personal data: no cookies, no analytics, no forms. Hosted by Google in the Netherlands.',
   alternates: { canonical: '/en/privacy/' },
+  openGraph: {
+    type: 'website',
+    url: '/en/privacy/',
+    title: 'Privacy policy · Emanuel Flury',
+    description: 'How eflury.com handles personal data: no cookies, no analytics, no forms. Hosted by Google in the Netherlands.',
+    siteName: 'Emanuel Flury',
+    locale: 'en_GB',
+  },
+  // Required pages, not ones anyone should land on from a search. Links are
+  // still followed.
+  robots: { index: false, follow: true },
 };
 
 /*

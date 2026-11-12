@@ -1,13 +1,12 @@
 import type { Metadata } from 'next';
 import { RootDocument, rootMetadata, rootViewport } from '@/components/RootDocument';
 import '@/components/personal/personal.css';
+import { HOME_DESCRIPTION } from '@/lib/site';
 
 export const metadata: Metadata = {
   ...rootMetadata,
   title: { default: 'Emanuel Flury · Entrepreneur', template: '%s · Emanuel Flury' },
-  description:
-    'Emanuel Flury builds companies where finance, tax and technology meet: Skopa AG, Taxed GmbH and real estate.',
-  openGraph: { ...rootMetadata.openGraph, locale: 'en_GB' },
+  description: HOME_DESCRIPTION,
 };
 export const viewport = rootViewport;
 

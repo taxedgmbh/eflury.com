@@ -1,7 +1,7 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import '@/app/globals.css';
-import { SITE_URL, PERSON, IS_PRODUCTION } from '@/lib/site';
+import { SITE_URL, PERSON, IS_PRODUCTION, HOME_DESCRIPTION } from '@/lib/site';
 
 export const rootMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
@@ -10,14 +10,13 @@ export const rootMetadata: Metadata = {
     template: `%s | ${PERSON.shortName}`,
   },
   description:
-    'Emanuel Flury builds companies where finance, tax and technology meet: Skopa AG, Taxed GmbH and real estate.',
+    HOME_DESCRIPTION,
   authors: [{ name: PERSON.name, url: SITE_URL }],
   creator: PERSON.name,
   openGraph: {
     type: 'website',
     locale: 'en_GB',
     siteName: PERSON.shortName,
-    url: SITE_URL,
   },
   twitter: { card: 'summary_large_image' },
   icons: {

@@ -14,6 +14,16 @@ export const PERSON = {
   sameAs: ['https://www.linkedin.com/in/emanuelflury'],
 } as const;
 
+/** The homepage title and description, shared by metadata, Open Graph and JSON-LD. */
+export const HOME_TITLE = 'Emanuel Flury · Swiss Entrepreneur · Skopa AG, Taxed GmbH';
+export const HOME_DESCRIPTION =
+  'Emanuel Flury is a Swiss entrepreneur from Grenchen. He builds companies where finance, tax and technology meet: Skopa AG, Taxed GmbH and EF Real Estate.';
+export const PORTRAIT = {
+  url: '/images/portraits/emanuel-aaron-flury-portrait.webp',
+  width: 714,
+  height: 1616,
+} as const;
+
 export const ADDRESS = {
   streetAddress: 'Keltenweg 4',
   postalCode: '2540',
