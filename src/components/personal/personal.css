@@ -712,3 +712,30 @@
 .pb .vo-name { display: block; font-weight: 700; }
 .pb .vo-role { display: block; font-size: 0.85rem; color: var(--text-blue); margin-top: 2px; }
 .pb .vo-more { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--spacing-xl); }
+
+/* Real-estate card cover and photo gallery (PhotoGallery) */
+.pb .re-photo-img { display: block; padding: 0; }
+.pb .re-cover { all: unset; display: block; position: absolute; inset: 0; cursor: zoom-in; }
+.pb .re-cover:focus-visible { outline: 2px solid var(--text-blue); outline-offset: -4px; }
+.pb .re-cover img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition-slow); }
+.pb .re-card:hover .re-cover img { transform: scale(1.04); }
+.pb .re-photo-img .re-num { z-index: 1; opacity: 0.9; text-shadow: 0 1px 6px rgb(0 0 0 / 0.6); pointer-events: none; }
+.pb .re-cover-badge {
+  position: absolute; right: var(--spacing-md); bottom: var(--spacing-md); display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 12px; border-radius: var(--radius-full); background: rgb(2 37 84 / 0.82); color: var(--eflury-white);
+  font-size: 0.85rem; font-weight: 600; backdrop-filter: blur(4px);
+}
+.pg { padding: 0; border: 0; background: transparent; max-width: 100vw; max-height: 100dvh; width: 100vw; height: 100dvh; }
+.pg::backdrop { background: rgb(1 18 42 / 0.92); }
+.pg-frame { position: relative; display: flex; flex-direction: column; align-items: center; justify-content: center; height: 100%; padding: 56px 16px 24px; box-sizing: border-box; }
+.pg-img { max-width: min(1400px, 100%); max-height: calc(100dvh - 140px); width: auto; height: auto; object-fit: contain; border-radius: 12px; }
+.pg-caption { margin: 16px 0 0; color: #fefefe; opacity: 0.85; font-size: 0.95rem; text-align: center; }
+.pg-btn {
+  position: absolute; display: grid; place-items: center; width: 48px; height: 48px; border-radius: 9999px; border: 1px solid rgb(255 255 255 / 0.3);
+  background: rgb(2 37 84 / 0.8); color: #fefefe; cursor: pointer;
+}
+.pg-btn:hover { border-color: #fefefe; }
+.pg-prev { left: 16px; top: 50%; transform: translateY(-50%); }
+.pg-next { right: 16px; top: 50%; transform: translateY(-50%); }
+.pg-close { right: 16px; top: 12px; }
+@media (prefers-reduced-motion: reduce) { .pb .re-cover img { transition: none; } }
