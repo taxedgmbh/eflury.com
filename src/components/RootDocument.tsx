@@ -1,25 +1,33 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
 import '@/app/globals.css';
-import { SITE_URL, PERSON, GA_ID, IS_PRODUCTION } from '@/lib/site';
+import { SITE_URL, PERSON, IS_PRODUCTION } from '@/lib/site';
 
 export const rootMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: `${PERSON.shortName} — Unternehmer`,
+    default: `${PERSON.shortName} · Entrepreneur`,
     template: `%s | ${PERSON.shortName}`,
   },
   description:
-    'Emanuel Flury — Unternehmer aus Grenchen. Gründer von Taxed GmbH und SkopaAI, Berater für KI-Automatisierung bei Schweizer KMU.',
+    'Emanuel Flury builds companies where finance, tax and technology meet: Skopa AG, Taxed GmbH and real estate.',
   authors: [{ name: PERSON.name, url: SITE_URL }],
   creator: PERSON.name,
   openGraph: {
     type: 'website',
-    locale: 'de_CH',
+    locale: 'en_GB',
     siteName: PERSON.shortName,
     url: SITE_URL,
   },
   twitter: { card: 'summary_large_image' },
+  icons: {
+    icon: [
+      { url: '/favicon.svg', type: 'image/svg+xml' },
+      { url: '/images/favicon-96.png', sizes: '96x96', type: 'image/png' },
+    ],
+    apple: '/images/apple-touch-icon.png',
+  },
+  manifest: '/manifest.json',
   robots: IS_PRODUCTION
     ? { index: true, follow: true }
     : { index: false, follow: false, nocache: true },
@@ -55,36 +63,22 @@ const THEME_INIT = `(function(){try{var t=localStorage.getItem('theme');if(t==='
 const SW_KILL = `if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})}).catch(function(){})}if(window.caches){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k)})}).catch(function(){})}`;
 
 /**
- * The <html> document, shared by the two root layouts: app/(de) for the German
- * archive and app/(en) for the English personal homepage. They exist only so
- * each can set its own `lang`.
+ * The <html> document, shared by the root layout and global-not-found.
  */
 export function RootDocument({
   lang,
   bodyClassName,
   children,
 }: {
-  lang: 'de' | 'en';
+  lang: 'en';
   bodyClassName?: string;
   children: React.ReactNode;
 }) {
   return (
     <html lang={lang} suppressHydrationWarning>
-      {/* Shared by both root layouts, so it lives outside app/ — still a layout's <head>. */}
+      {/* Shared with global-not-found, so it lives outside app/ — still a layout's <head>. */}
       {/* eslint-disable-next-line @next/next/no-head-element */}
       <head>
-        {/*
-          Feed autodiscovery, emitted directly rather than through the Metadata
-          API. Every page sets its own `alternates.canonical`, and Next replaces
-          the parent's `alternates` object wholesale instead of merging — so a
-          `types` entry on the root layout never survives to the page.
-        */}
-        <link
-          rel="alternate"
-          type="application/rss+xml"
-          title={`${PERSON.shortName} — Blog`}
-          href="/de/rss.xml"
-        />
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>
       <body className={bodyClassName}>
@@ -92,17 +86,6 @@ export function RootDocument({
         <Script id="sw-kill" strategy="afterInteractive">
           {SW_KILL}
         </Script>
-        {IS_PRODUCTION && GA_ID ? (
-          <>
-            <Script
-              src={`https://www.googletagmanager.com/gtag/js?id=${GA_ID}`}
-              strategy="afterInteractive"
-            />
-            <Script id="ga4" strategy="afterInteractive">
-              {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA_ID}');`}
-            </Script>
-          </>
-        ) : null}
       </body>
     </html>
   );

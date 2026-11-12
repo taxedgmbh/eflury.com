@@ -27,36 +27,14 @@ export const ROLES = {
   estate: 'Owner',
 } as const;
 
-/** The German consulting site, kept as an archive under /de/. */
-export const ARCHIVE_HREF = '/de/';
-
-/** Legal pages exist in German only. */
 export const LEGAL = [
-  { label: 'Imprint', href: '/de/impressum/' },
-  { label: 'Privacy', href: '/de/datenschutz/' },
-  { label: 'Terms', href: '/de/nutzungsbedingungen/' },
-  { label: 'Cookies', href: '/de/cookies/' },
+  { label: 'Imprint', href: '/en/imprint/' },
+  { label: 'Privacy', href: '/en/privacy/' },
 ] as const;
 
-export interface PostCard {
-  slug: string;
-  title: string;
-  description: string;
-  date: Date;
-  minutes: number;
-}
-
-export const fmtLong = new Intl.DateTimeFormat('en-GB', {
-  day: 'numeric',
-  month: 'long',
-  year: 'numeric',
-  timeZone: 'UTC',
-});
 export const fmtShort = new Intl.DateTimeFormat('en-GB', {
   day: 'numeric',
   month: 'short',
   year: 'numeric',
   timeZone: 'UTC',
 });
-
-export const postHref = (slug: string) => `/de/blog/${slug}/`;

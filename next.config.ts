@@ -1,5 +1,4 @@
 import type { NextConfig } from 'next';
-import { LEGACY_EN_TO_DE } from './src/lib/legacy-redirects';
 
 /**
  * Ported from the Astro site's public/.htaccess, which does not come with us to
@@ -7,9 +6,9 @@ import { LEGACY_EN_TO_DE } from './src/lib/legacy-redirects';
  * it silently disappears at cutover.
  */
 const nextConfig: NextConfig = {
-  // Two root layouts — (de) and (en), so <html lang> is right on each —
-  // leave no app/layout.tsx for an unmatched URL; global-not-found renders
-  // its own document instead.
+  // The root layout lives in the (en) route group, so there is no
+  // app/layout.tsx for an unmatched URL; global-not-found renders its own
+  // document instead.
   experimental: { globalNotFound: true },
 
   // Every existing URL ends in a slash. Changing this would invalidate every
@@ -29,61 +28,23 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
 
-      // Root -> the English personal homepage, as `RedirectMatch 301 ^/$ /en/`
-      // did on Apache. The German consulting site stays reachable under /de/
-      // as the archive.
+      // Root -> the English personal homepage.
       //
       // statusCode: 301 rather than permanent: true throughout — `permanent`
-      // emits 308, which preserves the request method. Google treats the two
-      // alike, but .htaccess used R=301 and some tooling still reports 308 as a
-      // distinct signal, so match what the site sent before.
+      // emits 308. Google treats the two alike; 301 matches what the site has
+      // always sent.
       { source: '/', destination: '/en/', statusCode: 301 },
 
-      // The frozen /en/* -> /de/* map, plus the two pages Apache had already
-      // retired. Generated once while both trees existed; see migration/README.md.
-      ...LEGACY_EN_TO_DE.map(([source, destination]) => ({
-        source,
-        destination,
-        statusCode: 301 as const,
-      })),
-
-      // The old chatbot endpoint, in case a stale service worker cached a bundle
-      // that still points at it.
-      { source: '/api/chat.php', destination: '/api/chat/', statusCode: 301 },
-
       /*
-       * The offer pages in public/offerte/ and public/offer/ are carried over
-       * verbatim from the Astro site and still POST to the PHP path. Without
-       * this, every acceptance and every link-minting call 404s — the whole
-       * contract flow is dead. Found by reading the files rather than grepping:
-       * a search for "/api/accept" matches "/api/accept.php" as a substring.
+       * eFlury Consulting closed on 2026-11-12 and its pages went with it: the
+       * German site under /de/, the old English URLs under /en/*, the offer
+       * and download pages. Every one of them lands on the homepage instead
+       * of a 404, so old links and search results still arrive somewhere.
+       * The lookaheads keep the two pages that do live under /en/.
        */
-      { source: '/api/accept.php', destination: '/api/accept/', statusCode: 308 },
-
-      // Last-resort net. The enumerated list above is exhaustive against the built
-      // route tree, so this should never fire. `:path+`, not `:path*`: /en/
-      // itself is the personal homepage and must not match.
-      { source: '/en/:path+', destination: '/de/', statusCode: 301 },
-    ];
-  },
-
-  /*
-   * Apache served public/offerte/index.html for a request to /offerte/ via
-   * DirectoryIndex. Next has no equivalent: it serves files out of public/ by
-   * exact path only, so /offerte/ and /offer/ 404 while /offerte/index.html
-   * answers 200.
-   *
-   * These are the offer-acceptance pages, and /api/accept mints links pointing
-   * at exactly these two directory URLs — so without this rewrite every link
-   * sent to a client lands on a 404. Both return 200 on eflury.com today.
-   *
-   * /demo/ is deliberately absent: it holds two named files and no index, and
-   * the live site answers 403 there.
-   */
-  async rewrites() {
-    return [
-      { source: '/offerte/', destination: '/offerte/index.html' },
-      { source: '/offer/', destination: '/offer/index.html' },
+      { source: '/de/:path*', destination: '/en/', statusCode: 301 },
+      { source: '/en/:path((?!imprint|privacy).+)', destination: '/en/', statusCode: 301 },
+      { source: '/:dir(offerte|offer|demo|downloads)/:path*', destination: '/en/', statusCode: 301 },
     ];
   },
 
@@ -100,20 +61,6 @@ const nextConfig: NextConfig = {
       {
         source: '/manifest.json',
         headers: [{ key: 'Cache-Control', value: 'max-age=0, must-revalidate' }],
-      },
-      {
-        // .htaccess forced these to download rather than render inline.
-        source: '/downloads/emanuel-flury-card.:ext(png|pdf)',
-        headers: [
-          {
-            key: 'Content-Disposition',
-            value: 'attachment; filename=emanuel-flury-card.:ext',
-          },
-        ],
-      },
-      {
-        source: '/downloads/emanuel-flury.vcf',
-        headers: [{ key: 'Content-Type', value: 'text/vcard; charset=utf-8' }],
       },
       {
         source: '/:path*',

@@ -1,10 +1,9 @@
-import Link from 'next/link';
-import { ArrowRight, ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight } from 'lucide-react';
 import { BrandWord } from './BrandWord';
 import { MediaYouTube } from './MediaYouTube';
 import { PersonalAbout } from './PersonalAbout';
 import { RealEstate } from './RealEstate';
-import { fmtLong, postHref, ROLES, SOCIALS, type PostCard } from './data';
+import { ROLES, SOCIALS } from './data';
 
 const VENTURES = [
   {
@@ -30,8 +29,8 @@ const VENTURES = [
   },
 ];
 
-/** Ventures → EF Real Estate → YouTube → Writing → About → Follow along. */
-export function PersonalHome({ posts }: { posts: PostCard[] }) {
+/** Ventures → EF Real Estate → YouTube → About → Follow along. */
+export function PersonalHome() {
   return (
     <>
       <section id="ventures" className="band alt">
@@ -66,28 +65,6 @@ export function PersonalHome({ posts }: { posts: PostCard[] }) {
       <RealEstate />
 
       <MediaYouTube />
-
-      <section id="writing" className="band">
-        <div className="wrap">
-          <BrandWord word="LEARN" img="beams" />
-          <p className="eyebrow">Writing</p>
-          <h2>What I learn while building.</h2>
-          {/* The articles exist in German only; say so before the click, not after. */}
-          <p className="section-lead">Notes on automation, finance and tax. The articles are in German.</p>
-          <div className="w-grid">
-            {posts.map((p) => (
-              <a key={p.slug} href={postHref(p.slug)} className="w-card" hrefLang="de">
-                <time dateTime={p.date.toISOString()}>{fmtLong.format(p.date)}</time>
-                <h3 lang="de">{p.title}</h3>
-                <p lang="de">{p.description}</p>
-              </a>
-            ))}
-          </div>
-          <Link href="/de/blog/" className="text-link" hrefLang="de">
-            All articles <ArrowRight size={16} aria-hidden />
-          </Link>
-        </div>
-      </section>
 
       <PersonalAbout />
 

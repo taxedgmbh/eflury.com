@@ -1,11 +1,8 @@
 'use client';
 
-import Link from 'next/link';
 import {
-  Archive,
   ArrowRight,
   ArrowUpRight,
-  BookOpen,
   ChevronDown,
   Mail,
   Menu,
@@ -13,15 +10,9 @@ import {
   X,
 } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { ARCHIVE_HREF, EMAIL, fmtShort, postHref, ROLES, SOCIALS, type PostCard } from './data';
+import { EMAIL, ROLES, SOCIALS } from './data';
 
-type Panel = 'ventures' | 'writing' | 'about';
-
-export interface Topic {
-  label: string;
-  href: string;
-  count: number;
-}
+type Panel = 'ventures' | 'about';
 
 function Strip() {
   return (
@@ -31,7 +22,7 @@ function Strip() {
         <span>
           TECH <b>·</b> TAX <b>·</b> REAL ESTATE
         </span>
-        <a href="#contact">
+        <a href="/en/#contact">
           Start a conversation <ArrowRight size={14} aria-hidden />
         </a>
       </div>
@@ -45,9 +36,10 @@ function Strip() {
  * panels open on hover with a mouse and on click or keyboard otherwise; a
  * click right after a hover-open keeps the panel open rather than toggling it
  * shut; Esc closes and returns focus to the trigger; following any link in a
- * panel closes it.
+ * panel closes it. In-page links are written as /en/#… so the same header
+ * works on the imprint and privacy pages.
  */
-export function PersonalHeader({ posts, total, topics }: { posts: PostCard[]; total: number; topics: Topic[] }) {
+export function PersonalHeader() {
   const [open, setOpen] = useState<Panel | null>(null);
   const [mobile, setMobile] = useState(false);
   const closeTimer = useRef<number | undefined>(undefined);
@@ -102,7 +94,6 @@ export function PersonalHeader({ posts, total, topics }: { posts: PostCard[]; to
     </button>
   );
 
-  const [featured, ...more] = posts;
   const closeMobile = () => setMobile(false);
 
   return (
@@ -126,10 +117,9 @@ export function PersonalHeader({ posts, total, topics }: { posts: PostCard[]; to
 
           <ul className="ph-links">
             <li>{trigger('ventures', 'Ventures')}</li>
-            <li>{trigger('writing', 'Writing')}</li>
             <li>{trigger('about', 'About')}</li>
             <li>
-              <a href="#contact" className="ph-cta">
+              <a href="/en/#contact" className="ph-cta">
                 Contact
               </a>
             </li>
@@ -156,7 +146,7 @@ export function PersonalHeader({ posts, total, topics }: { posts: PostCard[]; to
               </span>
               <p className="mm-feature-title">Three businesses. One standard.</p>
               <p className="mm-muted">How technology, tax and real estate fit together.</p>
-              <a href="#ventures" className="mm-more">
+              <a href="/en/#ventures" className="mm-more">
                 Overview <ArrowRight size={16} aria-hidden />
               </a>
             </div>
@@ -191,7 +181,7 @@ export function PersonalHeader({ posts, total, topics }: { posts: PostCard[]; to
                 <span className="mm-url">taxed.ch</span>
               </span>
             </a>
-            <a href="#real-estate" className="mm-card mm-venture">
+            <a href="/en/#real-estate" className="mm-card mm-venture">
               <span className="mm-venture-top">
                 {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
                 <img src="/images/brands/ef-real-estate-mark.svg" alt="" width={42} height={44} />
@@ -207,67 +197,9 @@ export function PersonalHeader({ posts, total, topics }: { posts: PostCard[]; to
           <Strip />
         </div>
 
-        <div className="mm" id="mm-writing" hidden={open !== 'writing'}>
-          <div className="mm-inner mm-grid-writing">
-            {featured ? (
-              <a href={postHref(featured.slug)} className="mm-featured" hrefLang="de">
-                <span className="mm-featured-img" style={{ backgroundImage: 'url(/images/hero/coast.webp)' }} aria-hidden />
-                <span className="mm-featured-body">
-                  <span className="mm-tag">
-                    New · {fmtShort.format(featured.date)} · {featured.minutes} min · German
-                  </span>
-                  <span className="mm-featured-title" lang="de">
-                    {featured.title}
-                  </span>
-                  <span className="mm-muted mm-clamp" lang="de">
-                    {featured.description}
-                  </span>
-                </span>
-              </a>
-            ) : null}
-            <div>
-              <p className="mm-eyebrow">Latest articles</p>
-              <ul className="mm-list">
-                {more.map((p) => (
-                  <li key={p.slug}>
-                    <a href={postHref(p.slug)} className="mm-article" hrefLang="de">
-                      <BookOpen size={16} aria-hidden />
-                      <span>
-                        <span className="mm-article-title" lang="de">
-                          {p.title}
-                        </span>
-                        <span className="mm-article-meta">
-                          {fmtShort.format(p.date)} · {p.minutes} min
-                        </span>
-                      </span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-            <div>
-              <p className="mm-eyebrow">Topics</p>
-              <ul className="mm-list mm-topics">
-                {topics.map((t) => (
-                  <li key={t.href}>
-                    <a href={t.href} className="mm-topic" hrefLang="de">
-                      <span lang="de">{t.label}</span>
-                      <span className="mm-count">{t.count}</span>
-                    </a>
-                  </li>
-                ))}
-              </ul>
-              <Link href="/de/blog/" className="mm-more" hrefLang="de">
-                All articles ({total}) <ArrowRight size={16} aria-hidden />
-              </Link>
-            </div>
-          </div>
-          <Strip />
-        </div>
-
         <div className="mm" id="mm-about" hidden={open !== 'about'}>
           <div className="mm-inner mm-grid-about">
-            <a href="#about" className="mm-person">
+            <a href="/en/#about" className="mm-person">
               {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP */}
               <img
                 src="/images/portraits/emanuel-aaron-flury-portrait.webp"
@@ -285,31 +217,13 @@ export function PersonalHeader({ posts, total, topics }: { posts: PostCard[]; to
               </span>
             </a>
             <div className="mm-stack">
-              <a href="#about" className="mm-row">
+              <a href="/en/#about" className="mm-row">
                 <span className="mm-icon">
                   <User size={20} aria-hidden />
                 </span>
                 <span>
                   <span className="mm-card-title">My story</span>
                   <span className="mm-muted">Where I come from and what I work on.</span>
-                </span>
-              </a>
-              <a href="#writing" className="mm-row">
-                <span className="mm-icon">
-                  <BookOpen size={20} aria-hidden />
-                </span>
-                <span>
-                  <span className="mm-card-title">Writing</span>
-                  <span className="mm-muted">What I learn while building.</span>
-                </span>
-              </a>
-              <a href={ARCHIVE_HREF} className="mm-row" hrefLang="de">
-                <span className="mm-icon">
-                  <Archive size={20} aria-hidden />
-                </span>
-                <span>
-                  <span className="mm-card-title">eFlury Consulting (archive)</span>
-                  <span className="mm-muted">The former consulting website, in German.</span>
                 </span>
               </a>
             </div>
@@ -347,32 +261,16 @@ export function PersonalHeader({ posts, total, topics }: { posts: PostCard[]; to
             <a href="https://taxed.ch" target="_blank" rel="noopener" onClick={closeMobile}>
               Taxed GmbH <ArrowUpRight size={14} aria-hidden />
             </a>
-            <a href="#real-estate" onClick={closeMobile}>
+            <a href="/en/#real-estate" onClick={closeMobile}>
               EF Real Estate
             </a>
           </details>
           <details className="pm-group">
             <summary>
-              Writing <ChevronDown size={18} aria-hidden />
-            </summary>
-            {posts.map((p) => (
-              <a key={p.slug} href={postHref(p.slug)} lang="de" hrefLang="de" onClick={closeMobile}>
-                {p.title}
-              </a>
-            ))}
-            <Link href="/de/blog/" className="pm-strong" hrefLang="de" onClick={closeMobile}>
-              All articles (German)
-            </Link>
-          </details>
-          <details className="pm-group">
-            <summary>
               About <ChevronDown size={18} aria-hidden />
             </summary>
-            <a href="#about" onClick={closeMobile}>
+            <a href="/en/#about" onClick={closeMobile}>
               My story
-            </a>
-            <a href={ARCHIVE_HREF} hrefLang="de" onClick={closeMobile}>
-              eFlury Consulting (archive)
             </a>
             {SOCIALS.map((s) => (
               <a key={s.name} href={s.href} target="_blank" rel="noopener me" onClick={closeMobile}>
@@ -380,7 +278,7 @@ export function PersonalHeader({ posts, total, topics }: { posts: PostCard[]; to
               </a>
             ))}
           </details>
-          <a href="#contact" className="pm-cta" onClick={closeMobile}>
+          <a href="/en/#contact" className="pm-cta" onClick={closeMobile}>
             Contact
           </a>
         </div>

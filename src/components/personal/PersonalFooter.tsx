@@ -1,9 +1,8 @@
-import Link from 'next/link';
-import { ArrowRight, ArrowUp, ArrowUpRight, Mail } from 'lucide-react';
-import { ARCHIVE_HREF, EMAIL, fmtShort, LEGAL, LINKEDIN, postHref, ROLES, SOCIALS, type PostCard } from './data';
+import { ArrowUp, ArrowUpRight, Mail } from 'lucide-react';
+import { EMAIL, LEGAL, LINKEDIN, ROLES, SOCIALS } from './data';
 import { SocialIcon } from './SocialIcon';
 
-export function PersonalFooter({ latest, total }: { latest?: PostCard; total: number }) {
+export function PersonalFooter() {
   const year = new Date().getFullYear();
 
   return (
@@ -86,7 +85,7 @@ export function PersonalFooter({ latest, total }: { latest?: PostCard; total: nu
                 <span className="pf-v-role">{ROLES.taxed}</span>
               </span>
             </a>
-            <a href="#real-estate" className="pf-venture">
+            <a href="/en/#real-estate" className="pf-venture">
               <span className="pf-v-logo">
                 {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
                 <img src="/images/brands/ef-real-estate-mark.svg" alt="" width={32} height={33} />
@@ -99,38 +98,16 @@ export function PersonalFooter({ latest, total }: { latest?: PostCard; total: nu
           </div>
 
           <div className="pf-col">
-            <p className="pf-col-title">Writing</p>
-            {latest ? (
-              <a href={postHref(latest.slug)} className="pf-latest" hrefLang="de">
-                <span className="pf-latest-label">
-                  Latest article · {fmtShort.format(latest.date)} · {latest.minutes} min · German
-                </span>
-                <span className="pf-latest-title" lang="de">
-                  {latest.title}
-                </span>
-              </a>
-            ) : null}
-            <Link href="/de/blog/" className="pf-link pf-strong" hrefLang="de">
-              All articles ({total}) <ArrowRight size={14} aria-hidden />
-            </Link>
-          </div>
-
-          <div className="pf-col">
             <p className="pf-col-title">About</p>
             <ul className="pf-list">
               <li>
-                <a className="pf-link" href="#about">
+                <a className="pf-link" href="/en/#about">
                   My story
                 </a>
               </li>
               <li>
-                <a className="pf-link" href="#contact">
+                <a className="pf-link" href="/en/#contact">
                   Contact
-                </a>
-              </li>
-              <li>
-                <a className="pf-link" href={ARCHIVE_HREF} hrefLang="de">
-                  eFlury Consulting (archive)
                 </a>
               </li>
             </ul>
@@ -142,7 +119,7 @@ export function PersonalFooter({ latest, total }: { latest?: PostCard; total: nu
             <p>© {year} Emanuel Flury · Grenchen</p>
             <nav aria-label="Legal">
               {LEGAL.map((l) => (
-                <a key={l.href} href={l.href} hrefLang="de">
+                <a key={l.href} href={l.href}>
                   {l.label}
                 </a>
               ))}

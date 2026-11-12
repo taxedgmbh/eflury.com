@@ -1,15 +1,15 @@
 import Link from 'next/link';
 import { RootDocument } from '@/components/RootDocument';
 
-export const metadata = { title: 'Seite nicht gefunden', robots: { index: false } };
+export const metadata = { title: 'Page not found', robots: { index: false } };
 
 /*
- * global-not-found renders its own document: with two root layouts there is
- * no app/layout.tsx to wrap an unmatched URL.
+ * global-not-found renders its own document: the only root layout lives in
+ * the (en) route group, so there is no app/layout.tsx to wrap an unmatched URL.
  */
 export default function NotFound() {
   return (
-    <RootDocument lang="de">
+    <RootDocument lang="en">
     <div className="mx-auto flex min-h-dvh max-w-2xl flex-col justify-center px-5 py-24">
       {/*
         Emanuel's 404 artwork: a solid trace running into the brand mark, then a
@@ -33,13 +33,13 @@ export default function NotFound() {
       </svg>
 
       <p className="text-sm font-medium text-[var(--accent-text)]">404</p>
-      <h1 className="mt-3 text-3xl font-semibold tracking-tight">Diese Seite gibt es nicht.</h1>
+      <h1 className="mt-3 text-3xl font-semibold tracking-tight">This page does not exist.</h1>
       <p className="mt-3 text-[var(--text-muted)]">
-        Möglicherweise wurde sie verschoben oder der Link ist veraltet.
+        It may have moved, or the link is out of date.
       </p>
       <p className="mt-8">
         <Link href="/en/" className="text-[var(--link)] hover:underline">
-          Zurück zur Startseite
+          Back to the homepage
         </Link>
       </p>
     </div>

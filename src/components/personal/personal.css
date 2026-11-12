@@ -637,3 +637,19 @@
     .pf-bottom { flex-direction: column; align-items: flex-start; }
   }
   @media (prefers-reduced-motion: reduce) { .pf-word { animation: none; } .pf-btn { transition: none; } }
+
+/* Imprint and privacy (LegalPage) */
+.pb .legal { padding-top: calc(var(--header-height) + 64px); }
+.pb .legal h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.1;
+  margin: 0 0 8px;
+}
+.pb .legal h2 { font-size: 1.25rem; margin: 40px 0 12px; }
+.pb .legal p, .pb .legal li { line-height: 1.7; color: rgb(255 255 255 / 0.82); }
+.pb .legal ul { padding-left: 1.2em; }
+.pb .legal a { color: var(--teal-text); }
+.pb .legal address { font-style: normal; line-height: 1.7; margin-bottom: 16px; }
+.pb .legal-updated { font-size: 0.875rem; color: rgb(255 255 255 / 0.6) !important; }
