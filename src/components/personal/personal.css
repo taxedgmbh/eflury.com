@@ -744,3 +744,13 @@
 .pb .v-card .v-reg { font-size: 0.85rem; color: var(--text-blue); opacity: 1; }
 .pb .v-reg a { color: inherit; text-decoration: underline; text-underline-offset: 3px; display: inline-flex; align-items: center; gap: 2px; }
 .pb .v-reg a:hover { color: var(--teal-text); }
+
+/* Photo strip (PhotoGallery layout="strip"), About section */
+.pb .ab-photos-title { margin-top: var(--spacing-xl); }
+.pb .ps { list-style: none; margin: var(--spacing-sm) 0 0; padding: 0; display: grid; grid-template-columns: repeat(5, 1fr); gap: var(--spacing-sm); }
+@media (max-width: 767px) { .pb .ps { grid-template-columns: repeat(3, 1fr); } }
+.pb .ps-item { all: unset; display: block; cursor: zoom-in; border-radius: var(--radius-md); overflow: hidden; aspect-ratio: 3 / 4; }
+.pb .ps-item:focus-visible { outline: 2px solid var(--text-blue); outline-offset: 2px; }
+.pb .ps-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform var(--transition-slow); }
+.pb .ps-item:hover img { transform: scale(1.05); }
+@media (prefers-reduced-motion: reduce) { .pb .ps-item img { transition: none; } }

@@ -18,7 +18,16 @@ const srcSet = (p: Photo) => `${src(p, 800)} 800w, ${src(p, 1600)} 1600w`;
  * A card cover that opens a full-screen gallery in a native <dialog>: Esc and
  * the backdrop close it, arrow keys page through, focus returns to the button.
  */
-export function PhotoGallery({ photos, label }: { photos: Photo[]; label: string }) {
+export function PhotoGallery({
+  photos,
+  label,
+  layout = 'cover',
+}: {
+  photos: Photo[];
+  label: string;
+  /** cover: one image with a count badge. strip: every photo as a thumbnail. */
+  layout?: 'cover' | 'strip';
+}) {
   const dialog = useRef<HTMLDialogElement>(null);
   const [index, setIndex] = useState(0);
   const cover = photos[0];
@@ -36,8 +45,8 @@ export function PhotoGallery({ photos, label }: { photos: Photo[]; label: string
     return () => el.removeEventListener('keydown', onKey);
   }, [step]);
 
-  const open = () => {
-    setIndex(0);
+  const open = (i = 0) => {
+    setIndex(i);
     dialog.current?.showModal();
   };
 
@@ -45,22 +54,46 @@ export function PhotoGallery({ photos, label }: { photos: Photo[]; label: string
 
   return (
     <>
-      <button type="button" className="re-cover" onClick={open} aria-label={`${label}: open ${photos.length} photos`}>
-        {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP with srcset */}
-        <img
-          src={src(cover, 800)}
-          srcSet={srcSet(cover)}
-          sizes="(max-width: 899px) 100vw, 360px"
-          alt={cover.alt}
-          width={cover.width}
-          height={cover.height}
-          loading="lazy"
-          decoding="async"
-        />
-        <span className="re-cover-badge">
-          <Images size={16} aria-hidden /> {photos.length} photos
-        </span>
-      </button>
+      {layout === 'strip' ? (
+        <ul className="ps">
+          {photos.map((p, i) => (
+            <li key={p.base}>
+              <button type="button" className="ps-item" onClick={() => open(i)} aria-label={`${p.alt}: open photo ${i + 1} of ${photos.length}`}>
+                {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP with srcset */}
+                <img
+                  src={src(p, 800)}
+                  srcSet={srcSet(p)}
+                  sizes="(max-width: 767px) 45vw, 220px"
+                  alt={p.alt}
+                  width={p.width}
+                  height={p.height}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </button>
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <>
+      <button type="button" className="re-cover" onClick={() => open(0)} aria-label={`${label}: open ${photos.length} photos`}>
+            {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP with srcset */}
+            <img
+              src={src(cover, 800)}
+              srcSet={srcSet(cover)}
+              sizes="(max-width: 899px) 100vw, 360px"
+              alt={cover.alt}
+              width={cover.width}
+              height={cover.height}
+              loading="lazy"
+              decoding="async"
+            />
+            <span className="re-cover-badge">
+              <Images size={16} aria-hidden /> {photos.length} photos
+            </span>
+          </button>
+        </>
+      )}
 
       <dialog
         ref={dialog}
