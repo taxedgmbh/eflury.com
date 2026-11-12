@@ -768,8 +768,7 @@
 .pb .pr-thumb { width: 56px; height: 56px; flex: none; object-fit: cover; object-position: top; border-radius: var(--radius-md); }
 
 /* YouTube call to action (replaces the Follow along pills) */
-.pb .cta-lead { margin-left: auto; margin-right: auto; }
-.pb .cta-row { display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-md); }
+.pb .cta-row { display: flex; flex-wrap: wrap; justify-content: flex-start; gap: var(--spacing-md); }
 
 /* WhatsApp in the mobile menu */
 .pb .ph-mobile a.pm-wa { display: flex; align-items: center; justify-content: center; gap: 8px; min-height: 52px; margin-top: var(--spacing-xl); padding: 0 var(--spacing-lg); border: 1.5px solid rgb(255 255 255 / 0.45); border-bottom: 1.5px solid rgb(255 255 255 / 0.45); border-radius: var(--radius-full); color: var(--eflury-white); font-weight: 600; font-size: 17px; text-decoration: none; }
@@ -813,3 +812,6 @@
   .pb .pf-qr-text { width: 100%; }
   .pb .pf-btn, .pb .pf-qr-btn { display: flex; width: 100%; min-width: 0; }
 }
+
+/* Contact block uses the same 1120px content column as every other section. */
+.pb .pf-cta .pf-wrap { max-width: 1120px; }

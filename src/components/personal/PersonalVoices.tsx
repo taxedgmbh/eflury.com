@@ -1,3 +1,4 @@
+import { BrandWord } from './BrandWord';
 import { ArrowUpRight } from 'lucide-react';
 import { LINKEDIN } from './data';
 
@@ -32,6 +33,7 @@ export function PersonalVoices() {
   return (
     <section id="voices" className="band alt" aria-labelledby="voices-title">
       <div className="wrap">
+        <BrandWord word="TRUST" img="sunset" />
         <p className="eyebrow">Recommendations</p>
         <h2 id="voices-title">What people say.</h2>
         <div className="vo-grid">

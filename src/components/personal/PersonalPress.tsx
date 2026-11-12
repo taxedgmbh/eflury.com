@@ -1,3 +1,4 @@
+import { BrandWord } from './BrandWord';
 import { ArrowUpRight, Download, Image as ImageIcon, Contact, PlayCircle, Shapes } from 'lucide-react';
 import { CopyButton } from './CopyButton';
 import { ROLES } from './data';
@@ -64,6 +65,7 @@ export function PersonalPress() {
   return (
     <section id="press" className="band" aria-labelledby="press-title">
       <div className="wrap">
+        <BrandWord word="SHARE" img="sea" />
         <p className="eyebrow">Press</p>
         <h2 id="press-title">Press kit</h2>
         <p className="section-lead">

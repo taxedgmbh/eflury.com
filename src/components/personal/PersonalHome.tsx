@@ -103,10 +103,11 @@ export function PersonalHome() {
       <PersonalPress />
 
       <section className="band alt" aria-labelledby="follow-title">
-        <div className="wrap narrow center">
-          <BrandWord word="DREAM" img="sky" align="center" />
+        <div className="wrap">
+          <BrandWord word="DREAM" img="sky" />
+          <p className="eyebrow">Follow along</p>
           <h2 id="follow-title">Follow the journey on YouTube.</h2>
-          <p className="section-lead cta-lead">What I learn while building — tech, tax and real estate.</p>
+          <p className="section-lead">What I learn while building — tech, tax and real estate.</p>
           <div className="cta-row">
             <a href={`${YT_HANDLE_URL}?sub_confirmation=1`} target="_blank" rel="noopener" className="bh-btn bh-btn-fill">
               Subscribe
