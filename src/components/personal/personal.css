@@ -739,3 +739,8 @@
 .pg-next { right: 16px; top: 50%; transform: translateY(-50%); }
 .pg-close { right: 16px; top: 12px; }
 @media (prefers-reduced-motion: reduce) { .pb .re-cover img { transition: none; } }
+
+/* Commercial-register line on the venture cards */
+.pb .v-card .v-reg { font-size: 0.85rem; color: var(--text-blue); opacity: 1; }
+.pb .v-reg a { color: inherit; text-decoration: underline; text-underline-offset: 3px; display: inline-flex; align-items: center; gap: 2px; }
+.pb .v-reg a:hover { color: var(--teal-text); }

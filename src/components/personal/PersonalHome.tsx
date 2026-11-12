@@ -5,15 +5,23 @@ import { PersonalAbout } from './PersonalAbout';
 import { PersonalPress } from './PersonalPress';
 import { PersonalVoices } from './PersonalVoices';
 import { RealEstate } from './RealEstate';
-import { ROLES, SOCIALS } from './data';
+import { REGISTRY, ROLES, SOCIALS } from './data';
 
-const VENTURES = [
+const VENTURES: {
+  tag: string;
+  name: string;
+  text: string;
+  href: string;
+  link: string;
+  registry?: { year: number; canton: string; uid: string; zefix: string };
+}[] = [
   {
     tag: 'Technology',
     name: 'Skopa AG',
     text: `Artificial intelligence and automation for businesses. Role: ${ROLES.skopa}.`,
     href: 'https://skopa.ai',
     link: 'skopa.ai',
+    registry: REGISTRY.skopa,
   },
   {
     tag: 'Tax',
@@ -21,6 +29,7 @@ const VENTURES = [
     text: `Tax advice for expats living in Switzerland, with an office in Biel/Bienne. Role: ${ROLES.taxed}.`,
     href: 'https://taxed.ch',
     link: 'taxed.ch',
+    registry: REGISTRY.taxed,
   },
   {
     tag: 'Private equity',
@@ -49,6 +58,16 @@ export function PersonalHome() {
                   <span className="v-tag">{v.tag}</span>
                   <h3>{v.name}</h3>
                   <p>{v.text}</p>
+                  {v.registry ? (
+                    <p className="v-reg">
+                      Founded {v.registry.year} · Canton of {v.registry.canton} ·{' '}
+                      <a href={v.registry.zefix} target="_blank" rel="noopener">
+                        Commercial register <ArrowUpRight size={13} aria-hidden />
+                      </a>
+                    </p>
+                  ) : (
+                    <p className="v-reg">Privately held · not a company</p>
+                  )}
                   <a
                     href={v.href}
                     target={external ? '_blank' : undefined}

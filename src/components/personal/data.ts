@@ -27,6 +27,27 @@ export const ROLES = {
   estate: 'Owner',
 } as const;
 
+/*
+ * From the Swiss commercial register (Zefix / SHAB), checked 2026-11-12.
+ * Founding = date of the articles of association; the entry follows days later.
+ */
+export const REGISTRY = {
+  taxed: {
+    founded: '2021-02-04',
+    year: 2021,
+    canton: 'Bern',
+    uid: 'CHE-350.820.923',
+    zefix: 'https://www.zefix.ch/en/search/entity/list/firm/1473144',
+  },
+  skopa: {
+    founded: '2026-10-09',
+    year: 2026,
+    canton: 'Solothurn',
+    uid: 'CHE-329.316.023',
+    zefix: 'https://www.zefix.ch/en/search/entity/list/firm/1772830',
+  },
+} as const;
+
 export const LEGAL = [
   { label: 'Imprint', href: '/en/imprint/' },
   { label: 'Privacy', href: '/en/privacy/' },

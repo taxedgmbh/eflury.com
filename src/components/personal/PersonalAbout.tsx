@@ -20,7 +20,7 @@ const CHAPTERS = [
     Icon: Rocket,
     kicker: 'Today',
     title: 'Entrepreneur',
-    text: `${ROLES.skopa} of Skopa AG, ${ROLES.taxed} of Taxed GmbH and ${ROLES.estate.toLowerCase()} of EF Real Estate.`,
+    text: `Founded Taxed GmbH in 2021 and Skopa AG in 2026. Today ${ROLES.skopa} of Skopa AG, ${ROLES.taxed} of Taxed GmbH and ${ROLES.estate.toLowerCase()} of EF Real Estate.`,
   },
 ];
 

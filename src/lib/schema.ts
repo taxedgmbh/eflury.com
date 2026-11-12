@@ -1,4 +1,5 @@
 import { SITE_URL, PERSON, PORTRAIT, HOME_TITLE, HOME_DESCRIPTION } from './site';
+import { REGISTRY } from '@/components/personal/data';
 
 /** Stable @id for the one Person this site is about. */
 const ID = { person: `${SITE_URL}/#person` } as const;
@@ -62,11 +63,24 @@ export function personalHomeGraph(socials: readonly string[]) {
         address: { '@type': 'PostalAddress', addressLocality: 'Grenchen', addressRegion: 'SO', addressCountry: 'CH' },
         alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Aberdeen' },
         knowsAbout: ['Artificial intelligence', 'Business automation', 'Swiss tax', 'Finance', 'Residential real estate'],
-        worksFor: [
-          { '@type': 'Organization', name: 'Skopa AG', url: 'https://skopa.ai' },
-          { '@type': 'Organization', name: 'Taxed GmbH', url: 'https://taxed.ch' },
-        ],
+        worksFor: [{ '@id': 'https://skopa.ai/#org' }, { '@id': 'https://taxed.ch/#org' }],
       },
+      ...(
+        [
+          ['https://skopa.ai', 'Skopa AG', REGISTRY.skopa, 'Grenchen'],
+          ['https://taxed.ch', 'Taxed GmbH', REGISTRY.taxed, 'Biel/Bienne'],
+        ] as const
+      ).map(([orgUrl, name, reg, seat]) => ({
+        '@type': 'Organization',
+        '@id': `${orgUrl}/#org`,
+        name,
+        url: orgUrl,
+        foundingDate: reg.founded,
+        founder: { '@id': ID.person },
+        location: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: seat, addressCountry: 'CH' } },
+        identifier: { '@type': 'PropertyValue', propertyID: 'CH-UID', value: reg.uid },
+        sameAs: [reg.zefix],
+      })),
     ],
   };
 }
