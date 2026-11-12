@@ -1,4 +1,4 @@
-import { Download, Image as ImageIcon, Contact } from 'lucide-react';
+import { Download, Image as ImageIcon, Contact, Shapes } from 'lucide-react';
 import { CopyButton } from './CopyButton';
 import { ROLES } from './data';
 
@@ -11,12 +11,26 @@ const SHORT_BIO =
 
 const LONG_BIO = `Emanuel Flury is a Swiss entrepreneur based in Grenchen. He holds an MA in Finance-Economics from the University of Aberdeen, with an exchange year at the University of Wisconsin–La Crosse, and a certificate as a tax specialist. After years spent automating finance processes in large organisations, he founded Taxed GmbH in 2021 and Skopa AG in 2026. He is ${ROLES.skopa} of Skopa AG, which works on artificial intelligence and quantum computing; ${ROLES.taxed} of Taxed GmbH, which advises expats living in Switzerland on tax; and ${ROLES.estate.toLowerCase()} of EF Real Estate, which holds residential property as private equity.`;
 
-const FILES = [
+const FILES: { href: string; icon: typeof ImageIcon; thumb?: string; title: string; meta: string }[] = [
   {
     href: '/press/emanuel-flury-portrait.png',
     icon: ImageIcon,
+    thumb: '/images/portraits/emanuel-aaron-flury-portrait.webp',
     title: 'Portrait',
-    meta: 'PNG · 714 × 1616 px',
+    meta: 'PNG · 714 × 1616',
+  },
+  {
+    href: '/press/emanuel-flury-city-night.jpg',
+    icon: ImageIcon,
+    thumb: '/images/me/city-night-800.webp',
+    title: 'Photo, city',
+    meta: 'JPG · 1536 × 2048',
+  },
+  {
+    href: '/press/ef-logo-pack.zip',
+    icon: Shapes,
+    title: 'Logo pack',
+    meta: 'EF mark and wordmark, SVG',
   },
   {
     href: '/press/emanuel-flury.vcf',
@@ -24,9 +38,9 @@ const FILES = [
     title: 'Contact card',
     meta: 'vCard for your phone or address book',
   },
-] as const;
+];
 
-/** Press kit: two bios to copy, a portrait and a contact card to download. */
+/** Press kit: two bios to copy; two photos, a logo pack and a contact card to download. */
 export function PersonalPress() {
   return (
     <section id="press" className="band" aria-labelledby="press-title">
@@ -50,9 +64,14 @@ export function PersonalPress() {
           <div className="pr-files">
             {FILES.map((f) => (
               <a key={f.href} href={f.href} download className="pr-file">
-                <span className="pr-file-icon">
-                  <f.icon size={20} aria-hidden />
-                </span>
+                {f.thumb ? (
+                  // eslint-disable-next-line @next/next/no-img-element -- 56px preview
+                  <img src={f.thumb} alt="" width={56} height={56} className="pr-thumb" loading="lazy" />
+                ) : (
+                  <span className="pr-file-icon">
+                    <f.icon size={20} aria-hidden />
+                  </span>
+                )}
                 <span>
                   <span className="pr-file-title">{f.title}</span>
                   <span className="pr-file-meta">{f.meta}</span>

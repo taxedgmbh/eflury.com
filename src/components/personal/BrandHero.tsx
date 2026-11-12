@@ -1,6 +1,7 @@
 import { ArrowRight } from 'lucide-react';
 import { preload } from 'react-dom';
 import { HeroNetwork } from './HeroNetwork';
+import { REGISTRY } from './data';
 
 // Same photo-in-letters look as the social media word rows; scenery only, no faces.
 const FILLS = ['palms', 'sky', 'arches', 'city'];
@@ -69,6 +70,12 @@ export function BrandHero() {
         </div>
         <p className="bh-sub">ENTREPRENEUR</p>
         <p className="bh-lead">I build companies where finance, tax and technology meet.</p>
+        {/* Facts from the commercial register (REGISTRY) and the real-estate section. */}
+        <p className="bh-proof">
+          <span>Taxed GmbH since {REGISTRY.taxed.year}</span>
+          <span>Skopa AG since {REGISTRY.skopa.year}</span>
+          <span>3 properties</span>
+        </p>
         <div className="bh-cta">
           <a href="#ventures" className="bh-btn bh-btn-fill">
             What I build <ArrowRight size={18} aria-hidden />
