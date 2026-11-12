@@ -843,3 +843,7 @@
 .pb .pv-photos-title { margin-top: var(--spacing-2xl); }
 @media (max-width: 767px) { .pb .pv-french { flex-direction: column; padding: var(--spacing-lg); } }
 .pb .pr-copy { min-height: 52px; font-size: 17px; }
+
+.pb .pv-cards { display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-lg); }
+.pb .pv-cards .pv-french { max-width: none; }
+@media (max-width: 900px) { .pb .pv-cards { grid-template-columns: 1fr; } }

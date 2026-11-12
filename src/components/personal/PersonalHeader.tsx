@@ -236,7 +236,7 @@ export function PersonalHeader() {
                 </span>
                 <span>
                   <span className="mm-card-title">Private</span>
-                  <span className="mm-muted">Beyond work, and learning French.</span>
+                  <span className="mm-muted">Beyond work: French and sailing.</span>
                 </span>
               </a>
               <a href="/en/#press" className="mm-row">
