@@ -3,7 +3,7 @@ import MainLayout from '../../layouts/MainLayout.astro';
 import PersonalHeader from '../../components/personal/PersonalHeader.astro';
 import BrandHero from '../../components/personal/BrandHero.astro';
 import PersonalHome from '../../components/personal/PersonalHome.astro';
-import Footer from '../../components/Footer.astro';
+import PersonalFooter from '../../components/personal/PersonalFooter.astro';
 
 const lang = 'en';
 ---
@@ -23,5 +23,5 @@ const lang = 'en';
     <BrandHero lang={lang} />
     <PersonalHome lang={lang} />
   </main>
-  <Footer lang={lang} />
+  <PersonalFooter lang={lang} />
 </MainLayout>
