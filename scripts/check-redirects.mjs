@@ -69,7 +69,7 @@ if (/\.\.\.Object\.values\(CONTENT_PAGES\)/.test(routesSrc)) {
   for (const m of pagesSrc.matchAll(/route:\s*'([^']+)'/g)) declared.add(m[1]);
 }
 
-/** Every non-dynamic page.tsx under src/app/de must be registered in STATIC_ROUTES. */
+/** Every non-dynamic page.tsx under src/app/(de)/de and src/app/(en)/en must be registered in STATIC_ROUTES. */
 function walkPages(dir, urlPath, out) {
   for (const entry of readdirSync(dir)) {
     const full = join(dir, entry);
@@ -87,7 +87,10 @@ function walkPages(dir, urlPath, out) {
   return out;
 }
 
-const onDisk = walkPages(join(ROOT, 'src/app/de'), '/de/', new Set());
+// German archive and the English personal homepage live in separate route
+// groups, each with its own root layout so <html lang> is right.
+const onDisk = walkPages(join(ROOT, 'src/app/(de)/de'), '/de/', new Set());
+walkPages(join(ROOT, 'src/app/(en)/en'), '/en/', onDisk);
 for (const route of onDisk) {
   if (!declared.has(route)) {
     errors.push(`Page exists but is missing from STATIC_ROUTES in src/lib/routes.ts: ${route}`);
@@ -140,7 +143,8 @@ for (const [from, to] of pairs) {
 const NON_HTML_ROUTES = ['/de/rss.xml', '/llms.txt', '/llms-full.txt', '/robots.txt', '/sitemap.xml'];
 for (const route of NON_HTML_ROUTES) {
   const segment = route.replace(/^\//, '');
-  const asRoute = join(ROOT, 'src/app', segment, 'route.ts');
+  // /de/* lives in the (de) route group, which adds no URL segment.
+  const asRoute = join(ROOT, 'src/app', segment.startsWith('de/') ? `(de)/${segment}` : segment, 'route.ts');
   const asFile = join(ROOT, 'public', segment);
   const generated = /^\/(robots|sitemap)/.test(route)
     ? existsSync(join(ROOT, 'src/app', `${segment.replace(/\.(txt|xml)$/, '')}.ts`))

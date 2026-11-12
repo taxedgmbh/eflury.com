@@ -1,9 +1,9 @@
 import type { Metadata, Viewport } from 'next';
 import Script from 'next/script';
-import './globals.css';
+import '@/app/globals.css';
 import { SITE_URL, PERSON, GA_ID, IS_PRODUCTION } from '@/lib/site';
 
-export const metadata: Metadata = {
+export const rootMetadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
     default: `${PERSON.shortName} — Unternehmer`,
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
  * pinch-zoom. That is an accessibility failure and Safari ignores it anyway, so
  * it is deliberately not ported.
  */
-export const viewport: Viewport = {
+export const rootViewport: Viewport = {
   themeColor: '#022554',
   width: 'device-width',
   initialScale: 1,
@@ -54,9 +54,24 @@ const THEME_INIT = `(function(){try{var t=localStorage.getItem('theme');if(t==='
  */
 const SW_KILL = `if('serviceWorker' in navigator){navigator.serviceWorker.getRegistrations().then(function(rs){rs.forEach(function(r){r.unregister()})}).catch(function(){})}if(window.caches){caches.keys().then(function(ks){ks.forEach(function(k){caches.delete(k)})}).catch(function(){})}`;
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+/**
+ * The <html> document, shared by the two root layouts: app/(de) for the German
+ * archive and app/(en) for the English personal homepage. They exist only so
+ * each can set its own `lang`.
+ */
+export function RootDocument({
+  lang,
+  bodyClassName,
+  children,
+}: {
+  lang: 'de' | 'en';
+  bodyClassName?: string;
+  children: React.ReactNode;
+}) {
   return (
-    <html lang="de" suppressHydrationWarning>
+    <html lang={lang} suppressHydrationWarning>
+      {/* Shared by both root layouts, so it lives outside app/ — still a layout's <head>. */}
+      {/* eslint-disable-next-line @next/next/no-head-element */}
       <head>
         {/*
           Feed autodiscovery, emitted directly rather than through the Metadata
@@ -72,7 +87,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         />
         <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
       </head>
-      <body>
+      <body className={bodyClassName}>
         {children}
         <Script id="sw-kill" strategy="afterInteractive">
           {SW_KILL}

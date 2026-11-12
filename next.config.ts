@@ -7,6 +7,11 @@ import { LEGACY_EN_TO_DE } from './src/lib/legacy-redirects';
  * it silently disappears at cutover.
  */
 const nextConfig: NextConfig = {
+  // Two root layouts — (de) and (en), so <html lang> is right on each —
+  // leave no app/layout.tsx for an unmatched URL; global-not-found renders
+  // its own document instead.
+  experimental: { globalNotFound: true },
+
   // Every existing URL ends in a slash. Changing this would invalidate every
   // canonical, every sitemap entry and every inbound link at once.
   trailingSlash: true,
@@ -24,14 +29,15 @@ const nextConfig: NextConfig = {
         statusCode: 301,
       },
 
-      // Root -> default language. Was `RedirectMatch 301 ^/$ /en/`; the
-      // destination changes with the move to German-only.
+      // Root -> the English personal homepage, as `RedirectMatch 301 ^/$ /en/`
+      // did on Apache. The German consulting site stays reachable under /de/
+      // as the archive.
       //
       // statusCode: 301 rather than permanent: true throughout — `permanent`
       // emits 308, which preserves the request method. Google treats the two
       // alike, but .htaccess used R=301 and some tooling still reports 308 as a
       // distinct signal, so match what the site sent before.
-      { source: '/', destination: '/de/', statusCode: 301 },
+      { source: '/', destination: '/en/', statusCode: 301 },
 
       // The frozen /en/* -> /de/* map, plus the two pages Apache had already
       // retired. Generated once while both trees existed; see migration/README.md.
@@ -55,8 +61,9 @@ const nextConfig: NextConfig = {
       { source: '/api/accept.php', destination: '/api/accept/', statusCode: 308 },
 
       // Last-resort net. The enumerated list above is exhaustive against the built
-      // route tree, so this should never fire.
-      { source: '/en/:path*', destination: '/de/', statusCode: 301 },
+      // route tree, so this should never fire. `:path+`, not `:path*`: /en/
+      // itself is the personal homepage and must not match.
+      { source: '/en/:path+', destination: '/de/', statusCode: 301 },
     ];
   },
 

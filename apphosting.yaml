@@ -71,7 +71,9 @@ env:
   # /api/contact and /api/apply refuse submissions with a clear message rather
   # than accepting them unverified.
   #
-  # Uncomment each line as its secret is created (turnstileSecret is done):
+  # Uncomment each line as its secret is given a value. Done: turnstileSecret,
+  # acceptAdminKey, ipHashSalt. resendApiKey and acceptSecret exist in Secret
+  # Manager but are still empty — uncommenting them now would fail the rollout.
   #   firebase apphosting:secrets:set <name> --project eflury-com-prod
   #   firebase apphosting:secrets:grantaccess <name> --backend eflury-com-prod
   #
@@ -81,8 +83,10 @@ env:
   # resendApiKey    — needs a Resend account with a verified sending domain.
   # acceptSecret    — MUST equal ACCEPT_SECRET in the Hostinger api/config.php,
   #   or offer links already in clients' inboxes stop validating (60-day TTL).
-  # acceptAdminKey  — any random string; only used to mint new offer links.
-  # ipHashSalt      — any random string; salts hashed IPs in the rate limiter.
+  # acceptAdminKey  — PROVISIONED 2026-10-13, random; only used to mint new
+  #   offer links.
+  # ipHashSalt      — PROVISIONED 2026-10-13, random; salts hashed IPs in the
+  #   rate limiter.
   #
   - variable: TURNSTILE_SECRET_KEY
     secret: turnstileSecret
@@ -96,10 +100,10 @@ env:
   #   secret: acceptSecret
   #   availability: [RUNTIME]
   #
-  # - variable: ACCEPT_ADMIN_KEY
-  #   secret: acceptAdminKey
-  #   availability: [RUNTIME]
+  - variable: ACCEPT_ADMIN_KEY
+    secret: acceptAdminKey
+    availability: [RUNTIME]
   #
-  # - variable: IP_HASH_SALT
-  #   secret: ipHashSalt
-  #   availability: [RUNTIME]
+  - variable: IP_HASH_SALT
+    secret: ipHashSalt
+    availability: [RUNTIME]

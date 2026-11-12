@@ -5,12 +5,15 @@
  * Regenerating after the English content is deleted is impossible, which is
  * why this is checked in rather than derived at build time.
  *
- * 53 routes. Paths are written WITHOUT a trailing slash: Next
+ * 52 routes. Paths are written WITHOUT a trailing slash: Next
  * normalises before matching when `trailingSlash: true` is set.
+ *
+ * One hand edit, 2026-11-12: the `/en` -> `/de/` entry is gone, because /en/
+ * is now the English personal homepage. Every deeper /en/* path still
+ * redirects into the German archive.
  */
 export const LEGACY_EN_TO_DE: ReadonlyArray<readonly [string, string]> = [
   ['/de/branchen/treuhand', '/de/case-studies/taxed-gmbh/'],
-  ['/en', '/de/'],
   ['/en/about', '/de/about/'],
   ['/en/blog', '/de/blog/'],
   ['/en/blog/accounting-automation-switzerland', '/de/blog/buchhaltung-automatisieren-schweiz/'],

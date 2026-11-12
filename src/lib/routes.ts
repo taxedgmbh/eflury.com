@@ -2,7 +2,7 @@
  * Static route table — the sitemap's source of truth.
  *
  * The Astro sitemap was hand-maintained and silently rotted to 18 of 72 URLs.
- * scripts/check-redirects.mjs walks src/app/de and fails the build if a page
+ * scripts/check-redirects.mjs walks src/app/(de)/de and src/app/(en)/en and fails the build if a page
  * exists here on disk but is missing from this table, so it cannot rot again.
  */
 
@@ -15,7 +15,9 @@ export interface StaticRoute {
 import { CONTENT_PAGES } from './pages';
 
 export const STATIC_ROUTES: StaticRoute[] = [
-  { path: '/de/', priority: 1.0, changeFrequency: 'weekly' },
+  // The personal homepage. `/` redirects here.
+  { path: '/en/', priority: 1.0, changeFrequency: 'weekly' },
+  { path: '/de/', priority: 0.8, changeFrequency: 'weekly' },
   { path: '/de/blog/', priority: 0.7, changeFrequency: 'weekly' },
   { path: '/de/services/', priority: 0.8, changeFrequency: 'monthly' },
   { path: '/de/branchen/', priority: 0.8, changeFrequency: 'monthly' },

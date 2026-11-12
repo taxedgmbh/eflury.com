@@ -1,9 +1,15 @@
 import Link from 'next/link';
+import { RootDocument } from '@/components/RootDocument';
 
 export const metadata = { title: 'Seite nicht gefunden', robots: { index: false } };
 
+/*
+ * global-not-found renders its own document: with two root layouts there is
+ * no app/layout.tsx to wrap an unmatched URL.
+ */
 export default function NotFound() {
   return (
+    <RootDocument lang="de">
     <div className="mx-auto flex min-h-dvh max-w-2xl flex-col justify-center px-5 py-24">
       {/*
         Emanuel's 404 artwork: a solid trace running into the brand mark, then a
@@ -32,10 +38,11 @@ export default function NotFound() {
         Möglicherweise wurde sie verschoben oder der Link ist veraltet.
       </p>
       <p className="mt-8">
-        <Link href="/de/" className="text-[var(--link)] hover:underline">
+        <Link href="/en/" className="text-[var(--link)] hover:underline">
           Zurück zur Startseite
         </Link>
       </p>
     </div>
+    </RootDocument>
   );
 }

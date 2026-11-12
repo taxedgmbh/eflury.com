@@ -268,3 +268,42 @@ export function contentPageGraph(
 export function jsonLd(data: unknown): string {
   return JSON.stringify(data).replace(/</g, '\\u003c');
 }
+
+/**
+ * The English personal homepage. Its own Person node rather than
+ * identityNodes(): that one carries the German archive's venture names and
+ * roles ("SkopaAI", "Gründer"), and this page states the current ones exactly
+ * as on LinkedIn. Same @id, so crawlers still see one person.
+ */
+export function personalHomeGraph(socials: readonly string[]) {
+  const url = `${SITE_URL}/en/`;
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'Person',
+        '@id': ID.person,
+        name: PERSON.shortName,
+        alternateName: PERSON.name,
+        jobTitle: 'Entrepreneur',
+        email: PERSON.email,
+        url,
+        sameAs: [...socials, 'https://skopa.ai', 'https://taxed.ch'],
+        address: { '@type': 'PostalAddress', addressLocality: 'Grenchen', addressCountry: 'CH' },
+        alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Aberdeen' },
+        worksFor: [
+          { '@type': 'Organization', name: 'Skopa AG', url: 'https://skopa.ai' },
+          { '@type': 'Organization', name: 'Taxed GmbH', url: 'https://taxed.ch' },
+        ],
+      },
+      {
+        '@type': 'WebPage',
+        '@id': `${url}#webpage`,
+        url,
+        name: 'Emanuel Flury · Entrepreneur',
+        about: { '@id': ID.person },
+        inLanguage: 'en',
+      },
+    ],
+  };
+}
