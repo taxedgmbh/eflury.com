@@ -6,8 +6,8 @@ import { useEffect, useRef } from 'react';
  * Brand hero background: a slow 3D field of connected nodes, echoing the
  * circuit lines of the EF mark. Ported from astro-src/src/scripts/hero-network.ts.
  *
- * three.js is imported inside the effect, so it is a separate chunk that never
- * enters the page's initial bundle; the hero reads fine on plain navy until it
+ * three.js is imported once the page has loaded and the browser is idle, as a
+ * separate chunk that never enters the page's initial bundle; the hero reads fine on plain navy until it
  * arrives. Reduced motion gets one still frame. The loop pauses off-screen and
  * in background tabs, and everything is disposed on unmount.
  */
@@ -20,8 +20,21 @@ export function HeroNetwork() {
     let cleanup = () => {};
     let cancelled = false;
 
-    import('three').then((THREE) => {
-      if (cancelled) return;
+    // Decoration only: start once the page has loaded and the main thread is
+    // idle, so three.js never competes with the first paint or first input.
+    const start = () => import('three').then(init);
+    let idleId = 0;
+    const schedule = () => {
+      idleId =
+        typeof window.requestIdleCallback === 'function'
+          ? window.requestIdleCallback(start, { timeout: 2500 })
+          : window.setTimeout(start, 1200);
+    };
+    if (document.readyState === 'complete') schedule();
+    else window.addEventListener('load', schedule, { once: true });
+
+    const init = (THREE: typeof import('three')) => {
+      if (cancelled || !canvas) return;
       const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
 
       let renderer: InstanceType<typeof THREE.WebGLRenderer>;
@@ -30,14 +43,16 @@ export function HeroNetwork() {
       } catch {
         return; // no WebGL: the navy hero stands on its own
       }
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+      // Phones get a lighter field: fewer nodes and a lower pixel ratio.
+      const small = window.matchMedia('(max-width: 767px)').matches;
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, small ? 1.5 : 2));
       const scene = new THREE.Scene();
       const camera = new THREE.PerspectiveCamera(55, 1, 0.1, 100);
       camera.position.set(0, 0, 14);
 
       // Node field on a wide wavy sheet
-      const COLS = 34;
-      const ROWS = 18;
+      const COLS = small ? 20 : 34;
+      const ROWS = small ? 12 : 18;
       const N = COLS * ROWS;
       const base = new Float32Array(N * 3);
       for (let i = 0; i < N; i++) {
@@ -166,10 +181,13 @@ export function HeroNetwork() {
         sprite.dispose();
         renderer.dispose();
       };
-    });
+    };
 
     return () => {
       cancelled = true;
+      window.removeEventListener('load', schedule);
+      if (typeof window.cancelIdleCallback === 'function') window.cancelIdleCallback(idleId);
+      window.clearTimeout(idleId);
       cleanup();
     };
   }, []);

@@ -6,6 +6,7 @@ import {
   ChevronDown,
   Mail,
   Menu,
+  Newspaper,
   User,
   X,
 } from 'lucide-react';
@@ -226,6 +227,15 @@ export function PersonalHeader() {
                   <span className="mm-muted">Where I come from and what I work on.</span>
                 </span>
               </a>
+              <a href="/en/#press" className="mm-row">
+                <span className="mm-icon">
+                  <Newspaper size={20} aria-hidden />
+                </span>
+                <span>
+                  <span className="mm-card-title">Press kit</span>
+                  <span className="mm-muted">Bios, portrait and contact card.</span>
+                </span>
+              </a>
             </div>
             <div>
               <p className="mm-eyebrow">Follow</p>
@@ -271,6 +281,9 @@ export function PersonalHeader() {
             </summary>
             <a href="/en/#about" onClick={closeMobile}>
               My story
+            </a>
+            <a href="/en/#press" onClick={closeMobile}>
+              Press kit
             </a>
             {SOCIALS.map((s) => (
               <a key={s.name} href={s.href} target="_blank" rel="noopener me" onClick={closeMobile}>

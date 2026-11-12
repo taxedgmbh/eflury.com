@@ -106,6 +106,11 @@ export function PersonalFooter() {
                 </a>
               </li>
               <li>
+                <a className="pf-link" href="/en/#press">
+                  Press kit
+                </a>
+              </li>
+              <li>
                 <a className="pf-link" href="/en/#contact">
                   Contact
                 </a>

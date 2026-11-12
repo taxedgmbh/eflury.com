@@ -48,3 +48,7 @@ npm run build
   site does: today no cookies, no analytics, no forms. Update it with any change
   that adds a third party, a cookie or data collection.
 - Real estate: type and region only, never addresses, tenants, values or financing.
+- The press-kit bios (`src/components/personal/PersonalPress.tsx`) are built only
+  from facts stated elsewhere on the page. Change them together.
+- Small text on navy uses `--text-blue` (#5ab8e8), not brand blue #1490d0
+  (4.0:1, fails WCAG AA). Lighthouse on 2026-11-12: mobile 95/100/100/100.

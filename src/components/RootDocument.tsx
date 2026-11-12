@@ -44,13 +44,6 @@ export const rootViewport: Viewport = {
 };
 
 /**
- * Runs before paint: restores the stored theme so the page does not flash the
- * wrong palette. Same localStorage key as the Astro site, so an existing
- * preference survives the migration.
- */
-const THEME_INIT = `(function(){try{var t=localStorage.getItem('theme');if(t==='dark'||t==='light'){document.documentElement.setAttribute('data-theme',t)}else if(matchMedia('(prefers-color-scheme: dark)').matches){document.documentElement.setAttribute('data-theme','dark')}}catch(e){}})()`;
-
-/**
  * Belt and braces for the service-worker retirement.
  *
  * /sw.js is a tombstone that unregisters itself, and it shipped to the old site
@@ -75,11 +68,6 @@ export function RootDocument({
 }) {
   return (
     <html lang={lang} suppressHydrationWarning>
-      {/* Shared with global-not-found, so it lives outside app/ — still a layout's <head>. */}
-      {/* eslint-disable-next-line @next/next/no-head-element */}
-      <head>
-        <script dangerouslySetInnerHTML={{ __html: THEME_INIT }} />
-      </head>
       <body className={bodyClassName}>
         {children}
         <Script id="sw-kill" strategy="afterInteractive">

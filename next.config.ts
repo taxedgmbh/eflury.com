@@ -63,6 +63,12 @@ const nextConfig: NextConfig = {
         headers: [{ key: 'Cache-Control', value: 'max-age=0, must-revalidate' }],
       },
       {
+        // A .vcf served as octet-stream downloads as an unknown file on iOS;
+        // text/vcard opens the "add contact" sheet.
+        source: '/press/:file.vcf',
+        headers: [{ key: 'Content-Type', value: 'text/vcard; charset=utf-8' }],
+      },
+      {
         source: '/:path*',
         headers: [
           { key: 'X-Content-Type-Options', value: 'nosniff' },

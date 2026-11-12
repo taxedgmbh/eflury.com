@@ -1,4 +1,5 @@
 import { ArrowRight } from 'lucide-react';
+import { preload } from 'react-dom';
 import { HeroNetwork } from './HeroNetwork';
 
 // Same photo-in-letters look as the social media word rows; scenery only, no faces.
@@ -28,6 +29,11 @@ function Rule({ className, flip = false }: { className: string; flip?: boolean }
 }
 
 export function BrandHero() {
+  // The first photo fill paints the H1, the page's largest element. As a CSS
+  // background it would only be found once the stylesheet is parsed.
+  preload(`/images/hero/${FILLS[0]}.webp`, { as: 'image', fetchPriority: 'high' });
+  // Same for the H1's typeface, referenced only from inside personal.css.
+  preload('/fonts/montserrat-latin-800-normal.woff2', { as: 'font', type: 'font/woff2', crossOrigin: 'anonymous' });
   return (
     <section className="bh" aria-labelledby="bh-title">
       <HeroNetwork />

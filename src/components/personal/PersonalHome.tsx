@@ -2,6 +2,7 @@ import { ArrowUpRight } from 'lucide-react';
 import { BrandWord } from './BrandWord';
 import { MediaYouTube } from './MediaYouTube';
 import { PersonalAbout } from './PersonalAbout';
+import { PersonalPress } from './PersonalPress';
 import { RealEstate } from './RealEstate';
 import { ROLES, SOCIALS } from './data';
 
@@ -29,7 +30,7 @@ const VENTURES = [
   },
 ];
 
-/** Ventures → EF Real Estate → YouTube → About → Follow along. */
+/** Ventures → EF Real Estate → YouTube → About → Press kit → Follow along. */
 export function PersonalHome() {
   return (
     <>
@@ -67,6 +68,8 @@ export function PersonalHome() {
       <MediaYouTube />
 
       <PersonalAbout />
+
+      <PersonalPress />
 
       <section className="band alt" aria-labelledby="follow-title">
         <div className="wrap narrow center">
