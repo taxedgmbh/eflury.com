@@ -127,10 +127,11 @@ export function PersonalPrivate() {
               <Sailboat size={22} />
             </span>
             <div>
-              <p className="pv-kicker">At sea</p>
+              <p className="pv-kicker">At sea · RYA Day Skipper</p>
               <h3>Sailing the Strait of Gibraltar.</h3>
               <p>
-                From La Duquesa in Spain to Gibraltar on a sailing yacht:
+                RYA Day Skipper since 2024. From La Duquesa in Spain to
+                Gibraltar on a sailing yacht:
                 tankers at anchor, tidal streams, and position fixes worked out
                 by hand on the paper chart. Sailing teaches what business does
                 too — read the conditions, plan the route, adjust early.

@@ -7,19 +7,19 @@ import { ROLES } from './data';
 const CHAPTERS = [
   {
     Icon: GraduationCap,
-    kicker: 'Foundation',
+    kicker: 'Foundation · 2012–2016',
     title: 'Finance',
-    text: 'MA in Finance-Economics from the University of Aberdeen, with an exchange year at the University of Wisconsin–La Crosse. Plus a certificate as a tax specialist.',
+    text: 'Master of Arts in Economics-Finance from the University of Aberdeen, with Upper Second Class Honours (2:1), including an exchange year at the University of Wisconsin–La Crosse (2013–2014). Plus a certificate as a tax specialist.',
   },
   {
     Icon: Workflow,
-    kicker: 'Experience',
+    kicker: 'Experience · 2017–2026',
     title: 'Automation',
-    text: 'Years spent automating finance processes in large organisations. That is where I learned to think in systems, not hours.',
+    text: 'Nine years in finance inside a global corporation: controlling, forecasting and transfer pricing first, then automating finance processes. That is where I learned to think in systems, not hours. Certified UiPath RPA Developer, Microsoft Power BI Data Analyst Associate and Alteryx Designer Core.',
   },
   {
     Icon: Rocket,
-    kicker: 'Today',
+    kicker: 'Today · since 2021',
     title: 'Entrepreneur',
     text: `Founded Taxed GmbH in 2021 and Skopa AG in 2026. Today ${ROLES.skopa} of Skopa AG, ${ROLES.taxed} of Taxed GmbH and ${ROLES.estate.toLowerCase()} of EF Real Estate.`,
   },
