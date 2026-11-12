@@ -1,0 +1,183 @@
+---
+import { getCollection } from 'astro:content';
+import { type Language } from '../../i18n/utils';
+import RealEstate from './RealEstate.astro';
+import PersonalAbout from './PersonalAbout.astro';
+import BrandWord from './BrandWord.astro';
+import MediaYouTube from './MediaYouTube.astro';
+import { ArrowRight, ArrowUpRight, Mail } from 'lucide-astro';
+
+interface Props { lang: Language }
+const { lang } = Astro.props;
+const de = lang === 'de';
+
+const t = de
+  ? {
+      eyebrow: 'Unternehmer',
+      title: 'Emanuel Flury',
+      lead: 'Ich baue Unternehmen dort, wo Finanzen, Steuern und Technologie zusammenkommen.',
+      ctaPrimary: 'Was ich aufbaue',
+      ctaSecondary: 'Kontakt',
+      venturesEyebrow: 'Unternehmen',
+      venturesTitle: 'Drei Bereiche. Ein Anspruch.',
+      venturesLead: 'Jeder Bereich hat seine eigene Website und seine eigenen Kanäle. Hier sehen Sie, wie sie zusammengehören.',
+      ventures: [
+        { tag: 'Technologie', name: 'Skopa AG', text: 'Künstliche Intelligenz und Automatisierung für Unternehmen. Rolle: Geschäftsführer.', href: 'https://skopa.ai', link: 'skopa.ai' },
+        { tag: 'Steuern', name: 'Taxed GmbH', text: 'Steuerberatung für Expats in der Schweiz, mit Büro in Biel/Bienne. Rolle: Geschäftsführer (Mandat).', href: 'https://taxed.ch', link: 'taxed.ch' },
+        { tag: 'Private Equity', name: 'EF Real Estate', text: 'Wohnliegenschaften, gehalten als Private Equity. Rolle: Eigentümer.', href: '#real-estate', link: 'Die drei Liegenschaften' },
+      ],
+      writingEyebrow: 'Notizen',
+      writingTitle: 'Was ich beim Aufbauen lerne.',
+      writingAll: 'Alle Beiträge',
+      aboutEyebrow: 'Über mich',
+      aboutTitle: 'Finanzen gelernt. Automatisierung gelebt. Jetzt Unternehmer.',
+      aboutText: 'Ich habe Finance-Economics an der University of Aberdeen studiert und viele Jahre Finanzprozesse in grossen Organisationen automatisiert. Heute setze ich dieses Wissen in meinen eigenen Unternehmen ein. Ich lebe in Grenchen.',
+      aboutLink: 'Meine Geschichte',
+      followTitle: 'Folgen Sie mir',
+      contactTitle: 'Lassen Sie uns sprechen.',
+      contactText: 'Für Gespräche, Partnerschaften oder Medienanfragen.',
+      contactCta: 'E-Mail schreiben',
+      archive: 'eFlury Consulting (Archiv)',
+    }
+  : {
+      eyebrow: 'Entrepreneur',
+      title: 'Emanuel Flury',
+      lead: 'I build companies where finance, tax and technology meet.',
+      ctaPrimary: 'What I build',
+      ctaSecondary: 'Get in touch',
+      venturesEyebrow: 'Ventures',
+      venturesTitle: 'Three businesses. One standard.',
+      venturesLead: 'Each business has its own website and channels. This is where they come together.',
+      ventures: [
+        { tag: 'Technology', name: 'Skopa AG', text: 'Artificial intelligence and automation for businesses. Role: Managing Director.', href: 'https://skopa.ai', link: 'skopa.ai' },
+        { tag: 'Tax', name: 'Taxed GmbH', text: 'Tax advice for expats living in Switzerland, with an office in Biel/Bienne. Role: Managing Director (Mandate).', href: 'https://taxed.ch', link: 'taxed.ch' },
+        { tag: 'Private equity', name: 'EF Real Estate', text: 'Residential property held as private equity. Role: Owner.', href: '#real-estate', link: 'The three properties' },
+      ],
+      writingEyebrow: 'Writing',
+      writingTitle: 'What I learn while building.',
+      writingAll: 'All articles',
+      aboutEyebrow: 'About',
+      aboutTitle: 'Trained in finance. Shaped by automation. Now building.',
+      aboutText: 'I studied Finance-Economics at the University of Aberdeen and spent years automating finance processes in large organisations. Today I put that experience to work in my own companies. I live in Grenchen.',
+      aboutLink: 'My story',
+      followTitle: 'Follow along',
+      contactTitle: "Let's talk.",
+      contactText: 'For conversations, partnerships or media requests.',
+      contactCta: 'Send an email',
+      archive: 'eFlury Consulting (archive)',
+    };
+
+const posts = (await getCollection('blog', ({ data }) => data.lang === lang && !data.draft))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime() || a.id.localeCompare(b.id))
+  .slice(0, 3);
+
+const socials = [
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/emanuelflury' },
+  { name: 'Instagram', href: 'https://www.instagram.com/emanuelaaronflury' },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@emanuelflury' },
+  { name: 'YouTube', href: 'https://www.youtube.com/@emanuelflury' },
+  { name: 'Facebook', href: 'https://www.facebook.com/emanuelflury' },
+  { name: 'GitHub', href: 'https://github.com/emanuelflury' },
+];
+const fmt = new Intl.DateTimeFormat(de ? 'de-CH' : 'en-GB', { day: 'numeric', month: 'long', year: 'numeric' });
+---
+
+<section id="ventures" class="band alt">
+  <div class="wrap">
+    <BrandWord word="BUILD" img="palms" />
+    <p class="eyebrow">{t.venturesEyebrow}</p>
+    <h2>{t.venturesTitle}</h2>
+    <p class="section-lead">{t.venturesLead}</p>
+    <div class="v-grid">
+      {t.ventures.map((v) => (
+        <article class="v-card">
+          <span class="v-tag">{v.tag}</span>
+          <h3>{v.name}</h3>
+          <p>{v.text}</p>
+          {v.href && (
+            <a href={v.href} target={v.href.startsWith('#') ? undefined : '_blank'} rel="noopener" class="v-link">{v.link} <ArrowUpRight size={16} /></a>
+          )}
+        </article>
+      ))}
+    </div>
+  </div>
+</section>
+
+<RealEstate lang={lang} />
+
+<MediaYouTube lang={lang} />
+
+<section id="writing" class="band">
+  <div class="wrap">
+    <BrandWord word="LEARN" img="beams" />
+    <p class="eyebrow">{t.writingEyebrow}</p>
+    <h2>{t.writingTitle}</h2>
+    <div class="w-grid">
+      {posts.map((p) => (
+        <a href={`/${lang}/blog/${p.id.replace(/\.md$/, '')}/`} class="w-card">
+          <time datetime={p.data.pubDate.toISOString()}>{fmt.format(p.data.pubDate)}</time>
+          <h3>{p.data.title}</h3>
+          <p>{p.data.description}</p>
+        </a>
+      ))}
+    </div>
+    <a href={`/${lang}/blog/`} class="text-link">{t.writingAll} <ArrowRight size={16} /></a>
+  </div>
+</section>
+
+<PersonalAbout lang={lang} />
+
+<section class="band alt">
+  <div class="wrap narrow center">
+    <BrandWord word="DREAM" img="sky" align="center" />
+    <h2 class="h-small">{t.followTitle}</h2>
+    <ul class="s-row">
+      {socials.map((s) => (
+        <li><a href={s.href} target="_blank" rel="noopener me">{s.name}</a></li>
+      ))}
+    </ul>
+  </div>
+</section>
+
+<style>
+  .wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--spacing-lg); }
+  .wrap.narrow { max-width: 760px; }
+  .center { text-align: center; }
+  .band { position: relative; padding: var(--spacing-4xl) 0; background: var(--surface-navy); color: var(--eflury-white); }
+  .band.alt { background: linear-gradient(rgb(0 0 0 / 0.18), rgb(0 0 0 / 0.18)), var(--surface-navy); }
+  .band + :global(section), :global(section) + .band { border-top: 1px solid rgb(255 255 255 / 0.06); }
+  .eyebrow { color: var(--eflury-blue); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.14em; text-transform: uppercase; margin: 0 0 var(--spacing-sm); }
+  h2 { font-size: clamp(2rem, 4vw, 3rem); line-height: 1.1; margin: 0 0 var(--spacing-md); color: var(--eflury-white); }
+  .h-small { font-size: 1.5rem; }
+  .section-lead { font-size: 1.2rem; line-height: 1.6; color: var(--eflury-white); opacity: 0.8; max-width: 640px; margin: 0 0 var(--spacing-xl); }
+
+  .v-grid, .w-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); }
+  .v-card, .w-card {
+    background: rgb(255 255 255 / 0.04); border: 1px solid rgb(255 255 255 / 0.09); border-radius: var(--radius-lg); padding: var(--spacing-xl);
+    display: flex; flex-direction: column; gap: var(--spacing-sm); color: var(--eflury-white);
+    transition: border-color var(--transition-base), transform var(--transition-base), background var(--transition-base);
+  }
+  .v-card:hover, .w-card:hover { border-color: var(--eflury-blue); background: rgb(255 255 255 / 0.07); transform: translateY(-3px); }
+  .v-tag { color: var(--eflury-blue); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .v-card h3, .w-card h3 { margin: 0; font-size: 1.4rem; color: var(--eflury-white); }
+  .v-card p, .w-card p { margin: 0; color: var(--eflury-white); opacity: 0.75; line-height: 1.55; }
+  .v-link, .text-link { display: inline-flex; align-items: center; gap: 6px; color: var(--eflury-white); font-weight: 600; text-decoration: none; margin-top: auto; }
+  .v-link:hover, .text-link:hover { color: var(--teal-text); }
+  .text-link { margin-top: var(--spacing-xl); }
+  .w-card { text-decoration: none; }
+  .w-card time { color: var(--eflury-blue); font-size: 0.85rem; font-weight: 600; }
+  .w-card h3 { font-size: 1.2rem; }
+
+  .s-row { list-style: none; padding: 0; margin: var(--spacing-lg) 0 0; display: flex; flex-wrap: wrap; justify-content: center; gap: var(--spacing-sm); }
+  .s-row a {
+    display: inline-flex; align-items: center; padding: 0 var(--spacing-lg); min-height: 44px;
+    border: 1px solid rgb(255 255 255 / 0.2); border-radius: var(--radius-full); color: var(--eflury-white); text-decoration: none; font-weight: 500;
+  }
+  .s-row a:hover { border-color: var(--eflury-blue); }
+
+  @media (max-width: 860px) {
+    .v-grid, .w-grid { grid-template-columns: 1fr; }
+    .band { padding: var(--spacing-3xl) 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .v-card, .w-card { transition: none; } }
+</style>

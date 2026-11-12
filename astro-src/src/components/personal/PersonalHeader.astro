@@ -1,0 +1,459 @@
+---
+import { getCollection } from 'astro:content';
+import { type Language } from '../../i18n/utils';
+import { topicOrder, topicLabels, topicFor, readingMinutes } from '../../i18n/blog-topics';
+import { ArrowRight, ArrowUpRight, ChevronDown, Menu, X, Home, BookOpen, User, Archive, Mail } from 'lucide-astro';
+
+interface Props { lang: Language }
+const { lang } = Astro.props;
+const de = lang === 'de';
+const base = `/${lang}/`;
+
+const t = de
+  ? {
+      ventures: 'Unternehmen', writing: 'Notizen', about: 'Über mich', contact: 'Kontakt', menu: 'Menü', close: 'Schliessen',
+      vIntro: 'Drei Bereiche. Ein Anspruch.', vIntroText: 'Wie Technologie, Steuern und Immobilien zusammengehören.', vIntroLink: 'Übersicht',
+      skopa: 'Künstliche Intelligenz und Automatisierung für Unternehmen.',
+      taxed: 'Steuerberatung für Expats in der Schweiz.',
+      estate: 'Wohnliegenschaften, gehalten als Private Equity.', estateName: 'EF Real Estate',
+      latest: 'Neueste Beiträge', topics: 'Themen', all: 'Alle Beiträge',
+      story: 'Meine Geschichte', storyText: 'Woher ich komme und woran ich arbeite.',
+      archive: 'eFlury Consulting (Archiv)', archiveText: 'Die frühere Beratungswebsite, unverändert archiviert.',
+      follow: 'Folgen', newest: 'Neu', talk: 'Gespräch vereinbaren', owner: 'Eigentümer',
+      tagTech: 'Technologie', tagTax: 'Steuern', tagEstate: 'Private Equity', roleMd: 'Geschäftsführer', roleMdMandate: 'Geschäftsführer (Mandat)',
+      roleLine: 'Unternehmer · Grenchen', lessons: 'Notizen', lessonsText: 'Was ich beim Aufbauen lerne.',
+    }
+  : {
+      ventures: 'Ventures', writing: 'Writing', about: 'About', contact: 'Contact', menu: 'Menu', close: 'Close',
+      vIntro: 'Three businesses. One standard.', vIntroText: 'How technology, tax and real estate fit together.', vIntroLink: 'Overview',
+      skopa: 'Artificial intelligence and automation for businesses.',
+      taxed: 'Tax advice for expats living in Switzerland.',
+      estate: 'Residential property held as private equity.', estateName: 'EF Real Estate',
+      latest: 'Latest articles', topics: 'Topics', all: 'All articles',
+      story: 'My story', storyText: 'Where I come from and what I work on.',
+      archive: 'eFlury Consulting (archive)', archiveText: 'The former consulting website, kept as an archive.',
+      follow: 'Follow', newest: 'New', talk: 'Start a conversation', owner: 'Owner',
+      tagTech: 'Technology', tagTax: 'Tax', tagEstate: 'Private equity', roleMd: 'Managing Director', roleMdMandate: 'Managing Director (Mandate)',
+      roleLine: 'Entrepreneur · Grenchen', lessons: 'Writing', lessonsText: 'What I learn while building.',
+    };
+
+const posts = (await getCollection('blog', ({ data }) => data.lang === lang && !data.draft))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime() || a.id.localeCompare(b.id));
+const latest = posts.slice(0, 3);
+const [featured, ...more] = latest;
+const counts: Record<string, number> = {};
+posts.forEach((p) => { const k = topicFor(p.data.translationKey); counts[k] = (counts[k] ?? 0) + 1; });
+const fmt = new Intl.DateTimeFormat(de ? 'de-CH' : 'en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+const socials = [
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/emanuelflury', handle: 'in/emanuelflury' },
+  { name: 'Instagram', href: 'https://www.instagram.com/emanuelaaronflury', handle: '@emanuelaaronflury' },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@emanuelflury', handle: '@emanuelflury' },
+  { name: 'YouTube', href: 'https://www.youtube.com/@emanuelflury', handle: '@emanuelflury' },
+  { name: 'Facebook', href: 'https://www.facebook.com/emanuelflury', handle: 'emanuelflury' },
+  { name: 'GitHub', href: 'https://github.com/emanuelflury', handle: 'emanuelflury' },
+];
+const archiveHref = `${base}services/`;
+---
+
+<header class="ph" data-ph>
+  <nav class="ph-inner" aria-label="Main">
+    <a href={base} class="ph-brand">
+      <img src="/images/ef-mark-white.svg" alt="" width="35" height="28" />
+      <span>Emanuel Flury</span>
+    </a>
+
+    <ul class="ph-links">
+      <li><button type="button" class="ph-trigger" aria-expanded="false" aria-controls="mm-ventures" data-mm="ventures">{t.ventures} <ChevronDown size={16} /></button></li>
+      <li><button type="button" class="ph-trigger" aria-expanded="false" aria-controls="mm-writing" data-mm="writing">{t.writing} <ChevronDown size={16} /></button></li>
+      <li><button type="button" class="ph-trigger" aria-expanded="false" aria-controls="mm-about" data-mm="about">{t.about} <ChevronDown size={16} /></button></li>
+      <li><a href={`${base}#contact`} class="ph-cta">{t.contact}</a></li>
+    </ul>
+
+    <button type="button" class="ph-burger" aria-expanded="false" aria-controls="ph-mobile" aria-label={t.menu} data-burger>
+      <span class="ph-burger-open"><Menu size={24} /></span>
+      <span class="ph-burger-close"><X size={24} /></span>
+    </button>
+  </nav>
+
+  <!-- Mega menu panels (desktop) -->
+  <div class="mm" id="mm-ventures" data-panel="ventures" hidden>
+    <div class="mm-inner mm-grid-4">
+      <div class="mm-feature">
+        <span class="mm-cut" style="background-image:url(/images/hero/palms.webp)" aria-hidden="true">BUILD</span>
+        <p class="mm-feature-title">{t.vIntro}</p>
+        <p class="mm-muted">{t.vIntroText}</p>
+        <a href={`${base}#ventures`} class="mm-more">{t.vIntroLink} <ArrowRight size={16} /></a>
+      </div>
+      <a href="https://skopa.ai" target="_blank" rel="noopener" class="mm-card mm-venture">
+        <span class="mm-venture-top"><img src="/images/brands/skopa-white.svg" alt="Skopa" class="mm-logo-skopa" width="104" height="35" /><ArrowUpRight size={16} /></span>
+        <span class="mm-tag">{t.tagTech}</span>
+        <span class="mm-card-title">Skopa AG</span>
+        <span class="mm-muted">{t.skopa}</span>
+        <span class="mm-meta"><span>{t.roleMd}</span><span class="mm-url">skopa.ai</span></span>
+      </a>
+      <a href="https://taxed.ch" target="_blank" rel="noopener" class="mm-card mm-venture">
+        <span class="mm-venture-top"><span class="mm-logo-taxed"><img src="/images/brands/taxed-icon.webp" alt="" width="36" height="36" />Taxed</span><ArrowUpRight size={16} /></span>
+        <span class="mm-tag">{t.tagTax}</span>
+        <span class="mm-card-title">Taxed GmbH</span>
+        <span class="mm-muted">{t.taxed}</span>
+        <span class="mm-meta"><span>{t.roleMdMandate}</span><span class="mm-url">taxed.ch</span></span>
+      </a>
+      <a href={`${base}#real-estate`} class="mm-card mm-venture">
+        <span class="mm-venture-top"><img src="/images/brands/ef-real-estate-mark.svg" alt="" width="42" height="44" /></span>
+        <span class="mm-tag">{t.tagEstate}</span>
+        <span class="mm-card-title">{t.estateName}</span>
+        <span class="mm-muted">{t.estate}</span>
+        <span class="mm-meta"><span>{t.owner}</span></span>
+      </a>
+    </div>
+    <div class="mm-strip">
+      <div class="mm-strip-inner">
+        <span class="mm-rule" aria-hidden="true"></span>
+        <span>TECH <b>·</b> TAX <b>·</b> REAL ESTATE</span>
+        <a href={`${base}#contact`}>{t.talk} <ArrowRight size={14} /></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mm" id="mm-writing" data-panel="writing" hidden>
+    <div class="mm-inner mm-grid-writing">
+      {featured && (
+        <a href={`${base}blog/${featured.id}/`} class="mm-featured">
+          <span class="mm-featured-img" style="background-image:url(/images/hero/coast.webp)" aria-hidden="true"></span>
+          <span class="mm-featured-body">
+            <span class="mm-tag">{t.newest} · {fmt.format(featured.data.pubDate)} · {readingMinutes(featured.body)} min</span>
+            <span class="mm-featured-title">{featured.data.title}</span>
+            <span class="mm-muted mm-clamp">{featured.data.description}</span>
+          </span>
+        </a>
+      )}
+      <div>
+        <p class="mm-eyebrow">{t.latest}</p>
+        <ul class="mm-list">
+          {more.map((p) => (
+            <li>
+              <a href={`${base}blog/${p.id}/`} class="mm-article">
+                <BookOpen size={16} />
+                <span><span class="mm-article-title">{p.data.title}</span><span class="mm-article-meta">{fmt.format(p.data.pubDate)} · {readingMinutes(p.body)} min</span></span>
+              </a>
+            </li>
+          ))}
+        </ul>
+      </div>
+      <div>
+        <p class="mm-eyebrow">{t.topics}</p>
+        <ul class="mm-list mm-topics">
+          {topicOrder.map((k) => (
+            <li><a href={`${base}blog/#${k}`} class="mm-topic"><span>{topicLabels[k][de ? 'de' : 'en']}</span><span class="mm-count">{counts[k] ?? 0}</span></a></li>
+          ))}
+        </ul>
+        <a href={`${base}blog/`} class="mm-more">{t.all} ({posts.length}) <ArrowRight size={16} /></a>
+      </div>
+    </div>
+    <div class="mm-strip">
+      <div class="mm-strip-inner">
+        <span class="mm-rule" aria-hidden="true"></span>
+        <span>TECH <b>·</b> TAX <b>·</b> REAL ESTATE</span>
+        <a href={`${base}#contact`}>{t.talk} <ArrowRight size={14} /></a>
+      </div>
+    </div>
+  </div>
+
+  <div class="mm" id="mm-about" data-panel="about" hidden>
+    <div class="mm-inner mm-grid-about">
+      <a href={`${base}about/`} class="mm-person">
+        <img src="/images/portraits/emanuel-aaron-flury-portrait.webp" alt="Emanuel Flury" width="714" height="1616" loading="lazy" />
+        <span class="mm-person-body">
+          <span class="mm-feature-title">Emanuel Flury</span>
+          <span class="mm-tag">{t.roleLine}</span>
+          <span class="mm-quote">Life <b>·</b> Lessons <b>·</b> Building companies</span>
+        </span>
+      </a>
+      <div class="mm-stack">
+        <a href={`${base}about/`} class="mm-row">
+          <span class="mm-icon"><User size={20} /></span>
+          <span><span class="mm-card-title">{t.story}</span><span class="mm-muted">{t.storyText}</span></span>
+        </a>
+        <a href={`${base}#writing`} class="mm-row">
+          <span class="mm-icon"><BookOpen size={20} /></span>
+          <span><span class="mm-card-title">{t.lessons}</span><span class="mm-muted">{t.lessonsText}</span></span>
+        </a>
+        <a href={archiveHref} class="mm-row">
+          <span class="mm-icon"><Archive size={20} /></span>
+          <span><span class="mm-card-title">{t.archive}</span><span class="mm-muted">{t.archiveText}</span></span>
+        </a>
+      </div>
+      <div>
+        <p class="mm-eyebrow">{t.follow}</p>
+        <ul class="mm-list mm-social">
+          {socials.map((s) => (
+            <li><a href={s.href} target="_blank" rel="noopener me"><span class="mm-social-name">{s.name} <ArrowUpRight size={13} /></span><span class="mm-handle">{s.handle}</span></a></li>
+          ))}
+        </ul>
+        <a href="mailto:me@eflury.com" class="mm-mail"><Mail size={16} /> me@eflury.com</a>
+      </div>
+    </div>
+    <div class="mm-strip">
+      <div class="mm-strip-inner">
+        <span class="mm-rule" aria-hidden="true"></span>
+        <span>TECH <b>·</b> TAX <b>·</b> REAL ESTATE</span>
+        <a href={`${base}#contact`}>{t.talk} <ArrowRight size={14} /></a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Mobile menu -->
+  <div class="ph-mobile" id="ph-mobile" hidden>
+    <details class="pm-group">
+      <summary>{t.ventures} <ChevronDown size={18} /></summary>
+      <a href="https://skopa.ai" target="_blank" rel="noopener">Skopa AG <ArrowUpRight size={14} /></a>
+      <a href="https://taxed.ch" target="_blank" rel="noopener">Taxed GmbH <ArrowUpRight size={14} /></a>
+      <a href={`${base}#real-estate`}>{t.estateName}</a>
+    </details>
+    <details class="pm-group">
+      <summary>{t.writing} <ChevronDown size={18} /></summary>
+      {latest.map((p) => <a href={`${base}blog/${p.id}/`}>{p.data.title}</a>)}
+      <a href={`${base}blog/`} class="pm-strong">{t.all}</a>
+    </details>
+    <details class="pm-group">
+      <summary>{t.about} <ChevronDown size={18} /></summary>
+      <a href={`${base}about/`}>{t.story}</a>
+      <a href={archiveHref}>{t.archive}</a>
+      {socials.map((s) => <a href={s.href} target="_blank" rel="noopener me">{s.name}</a>)}
+    </details>
+    <a href={`${base}#contact`} class="pm-cta">{t.contact}</a>
+  </div>
+</header>
+<div class="mm-scrim" data-scrim hidden></div>
+
+<script>
+  const header = document.querySelector<HTMLElement>('[data-ph]');
+  if (header) {
+    const triggers = [...header.querySelectorAll<HTMLButtonElement>('[data-mm]')];
+    const scrim = document.querySelector<HTMLElement>('[data-scrim]');
+    let closeTimer: number | undefined;
+    let hoverOpenedAt = 0;
+
+    const panelFor = (b: HTMLButtonElement) => header.querySelector<HTMLElement>(`[data-panel="${b.dataset.mm}"]`);
+    const closeAll = () => {
+      triggers.forEach((b) => { b.setAttribute('aria-expanded', 'false'); const p = panelFor(b); if (p) p.hidden = true; });
+      if (scrim) scrim.hidden = true;
+      header.classList.remove('is-open');
+    };
+    const open = (b: HTMLButtonElement) => {
+      window.clearTimeout(closeTimer);
+      triggers.forEach((o) => { if (o !== b) { o.setAttribute('aria-expanded', 'false'); const p = panelFor(o); if (p) p.hidden = true; } });
+      b.setAttribute('aria-expanded', 'true');
+      const p = panelFor(b); if (p) p.hidden = false;
+      if (scrim) scrim.hidden = false;
+      header.classList.add('is-open');
+    };
+
+    triggers.forEach((b) => {
+      b.addEventListener('click', () => {
+        // a click right after hover-open should keep the panel open, not toggle it shut
+        if (b.getAttribute('aria-expanded') === 'true' && Date.now() - hoverOpenedAt > 400) closeAll();
+        else open(b);
+      });
+      b.addEventListener('pointerenter', (e) => {
+        if ((e as PointerEvent).pointerType === 'mouse' && b.getAttribute('aria-expanded') !== 'true') { hoverOpenedAt = Date.now(); open(b); }
+      });
+    });
+    header.addEventListener('pointerleave', (e) => {
+      if ((e as PointerEvent).pointerType === 'mouse') closeTimer = window.setTimeout(closeAll, 180);
+    });
+    header.addEventListener('pointerenter', () => window.clearTimeout(closeTimer));
+    scrim?.addEventListener('click', closeAll);
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        const active = triggers.find((b) => b.getAttribute('aria-expanded') === 'true');
+        closeAll(); active?.focus();
+      }
+    });
+    header.querySelectorAll('.mm a').forEach((a) => a.addEventListener('click', closeAll));
+
+    const burger = header.querySelector<HTMLButtonElement>('[data-burger]');
+    const mobile = header.querySelector<HTMLElement>('#ph-mobile');
+    burger?.addEventListener('click', () => {
+      const isOpen = burger.getAttribute('aria-expanded') === 'true';
+      burger.setAttribute('aria-expanded', String(!isOpen));
+      if (mobile) mobile.hidden = isOpen;
+      header.classList.toggle('is-mobile-open', !isOpen);
+      document.documentElement.style.overflow = isOpen ? '' : 'hidden';
+    });
+    mobile?.querySelectorAll('a').forEach((a) => a.addEventListener('click', () => {
+      burger?.setAttribute('aria-expanded', 'false');
+      mobile.hidden = true;
+      header.classList.remove('is-mobile-open');
+      document.documentElement.style.overflow = '';
+    }));
+  }
+</script>
+
+<style>
+  @font-face { font-family: 'Montserrat'; font-weight: 800; font-display: swap; src: url('/fonts/montserrat-latin-800-normal.woff2') format('woff2'); }
+  .ph {
+    position: fixed;
+    inset: 0 0 auto 0;
+    z-index: 100;
+    background: color-mix(in srgb, var(--surface-navy) 78%, transparent);
+    backdrop-filter: saturate(180%) blur(20px);
+    -webkit-backdrop-filter: saturate(180%) blur(20px);
+    border-bottom: 1px solid rgb(255 255 255 / 0.08);
+    color: var(--eflury-white);
+  }
+  .ph.is-open, .ph.is-mobile-open { background: var(--surface-navy); }
+  .ph-inner {
+    max-width: 1200px;
+    height: var(--header-height);
+    margin: 0 auto;
+    padding: 0 var(--spacing-lg);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .ph-brand {
+    display: inline-flex; align-items: center; gap: var(--spacing-sm);
+    font-weight: 700; font-size: 1.05rem; color: var(--eflury-white); text-decoration: none;
+  }
+  .ph-links { display: flex; align-items: center; gap: var(--spacing-sm); list-style: none; margin: 0; padding: 0; }
+  .ph-trigger {
+    display: inline-flex; align-items: center; gap: 4px;
+    background: none; border: 0; cursor: pointer;
+    color: var(--eflury-white); opacity: 0.82; font: inherit; font-size: 0.95rem;
+    padding: 0 var(--spacing-md); border-radius: var(--radius-full);
+  }
+  .ph-trigger:hover, .ph-trigger[aria-expanded='true'] { opacity: 1; background: rgb(255 255 255 / 0.08); }
+  .ph-trigger :global(svg) { transition: transform var(--transition-fast); }
+  .ph-trigger[aria-expanded='true'] :global(svg) { transform: rotate(180deg); }
+  .ph-cta {
+    display: inline-flex; align-items: center; margin-left: var(--spacing-sm);
+    background: var(--action-teal); color: var(--eflury-white); text-decoration: none;
+    padding: 0 var(--spacing-lg); border-radius: var(--radius-full); font-weight: 600; font-size: 0.95rem;
+  }
+
+  /* Mega menu panels */
+  .mm {
+    border-top: 1px solid rgb(255 255 255 / 0.08);
+    background: var(--surface-navy);
+    animation: mm-in var(--transition-base) var(--ease-out);
+  }
+  @keyframes mm-in { from { opacity: 0; transform: translateY(-6px); } to { opacity: 1; transform: none; } }
+  .mm-inner { max-width: 1200px; margin: 0 auto; padding: var(--spacing-2xl) var(--spacing-lg) var(--spacing-3xl); display: grid; gap: var(--spacing-lg); }
+  .mm-grid-4 { grid-template-columns: 1.2fr 1fr 1fr 1fr; }
+  .mm-grid-writing { grid-template-columns: 1.4fr 1fr; gap: var(--spacing-3xl); }
+  .mm-grid-about { grid-template-columns: 1fr 1fr 1fr; }
+  .mm-eyebrow { margin: 0 0 var(--spacing-md); color: var(--eflury-blue); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; }
+  .mm-feature-title { margin: 0 0 var(--spacing-sm); font-size: 1.5rem; font-weight: 700; line-height: 1.2; color: var(--eflury-white); }
+  .mm-muted { color: var(--eflury-white); opacity: 0.68; font-size: 0.92rem; line-height: 1.5; margin: 0; }
+  .mm-more { display: inline-flex; align-items: center; gap: 6px; margin-top: var(--spacing-lg); color: var(--eflury-white); font-weight: 600; text-decoration: none; }
+  .mm-more:hover { color: var(--teal-text); }
+  .mm-card {
+    display: flex; flex-direction: column; gap: var(--spacing-sm);
+    padding: var(--spacing-lg); border-radius: var(--radius-lg);
+    background: rgb(255 255 255 / 0.04); border: 1px solid rgb(255 255 255 / 0.08);
+    color: var(--eflury-white); text-decoration: none;
+    transition: background var(--transition-fast), border-color var(--transition-fast), transform var(--transition-fast);
+  }
+  .mm-card:hover { background: rgb(255 255 255 / 0.08); border-color: var(--eflury-blue); transform: translateY(-2px); }
+  .mm-icon { display: inline-flex; width: 40px; height: 40px; align-items: center; justify-content: center; border-radius: var(--radius-md); background: rgb(255 255 255 / 0.08); color: var(--eflury-blue); }
+  .mm-card-title { display: inline-flex; align-items: center; gap: 6px; font-weight: 700; font-size: 1.05rem; }
+  .mm-url { margin-top: auto; color: var(--eflury-blue); font-size: 0.85rem; font-weight: 600; }
+  .mm-list { list-style: none; margin: 0; padding: 0; display: grid; gap: var(--spacing-xs); }
+  .mm-article { display: flex; align-items: flex-start; gap: var(--spacing-sm); padding: var(--spacing-sm) 0; color: var(--eflury-white); text-decoration: none; line-height: 1.4; }
+  .mm-article :global(svg) { flex: none; margin-top: 3px; color: var(--eflury-blue); }
+  .mm-article:hover span { text-decoration: underline; text-underline-offset: 3px; }
+  .mm-chips { display: flex; flex-wrap: wrap; gap: var(--spacing-sm); }
+  .mm-chip { display: inline-flex; align-items: center; padding: 0 var(--spacing-md); border-radius: var(--radius-full); border: 1px solid rgb(255 255 255 / 0.18); color: var(--eflury-white); text-decoration: none; font-size: 0.9rem; }
+  .mm-chip:hover { border-color: var(--eflury-blue); }
+  .mm-social { grid-template-columns: 1fr 1fr; }
+  .mm-social a { display: inline-flex; align-items: center; gap: 4px; color: var(--eflury-white); opacity: 0.82; text-decoration: none; }
+  .mm-social a:hover { opacity: 1; }
+
+  /* Enriched panel parts */
+  .mm-cut {
+    display: block; margin-bottom: var(--spacing-md);
+    font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 4.2rem; line-height: 0.9; letter-spacing: 0.01em;
+    color: transparent; background-size: 160% auto; background-position: 30% 70%;
+    -webkit-background-clip: text; background-clip: text;
+    animation: mm-pan 10s ease-in-out infinite alternate;
+  }
+  @keyframes mm-pan { to { background-position: 80% 40%; } }
+  .mm-venture { min-height: 250px; }
+  .mm-venture-top { display: flex; align-items: center; justify-content: space-between; min-height: 40px; margin-bottom: var(--spacing-xs); color: var(--eflury-blue); }
+  .mm-logo-skopa { height: 30px; width: auto; }
+  .mm-logo-taxed { display: inline-flex; align-items: center; gap: 10px; font-weight: 600; font-size: 1.35rem; color: var(--eflury-white); }
+  .mm-logo-taxed img { border-radius: 8px; }
+  .mm-tag { color: var(--eflury-blue); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .mm-meta { margin-top: auto; padding-top: var(--spacing-md); border-top: 1px solid rgb(255 255 255 / 0.08); display: flex; flex-direction: column; gap: 2px; min-height: 52px; font-size: 0.85rem; font-weight: 600; color: var(--eflury-white); }
+  .mm-meta .mm-url { font-weight: 600; }
+  .mm-strip { border-top: 1px solid rgb(255 255 255 / 0.08); }
+  .mm-strip-inner { max-width: 1200px; margin: 0 auto; padding: var(--spacing-md) var(--spacing-lg); display: flex; align-items: center; gap: var(--spacing-lg); font-size: 0.8rem; font-weight: 600; letter-spacing: 0.2em; color: var(--eflury-white); opacity: 0.85; }
+  .mm-strip-inner b { color: var(--eflury-blue); }
+  .mm-strip-inner a { margin-left: auto; display: inline-flex; align-items: center; gap: 6px; letter-spacing: 0; color: var(--eflury-white); text-decoration: none; font-size: 0.9rem; }
+  .mm-rule { position: relative; width: 120px; height: 2px; background: var(--eflury-blue); opacity: 0.6; }
+  .mm-rule::after { content: ''; position: absolute; right: -4px; top: -4px; width: 10px; height: 10px; border-radius: 50%; background: var(--eflury-blue); }
+
+  .mm-grid-writing { grid-template-columns: 1.3fr 1.2fr 1fr; gap: var(--spacing-2xl); }
+  .mm-featured { display: flex; flex-direction: column; border-radius: var(--radius-lg); overflow: hidden; background: rgb(255 255 255 / 0.04); border: 1px solid rgb(255 255 255 / 0.08); color: var(--eflury-white); text-decoration: none; transition: border-color var(--transition-fast), transform var(--transition-fast); }
+  .mm-featured:hover { border-color: var(--eflury-blue); transform: translateY(-2px); }
+  .mm-featured-img { height: 120px; background-size: cover; background-position: center; }
+  .mm-featured-body { display: flex; flex-direction: column; gap: var(--spacing-sm); padding: var(--spacing-lg); }
+  .mm-featured-title { font-weight: 700; font-size: 1.15rem; line-height: 1.3; }
+  .mm-clamp { display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+  .mm-article-title { display: block; }
+  .mm-article-meta { display: block; margin-top: 2px; font-size: 0.8rem; opacity: 0.6; }
+  .mm-topics { gap: 0; }
+  .mm-topic { display: flex; align-items: center; justify-content: space-between; padding: var(--spacing-sm) 0; border-bottom: 1px solid rgb(255 255 255 / 0.08); color: var(--eflury-white); text-decoration: none; font-size: 0.95rem; }
+  .mm-topic:hover span:first-child { text-decoration: underline; text-underline-offset: 3px; }
+  .mm-count { min-width: 28px; text-align: center; padding: 2px 8px; border-radius: var(--radius-full); background: rgb(255 255 255 / 0.08); font-size: 0.78rem; font-weight: 600; }
+
+  .mm-grid-about { grid-template-columns: 1fr 1.3fr 1fr; gap: var(--spacing-2xl); }
+  .mm-person { position: relative; display: flex; align-items: flex-end; min-height: 270px; border-radius: var(--radius-lg); overflow: hidden; text-decoration: none; color: var(--eflury-white); background: rgb(255 255 255 / 0.04); border: 1px solid rgb(255 255 255 / 0.08); }
+  .mm-person img { position: absolute; right: 8px; top: var(--spacing-md); height: 520px; width: auto; }
+  .mm-person-body { position: relative; display: flex; flex-direction: column; gap: 6px; padding: var(--spacing-lg); width: 100%; background: linear-gradient(transparent, var(--surface-navy) 55%); }
+  .mm-quote { font-size: 0.85rem; opacity: 0.85; }
+  .mm-quote b { color: var(--eflury-blue); }
+  .mm-stack { display: grid; gap: var(--spacing-sm); }
+  .mm-row { display: flex; gap: var(--spacing-md); align-items: flex-start; padding: var(--spacing-md); border-radius: var(--radius-md); color: var(--eflury-white); text-decoration: none; transition: background var(--transition-fast); }
+  .mm-row:hover { background: rgb(255 255 255 / 0.06); }
+  .mm-row .mm-card-title, .mm-row .mm-muted { display: block; }
+  .mm-row .mm-icon { flex: none; }
+  .mm-social { grid-template-columns: 1fr 1fr; row-gap: var(--spacing-md); }
+  .mm-social a { display: flex; flex-direction: column; align-items: flex-start; justify-content: flex-start; text-align: left; opacity: 1; }
+  .mm-social-name { display: inline-flex; align-items: center; gap: 4px; font-weight: 600; }
+  .mm-handle { font-size: 0.78rem; opacity: 0.6; }
+  .mm-mail { display: inline-flex; align-items: center; gap: 8px; margin-top: var(--spacing-lg); padding: 0 var(--spacing-md); min-height: 40px; border-radius: var(--radius-full); border: 1px solid rgb(255 255 255 / 0.18); color: var(--eflury-white); text-decoration: none; font-size: 0.9rem; }
+  .mm-mail:hover { border-color: var(--eflury-blue); }
+  .mm-scrim { position: fixed; inset: 0; z-index: 99; background: rgb(0 0 0 / 0.35); }
+
+  /* Mobile */
+  .ph-burger { display: none; background: none; border: 0; color: var(--eflury-white); cursor: pointer; }
+  .ph-burger-close { display: none; }
+  .ph-burger[aria-expanded='true'] .ph-burger-open { display: none; }
+  .ph-burger[aria-expanded='true'] .ph-burger-close { display: inline-flex; }
+  .ph-mobile { height: calc(100svh - var(--header-height)); overflow-y: auto; padding: var(--spacing-lg); background: var(--surface-navy); }
+  .pm-group { border-bottom: 1px solid rgb(255 255 255 / 0.1); }
+  .pm-group summary {
+    list-style: none; display: flex; align-items: center; justify-content: space-between;
+    min-height: 56px; font-size: 1.25rem; font-weight: 700; cursor: pointer;
+  }
+  .pm-group summary::-webkit-details-marker { display: none; }
+  .pm-group[open] summary :global(svg) { transform: rotate(180deg); }
+  .pm-group a { display: flex; align-items: center; gap: 4px; padding: var(--spacing-sm) 0; color: var(--eflury-white); opacity: 0.82; text-decoration: none; }
+  .pm-group[open] { padding-bottom: var(--spacing-md); }
+  .pm-group a.pm-strong { opacity: 1; font-weight: 600; }
+  .pm-cta { display: flex; align-items: center; justify-content: center; margin-top: var(--spacing-xl); min-height: 52px; border-radius: var(--radius-full); background: var(--action-teal); color: var(--eflury-white); text-decoration: none; font-weight: 600; font-size: 17px; }
+
+  @media (max-width: 900px) {
+    .ph-links { display: none; }
+    .ph-burger { display: inline-flex; align-items: center; justify-content: center; }
+    .mm { display: none; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mm-cut { animation: none; }
+    .mm { animation: none; }
+    .mm-card { transition: none; }
+  }
+</style>

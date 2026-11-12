@@ -1,45 +1,27 @@
 ---
 import MainLayout from '../../layouts/MainLayout.astro';
-import Header from '../../components/Header.astro';
-import Hero from '../../components/Hero.astro';
-import TrustSignals from '../../components/TrustSignals.astro';
-import ProofStrip from '../../components/ProofStrip.astro';
-import ServiceLifecycle from '../../components/ServiceLifecycle.astro';
-import IndustriesRouter from '../../components/IndustriesRouter.astro';
-import MethodTrustBand from '../../components/MethodTrustBand.astro';
-import TechPartners from '../../components/TechPartners.astro';
-import About from '../../components/About.astro';
-import Testimonials from '../../components/Testimonials.astro';
-import LeadMagnet from '../../components/LeadMagnet.astro';
-import Contact from '../../components/Contact.astro';
-import Footer from '../../components/Footer.astro';
-import AIChatbot from '../../components/AIChatbot.astro';
-import { useTranslations } from '../../i18n/utils';
+import PersonalHeader from '../../components/personal/PersonalHeader.astro';
+import BrandHero from '../../components/personal/BrandHero.astro';
+import PersonalHome from '../../components/personal/PersonalHome.astro';
+import PersonalFooter from '../../components/personal/PersonalFooter.astro';
 
 const lang = 'en';
-const t = useTranslations(lang);
 ---
 
 <MainLayout
-  title={t('meta.title')}
-  description={t('meta.description')}
-  keywords={t('meta.keywords')}
+  title="Emanuel Flury · Entrepreneur"
+  description="Emanuel Flury builds companies where finance, tax and technology meet: Skopa AG, Taxed GmbH and real estate."
+  keywords="Emanuel Flury, entrepreneur, Skopa AG, Taxed GmbH"
   lang={lang}
 >
-  <Header lang={lang} />
+  <Fragment slot="head">
+    <link rel="preload" href="/fonts/montserrat-latin-800-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/images/hero/palms.webp" as="image" />
+  </Fragment>
+  <PersonalHeader lang={lang} />
   <main id="main-content">
-    <Hero lang={lang} />
-    <TrustSignals lang={lang} />
-    <ProofStrip lang={lang} />
-    <ServiceLifecycle lang={lang} />
-    <IndustriesRouter lang={lang} />
-    <MethodTrustBand lang={lang} />
-    <TechPartners lang={lang} />
-    <About lang={lang} />
-    <Testimonials lang={lang} />
-    <LeadMagnet lang={lang} />
-    <Contact lang={lang} />
+    <BrandHero lang={lang} />
+    <PersonalHome lang={lang} />
   </main>
-  <Footer lang={lang} />
-  <AIChatbot />
+  <PersonalFooter lang={lang} />
 </MainLayout>

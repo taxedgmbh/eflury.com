@@ -1,0 +1,104 @@
+---
+import { type Language } from '../../i18n/utils';
+import BrandWord from './BrandWord.astro';
+import { Home, KeyRound, Building2 } from 'lucide-astro';
+
+interface Props { lang: Language }
+const { lang } = Astro.props;
+const de = lang === 'de';
+
+// Owner rule: type + region only. Never addresses, tenants, values or financing.
+// Photos: add `photo` per card once the owner supplies them.
+const t = de
+  ? {
+      title: 'EF Real Estate',
+      lead: 'Private Equity in Wohnliegenschaften.',
+      note: 'Bewusst ohne Adressen, Mieter oder Zahlen.',
+      cards: [
+        { icon: 'home', type: 'Eigenheim', region: 'Bezirk Lebern · Kanton Solothurn', text: 'Wo ich lebe.' },
+        { icon: 'key', type: 'Einfamilienhaus zur Miete', region: 'Bezirk Wasseramt · Kanton Solothurn', text: 'Ein Haus, das ich vermiete.' },
+        { icon: 'building', type: 'Wohnung', region: 'Seeland · Kanton Bern', text: 'Eine Wohnung, die ich vermiete.' },
+      ],
+    }
+  : {
+      title: 'EF Real Estate',
+      lead: 'Private equity in residential property.',
+      note: 'Deliberately without addresses, tenants or figures.',
+      cards: [
+        { icon: 'home', type: 'Own home', region: 'Lebern district · Canton of Solothurn', text: 'Where I live.' },
+        { icon: 'key', type: 'Rental house', region: 'Wasseramt district · Canton of Solothurn', text: 'A house I rent out.' },
+        { icon: 'building', type: 'Apartment', region: 'Seeland · Canton of Bern', text: 'An apartment I rent out.' },
+      ],
+    };
+---
+
+<section id="real-estate" class="re">
+  <div class="re-wrap">
+    <BrandWord word="GROW" img="jungle" />
+    <div class="re-head">
+      <img src="/images/brands/ef-real-estate-mark.svg" alt="" width="104" height="108" class="re-mark" />
+      <div>
+        <p class="re-name">EF</p>
+        <p class="re-sub">REAL ESTATE</p>
+      </div>
+    </div>
+    <p class="re-lead">{t.lead}</p>
+
+    <div class="re-grid">
+      {t.cards.map((c, i) => (
+        <article class="re-card">
+          <div class="re-photo" aria-hidden="true">
+            <span class="re-num">0{i + 1}</span>
+            <span class="re-icon">
+              {c.icon === 'home' && <Home size={30} />}
+              {c.icon === 'key' && <KeyRound size={30} />}
+              {c.icon === 'building' && <Building2 size={30} />}
+            </span>
+          </div>
+          <div class="re-body">
+            <h3>{c.type}</h3>
+            <p class="re-region">{c.region}</p>
+            <p class="re-text">{c.text}</p>
+          </div>
+        </article>
+      ))}
+    </div>
+    <p class="re-note"><span class="re-rule" aria-hidden="true"></span>{t.note}</p>
+  </div>
+</section>
+
+<style>
+  .re { background: linear-gradient(rgb(0 0 0 / 0.18), rgb(0 0 0 / 0.18)), var(--surface-navy); border-top: 1px solid rgb(255 255 255 / 0.06); color: var(--eflury-white); padding: var(--spacing-4xl) 0; position: relative; overflow: hidden; }
+  .re-wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--spacing-lg); }
+  .re-head { display: flex; align-items: center; gap: var(--spacing-lg); }
+  .re-mark { width: 88px; height: auto; }
+  .re-name { margin: 0; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1; color: var(--eflury-white); }
+  .re-sub { margin: var(--spacing-sm) 0 0; padding-left: 0.42em; color: var(--eflury-blue); font-weight: 700; font-size: 1.2rem; letter-spacing: 0.42em; }
+  .re-lead { max-width: 640px; margin: var(--spacing-xl) 0 var(--spacing-2xl); font-size: 1.2rem; line-height: 1.6; color: var(--eflury-white); opacity: 0.88; }
+
+  .re-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); }
+  .re-card { border-radius: var(--radius-lg); overflow: hidden; background: rgb(255 255 255 / 0.04); border: 1px solid rgb(255 255 255 / 0.08); transition: transform var(--transition-base), border-color var(--transition-base); }
+  .re-card:hover { transform: translateY(-3px); border-color: var(--eflury-blue); }
+  .re-photo {
+    position: relative; aspect-ratio: 4 / 3; display: flex; align-items: center; justify-content: center;
+    background:
+      radial-gradient(circle at 30% 20%, rgb(20 144 208 / 0.28), transparent 60%),
+      linear-gradient(160deg, rgb(255 255 255 / 0.06), transparent);
+    background-size: cover; background-position: center;
+  }
+  .re-num { position: absolute; top: var(--spacing-md); left: var(--spacing-md); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem; color: var(--eflury-white); opacity: 0.6; }
+  .re-icon { display: inline-flex; width: 72px; height: 72px; align-items: center; justify-content: center; border-radius: var(--radius-full); background: rgb(255 255 255 / 0.08); color: var(--eflury-blue); }
+  .re-body { padding: var(--spacing-lg); }
+  .re-body h3 { margin: 0; font-size: 1.3rem; color: var(--eflury-white); }
+  .re-region { margin: var(--spacing-xs) 0 var(--spacing-sm); color: var(--eflury-blue); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.04em; }
+  .re-text { margin: 0; color: var(--eflury-white); opacity: 0.75; line-height: 1.5; }
+  .re-note { display: flex; align-items: center; gap: var(--spacing-md); margin: var(--spacing-2xl) 0 0; font-size: 0.9rem; color: var(--eflury-white); opacity: 0.7; }
+  .re-rule { position: relative; display: inline-block; width: 80px; height: 2px; background: var(--eflury-blue); }
+  .re-rule::after { content: ''; position: absolute; right: -4px; top: -4px; width: 10px; height: 10px; border-radius: 50%; background: var(--eflury-blue); }
+
+  @media (max-width: 860px) {
+    .re-grid { grid-template-columns: 1fr; }
+    .re { padding: var(--spacing-3xl) 0; }
+  }
+  @media (prefers-reduced-motion: reduce) { .re-card { transition: none; } }
+</style>

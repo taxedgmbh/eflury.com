@@ -1,0 +1,237 @@
+---
+import { getCollection } from 'astro:content';
+import { type Language, routes } from '../../i18n/utils';
+import { readingMinutes } from '../../i18n/blog-topics';
+import { ArrowUpRight, ArrowRight, ArrowUp, Mail, Linkedin, Instagram, Youtube, Facebook, Github, Music2 } from 'lucide-astro';
+
+interface Props { lang: Language }
+const { lang } = Astro.props;
+const de = lang === 'de';
+const base = `/${lang}/`;
+const r = routes[lang];
+const year = new Date().getFullYear();
+
+const t = de
+  ? {
+      ctaEyebrow: 'Kontakt', ctaTitle: 'Lassen Sie uns sprechen.', ctaText: 'Für Gespräche, Partnerschaften oder Medienanfragen.',
+      ctaMail: 'E-Mail schreiben', ctaLinkedIn: 'Auf LinkedIn vernetzen',
+      role: 'UNTERNEHMER', lead: 'Ich baue Unternehmen dort, wo Finanzen, Steuern und Technologie zusammenkommen.',
+      ventures: 'Unternehmen', writing: 'Notizen', about: 'Über mich', legal: 'Rechtliches',
+      md: 'Geschäftsführer', mdMandate: 'Geschäftsführer (Mandat)', owner: 'Eigentümer · Private Equity',
+      latestLabel: 'Neuester Beitrag', all: 'Alle Beiträge',
+      story: 'Meine Geschichte', archive: 'eFlury Consulting (Archiv)', contact: 'Kontakt',
+      imprint: 'Impressum', privacy: 'Datenschutz', terms: 'Nutzungsbedingungen', cookies: 'Cookies',
+      follow: 'Folgen', rights: 'Alle Rechte vorbehalten.', top: 'Nach oben',
+    }
+  : {
+      ctaEyebrow: 'Contact', ctaTitle: "Let's talk.", ctaText: 'For conversations, partnerships or media requests.',
+      ctaMail: 'Send an email', ctaLinkedIn: 'Connect on LinkedIn',
+      role: 'ENTREPRENEUR', lead: 'I build companies where finance, tax and technology meet.',
+      ventures: 'Ventures', writing: 'Writing', about: 'About', legal: 'Legal',
+      md: 'Managing Director', mdMandate: 'Managing Director (Mandate)', owner: 'Owner · Private equity',
+      latestLabel: 'Latest article', all: 'All articles',
+      story: 'My story', archive: 'eFlury Consulting (archive)', contact: 'Contact',
+      imprint: 'Imprint', privacy: 'Privacy', terms: 'Terms', cookies: 'Cookies',
+      follow: 'Follow', rights: 'All rights reserved.', top: 'Back to top',
+    };
+
+const posts = (await getCollection('blog', ({ data }) => data.lang === lang && !data.draft))
+  .sort((a, b) => b.data.pubDate.getTime() - a.data.pubDate.getTime() || a.id.localeCompare(b.id));
+const latest = posts[0];
+const fmt = new Intl.DateTimeFormat(de ? 'de-CH' : 'en-GB', { day: 'numeric', month: 'short', year: 'numeric' });
+
+const socials = [
+  { name: 'LinkedIn', href: 'https://www.linkedin.com/in/emanuelflury', icon: Linkedin },
+  { name: 'Instagram', href: 'https://www.instagram.com/emanuelaaronflury', icon: Instagram },
+  { name: 'TikTok', href: 'https://www.tiktok.com/@emanuelflury', icon: Music2 },
+  { name: 'YouTube', href: 'https://www.youtube.com/@emanuelflury', icon: Youtube },
+  { name: 'Facebook', href: 'https://www.facebook.com/emanuelflury', icon: Facebook },
+  { name: 'GitHub', href: 'https://github.com/emanuelflury', icon: Github },
+];
+---
+
+<footer class="pf">
+  <section id="contact" class="pf-cta">
+    <svg class="pf-rule" viewBox="0 0 520 60" aria-hidden="true">
+      <line x1="0" y1="10" x2="500" y2="10" /><circle cx="500" cy="10" r="7" />
+      <line x1="0" y1="44" x2="300" y2="44" /><circle cx="300" cy="44" r="7" />
+    </svg>
+    <div class="pf-wrap pf-cta-inner">
+      <div>
+        <p class="pf-eyebrow">{t.ctaEyebrow}</p>
+        <h2 class="pf-cta-title">{t.ctaTitle}</h2>
+        <p class="pf-cta-text">{t.ctaText}</p>
+      </div>
+      <div class="pf-cta-actions">
+        <a href="mailto:me@eflury.com" class="pf-btn pf-btn-fill"><Mail size={18} /> {t.ctaMail}</a>
+        <a href="https://www.linkedin.com/in/emanuelflury" target="_blank" rel="noopener me" class="pf-btn pf-btn-line"><Linkedin size={18} /> {t.ctaLinkedIn}</a>
+      </div>
+    </div>
+  </section>
+
+  <div class="pf-wrap">
+    <div class="pf-top">
+      <div class="pf-brand">
+        <a href={base} class="pf-logo">
+          <img src="/images/ef-mark-white.svg" alt="" width="60" height="48" />
+          <span>
+            <span class="pf-name">Emanuel Flury</span>
+            <span class="pf-role">{t.role}</span>
+          </span>
+        </a>
+        <p class="pf-lead">{t.lead}</p>
+        <a href="mailto:me@eflury.com" class="pf-mail"><Mail size={16} /> me@eflury.com</a>
+        <ul class="pf-social" aria-label={t.follow}>
+          {socials.map((s) => (
+            <li><a href={s.href} target="_blank" rel="noopener me" aria-label={s.name} title={s.name}><s.icon size={18} /></a></li>
+          ))}
+        </ul>
+      </div>
+
+      <div class="pf-col pf-ventures">
+        <p class="pf-col-title">{t.ventures}</p>
+        <a href="https://skopa.ai" target="_blank" rel="noopener" class="pf-venture">
+          <span class="pf-v-logo"><img src="/images/brands/skopa-white.svg" alt="" width="70" height="24" /></span>
+          <span><span class="pf-v-name">Skopa AG <ArrowUpRight size={13} /></span><span class="pf-v-role">{t.md}</span></span>
+        </a>
+        <a href="https://taxed.ch" target="_blank" rel="noopener" class="pf-venture">
+          <span class="pf-v-logo"><img src="/images/brands/taxed-icon.webp" alt="" width="28" height="28" class="pf-v-taxed" /></span>
+          <span><span class="pf-v-name">Taxed GmbH <ArrowUpRight size={13} /></span><span class="pf-v-role">{t.mdMandate}</span></span>
+        </a>
+        <a href={`${base}#real-estate`} class="pf-venture">
+          <span class="pf-v-logo"><img src="/images/brands/ef-real-estate-mark.svg" alt="" width="32" height="33" /></span>
+          <span><span class="pf-v-name">EF Real Estate</span><span class="pf-v-role">{t.owner}</span></span>
+        </a>
+      </div>
+
+      <div class="pf-col">
+        <p class="pf-col-title">{t.writing}</p>
+        {latest && (
+          <a href={`${base}blog/${latest.id}/`} class="pf-latest">
+            <span class="pf-latest-label">{t.latestLabel} · {fmt.format(latest.data.pubDate)} · {readingMinutes(latest.body)} min</span>
+            <span class="pf-latest-title">{latest.data.title}</span>
+          </a>
+        )}
+        <a href={`${base}blog/`} class="pf-link pf-strong">{t.all} ({posts.length}) <ArrowRight size={14} /></a>
+      </div>
+
+      <div class="pf-col">
+        <p class="pf-col-title">{t.about}</p>
+        <ul class="pf-list">
+          <li><a class="pf-link" href={`${base}about/`}>{t.story}</a></li>
+          <li><a class="pf-link" href="#contact">{t.contact}</a></li>
+          <li><a class="pf-link" href={`${base}services/`}>{t.archive}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="pf-bottom">
+      <div class="pf-legal">
+        <p>© {year} Emanuel Flury · Grenchen</p>
+        <nav aria-label={t.legal}>
+          <a href={r.imprint}>{t.imprint}</a>
+          <a href={r.privacy}>{t.privacy}</a>
+          <a href={r.terms}>{t.terms}</a>
+          <a href={r.cookies}>{t.cookies}</a>
+        </nav>
+      </div>
+      <p class="pf-tag">TECH <b>·</b> TAX <b>·</b> REAL ESTATE</p>
+      <div class="pf-bottom-right">
+        <p class="pf-lang">
+          <a href="/en/" aria-current={lang === 'en' ? 'true' : undefined}>EN</a>
+          <a href="/de/" aria-current={lang === 'de' ? 'true' : undefined}>DE</a>
+        </p>
+        <a href="#main-content" class="pf-top-btn" aria-label={t.top} title={t.top}><ArrowUp size={18} /></a>
+      </div>
+    </div>
+  </div>
+
+  <p class="pf-word" aria-hidden="true" style="background-image:url(/images/hero/sky.webp)">EMANUEL FLURY</p>
+</footer>
+
+<style>
+  .pf { position: relative; overflow: hidden; background: var(--surface-navy); color: var(--eflury-white); }
+  .pf-wrap { position: relative; max-width: 1200px; margin: 0 auto; padding: 0 var(--spacing-lg); }
+
+  .pf-cta { position: relative; padding: var(--spacing-4xl) 0 var(--spacing-3xl); border-bottom: 1px solid rgb(255 255 255 / 0.08); }
+  .pf-cta-inner { display: flex; align-items: flex-end; justify-content: space-between; gap: var(--spacing-2xl); flex-wrap: wrap; }
+  .pf-eyebrow { margin: 0 0 var(--spacing-sm); color: var(--eflury-blue); font-weight: 700; font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; }
+  .pf-cta-title { margin: 0; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(2.4rem, 6vw, 4.5rem); line-height: 1; color: var(--eflury-white); }
+  .pf-cta-text { margin: var(--spacing-md) 0 0; font-size: 1.15rem; opacity: 0.8; }
+  .pf-cta-actions { display: flex; flex-wrap: wrap; gap: var(--spacing-md); }
+  .pf-btn { display: inline-flex; align-items: center; gap: var(--spacing-sm); min-height: 52px; padding: 0 var(--spacing-xl); border-radius: var(--radius-full); font-size: 17px; font-weight: 600; text-decoration: none; transition: transform var(--transition-fast), border-color var(--transition-fast); }
+  .pf-btn:hover { transform: translateY(-2px); }
+  .pf-btn-fill { background: var(--action-teal); color: var(--eflury-white); }
+  .pf-btn-line { border: 1.5px solid rgb(255 255 255 / 0.35); color: var(--eflury-white); }
+  .pf-btn-line:hover { border-color: var(--eflury-white); }
+
+  .pf-rule { position: absolute; top: var(--spacing-xl); left: 0; width: clamp(200px, 30vw, 460px); height: auto; overflow: visible; }
+  .pf-rule line { stroke: var(--eflury-blue); stroke-width: 2.5; opacity: 0.45; }
+  .pf-rule circle { fill: var(--eflury-blue); opacity: 0.8; }
+
+  .pf-top { display: grid; grid-template-columns: 1.3fr 1.1fr 1fr 0.9fr; gap: var(--spacing-xl); padding: var(--spacing-3xl) 0; }
+  .pf-logo { display: inline-flex; align-items: center; gap: var(--spacing-md); color: var(--eflury-white); text-decoration: none; }
+  .pf-logo > span { display: flex; flex-direction: column; }
+  .pf-name { white-space: nowrap; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.3rem; line-height: 1; text-transform: uppercase; }
+  .pf-role { margin-top: 8px; color: var(--eflury-blue); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.42em; }
+  .pf-lead { margin: var(--spacing-lg) 0; max-width: 320px; line-height: 1.6; opacity: 0.8; }
+  .pf-mail { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 var(--spacing-lg); border-radius: var(--radius-full); border: 1px solid rgb(255 255 255 / 0.2); color: var(--eflury-white); text-decoration: none; font-weight: 600; }
+  .pf-mail:hover { border-color: var(--eflury-blue); }
+  .pf-social { list-style: none; margin: var(--spacing-lg) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+  .pf-social a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--radius-full); background: rgb(255 255 255 / 0.07); color: var(--eflury-white); transition: background var(--transition-fast), color var(--transition-fast); }
+  .pf-social a:hover { background: var(--eflury-white); color: var(--surface-navy); }
+
+  .pf-col-title { margin: 0 0 var(--spacing-md); color: var(--eflury-blue); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.16em; text-transform: uppercase; }
+  .pf-gap { margin-top: var(--spacing-xl); }
+  .pf-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 2px; }
+  .pf-link { display: inline-flex; align-items: center; gap: 6px; min-height: 34px; color: var(--eflury-white); opacity: 0.8; text-decoration: none; font-size: 0.95rem; }
+  .pf-link:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+  .pf-strong { opacity: 1; font-weight: 600; margin-top: var(--spacing-sm); }
+
+  .pf-ventures { display: flex; flex-direction: column; gap: var(--spacing-sm); }
+  .pf-venture { display: flex; align-items: center; gap: var(--spacing-md); padding: var(--spacing-sm) var(--spacing-md); border-radius: var(--radius-md); border: 1px solid rgb(255 255 255 / 0.08); background: rgb(255 255 255 / 0.03); color: var(--eflury-white); text-decoration: none; transition: border-color var(--transition-fast), background var(--transition-fast); }
+  .pf-venture:hover { border-color: var(--eflury-blue); background: rgb(255 255 255 / 0.06); }
+  .pf-venture > span:last-child { display: flex; flex-direction: column; }
+  .pf-v-logo { flex: none; display: inline-flex; align-items: center; justify-content: center; width: 76px; height: 40px; }
+  .pf-v-taxed { border-radius: 6px; }
+  .pf-v-name { display: inline-flex; align-items: center; gap: 4px; font-weight: 700; font-size: 0.95rem; }
+  .pf-v-role { font-size: 0.8rem; opacity: 0.7; }
+
+  .pf-latest { display: flex; flex-direction: column; gap: 6px; padding: var(--spacing-md); border-radius: var(--radius-md); border: 1px solid rgb(255 255 255 / 0.08); background: rgb(255 255 255 / 0.03); color: var(--eflury-white); text-decoration: none; transition: border-color var(--transition-fast); }
+  .pf-latest:hover { border-color: var(--eflury-blue); }
+  .pf-latest-label { color: var(--eflury-blue); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.08em; text-transform: uppercase; }
+  .pf-latest-title { font-weight: 600; line-height: 1.4; }
+
+  .pf-bottom { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: var(--spacing-md); padding: var(--spacing-lg) 0; border-top: 1px solid rgb(255 255 255 / 0.08); font-size: 0.85rem; }
+  .pf-bottom p { margin: 0; opacity: 0.75; }
+  .pf-legal { display: flex; flex-wrap: wrap; align-items: center; gap: var(--spacing-xs) var(--spacing-lg); }
+  .pf-legal nav { display: flex; flex-wrap: wrap; gap: var(--spacing-md); }
+  .pf-legal a { display: inline-flex; align-items: center; min-height: 32px; color: var(--eflury-white); opacity: 0.75; text-decoration: none; }
+  .pf-legal a:hover { opacity: 1; text-decoration: underline; text-underline-offset: 3px; }
+  .pf-tag { letter-spacing: 0.24em; font-weight: 600; }
+  .pf-tag b { color: var(--eflury-blue); }
+  .pf-bottom-right { display: flex; align-items: center; gap: var(--spacing-md); }
+  .pf-bottom .pf-lang { display: flex; gap: var(--spacing-xs); opacity: 1; }
+  .pf-lang a { display: inline-flex; align-items: center; justify-content: center; min-width: 40px; min-height: 32px; border-radius: var(--radius-full); color: var(--eflury-white); text-decoration: none; font-weight: 600; }
+  .pf-lang a[aria-current='true'] { background: rgb(255 255 255 / 0.12); }
+  .pf-top-btn { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--radius-full); border: 1px solid rgb(255 255 255 / 0.25); color: var(--eflury-white); transition: background var(--transition-fast), color var(--transition-fast); }
+  .pf-top-btn:hover { background: var(--eflury-white); color: var(--surface-navy); }
+
+  .pf-word {
+    margin: var(--spacing-lg) 0 -0.16em; text-align: center; white-space: nowrap;
+    font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: min(9.2vw, 11rem); letter-spacing: -0.01em; line-height: 1;
+    color: transparent; background-size: 120% auto; background-position: 0% 50%;
+    -webkit-background-clip: text; background-clip: text; opacity: 0.35;
+    animation: pf-pan 30s ease-in-out infinite alternate;
+  }
+  @keyframes pf-pan { to { background-position: 100% 50%; } }
+
+  @media (max-width: 1024px) { .pf-top { grid-template-columns: 1fr 1fr; } }
+  @media (max-width: 640px) {
+    .pf-top { grid-template-columns: 1fr; gap: var(--spacing-2xl); }
+    .pf-cta-actions { width: 100%; }
+    .pf-btn { width: 100%; justify-content: center; }
+    .pf-bottom { flex-direction: column; align-items: flex-start; }
+  }
+  @media (prefers-reduced-motion: reduce) { .pf-word { animation: none; } .pf-btn { transition: none; } }
+</style>
