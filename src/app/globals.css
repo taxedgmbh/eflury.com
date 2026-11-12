@@ -1,0 +1,508 @@
+@import 'tailwindcss';
+
+/*
+ * Dark mode keeps the Astro site's contract: a `data-theme` attribute on <html>,
+ * set before paint by an inline script, so a stored preference survives the
+ * migration.
+ */
+@custom-variant dark (&:where([data-theme='dark'], [data-theme='dark'] *));
+
+/*
+ * The palette is eflury.com's own, carried over unchanged: navy #022554, teal
+ * #0d9488, blue #1490D0, with the dark-mode variants the existing site already
+ * defines. The layout keeps the register-and-rail structure built for the
+ * rebuild; only the colours and typeface come from the brand.
+ *
+ * Two hues are darkened, and only where they carry small text. Brand teal is
+ * 3.46:1 on the page background and brand blue 3.27:1 — both fine for marks,
+ * rules and large text, both short of the 4.5:1 that body-size text needs. So
+ * the brand values are used for the tick marks, list markers, underline
+ * decoration and selection, and darkened variants for links and inline labels.
+ *
+ * No webfonts. The existing site runs on the system stack, and matching it means
+ * one less network request and no swap on first paint.
+ */
+@theme {
+  --color-navy: #022554;
+  --color-navy-dark: #0f2744;
+  --color-blue: #1490d0;
+  --color-blue-mid: #276297;
+  --color-teal: #0d9488;
+  --color-grey: #4d596d;
+  --color-grey-light: #9cadbe;
+
+  --font-sans:
+    -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI',
+    Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: var(--font-sans);
+}
+
+:root {
+  color-scheme: light;
+  --surface: #f4f6f9;
+  --surface-raised: #ffffff;
+  --surface-sunken: #e9edf3;
+  --rule: #d2dae4;
+  --rule-strong: #9aa8ba;
+  --text: #022554;
+  --text-muted: #4d596d;
+  --text-faint: #6f7f96;
+  /* Brand teal, for marks and decoration rather than small text. */
+  --accent: #0d9488;
+  /* Same hue, darkened to 4.68:1 where it sits behind words. */
+  --accent-text: #0b7c72;
+  /* Brand blue darkened to 5.78:1 for links. */
+  --link: #1364a0;
+
+  /*
+   * Aliases for the hero illustration, which Emanuel authored against the Astro
+   * stylesheet's token names. Aliasing is safer than rewriting 150 lines of
+   * hand-tuned SVG, and it keeps the artwork theme-aware for free.
+   */
+  --eflury-teal: var(--accent);
+  --eflury-blue: #1490d0;
+  --eflury-navy: #022554;
+  --card-bg: var(--surface-raised);
+  --border-color: var(--rule);
+  --bg-secondary: var(--surface);
+  --text-secondary: var(--text-muted);
+  --text-tertiary: var(--text-faint);
+  --teal-text: var(--accent-text);
+  --success-50: #eefaf7;
+  --primary-50: #f0fbfa;
+  --primary-100: #d3f3ea;
+  --surface-navy: var(--eflury-navy);
+  --text-primary: var(--eflury-navy);
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 2px 8px rgba(2, 37, 84, 0.08);
+
+  /*
+   * Display type scale.
+   *
+   * Before this there was no scale: twelve different arbitrary heading sizes
+   * across the pages (text-[1.9rem], text-[2.1rem], text-[2.2rem],
+   * text-[2.25rem], text-[2.4rem], text-4xl, text-5xl …), each chosen locally.
+   * That is what makes a page feel unresolved regardless of how good any single
+   * heading looks — and a defined scale is the actual discipline behind the
+   * Apple pages this is modelled on, not any particular size.
+   *
+   * clamp() rather than breakpoints so a heading scales continuously with the
+   * viewport instead of jumping at sm:. Tracking tightens as size grows, which
+   * is how SF Pro is designed to be set — the optical sizes want less letter
+   * spacing the larger they get.
+   *
+   * Body sits at 17px, not 16. It is Apple's body size and a measurable
+   * readability gain on long German sentences; the compounding effect on a
+   * 30-minute read is the reason to take the extra pixel.
+   */
+  --text-display: clamp(2.375rem, 5.2vw, 3.75rem);
+  --text-title: clamp(1.875rem, 3.2vw, 2.625rem);
+  --text-heading: clamp(1.3125rem, 1.9vw, 1.625rem);
+  --text-lead: clamp(1.0625rem, 1.15vw, 1.25rem);
+  --text-body: 1.0625rem;
+  /*
+   * The scale stopped at body, so every page below it invented its own small
+   * size: 0.95rem in thirteen places and 0.9375rem in eight — 15.2px and 15px,
+   * indistinguishable on screen and two values for one job. And a displayed
+   * number was 2rem on the pricing card but 2.25rem in a Stat. Four more steps
+   * so nothing below body has to be guessed either.
+   */
+  /*
+   * These match Tailwind's text-sm and text-xs exactly, and that is the point.
+   * Before this the site had five sizes below the 17px body — 15, 14, 13 and
+   * 12px — because .small/.micro were invented at 15/13 while 59 places already
+   * used text-sm and 10 used text-xs. Worse, 15px against a 17px body is not a
+   * step anybody perceives as deliberate.
+   *
+   * Aligning the tokens rather than rewriting 25 call sites collapses it to
+   * three steps: 17 body, 14 secondary, 12 label. .small and .micro survive as
+   * the semantic spellings; text-sm and text-xs now mean the same thing.
+   */
+  --text-small: 0.875rem;
+  --text-micro: 0.75rem;
+  --text-stat: clamp(1.875rem, 2.6vw, 2.25rem);
+
+  --track-display: -0.032em;
+  --track-title: -0.026em;
+  --track-heading: -0.018em;
+}
+
+[data-theme='dark'] {
+  color-scheme: dark;
+  --surface: #0a1420;
+  --surface-raised: #101f31;
+  --surface-sunken: #060d16;
+  --rule: #23384f;
+  --rule-strong: #3a5271;
+  --text: #e8eef6;
+  --text-muted: #a3b3c8;
+  --text-faint: #7f92ab;
+  /* The dark-mode values the existing site already defines. */
+  --accent: #14b8a6;
+  --accent-text: #14b8a6;
+  --link: #5ab8e8;
+
+  --eflury-teal: var(--accent);
+  --eflury-blue: #5ab8e8;
+  --eflury-navy: #e8eef6;
+  --card-bg: var(--surface-raised);
+  --border-color: var(--rule);
+  --bg-secondary: var(--surface-sunken);
+  --text-secondary: var(--text-muted);
+  --text-tertiary: var(--text-faint);
+  --teal-text: var(--accent-text);
+  --success-50: #0d2b2a;
+  --primary-50: #123531;
+  --primary-100: #1c4a45;
+  --surface-navy: var(--text);
+  --text-primary: var(--text);
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-full: 9999px;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.35);
+}
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+  }
+
+  /*
+   * Consequence of making the header sticky: without this every in-page anchor
+   * — the service pages' #problem and #ansatz, the careers page's #bewerben,
+   * and every auto-linked heading in a post — scrolls its target to y=0, which
+   * is underneath the header. scroll-padding-top on the scroll container fixes
+   * all of them at once, where a scroll-margin per target would have to be
+   * remembered each time.
+   *
+   * Measured, not guessed: the header is a 44px control row inside py-3, so 68px
+   * plus a little air.
+   */
+  html {
+    scroll-padding-top: 5rem;
+  }
+
+  body {
+    background: var(--surface);
+    color: var(--text);
+    font-family: var(--font-sans);
+    /* 17px, matching the display scale's body step. See --text-body. */
+    font-size: var(--text-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+    font-synthesis-weight: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--link);
+    outline-offset: 3px;
+  }
+}
+
+@layer components {
+  /*
+   * Apple's HIG puts the minimum touch target at 44x44pt, and WCAG 2.2's
+   * Target Size (2.5.8) at 24x24px. Measured at phone width this site had
+   * header nav links 18px tall, footer links 17px, and both icon buttons at
+   * 36px — all of them standalone controls with no exception to hide behind.
+   *
+   * The fix is a minimum height with the content centred, not padding, so the
+   * visual rhythm of a nav row does not change by 26px per link. Links inside
+   * running prose are deliberately excluded: WCAG exempts inline links, and
+   * padding them would wreck the line spacing of a paragraph to no benefit.
+   */
+  .tap {
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+  }
+
+  /*
+   * One class per step of the scale, so a heading is chosen by its role in the
+   * page rather than by picking a pixel value.
+   */
+  .display {
+    font-size: var(--text-display);
+    line-height: 1.05;
+    letter-spacing: var(--track-display);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  .title {
+    font-size: var(--text-title);
+    line-height: 1.1;
+    letter-spacing: var(--track-title);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  .heading {
+    font-size: var(--text-heading);
+    line-height: 1.25;
+    letter-spacing: var(--track-heading);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  .lead {
+    font-size: var(--text-lead);
+    line-height: 1.55;
+    color: var(--text-muted);
+    text-wrap: pretty;
+  }
+
+  /* Secondary copy: card bodies, table cells, captions. */
+  .small {
+    font-size: var(--text-small);
+    line-height: 1.55;
+  }
+
+  /* Labels and eyebrows, where the word is doing less work than its position. */
+  .micro {
+    font-size: var(--text-micro);
+    line-height: 1.4;
+  }
+
+  /* A displayed figure — a price, a measured result. Not a heading. */
+  .stat {
+    font-size: var(--text-stat);
+    line-height: 1;
+    letter-spacing: -0.02em;
+    font-weight: 600;
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Same rule for a control that is square by nature, e.g. an icon button. */
+  .tap-square {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 44px;
+    min-width: 44px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-weight: 600;
+    letter-spacing: -0.018em;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background: var(--accent);
+    color: #fff;
+  }
+}
+
+@layer components {
+  /*
+   * The rail: a calibrated left margin carrying real metadata — founding years,
+   * dates, indices — against a hairline. It is a measuring scale, so it appears
+   * only where there is something to measure, never as decoration.
+   */
+  .rail {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.35rem 1.5rem;
+  }
+
+  @media (min-width: 40rem) {
+    .rail {
+      grid-template-columns: 7.5rem minmax(0, 1fr);
+    }
+  }
+
+  /*
+   * Two rail variants, and the distinction is the whole point of the device.
+   * .rail-tick carries a mark and is for ordinal data — publication dates, where
+   * the rail genuinely reads as a scale. .rail-label has no mark and is for
+   * names and section headings, which are not measurements. Putting ticks on
+   * both would make the mark decoration.
+   */
+  .rail-label {
+    /*
+     * On the scale rather than 0.8125rem: it was the only 13px on any page, one
+     * pixel off --text-micro, which is a difference nobody perceives as a step
+     * and everybody has to maintain.
+     */
+    font-size: var(--text-micro);
+    color: var(--text-muted);
+    letter-spacing: 0.01em;
+  }
+
+  .rail-tick {
+    position: relative;
+    padding-inline-start: 0.95rem;
+    /* Must match .rail-label: they are the two halves of one rail. */
+    font-size: var(--text-micro);
+    font-variant-numeric: tabular-nums;
+    color: var(--text-faint);
+    letter-spacing: 0.01em;
+  }
+
+  /* The tick itself — the mark on the scale. */
+  .rail-tick::before {
+    content: '';
+    position: absolute;
+    inset-block-start: 0.62em;
+    inset-inline-start: 0;
+    width: 0.5rem;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  /* Long-form German. Serif, generous leading, measure under 70 characters. */
+  .prose-de {
+    font-size: var(--text-body);
+    line-height: 1.7;
+    /* ~68 characters. A sans needs a slightly shorter measure than the serif
+       it replaces to stay comfortable at this size. */
+    max-width: 38rem;
+    color: var(--text);
+  }
+  .prose-de > * + * {
+    margin-block-start: 1.2em;
+  }
+  .prose-de h2 {
+    /*
+     * Deliberately not var(--text-heading), which clamps up to 26px. That step
+     * is for section headings on a page; a subheading inside a long read should
+     * not shout, and the rule above it already does the separating. Left as its
+     * own value on purpose, not by omission.
+     */
+    font-size: 1.3125rem;
+    margin-block-start: 2.4em;
+    padding-block-start: 0.9em;
+    border-block-start: 1px solid var(--rule);
+  }
+  .prose-de h3 {
+    font-size: var(--text-body);
+    margin-block-start: 1.9em;
+  }
+  .prose-de ul,
+  .prose-de ol {
+    padding-inline-start: 1.3em;
+  }
+  .prose-de ul {
+    list-style: disc;
+  }
+  .prose-de ol {
+    list-style: decimal;
+  }
+  .prose-de li::marker {
+    color: var(--accent);
+  }
+  .prose-de li + li {
+    margin-block-start: 0.45em;
+  }
+  .prose-de a {
+    color: var(--link);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 0.18em;
+  }
+  .prose-de strong {
+    font-weight: 600;
+  }
+  .prose-de blockquote {
+    border-inline-start: 2px solid var(--accent);
+    padding-inline-start: 1.1em;
+    color: var(--text-muted);
+  }
+  .prose-de code {
+    font-family: ui-monospace, 'SF Mono', Menlo, monospace;
+    font-size: 0.875em;
+    background: var(--surface-sunken);
+    padding: 0.1em 0.35em;
+    border-radius: 3px;
+  }
+  .prose-de pre {
+    background: var(--color-ink);
+    color: #dce6f4;
+    padding: 1rem 1.15rem;
+    border-radius: 4px;
+    overflow-x: auto;
+    font-size: var(--text-small);
+  }
+  .prose-de pre code {
+    background: none;
+    padding: 0;
+  }
+  .prose-de table {
+    display: block;
+    overflow-x: auto;
+    width: 100%;
+    border-collapse: collapse;
+    /* Was 0.9rem — 14.4px, the only such value in the stylesheet. */
+    font-size: var(--text-small);
+  }
+  .prose-de th,
+  .prose-de td {
+    border-block-end: 1px solid var(--rule);
+    padding: 0.55rem 0.8rem 0.55rem 0;
+    text-align: start;
+    vertical-align: top;
+  }
+  .prose-de th {
+    font-weight: 600;
+    border-block-end-color: var(--rule-strong);
+  }
+  .prose-de figure figcaption {
+    font-size: var(--text-micro);
+    color: var(--text-faint);
+  }
+
+  /* Provider details in the Impressum are a definition list, not prose. */
+  .legal-prose dl {
+    display: grid;
+    gap: 0.15rem 1.5rem;
+    border-block-start: 1px solid var(--rule);
+    padding-block-start: 0.9rem;
+  }
+  @media (min-width: 34rem) {
+    .legal-prose dl {
+      grid-template-columns: 14rem minmax(0, 1fr);
+    }
+  }
+  .legal-prose dt {
+    font-size: var(--text-small);
+    color: var(--text-muted);
+  }
+  .legal-prose dd {
+    margin: 0;
+  }
+  .legal-prose dd + dt {
+    margin-block-start: 0.7rem;
+  }
+
+  /* Heading anchors from rehype-autolink-headings wrap the text; keep them quiet. */
+  .prose-de .heading-anchor {
+    color: inherit;
+    text-decoration: none;
+  }
+  .prose-de .heading-anchor:hover {
+    text-decoration: underline;
+    text-decoration-color: var(--accent);
+    text-underline-offset: 0.22em;
+  }
+}

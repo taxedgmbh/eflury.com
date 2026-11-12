@@ -1,91 +1,50 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+Guidance for Claude Code in this repository.
 
-## MANDATORY: the eflury-site skill
+## What this is
 
-Before creating or restyling any page, component, or copy, load the
-`eflury-site` skill (`.claude/skills/eflury-site/SKILL.md`). It defines the
-Apple-derived design system, the agreed site architecture, and the content
-honesty rules — never invent design tokens, page locations, or claims.
+eflury.com: the personal website of Emanuel Flury, entrepreneur (Skopa AG,
+Taxed GmbH, EF Real Estate). English only. Three pages: `/en/` (homepage),
+`/en/imprint/`, `/en/privacy/`. `/` redirects to `/en/`.
 
-Before committing site changes, run the audit and fix every error:
+eFlury Consulting closed on 2026-11-12. Its German site, blog, forms and server
+routes were removed; every old URL (`/de/*`, legacy `/en/*`, `/offerte/`,
+`/offer/`, `/demo/`, `/downloads/*`) 301s to `/en/` (see `next.config.ts`).
+
+## Stack and deploy
+
+- Next.js 15 (App Router), static except `/en/`, which revalidates every 6 h for
+  the YouTube feed (`src/lib/youtube.ts`).
+- Firebase App Hosting, project `eflury-com-prod`, backend `eflury-com-prod`,
+  region europe-west4. **Push to `main` deploys to production automatically.**
+- DNS is at Hostinger (A records for `@` and `www` → 35.219.200.109). Mail is
+  iCloud; never touch the MX, SPF, `apple-domain` or `sig1._domainkey` records.
+- Use only the `eaflury@gmail.com` Google account for this project
+  (`--account=eaflury@gmail.com` on every gcloud call).
+
+## Code
+
+- `src/app/(en)/layout.tsx`: the root layout (route group, so `global-not-found.tsx`
+  renders its own document via `src/components/RootDocument.tsx`).
+- `src/components/personal/`: every section of the site, styled by
+  `personal.css` (plain CSS, classes prefixed per section, tokens scoped to `.pb`).
+  `data.ts` holds roles, socials and legal links; roles must match LinkedIn.
+- `src/lib/site.ts`: site URL, person and address. `src/lib/schema.ts`: JSON-LD.
+- Brand rules and assets: `../brand/PERSONAL-BRAND-HOMEPAGE.md`.
+
+## Commands
 
 ```bash
-cd astro-src && npm run build && npm run audit
+npm run dev        # http://localhost:3000
+npm run typecheck
+npm run lint
+npm run build
 ```
 
-## Development Commands
+## Rules
 
-All development happens in `astro-src/`:
-
-```bash
-cd astro-src
-npm install          # Install dependencies
-npm run dev          # Start dev server (http://localhost:4321)
-npm run build        # Production build (outputs to dist/)
-npm run preview      # Preview production build
-```
-
-Run Playwright tests (requires dev server running):
-```bash
-cd astro-src
-npx playwright test                    # Run all tests
-npx playwright test visual-issues      # Run specific test file
-npx playwright test --project=chromium # Run single browser
-```
-
-## Architecture
-
-**Framework**: Astro 5.x with static output (`output: 'static'`)
-
-**Key directories (in `astro-src/src/`):**
-- `components/` - Astro components (Hero, About, Services, Portfolio, Contact, FAQ, Header, Footer, etc.)
-- `layouts/` - Single `MainLayout.astro` wrapping all pages with SEO schema, GA4, PWA support
-- `pages/` - File-based routing with `/en/` and `/de/` subdirectories for i18n
-- `i18n/` - Translation system: `en.json`, `de.json`, and `utils.ts`
-- `scripts/` - Client-side TypeScript (GSAP animations, Three.js backgrounds, form validation)
-- `styles/` - Global CSS and Apple Design System components
-
-**Tech stack:**
-- GSAP + ScrollTrigger for scroll-based animations
-- Three.js with WebGPU fallback for 3D particle backgrounds
-- Lucide icons (tree-shakeable)
-- EmailJS for contact form submission
-
-## i18n Pattern
-
-Use `useTranslations(lang)` from `src/i18n/utils.ts`:
-```typescript
-import { useTranslations, type Language } from '../i18n/utils';
-
-const t = useTranslations(lang);
-const text = t('section.key');  // Dot-notation lookup in en.json/de.json
-```
-
-Translation keys use dot notation matching JSON structure: `hero.title`, `services.automation.description`, `nav.home`.
-
-Routes are defined in `src/i18n/utils.ts` (routes object) with language-specific paths for legal pages.
-
-## Build & Deployment
-
-**Build output**: Static HTML files (`en.html`, `de.html`, `index.html`) plus `_astro/` bundles. Manual chunking configured in `astro.config.mjs` for three, gsap, emailjs, lucide.
-
-**Deployment model**: Built files are committed to repo root (not gitignored) for Hostinger static hosting. After building locally or via CI, `dist/` contents are copied to repo root.
-
-## File Conventions
-
-- Components: PascalCase (`Hero.astro`, `Contact.astro`)
-- Schema components for SEO: `OrganizationSchema.astro`, `FAQSchema.astro`, `PersonSchema.astro`, `BreadcrumbSchema.astro`
-- Legal pages: localized filenames (EN: `privacy.astro`, DE: `datenschutz.astro`)
-- All pages require both `/en/` and `/de/` versions
-
-## Testing
-
-Playwright tests in `astro-src/tests/` verify:
-- Mobile visual issues (overlapping elements, touch targets, safe areas)
-- Text overflow detection
-- Navigation visibility
-- Component layout consistency
-
-Tests run against multiple viewports: Desktop Chrome, Pixel 5, iPhone 13, iPad Pro.
+- The privacy policy (`src/app/(en)/en/privacy/page.tsx`) must match what the
+  site does: today no cookies, no analytics, no forms. Update it with any change
+  that adds a third party, a cookie or data collection.
+- Real estate: type and region only, never addresses, tenants, values or financing.

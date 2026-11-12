@@ -1,0 +1,24 @@
+# Firebase App Hosting — eflury.com (backend eflury-com-prod, europe-west4)
+#
+# A static personal site: every page is prerendered and served from the CDN.
+# There are no API routes and no secrets. Cloud Run only wakes to revalidate
+# /en/ (the YouTube feed, every six hours).
+
+runConfig:
+  minInstances: 0
+  maxInstances: 2
+  concurrency: 80
+  cpu: 1
+  memoryMiB: 512
+  timeoutSeconds: 60
+
+env:
+  - variable: NEXT_PUBLIC_SITE_URL
+    value: https://eflury.com
+    availability: [BUILD, RUNTIME]
+
+  # app/robots.ts and the robots meta emit noindex for anything other than
+  # "production". Live on eflury.com since 2026-11-12.
+  - variable: NEXT_PUBLIC_ENV
+    value: production
+    availability: [BUILD, RUNTIME]
