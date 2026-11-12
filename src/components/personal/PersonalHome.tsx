@@ -1,6 +1,8 @@
+import Link from 'next/link';
 import { ArrowRight, ArrowUpRight } from 'lucide-react';
 import { BrandWord } from './BrandWord';
 import { MediaYouTube } from './MediaYouTube';
+import { NEWSLETTER_ON, NewsletterForm } from './NewsletterForm';
 import { PersonalAbout } from './PersonalAbout';
 import { PersonalPress } from './PersonalPress';
 import { PersonalPrivate } from './PersonalPrivate';
@@ -112,19 +114,31 @@ export function PersonalHome() {
 
       <PersonalPress />
 
-      <section className="band alt" aria-labelledby="follow-title">
+      <section id="follow" className="band alt" aria-labelledby="follow-title">
         <div className="wrap">
           <BrandWord word="DREAM" img="sky" />
           <p className="eyebrow">Follow along</p>
-          <h2 id="follow-title">Follow the journey on YouTube.</h2>
+          <h2 id="follow-title">Follow the journey.</h2>
           <p className="section-lead">What I learn while building — tech, tax and real estate.</p>
-          <div className="cta-row">
-            <a href={`${YT_HANDLE_URL}?sub_confirmation=1`} target="_blank" rel="noopener" className="pf-btn pf-btn-fill">
-              Subscribe
-            </a>
-            <a href={YT_HANDLE_URL} target="_blank" rel="noopener" className="pf-btn pf-btn-line">
-              Open channel <ArrowUpRight size={16} aria-hidden />
-            </a>
+          <div className="follow-split">
+            <div>
+              <h3>{NEWSLETTER_ON ? 'Notes by email' : 'Notes'}</h3>
+              <NewsletterForm id="nl-home" />
+              <Link href="/en/notes/" className="text-link">
+                Read the notes <ArrowRight size={16} aria-hidden />
+              </Link>
+            </div>
+            <div>
+              <h3>Videos on YouTube</h3>
+              <div className="cta-row">
+                <a href={`${YT_HANDLE_URL}?sub_confirmation=1`} target="_blank" rel="noopener" className="pf-btn pf-btn-fill">
+                  Subscribe
+                </a>
+                <a href={YT_HANDLE_URL} target="_blank" rel="noopener" className="pf-btn pf-btn-line">
+                  Open channel <ArrowUpRight size={16} aria-hidden />
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </section>

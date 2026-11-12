@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import { ArrowUp, ArrowUpRight, Contact, Mail, MessageCircle } from 'lucide-react';
 import { EMAIL, LEGAL, LINKEDIN, PHONE, ROLES, SOCIALS, WHATSAPP } from './data';
 import { SocialIcon } from './SocialIcon';
@@ -132,6 +133,16 @@ export function PersonalFooter() {
               <li>
                 <a className="pf-link" href="/en/#about">
                   My story
+                </a>
+              </li>
+              <li>
+                <Link className="pf-link" href="/en/notes/">
+                  Notes
+                </Link>
+              </li>
+              <li>
+                <a className="pf-link" href="/rss.xml">
+                  RSS feed
                 </a>
               </li>
               <li>

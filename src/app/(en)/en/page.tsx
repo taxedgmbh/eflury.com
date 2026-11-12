@@ -10,7 +10,7 @@ import { HOME_DESCRIPTION, HOME_TITLE } from '@/lib/site';
 export const metadata: Metadata = {
   title: { absolute: HOME_TITLE },
   description: HOME_DESCRIPTION,
-  alternates: { canonical: '/en/' },
+  alternates: { canonical: '/en/', types: { 'application/rss+xml': [{ url: '/rss.xml', title: 'Emanuel Flury · Notes' }] } },
   // Next replaces the layout's openGraph object rather than merging it, so
   // every field is restated here.
   openGraph: {

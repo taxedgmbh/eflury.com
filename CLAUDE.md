@@ -5,7 +5,7 @@ Guidance for Claude Code in this repository.
 ## What this is
 
 eflury.com: the personal website of Emanuel Flury, entrepreneur (Skopa AG,
-Taxed GmbH, EF Real Estate). English only. Three pages: `/en/` (homepage),
+Taxed GmbH, EF Real Estate). English only. Pages: `/en/` (homepage), `/en/notes/`,
 `/en/imprint/`, `/en/privacy/`. `/` redirects to `/en/`.
 
 eFlury Consulting closed on 2026-11-12. Its German site, blog, forms and server
@@ -14,7 +14,7 @@ routes were removed; every old URL (`/de/*`, legacy `/en/*`, `/offerte/`,
 
 ## Stack and deploy
 
-- Next.js 15 (App Router), static except `/en/`, which revalidates every 6 h for
+- Next.js 15 (App Router), static except the newsletter API and `/en/`, which revalidates every 6 h for
   the YouTube feed (`src/lib/youtube.ts`).
 - Firebase App Hosting, project `eflury-com-prod`, backend `eflury-com-prod`,
   region europe-west4. **Push to `main` deploys to production automatically.**
@@ -45,8 +45,22 @@ npm run build
 ## Rules
 
 - The privacy policy (`src/app/(en)/en/privacy/page.tsx`) must match what the
-  site does: today no cookies, no analytics, no forms. Update it with any change
-  that adds a third party, a cookie or data collection.
+  site does: today no cookies, no analytics; one form, the newsletter sign-up.
+  Update it with any change that adds a third party, a cookie or data collection.
+
+## Notes, RSS and newsletter
+
+- Notes are Markdown files in `content/notes/` (format in its README); `draft: true`
+  keeps one offline. They render at `/en/notes/` and feed `/rss.xml` and the sitemap.
+- Newsletter (`src/lib/newsletter.ts`, `src/app/api/newsletter/*`): in-house.
+  Subscribers in Firestore `(default)`, europe-west6, collection `subscribers`
+  (doc id = sha256(email)); double opt-in; TTL on `expireAt` deletes pending
+  sign-ups after 7 days and `ratelimits` after 2. Client rules deny everything;
+  only the App Hosting service account reads and writes.
+- Mail goes out from me@eflury.com via iCloud SMTP; the login lives in Secret
+  Manager (`newsletter-smtp-user`, `newsletter-smtp-pass`). The form only shows
+  when `NEXT_PUBLIC_NEWSLETTER=on` (apphosting.yaml); otherwise an RSS button.
+- Send a published note: `node scripts/newsletter-send.mjs <note> [--test|--send]`.
 - Real estate: type and region only, never addresses, tenants, values or financing.
 - The press-kit bios (`src/components/personal/PersonalPress.tsx`) are built only
   from facts stated elsewhere on the page. Change them together.

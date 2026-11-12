@@ -43,7 +43,7 @@ const nextConfig: NextConfig = {
        * The lookaheads keep the two pages that do live under /en/.
        */
       { source: '/de/:path*', destination: '/en/', statusCode: 301 },
-      { source: '/en/:path((?!imprint|privacy|terms).+)', destination: '/en/', statusCode: 301 },
+      { source: '/en/:path((?!imprint|privacy|terms|notes|newsletter).+)', destination: '/en/', statusCode: 301 },
       { source: '/:dir(offerte|offer|demo|downloads)/:path*', destination: '/en/', statusCode: 301 },
     ];
   },

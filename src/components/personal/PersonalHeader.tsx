@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import {
   ArrowRight,
   ArrowUpRight,
@@ -8,6 +9,7 @@ import {
   Menu,
   MessageCircle,
   Newspaper,
+  NotebookPen,
   Sunset,
   User,
   X,
@@ -239,6 +241,15 @@ export function PersonalHeader() {
                   <span className="mm-muted">Beyond work: French and sailing.</span>
                 </span>
               </a>
+              <Link href="/en/notes/" className="mm-row">
+                <span className="mm-icon">
+                  <NotebookPen size={20} aria-hidden />
+                </span>
+                <span>
+                  <span className="mm-card-title">Notes</span>
+                  <span className="mm-muted">What I learn while building, also by email.</span>
+                </span>
+              </Link>
               <a href="/en/#press" className="mm-row">
                 <span className="mm-icon">
                   <Newspaper size={20} aria-hidden />
@@ -300,6 +311,9 @@ export function PersonalHeader() {
             <a href="/en/#private" onClick={closeMobile}>
               Private
             </a>
+            <Link href="/en/notes/" onClick={closeMobile}>
+              Notes
+            </Link>
             <a href="/en/#press" onClick={closeMobile}>
               Press kit
             </a>

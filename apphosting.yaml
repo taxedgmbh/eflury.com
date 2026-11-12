@@ -1,8 +1,8 @@
 # Firebase App Hosting — eflury.com (backend eflury-com-prod, europe-west4)
 #
 # A static personal site: every page is prerendered and served from the CDN.
-# There are no API routes and no secrets. Cloud Run only wakes to revalidate
-# /en/ (the YouTube feed, every six hours).
+# Cloud Run only wakes to revalidate /en/ (the YouTube feed, every six hours)
+# and for the three newsletter routes under /api/newsletter/.
 
 runConfig:
   minInstances: 0
@@ -22,3 +22,16 @@ env:
   - variable: NEXT_PUBLIC_ENV
     value: production
     availability: [BUILD, RUNTIME]
+
+  # Newsletter. Enable once both secrets exist (created by the owner with
+  # `firebase apphosting:secrets:set`), by uncommenting the three entries below.
+  # Until then the sign-up form is replaced by an RSS button.
+  # - variable: NEXT_PUBLIC_NEWSLETTER
+  #   value: "on"
+  #   availability: [BUILD, RUNTIME]
+  # - variable: NEWSLETTER_SMTP_USER
+  #   secret: newsletter-smtp-user
+  #   availability: [RUNTIME]
+  # - variable: NEWSLETTER_SMTP_PASS
+  #   secret: newsletter-smtp-pass
+  #   availability: [RUNTIME]

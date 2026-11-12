@@ -4,13 +4,13 @@ import { ADDRESS, PERSON } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Privacy policy',
-  description: 'How eflury.com handles personal data: no cookies, no analytics, no forms. Hosted by Google in the Netherlands.',
+  description: 'How eflury.com handles personal data: no cookies, no analytics, no tracking; an optional newsletter with double opt-in. Hosted by Google.',
   alternates: { canonical: '/en/privacy/' },
   openGraph: {
     type: 'website',
     url: '/en/privacy/',
     title: 'Privacy policy · Emanuel Flury',
-    description: 'How eflury.com handles personal data: no cookies, no analytics, no forms. Hosted by Google in the Netherlands.',
+    description: 'How eflury.com handles personal data: no cookies, no analytics, no tracking; an optional newsletter with double opt-in. Hosted by Google.',
     siteName: 'Emanuel Flury',
     locale: 'en_GB',
   },
@@ -21,13 +21,15 @@ export const metadata: Metadata = {
 
 /*
  * Keep this in step with what the site actually does. Today: no cookies, no
- * browser storage, no analytics, no forms; Google hosts it (logs kept 30
- * days); YouTube thumbnails load from Google's image servers; a video loads
- * from youtube-nocookie.com only on click; WhatsApp and email are plain links.
+ * browser storage, no analytics; one form, the newsletter sign-up (Firestore in
+ * Zurich, mail via iCloud, double opt-in, pending deleted after 7 days by TTL,
+ * rate-limit docs after 2 days); Google hosts it (logs kept 30 days); YouTube
+ * thumbnails load from Google's image servers; a video loads from
+ * youtube-nocookie.com only on click; WhatsApp and email are plain links.
  */
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy policy" updated="12 November 2026">
+    <LegalPage title="Privacy policy" updated="13 November 2026">
       <p>
         This policy explains which personal data this website processes, why, and for how long. It follows the Swiss
         Federal Act on Data Protection (FADP) and, where it applies, the EU General Data Protection Regulation (GDPR).
@@ -45,7 +47,7 @@ export default function PrivacyPage() {
       <h2>2. In short</h2>
       <ul>
         <li>No cookies, no local storage, no analytics, no tracking, no advertising.</li>
-        <li>No forms and no accounts. Nothing you type on this website is stored.</li>
+        <li>No accounts. The only form is the optional newsletter sign-up; it stores your email address only once you confirm it.</li>
         <li>The website is hosted by Google in the Netherlands; technical logs are kept for 30 days.</li>
         <li>YouTube video previews load from Google; a video itself only loads when you click it.</li>
         <li>Email and WhatsApp are links. You decide whether to use them.</li>
@@ -102,19 +104,50 @@ export default function PrivacyPage() {
         or scanning the code transfers nothing about you; the data is saved only on your device.
       </p>
 
-      <h2>8. Links to social networks</h2>
+      <h2 id="newsletter">8. Newsletter</h2>
+      <p>
+        You can subscribe to receive new notes by email. To do so, you enter your email address. You then receive an
+        email with a confirmation link (double opt-in); you are only subscribed once you click it. The legal basis is
+        your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.
+      </p>
+      <p>
+        Stored: your email address, the time you signed up and the time you confirmed, and a random code for the
+        unsubscribe link. Unconfirmed sign-ups are deleted automatically after 7 days. To prevent abuse, the number of
+        sign-ups per day is counted using an irreversible code made from your IP address and the date; the IP address
+        itself is not stored, and the counter is deleted after two days.
+      </p>
+      <p>
+        The data is stored in Google Cloud Firestore in Google&rsquo;s data centre in Zurich, Switzerland
+        (europe-west6), in this website&rsquo;s own project; it is not given to any newsletter service. The emails are
+        sent from Emanuel Flury&rsquo;s own mailbox, me@eflury.com, which is hosted by Apple (iCloud Mail). Google and
+        Apple process the data on the website owner&rsquo;s behalf. The emails contain no tracking pixels and no
+        tracked links.
+      </p>
+      <p>
+        Every email has an unsubscribe link. When you unsubscribe, your email address is deleted immediately. You can
+        also unsubscribe by writing to <a href={`mailto:${PERSON.email}`}>{PERSON.email}</a>.
+      </p>
+
+      <h2>9. RSS feed</h2>
+      <p>
+        The notes are also available as an RSS feed at <a href="/rss.xml">eflury.com/rss.xml</a>. A feed reader
+        fetches it like any other page (see section 3); nothing else is recorded.
+      </p>
+
+      <h2>10. Links to social networks</h2>
       <p>
         Links to LinkedIn, Instagram, TikTok, YouTube, Facebook, GitHub and WhatsApp are plain links. No data is sent
         to those networks unless you click a link; after that, their privacy policies apply.
       </p>
 
-      <h2>9. Security</h2>
+      <h2>11. Security</h2>
       <p>
         The website is only served over an encrypted connection (HTTPS with HSTS). There are no user accounts and no
-        database of visitors.
+        database of visitors. The newsletter list can only be read by the website itself and by its owner; it is not
+        reachable from the internet.
       </p>
 
-      <h2>10. Your rights</h2>
+      <h2>12. Your rights</h2>
       <p>
         You can ask for information about the personal data processed about you, and for it to be corrected or
         deleted. You can object to processing and, under the GDPR, ask for it to be restricted or handed over to you.
@@ -126,7 +159,7 @@ export default function PrivacyPage() {
       </p>
       <p>No decisions are made about you automatically, and no profiles are created.</p>
 
-      <h2>11. Changes</h2>
+      <h2>13. Changes</h2>
       <p>This policy is updated when the website changes. The current version is always the one on this page.</p>
     </LegalPage>
   );
