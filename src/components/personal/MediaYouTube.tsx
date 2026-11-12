@@ -1,5 +1,5 @@
 import { ArrowUpRight, Play } from 'lucide-react';
-import { getLatestVideos, YT_HANDLE_URL, type YtVideo } from '@/lib/youtube';
+import { getSectionVideos, YT_HANDLE_URL, type YtVideo } from '@/lib/youtube';
 import { BrandWord } from './BrandWord';
 import { fmtShort } from './data';
 import { SocialIcon } from './SocialIcon';
@@ -28,7 +28,7 @@ function Card({ v, lead }: { v: YtVideo; lead?: boolean }) {
 }
 
 export async function MediaYouTube() {
-  const videos = await getLatestVideos(3);
+  const videos = await getSectionVideos(3);
   const [lead, ...rest] = videos;
   const subscribe = `${YT_HANDLE_URL}?sub_confirmation=1`;
 
@@ -42,7 +42,7 @@ export async function MediaYouTube() {
               <SocialIcon name="YouTube" size={16} /> Video
             </p>
             <h2>On YouTube.</h2>
-            <p className="yt-lead">New videos appear here automatically.</p>
+            <p className="yt-lead">Start with the 70-second intro. New videos appear here automatically.</p>
           </div>
           <div className="yt-actions">
             <a href={subscribe} target="_blank" rel="noopener me" className="yt-btn yt-btn-fill">

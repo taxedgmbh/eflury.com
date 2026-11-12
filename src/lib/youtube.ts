@@ -19,6 +19,24 @@ export interface YtVideo {
   isShort: boolean;
 }
 
+/**
+ * Always shown first, whether or not the RSS feed lists it yet: YouTube's
+ * channel feed can lag a new upload by hours, and the intro should lead the
+ * section even after newer uploads.
+ */
+export const PINNED_VIDEO: YtVideo = {
+  id: 'tH6VlyiJkv4',
+  title: 'Who is Emanuel Flury? Tech, tax and real estate in 70 seconds',
+  published: new Date('2026-11-12T16:15:49Z'),
+  isShort: false,
+};
+
+/** The pinned intro first, then the newest other uploads from the feed. */
+export async function getSectionVideos(limit = 3): Promise<YtVideo[]> {
+  const feed = await getLatestVideos(limit + 1);
+  return [PINNED_VIDEO, ...feed.filter((v) => v.id !== PINNED_VIDEO.id)].slice(0, limit);
+}
+
 const decode = (s: string) =>
   s
     .replace(/&amp;/g, '&')
