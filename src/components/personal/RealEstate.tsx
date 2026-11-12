@@ -15,8 +15,22 @@ const RENTAL_HOUSE: Photo[] = [
   { base: `${RE}rental-house-garden`, alt: 'Terrace and garden', width: 1600, height: 1200 },
 ];
 
+const OWN_HOME: Photo[] = [
+  { base: `${RE}own-home-exterior`, alt: 'The house in summer, with the Jura behind', width: 1600, height: 976 },
+  { base: `${RE}own-home-garden`, alt: 'The house from the garden', width: 1600, height: 1200 },
+  { base: `${RE}own-home-living-room`, alt: 'Living room with oak floor and a view of the garden', width: 1512, height: 2016 },
+  { base: `${RE}own-home-kitchen`, alt: 'New kitchen cabinets', width: 1600, height: 1200 },
+  { base: `${RE}own-home-garage`, alt: 'Renovated garage with laundry corner', width: 1600, height: 1200 },
+];
+
 const CARDS: { Icon: typeof Home; type: string; region: string; text: string; photos?: Photo[] }[] = [
-  { Icon: Home, type: 'Own home', region: 'Lebern district · Canton of Solothurn', text: 'Where I live.' },
+  {
+    Icon: Home,
+    type: 'Own home',
+    region: 'Lebern district · Canton of Solothurn',
+    text: 'Where I live.',
+    photos: OWN_HOME,
+  },
   {
     Icon: KeyRound,
     type: 'Rental house',
