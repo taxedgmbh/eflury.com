@@ -28,9 +28,9 @@ env:
   # A host-based X-Robots-Tag was tried first and does not work: App Hosting's
   # envoy layer rewrites Host before Next sees it, so the rule never matches.
   #
-  # FLIP THIS TO production AS PART OF THE DNS CUTOVER.
+  # Flipped to production on 2026-11-12 for the eflury.com cutover.
   - variable: NEXT_PUBLIC_ENV
-    value: staging
+    value: production
     availability: [BUILD, RUNTIME]
 
   # Public by design — Cloudflare Turnstile sitekeys are meant to ship to the
