@@ -18,7 +18,7 @@ const VENTURES: {
   {
     tag: 'Technology',
     name: 'Skopa AG',
-    text: `Artificial intelligence and automation for businesses. Role: ${ROLES.skopa}.`,
+    text: `Artificial intelligence and quantum computing. Role: ${ROLES.skopa}.`,
     href: 'https://skopa.ai',
     link: 'skopa.ai',
     registry: REGISTRY.skopa,

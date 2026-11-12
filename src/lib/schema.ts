@@ -62,7 +62,7 @@ export function personalHomeGraph(socials: readonly string[]) {
         nationality: { '@type': 'Country', name: 'Switzerland' },
         address: { '@type': 'PostalAddress', addressLocality: 'Grenchen', addressRegion: 'SO', addressCountry: 'CH' },
         alumniOf: { '@type': 'CollegeOrUniversity', name: 'University of Aberdeen' },
-        knowsAbout: ['Artificial intelligence', 'Business automation', 'Swiss tax', 'Finance', 'Residential real estate'],
+        knowsAbout: ['Artificial intelligence', 'Quantum computing', 'Business automation', 'Swiss tax', 'Finance', 'Residential real estate'],
         worksFor: [{ '@id': 'https://skopa.ai/#org' }, { '@id': 'https://taxed.ch/#org' }],
       },
       ...(

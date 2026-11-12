@@ -159,7 +159,7 @@ export function PersonalHeader() {
               </span>
               <span className="mm-tag">Technology</span>
               <span className="mm-card-title">Skopa AG</span>
-              <span className="mm-muted">Artificial intelligence and automation for businesses.</span>
+              <span className="mm-muted">Artificial intelligence and quantum computing.</span>
               <span className="mm-meta">
                 <span>{ROLES.skopa}</span>
                 <span className="mm-url">skopa.ai</span>
