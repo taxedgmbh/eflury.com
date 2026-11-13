@@ -899,3 +899,10 @@
   .pb .rd-card p { font-size: 0.95rem; }
   .pb #radar .pv-cards { gap: var(--spacing-md); }
 }
+
+/* ---- Language switch ---- */
+.pb .ph-lang { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 10px; border-radius: var(--radius-full); color: var(--eflury-white); font-weight: 700; font-size: 0.875rem; letter-spacing: 0.08em; text-decoration: none; border: 1px solid rgb(255 255 255 / 0.25); }
+.pb .ph-lang:hover { border-color: var(--eflury-white); }
+.pb .pm-lang { display: flex; align-items: center; justify-content: center; margin-top: var(--spacing-md); min-height: 52px; border-radius: var(--radius-full); border: 1.5px solid rgb(255 255 255 / 0.35); color: var(--eflury-white); text-decoration: none; font-weight: 600; font-size: 17px; }
+.pb .ph-lang-mob { display: none; margin-left: auto; margin-right: var(--spacing-sm); }
+@media (max-width: 900px) { .pb .ph-lang-mob { display: inline-flex; } }

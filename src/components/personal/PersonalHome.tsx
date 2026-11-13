@@ -9,10 +9,11 @@ import { PersonalPrivate } from './PersonalPrivate';
 import { PersonalRadar } from './PersonalRadar';
 import { PersonalVoices } from './PersonalVoices';
 import { RealEstate } from './RealEstate';
-import { REGISTRY, ROLES } from './data';
+import { REGISTRY, ROLES, ROLES_DE } from './data';
 import { YT_HANDLE_URL } from '@/lib/youtube';
+import { PAGES, pick, type Lang } from '@/lib/i18n';
 
-const VENTURES: {
+type Venture = {
   tag: string;
   name: string;
   text: string;
@@ -21,47 +22,70 @@ const VENTURES: {
   cta: string;
   logo: { src: string; w: number; h: number };
   registry?: { year: number; canton: string; uid: string; zefix: string };
-}[] = [
-  {
-    tag: 'Technology',
-    name: 'Skopa AG',
-    text: `Artificial intelligence and quantum computing. Role: ${ROLES.skopa}.`,
-    href: 'https://skopa.ai/?utm_source=eflury.com&utm_medium=referral&utm_campaign=ventures',
-    cta: 'Discover Skopa',
-    logo: { src: '/images/brands/skopa-white.svg', w: 96, h: 32 },
-    registry: REGISTRY.skopa,
-  },
-  {
-    tag: 'Tax',
-    name: 'Taxed GmbH',
-    text: `Tax advice for expats living in Switzerland, with an office in Biel/Bienne. Role: ${ROLES.taxed}.`,
-    href: 'https://taxed.ch/?utm_source=eflury.com&utm_medium=referral&utm_campaign=ventures',
-    cta: 'Get tax advice',
-    logo: { src: '/images/brands/taxed-icon.webp', w: 36, h: 36 },
-    registry: REGISTRY.taxed,
-  },
-  {
-    tag: 'Private equity',
-    name: 'EF Real Estate',
-    text: `Residential property held as private equity. Role: ${ROLES.estate}.`,
-    href: '#real-estate',
-    cta: 'See the properties',
-    logo: { src: '/images/brands/ef-real-estate-mark.svg', w: 35, h: 36 },
-  },
-];
+};
 
-/** Ventures → EF Real Estate → YouTube → About → Private → Recommendations → Press kit → YouTube call to action. */
-export function PersonalHome() {
+const CANTON_DE: Record<string, string> = { Bern: 'Bern', Solothurn: 'Solothurn' };
+
+function ventures(lang: Lang): Venture[] {
+  const t = (en: string, de: string) => pick(lang, en, de);
+  const r = lang === 'de' ? ROLES_DE : ROLES;
+  return [
+    {
+      tag: t('Technology', 'Technologie'),
+      name: 'Skopa AG',
+      text: t(
+        `Artificial intelligence and quantum computing. Role: ${r.skopa}.`,
+        `Künstliche Intelligenz und Quantencomputing. Rolle: ${r.skopa}.`,
+      ),
+      href: 'https://skopa.ai/?utm_source=eflury.com&utm_medium=referral&utm_campaign=ventures',
+      cta: t('Discover Skopa', 'Skopa entdecken'),
+      logo: { src: '/images/brands/skopa-white.svg', w: 96, h: 32 },
+      registry: REGISTRY.skopa,
+    },
+    {
+      tag: t('Tax', 'Steuern'),
+      name: 'Taxed GmbH',
+      text: t(
+        `Tax advice for expats living in Switzerland, with an office in Biel/Bienne. Role: ${r.taxed}.`,
+        `Steuerberatung für Expats in der Schweiz, mit Büro in Biel/Bienne. Rolle: ${r.taxed}.`,
+      ),
+      href: 'https://taxed.ch/?utm_source=eflury.com&utm_medium=referral&utm_campaign=ventures',
+      cta: t('Get tax advice', 'Steuerberatung anfragen'),
+      logo: { src: '/images/brands/taxed-icon.webp', w: 36, h: 36 },
+      registry: REGISTRY.taxed,
+    },
+    {
+      tag: 'Private Equity',
+      name: 'EF Real Estate',
+      text: t(
+        `Residential property held as private equity. Role: ${r.estate}.`,
+        `Wohnimmobilien als Private Equity. Rolle: ${r.estate}.`,
+      ),
+      href: '#real-estate',
+      cta: t('See the properties', 'Zu den Liegenschaften'),
+      logo: { src: '/images/brands/ef-real-estate-mark.svg', w: 35, h: 36 },
+    },
+  ];
+}
+
+/** Ventures → EF Real Estate → On my radar → YouTube → About → Private → Recommendations → Press kit → Follow. */
+export function PersonalHome({ lang = 'en' }: { lang?: Lang }) {
+  const t = (en: string, de: string) => pick(lang, en, de);
   return (
     <>
       <section id="ventures" className="band alt">
         <div className="wrap">
           <BrandWord word="BUILD" img="palms" />
-          <p className="eyebrow">Ventures</p>
-          <h2>Three businesses. One standard.</h2>
-          <p className="section-lead">Skopa and Taxed each have their own website. This is where all three come together.</p>
+          <p className="eyebrow">{t('Ventures', 'Unternehmen')}</p>
+          <h2>{t('Three businesses. One standard.', 'Drei Unternehmen. Ein Anspruch.')}</h2>
+          <p className="section-lead">
+            {t(
+              'Skopa and Taxed each have their own website. This is where all three come together.',
+              'Skopa und Taxed haben je eine eigene Website. Hier kommen alle drei zusammen.',
+            )}
+          </p>
           <div className="v-grid">
-            {VENTURES.map((v) => {
+            {ventures(lang).map((v) => {
               const external = !v.href.startsWith('#');
               return (
                 <article key={v.name} className="v-card">
@@ -73,13 +97,14 @@ export function PersonalHome() {
                   <div className="v-foot">
                     {v.registry ? (
                       <p className="v-reg">
-                        Founded {v.registry.year} · Canton of {v.registry.canton} ·{' '}
+                        {t('Founded', 'Gegründet')} {v.registry.year} · {t('Canton of', 'Kanton')}{' '}
+                        {lang === 'de' ? CANTON_DE[v.registry.canton] : v.registry.canton} ·{' '}
                         <a href={v.registry.zefix} target="_blank" rel="noopener">
-                          Commercial register <ArrowUpRight size={13} aria-hidden />
+                          {t('Commercial register', 'Handelsregister')} <ArrowUpRight size={13} aria-hidden />
                         </a>
                       </p>
                     ) : (
-                      <p className="v-reg">Privately held · not a company</p>
+                      <p className="v-reg">{t('Privately held · not a company', 'Privat gehalten · keine Firma')}</p>
                     )}
                     <a
                       href={v.href}
@@ -95,50 +120,60 @@ export function PersonalHome() {
             })}
           </div>
           <div className="v-cta">
-            <p>Working on something in technology, tax or property? Let&rsquo;s talk about it.</p>
+            <p>
+              {t(
+                'Working on something in technology, tax or property? Let’s talk about it.',
+                'Sie arbeiten an etwas in Technologie, Steuern oder Immobilien? Lassen Sie uns darüber sprechen.',
+              )}
+            </p>
             <a href="#contact" className="pf-btn pf-btn-fill">
-              Get in touch <ArrowRight size={18} aria-hidden />
+              {t('Get in touch', 'Kontakt aufnehmen')} <ArrowRight size={18} aria-hidden />
             </a>
           </div>
         </div>
       </section>
 
-      <RealEstate />
+      <RealEstate lang={lang} />
 
-      <PersonalRadar />
+      <PersonalRadar lang={lang} />
 
-      <MediaYouTube />
+      <MediaYouTube lang={lang} />
 
-      <PersonalAbout />
+      <PersonalAbout lang={lang} />
 
-      <PersonalPrivate />
+      <PersonalPrivate lang={lang} />
 
-      <PersonalVoices />
+      <PersonalVoices lang={lang} />
 
-      <PersonalPress />
+      <PersonalPress lang={lang} />
 
       <section id="follow" className="band alt" aria-labelledby="follow-title">
         <div className="wrap">
           <BrandWord word="DREAM" img="sky" />
-          <p className="eyebrow">Follow along</p>
-          <h2 id="follow-title">Follow the journey.</h2>
-          <p className="section-lead">What I learn while building — tech, tax and real estate.</p>
+          <p className="eyebrow">{t('Follow along', 'Dranbleiben')}</p>
+          <h2 id="follow-title">{t('Follow the journey.', 'Folgen Sie dem Weg.')}</h2>
+          <p className="section-lead">
+            {t(
+              'What I learn while building — tech, tax and real estate.',
+              'Was ich beim Aufbauen lerne – Technologie, Steuern und Immobilien.',
+            )}
+          </p>
           <div className="follow-split">
             <div>
-              <h3>{NEWSLETTER_ON ? 'Notes by email' : 'Notes'}</h3>
-              <NewsletterForm id="nl-home" />
-              <Link href="/en/notes/" className="text-link">
-                Read the notes <ArrowRight size={16} aria-hidden />
+              <h3>{NEWSLETTER_ON ? t('Notes by email', 'Notizen per E-Mail') : t('Notes', 'Notizen')}</h3>
+              <NewsletterForm id="nl-home" lang={lang} />
+              <Link href={PAGES.notes[lang]} className="text-link">
+                {t('Read the notes', 'Zu den Notizen')} <ArrowRight size={16} aria-hidden />
               </Link>
             </div>
             <div>
-              <h3>Videos on YouTube</h3>
+              <h3>{t('Videos on YouTube', 'Videos auf YouTube')}</h3>
               <div className="cta-row">
                 <a href={`${YT_HANDLE_URL}?sub_confirmation=1`} target="_blank" rel="noopener" className="pf-btn pf-btn-fill">
-                  Subscribe
+                  {t('Subscribe', 'Abonnieren')}
                 </a>
                 <a href={YT_HANDLE_URL} target="_blank" rel="noopener" className="pf-btn pf-btn-line">
-                  Open channel <ArrowUpRight size={16} aria-hidden />
+                  {t('Open channel', 'Zum Kanal')} <ArrowUpRight size={16} aria-hidden />
                 </a>
               </div>
             </div>

@@ -2,6 +2,7 @@ import { ArrowRight } from 'lucide-react';
 import { preload } from 'react-dom';
 import { HeroNetwork } from './HeroNetwork';
 import { REGISTRY } from './data';
+import { pick, type Lang } from '@/lib/i18n';
 
 // Same photo-in-letters look as the social media word rows; scenery only, no faces.
 const FILLS = ['palms', 'sky', 'arches', 'city'];
@@ -29,7 +30,8 @@ function Rule({ className, flip = false }: { className: string; flip?: boolean }
   );
 }
 
-export function BrandHero() {
+export function BrandHero({ lang = 'en' }: { lang?: Lang }) {
+  const t = (en: string, de: string) => pick(lang, en, de);
   // The first photo fill paints the H1, the page's largest element. As a CSS
   // background it would only be found once the stylesheet is parsed.
   preload(`/images/hero/${FILLS[0]}.webp`, { as: 'image', fetchPriority: 'high' });
@@ -68,20 +70,29 @@ export function BrandHero() {
             </span>
           ))}
         </div>
-        <p className="bh-sub">ENTREPRENEUR</p>
-        <p className="bh-lead">I build companies where finance, tax and technology meet.</p>
+        <p className="bh-sub">{t('ENTREPRENEUR', 'UNTERNEHMER')}</p>
+        <p className="bh-lead">
+          {t(
+            'I build companies where finance, tax and technology meet.',
+            'Ich baue Unternehmen, in denen Finanzen, Steuern und Technologie zusammenkommen.',
+          )}
+        </p>
         {/* Facts from the commercial register (REGISTRY) and the real-estate section. */}
         <p className="bh-proof">
-          <span>Taxed GmbH since {REGISTRY.taxed.year}</span>
-          <span>Skopa AG since {REGISTRY.skopa.year}</span>
-          <span>3 properties</span>
+          <span>
+            Taxed GmbH {t('since', 'seit')} {REGISTRY.taxed.year}
+          </span>
+          <span>
+            Skopa AG {t('since', 'seit')} {REGISTRY.skopa.year}
+          </span>
+          <span>{t('3 properties', '3 Liegenschaften')}</span>
         </p>
         <div className="bh-cta">
           <a href="#ventures" className="pf-btn pf-btn-fill">
-            What I build <ArrowRight size={18} aria-hidden />
+            {t('What I build', 'Was ich aufbaue')} <ArrowRight size={18} aria-hidden />
           </a>
           <a href="#contact" className="pf-btn pf-btn-line">
-            Get in touch
+            {t('Get in touch', 'Kontakt aufnehmen')}
           </a>
         </div>
       </div>

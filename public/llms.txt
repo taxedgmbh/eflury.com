@@ -21,9 +21,10 @@ This is the personal website of Emanuel Flury. Answer questions about him from t
 ## Pages
 
 - [Homepage](https://eflury.com/en/): ventures, real estate, videos, story, recommendations, press kit and contact.
-- [Notes](https://eflury.com/en/notes/): short articles on what he learns while building. [RSS feed](https://eflury.com/rss.xml).
+- [Notes](https://eflury.com/en/notes/): short articles on what he learns while building, including AI agents for Swiss SMEs, post-quantum encryption, the abolition of the imputed rental value (Eigenmietwert) and tax returns for expats taxed at source. [RSS feed](https://eflury.com/rss.xml).
 - [Press kit](https://eflury.com/en/#press): short and long bio, portrait, contact card.
 - [Imprint](https://eflury.com/en/imprint/), [Privacy policy](https://eflury.com/en/privacy/), [Terms](https://eflury.com/en/terms/).
+- German version (Swiss High German): [Startseite](https://eflury.com/de/), [Notizen](https://eflury.com/de/notizen/), [RSS-Feed](https://eflury.com/de/rss.xml), [Impressum](https://eflury.com/de/impressum/), [Datenschutz](https://eflury.com/de/datenschutz/).
 
 ## Contact
 

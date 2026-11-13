@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import { LegalPage } from '@/components/personal/LegalPage';
+import { alternates, PAGES } from '@/lib/i18n';
 import { PERSON } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Terms of use',
   description: 'Terms of use for eflury.com, including how the press-kit bios, photos, logos and video may be used.',
-  alternates: { canonical: '/en/terms/' },
+  alternates: alternates(PAGES.terms, 'en'),
   openGraph: {
     type: 'website',
     url: '/en/terms/',
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalPage title="Terms of use" updated="12 November 2026">
+    <LegalPage title="Terms of use" updated="12 November 2026" alt={PAGES.terms.de}>
       <p>
         These terms apply to the use of eflury.com, the personal website of {PERSON.name}. By using the website you
         accept them.

@@ -1,10 +1,14 @@
 import Link from 'next/link';
 import { ArrowUp, ArrowUpRight, Contact, Mail, MessageCircle } from 'lucide-react';
-import { EMAIL, LEGAL, LINKEDIN, PHONE, ROLES, SOCIALS, WHATSAPP } from './data';
+import { EMAIL, LEGAL, LEGAL_DE, LINKEDIN, PHONE, ROLES, ROLES_DE, SOCIALS, WHATSAPP } from './data';
+import { home, PAGES, pick, type Lang } from '@/lib/i18n';
 import { SocialIcon } from './SocialIcon';
 
-export function PersonalFooter() {
+export function PersonalFooter({ lang = 'en' }: { lang?: Lang }) {
   const year = new Date().getFullYear();
+  const t = (en: string, de: string) => pick(lang, en, de);
+  const r = lang === 'de' ? ROLES_DE : ROLES;
+  const legal = lang === 'de' ? LEGAL_DE : LEGAL;
 
   return (
     <footer className="pf">
@@ -17,21 +21,23 @@ export function PersonalFooter() {
         </svg>
         <div className="pf-wrap pf-cta-inner">
           <div>
-            <p className="pf-eyebrow">Contact</p>
+            <p className="pf-eyebrow">{t('Contact', 'Kontakt')}</p>
             <h2 id="contact-title" className="pf-cta-title">
-              Let&rsquo;s talk.
+              {t('Let’s talk.', 'Lassen Sie uns reden.')}
             </h2>
-            <p className="pf-cta-text">For conversations, partnerships or media requests.</p>
+            <p className="pf-cta-text">
+              {t('For conversations, partnerships or media requests.', 'Für Gespräche, Partnerschaften oder Medienanfragen.')}
+            </p>
           </div>
           <div className="pf-cta-actions">
             <a href={`mailto:${EMAIL}`} className="pf-btn pf-btn-fill">
-              <Mail size={18} aria-hidden /> Send an email
+              <Mail size={18} aria-hidden /> {t('Send an email', 'E-Mail schreiben')}
             </a>
             <a href={WHATSAPP} target="_blank" rel="noopener" className="pf-btn pf-btn-line">
               <MessageCircle size={18} aria-hidden /> WhatsApp
             </a>
             <a href={LINKEDIN} target="_blank" rel="noopener me" className="pf-btn pf-btn-line">
-              <SocialIcon name="LinkedIn" /> Connect on LinkedIn
+              <SocialIcon name="LinkedIn" /> {t('Connect on LinkedIn', 'Auf LinkedIn vernetzen')}
             </a>
           </div>
         </div>
@@ -46,17 +52,24 @@ export function PersonalFooter() {
         <div className="pf-wrap pf-qr-row">
           <div className="pf-qr">
             {/* eslint-disable-next-line @next/next/no-img-element -- static SVG */}
-            <img src="/images/contact-qr.svg" alt="QR code with Emanuel Flury's contact card" width={168} height={168} />
+            <img src="/images/contact-qr.svg" alt={t("QR code with Emanuel Flury's contact card", 'QR-Code mit der Kontaktkarte von Emanuel Flury')} width={168} height={168} />
           </div>
           <div className="pf-qr-text">
-            <p className="pf-qr-title">Save my contact</p>
-            <p>
-              <span className="pf-qr-desk">Scan with your phone camera to add </span>
-              <span className="pf-qr-mob">Add </span>
-              name, photo, mobile and WhatsApp, email, address and website to your contacts.
-            </p>
+            <p className="pf-qr-title">{t('Save my contact', 'Meinen Kontakt speichern')}</p>
+            {lang === 'de' ? (
+              <p>
+                <span className="pf-qr-desk">Mit der Handykamera scannen und </span>
+                Name, Foto, Handynummer und WhatsApp, E-Mail, Adresse und Website in Ihre Kontakte übernehmen.
+              </p>
+            ) : (
+              <p>
+                <span className="pf-qr-desk">Scan with your phone camera to add </span>
+                <span className="pf-qr-mob">Add </span>
+                name, photo, mobile and WhatsApp, email, address and website to your contacts.
+              </p>
+            )}
             <a href="/press/emanuel-flury.vcf" className="pf-btn pf-btn-line pf-qr-btn">
-              <Contact size={18} aria-hidden /> Save contact
+              <Contact size={18} aria-hidden /> {t('Save contact', 'Kontakt speichern')}
             </a>
           </div>
         </div>
@@ -65,22 +78,27 @@ export function PersonalFooter() {
       <div className="pf-wrap">
         <div className="pf-top">
           <div className="pf-brand">
-            <a href="/en/" className="pf-logo">
+            <a href={home(lang)} className="pf-logo">
               {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
               <img src="/images/ef-mark-white.svg" alt="" width={60} height={48} />
               <span>
                 <span className="pf-name">Emanuel Flury</span>
-                <span className="pf-role">ENTREPRENEUR</span>
+                <span className="pf-role">{t('ENTREPRENEUR', 'UNTERNEHMER')}</span>
               </span>
             </a>
-            <p className="pf-lead">I build companies where finance, tax and technology meet.</p>
+            <p className="pf-lead">
+              {t(
+                'I build companies where finance, tax and technology meet.',
+                'Ich baue Unternehmen, in denen Finanzen, Steuern und Technologie zusammenkommen.',
+              )}
+            </p>
             <a href={`mailto:${EMAIL}`} className="pf-mail">
               <Mail size={16} aria-hidden /> {EMAIL}
             </a>
             <a href={WHATSAPP} target="_blank" rel="noopener" className="pf-mail">
               <MessageCircle size={16} aria-hidden /> WhatsApp {PHONE}
             </a>
-            <ul className="pf-social" aria-label="Follow">
+            <ul className="pf-social" aria-label={t('Follow', 'Folgen')}>
               {SOCIALS.map((s) => (
                 <li key={s.name}>
                   <a href={s.href} target="_blank" rel="noopener me" aria-label={s.name} title={s.name}>
@@ -92,7 +110,7 @@ export function PersonalFooter() {
           </div>
 
           <div className="pf-col pf-ventures">
-            <p className="pf-col-title">Ventures</p>
+            <p className="pf-col-title">{t('Ventures', 'Unternehmen')}</p>
             <a href="https://skopa.ai" target="_blank" rel="noopener" className="pf-venture">
               <span className="pf-v-logo">
                 {/* eslint-disable-next-line @next/next/no-img-element -- SVG logo */}
@@ -102,7 +120,7 @@ export function PersonalFooter() {
                 <span className="pf-v-name">
                   Skopa AG <ArrowUpRight size={13} aria-hidden />
                 </span>
-                <span className="pf-v-role">{ROLES.skopa}</span>
+                <span className="pf-v-role">{r.skopa}</span>
               </span>
             </a>
             <a href="https://taxed.ch" target="_blank" rel="noopener" className="pf-venture">
@@ -114,52 +132,52 @@ export function PersonalFooter() {
                 <span className="pf-v-name">
                   Taxed GmbH <ArrowUpRight size={13} aria-hidden />
                 </span>
-                <span className="pf-v-role">{ROLES.taxed}</span>
+                <span className="pf-v-role">{r.taxed}</span>
               </span>
             </a>
-            <a href="/en/#real-estate" className="pf-venture">
+            <a href={home(lang, 'real-estate')} className="pf-venture">
               <span className="pf-v-logo">
                 {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
                 <img src="/images/brands/ef-real-estate-mark.svg" alt="" width={32} height={33} />
               </span>
               <span>
                 <span className="pf-v-name">EF Real Estate</span>
-                <span className="pf-v-role">{ROLES.estate} · Private equity</span>
+                <span className="pf-v-role">{r.estate} · Private Equity</span>
               </span>
             </a>
           </div>
 
           <div className="pf-col">
-            <p className="pf-col-title">About</p>
+            <p className="pf-col-title">{t('About', 'Über mich')}</p>
             <ul className="pf-list">
               <li>
-                <a className="pf-link" href="/en/#about">
-                  My story
+                <a className="pf-link" href={home(lang, 'about')}>
+                  {t('My story', 'Meine Geschichte')}
                 </a>
               </li>
               <li>
-                <a className="pf-link" href="/en/#radar">
-                  On my radar
+                <a className="pf-link" href={home(lang, 'radar')}>
+                  {t('On my radar', 'Auf meinem Radar')}
                 </a>
               </li>
               <li>
-                <Link className="pf-link" href="/en/notes/">
-                  Notes
+                <Link className="pf-link" href={PAGES.notes[lang]}>
+                  {t('Notes', 'Notizen')}
                 </Link>
               </li>
               <li>
-                <a className="pf-link" href="/rss.xml">
-                  RSS feed
+                <a className="pf-link" href={PAGES.rss[lang]}>
+                  {t('RSS feed', 'RSS-Feed')}
                 </a>
               </li>
               <li>
-                <a className="pf-link" href="/en/#press">
-                  Press kit
+                <a className="pf-link" href={home(lang, 'press')}>
+                  {t('Press kit', 'Pressemappe')}
                 </a>
               </li>
               <li>
-                <a className="pf-link" href="/en/#contact">
-                  Contact
+                <a className="pf-link" href={home(lang, 'contact')}>
+                  {t('Contact', 'Kontakt')}
                 </a>
               </li>
             </ul>
@@ -169,8 +187,8 @@ export function PersonalFooter() {
         <div className="pf-bottom">
           <div className="pf-legal">
             <p>© {year} Emanuel Flury · Grenchen</p>
-            <nav aria-label="Legal">
-              {LEGAL.map((l) => (
+            <nav aria-label={t('Legal', 'Rechtliches')}>
+              {legal.map((l) => (
                 <a key={l.href} href={l.href}>
                   {l.label}
                 </a>
@@ -181,7 +199,7 @@ export function PersonalFooter() {
             TECH <b>·</b> TAX <b>·</b> REAL ESTATE
           </p>
           <div className="pf-bottom-right">
-            <a href="#main-content" className="pf-top-btn" aria-label="Back to top" title="Back to top">
+            <a href="#main-content" className="pf-top-btn" aria-label={t('Back to top', 'Nach oben')} title={t('Back to top', 'Nach oben')}>
               <ArrowUp size={18} aria-hidden />
             </a>
           </div>

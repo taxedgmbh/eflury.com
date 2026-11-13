@@ -2,6 +2,7 @@ import { createHash, randomBytes } from 'node:crypto';
 import { FieldValue, Firestore, Timestamp } from '@google-cloud/firestore';
 import nodemailer from 'nodemailer';
 import { SITE_URL } from './site';
+import type { Lang } from './i18n';
 
 /*
  * Newsletter, kept in-house:
@@ -29,6 +30,8 @@ const RESEND_AFTER_MS = 10 * 60 * 1000;
 
 export type Subscriber = {
   email: string;
+  /** Language of the emails: the page the person signed up on. */
+  lang: Lang;
   status: 'pending' | 'confirmed';
   createdAt: Timestamp;
   confirmedAt?: Timestamp;
@@ -90,7 +93,7 @@ export const unsubscribeUrl = (t: string) => `${SITE_URL}/api/newsletter/unsubsc
  * Handles a sign-up. Returns the status page to show. Never reveals whether an
  * address is already subscribed: every valid request ends on "check-email".
  */
-export async function subscribe(email: string, ip: string): Promise<'check-email' | 'limit'> {
+export async function subscribe(email: string, ip: string, lang: Lang = 'en'): Promise<'check-email' | 'limit'> {
   const ref = SUBSCRIBERS.doc(sha256(email));
   const snap = await ref.get();
   const existing = snap.exists ? (snap.data() as Subscriber) : undefined;
@@ -103,6 +106,7 @@ export async function subscribe(email: string, ip: string): Promise<'check-email
   const now = Timestamp.now();
   const doc: Subscriber = {
     email,
+    lang,
     status: 'pending',
     createdAt: existing?.createdAt ?? now,
     confirmHash: sha256(confirm),
@@ -113,37 +117,54 @@ export async function subscribe(email: string, ip: string): Promise<'check-email
   await ref.set(doc);
 
   const link = `${SITE_URL}/api/newsletter/confirm/?t=${encodeURIComponent(confirm)}`;
+  const de = lang === 'de';
   await mailer().sendMail({
     from: FROM,
     to: email,
-    subject: 'Please confirm your subscription',
-    text: [
-      'Hello,',
-      '',
-      'Please confirm that you would like to receive new notes from Emanuel Flury by email:',
-      '',
-      link,
-      '',
-      `If you did not sign up, simply ignore this email. Your address will be deleted automatically after ${PENDING_DAYS} days.`,
-      '',
-      'Emanuel Flury',
-      `${SITE_URL}/en/`,
-    ].join('\n'),
+    subject: de ? 'Bitte bestätigen Sie Ihr Abonnement' : 'Please confirm your subscription',
+    text: (de
+      ? [
+          'Guten Tag',
+          '',
+          'Bitte bestätigen Sie, dass Sie neue Notizen von Emanuel Flury per E-Mail erhalten möchten:',
+          '',
+          link,
+          '',
+          `Falls Sie sich nicht angemeldet haben, ignorieren Sie dieses E-Mail einfach. Ihre Adresse wird nach ${PENDING_DAYS} Tagen automatisch gelöscht.`,
+          '',
+          'Freundliche Grüsse',
+          'Emanuel Flury',
+          `${SITE_URL}/de/`,
+        ]
+      : [
+          'Hello,',
+          '',
+          'Please confirm that you would like to receive new notes from Emanuel Flury by email:',
+          '',
+          link,
+          '',
+          `If you did not sign up, simply ignore this email. Your address will be deleted automatically after ${PENDING_DAYS} days.`,
+          '',
+          'Emanuel Flury',
+          `${SITE_URL}/en/`,
+        ]
+    ).join('\n'),
   });
   return 'check-email';
 }
 
-export async function confirm(t: string): Promise<boolean> {
+/** Confirms a sign-up. Returns its language, or null if the link is invalid or used. */
+export async function confirm(t: string): Promise<Lang | null> {
   const q = await SUBSCRIBERS.where('confirmHash', '==', sha256(t)).limit(1).get();
   const snap = q.docs[0];
-  if (!snap || snap.get('status') !== 'pending') return false;
+  if (!snap || snap.get('status') !== 'pending') return null;
   await snap.ref.update({
     status: 'confirmed',
     confirmedAt: Timestamp.now(),
     confirmHash: FieldValue.delete(),
     expireAt: FieldValue.delete(),
   });
-  return true;
+  return snap.get('lang') === 'de' ? 'de' : 'en';
 }
 
 /** Deletes the subscriber. true even if the token is unknown (already gone). */

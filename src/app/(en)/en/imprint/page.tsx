@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import { LegalPage } from '@/components/personal/LegalPage';
+import { alternates, PAGES } from '@/lib/i18n';
 import { REGISTRY } from '@/components/personal/data';
 import { ADDRESS, PERSON } from '@/lib/site';
 
 export const metadata: Metadata = {
   title: 'Imprint',
   description: 'Imprint of eflury.com, the personal website of Emanuel Flury, Grenchen, Switzerland.',
-  alternates: { canonical: '/en/imprint/' },
+  alternates: alternates(PAGES.imprint, 'en'),
   openGraph: {
     type: 'website',
     url: '/en/imprint/',
@@ -22,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function ImprintPage() {
   return (
-    <LegalPage title="Imprint" updated="12 November 2026">
+    <LegalPage title="Imprint" updated="12 November 2026" alt={PAGES.imprint.de}>
       <h2>Responsible for this website</h2>
       <address>
         {PERSON.name}

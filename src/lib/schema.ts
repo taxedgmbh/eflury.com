@@ -1,4 +1,5 @@
-import { SITE_URL, PERSON, PORTRAIT, HOME_TITLE, HOME_DESCRIPTION } from './site';
+import { SITE_URL, PERSON, PORTRAIT, HOME_TITLE, HOME_DESCRIPTION, HOME_TITLE_DE, HOME_DESCRIPTION_DE } from './site';
+import { PAGES, type Lang } from './i18n';
 import { REGISTRY } from '@/components/personal/data';
 
 /** Stable @id for the one Person this site is about. */
@@ -14,8 +15,9 @@ export function jsonLd(data: unknown): string {
  * whose mainEntity is the Person, plus the WebSite node Google reads the site
  * name from. Roles exactly as on LinkedIn.
  */
-export function personalHomeGraph(socials: readonly string[]) {
-  const url = `${SITE_URL}/en/`;
+export function personalHomeGraph(socials: readonly string[], lang: Lang = 'en') {
+  const url = `${SITE_URL}${PAGES.home[lang]}`;
+  const de = lang === 'de';
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -24,16 +26,16 @@ export function personalHomeGraph(socials: readonly string[]) {
         '@id': `${SITE_URL}/#website`,
         url: `${SITE_URL}/`,
         name: 'Emanuel Flury',
-        inLanguage: 'en',
+        inLanguage: ['en', 'de-CH'],
         publisher: { '@id': ID.person },
       },
       {
         '@type': 'ProfilePage',
         '@id': `${url}#webpage`,
         url,
-        name: HOME_TITLE,
-        description: HOME_DESCRIPTION,
-        inLanguage: 'en',
+        name: de ? HOME_TITLE_DE : HOME_TITLE,
+        description: de ? HOME_DESCRIPTION_DE : HOME_DESCRIPTION,
+        inLanguage: de ? 'de-CH' : 'en',
         isPartOf: { '@id': `${SITE_URL}/#website` },
         mainEntity: { '@id': ID.person },
         primaryImageOfPage: { '@id': `${SITE_URL}/#portrait` },
@@ -46,11 +48,11 @@ export function personalHomeGraph(socials: readonly string[]) {
         givenName: 'Emanuel',
         additionalName: 'Aaron',
         familyName: 'Flury',
-        jobTitle: 'Entrepreneur',
-        description: HOME_DESCRIPTION,
+        jobTitle: de ? 'Unternehmer' : 'Entrepreneur',
+        description: de ? HOME_DESCRIPTION_DE : HOME_DESCRIPTION,
         email: `mailto:${PERSON.email}`,
         telephone: PERSON.telephone,
-        url,
+        url: `${SITE_URL}/en/`,
         image: {
           '@type': 'ImageObject',
           '@id': `${SITE_URL}/#portrait`,

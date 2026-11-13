@@ -16,6 +16,7 @@ export function YouTubePlayer({
   width,
   height,
   size,
+  lang = 'en',
 }: {
   id: string;
   title: string;
@@ -24,9 +25,10 @@ export function YouTubePlayer({
   width: number;
   height: number;
   size: number;
+  lang?: 'en' | 'de';
 }) {
   const [playing, setPlaying] = useState(false);
-  const label = `Play video: ${title}`;
+  const label = `${lang === 'de' ? 'Video abspielen' : 'Play video'}: ${title}`;
 
   if (playing) {
     return (

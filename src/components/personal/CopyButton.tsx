@@ -4,7 +4,7 @@ import { Check, Copy } from 'lucide-react';
 import { useState } from 'react';
 
 /** Copies a bio to the clipboard; the label confirms for two seconds. */
-export function CopyButton({ text, label }: { text: string; label: string }) {
+export function CopyButton({ text, label, done: doneLabel = 'Copied' }: { text: string; label: string; done?: string }) {
   const [done, setDone] = useState(false);
   return (
     <button
@@ -21,7 +21,7 @@ export function CopyButton({ text, label }: { text: string; label: string }) {
       }}
     >
       {done ? <Check size={16} aria-hidden /> : <Copy size={16} aria-hidden />}
-      <span aria-live="polite">{done ? 'Copied' : label}</span>
+      <span aria-live="polite">{done ? doneLabel : label}</span>
     </button>
   );
 }

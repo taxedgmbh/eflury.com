@@ -3,10 +3,12 @@
  * Sends a published note to the newsletter subscribers.
  *
  *   node scripts/newsletter-send.mjs <note>           dry run: shows subject and recipient count
+ *   node scripts/newsletter-send.mjs de/<note> ...    a German note, sent to German subscribers
  *   node scripts/newsletter-send.mjs <note> --test    sends only to me@eflury.com
  *   node scripts/newsletter-send.mjs <note> --send    sends to every confirmed subscriber
  *
- * <note> is the file name in content/notes/ without ".md". The note must be
+ * <note> is the file name in content/notes/ (or content/notes/de/) without ".md".
+ * Each subscriber only gets notes in the language they signed up in. The note must be
  * published (no draft: true) and live on eflury.com. A note is only sent once;
  * the send is recorded in Firestore (newsletter_sends/<note>).
  *
@@ -43,15 +45,19 @@ async function api(url, init = {}) {
 }
 
 // The note
-const file = path.join(process.cwd(), 'content', 'notes', `${slug}.md`);
+const lang = slug.startsWith('de/') ? 'de' : 'en';
+const name = slug.replace(/^de\//, '');
+const de = lang === 'de';
+const file = path.join(process.cwd(), 'content', 'notes', ...(de ? ['de'] : []), `${name}.md`);
 const { data } = matter(fs.readFileSync(file, 'utf8'));
 if (data.draft) throw new Error(`${slug} is still a draft`);
-const url = `${SITE}/en/notes/${slug}/`;
+const url = de ? `${SITE}/de/notizen/${name}/` : `${SITE}/en/notes/${name}/`;
 const live = await fetch(url, { method: 'HEAD', redirect: 'manual' });
 if (live.status !== 200) throw new Error(`${url} answers ${live.status}; push and wait for the deploy first`);
 
 // Sent before?
-const sendRef = `${FS}/newsletter_sends/${encodeURIComponent(slug)}`;
+const sendId = `${lang}-${name}`;
+const sendRef = `${FS}/newsletter_sends/${encodeURIComponent(sendId)}`;
 if (mode === '--send' && (await api(sendRef))) throw new Error(`${slug} was already sent`);
 
 // Recipients
@@ -70,6 +76,8 @@ if (mode === '--test') {
   });
   recipients = rows
     .filter((r) => r.document)
+    // Sign-ups from before the German site have no lang field: English.
+    .filter((r) => (r.document.fields.lang?.stringValue ?? 'en') === lang)
     .map((r) => ({ email: r.document.fields.email.stringValue, unsubToken: r.document.fields.unsubToken.stringValue }));
 }
 
@@ -84,24 +92,24 @@ function render(unsubUrl) {
     '',
     data.description,
     '',
-    `Read the note: ${url}`,
+    `${de ? 'Zur Notiz' : 'Read the note'}: ${url}`,
     '',
     '—',
     'Emanuel Flury',
-    `${SITE}/en/`,
+    `${SITE}/${lang}/`,
     '',
-    'You receive this because you subscribed to new notes on eflury.com.',
-    `Unsubscribe: ${unsubUrl}`,
+    de ? 'Sie erhalten dieses E-Mail, weil Sie neue Notizen auf eflury.com abonniert haben.' : 'You receive this because you subscribed to new notes on eflury.com.',
+    `${de ? 'Abmelden' : 'Unsubscribe'}: ${unsubUrl}`,
   ].join('\n');
-  const html = `<!doctype html><html lang="en"><body style="margin:0;padding:24px;background:#f4f6f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#022554">
+  const html = `<!doctype html><html lang="${de ? 'de-CH' : 'en'}"><body style="margin:0;padding:24px;background:#f4f6f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#022554">
 <table role="presentation" width="100%" style="max-width:560px;margin:0 auto;background:#fff;border-radius:12px"><tr><td style="padding:32px">
-<p style="margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#1477b0;font-weight:700">New note</p>
+<p style="margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#1477b0;font-weight:700">${de ? 'Neue Notiz' : 'New note'}</p>
 <h1 style="margin:0 0 12px;font-size:24px;line-height:1.25">${esc(data.title)}</h1>
 <p style="margin:0 0 24px;font-size:17px;line-height:1.6;color:#33475b">${esc(data.description)}</p>
-<a href="${url}" style="display:inline-block;padding:14px 28px;border-radius:999px;background:#096b62;color:#fff;text-decoration:none;font-weight:600">Read the note</a>
-<p style="margin:32px 0 0;font-size:15px;line-height:1.6">Emanuel Flury<br><a href="${SITE}/en/" style="color:#1477b0">eflury.com</a></p>
+<a href="${url}" style="display:inline-block;padding:14px 28px;border-radius:999px;background:#096b62;color:#fff;text-decoration:none;font-weight:600">${de ? 'Notiz lesen' : 'Read the note'}</a>
+<p style="margin:32px 0 0;font-size:15px;line-height:1.6">Emanuel Flury<br><a href="${SITE}/${lang}/" style="color:#1477b0">eflury.com</a></p>
 </td></tr></table>
-<p style="max-width:560px;margin:16px auto 0;font-size:12px;line-height:1.6;color:#5b6b7b;text-align:center">You receive this because you subscribed to new notes on eflury.com.<br><a href="${unsubUrl}" style="color:#5b6b7b">Unsubscribe</a></p>
+<p style="max-width:560px;margin:16px auto 0;font-size:12px;line-height:1.6;color:#5b6b7b;text-align:center">${de ? 'Sie erhalten dieses E-Mail, weil Sie neue Notizen auf eflury.com abonniert haben.' : 'You receive this because you subscribed to new notes on eflury.com.'}<br><a href="${unsubUrl}" style="color:#5b6b7b">${de ? 'Abmelden' : 'Unsubscribe'}</a></p>
 </body></html>`;
   return { text, html };
 }
@@ -112,7 +120,7 @@ const mail = nodemailer.createTransport({ host: 'smtp.mail.me.com', port: 587, s
 
 let sent = 0;
 for (const r of recipients) {
-  const unsubUrl = `${SITE}/api/newsletter/unsubscribe/?t=${encodeURIComponent(r.unsubToken)}`;
+  const unsubUrl = `${SITE}/api/newsletter/unsubscribe/?t=${encodeURIComponent(r.unsubToken)}${de ? '&l=de' : ''}`;
   try {
     await mail.sendMail({
       from: FROM,
@@ -132,7 +140,7 @@ for (const r of recipients) {
 }
 
 if (mode === '--send') {
-  await api(`${FS}/newsletter_sends?documentId=${encodeURIComponent(slug)}`, {
+  await api(`${FS}/newsletter_sends?documentId=${encodeURIComponent(sendId)}`, {
     method: 'POST',
     body: JSON.stringify({
       fields: { sentAt: { timestampValue: new Date().toISOString() }, recipients: { integerValue: String(sent) } },

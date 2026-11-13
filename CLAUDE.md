@@ -5,12 +5,28 @@ Guidance for Claude Code in this repository.
 ## What this is
 
 eflury.com: the personal website of Emanuel Flury, entrepreneur (Skopa AG,
-Taxed GmbH, EF Real Estate). English only. Pages: `/en/` (homepage), `/en/notes/`,
-`/en/imprint/`, `/en/privacy/`. `/` redirects to `/en/`.
+Taxed GmbH, EF Real Estate). English and German (Swiss High German, since
+2026-11-13). English: `/en/`, `/en/notes/`, `/en/imprint/`, `/en/privacy/`,
+`/en/terms/`. German: `/de/`, `/de/notizen/`, `/de/impressum/`, `/de/datenschutz/`,
+`/de/nutzungsbedingungen/`. `/` redirects to `/en/`.
 
-eFlury Consulting closed on 2026-11-12. Its German site, blog, forms and server
-routes were removed; every old URL (`/de/*`, legacy `/en/*`, `/offerte/`,
-`/offer/`, `/demo/`, `/downloads/*`) 301s to `/en/` (see `next.config.ts`).
+## Languages
+
+- `src/lib/i18n.ts`: `Lang`, `pick(lang, en, de)`, `PAGES` (twin URLs for the
+  EN/DE switch and hreflang), `alternates()`. Components take a `lang` prop and
+  hold both texts side by side; change both together.
+- Two root layouts: `src/app/(en)/layout.tsx` (lang en) and `src/app/(de)/layout.tsx`
+  (lang de-CH). Shared views: `HomeView`, `NotesViews`, `NewsletterStatus`.
+  Legal pages are separate files per language (the German privacy policy and
+  terms say the German version prevails).
+- German style: Swiss High German, "ss" never "ß", «Guillemets», CHF 1'000,
+  "das E-Mail", formal "Sie". Brand words (BUILD, GROW …) stay English.
+- German notes: `content/notes/de/<slug>.md` with `en: <english-slug>`.
+
+eFlury Consulting closed on 2026-11-12. Its blog, forms and server routes were
+removed; old URLs 301 to the homepage of their language (legacy `/de/*` to
+`/de/`; legacy `/en/*`, `/offerte/`, `/offer/`, `/demo/`, `/downloads/*` to `/en/`;
+see `next.config.ts`).
 
 ## Stack and deploy
 
@@ -60,7 +76,8 @@ npm run build
 - Mail goes out from me@eflury.com via iCloud SMTP; the login lives in Secret
   Manager (`newsletter-smtp-user`, `newsletter-smtp-pass`). The form only shows
   when `NEXT_PUBLIC_NEWSLETTER=on` (apphosting.yaml); otherwise an RSS button.
-- Send a published note: `node scripts/newsletter-send.mjs <note> [--test|--send]`.
+- Send a published note: `node scripts/newsletter-send.mjs <note> [--test|--send]`
+  (`de/<note>` for a German note; it goes only to German subscribers).
 - Real estate: type and region only, never addresses, tenants, values or financing.
 - The press-kit bios (`src/components/personal/PersonalPress.tsx`) are built only
   from facts stated elsewhere on the page. Change them together.

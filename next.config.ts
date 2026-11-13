@@ -37,13 +37,19 @@ const nextConfig: NextConfig = {
 
       /*
        * eFlury Consulting closed on 2026-11-12 and its pages went with it: the
-       * German site under /de/, the old English URLs under /en/*, the offer
+       * old German pages under /de/, the old English URLs under /en/*, the offer
        * and download pages. Every one of them lands on the homepage instead
        * of a 404, so old links and search results still arrive somewhere.
        * The lookaheads keep the two pages that do live under /en/.
        */
-      { source: '/de/:path*', destination: '/en/', statusCode: 301 },
-      { source: '/en/:path((?!imprint|privacy|terms|notes|newsletter).+)', destination: '/en/', statusCode: 301 },
+      // The German site went live again on 2026-11-13 (personal brand). Old
+      // consulting URLs under /de/ land on the German homepage.
+      {
+        source: '/de/:path((?!impressum|datenschutz|nutzungsbedingungen|notizen|newsletter|opengraph-image|rss\\.xml).+)',
+        destination: '/de/',
+        statusCode: 301,
+      },
+      { source: '/en/:path((?!imprint|privacy|terms|notes|newsletter|opengraph-image).+)', destination: '/en/', statusCode: 301 },
       { source: '/:dir(offerte|offer|demo|downloads)/:path*', destination: '/en/', statusCode: 301 },
     ];
   },

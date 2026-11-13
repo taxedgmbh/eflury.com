@@ -22,12 +22,15 @@ export function PhotoGallery({
   photos,
   label,
   layout = "cover",
+  lang = "en",
 }: {
   photos: Photo[];
   label: string;
   /** cover: one image with a count badge. strip: every photo as a thumbnail. */
   layout?: "cover" | "strip";
+  lang?: "en" | "de";
 }) {
+  const de = lang === "de";
   const dialog = useRef<HTMLDialogElement>(null);
   const [index, setIndex] = useState(0);
   // The full-size image only exists while the dialog is open; rendered up
@@ -74,7 +77,7 @@ export function PhotoGallery({
                 type="button"
                 className="ps-item"
                 onClick={() => open(i)}
-                aria-label={`${p.alt}: open photo ${i + 1} of ${photos.length}`}
+                aria-label={de ? `${p.alt}: Foto ${i + 1} von ${photos.length} öffnen` : `${p.alt}: open photo ${i + 1} of ${photos.length}`}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP with srcset */}
                 <img
@@ -97,7 +100,7 @@ export function PhotoGallery({
             type="button"
             className="re-cover"
             onClick={() => open(0)}
-            aria-label={`${label}: open ${photos.length} photos`}
+            aria-label={de ? `${label}: ${photos.length} Fotos öffnen` : `${label}: open ${photos.length} photos`}
           >
             {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP with srcset */}
             <img
@@ -111,7 +114,7 @@ export function PhotoGallery({
               decoding="async"
             />
             <span className="re-cover-badge">
-              <Images size={16} aria-hidden /> {photos.length} photos
+              <Images size={16} aria-hidden /> {photos.length} {de ? "Fotos" : "photos"}
             </span>
           </button>
         </>
@@ -120,7 +123,7 @@ export function PhotoGallery({
       <dialog
         ref={dialog}
         className="pg"
-        aria-label={`${label}, photos`}
+        aria-label={de ? `${label}, Fotos` : `${label}, photos`}
         onClick={(e) => {
           if (e.target === e.currentTarget) dialog.current?.close();
         }}
@@ -148,7 +151,7 @@ export function PhotoGallery({
             type="button"
             className="pg-btn pg-prev"
             onClick={() => step(-1)}
-            aria-label="Previous photo"
+            aria-label={de ? "Vorheriges Foto" : "Previous photo"}
           >
             <ChevronLeft size={28} aria-hidden />
           </button>
@@ -156,7 +159,7 @@ export function PhotoGallery({
             type="button"
             className="pg-btn pg-next"
             onClick={() => step(1)}
-            aria-label="Next photo"
+            aria-label={de ? "Nächstes Foto" : "Next photo"}
           >
             <ChevronRight size={28} aria-hidden />
           </button>
@@ -164,7 +167,7 @@ export function PhotoGallery({
             type="button"
             className="pg-btn pg-close"
             onClick={() => dialog.current?.close()}
-            aria-label="Close"
+            aria-label={de ? "Schliessen" : "Close"}
           >
             <X size={24} aria-hidden />
           </button>

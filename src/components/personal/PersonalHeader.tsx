@@ -16,10 +16,12 @@ import {
 } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { EMAIL, PHONE, ROLES, SOCIALS, WHATSAPP } from './data';
+import { home, pick, PAGES, type Lang } from '@/lib/i18n';
 
 type Panel = 'ventures' | 'about';
 
-function Strip() {
+function Strip({ lang }: { lang: Lang }) {
+  const t = (en: string, de: string) => pick(lang, en, de);
   return (
     <div className="mm-strip">
       <div className="mm-strip-inner">
@@ -27,8 +29,8 @@ function Strip() {
         <span>
           TECH <b>·</b> TAX <b>·</b> REAL ESTATE
         </span>
-        <a href="/en/#contact">
-          Start a conversation <ArrowRight size={14} aria-hidden />
+        <a href={home(lang, 'contact')}>
+          {t('Start a conversation', 'Gespräch beginnen')} <ArrowRight size={14} aria-hidden />
         </a>
       </div>
     </div>
@@ -41,10 +43,14 @@ function Strip() {
  * panels open on hover with a mouse and on click or keyboard otherwise; a
  * click right after a hover-open keeps the panel open rather than toggling it
  * shut; Esc closes and returns focus to the trigger; following any link in a
- * panel closes it. In-page links are written as /en/#… so the same header
- * works on the imprint and privacy pages.
+ * panel closes it. In-page links are written as /en/#… (or /de/#…) so the
+ * same header works on every page. `alt` is the same page in the other
+ * language, for the EN/DE switch.
  */
-export function PersonalHeader() {
+export function PersonalHeader({ lang = 'en', alt }: { lang?: Lang; alt?: string }) {
+  const t = (en: string, de: string) => pick(lang, en, de);
+  const other: Lang = lang === 'de' ? 'en' : 'de';
+  const altHref = alt ?? PAGES.home[other];
   const [open, setOpen] = useState<Panel | null>(null);
   const [mobile, setMobile] = useState(false);
   const closeTimer = useRef<number | undefined>(undefined);
@@ -113,29 +119,37 @@ export function PersonalHeader() {
           if ((e.target as HTMLElement).closest('.mm a')) closeAll();
         }}
       >
-        <nav className="ph-inner" aria-label="Main">
-          <a href="/en/" className="ph-brand">
+        <nav className="ph-inner" aria-label={t('Main', 'Hauptnavigation')}>
+          <a href={home(lang)} className="ph-brand">
             {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
             <img src="/images/ef-mark-white.svg" alt="" width={35} height={28} />
             <span>Emanuel Flury</span>
           </a>
 
           <ul className="ph-links">
-            <li>{trigger('ventures', 'Ventures')}</li>
-            <li>{trigger('about', 'About')}</li>
+            <li>{trigger('ventures', t('Ventures', 'Unternehmen'))}</li>
+            <li>{trigger('about', t('About', 'Über mich'))}</li>
             <li>
-              <a href="/en/#contact" className="ph-cta">
-                Contact
+              <a href={altHref} className="ph-lang" hrefLang={other} lang={other} aria-label={t('Deutsch', 'English')}>
+                {other.toUpperCase()}
+              </a>
+            </li>
+            <li>
+              <a href={home(lang, 'contact')} className="ph-cta">
+                {t('Contact', 'Kontakt')}
               </a>
             </li>
           </ul>
 
+          <a href={altHref} className="ph-lang ph-lang-mob" hrefLang={other} lang={other} aria-label={t('Deutsch', 'English')}>
+            {other.toUpperCase()}
+          </a>
           <button
             type="button"
             className="ph-burger"
             aria-expanded={mobile}
             aria-controls="ph-mobile"
-            aria-label="Menu"
+            aria-label={t('Menu', 'Menü')}
             onClick={() => setMobile((m) => !m)}
           >
             {mobile ? <X size={24} aria-hidden /> : <Menu size={24} aria-hidden />}
@@ -149,10 +163,12 @@ export function PersonalHeader() {
               <span className="mm-cut" style={{ backgroundImage: 'url(/images/hero/palms.webp)' }} aria-hidden>
                 BUILD
               </span>
-              <p className="mm-feature-title">Three businesses. One standard.</p>
-              <p className="mm-muted">How technology, tax and real estate fit together.</p>
-              <a href="/en/#ventures" className="mm-more">
-                Overview <ArrowRight size={16} aria-hidden />
+              <p className="mm-feature-title">{t('Three businesses. One standard.', 'Drei Unternehmen. Ein Anspruch.')}</p>
+              <p className="mm-muted">
+                {t('How technology, tax and real estate fit together.', 'Wie Technologie, Steuern und Immobilien zusammenpassen.')}
+              </p>
+              <a href={home(lang, 'ventures')} className="mm-more">
+                {t('Overview', 'Übersicht')} <ArrowRight size={16} aria-hidden />
               </a>
             </div>
             <a href="https://skopa.ai" target="_blank" rel="noopener" className="mm-card mm-venture">
@@ -161,9 +177,9 @@ export function PersonalHeader() {
                 <img src="/images/brands/skopa-white.svg" alt="Skopa" className="mm-logo-skopa" width={104} height={35} />
                 <ArrowUpRight size={16} aria-hidden />
               </span>
-              <span className="mm-tag">Technology</span>
+              <span className="mm-tag">{t('Technology', 'Technologie')}</span>
               <span className="mm-card-title">Skopa AG</span>
-              <span className="mm-muted">Artificial intelligence and quantum computing.</span>
+              <span className="mm-muted">{t('Artificial intelligence and quantum computing.', 'Künstliche Intelligenz und Quantencomputing.')}</span>
               <span className="mm-meta">
                 <span>{ROLES.skopa}</span>
                 <span className="mm-url">skopa.ai</span>
@@ -178,34 +194,34 @@ export function PersonalHeader() {
                 </span>
                 <ArrowUpRight size={16} aria-hidden />
               </span>
-              <span className="mm-tag">Tax</span>
+              <span className="mm-tag">{t('Tax', 'Steuern')}</span>
               <span className="mm-card-title">Taxed GmbH</span>
-              <span className="mm-muted">Tax advice for expats living in Switzerland.</span>
+              <span className="mm-muted">{t('Tax advice for expats living in Switzerland.', 'Steuerberatung für Expats in der Schweiz.')}</span>
               <span className="mm-meta">
                 <span>{ROLES.taxed}</span>
                 <span className="mm-url">taxed.ch</span>
               </span>
             </a>
-            <a href="/en/#real-estate" className="mm-card mm-venture">
+            <a href={home(lang, 'real-estate')} className="mm-card mm-venture">
               <span className="mm-venture-top">
                 {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
                 <img src="/images/brands/ef-real-estate-mark.svg" alt="" width={42} height={44} />
                 <ArrowUpRight size={16} aria-hidden />
               </span>
-              <span className="mm-tag">Private equity</span>
+              <span className="mm-tag">Private Equity</span>
               <span className="mm-card-title">EF Real Estate</span>
-              <span className="mm-muted">Residential property held as private equity.</span>
+              <span className="mm-muted">{t('Residential property held as private equity.', 'Wohnimmobilien als Private Equity.')}</span>
               <span className="mm-meta">
-                <span>{ROLES.estate}</span>
+                <span>{t(ROLES.estate, 'Eigentümer')}</span>
               </span>
             </a>
           </div>
-          <Strip />
+          <Strip lang={lang} />
         </div>
 
         <div className="mm" id="mm-about" hidden={open !== 'about'}>
           <div className="mm-inner mm-grid-about">
-            <a href="/en/#about" className="mm-person">
+            <a href={home(lang, 'about')} className="mm-person">
               {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP */}
               <img
                 src="/images/portraits/emanuel-aaron-flury-portrait.webp"
@@ -216,52 +232,52 @@ export function PersonalHeader() {
               />
               <span className="mm-person-body">
                 <span className="mm-feature-title">Emanuel Flury</span>
-                <span className="mm-tag">Entrepreneur · Grenchen</span>
+                <span className="mm-tag">{t('Entrepreneur · Grenchen', 'Unternehmer · Grenchen')}</span>
                 <span className="mm-quote">
-                  Life <b>·</b> Lessons <b>·</b> Building companies
+                  {t('Life', 'Leben')} <b>·</b> {t('Lessons', 'Lernen')} <b>·</b> {t('Building companies', 'Unternehmen aufbauen')}
                 </span>
               </span>
             </a>
             <div className="mm-stack">
-              <a href="/en/#about" className="mm-row">
+              <a href={home(lang, 'about')} className="mm-row">
                 <span className="mm-icon">
                   <User size={20} aria-hidden />
                 </span>
                 <span>
-                  <span className="mm-card-title">My story</span>
-                  <span className="mm-muted">Where I come from and what I work on.</span>
+                  <span className="mm-card-title">{t('My story', 'Meine Geschichte')}</span>
+                  <span className="mm-muted">{t('Where I come from and what I work on.', 'Woher ich komme und woran ich arbeite.')}</span>
                 </span>
               </a>
-              <a href="/en/#private" className="mm-row">
+              <a href={home(lang, 'private')} className="mm-row">
                 <span className="mm-icon">
                   <Sunset size={20} aria-hidden />
                 </span>
                 <span>
-                  <span className="mm-card-title">Private</span>
-                  <span className="mm-muted">Beyond work: French and sailing.</span>
+                  <span className="mm-card-title">{t('Private', 'Privat')}</span>
+                  <span className="mm-muted">{t('Beyond work: French and sailing.', 'Neben der Arbeit: Französisch und Segeln.')}</span>
                 </span>
               </a>
-              <Link href="/en/notes/" className="mm-row">
+              <Link href={PAGES.notes[lang]} className="mm-row">
                 <span className="mm-icon">
                   <NotebookPen size={20} aria-hidden />
                 </span>
                 <span>
-                  <span className="mm-card-title">Notes</span>
-                  <span className="mm-muted">What I learn while building, also by email.</span>
+                  <span className="mm-card-title">{t('Notes', 'Notizen')}</span>
+                  <span className="mm-muted">{t('What I learn while building, also by email.', 'Was ich beim Aufbauen lerne, auch per E-Mail.')}</span>
                 </span>
               </Link>
-              <a href="/en/#press" className="mm-row">
+              <a href={home(lang, 'press')} className="mm-row">
                 <span className="mm-icon">
                   <Newspaper size={20} aria-hidden />
                 </span>
                 <span>
-                  <span className="mm-card-title">Press kit</span>
-                  <span className="mm-muted">Bios, portrait and contact card.</span>
+                  <span className="mm-card-title">{t('Press kit', 'Pressemappe')}</span>
+                  <span className="mm-muted">{t('Bios, portrait and contact card.', 'Kurzbiografien, Porträt und Kontaktkarte.')}</span>
                 </span>
               </a>
             </div>
             <div>
-              <p className="mm-eyebrow">Follow</p>
+              <p className="mm-eyebrow">{t('Follow', 'Folgen')}</p>
               <ul className="mm-list mm-social">
                 {SOCIALS.map((s) => (
                   <li key={s.name}>
@@ -282,14 +298,14 @@ export function PersonalHeader() {
               </a>
             </div>
           </div>
-          <Strip />
+          <Strip lang={lang} />
         </div>
 
         {/* Mobile menu */}
         <div className="ph-mobile" id="ph-mobile" hidden={!mobile}>
           <details className="pm-group">
             <summary>
-              Ventures <ChevronDown size={18} aria-hidden />
+              {t('Ventures', 'Unternehmen')} <ChevronDown size={18} aria-hidden />
             </summary>
             <a href="https://skopa.ai" target="_blank" rel="noopener" onClick={closeMobile}>
               Skopa AG <ArrowUpRight size={14} aria-hidden />
@@ -297,25 +313,25 @@ export function PersonalHeader() {
             <a href="https://taxed.ch" target="_blank" rel="noopener" onClick={closeMobile}>
               Taxed GmbH <ArrowUpRight size={14} aria-hidden />
             </a>
-            <a href="/en/#real-estate" onClick={closeMobile}>
+            <a href={home(lang, 'real-estate')} onClick={closeMobile}>
               EF Real Estate <ArrowUpRight size={14} aria-hidden />
             </a>
           </details>
           <details className="pm-group">
             <summary>
-              About <ChevronDown size={18} aria-hidden />
+              {t('About', 'Über mich')} <ChevronDown size={18} aria-hidden />
             </summary>
-            <a href="/en/#about" onClick={closeMobile}>
-              My story
+            <a href={home(lang, 'about')} onClick={closeMobile}>
+              {t('My story', 'Meine Geschichte')}
             </a>
-            <a href="/en/#private" onClick={closeMobile}>
-              Private
+            <a href={home(lang, 'private')} onClick={closeMobile}>
+              {t('Private', 'Privat')}
             </a>
-            <Link href="/en/notes/" onClick={closeMobile}>
-              Notes
+            <Link href={PAGES.notes[lang]} onClick={closeMobile}>
+              {t('Notes', 'Notizen')}
             </Link>
-            <a href="/en/#press" onClick={closeMobile}>
-              Press kit
+            <a href={home(lang, 'press')} onClick={closeMobile}>
+              {t('Press kit', 'Pressemappe')}
             </a>
             {SOCIALS.map((s) => (
               <a key={s.name} href={s.href} target="_blank" rel="noopener me" onClick={closeMobile}>
@@ -326,8 +342,11 @@ export function PersonalHeader() {
           <a href={WHATSAPP} target="_blank" rel="noopener" className="pm-wa" onClick={closeMobile}>
             <MessageCircle size={18} aria-hidden /> WhatsApp
           </a>
-          <a href="/en/#contact" className="pm-cta" onClick={closeMobile}>
-            Contact
+          <a href={altHref} className="pm-lang" hrefLang={other} lang={other}>
+            {t('Deutsch', 'English')}
+          </a>
+          <a href={home(lang, 'contact')} className="pm-cta" onClick={closeMobile}>
+            {t('Contact', 'Kontakt')}
           </a>
         </div>
       </header>

@@ -18,6 +18,10 @@ export const PERSON = {
 export const HOME_TITLE = 'Emanuel Flury · Swiss Entrepreneur · Skopa AG, Taxed GmbH';
 export const HOME_DESCRIPTION =
   'Emanuel Flury is a Swiss entrepreneur from Grenchen. He builds companies where finance, tax and technology meet: Skopa AG, Taxed GmbH and EF Real Estate.';
+export const HOME_TITLE_DE = 'Emanuel Flury · Schweizer Unternehmer · Skopa AG, Taxed GmbH';
+export const HOME_DESCRIPTION_DE =
+  'Emanuel Flury ist ein Schweizer Unternehmer aus Grenchen. Er baut Unternehmen, in denen Finanzen, Steuern und Technologie zusammenkommen: Skopa AG, Taxed GmbH und EF Real Estate.';
+
 export const PORTRAIT = {
   url: '/images/portraits/emanuel-aaron-flury-portrait.webp',
   width: 714,

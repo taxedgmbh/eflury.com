@@ -18,3 +18,10 @@ The text, in plain Markdown: paragraphs, ## headings, **bold**, [links](https://
 - Publishing = commit and push to `main`; the note and the feed go live with the deploy.
 - Then send it to subscribers: `node scripts/newsletter-send.mjs <file-name-without-.md>` (see the script for `--test` and `--send`).
 - Files starting with `_` are ignored.
+
+## German
+
+German notes live in `de/` and appear at https://eflury.com/de/notizen/<file-name>/.
+Add `en: <english-file-name>` to the front matter so the language switch and
+search engines link the two versions. Swiss High German: "ss", never "ß".
+Send with `node scripts/newsletter-send.mjs de/<file-name>`.

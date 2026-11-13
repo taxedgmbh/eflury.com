@@ -30,6 +30,13 @@ export const ROLES = {
   estate: 'Owner',
 } as const;
 
+/** The same roles on the German pages. */
+export const ROLES_DE = {
+  skopa: 'Geschäftsführer',
+  taxed: 'Geschäftsführer (Mandat)',
+  estate: 'Eigentümer',
+} as const;
+
 /*
  * From the Swiss commercial register (Zefix / SHAB), checked 2026-11-12.
  * Founding = date of the articles of association; the entry follows days later.
@@ -55,6 +62,12 @@ export const LEGAL = [
   { label: 'Imprint', href: '/en/imprint/' },
   { label: 'Privacy', href: '/en/privacy/' },
   { label: 'Terms', href: '/en/terms/' },
+] as const;
+
+export const LEGAL_DE = [
+  { label: 'Impressum', href: '/de/impressum/' },
+  { label: 'Datenschutz', href: '/de/datenschutz/' },
+  { label: 'Nutzungsbedingungen', href: '/de/nutzungsbedingungen/' },
 ] as const;
 
 export const fmtShort = new Intl.DateTimeFormat('en-GB', {

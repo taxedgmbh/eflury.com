@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import { LegalPage } from '@/components/personal/LegalPage';
 import { ADDRESS, PERSON } from '@/lib/site';
+import { alternates, PAGES } from '@/lib/i18n';
 
 export const metadata: Metadata = {
   title: 'Privacy policy',
   description: 'How eflury.com handles personal data: no cookies, no analytics, no tracking; an optional newsletter with double opt-in. Hosted by Google.',
-  alternates: { canonical: '/en/privacy/' },
+  alternates: alternates(PAGES.privacy, 'en'),
   openGraph: {
     type: 'website',
     url: '/en/privacy/',
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
  */
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy policy" updated="13 November 2026">
+    <LegalPage title="Privacy policy" updated="13 November 2026" alt={PAGES.privacy.de}>
       <p>
         This policy explains which personal data this website processes, why, and for how long. It follows the Swiss
         Federal Act on Data Protection (FADP) and, where it applies, the EU General Data Protection Regulation (GDPR).
@@ -47,7 +48,7 @@ export default function PrivacyPage() {
       <h2>2. In short</h2>
       <ul>
         <li>No cookies, no local storage, no analytics, no tracking, no advertising.</li>
-        <li>No accounts. The only form is the optional newsletter sign-up; it stores your email address only once you confirm it.</li>
+        <li>No accounts. The only form is the optional newsletter sign-up; your email address is kept only if you confirm it.</li>
         <li>The website is hosted by Google in the Netherlands; technical logs are kept for 30 days.</li>
         <li>YouTube video previews load from Google; a video itself only loads when you click it.</li>
         <li>Email and WhatsApp are links. You decide whether to use them.</li>
@@ -111,8 +112,8 @@ export default function PrivacyPage() {
         your consent (Art. 6(1)(a) GDPR), which you can withdraw at any time.
       </p>
       <p>
-        Stored: your email address, the time you signed up and the time you confirmed, and a random code for the
-        unsubscribe link. Unconfirmed sign-ups are deleted automatically after 7 days. To prevent abuse, the number of
+        Stored: your email address, the language you signed up in, the time you signed up and the time you confirmed,
+        and a random code for the unsubscribe link. Unconfirmed sign-ups are deleted automatically after 7 days. To prevent abuse, the number of
         sign-ups per day is counted using an irreversible code made from your IP address and the date; the IP address
         itself is not stored, and the counter is deleted after two days.
       </p>
