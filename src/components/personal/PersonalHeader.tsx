@@ -15,8 +15,10 @@ import {
   X,
 } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { EMAIL, PHONE, ROLES, ROLES_DE, SOCIALS, WHATSAPP } from './data';
-import { home, pick, PAGES, type Lang } from '@/lib/i18n';
+import { EMAIL, PHONE, roles, SOCIALS, WHATSAPP } from './data';
+import { home, LANGS, pick, PAGES, type Lang, type LangMap } from '@/lib/i18n';
+
+const LANG_NAME: Record<Lang, string> = { en: 'English', de: 'Deutsch', fr: 'Français' };
 
 type Panel = 'ventures' | 'about';
 
@@ -44,13 +46,13 @@ function Strip({ lang }: { lang: Lang }) {
  * click right after a hover-open keeps the panel open rather than toggling it
  * shut; Esc closes and returns focus to the trigger; following any link in a
  * panel closes it. In-page links are written as /en/#… (or /de/#…) so the
- * same header works on every page. `alt` is the same page in the other
- * language, for the EN/DE switch.
+ * same header works on every page. `alts` maps each language to the same
+ * page in that language, for the EN · DE · FR switch (default: homepages).
  */
-export function PersonalHeader({ lang = 'en', alt }: { lang?: Lang; alt?: string }) {
+export function PersonalHeader({ lang = 'en', alts }: { lang?: Lang; alts?: Partial<LangMap> }) {
   const t = (en: string, de: string) => pick(lang, en, de);
-  const other: Lang = lang === 'de' ? 'en' : 'de';
-  const altHref = alt ?? PAGES.home[other];
+  const others = LANGS.filter((l) => l !== lang).map((l) => ({ l, href: alts?.[l] ?? PAGES.home[l] }));
+  const r = roles(lang);
   const [open, setOpen] = useState<Panel | null>(null);
   const [mobile, setMobile] = useState(false);
   const closeTimer = useRef<number | undefined>(undefined);
@@ -129,10 +131,12 @@ export function PersonalHeader({ lang = 'en', alt }: { lang?: Lang; alt?: string
           <ul className="ph-links">
             <li>{trigger('ventures', t('Ventures', 'Unternehmen'))}</li>
             <li>{trigger('about', t('About', 'Über mich'))}</li>
-            <li>
-              <a href={altHref} className="ph-lang" hrefLang={other} lang={other} aria-label={t('Deutsch', 'English')}>
-                {other.toUpperCase()}
-              </a>
+            <li className="ph-langs">
+              {others.map(({ l, href }) => (
+                <a key={l} href={href} className="ph-lang" hrefLang={l} lang={l} aria-label={LANG_NAME[l]}>
+                  {l.toUpperCase()}
+                </a>
+              ))}
             </li>
             <li>
               <a href={home(lang, 'contact')} className="ph-cta">
@@ -141,9 +145,13 @@ export function PersonalHeader({ lang = 'en', alt }: { lang?: Lang; alt?: string
             </li>
           </ul>
 
-          <a href={altHref} className="ph-lang ph-lang-mob" hrefLang={other} lang={other} aria-label={t('Deutsch', 'English')}>
-            {other.toUpperCase()}
-          </a>
+          <span className="ph-langs ph-lang-mob">
+            {others.map(({ l, href }) => (
+              <a key={l} href={href} className="ph-lang" hrefLang={l} lang={l} aria-label={LANG_NAME[l]}>
+                {l.toUpperCase()}
+              </a>
+            ))}
+          </span>
           <button
             type="button"
             className="ph-burger"
@@ -181,7 +189,7 @@ export function PersonalHeader({ lang = 'en', alt }: { lang?: Lang; alt?: string
               <span className="mm-card-title">Skopa AG</span>
               <span className="mm-muted">{t('Artificial intelligence and quantum computing.', 'Künstliche Intelligenz und Quantencomputing.')}</span>
               <span className="mm-meta">
-                <span>{lang === 'de' ? ROLES_DE.skopa : ROLES.skopa}</span>
+                <span>{r.skopa}</span>
                 <span className="mm-url">skopa.ai</span>
               </span>
             </a>
@@ -198,7 +206,7 @@ export function PersonalHeader({ lang = 'en', alt }: { lang?: Lang; alt?: string
               <span className="mm-card-title">Taxed GmbH</span>
               <span className="mm-muted">{t('Tax advice for expats living in Switzerland.', 'Steuerberatung für Expats in der Schweiz.')}</span>
               <span className="mm-meta">
-                <span>{lang === 'de' ? ROLES_DE.taxed : ROLES.taxed}</span>
+                <span>{r.taxed}</span>
                 <span className="mm-url">taxed.ch</span>
               </span>
             </a>
@@ -212,7 +220,7 @@ export function PersonalHeader({ lang = 'en', alt }: { lang?: Lang; alt?: string
               <span className="mm-card-title">EF Real Estate</span>
               <span className="mm-muted">{t('Residential property held as private equity.', 'Wohnimmobilien als Private Equity.')}</span>
               <span className="mm-meta">
-                <span>{t(ROLES.estate, 'Eigentümer')}</span>
+                <span>{r.estate}</span>
               </span>
             </a>
           </div>
@@ -342,9 +350,11 @@ export function PersonalHeader({ lang = 'en', alt }: { lang?: Lang; alt?: string
           <a href={WHATSAPP} target="_blank" rel="noopener" className="pm-wa" onClick={closeMobile}>
             <MessageCircle size={18} aria-hidden /> WhatsApp
           </a>
-          <a href={altHref} className="pm-lang" hrefLang={other} lang={other}>
-            {t('Deutsch', 'English')}
-          </a>
+          {others.map(({ l, href }) => (
+            <a key={l} href={href} className="pm-lang" hrefLang={l} lang={l}>
+              {LANG_NAME[l]}
+            </a>
+          ))}
           <a href={home(lang, 'contact')} className="pm-cta" onClick={closeMobile}>
             {t('Contact', 'Kontakt')}
           </a>

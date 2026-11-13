@@ -25,10 +25,10 @@ export function YouTubePlayer({
   width: number;
   height: number;
   size: number;
-  lang?: 'en' | 'de';
+  lang?: 'en' | 'de' | 'fr';
 }) {
   const [playing, setPlaying] = useState(false);
-  const label = `${lang === 'de' ? 'Video abspielen' : 'Play video'}: ${title}`;
+  const label = `${{ en: 'Play video', de: 'Video abspielen', fr: 'Lire la vidéo' }[lang]}: ${title}`;
 
   if (playing) {
     return (

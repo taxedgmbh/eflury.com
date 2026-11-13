@@ -62,7 +62,7 @@ export function RootDocument({
   bodyClassName,
   children,
 }: {
-  lang: 'en' | 'de-CH';
+  lang: 'en' | 'de-CH' | 'fr-CH';
   bodyClassName?: string;
   children: React.ReactNode;
 }) {

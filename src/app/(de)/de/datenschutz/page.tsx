@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 /* German twin of /en/privacy/. Keep both in step with what the site does. */
 export default function DatenschutzPage() {
   return (
-    <LegalPage title="Datenschutzerklärung" updated="13. November 2026" lang="de" alt={PAGES.privacy.en}>
+    <LegalPage title="Datenschutzerklärung" updated="13. November 2026" lang="de" alts={PAGES.privacy}>
       <p>
         Diese Erklärung beschreibt, welche Personendaten diese Website bearbeitet, wozu und wie lange. Sie richtet sich
         nach dem Schweizer Bundesgesetz über den Datenschutz (DSG) und, soweit anwendbar, nach der

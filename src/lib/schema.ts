@@ -1,5 +1,5 @@
-import { SITE_URL, PERSON, PORTRAIT, HOME_TITLE, HOME_DESCRIPTION, HOME_TITLE_DE, HOME_DESCRIPTION_DE } from './site';
-import { PAGES, type Lang } from './i18n';
+import { SITE_URL, PERSON, PORTRAIT, HOME_META } from './site';
+import { HTML_LANG, PAGES, type Lang } from './i18n';
 import { REGISTRY } from '@/components/personal/data';
 
 /** Stable @id for the one Person this site is about. */
@@ -17,7 +17,7 @@ export function jsonLd(data: unknown): string {
  */
 export function personalHomeGraph(socials: readonly string[], lang: Lang = 'en') {
   const url = `${SITE_URL}${PAGES.home[lang]}`;
-  const de = lang === 'de';
+  const meta = HOME_META[lang];
   return {
     '@context': 'https://schema.org',
     '@graph': [
@@ -26,16 +26,16 @@ export function personalHomeGraph(socials: readonly string[], lang: Lang = 'en')
         '@id': `${SITE_URL}/#website`,
         url: `${SITE_URL}/`,
         name: 'Emanuel Flury',
-        inLanguage: ['en', 'de-CH'],
+        inLanguage: ['en', 'de-CH', 'fr-CH'],
         publisher: { '@id': ID.person },
       },
       {
         '@type': 'ProfilePage',
         '@id': `${url}#webpage`,
         url,
-        name: de ? HOME_TITLE_DE : HOME_TITLE,
-        description: de ? HOME_DESCRIPTION_DE : HOME_DESCRIPTION,
-        inLanguage: de ? 'de-CH' : 'en',
+        name: meta.title,
+        description: meta.description,
+        inLanguage: HTML_LANG[lang],
         isPartOf: { '@id': `${SITE_URL}/#website` },
         mainEntity: { '@id': ID.person },
         primaryImageOfPage: { '@id': `${SITE_URL}/#portrait` },
@@ -48,8 +48,8 @@ export function personalHomeGraph(socials: readonly string[], lang: Lang = 'en')
         givenName: 'Emanuel',
         additionalName: 'Aaron',
         familyName: 'Flury',
-        jobTitle: de ? 'Unternehmer' : 'Entrepreneur',
-        description: de ? HOME_DESCRIPTION_DE : HOME_DESCRIPTION,
+        jobTitle: { en: 'Entrepreneur', de: 'Unternehmer', fr: 'Entrepreneur' }[lang],
+        description: meta.description,
         email: `mailto:${PERSON.email}`,
         telephone: PERSON.telephone,
         url: `${SITE_URL}/en/`,

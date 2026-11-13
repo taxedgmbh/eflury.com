@@ -906,3 +906,6 @@
 .pb .pm-lang { display: flex; align-items: center; justify-content: center; margin-top: var(--spacing-md); min-height: 52px; border-radius: var(--radius-full); border: 1.5px solid rgb(255 255 255 / 0.35); color: var(--eflury-white); text-decoration: none; font-weight: 600; font-size: 17px; }
 .pb .ph-lang-mob { display: none; margin-left: auto; margin-right: var(--spacing-sm); }
 @media (max-width: 900px) { .pb .ph-lang-mob { display: inline-flex; } }
+.pb .ph-langs { display: inline-flex; gap: 4px; }
+.pb span.ph-lang-mob { display: none; }
+@media (max-width: 900px) { .pb span.ph-lang-mob { display: inline-flex; } }

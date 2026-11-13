@@ -5,23 +5,30 @@ Guidance for Claude Code in this repository.
 ## What this is
 
 eflury.com: the personal website of Emanuel Flury, entrepreneur (Skopa AG,
-Taxed GmbH, EF Real Estate). English and German (Swiss High German, since
-2026-11-13). English: `/en/`, `/en/notes/`, `/en/imprint/`, `/en/privacy/`,
+Taxed GmbH, EF Real Estate). English, German (Swiss High German) and French
+(Swiss French), all since 2026-11-13. English: `/en/`, `/en/notes/`, `/en/imprint/`, `/en/privacy/`,
 `/en/terms/`. German: `/de/`, `/de/notizen/`, `/de/impressum/`, `/de/datenschutz/`,
-`/de/nutzungsbedingungen/`. `/` redirects to `/en/`.
+`/de/nutzungsbedingungen/`. French: `/fr/`, `/fr/notes/`, `/fr/mentions-legales/`,
+`/fr/confidentialite/`, `/fr/conditions-utilisation/`. `/` redirects to `/en/`.
 
 ## Languages
 
-- `src/lib/i18n.ts`: `Lang`, `pick(lang, en, de)`, `PAGES` (twin URLs for the
-  EN/DE switch and hreflang), `alternates()`. Components take a `lang` prop and
-  hold both texts side by side; change both together.
-- Two root layouts: `src/app/(en)/layout.tsx` (lang en) and `src/app/(de)/layout.tsx`
-  (lang de-CH). Shared views: `HomeView`, `NotesViews`, `NewsletterStatus`.
+- `src/lib/i18n.ts`: `Lang` (en, de, fr), `pick(lang, en, de)`, `PAGES` (twin
+  URLs for the EN · DE · FR switch and hreflang), `alternates()`. Components take
+  a `lang` prop and hold English and German side by side; French comes from
+  `src/lib/fr.ts`, keyed by the English text. **A missing French entry fails the
+  build** — after changing an English string, update its key in fr.ts. To list
+  missing keys: `FR_COLLECT=1 npm run build` and grep the log for FRMISSING.
+- Three root layouts: `src/app/(en)`, `(de)` (lang de-CH) and `(fr)` (lang fr-CH). Shared views: `HomeView`, `NotesViews`, `NewsletterStatus`.
   Legal pages are separate files per language (the German privacy policy and
   terms say the German version prevails).
 - German style: Swiss High German, "ss" never "ß", «Guillemets», CHF 1'000,
   "das E-Mail", formal "Sie". Brand words (BUILD, GROW …) stay English.
-- German notes: `content/notes/de/<slug>.md` with `en: <english-slug>`.
+- German notes: `content/notes/de/<slug>.md`, French: `content/notes/fr/<slug>.md`,
+  both with `en: <english-slug>`. The radar card slugs per language are in
+  PersonalRadar (German) and fr.ts (French).
+- French style: vous, Swiss usage (e-mail, CHF 120'000, Granges/Bienne in running
+  text), typographic apostrophe ’. The legal pages say the German version prevails.
 
 eFlury Consulting closed on 2026-11-12. Its blog, forms and server routes were
 removed; old URLs 301 to the homepage of their language (legacy `/de/*` to

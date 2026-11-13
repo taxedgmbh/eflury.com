@@ -89,6 +89,58 @@ export function mailer() {
 export const FROM = 'Emanuel Flury <me@eflury.com>';
 export const unsubscribeUrl = (t: string) => `${SITE_URL}/api/newsletter/unsubscribe/?t=${encodeURIComponent(t)}`;
 
+const CONFIRM_MAIL: Record<Lang, (link: string) => { subject: string; lines: string[] }> = {
+  en: (link) => ({
+    subject: 'Please confirm your subscription',
+    lines: [
+      'Hello,',
+      '',
+      'Please confirm that you would like to receive new notes from Emanuel Flury by email:',
+      '',
+      link,
+      '',
+      `If you did not sign up, simply ignore this email. Your address will be deleted automatically after ${PENDING_DAYS} days.`,
+      '',
+      'Emanuel Flury',
+      `${SITE_URL}/en/`,
+    ],
+  }),
+  de: (link) => ({
+    subject: 'Bitte bestätigen Sie Ihr Abonnement',
+    lines: [
+      'Guten Tag',
+      '',
+      'Bitte bestätigen Sie, dass Sie neue Notizen von Emanuel Flury per E-Mail erhalten möchten:',
+      '',
+      link,
+      '',
+      `Falls Sie sich nicht angemeldet haben, ignorieren Sie dieses E-Mail einfach. Ihre Adresse wird nach ${PENDING_DAYS} Tagen automatisch gelöscht.`,
+      '',
+      'Freundliche Grüsse',
+      'Emanuel Flury',
+      `${SITE_URL}/de/`,
+    ],
+  }),
+  fr: (link) => ({
+    subject: 'Veuillez confirmer votre abonnement',
+    lines: [
+      'Bonjour,',
+      '',
+      'Veuillez confirmer que vous souhaitez recevoir par e-mail les nouvelles notes d’Emanuel Flury :',
+      '',
+      link,
+      '',
+      `Si vous ne vous êtes pas inscrit, ignorez simplement cet e-mail. Votre adresse sera supprimée automatiquement après ${PENDING_DAYS} jours.`,
+      '',
+      'Meilleures salutations',
+      'Emanuel Flury',
+      `${SITE_URL}/fr/`,
+    ],
+  }),
+};
+
+export const asLang = (v: unknown): Lang => (v === 'de' || v === 'fr' ? v : 'en');
+
 /**
  * Handles a sign-up. Returns the status page to show. Never reveals whether an
  * address is already subscribed: every valid request ends on "check-email".
@@ -117,39 +169,8 @@ export async function subscribe(email: string, ip: string, lang: Lang = 'en'): P
   await ref.set(doc);
 
   const link = `${SITE_URL}/api/newsletter/confirm/?t=${encodeURIComponent(confirm)}`;
-  const de = lang === 'de';
-  await mailer().sendMail({
-    from: FROM,
-    to: email,
-    subject: de ? 'Bitte bestätigen Sie Ihr Abonnement' : 'Please confirm your subscription',
-    text: (de
-      ? [
-          'Guten Tag',
-          '',
-          'Bitte bestätigen Sie, dass Sie neue Notizen von Emanuel Flury per E-Mail erhalten möchten:',
-          '',
-          link,
-          '',
-          `Falls Sie sich nicht angemeldet haben, ignorieren Sie dieses E-Mail einfach. Ihre Adresse wird nach ${PENDING_DAYS} Tagen automatisch gelöscht.`,
-          '',
-          'Freundliche Grüsse',
-          'Emanuel Flury',
-          `${SITE_URL}/de/`,
-        ]
-      : [
-          'Hello,',
-          '',
-          'Please confirm that you would like to receive new notes from Emanuel Flury by email:',
-          '',
-          link,
-          '',
-          `If you did not sign up, simply ignore this email. Your address will be deleted automatically after ${PENDING_DAYS} days.`,
-          '',
-          'Emanuel Flury',
-          `${SITE_URL}/en/`,
-        ]
-    ).join('\n'),
-  });
+  const mail = CONFIRM_MAIL[lang](link);
+  await mailer().sendMail({ from: FROM, to: email, subject: mail.subject, text: mail.lines.join('\n') });
   return 'check-email';
 }
 
@@ -164,7 +185,7 @@ export async function confirm(t: string): Promise<Lang | null> {
     confirmHash: FieldValue.delete(),
     expireAt: FieldValue.delete(),
   });
-  return snap.get('lang') === 'de' ? 'de' : 'en';
+  return asLang(snap.get('lang'));
 }
 
 /** Deletes the subscriber. true even if the token is unknown (already gone). */

@@ -63,6 +63,36 @@ const TEXT = {
       text: 'Die Anmeldung konnte nicht abgeschlossen werden. Bitte versuchen Sie es später nochmals oder schreiben Sie mir direkt an me@eflury.com.',
     },
   },
+  fr: {
+    'check-email': {
+      title: 'Consultez votre boîte de réception.',
+      text: 'Je vous ai envoyé un e-mail avec un lien. Cliquez dessus pour confirmer votre abonnement. Vous ne recevrez rien d’autre avant. Si rien n’arrive d’ici quelques minutes, vérifiez vos courriers indésirables.',
+    },
+    confirmed: {
+      title: 'Vous êtes abonné.',
+      text: 'Merci. Les nouvelles notes vous parviendront par e-mail dès leur publication. Chaque e-mail contient un lien de désabonnement.',
+    },
+    expired: {
+      title: 'Ce lien a expiré.',
+      text: 'Le lien de confirmation n’est plus valable, ou l’abonnement a déjà été confirmé. Vous pouvez vous réinscrire ci-dessous.',
+    },
+    unsubscribed: {
+      title: 'Vous êtes désabonné.',
+      text: 'Votre adresse e-mail a été supprimée. Vous ne recevrez plus d’e-mails de cette liste.',
+    },
+    invalid: {
+      title: 'Cette adresse semble incorrecte.',
+      text: 'Veuillez vérifier l’adresse e-mail et réessayer.',
+    },
+    limit: {
+      title: 'Trop d’inscriptions.',
+      text: 'Trop d’inscriptions ont été faites depuis votre connexion aujourd’hui. Veuillez réessayer demain ou m’écrire directement à me@eflury.com.',
+    },
+    error: {
+      title: 'Une erreur s’est produite.',
+      text: 'L’inscription n’a pas pu aboutir. Veuillez réessayer plus tard ou m’écrire directement à me@eflury.com.',
+    },
+  },
 } as const;
 
 export type Status = keyof (typeof TEXT)['en'];
@@ -72,16 +102,16 @@ const SHOW_FORM: Status[] = ['expired', 'invalid'];
 export function NewsletterStatus({ lang, status }: { lang: Lang; status: string }) {
   if (!STATUSES.includes(status as Status)) notFound();
   const page = TEXT[lang][status as Status];
-  const other: Lang = lang === 'de' ? 'en' : 'de';
+  const alts = { en: `${PAGES.newsletter.en}${status}/`, de: `${PAGES.newsletter.de}${status}/`, fr: `${PAGES.newsletter.fr}${status}/` };
   return (
-    <NotesPage lang={lang} alt={`${PAGES.newsletter[other]}${status}/`}>
+    <NotesPage lang={lang} alts={alts}>
       <p className="eyebrow">Newsletter</p>
       <h1 className="nt-title">{page.title}</h1>
       <p className="section-lead">{page.text}</p>
       {SHOW_FORM.includes(status as Status) && <NewsletterForm id="nl-status" lang={lang} />}
       <p>
         <Link href={PAGES.notes[lang]} className="pf-btn pf-btn-line">
-          {lang === 'de' ? 'Zu den Notizen' : 'Read the notes'}
+          {{ en: 'Read the notes', de: 'Zu den Notizen', fr: 'Lire les notes' }[lang]}
         </Link>
       </p>
     </NotesPage>

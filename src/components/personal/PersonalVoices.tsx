@@ -15,6 +15,7 @@ const VOICES = [
     name: 'Andrés García',
     role: 'Lead Analyst, Global Transparency Reporting',
     roleDe: 'Lead Analyst, Global Transparency Reporting',
+    roleFr: 'Lead Analyst, Global Transparency Reporting',
   },
   {
     quote:
@@ -22,6 +23,7 @@ const VOICES = [
     name: 'Patricia Fangon',
     role: 'Worked with Emanuel at Taxed GmbH',
     roleDe: 'Hat mit Emanuel bei der Taxed GmbH zusammengearbeitet',
+    roleFr: 'A travaillé avec Emanuel chez Taxed GmbH',
   },
   {
     quote:
@@ -29,6 +31,7 @@ const VOICES = [
     name: 'Luis Pacheco',
     role: 'Supply Chain Launch Lead',
     roleDe: 'Supply Chain Launch Lead',
+    roleFr: 'Supply Chain Launch Lead',
   },
 ] as const;
 
@@ -41,7 +44,11 @@ export function PersonalVoices({ lang = 'en' }: { lang?: Lang }) {
         <BrandWord word="TRUST" img="sunset" />
         <p className="eyebrow">{t('Recommendations', 'Empfehlungen')}</p>
         <h2 id="voices-title">{t('What people say.', 'Was andere sagen.')}</h2>
-        {lang === 'de' && <p className="section-lead">Originalzitate aus LinkedIn-Empfehlungen, auf Englisch.</p>}
+        {lang !== 'en' && (
+          <p className="section-lead">
+            {t('Original quotes from LinkedIn recommendations, in English.', 'Originalzitate aus LinkedIn-Empfehlungen, auf Englisch.')}
+          </p>
+        )}
         <div className="vo-grid">
           {VOICES.map((v) => (
             <figure key={v.name} className="vo-card">
@@ -50,7 +57,7 @@ export function PersonalVoices({ lang = 'en' }: { lang?: Lang }) {
               </blockquote>
               <figcaption className="vo-by">
                 <span className="vo-name">{v.name}</span>
-                <span className="vo-role">{lang === 'de' ? v.roleDe : v.role}</span>
+                <span className="vo-role">{{ en: v.role, de: v.roleDe, fr: v.roleFr }[lang]}</span>
               </figcaption>
             </figure>
           ))}

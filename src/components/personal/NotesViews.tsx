@@ -8,7 +8,7 @@ import rehypeSlug from 'rehype-slug';
 import { NotesPage } from './NotesPage';
 import { NEWSLETTER_ON, NewsletterForm } from './NewsletterForm';
 import { getNote, getNotes } from '@/lib/notes';
-import { alternates, fmtDate, OG_IMAGE, OG_LOCALE, PAGES, pick, type Lang } from '@/lib/i18n';
+import { alternates, fmtDate, HTML_LANG, OG_IMAGE, OG_LOCALE, PAGES, pick, type Lang, type LangMap } from '@/lib/i18n';
 import { jsonLd } from '@/lib/schema';
 import { SITE_URL } from '@/lib/site';
 
@@ -29,6 +29,11 @@ const INDEX = {
     title: 'Notizen',
     description:
       'Notizen von Emanuel Flury über das Aufbauen von Unternehmen, in denen Finanzen, Steuern und Technologie zusammenkommen.',
+  },
+  fr: {
+    title: 'Notes',
+    description:
+      'Notes d’Emanuel Flury sur la création d’entreprises à la croisée de la finance, de la fiscalité et de la technologie.',
   },
 };
 
@@ -66,7 +71,7 @@ export function NotesIndex({ lang }: { lang: Lang }) {
   const t = (en: string, de: string) => pick(lang, en, de);
   const notes = getNotes(lang);
   return (
-    <NotesPage lang={lang} alt={PAGES.notes[lang === 'de' ? 'en' : 'de']}>
+    <NotesPage lang={lang} alts={PAGES.notes}>
       <p className="eyebrow">{t('Notes', 'Notizen')}</p>
       <h1 className="nt-title">{t('What I learn while building.', 'Was ich beim Aufbauen lerne.')}</h1>
       <p className="section-lead">
@@ -100,10 +105,9 @@ export function NotesIndex({ lang }: { lang: Lang }) {
   );
 }
 
-const twinUrl = (lang: Lang, twin?: string) => {
-  const other: Lang = lang === 'de' ? 'en' : 'de';
-  return twin ? `${PAGES.notes[other]}${twin}/` : undefined;
-};
+/** URL of the note in each language that has it. */
+const twinUrls = (twins: Partial<Record<Lang, string>>): Partial<LangMap> =>
+  Object.fromEntries(Object.entries(twins).map(([l, slug]) => [l, `${PAGES.notes[l as Lang]}${slug}/`]));
 
 export function noteParams(lang: Lang) {
   return getNotes(lang).map((n) => ({ slug: n.slug }));
@@ -113,14 +117,11 @@ export function noteMetadata(lang: Lang, slug: string): Metadata {
   const note = getNote(slug, lang);
   if (!note) return {};
   const url = `${PAGES.notes[lang]}${note.slug}/`;
-  const other = twinUrl(lang, note.twin);
-  const pair = lang === 'de' ? { de: url, en: other ?? '' } : { en: url, de: other ?? '' };
+  const urls = twinUrls(note.twins);
   return {
     title: note.title,
     description: note.description,
-    alternates: other
-      ? alternates(pair, lang)
-      : { canonical: url, types: alternates(PAGES.notes, lang).types },
+    alternates: alternates(urls, lang),
     openGraph: {
       type: 'article',
       url,
@@ -149,11 +150,11 @@ export function NoteArticle({ lang, slug }: { lang: Lang; slug: string }) {
     datePublished: iso(note.date),
     url,
     mainEntityOfPage: url,
-    inLanguage: lang === 'de' ? 'de-CH' : 'en',
+    inLanguage: HTML_LANG[lang],
     author: { '@type': 'Person', '@id': `${SITE_URL}/#person`, name: 'Emanuel Flury', url: `${SITE_URL}${PAGES.home[lang]}` },
   };
   return (
-    <NotesPage lang={lang} alt={twinUrl(lang, note.twin) ?? PAGES.notes[lang === 'de' ? 'en' : 'de']}>
+    <NotesPage lang={lang} alts={{ ...PAGES.notes, ...twinUrls(note.twins) }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(ld) }} />
       <article className="nt-article">
         <Link href={PAGES.notes[lang]} className="nt-back">

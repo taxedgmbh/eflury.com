@@ -1,14 +1,14 @@
 import Link from 'next/link';
 import { ArrowUp, ArrowUpRight, Contact, Mail, MessageCircle } from 'lucide-react';
-import { EMAIL, LEGAL, LEGAL_DE, LINKEDIN, PHONE, ROLES, ROLES_DE, SOCIALS, WHATSAPP } from './data';
+import { EMAIL, legalLinks, LINKEDIN, PHONE, roles, SOCIALS, WHATSAPP } from './data';
 import { home, PAGES, pick, type Lang } from '@/lib/i18n';
 import { SocialIcon } from './SocialIcon';
 
 export function PersonalFooter({ lang = 'en' }: { lang?: Lang }) {
   const year = new Date().getFullYear();
   const t = (en: string, de: string) => pick(lang, en, de);
-  const r = lang === 'de' ? ROLES_DE : ROLES;
-  const legal = lang === 'de' ? LEGAL_DE : LEGAL;
+  const r = roles(lang);
+  const legal = legalLinks(lang);
 
   return (
     <footer className="pf">
@@ -56,14 +56,19 @@ export function PersonalFooter({ lang = 'en' }: { lang?: Lang }) {
           </div>
           <div className="pf-qr-text">
             <p className="pf-qr-title">{t('Save my contact', 'Meinen Kontakt speichern')}</p>
-            {lang === 'de' ? (
+            {lang !== 'en' ? (
               <p>
                 <span className="pf-qr-desk">
-                  Scannen Sie den Code mit der Handykamera, um Name, Foto, Handynummer, WhatsApp, E-Mail, Adresse und
-                  Website in Ihre Kontakte zu übernehmen.
+                  {t(
+                    'Scan the code with your phone camera to add name, photo, mobile, WhatsApp, email, address and website to your contacts.',
+                    'Scannen Sie den Code mit der Handykamera, um Name, Foto, Handynummer, WhatsApp, E-Mail, Adresse und Website in Ihre Kontakte zu übernehmen.',
+                  )}
                 </span>
                 <span className="pf-qr-mob">
-                  Übernehmen Sie Name, Foto, Handynummer, WhatsApp, E-Mail, Adresse und Website in Ihre Kontakte.
+                  {t(
+                    'Add name, photo, mobile, WhatsApp, email, address and website to your contacts.',
+                    'Übernehmen Sie Name, Foto, Handynummer, WhatsApp, E-Mail, Adresse und Website in Ihre Kontakte.',
+                  )}
                 </span>
               </p>
             ) : (

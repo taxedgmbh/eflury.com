@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function ImprintPage() {
   return (
-    <LegalPage title="Imprint" updated="12 November 2026" alt={PAGES.imprint.de}>
+    <LegalPage title="Imprint" updated="12 November 2026" alts={PAGES.imprint}>
       <h2>Responsible for this website</h2>
       <address>
         {PERSON.name}

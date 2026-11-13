@@ -9,7 +9,7 @@ import { PersonalPrivate } from './PersonalPrivate';
 import { PersonalRadar } from './PersonalRadar';
 import { PersonalVoices } from './PersonalVoices';
 import { RealEstate } from './RealEstate';
-import { REGISTRY, ROLES, ROLES_DE } from './data';
+import { REGISTRY, roles } from './data';
 import { YT_HANDLE_URL } from '@/lib/youtube';
 import { PAGES, pick, type Lang } from '@/lib/i18n';
 
@@ -24,11 +24,15 @@ type Venture = {
   registry?: { year: number; canton: string; uid: string; zefix: string };
 };
 
-const CANTON_DE: Record<string, string> = { Bern: 'Bern', Solothurn: 'Solothurn' };
+const CANTON: Record<Lang, Record<string, string>> = {
+  en: { Bern: 'Bern', Solothurn: 'Solothurn' },
+  de: { Bern: 'Bern', Solothurn: 'Solothurn' },
+  fr: { Bern: 'Berne', Solothurn: 'Soleure' },
+};
 
 function ventures(lang: Lang): Venture[] {
   const t = (en: string, de: string) => pick(lang, en, de);
-  const r = lang === 'de' ? ROLES_DE : ROLES;
+  const r = roles(lang);
   return [
     {
       tag: t('Technology', 'Technologie'),
@@ -98,7 +102,7 @@ export function PersonalHome({ lang = 'en' }: { lang?: Lang }) {
                     {v.registry ? (
                       <p className="v-reg">
                         {t('Founded', 'Gegründet')} {v.registry.year} · {t('Canton of', 'Kanton')}{' '}
-                        {lang === 'de' ? CANTON_DE[v.registry.canton] : v.registry.canton} ·{' '}
+                        {CANTON[lang][v.registry.canton]} ·{' '}
                         <a href={v.registry.zefix} target="_blank" rel="noopener">
                           {t('Commercial register', 'Handelsregister')} <ArrowUpRight size={13} aria-hidden />
                         </a>

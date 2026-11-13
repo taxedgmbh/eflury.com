@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function NutzungsbedingungenPage() {
   return (
-    <LegalPage title="Nutzungsbedingungen" updated="13. November 2026" lang="de" alt={PAGES.terms.en}>
+    <LegalPage title="Nutzungsbedingungen" updated="13. November 2026" lang="de" alts={PAGES.terms}>
       <p>
         Diese Bedingungen gelten für die Nutzung von eflury.com, der persönlichen Website von {PERSON.name}. Mit der
         Nutzung der Website akzeptieren Sie sie.

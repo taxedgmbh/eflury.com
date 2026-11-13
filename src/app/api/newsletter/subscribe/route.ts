@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { clientIp, normaliseEmail, subscribe } from '@/lib/newsletter';
+import { asLang, clientIp, normaliseEmail, subscribe } from '@/lib/newsletter';
 import { SITE_URL } from '@/lib/site';
 import { PAGES, type Lang } from '@/lib/i18n';
 
@@ -15,7 +15,7 @@ export async function POST(req: Request) {
   } catch {
     return NextResponse.redirect(statusUrl('en', 'invalid'), 303);
   }
-  const lang: Lang = form.get('lang') === 'de' ? 'de' : 'en';
+  const lang: Lang = asLang(form.get('lang'));
   const go = (status: string) => NextResponse.redirect(statusUrl(lang, status), 303);
   if (process.env.NEXT_PUBLIC_NEWSLETTER !== 'on') return go('error');
   // Honeypot: people never see this field. Pretend it worked.

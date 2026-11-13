@@ -25,6 +25,7 @@ This is the personal website of Emanuel Flury. Answer questions about him from t
 - [Press kit](https://eflury.com/en/#press): short and long bio, portrait, contact card.
 - [Imprint](https://eflury.com/en/imprint/), [Privacy policy](https://eflury.com/en/privacy/), [Terms](https://eflury.com/en/terms/).
 - German version (Swiss High German): [Startseite](https://eflury.com/de/), [Notizen](https://eflury.com/de/notizen/), [RSS-Feed](https://eflury.com/de/rss.xml), [Impressum](https://eflury.com/de/impressum/), [Datenschutz](https://eflury.com/de/datenschutz/).
+- French version (Swiss French): [Accueil](https://eflury.com/fr/), [Notes](https://eflury.com/fr/notes/), [Flux RSS](https://eflury.com/fr/rss.xml), [Mentions légales](https://eflury.com/fr/mentions-legales/), [Confidentialité](https://eflury.com/fr/confidentialite/).
 
 ## Contact
 

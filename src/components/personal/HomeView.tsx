@@ -5,12 +5,11 @@ import { PersonalHeader } from './PersonalHeader';
 import { PersonalHome } from './PersonalHome';
 import { SOCIALS } from './data';
 import { personalHomeGraph, jsonLd } from '@/lib/schema';
-import { HOME_DESCRIPTION, HOME_DESCRIPTION_DE, HOME_TITLE, HOME_TITLE_DE } from '@/lib/site';
-import { alternates, OG_LOCALE, PAGES, pick, type Lang } from '@/lib/i18n';
+import { HOME_META } from '@/lib/site';
+import { alternates, LANGS, OG_LOCALE, PAGES, pick, type Lang } from '@/lib/i18n';
 
 export function homeMetadata(lang: Lang): Metadata {
-  const title = pick(lang, HOME_TITLE, HOME_TITLE_DE);
-  const description = pick(lang, HOME_DESCRIPTION, HOME_DESCRIPTION_DE);
+  const { title, description } = HOME_META[lang];
   return {
     title: { absolute: title },
     description,
@@ -26,7 +25,7 @@ export function homeMetadata(lang: Lang): Metadata {
       description,
       siteName: 'Emanuel Flury',
       locale: OG_LOCALE[lang],
-      alternateLocale: [OG_LOCALE[lang === 'de' ? 'en' : 'de']],
+      alternateLocale: LANGS.filter((l) => l !== lang).map((l) => OG_LOCALE[l]),
     },
     twitter: { card: 'summary_large_image', title, description },
   };

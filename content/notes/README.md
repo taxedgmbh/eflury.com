@@ -25,3 +25,9 @@ German notes live in `de/` and appear at https://eflury.com/de/notizen/<file-nam
 Add `en: <english-file-name>` to the front matter so the language switch and
 search engines link the two versions. Swiss High German: "ss", never "ß".
 Send with `node scripts/newsletter-send.mjs de/<file-name>`.
+
+## French
+
+French notes live in `fr/` and appear at https://eflury.com/fr/notes/<file-name>/,
+with `en: <english-file-name>` in the front matter. Swiss French, vous.
+Send with `node scripts/newsletter-send.mjs fr/<file-name>`.

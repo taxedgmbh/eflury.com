@@ -1,13 +1,13 @@
 import { PhotoGallery, type Photo } from './PhotoGallery';
 import { GraduationCap, Rocket, Workflow } from 'lucide-react';
 import { BrandWord } from './BrandWord';
-import { ROLES, ROLES_DE } from './data';
+import { roles } from './data';
 import { pick, type Lang } from '@/lib/i18n';
 
 // Content rules: verified facts only; past kept light; no employer names.
 function chapters(lang: Lang) {
   const t = (en: string, de: string) => pick(lang, en, de);
-  const r = lang === 'de' ? ROLES_DE : ROLES;
+  const r = roles(lang);
   return [
     {
       Icon: GraduationCap,

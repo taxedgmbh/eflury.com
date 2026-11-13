@@ -11,6 +11,33 @@ export interface Photo {
   height: number;
 }
 
+const GALLERY_TEXT = {
+  en: {
+    photos: "photos",
+    openOne: (alt: string, i: number, n: number) => `${alt}: open photo ${i} of ${n}`,
+    openAll: (label: string, n: number) => `${label}: open ${n} photos`,
+    prev: "Previous photo",
+    next: "Next photo",
+    close: "Close",
+  },
+  de: {
+    photos: "Fotos",
+    openOne: (alt: string, i: number, n: number) => `${alt}: Foto ${i} von ${n} öffnen`,
+    openAll: (label: string, n: number) => `${label}: ${n} Fotos öffnen`,
+    prev: "Vorheriges Foto",
+    next: "Nächstes Foto",
+    close: "Schliessen",
+  },
+  fr: {
+    photos: "photos",
+    openOne: (alt: string, i: number, n: number) => `${alt} : ouvrir la photo ${i} sur ${n}`,
+    openAll: (label: string, n: number) => `${label} : ouvrir les ${n} photos`,
+    prev: "Photo précédente",
+    next: "Photo suivante",
+    close: "Fermer",
+  },
+};
+
 const src = (p: Photo, w: 800 | 1600) => `${p.base}-${w}.webp`;
 const srcSet = (p: Photo) => `${src(p, 800)} 800w, ${src(p, 1600)} 1600w`;
 
@@ -28,9 +55,9 @@ export function PhotoGallery({
   label: string;
   /** cover: one image with a count badge. strip: every photo as a thumbnail. */
   layout?: "cover" | "strip";
-  lang?: "en" | "de";
+  lang?: "en" | "de" | "fr";
 }) {
-  const de = lang === "de";
+  const L = GALLERY_TEXT[lang];
   const dialog = useRef<HTMLDialogElement>(null);
   const [index, setIndex] = useState(0);
   // The full-size image only exists while the dialog is open; rendered up
@@ -77,7 +104,7 @@ export function PhotoGallery({
                 type="button"
                 className="ps-item"
                 onClick={() => open(i)}
-                aria-label={de ? `${p.alt}: Foto ${i + 1} von ${photos.length} öffnen` : `${p.alt}: open photo ${i + 1} of ${photos.length}`}
+                aria-label={L.openOne(p.alt, i + 1, photos.length)}
               >
                 {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP with srcset */}
                 <img
@@ -100,7 +127,7 @@ export function PhotoGallery({
             type="button"
             className="re-cover"
             onClick={() => open(0)}
-            aria-label={de ? `${label}: ${photos.length} Fotos öffnen` : `${label}: open ${photos.length} photos`}
+            aria-label={L.openAll(label, photos.length)}
           >
             {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP with srcset */}
             <img
@@ -114,7 +141,7 @@ export function PhotoGallery({
               decoding="async"
             />
             <span className="re-cover-badge">
-              <Images size={16} aria-hidden /> {photos.length} {de ? "Fotos" : "photos"}
+              <Images size={16} aria-hidden /> {photos.length} {L.photos}
             </span>
           </button>
         </>
@@ -123,7 +150,7 @@ export function PhotoGallery({
       <dialog
         ref={dialog}
         className="pg"
-        aria-label={de ? `${label}, Fotos` : `${label}, photos`}
+        aria-label={`${label}, ${L.photos}`}
         onClick={(e) => {
           if (e.target === e.currentTarget) dialog.current?.close();
         }}
@@ -151,7 +178,7 @@ export function PhotoGallery({
             type="button"
             className="pg-btn pg-prev"
             onClick={() => step(-1)}
-            aria-label={de ? "Vorheriges Foto" : "Previous photo"}
+            aria-label={L.prev}
           >
             <ChevronLeft size={28} aria-hidden />
           </button>
@@ -159,7 +186,7 @@ export function PhotoGallery({
             type="button"
             className="pg-btn pg-next"
             onClick={() => step(1)}
-            aria-label={de ? "Nächstes Foto" : "Next photo"}
+            aria-label={L.next}
           >
             <ChevronRight size={28} aria-hidden />
           </button>
@@ -167,7 +194,7 @@ export function PhotoGallery({
             type="button"
             className="pg-btn pg-close"
             onClick={() => dialog.current?.close()}
-            aria-label={de ? "Schliessen" : "Close"}
+            aria-label={L.close}
           >
             <X size={24} aria-hidden />
           </button>

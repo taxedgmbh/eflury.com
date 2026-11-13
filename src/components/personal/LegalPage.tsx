@@ -1,20 +1,20 @@
 import { PersonalFooter } from './PersonalFooter';
 import { PersonalHeader } from './PersonalHeader';
-import { pick, type Lang } from '@/lib/i18n';
+import { pick, type Lang, type LangMap } from '@/lib/i18n';
 
 /** Shell for the imprint, privacy and terms pages: the homepage header and footer around plain text. */
 export function LegalPage({
   title,
   updated,
   lang = 'en',
-  alt,
+  alts,
   children,
 }: {
   title: string;
   updated: string;
   lang?: Lang;
-  /** The same page in the other language. */
-  alt?: string;
+  /** The same page in each language. */
+  alts?: Partial<LangMap>;
   children: React.ReactNode;
 }) {
   return (
@@ -22,7 +22,7 @@ export function LegalPage({
       <a href="#main-content" className="skip">
         {pick(lang, 'Skip to content', 'Zum Inhalt springen')}
       </a>
-      <PersonalHeader lang={lang} alt={alt} />
+      <PersonalHeader lang={lang} alts={alts} />
       <main id="main-content" className="band legal">
         <div className="wrap narrow">
           <h1>{title}</h1>

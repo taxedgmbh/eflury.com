@@ -1,7 +1,7 @@
 import { BrandWord } from './BrandWord';
 import { ArrowUpRight, Download, Image as ImageIcon, Contact, PlayCircle, Shapes } from 'lucide-react';
 import { CopyButton } from './CopyButton';
-import { ROLES, ROLES_DE } from './data';
+import { ROLES, ROLES_DE, ROLES_FR } from './data';
 import { pick, type Lang } from '@/lib/i18n';
 
 /*
@@ -17,6 +17,11 @@ const SHORT_BIO_DE =
   'Emanuel Flury ist ein Schweizer Unternehmer aus Grenchen. Er baut Unternehmen, in denen Finanzen, Steuern und Technologie zusammenkommen: Skopa AG, Taxed GmbH und EF Real Estate.';
 
 const LONG_BIO_DE = `Emanuel Flury ist ein Schweizer Unternehmer und lebt in Grenchen. Er schloss 2016 an der University of Aberdeen mit einem Master of Arts in Economics-Finance ab, inklusive Austauschjahr an der University of Wisconsin–La Crosse, und besitzt ein Zertifikat als Steuerspezialist. Nach neun Jahren im Finanzbereich und in der Finanzautomatisierung eines globalen Konzerns gründete er 2021 die Taxed GmbH und 2026 die Skopa AG. Er ist ${ROLES_DE.skopa} der Skopa AG, die im Bereich künstliche Intelligenz und Quantencomputing tätig ist, ${ROLES_DE.taxed} der Taxed GmbH, die Expats in der Schweiz in Steuerfragen berät, und ${ROLES_DE.estate} von EF Real Estate, unter dem er Wohnimmobilien als Private Equity hält.`;
+
+const SHORT_BIO_FR =
+  'Emanuel Flury est un entrepreneur suisse de Granges (Grenchen). Il crée des entreprises à la croisée de la finance, de la fiscalité et de la technologie : Skopa AG, Taxed GmbH et EF Real Estate.';
+
+const LONG_BIO_FR = `Emanuel Flury est un entrepreneur suisse établi à Granges (Grenchen). Il est titulaire d’un Master of Arts in Economics-Finance de l’University of Aberdeen (2016), avec une année d’échange à l’University of Wisconsin–La Crosse, ainsi que d’un certificat de spécialiste en fiscalité. Après neuf ans dans la finance et l’automatisation financière au sein d’un groupe international, il a fondé Taxed GmbH en 2021 et Skopa AG en 2026. Il est ${ROLES_FR.skopa.toLowerCase()} de Skopa AG, active dans l’intelligence artificielle et l’informatique quantique, ${ROLES_FR.taxed.toLowerCase()} de Taxed GmbH, qui conseille les expatriés vivant en Suisse en matière fiscale, et ${ROLES_FR.estate.toLowerCase()} d’EF Real Estate, sous le nom duquel il détient des biens résidentiels en private equity.`;
 
 /** The 70-second intro on YouTube, published 2026-11-12. */
 export const INTRO_VIDEO = 'https://www.youtube.com/watch?v=tH6VlyiJkv4';
@@ -74,8 +79,8 @@ function files(lang: Lang): File[] {
 /** Press kit: two bios to copy; the intro video, two photos, a logo pack and a contact card. */
 export function PersonalPress({ lang = 'en' }: { lang?: Lang }) {
   const t = (en: string, de: string) => pick(lang, en, de);
-  const short = pick(lang, SHORT_BIO, SHORT_BIO_DE);
-  const long = pick(lang, LONG_BIO, LONG_BIO_DE);
+  const short = { en: SHORT_BIO, de: SHORT_BIO_DE, fr: SHORT_BIO_FR }[lang];
+  const long = { en: LONG_BIO, de: LONG_BIO_DE, fr: LONG_BIO_FR }[lang];
   return (
     <section id="press" className="band" aria-labelledby="press-title">
       <div className="wrap">

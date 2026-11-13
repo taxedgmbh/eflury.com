@@ -17,6 +17,12 @@ const CHANNEL = {
       'Notizen von Emanuel Flury über das Aufbauen von Unternehmen, in denen Finanzen, Steuern und Technologie zusammenkommen.',
     language: 'de-CH',
   },
+  fr: {
+    title: 'Emanuel Flury · Notes',
+    description:
+      'Notes d’Emanuel Flury sur la création d’entreprises à la croisée de la finance, de la fiscalité et de la technologie.',
+    language: 'fr-CH',
+  },
 };
 
 /** RSS 2.0 feed of the published notes in one language. */

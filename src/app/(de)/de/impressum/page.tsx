@@ -23,7 +23,7 @@ export const metadata: Metadata = {
 
 export default function ImpressumPage() {
   return (
-    <LegalPage title="Impressum" updated="13. November 2026" lang="de" alt={PAGES.imprint.en}>
+    <LegalPage title="Impressum" updated="13. November 2026" lang="de" alts={PAGES.imprint}>
       <h2>Verantwortlich für diese Website</h2>
       <address>
         {PERSON.name}
