@@ -4,6 +4,7 @@ import Link from 'next/link';
 import {
   ArrowRight,
   ArrowUpRight,
+  Check,
   ChevronDown,
   Mail,
   Menu,
@@ -15,6 +16,7 @@ import {
   X,
 } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
+import { Flag } from './Flag';
 import { EMAIL, PHONE, roles, SOCIALS, WHATSAPP } from './data';
 import { home, LANGS, pick, PAGES, type Lang, type LangMap } from '@/lib/i18n';
 
@@ -51,7 +53,9 @@ function Strip({ lang }: { lang: Lang }) {
  */
 export function PersonalHeader({ lang = 'en', alts }: { lang?: Lang; alts?: Partial<LangMap> }) {
   const t = (en: string, de: string) => pick(lang, en, de);
-  const others = LANGS.filter((l) => l !== lang).map((l) => ({ l, href: alts?.[l] ?? PAGES.home[l] }));
+  const langLinks = LANGS.map((l) => ({ l, href: alts?.[l] ?? PAGES.home[l] }));
+  const [langOpen, setLangOpen] = useState(false);
+  const langRef = useRef<HTMLLIElement>(null);
   const r = roles(lang);
   const [open, setOpen] = useState<Panel | null>(null);
   const [mobile, setMobile] = useState(false);
@@ -73,6 +77,21 @@ export function PersonalHeader({ lang = 'en', alts }: { lang?: Lang; alts?: Part
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
   }, []);
+
+  // The language menu closes on a click outside it and on Escape.
+  useEffect(() => {
+    if (!langOpen) return;
+    const onDown = (e: PointerEvent) => {
+      if (!langRef.current?.contains(e.target as Node)) setLangOpen(false);
+    };
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setLangOpen(false);
+    document.addEventListener('pointerdown', onDown);
+    document.addEventListener('keydown', onKey);
+    return () => {
+      document.removeEventListener('pointerdown', onDown);
+      document.removeEventListener('keydown', onKey);
+    };
+  }, [langOpen]);
 
   // The mobile menu covers the viewport; the page behind it must not scroll.
   useEffect(() => {
@@ -131,12 +150,30 @@ export function PersonalHeader({ lang = 'en', alts }: { lang?: Lang; alts?: Part
           <ul className="ph-links">
             <li>{trigger('ventures', t('Ventures', 'Unternehmen'))}</li>
             <li>{trigger('about', t('About', 'Über mich'))}</li>
-            <li className="ph-langs">
-              {others.map(({ l, href }) => (
-                <a key={l} href={href} className="ph-lang" hrefLang={l} lang={l} aria-label={LANG_NAME[l]}>
-                  {l.toUpperCase()}
-                </a>
-              ))}
+            <li className="ph-langmenu" ref={langRef}>
+              <button
+                type="button"
+                className="ph-trigger ph-langbtn"
+                aria-expanded={langOpen}
+                aria-controls="ph-langlist"
+                aria-label={`${t('Language', 'Sprache')}: ${LANG_NAME[lang]}`}
+                onClick={() => {
+                  closeAll();
+                  setLangOpen((o) => !o);
+                }}
+              >
+                <Flag lang={lang} /> {lang.toUpperCase()} <ChevronDown size={16} aria-hidden />
+              </button>
+              <ul className="ph-langlist" id="ph-langlist" hidden={!langOpen}>
+                {langLinks.map(({ l, href }) => (
+                  <li key={l}>
+                    <a href={href} hrefLang={l} lang={l} aria-current={l === lang ? 'page' : undefined}>
+                      <Flag lang={l} /> <span>{LANG_NAME[l]}</span>
+                      {l === lang && <Check size={16} aria-hidden className="ph-langcheck" />}
+                    </a>
+                  </li>
+                ))}
+              </ul>
             </li>
             <li>
               <a href={home(lang, 'contact')} className="ph-cta">
@@ -145,13 +182,6 @@ export function PersonalHeader({ lang = 'en', alts }: { lang?: Lang; alts?: Part
             </li>
           </ul>
 
-          <span className="ph-langs ph-lang-mob">
-            {others.map(({ l, href }) => (
-              <a key={l} href={href} className="ph-lang" hrefLang={l} lang={l} aria-label={LANG_NAME[l]}>
-                {l.toUpperCase()}
-              </a>
-            ))}
-          </span>
           <button
             type="button"
             className="ph-burger"
@@ -350,11 +380,20 @@ export function PersonalHeader({ lang = 'en', alts }: { lang?: Lang; alts?: Part
           <a href={WHATSAPP} target="_blank" rel="noopener" className="pm-wa" onClick={closeMobile}>
             <MessageCircle size={18} aria-hidden /> WhatsApp
           </a>
-          {others.map(({ l, href }) => (
-            <a key={l} href={href} className="pm-lang" hrefLang={l} lang={l}>
-              {LANG_NAME[l]}
-            </a>
-          ))}
+          <details className="pm-group pm-langs">
+            <summary>
+              <span className="pm-langsum">
+                <Flag lang={lang} size={24} /> {t('Language', 'Sprache')}: {LANG_NAME[lang]}
+              </span>
+              <ChevronDown size={18} aria-hidden />
+            </summary>
+            {langLinks.map(({ l, href }) => (
+              <a key={l} href={href} hrefLang={l} lang={l} aria-current={l === lang ? 'page' : undefined} className="pm-langrow">
+                <Flag lang={l} size={24} /> {LANG_NAME[l]}
+                {l === lang && <Check size={16} aria-hidden className="ph-langcheck" />}
+              </a>
+            ))}
+          </details>
           <a href={home(lang, 'contact')} className="pm-cta" onClick={closeMobile}>
             {t('Contact', 'Kontakt')}
           </a>

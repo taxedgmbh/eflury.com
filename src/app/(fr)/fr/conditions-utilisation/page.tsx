@@ -4,7 +4,7 @@ import { alternates, PAGES } from '@/lib/i18n';
 import { PERSON } from '@/lib/site';
 
 const DESCRIPTION =
-  'Conditions d’utilisation d’eflury.com, y compris l’utilisation des biographies, photos, logos et de la vidéo du kit presse.';
+  'Conditions d’utilisation d’eflury.com, y compris l’utilisation des biographies, photos, logos et de la vidéo du dossier de presse.';
 
 export const metadata: Metadata = {
   title: 'Conditions d’utilisation',
@@ -46,20 +46,20 @@ export default function ConditionsPage() {
       <p>
         Tous les textes, photos, vidéos, graphiques et le logo EF sont protégés par le droit d’auteur et appartiennent à
         Emanuel Flury, sauf mention contraire. Les logos de Skopa et de Taxed appartiennent à Skopa AG et à Taxed GmbH.
-        À l’exception du kit presse (chiffre 4), rien ne peut être copié, modifié ou publié sans autorisation écrite
+        À l’exception du dossier de presse (chiffre 4), rien ne peut être copié, modifié ou publié sans autorisation écrite
         préalable.
       </p>
 
-      <h2>4. Kit presse</h2>
+      <h2>4. Dossier de presse</h2>
       <p>
-        Les biographies, photos, le pack de logos, la vidéo d’introduction et la carte de contact du kit presse peuvent
-        être utilisés gratuitement :
+        Les biographies, photos, le jeu de logos, la vidéo d’introduction et la carte de contact du dossier de presse peuvent
+        être utilisés gratuitement :
       </p>
       <ul>
-        <li>pour des articles, reportages, programmes d’événements et présentations concernant Emanuel Flury ou ses entreprises ;</li>
-        <li>avec la mention « Photo : Emanuel Flury » pour les photos ;</li>
-        <li>sans modification autre que le recadrage et le redimensionnement, et avec les biographies citées telles quelles ou raccourcies ;</li>
-        <li>pas d’une manière laissant croire qu’Emanuel Flury recommande un produit, un service, un parti ou une opinion ;</li>
+        <li>pour des articles, reportages, programmes d’événements et présentations concernant Emanuel Flury ou ses entreprises ;</li>
+        <li>avec la mention « Photo : Emanuel Flury » pour les photos ;</li>
+        <li>sans modification autre que le recadrage et le redimensionnement, et avec les biographies citées telles quelles ou raccourcies ;</li>
+        <li>pas d’une manière laissant croire qu’Emanuel Flury recommande un produit, un service, un parti ou une opinion ;</li>
         <li>pas à des fins publicitaires, ni dans un contexte qui nuirait à sa réputation.</li>
       </ul>
       <p>

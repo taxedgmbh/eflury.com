@@ -3,7 +3,8 @@
  * English text exactly as it appears in the component; a missing key fails
  * the build. Style: vous; Swiss French usage (e-mail, CHF 120'000, Granges for
  * Grenchen, Bienne for Biel); typographic apostrophe ’; a narrow no-break
- * space before : ; ? ! is left out on purpose (it breaks badly in buttons).
+ * space (U+202F) before : ; ? ! and a no-break space inside « » and before %,
+ * so the punctuation never wraps onto a line of its own.
  */
 export const FR: Record<string, string> = {
   // Header, menus, footer
@@ -29,11 +30,11 @@ export const FR: Record<string, string> = {
   'My story': 'Mon parcours',
   'Where I come from and what I work on.': 'D’où je viens et ce sur quoi je travaille.',
   Private: 'Privé',
-  'Beyond work: French and sailing.': 'Au-delà du travail : le français et la voile.',
+  'Beyond work: French and sailing.': 'Au-delà du travail : le français et la voile.',
   Notes: 'Notes',
   'What I learn while building, also by email.': 'Ce que j’apprends en construisant, aussi par e-mail.',
-  'Press kit': 'Kit presse',
-  'Bios, portrait and contact card.': 'Biographies, portrait et carte de contact.',
+  'Press kit': 'Dossier de presse',
+  'Bios, portrait and contact card.': 'Biographies, portrait et carte de visite numérique.',
   Follow: 'Suivre',
   'Back to top': 'Haut de page',
   Legal: 'Informations légales',
@@ -49,6 +50,7 @@ export const FR: Record<string, string> = {
     'Ajoutez nom, photo, mobile, WhatsApp, e-mail, adresse et site web à vos contacts.',
   'Save contact': 'Enregistrer le contact',
   'RSS feed': 'Flux RSS',
+  Language: 'Langue',
   'Last updated': 'Mise à jour',
 
   // Hero
@@ -64,11 +66,11 @@ export const FR: Record<string, string> = {
   'Skopa and Taxed each have their own website. This is where all three come together.':
     'Skopa et Taxed ont chacune leur propre site. C’est ici que les trois se rejoignent.',
   'Artificial intelligence and quantum computing. Role: Directeur général.':
-    'Intelligence artificielle et informatique quantique. Fonction : directeur général.',
+    'Intelligence artificielle et informatique quantique. Fonction : directeur général.',
   'Tax advice for expats living in Switzerland, with an office in Biel/Bienne. Role: Directeur général (mandat).':
-    'Conseil fiscal pour les expatriés vivant en Suisse, avec un bureau à Bienne. Fonction : directeur général (mandat).',
+    'Conseil fiscal pour les expatriés vivant en Suisse, avec un bureau à Bienne. Fonction : directeur général (mandat).',
   'Residential property held as private equity. Role: Propriétaire.':
-    'Immobilier résidentiel détenu en private equity. Fonction : propriétaire.',
+    'Immobilier résidentiel détenu en private equity. Fonction : propriétaire.',
   'Discover Skopa': 'Découvrir Skopa',
   'Get tax advice': 'Demander un conseil fiscal',
   'See the properties': 'Voir les biens',
@@ -77,7 +79,7 @@ export const FR: Record<string, string> = {
   'Commercial register': 'Registre du commerce',
   'Privately held · not a company': 'Détenu à titre privé · pas une société',
   'Working on something in technology, tax or property? Let’s talk about it.':
-    'Vous avez un projet dans la technologie, la fiscalité ou l’immobilier ? Parlons-en.',
+    'Vous avez un projet dans la technologie, la fiscalité ou l’immobilier ? Parlons-en.',
 
   // Real estate
   'Private equity in residential property.': 'Private equity dans l’immobilier résidentiel.',
@@ -110,32 +112,32 @@ export const FR: Record<string, string> = {
   'Bathroom with bathtub': 'Salle de bains avec baignoire',
 
   // On my radar
-  'On my radar': 'Dans mon radar',
+  'On my radar': 'Sur mon radar',
   'What matters now in tech, tax and real estate.': 'Ce qui compte aujourd’hui en technologie, fiscalité et immobilier.',
   'The questions I hear most often from founders, expats and property owners, answered in plain language. Updated November 2026.':
-    'Les questions les plus fréquentes sur la création d’entreprise, la fiscalité des expatriés et la propriété du logement, expliquées simplement. Mise à jour : novembre 2026.',
+    'Les questions les plus fréquentes sur la création d’entreprise, la fiscalité des expatriés et la propriété du logement, expliquées simplement. Mise à jour : novembre 2026.',
   'AI agents': 'Agents IA',
-  'Are AI agents ready for Swiss SMEs?': 'Les agents IA sont-ils prêts pour les PME suisses ?',
+  'Are AI agents ready for Swiss SMEs?': 'Les agents IA sont-ils prêts pour les PME suisses ?',
   'Yes, for well-defined work: start with one repetitive process, set clear limits and keep a human approval for anything that costs money or goes to a client.':
-    'Oui, pour des tâches bien définies : commencer par un processus répétitif, fixer des limites claires et faire valider par une personne tout ce qui coûte de l’argent ou part chez un client.',
+    'Oui, pour des tâches bien définies : commencer par un processus répétitif, fixer des limites claires et faire valider par une personne tout ce qui coûte de l’argent ou part chez un client.',
   'ai-agents-swiss-smes': 'agents-ia-pme',
   'Quantum computing': 'Informatique quantique',
   'Why should a business think about quantum computing now?':
-    'Pourquoi une entreprise devrait-elle s’intéresser dès maintenant à l’informatique quantique ?',
+    'Pourquoi une entreprise devrait-elle s’intéresser dès maintenant à l’informatique quantique ?',
   'Because of encryption: data copied today can be decrypted later. NIST published the first post-quantum standards in August 2024, and the first step is an inventory.':
-    'À cause du chiffrement : des données interceptées aujourd’hui pourront être déchiffrées demain. Le NIST a publié les premières normes post-quantiques en août 2024. La première étape est un inventaire.',
+    'À cause du chiffrement : des données interceptées aujourd’hui pourront être déchiffrées demain. Le NIST a publié les premières normes post-quantiques en août 2024. La première étape est un inventaire.',
   'quantum-computing-encryption': 'informatique-quantique-chiffrement',
   'Real estate · Tax': 'Immobilier · Fiscalité',
   'What does the end of the Eigenmietwert mean for homeowners?':
-    'Que change la suppression de la valeur locative pour les propriétaires ?',
+    'Que change la suppression de la valeur locative pour les propriétaires ?',
   'From 1 January 2029 the imputed rental value goes, and with it most deductions for your own home. Until the end of 2028 the old rules still apply.':
     'Dès le 1er janvier 2029, la valeur locative disparaît, et avec elle la plupart des déductions pour le logement occupé par son propriétaire. Jusqu’à fin 2028, les règles actuelles s’appliquent encore.',
   'eigenmietwert-abolition': 'suppression-valeur-locative',
   'Expat tax': 'Fiscalité des expatriés',
   'Do expats taxed at source have to file a tax return?':
-    'Les expatriés imposés à la source doivent-ils remplir une déclaration d’impôt ?',
+    'Les expatriés imposés à la source doivent-ils remplir une déclaration d’impôt ?',
   'Above CHF 120,000 gross salary, yes. Below it you can apply by 31 March of the following year, which often pays off with pillar 3a or childcare costs.':
-    "Au-delà de CHF 120'000 de salaire brut, oui. En dessous, vous pouvez la demander jusqu’au 31 mars de l’année suivante – souvent rentable avec un 3e pilier A ou des frais de garde d’enfants.",
+    "Au-delà de CHF 120'000 de salaire brut, oui. En dessous, vous pouvez la demander jusqu’au 31 mars de l’année suivante – souvent intéressant avec un pilier 3a ou des frais de garde d’enfants.",
   'expat-withholding-tax-return': 'impot-a-la-source-declaration-expats',
   'Read the full answer': 'Lire la réponse complète',
   'General information, not individual tax or investment advice.':
@@ -156,15 +158,15 @@ export const FR: Record<string, string> = {
   'Trained in finance. Shaped by automation. Now building.':
     'Formé à la finance. Façonné par l’automatisation. Aujourd’hui entrepreneur.',
   'I bring together three things that rarely meet: a degree in finance, years of automating finance processes in large organisations, and the step into building my own companies.':
-    'Je réunis trois choses qui se rencontrent rarement : des études en finance, des années d’automatisation de processus financiers dans de grandes entreprises, et le pas vers la création de mes propres sociétés.',
-  'Foundation · 2012–2016': 'Fondations · 2012–2016',
+    'Je réunis trois choses qui se rencontrent rarement : des études en finance, des années d’automatisation de processus financiers dans de grandes entreprises, et le pas vers la création de mes propres sociétés.',
+  'Foundation · 2012–2016': 'Formation · 2012–2016',
   Finance: 'Finance',
   'Master of Arts in Economics-Finance from the University of Aberdeen, with Upper Second Class Honours (2:1), including an exchange year at the University of Wisconsin–La Crosse (2013–2014). Plus a certificate as a tax specialist.':
-    'Master of Arts in Economics-Finance de l’University of Aberdeen, obtenu avec Upper Second Class Honours (2:1), y compris une année d’échange à l’University of Wisconsin–La Crosse (2013–2014). S’y ajoute un certificat de spécialiste en fiscalité.',
+    'Master of Arts in Economics-Finance de l’Université d’Aberdeen, obtenu avec mention Upper Second Class Honours (2:1), y compris une année d’échange à l’Université du Wisconsin à La Crosse (2013–2014). S’y ajoute un certificat de spécialiste en fiscalité.',
   'Experience · 2017–2026': 'Expérience · 2017–2026',
   Automation: 'Automatisation',
   'Nine years in finance inside a global corporation: controlling, forecasting and transfer pricing first, then automating finance processes. That is where I learned to think in systems, not hours. Certified UiPath RPA Developer, Microsoft Power BI Data Analyst Associate and Alteryx Designer Core.':
-    'Neuf ans dans la finance d’un groupe international : d’abord le contrôle de gestion, les prévisions et les prix de transfert, puis l’automatisation des processus financiers. C’est là que j’ai appris à penser en systèmes plutôt qu’en heures. Certifié UiPath RPA Developer, Microsoft Power BI Data Analyst Associate et Alteryx Designer Core.',
+    'Neuf ans dans la finance d’un groupe international : d’abord le contrôle de gestion, les prévisions et les prix de transfert, puis l’automatisation des processus financiers. C’est là que j’ai appris à penser en systèmes plutôt qu’en heures. Certifié UiPath RPA Developer, Microsoft Power BI Data Analyst Associate et Alteryx Designer Core.',
   'Today · since 2021': 'Aujourd’hui · depuis 2021',
   Entrepreneur: 'Entrepreneur',
   'Founded Taxed GmbH in 2021 and Skopa AG in 2026. Today Directeur général of Skopa AG, Directeur général (mandat) of Taxed GmbH and propriétaire of EF Real Estate.':
@@ -181,15 +183,15 @@ export const FR: Record<string, string> = {
   // Private
   'Beyond work.': 'Au-delà du travail.',
   'Travel keeps me curious: new places, new cultures, new ways of doing things. Most of my best ideas start far from the desk.':
-    'Les voyages entretiennent ma curiosité : de nouveaux lieux, de nouvelles cultures, de nouveaux regards. Mes meilleures idées naissent souvent loin du bureau.',
+    'Les voyages entretiennent ma curiosité : de nouveaux lieux, de nouvelles cultures, de nouveaux regards. Mes meilleures idées naissent souvent loin du bureau.',
   'Currently learning': 'En apprentissage',
   'French, for the francophone world.': 'Le français, pour le monde francophone.',
   'I am studying French. It started as a passion for the francophone world and its way of life, and it is becoming a goal: to work, build and connect in French too. From Grenchen, the language border is close — Biel/Bienne, Switzerland’s largest bilingual city, is next door.':
-    'J’apprends le français. Tout a commencé par une passion pour le monde francophone et son art de vivre ; c’est devenu un objectif : travailler, construire et nouer des liens en français aussi. Depuis Granges, la frontière linguistique est toute proche – Bienne, la plus grande ville bilingue de Suisse, est juste à côté.',
+    'J’apprends le français. Tout a commencé par une passion pour le monde francophone et son art de vivre ; c’est devenu un objectif : travailler, construire et nouer des liens en français aussi. Depuis Granges, la frontière linguistique est toute proche – Bienne, la plus grande ville bilingue de Suisse, est juste à côté.',
   'At sea · RYA Day Skipper': 'En mer · RYA Day Skipper',
   'Sailing the Strait of Gibraltar.': 'Naviguer dans le détroit de Gibraltar.',
   'RYA Day Skipper since 2024. From La Duquesa in Spain to Gibraltar on a sailing yacht: tankers at anchor, tidal streams, and position fixes worked out by hand on the paper chart. Sailing teaches what business does too — read the conditions, plan the route, adjust early.':
-    'RYA Day Skipper depuis 2024. De La Duquesa, en Espagne, jusqu’à Gibraltar à bord d’un voilier : pétroliers au mouillage, courants de marée et positions relevées à la main sur la carte papier. La voile exige ce qu’exige aussi l’entreprise : lire les conditions, planifier la route, corriger tôt.',
+    'RYA Day Skipper depuis 2024. De La Duquesa, en Espagne, jusqu’à Gibraltar à bord d’un voilier : pétroliers au mouillage, courants de marée et positions relevées à la main sur la carte papier. La voile exige ce qu’exige aussi l’entreprise : lire les conditions, planifier la route, corriger tôt.',
   Sailing: 'Voile',
   Moments: 'Moments',
   'Private moments': 'Moments privés',
@@ -197,7 +199,7 @@ export const FR: Record<string, string> = {
   'Emanuel Flury at sunset, the sea behind him': 'Emanuel Flury au coucher du soleil, la mer derrière lui',
   'Emanuel Flury on a tuk-tuk ride': 'Emanuel Flury en tuk-tuk',
   'Emanuel Flury in the jungle at dusk': 'Emanuel Flury dans la jungle au crépuscule',
-  'Emanuel Flury in a hotel garden, pool behind': 'Emanuel Flury dans le jardin d’un hôtel, la piscine derrière',
+  'Emanuel Flury in a hotel garden, pool behind': 'Emanuel Flury dans le jardin d’un hôtel, la piscine en arrière-plan',
   'Emanuel Flury among banana palms at sunset': 'Emanuel Flury parmi les bananiers au coucher du soleil',
   'Emanuel Flury sailing in front of the Rock of Gibraltar': 'Emanuel Flury naviguant devant le rocher de Gibraltar',
   'Emanuel Flury in sailing gear on deck, leaving the harbour': 'Emanuel Flury en tenue de voile sur le pont, à la sortie du port',
@@ -218,7 +220,7 @@ export const FR: Record<string, string> = {
   // Press kit
   Press: 'Presse',
   'For articles, events and introductions. Use the bios, photos and video as they are; for anything else, write to me.':
-    'Pour articles, événements et présentations. Les biographies, photos et la vidéo peuvent être utilisées telles quelles ; pour tout le reste, écrivez-moi.',
+    'Pour des articles, des événements et des présentations. Les biographies, photos et la vidéo peuvent être utilisées telles quelles ; pour tout le reste, écrivez-moi.',
   'Short bio': 'Biographie courte',
   'Long bio': 'Biographie',
   'Copy short bio': 'Copier la biographie courte',
@@ -228,7 +230,7 @@ export const FR: Record<string, string> = {
   '70 seconds · on YouTube': '70 secondes · sur YouTube, en anglais',
   Portrait: 'Portrait',
   'Photo, city': 'Photo, ville',
-  'Logo pack': 'Pack de logos',
+  'Logo pack': 'Jeu de logos',
   'EF mark and wordmark, SVG': 'Symbole EF et logotype, SVG',
   'Contact card': 'Carte de contact',
   'vCard with photo, phone, WhatsApp and address': 'vCard avec photo, téléphone, WhatsApp et adresse',

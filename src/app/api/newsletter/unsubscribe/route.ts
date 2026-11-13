@@ -9,7 +9,7 @@ const langOf = (req: Request) => asLang(new URL(req.url).searchParams.get('l'));
 const TEXT = {
   en: { html: 'en', title: 'Unsubscribe', text: 'Stop receiving new notes from Emanuel Flury by email? Your address is deleted straight away.', back: 'Back to eflury.com' },
   de: { html: 'de-CH', title: 'Abmelden', text: 'Keine neuen Notizen von Emanuel Flury mehr per E-Mail erhalten? Ihre Adresse wird sofort gelöscht.', back: 'Zurück zu eflury.com' },
-  fr: { html: 'fr-CH', title: 'Se désabonner', text: 'Ne plus recevoir par e-mail les nouvelles notes d’Emanuel Flury ? Votre adresse est supprimée immédiatement.', back: 'Retour à eflury.com' },
+  fr: { html: 'fr-CH', title: 'Se désabonner', text: 'Ne plus recevoir par e-mail les nouvelles notes d’Emanuel Flury ? Votre adresse est supprimée immédiatement.', back: 'Retour à eflury.com' },
 };
 const esc = (s: string) => s.replace(/[&<>"]/g, (c) => `&#${c.charCodeAt(0)};`);
 

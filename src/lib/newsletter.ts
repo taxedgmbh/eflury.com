@@ -126,11 +126,11 @@ const CONFIRM_MAIL: Record<Lang, (link: string) => { subject: string; lines: str
     lines: [
       'Bonjour,',
       '',
-      'Veuillez confirmer que vous souhaitez recevoir par e-mail les nouvelles notes d’Emanuel Flury :',
+      'Veuillez confirmer que vous souhaitez recevoir par e-mail les nouvelles notes d’Emanuel Flury :',
       '',
       link,
       '',
-      `Si vous ne vous êtes pas inscrit, ignorez simplement cet e-mail. Votre adresse sera supprimée automatiquement après ${PENDING_DAYS} jours.`,
+      `Si vous n’avez pas demandé cette inscription, ignorez simplement cet e-mail. Votre adresse sera supprimée automatiquement après ${PENDING_DAYS} jours.`,
       '',
       'Meilleures salutations',
       'Emanuel Flury',

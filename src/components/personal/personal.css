@@ -903,9 +903,18 @@
 /* ---- Language switch ---- */
 .pb .ph-lang { display: inline-flex; align-items: center; justify-content: center; min-width: 44px; min-height: 44px; padding: 0 10px; border-radius: var(--radius-full); color: var(--eflury-white); font-weight: 700; font-size: 0.875rem; letter-spacing: 0.08em; text-decoration: none; border: 1px solid rgb(255 255 255 / 0.25); }
 .pb .ph-lang:hover { border-color: var(--eflury-white); }
-.pb .pm-lang { display: flex; align-items: center; justify-content: center; margin-top: var(--spacing-md); min-height: 52px; border-radius: var(--radius-full); border: 1.5px solid rgb(255 255 255 / 0.35); color: var(--eflury-white); text-decoration: none; font-weight: 600; font-size: 17px; }
-.pb .ph-lang-mob { display: none; margin-left: auto; margin-right: var(--spacing-sm); }
-@media (max-width: 900px) { .pb .ph-lang-mob { display: inline-flex; } }
-.pb .ph-langs { display: inline-flex; gap: 4px; }
-.pb span.ph-lang-mob { display: none; }
-@media (max-width: 900px) { .pb span.ph-lang-mob { display: inline-flex; } }
+
+/* ---- Language menu (desktop dropdown, mobile fold-out) ---- */
+.pb .flag { display: inline-block; flex: none; border-radius: 2px; box-shadow: 0 0 0 1px rgb(255 255 255 / 0.25); }
+.pb .ph-langmenu { position: relative; }
+.pb .ph-langbtn { gap: 8px; }
+.pb .ph-langlist { position: absolute; right: 0; top: calc(100% + 8px); z-index: 120; min-width: 200px; margin: 0; padding: 6px; list-style: none; border-radius: var(--radius-md); background: #03306b; border: 1px solid rgb(255 255 255 / 0.15); box-shadow: var(--shadow-lg); }
+.pb .ph-langlist[hidden] { display: none; }
+.pb .ph-langlist a { display: flex; align-items: center; gap: 12px; min-height: 44px; padding: 0 12px; border-radius: var(--radius-sm); color: var(--eflury-white); text-decoration: none; font-weight: 600; }
+.pb .ph-langlist a:hover, .pb .ph-langlist a:focus-visible { background: rgb(255 255 255 / 0.08); }
+.pb .ph-langlist a[aria-current] { color: var(--text-blue); }
+.pb .ph-langcheck { margin-left: auto; color: var(--text-blue); }
+.pb .pm-langsum { display: inline-flex; align-items: center; gap: 12px; }
+.pb .pm-langs .pm-langrow { display: flex; align-items: center; gap: 12px; min-height: 48px; opacity: 1; }
+.pb .pm-langs .pm-langrow[aria-current] { color: var(--text-blue); }
+.pb .pm-group[open] summary .flag { transform: none; }

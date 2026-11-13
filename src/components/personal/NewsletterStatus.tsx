@@ -69,7 +69,7 @@ const TEXT = {
       text: 'Je vous ai envoyé un e-mail avec un lien. Cliquez dessus pour confirmer votre abonnement. Vous ne recevrez rien d’autre avant. Si rien n’arrive d’ici quelques minutes, vérifiez vos courriers indésirables.',
     },
     confirmed: {
-      title: 'Vous êtes abonné.',
+      title: 'Votre abonnement est confirmé.',
       text: 'Merci. Les nouvelles notes vous parviendront par e-mail dès leur publication. Chaque e-mail contient un lien de désabonnement.',
     },
     expired: {
@@ -77,7 +77,7 @@ const TEXT = {
       text: 'Le lien de confirmation n’est plus valable, ou l’abonnement a déjà été confirmé. Vous pouvez vous réinscrire ci-dessous.',
     },
     unsubscribed: {
-      title: 'Vous êtes désabonné.',
+      title: 'Votre désabonnement est effectif.',
       text: 'Votre adresse e-mail a été supprimée. Vous ne recevrez plus d’e-mails de cette liste.',
     },
     invalid: {

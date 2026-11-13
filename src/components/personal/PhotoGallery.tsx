@@ -30,8 +30,8 @@ const GALLERY_TEXT = {
   },
   fr: {
     photos: "photos",
-    openOne: (alt: string, i: number, n: number) => `${alt} : ouvrir la photo ${i} sur ${n}`,
-    openAll: (label: string, n: number) => `${label} : ouvrir les ${n} photos`,
+    openOne: (alt: string, i: number, n: number) => `${alt} : ouvrir la photo ${i} sur ${n}`,
+    openAll: (label: string, n: number) => `${label} : ouvrir les ${n} photos`,
     prev: "Photo précédente",
     next: "Photo suivante",
     close: "Fermer",

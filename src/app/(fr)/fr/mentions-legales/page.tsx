@@ -38,21 +38,21 @@ export default function MentionsLegalesPage() {
       </address>
       <ul className="legal-contact">
         <li>
-          E-mail : <a href={`mailto:${PERSON.email}`}>{PERSON.email}</a>
+          E-mail : <a href={`mailto:${PERSON.email}`}>{PERSON.email}</a>
         </li>
         <li>
-          Téléphone et WhatsApp : <a href={`tel:${PERSON.telephone}`}>{PERSON.telephoneDisplay}</a>
+          Téléphone et WhatsApp : <a href={`tel:${PERSON.telephone}`}>{PERSON.telephoneDisplay}</a>
         </li>
       </ul>
       <p>
-        Emanuel Flury est responsable du contenu de ce site. Il s’agit de son site personnel : il ne vend rien, n’est
+        Emanuel Flury est responsable du contenu de ce site. Il s’agit de son site personnel : il ne vend rien, n’est
         exploité par aucune société et ne constitue pas une offre commerciale.
       </p>
 
       <h2>Entreprises mentionnées sur ce site</h2>
       <p>
         Les entreprises disposent de leurs propres sites et mentions légales. Leurs inscriptions au registre du commerce
-        sont publiques :
+        sont publiques :
       </p>
       <ul>
         <li>
@@ -107,8 +107,8 @@ export default function MentionsLegalesPage() {
       <h2>Droits d’auteur</h2>
       <p>
         Les textes, photos, vidéos et graphiques de ce site appartiennent à Emanuel Flury, sauf mention contraire. Les
-        logos de Skopa et de Taxed appartiennent à leurs sociétés. Le matériel du kit presse peut être utilisé selon les{' '}
-        <a href={PAGES.terms.fr}>conditions d’utilisation</a> ; toute autre utilisation requiert une autorisation écrite
+        logos de Skopa et de Taxed appartiennent à leurs sociétés. Le matériel du dossier de presse peut être utilisé selon les{' '}
+        <a href={PAGES.terms.fr}>conditions d’utilisation</a> ; toute autre utilisation requiert une autorisation écrite
         préalable.
       </p>
 

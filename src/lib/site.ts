@@ -24,7 +24,7 @@ export const HOME_DESCRIPTION_DE =
 
 export const HOME_TITLE_FR = 'Emanuel Flury · Entrepreneur suisse · Skopa AG, Taxed GmbH';
 export const HOME_DESCRIPTION_FR =
-  'Emanuel Flury est un entrepreneur suisse de Granges (Grenchen). Il crée des entreprises à la croisée de la finance, de la fiscalité et de la technologie : Skopa AG, Taxed GmbH et EF Real Estate.';
+  'Emanuel Flury est un entrepreneur suisse de Granges (Grenchen). Il crée des entreprises à la croisée de la finance, de la fiscalité et de la technologie : Skopa AG, Taxed GmbH et EF Real Estate.';
 
 /** Homepage title and description per language. */
 export const HOME_META = {

@@ -51,7 +51,7 @@ const name = slug.replace(/^(de|fr)\//, '');
 const T = {
   en: { html: 'en', read: 'Read the note', kicker: 'New note', why: 'You receive this because you subscribed to new notes on eflury.com.', unsub: 'Unsubscribe' },
   de: { html: 'de-CH', read: 'Notiz lesen', kicker: 'Neue Notiz', why: 'Sie erhalten dieses E-Mail, weil Sie neue Notizen auf eflury.com abonniert haben.', unsub: 'Abmelden' },
-  fr: { html: 'fr-CH', read: 'Lire la note', kicker: 'Nouvelle note', why: 'Vous recevez cet e-mail parce que vous êtes abonné aux nouvelles notes sur eflury.com.', unsub: 'Se désabonner' },
+  fr: { html: 'fr-CH', read: 'Lire la note', kicker: 'Nouvelle note', why: 'Vous recevez cet e-mail parce que vous avez souscrit aux nouvelles notes sur eflury.com.', unsub: 'Se désabonner' },
 }[lang];
 const file = path.join(process.cwd(), 'content', 'notes', ...(lang === 'en' ? [] : [lang]), `${name}.md`);
 const { data } = matter(fs.readFileSync(file, 'utf8'));
