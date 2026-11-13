@@ -891,3 +891,11 @@
 .pb .rd-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--teal-text); font-weight: 600; text-decoration: none; }
 .pb .rd-link:hover { text-decoration: underline; }
 .pb .rd-note { margin: var(--spacing-lg) 0 0; font-size: 0.875rem; color: rgb(255 255 255 / 0.6); }
+.pb .rd-note a { color: var(--teal-text); }
+@media (max-width: 767px) {
+  .pb .rd-card { padding: var(--spacing-md) var(--spacing-lg); gap: 0; }
+  .pb .rd-card .pv-icon { display: none; }
+  .pb .rd-card h3 { font-size: 1.15rem; }
+  .pb .rd-card p { font-size: 0.95rem; }
+  .pb #radar .pv-cards { gap: var(--spacing-md); }
+}
