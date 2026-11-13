@@ -88,7 +88,11 @@ export function PersonalPress() {
                 key={f.href}
                 href={f.href}
                 className="pr-file"
-                {...(f.external ? { target: '_blank', rel: 'noopener' } : { download: true })}
+                {...(f.external
+                  ? { target: '_blank', rel: 'noopener' }
+                  : f.href.endsWith('.vcf')
+                    ? {} // opens the Contacts sheet on iPhone, photo included
+                    : { download: true })}
               >
                 {f.thumb ? (
                   // eslint-disable-next-line @next/next/no-img-element -- 56px preview

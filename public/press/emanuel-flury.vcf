@@ -1,22 +1,21 @@
 BEGIN:VCARD
 VERSION:3.0
+PRODID:-//eflury.com//Contact card//EN
 N:Flury;Emanuel;Aaron;;
 FN:Emanuel Flury
+ORG:Skopa AG\, Taxed GmbH\, EF Real Estate
 TITLE:Entrepreneur
-TEL;TYPE=CELL,VOICE,pref:+41799107787
-item1.TEL:+41799107787
-item1.X-ABLabel:WhatsApp
-EMAIL;TYPE=INTERNET,pref:me@eflury.com
+TEL;TYPE=CELL,VOICE,pref:+41 79 910 77 87
+EMAIL;TYPE=INTERNET,WORK,pref:me@eflury.com
 ADR;TYPE=WORK,pref:;;Keltenweg 4;Grenchen;SO;2540;Switzerland
 URL;TYPE=WORK:https://eflury.com/en/
-item2.URL:https://wa.me/41799107787
-item2.X-ABLabel:WhatsApp
-item3.URL:https://www.linkedin.com/in/emanuelflury
-item3.X-ABLabel:LinkedIn
-item4.URL:https://www.youtube.com/@emanuelflury
-item4.X-ABLabel:YouTube
+item1.URL:https://wa.me/41799107787
+item1.X-ABLabel:WhatsApp
+item2.URL:https://www.youtube.com/@emanuelflury
+item2.X-ABLabel:YouTube
 X-SOCIALPROFILE;TYPE=linkedin:https://www.linkedin.com/in/emanuelflury
-NOTE:Managing Director of Skopa AG\, Managing Director (Mandate) of Taxed GmbH\, owner of EF Real Estate.
+NOTE:Managing Director of Skopa AG\, Managing Director (Mandate) of Taxed G
+ mbH\, owner of EF Real Estate.
 PHOTO;ENCODING=b;TYPE=JPEG:/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBAUEBAYFBQUG
  BgYHCQ4JCQgICRINDQoOFRIWFhUSFBQXGiEcFxgfGRQUHScdHyIjJSUlFhwpLCgkKyEkJST/2w
  BDAQYGBgkICREJCREkGBQYJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQkJCQk

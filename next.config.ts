@@ -66,7 +66,10 @@ const nextConfig: NextConfig = {
         // A .vcf served as octet-stream downloads as an unknown file on iOS;
         // text/vcard opens the "add contact" sheet.
         source: '/press/:file.vcf',
-        headers: [{ key: 'Content-Type', value: 'text/vcard; charset=utf-8' }],
+        headers: [
+          { key: 'Content-Type', value: 'text/vcard; charset=utf-8' },
+          { key: 'Content-Disposition', value: 'inline; filename="emanuel-flury.vcf"' },
+        ],
       },
       {
         source: '/:path*',

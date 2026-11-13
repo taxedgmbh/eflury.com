@@ -39,7 +39,9 @@ export function PersonalFooter() {
           The QR holds the vCard itself (not a link), so scanning it adds the
           contact offline. Generated from public/press/emanuel-flury.vcf with
           segno; regenerate it when the card changes. On phones the code is
-          hidden and the same card is offered as a download instead.
+          hidden and the same card is offered as a link instead. No `download`
+          attribute: on iPhone that saves the file to Files, where the photo is
+          lost; a plain link opens the Contacts sheet with everything.
         */}
         <div className="pf-wrap pf-qr-row">
           <div className="pf-qr">
@@ -53,7 +55,7 @@ export function PersonalFooter() {
               <span className="pf-qr-mob">Add </span>
               name, photo, mobile and WhatsApp, email, address and website to your contacts.
             </p>
-            <a href="/press/emanuel-flury.vcf" download className="pf-btn pf-btn-line pf-qr-btn">
+            <a href="/press/emanuel-flury.vcf" className="pf-btn pf-btn-line pf-qr-btn">
               <Contact size={18} aria-hidden /> Save contact
             </a>
           </div>
