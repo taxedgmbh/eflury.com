@@ -584,8 +584,9 @@
   .pf-name { white-space: nowrap; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.3rem; line-height: 1; text-transform: uppercase; }
   .pf-role { margin-top: 8px; color: var(--text-blue); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.42em; }
   .pf-lead { margin: var(--spacing-lg) 0; max-width: 320px; line-height: 1.6; opacity: 0.8; }
-  .pf-mail { display: inline-flex; align-items: center; gap: 8px; min-height: 44px; padding: 0 var(--spacing-lg); border-radius: var(--radius-full); border: 1px solid rgb(255 255 255 / 0.2); color: var(--eflury-white); text-decoration: none; font-weight: 600; }
-  .pf-mail:hover { border-color: var(--eflury-blue); }
+  .pf-mail { display: flex; align-items: center; justify-content: center; gap: var(--spacing-sm); width: 100%; max-width: 22rem; min-height: 52px; margin-top: var(--spacing-sm); padding: 0 var(--spacing-xl); border-radius: var(--radius-full); border: 1.5px solid rgb(255 255 255 / 0.35); color: var(--eflury-white); text-decoration: none; font-size: 17px; font-weight: 600; transition: transform var(--transition-fast), border-color var(--transition-fast); }
+  .pf-mail:hover { border-color: var(--eflury-white); transform: translateY(-2px); }
+  @media (max-width: 767px) { .pf-mail { max-width: none; } }
   .pf-social { list-style: none; margin: var(--spacing-lg) 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
   .pf-social a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: var(--radius-full); background: rgb(255 255 255 / 0.07); color: var(--eflury-white); transition: background var(--transition-fast), color var(--transition-fast); }
   .pf-social a:hover { background: var(--eflury-white); color: var(--surface-navy); }
