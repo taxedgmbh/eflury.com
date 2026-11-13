@@ -73,8 +73,8 @@ async function withinLimits(ip: string): Promise<boolean> {
 
 let transport: nodemailer.Transporter | undefined;
 export function mailer() {
-  const user = process.env.NEWSLETTER_SMTP_USER;
-  const pass = process.env.NEWSLETTER_SMTP_PASS;
+  const user = process.env.NEWSLETTER_SMTP_USER?.trim();
+  const pass = process.env.NEWSLETTER_SMTP_PASS?.trim();
   if (!user || !pass) throw new Error('NEWSLETTER_SMTP_USER / NEWSLETTER_SMTP_PASS not set');
   transport ??= nodemailer.createTransport({
     host: 'smtp.mail.me.com',
