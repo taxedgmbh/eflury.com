@@ -23,15 +23,14 @@ env:
     value: production
     availability: [BUILD, RUNTIME]
 
-  # Newsletter. Enable once both secrets exist (created by the owner with
-  # `firebase apphosting:secrets:set`), by uncommenting the three entries below.
-  # Until then the sign-up form is replaced by an RSS button.
-  # - variable: NEXT_PUBLIC_NEWSLETTER
-  #   value: "on"
-  #   availability: [BUILD, RUNTIME]
-  # - variable: NEWSLETTER_SMTP_USER
-  #   secret: newsletter-smtp-user
-  #   availability: [RUNTIME]
-  # - variable: NEWSLETTER_SMTP_PASS
-  #   secret: newsletter-smtp-pass
-  #   availability: [RUNTIME]
+  # Newsletter (on since 2026-11-13). Both secrets were created by the owner
+  # with `firebase apphosting:secrets:set` and granted to this backend.
+  - variable: NEXT_PUBLIC_NEWSLETTER
+    value: "on"
+    availability: [BUILD, RUNTIME]
+  - variable: NEWSLETTER_SMTP_USER
+    secret: newsletter-smtp-user
+    availability: [RUNTIME]
+  - variable: NEWSLETTER_SMTP_PASS
+    secret: newsletter-smtp-pass
+    availability: [RUNTIME]
