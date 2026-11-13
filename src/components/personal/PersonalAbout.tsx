@@ -11,11 +11,11 @@ function chapters(lang: Lang) {
   return [
     {
       Icon: GraduationCap,
-      kicker: t('Foundation · 2012–2016', 'Fundament · 2012–2016'),
+      kicker: t('Foundation · 2012–2016', 'Grundlage · 2012–2016'),
       title: t('Finance', 'Finanzen'),
       text: t(
         'Master of Arts in Economics-Finance from the University of Aberdeen, with Upper Second Class Honours (2:1), including an exchange year at the University of Wisconsin–La Crosse (2013–2014). Plus a certificate as a tax specialist.',
-        'Master of Arts in Economics-Finance der University of Aberdeen mit Upper Second Class Honours (2:1), inklusive eines Austauschjahrs an der University of Wisconsin–La Crosse (2013–2014). Dazu ein Zertifikat als Steuerspezialist.',
+        'Master of Arts in Economics-Finance an der University of Aberdeen, abgeschlossen mit Upper Second Class Honours (2:1), inklusive Austauschjahr an der University of Wisconsin–La Crosse (2013–2014). Dazu ein Zertifikat als Steuerspezialist.',
       ),
     },
     {
@@ -24,7 +24,7 @@ function chapters(lang: Lang) {
       title: t('Automation', 'Automatisierung'),
       text: t(
         'Nine years in finance inside a global corporation: controlling, forecasting and transfer pricing first, then automating finance processes. That is where I learned to think in systems, not hours. Certified UiPath RPA Developer, Microsoft Power BI Data Analyst Associate and Alteryx Designer Core.',
-        'Neun Jahre in den Finanzen eines globalen Konzerns: zuerst Controlling, Forecasting und Transfer Pricing, dann die Automatisierung von Finanzprozessen. Dort habe ich gelernt, in Systemen zu denken statt in Stunden. Zertifiziert als UiPath RPA Developer, Microsoft Power BI Data Analyst Associate und Alteryx Designer Core.',
+        'Neun Jahre im Finanzbereich eines globalen Konzerns: zuerst Controlling, Forecasting und Verrechnungspreise, danach die Automatisierung von Finanzprozessen. Dort habe ich gelernt, in Systemen statt in Stunden zu denken. Zertifiziert als UiPath RPA Developer, Microsoft Power BI Data Analyst Associate und Alteryx Designer Core.',
       ),
     },
     {
@@ -33,7 +33,7 @@ function chapters(lang: Lang) {
       title: t('Entrepreneur', 'Unternehmer'),
       text: t(
         `Founded Taxed GmbH in 2021 and Skopa AG in 2026. Today ${r.skopa} of Skopa AG, ${r.taxed} of Taxed GmbH and ${r.estate.toLowerCase()} of EF Real Estate.`,
-        `2021 die Taxed GmbH gegründet, 2026 die Skopa AG. Heute ${r.skopa} der Skopa AG, ${r.taxed} der Taxed GmbH und ${r.estate} von EF Real Estate.`,
+        `2021 Gründung der Taxed GmbH, 2026 der Skopa AG. Heute ${r.skopa} der Skopa AG, ${r.taxed} der Taxed GmbH und ${r.estate} von EF Real Estate.`,
       ),
     },
   ];
@@ -93,13 +93,13 @@ export function PersonalAbout({ lang = 'en' }: { lang?: Lang }) {
           <h2>
             {t(
               'Trained in finance. Shaped by automation. Now building.',
-              'In Finanzen ausgebildet. Von Automatisierung geprägt. Jetzt am Aufbauen.',
+              'Ausgebildet in Finanzen. Geprägt von Automatisierung. Heute Unternehmer.',
             )}
           </h2>
           <p className="ab-lead">
             {t(
               'I bring together three things that rarely meet: a degree in finance, years of automating finance processes in large organisations, and the step into building my own companies.',
-              'Ich verbinde drei Dinge, die selten zusammenkommen: ein Studium in Finanzen, Jahre der Automatisierung von Finanzprozessen in grossen Organisationen und den Schritt ins eigene Unternehmertum.',
+              'Ich verbinde drei Dinge, die selten zusammenkommen: ein Finanzstudium, jahrelange Erfahrung in der Automatisierung von Finanzprozessen in grossen Unternehmen und den Schritt ins eigene Unternehmertum.',
             )}
           </p>
 

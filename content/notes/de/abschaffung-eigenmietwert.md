@@ -9,14 +9,14 @@ Am 28. September 2025 hat die Schweizer Stimmbevölkerung die Abschaffung des Ei
 
 ## Was der Eigenmietwert ist
 
-Wer in einer eigenen Liegenschaft wohnt, wird in der Schweiz bisher so besteuert, als würde er sich selbst Miete bezahlen: mit einem fiktiven Mietertrag, den der Kanton festlegt. Im Gegenzug konnten Hypothekarzinsen und die Kosten für den Unterhalt der Liegenschaft abgezogen werden.
+Wer in den eigenen vier Wänden wohnt, wird in der Schweiz bisher so besteuert, als würde er sich selbst Miete bezahlen: mit einem fiktiven Mietertrag, den der Kanton festlegt. Im Gegenzug konnten Hypothekarzinsen und die Kosten für den Unterhalt der Liegenschaft abgezogen werden.
 
 ## Was sich ab 2029 ändert
 
 Für das selbst bewohnte Eigenheim gilt:
 
 - **Kein Eigenmietwert mehr.** Das fiktive Einkommen verschwindet aus der Steuererklärung.
-- **Unterhaltskosten sind nicht mehr abziehbar**, jedenfalls bei der direkten Bundessteuer. Die Kantone können Abzüge für Energiespar- und Umweltschutzmassnahmen sowie für Denkmalpflege beibehalten.
+- **Unterhaltskosten sind nicht mehr abziehbar.** Die Kantone können Abzüge für Energiespar- und Umweltschutzmassnahmen sowie für Denkmalpflege beibehalten.
 - **Hypothekarzinsen auf dem Eigenheim sind nicht mehr abziehbar.** Ersterwerber erhalten in den ersten Jahren nach dem Kauf einen begrenzten, sinkenden Abzug.
 
 Die Änderung gilt auch für selbst genutzte Zweitwohnungen. Im Gegenzug dürfen die Kantone eine besondere Liegenschaftssteuer auf überwiegend selbst genutzten Zweitliegenschaften einführen.

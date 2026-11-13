@@ -1,15 +1,15 @@
 ---
 title: Müssen quellenbesteuerte Expats in der Schweiz eine Steuererklärung einreichen?
-description: Ab CHF 120'000 Bruttolohn ja. Darunter können Sie sie wählen, und oft lohnt es sich. Wie die Regeln seit 2021 funktionieren und wann sich die Steuererklärung auszahlt.
+description: Ab CHF 120'000 Bruttolohn ja. Darunter können Sie sie beantragen, und oft lohnt es sich. Wie die Regeln seit 2021 funktionieren und wann sich die Steuererklärung auszahlt.
 date: 2026-11-13
 en: expat-withholding-tax-return
 ---
 
-Viele Menschen, die mit einer B- oder L-Bewilligung in die Schweiz ziehen, füllen nie eine Steuererklärung aus. Der Arbeitgeber zieht die Steuer jeden Monat direkt vom Lohn ab: die Quellensteuer. Das funktioniert, bis es nicht mehr funktioniert: entweder weil das Gesetz eine Steuererklärung verlangt oder weil die Quellensteuer höher ist als nötig.
+Viele Menschen, die mit einer B- oder L-Bewilligung in die Schweiz ziehen, füllen nie eine Steuererklärung aus. Der Arbeitgeber zieht die Steuer jeden Monat direkt vom Lohn ab: die Quellensteuer. Das geht gut – bis das Gesetz eine Steuererklärung verlangt oder die Quellensteuer höher ausfällt als nötig.
 
 ## Wer eine Steuererklärung einreichen muss
 
-Seit 2021 gilt: Wer in der Schweiz wohnt, an der Quelle besteuert wird und mehr als CHF 120'000 brutto im Jahr verdient, muss eine vollständige Steuererklärung einreichen. Das Steueramt nennt das nachträgliche ordentliche Veranlagung. Dasselbe gilt, wenn Sie weitere Einkünfte oder ein Vermögen über den Grenzen Ihres Kantons haben. Bei Verheirateten genügt es, wenn eine Person über dem Schwellenwert liegt; dann reichen beide ein.
+Seit 2021 gilt: Wer in der Schweiz wohnt, an der Quelle besteuert wird und mehr als CHF 120'000 brutto im Jahr verdient, muss eine vollständige Steuererklärung einreichen. Der Fachbegriff dafür ist nachträgliche ordentliche Veranlagung (NOV). Dasselbe gilt, wenn Sie weitere Einkünfte oder ein Vermögen über den Grenzen Ihres Kantons haben. Bei Verheirateten genügt es, wenn eine Person über dem Schwellenwert liegt; dann reichen beide ein.
 
 ## Wer eine Steuererklärung einreichen kann
 

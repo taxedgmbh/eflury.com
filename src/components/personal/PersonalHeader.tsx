@@ -15,7 +15,7 @@ import {
   X,
 } from 'lucide-react';
 import { useCallback, useEffect, useRef, useState } from 'react';
-import { EMAIL, PHONE, ROLES, SOCIALS, WHATSAPP } from './data';
+import { EMAIL, PHONE, ROLES, ROLES_DE, SOCIALS, WHATSAPP } from './data';
 import { home, pick, PAGES, type Lang } from '@/lib/i18n';
 
 type Panel = 'ventures' | 'about';
@@ -181,7 +181,7 @@ export function PersonalHeader({ lang = 'en', alt }: { lang?: Lang; alt?: string
               <span className="mm-card-title">Skopa AG</span>
               <span className="mm-muted">{t('Artificial intelligence and quantum computing.', 'Künstliche Intelligenz und Quantencomputing.')}</span>
               <span className="mm-meta">
-                <span>{ROLES.skopa}</span>
+                <span>{lang === 'de' ? ROLES_DE.skopa : ROLES.skopa}</span>
                 <span className="mm-url">skopa.ai</span>
               </span>
             </a>
@@ -198,7 +198,7 @@ export function PersonalHeader({ lang = 'en', alt }: { lang?: Lang; alt?: string
               <span className="mm-card-title">Taxed GmbH</span>
               <span className="mm-muted">{t('Tax advice for expats living in Switzerland.', 'Steuerberatung für Expats in der Schweiz.')}</span>
               <span className="mm-meta">
-                <span>{ROLES.taxed}</span>
+                <span>{lang === 'de' ? ROLES_DE.taxed : ROLES.taxed}</span>
                 <span className="mm-url">taxed.ch</span>
               </span>
             </a>
@@ -272,7 +272,7 @@ export function PersonalHeader({ lang = 'en', alt }: { lang?: Lang; alt?: string
                 </span>
                 <span>
                   <span className="mm-card-title">{t('Press kit', 'Pressemappe')}</span>
-                  <span className="mm-muted">{t('Bios, portrait and contact card.', 'Kurzbiografien, Porträt und Kontaktkarte.')}</span>
+                  <span className="mm-muted">{t('Bios, portrait and contact card.', 'Biografien, Porträt und Kontaktkarte.')}</span>
                 </span>
               </a>
             </div>

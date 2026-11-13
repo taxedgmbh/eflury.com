@@ -123,7 +123,7 @@ export function PersonalHome({ lang = 'en' }: { lang?: Lang }) {
             <p>
               {t(
                 'Working on something in technology, tax or property? Let’s talk about it.',
-                'Sie arbeiten an etwas in Technologie, Steuern oder Immobilien? Lassen Sie uns darüber sprechen.',
+                'Sie haben ein Vorhaben in Technologie, Steuern oder Immobilien? Sprechen wir darüber.',
               )}
             </p>
             <a href="#contact" className="pf-btn pf-btn-fill">
@@ -150,8 +150,8 @@ export function PersonalHome({ lang = 'en' }: { lang?: Lang }) {
       <section id="follow" className="band alt" aria-labelledby="follow-title">
         <div className="wrap">
           <BrandWord word="DREAM" img="sky" />
-          <p className="eyebrow">{t('Follow along', 'Dranbleiben')}</p>
-          <h2 id="follow-title">{t('Follow the journey.', 'Folgen Sie dem Weg.')}</h2>
+          <p className="eyebrow">{t('Follow along', 'Auf dem Laufenden')}</p>
+          <h2 id="follow-title">{t('Follow the journey.', 'Begleiten Sie mich auf dem Weg.')}</h2>
           <p className="section-lead">
             {t(
               'What I learn while building — tech, tax and real estate.',

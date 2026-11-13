@@ -103,7 +103,7 @@ export function PersonalPrivate({ lang = 'en' }: { lang?: Lang }) {
         <p className="section-lead">
           {t(
             'Travel keeps me curious: new places, new cultures, new ways of doing things. Most of my best ideas start far from the desk.',
-            'Reisen hält mich neugierig: neue Orte, neue Kulturen, neue Arten, Dinge anzugehen. Die meisten meiner besten Ideen entstehen weit weg vom Schreibtisch.',
+            'Reisen hält mich neugierig: neue Orte, neue Kulturen, neue Sichtweisen. Meine besten Ideen entstehen meist weit weg vom Schreibtisch.',
           )}
         </p>
 
@@ -114,11 +114,11 @@ export function PersonalPrivate({ lang = 'en' }: { lang?: Lang }) {
             </span>
             <div>
               <p className="pv-kicker">{t('Currently learning', 'Ich lerne gerade')}</p>
-              <h3>{t('French, for the francophone world.', 'Französisch, für die frankophone Welt.')}</h3>
+              <h3>{t('French, for the francophone world.', 'Französisch – für die frankophone Welt.')}</h3>
               <p>
                 {t(
                   'I am studying French. It started as a passion for the francophone world and its way of life, and it is becoming a goal: to work, build and connect in French too. From Grenchen, the language border is close — Biel/Bienne, Switzerland’s largest bilingual city, is next door.',
-                  'Ich lerne Französisch. Angefangen hat es mit einer Leidenschaft für die frankophone Welt und ihre Lebensart, und daraus wird ein Ziel: auch auf Französisch zu arbeiten, aufzubauen und Menschen zu verbinden. Von Grenchen aus ist die Sprachgrenze nah – Biel/Bienne, die grösste zweisprachige Stadt der Schweiz, liegt gleich nebenan.',
+                  'Ich lerne Französisch. Angefangen hat es mit meiner Begeisterung für die frankophone Welt und ihre Lebensart. Daraus wird nun ein Ziel: auch auf Französisch zu arbeiten, aufzubauen und Kontakte zu knüpfen. Von Grenchen aus ist die Sprachgrenze nah – Biel/Bienne, die grösste zweisprachige Stadt der Schweiz, liegt gleich nebenan.',
                 )}
               </p>
               <p className="pv-fr" lang="fr">
@@ -137,7 +137,7 @@ export function PersonalPrivate({ lang = 'en' }: { lang?: Lang }) {
               <p>
                 {t(
                   'RYA Day Skipper since 2024. From La Duquesa in Spain to Gibraltar on a sailing yacht: tankers at anchor, tidal streams, and position fixes worked out by hand on the paper chart. Sailing teaches what business does too — read the conditions, plan the route, adjust early.',
-                  'RYA Day Skipper seit 2024. Mit einer Segelyacht von La Duquesa in Spanien nach Gibraltar: Tanker vor Anker, Gezeitenströme und Positionsbestimmungen von Hand auf der Papierseekarte. Segeln lehrt, was auch das Unternehmertum lehrt: die Bedingungen lesen, die Route planen, früh korrigieren.',
+                  'RYA Day Skipper seit 2024. Mit einer Segelyacht von La Duquesa in Spanien nach Gibraltar: Tanker vor Anker, Gezeitenströme und Standortbestimmung von Hand auf der Papierseekarte. Segeln verlangt, was auch ein Unternehmen verlangt: die Bedingungen lesen, die Route planen, früh korrigieren.',
                 )}
               </p>
             </div>

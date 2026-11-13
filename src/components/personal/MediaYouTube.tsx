@@ -47,7 +47,7 @@ export async function MediaYouTube({ lang = 'en' }: { lang?: Lang }) {
             <p className="yt-lead">
               {t(
                 'Start with the 70-second intro. New videos appear here automatically.',
-                'Am besten mit dem 70-Sekunden-Intro beginnen (auf Englisch). Neue Videos erscheinen hier automatisch.',
+                'Starten Sie mit dem 70-Sekunden-Intro (auf Englisch). Neue Videos erscheinen hier automatisch.',
               )}
             </p>
           </div>
@@ -75,7 +75,7 @@ export async function MediaYouTube({ lang = 'en' }: { lang?: Lang }) {
             </div>
             <p className="yt-note">
               <span className="yt-rule" aria-hidden />
-              {t('The video only loads from YouTube when you click play.', 'Das Video lädt erst von YouTube, wenn Sie auf Play klicken.')}
+              {t('The video only loads from YouTube when you click play.', 'Das Video wird erst von YouTube geladen, wenn Sie auf Play klicken.')}
             </p>
           </>
         ) : (

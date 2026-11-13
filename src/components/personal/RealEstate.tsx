@@ -34,11 +34,11 @@ function cards(lang: Lang): { Icon: typeof Home; type: string; region: string; t
     },
     {
       Icon: KeyRound,
-      type: t('Rental house', 'Mietshaus'),
+      type: t('Rental house', 'Vermietetes Haus'),
       region: t('Wasseramt district · Canton of Solothurn', 'Bezirk Wasseramt · Kanton Solothurn'),
       text: t('A house I rent out.', 'Ein Haus, das ich vermiete.'),
       photos: [
-        p('rental-house-exterior', ['The rental house from the garden', 'Das Mietshaus vom Garten aus'], 1600, 1200),
+        p('rental-house-exterior', ['The rental house from the garden', 'Das vermietete Haus vom Garten aus'], 1600, 1200),
         p('rental-house-room-1', ['Bedroom with two windows and oak floor', 'Schlafzimmer mit zwei Fenstern und Eichenboden'], 1600, 1200),
         p('rental-house-room-2', ['Room under the white beamed ceiling', 'Zimmer unter der weissen Balkendecke'], 1600, 1200),
         p('rental-house-room-3', ['Room looking onto the garden', 'Zimmer mit Blick in den Garten'], 1512, 2016),
@@ -48,7 +48,7 @@ function cards(lang: Lang): { Icon: typeof Home; type: string; region: string; t
     },
     {
       Icon: Building2,
-      type: t('Apartment', 'Wohnung'),
+      type: t('Apartment', 'Vermietete Wohnung'),
       region: t('Seeland · Canton of Bern', 'Seeland · Kanton Bern'),
       text: t('An apartment I rent out.', 'Eine Wohnung, die ich vermiete.'),
       photos: [

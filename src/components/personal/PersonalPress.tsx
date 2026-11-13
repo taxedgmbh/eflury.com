@@ -16,7 +16,7 @@ const LONG_BIO = `Emanuel Flury is a Swiss entrepreneur based in Grenchen. He ho
 const SHORT_BIO_DE =
   'Emanuel Flury ist ein Schweizer Unternehmer aus Grenchen. Er baut Unternehmen, in denen Finanzen, Steuern und Technologie zusammenkommen: Skopa AG, Taxed GmbH und EF Real Estate.';
 
-const LONG_BIO_DE = `Emanuel Flury ist ein Schweizer Unternehmer mit Sitz in Grenchen. Er hat an der University of Aberdeen einen Master of Arts in Economics-Finance erworben (2016), inklusive eines Austauschjahrs an der University of Wisconsin–La Crosse, und besitzt ein Zertifikat als Steuerspezialist. Nach neun Jahren in Finanzen und Finanzautomatisierung in einem globalen Konzern gründete er 2021 die Taxed GmbH und 2026 die Skopa AG. Er ist ${ROLES_DE.skopa} der Skopa AG, die an künstlicher Intelligenz und Quantencomputing arbeitet, ${ROLES_DE.taxed} der Taxed GmbH, die Expats in der Schweiz in Steuerfragen berät, und ${ROLES_DE.estate} von EF Real Estate, unter dem er Wohnimmobilien als Private Equity hält.`;
+const LONG_BIO_DE = `Emanuel Flury ist ein Schweizer Unternehmer und lebt in Grenchen. Er schloss 2016 an der University of Aberdeen mit einem Master of Arts in Economics-Finance ab, inklusive Austauschjahr an der University of Wisconsin–La Crosse, und besitzt ein Zertifikat als Steuerspezialist. Nach neun Jahren im Finanzbereich und in der Finanzautomatisierung eines globalen Konzerns gründete er 2021 die Taxed GmbH und 2026 die Skopa AG. Er ist ${ROLES_DE.skopa} der Skopa AG, die im Bereich künstliche Intelligenz und Quantencomputing tätig ist, ${ROLES_DE.taxed} der Taxed GmbH, die Expats in der Schweiz in Steuerfragen berät, und ${ROLES_DE.estate} von EF Real Estate, unter dem er Wohnimmobilien als Private Equity hält.`;
 
 /** The 70-second intro on YouTube, published 2026-11-12. */
 export const INTRO_VIDEO = 'https://www.youtube.com/watch?v=tH6VlyiJkv4';
@@ -39,7 +39,7 @@ function files(lang: Lang): File[] {
       icon: PlayCircle,
       thumb: '/images/me/intro-video-thumb.webp',
       title: t('Intro video', 'Intro-Video'),
-      meta: t('70 seconds · on YouTube', '70 Sekunden · auf YouTube, Englisch'),
+      meta: t('70 seconds · on YouTube', '70 Sekunden · auf YouTube, auf Englisch'),
       external: true,
     },
     {
@@ -60,7 +60,7 @@ function files(lang: Lang): File[] {
       href: '/press/ef-logo-pack.zip',
       icon: Shapes,
       title: t('Logo pack', 'Logo-Paket'),
-      meta: t('EF mark and wordmark, SVG', 'EF-Zeichen und Schriftzug, SVG'),
+      meta: t('EF mark and wordmark, SVG', 'EF-Bildmarke und Schriftzug, SVG'),
     },
     {
       href: '/press/emanuel-flury.vcf',
@@ -85,7 +85,7 @@ export function PersonalPress({ lang = 'en' }: { lang?: Lang }) {
         <p className="section-lead">
           {t(
             'For articles, events and introductions. Use the bios, photos and video as they are; for anything else, write to me.',
-            'Für Artikel, Anlässe und Vorstellungen. Kurzbiografien, Fotos und Video dürfen Sie so verwenden; für alles andere schreiben Sie mir.',
+            'Für Artikel, Anlässe und Vorstellungen. Biografien, Fotos und Video dürfen Sie unverändert verwenden; für alles andere schreiben Sie mir.',
           )}
         </p>
         <div className="pr-grid">
@@ -95,7 +95,7 @@ export function PersonalPress({ lang = 'en' }: { lang?: Lang }) {
             <CopyButton text={short} label={t('Copy short bio', 'Kurzbiografie kopieren')} done={t('Copied', 'Kopiert')} />
           </article>
           <article className="pr-card">
-            <p className="pr-label">{t('Long bio', 'Ausführliche Biografie')}</p>
+            <p className="pr-label">{t('Long bio', 'Biografie')}</p>
             <p className="pr-text">{long}</p>
             <CopyButton text={long} label={t('Copy long bio', 'Biografie kopieren')} done={t('Copied', 'Kopiert')} />
           </article>

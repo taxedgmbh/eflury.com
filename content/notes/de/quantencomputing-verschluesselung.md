@@ -5,7 +5,7 @@ date: 2026-11-13
 en: quantum-computing-encryption
 ---
 
-Die meisten Unternehmen werden nie einen Quantencomputer betreiben. Sie sollten sich trotzdem damit befassen, aus einem Grund: Verschlüsselung.
+Die meisten Unternehmen werden nie einen Quantencomputer betreiben. Befassen sollten sie sich trotzdem damit – aus einem einzigen Grund: der Verschlüsselung.
 
 ## Das Problem
 
@@ -17,14 +17,14 @@ Angreifer müssen nicht warten. Sie können verschlüsselte Daten heute kopieren
 
 ## Was bereits geschehen ist
 
-Im August 2024 hat das US-amerikanische National Institute of Standards and Technology (NIST) die ersten Standards für Post-Quanten-Kryptografie veröffentlicht: FIPS 203 (ML-KEM) für den Schlüsselaustausch sowie FIPS 204 (ML-DSA) und FIPS 205 (SLH-DSA) für digitale Signaturen. Das NIST hat zudem vorgeschlagen, die heute angreifbaren Verfahren bis 2035 auslaufen zu lassen. Browser und grosse Cloud-Anbieter haben mit der Umstellung begonnen. Die Werkzeuge gibt es; jetzt geht es um die Einführung.
+Im August 2024 hat das US-amerikanische National Institute of Standards and Technology (NIST) die ersten Standards für Post-Quanten-Kryptografie veröffentlicht: FIPS 203 (ML-KEM) für den Schlüsselaustausch sowie FIPS 204 (ML-DSA) und FIPS 205 (SLH-DSA) für digitale Signaturen. Das NIST hat zudem vorgeschlagen, die heute angreifbaren Verfahren bis 2035 auslaufen zu lassen. Browser und grosse Cloud-Anbieter haben mit der Umstellung begonnen. Die Werkzeuge sind da; jetzt geht es um die Umsetzung.
 
 ## Die ersten praktischen Schritte
 
 1. **Eine Bestandesaufnahme machen.** Wo verlässt sich Ihr Unternehmen auf Verschlüsselung? Website, VPN, E-Mail, Backups, E-Banking, Signaturen, Verbindungen zu Lieferanten. Die meisten Unternehmen können das heute nicht beantworten, und es ist der schwierigste Teil.
 2. **Nach Lebensdauer ordnen.** Daten, die viele Jahre geheim bleiben müssen, kommen zuerst.
 3. **Die Anbieter fragen.** Software- und Cloud-Anbieter sollten sagen können, wann sie die neuen Standards unterstützen. Nehmen Sie die Frage in die nächste Vertragsverlängerung auf.
-4. **Auf Wandel bauen.** Systeme, in denen sich die Verschlüsselung austauschen lässt, ohne alles neu zu bauen («Crypto-Agility»), machen jeden späteren Schritt günstiger.
+4. **Auf Austauschbarkeit achten.** Systeme, in denen sich die Verschlüsselung austauschen lässt, ohne alles neu zu bauen («Crypto-Agility»), machen jeden späteren Schritt günstiger.
 
 ## Was ich daraus mitnehme
 

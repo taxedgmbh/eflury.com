@@ -35,10 +35,10 @@ function topics(lang: Lang): Topic[] {
     {
       Icon: Bot,
       tag: t('AI agents', 'KI-Agenten'),
-      q: t('Are AI agents ready for Swiss SMEs?', 'Sind KI-Agenten bereit für Schweizer KMU?'),
+      q: t('Are AI agents ready for Swiss SMEs?', 'Sind KI-Agenten reif für Schweizer KMU?'),
       a: t(
         'Yes, for well-defined work: start with one repetitive process, set clear limits and keep a human approval for anything that costs money or goes to a client.',
-        'Ja, für klar umrissene Arbeit: mit einem wiederkehrenden Prozess beginnen, klare Grenzen setzen und eine menschliche Freigabe für alles behalten, was Geld kostet oder an Kunden geht.',
+        'Ja, für klar umrissene Aufgaben: mit einem wiederkehrenden Prozess beginnen, klare Grenzen setzen und alles, was Geld kostet oder an Kunden geht, von einem Menschen freigeben lassen.',
       ),
       note: t('ai-agents-swiss-smes', 'ki-agenten-kmu'),
     },
@@ -51,7 +51,7 @@ function topics(lang: Lang): Topic[] {
       ),
       a: t(
         'Because of encryption: data copied today can be decrypted later. NIST published the first post-quantum standards in August 2024, and the first step is an inventory.',
-        'Wegen der Verschlüsselung: Heute kopierte Daten lassen sich später entschlüsseln. Das NIST hat im August 2024 die ersten Post-Quanten-Standards veröffentlicht, und der erste Schritt ist eine Bestandesaufnahme.',
+        'Wegen der Verschlüsselung: Was heute abgefangen wird, lässt sich später entschlüsseln. Das NIST hat im August 2024 die ersten Post-Quanten-Standards veröffentlicht. Der erste Schritt ist eine Bestandesaufnahme.',
       ),
       note: t('quantum-computing-encryption', 'quantencomputing-verschluesselung'),
     },
@@ -77,7 +77,7 @@ function topics(lang: Lang): Topic[] {
       ),
       a: t(
         'Above CHF 120,000 gross salary, yes. Below it you can apply by 31 March of the following year, which often pays off with pillar 3a or childcare costs.',
-        "Ab einem Bruttolohn von CHF 120'000 ja. Darunter kann man sie bis zum 31. März des Folgejahres beantragen, was sich mit Säule 3a oder Kinderbetreuungskosten oft lohnt.",
+        "Ab einem Bruttolohn von CHF 120'000 ja. Darunter können Sie sie bis zum 31. März des Folgejahres beantragen – mit Säule 3a oder Kinderbetreuungskosten lohnt sich das oft.",
       ),
       note: t('expat-withholding-tax-return', 'quellensteuer-steuererklaerung-expats'),
     },
@@ -109,7 +109,7 @@ export function PersonalRadar({ lang = 'en' }: { lang?: Lang }) {
         <p className="section-lead">
           {t(
             `The questions I hear most often from founders, expats and property owners, answered in plain language. Updated ${UPDATED.en}.`,
-            `Die Fragen, die ich von Gründerinnen und Gründern, Expats und Wohneigentümern am häufigsten höre, verständlich beantwortet. Stand ${UPDATED.de}.`,
+            `Die häufigsten Fragen rund um Gründung, Expat-Steuern und Wohneigentum – verständlich beantwortet. Stand ${UPDATED.de}.`,
           )}
         </p>
         <div className="pv-cards">

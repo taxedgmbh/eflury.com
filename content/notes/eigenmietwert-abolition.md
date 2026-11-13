@@ -15,7 +15,7 @@ If you live in a home you own, Switzerland has so far taxed you as if you earned
 For the home you live in yourself:
 
 - **No more imputed rental value.** The notional income disappears from the tax return.
-- **Maintenance costs are no longer deductible** at federal level. Cantons may keep deductions for energy-saving and environmental measures and for listed buildings.
+- **Maintenance costs are no longer deductible.** Cantons may keep deductions for energy-saving and environmental measures and for listed buildings.
 - **Mortgage interest on your own home is no longer deductible.** First-time buyers get a limited, declining deduction for the first years after purchase.
 
 The change also applies to second homes you use yourself. In return, cantons may introduce a special property tax on second homes used mainly by their owners.

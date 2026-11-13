@@ -72,7 +72,7 @@ export function NotesIndex({ lang }: { lang: Lang }) {
       <p className="section-lead">
         {t(
           'Short notes on technology, tax and real estate, and on building companies.',
-          'Kurze Notizen zu Technologie, Steuern und Immobilien und zum Aufbau von Unternehmen.',
+          'Kurze Texte zu Technologie, Steuern, Immobilien und zum Aufbau von Unternehmen.',
         )}
       </p>
 

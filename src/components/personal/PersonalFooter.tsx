@@ -23,7 +23,7 @@ export function PersonalFooter({ lang = 'en' }: { lang?: Lang }) {
           <div>
             <p className="pf-eyebrow">{t('Contact', 'Kontakt')}</p>
             <h2 id="contact-title" className="pf-cta-title">
-              {t('Let’s talk.', 'Lassen Sie uns reden.')}
+              {t('Let’s talk.', 'Sprechen wir miteinander.')}
             </h2>
             <p className="pf-cta-text">
               {t('For conversations, partnerships or media requests.', 'Für Gespräche, Partnerschaften oder Medienanfragen.')}
@@ -58,8 +58,13 @@ export function PersonalFooter({ lang = 'en' }: { lang?: Lang }) {
             <p className="pf-qr-title">{t('Save my contact', 'Meinen Kontakt speichern')}</p>
             {lang === 'de' ? (
               <p>
-                <span className="pf-qr-desk">Mit der Handykamera scannen und </span>
-                Name, Foto, Handynummer und WhatsApp, E-Mail, Adresse und Website in Ihre Kontakte übernehmen.
+                <span className="pf-qr-desk">
+                  Scannen Sie den Code mit der Handykamera, um Name, Foto, Handynummer, WhatsApp, E-Mail, Adresse und
+                  Website in Ihre Kontakte zu übernehmen.
+                </span>
+                <span className="pf-qr-mob">
+                  Übernehmen Sie Name, Foto, Handynummer, WhatsApp, E-Mail, Adresse und Website in Ihre Kontakte.
+                </span>
               </p>
             ) : (
               <p>

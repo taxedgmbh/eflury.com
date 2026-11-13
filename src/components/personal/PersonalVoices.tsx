@@ -21,7 +21,7 @@ const VOICES = [
       'Long before AI became a buzzword, he was pushing us to automate repetitive processes … As a manager, he is clear, demanding in the best sense, and always approachable.',
     name: 'Patricia Fangon',
     role: 'Worked with Emanuel at Taxed GmbH',
-    roleDe: 'Arbeitete mit Emanuel bei der Taxed GmbH',
+    roleDe: 'Hat mit Emanuel bei der Taxed GmbH zusammengearbeitet',
   },
   {
     quote:
