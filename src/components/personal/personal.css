@@ -885,3 +885,9 @@
 .pb .follow-split h3 { font-size: 1.25rem; margin: 0 0 var(--spacing-md); }
 @media (min-width: 900px) { .pb .follow-split { grid-template-columns: 1fr 1fr; } }
 @media (max-width: 767px) { .pb .nl-row { flex-direction: column; } .pb .nl-input { flex: none; width: 100%; } .pb .nl-row .pf-btn { width: 100%; justify-content: center; } }
+
+/* ---- On my radar (rd-) ---- */
+.pb .rd-card h3 { line-height: 1.3; }
+.pb .rd-link { display: inline-flex; align-items: center; gap: 6px; min-height: 44px; color: var(--teal-text); font-weight: 600; text-decoration: none; }
+.pb .rd-link:hover { text-decoration: underline; }
+.pb .rd-note { margin: var(--spacing-lg) 0 0; font-size: 0.875rem; color: rgb(255 255 255 / 0.6); }

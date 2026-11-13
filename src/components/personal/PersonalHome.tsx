@@ -6,6 +6,7 @@ import { NEWSLETTER_ON, NewsletterForm } from './NewsletterForm';
 import { PersonalAbout } from './PersonalAbout';
 import { PersonalPress } from './PersonalPress';
 import { PersonalPrivate } from './PersonalPrivate';
+import { PersonalRadar } from './PersonalRadar';
 import { PersonalVoices } from './PersonalVoices';
 import { RealEstate } from './RealEstate';
 import { REGISTRY, ROLES } from './data';
@@ -103,6 +104,8 @@ export function PersonalHome() {
       </section>
 
       <RealEstate />
+
+      <PersonalRadar />
 
       <MediaYouTube />
 

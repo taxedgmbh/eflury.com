@@ -136,6 +136,11 @@ export function PersonalFooter() {
                 </a>
               </li>
               <li>
+                <a className="pf-link" href="/en/#radar">
+                  On my radar
+                </a>
+              </li>
+              <li>
                 <Link className="pf-link" href="/en/notes/">
                   Notes
                 </Link>
