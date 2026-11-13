@@ -18,7 +18,7 @@ import type { Lang } from './i18n';
  * after two days.
  */
 
-export const db = new Firestore({ projectId: 'eflury-com-prod', preferRest: true, ignoreUndefinedProperties: true });
+export const db = new Firestore({ projectId: 'eflury-com-prod', ignoreUndefinedProperties: true });
 export const SUBSCRIBERS = db.collection('subscribers');
 const LIMITS = db.collection('ratelimits');
 

@@ -6,6 +6,8 @@ import type { NextConfig } from 'next';
  * it silently disappears at cutover.
  */
 const nextConfig: NextConfig = {
+  // Firestore's protobuf code breaks when bundled; load it from node_modules.
+  serverExternalPackages: ['@google-cloud/firestore'],
   // The root layout lives in the (en) route group, so there is no
   // app/layout.tsx for an unmatched URL; global-not-found renders its own
   // document instead.
