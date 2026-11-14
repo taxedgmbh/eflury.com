@@ -21,6 +21,13 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
+      // eflury.com/live -> TikTok LIVE backdrop (private claude.ai artifact). Temporary
+      // on purpose, so the target can change. Private shortcut: not in sitemap or menus.
+      ...['/live', '/LIVE', '/Live'].map((source) => ({
+        source,
+        destination: 'https://claude.ai/artifact/M553YnDXCyXvrwAF9mw7qU',
+        permanent: false,
+      })),
       // www -> apex. .htaccess did this with a RewriteCond; App Hosting terminates
       // TLS for both hosts, so the canonicalisation has to happen in the app.
       {
