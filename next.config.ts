@@ -21,22 +21,18 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      // eflury.com/live[/en|/de|/fr] -> TikTok LIVE backdrop (claude.ai artifacts, one per
-      // audience language; /live alone is English). Temporary on purpose, so the targets
-      // can change. Private shortcut: not in sitemap or menus.
+      // TikTok LIVE backdrop (claude.ai artifacts, one per audience language), using the
+      // site's own language prefix: /en/live, /de/live, /fr/live; /live alone is English.
+      // Temporary on purpose, so the targets can change. Private shortcut: not in sitemap or menus.
       ...Object.entries({
         '': 'M553YnDXCyXvrwAF9mw7qU',
         '/en': 'M553YnDXCyXvrwAF9mw7qU',
         '/de': '9cD3fXpvbKQy3jVtHb8H5k',
         '/fr': '6aU5CVzmxyT1gVokKhVtz7',
-      }).flatMap(([suffix, id]) =>
-        ['/live', '/LIVE', '/Live'].flatMap((base) =>
-          [suffix, suffix.toUpperCase()].filter((v, i, a) => a.indexOf(v) === i).map((sfx) => ({
-            source: `${base}${sfx}`,
-            destination: `https://claude.ai/artifact/${id}`,
-            permanent: false,
-          })),
-        ),
+      }).flatMap(([prefix, id]) =>
+        [`${prefix}/live`, `${prefix}/LIVE`, `${prefix.toUpperCase()}/LIVE`, `${prefix}/Live`]
+          .filter((v, i, all) => all.indexOf(v) === i)
+          .map((source) => ({ source, destination: `https://claude.ai/artifact/${id}`, permanent: false })),
       ),
       // www -> apex. .htaccess did this with a RewriteCond; App Hosting terminates
       // TLS for both hosts, so the canonicalisation has to happen in the app.
