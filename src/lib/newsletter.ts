@@ -89,55 +89,136 @@ export function mailer() {
 export const FROM = 'Emanuel Flury <me@eflury.com>';
 export const unsubscribeUrl = (t: string) => `${SITE_URL}/api/newsletter/unsubscribe/?t=${encodeURIComponent(t)}`;
 
-const CONFIRM_MAIL: Record<Lang, (link: string) => { subject: string; lines: string[] }> = {
-  en: (link) => ({
-    subject: 'Please confirm your subscription',
-    lines: [
-      'Hello,',
-      '',
-      'Please confirm that you would like to receive new notes from Emanuel Flury by email:',
-      '',
-      link,
-      '',
-      `If you did not sign up, simply ignore this email. Your address will be deleted automatically after ${PENDING_DAYS} days.`,
-      '',
-      'Emanuel Flury',
-      `${SITE_URL}/en/`,
-    ],
-  }),
-  de: (link) => ({
-    subject: 'Bitte bestätigen Sie Ihr Abonnement',
-    lines: [
-      'Guten Tag',
-      '',
-      'Bitte bestätigen Sie, dass Sie neue Notizen von Emanuel Flury per E-Mail erhalten möchten:',
-      '',
-      link,
-      '',
-      `Falls Sie sich nicht angemeldet haben, ignorieren Sie dieses E-Mail einfach. Ihre Adresse wird nach ${PENDING_DAYS} Tagen automatisch gelöscht.`,
-      '',
-      'Freundliche Grüsse',
-      'Emanuel Flury',
-      `${SITE_URL}/de/`,
-    ],
-  }),
-  fr: (link) => ({
-    subject: 'Veuillez confirmer votre abonnement',
-    lines: [
-      'Bonjour,',
-      '',
-      'Veuillez confirmer que vous souhaitez recevoir par e-mail les nouvelles notes d’Emanuel Flury :',
-      '',
-      link,
-      '',
-      `Si vous n’avez pas demandé cette inscription, ignorez simplement cet e-mail. Votre adresse sera supprimée automatiquement après ${PENDING_DAYS} jours.`,
-      '',
-      'Meilleures salutations',
-      'Emanuel Flury',
-      `${SITE_URL}/fr/`,
-    ],
-  }),
+/*
+ * Confirmation email: branded HTML (navy header with the EF mark, one clear
+ * button, who sends it and why) plus a plain-text part. The link is shown in
+ * full only as a small fallback, so the mail reads like a personal note, not a
+ * raw token.
+ */
+type ConfirmCopy = {
+  html: string;
+  subject: string;
+  preheader: string;
+  hello: string;
+  body: string;
+  button: string;
+  fallback: string;
+  ignore: string;
+  sign: string[];
+  role: string;
+  footer: string;
+  imprint: string;
+  privacy: string;
 };
+const CONFIRM_COPY: Record<Lang, ConfirmCopy> = {
+  en: {
+    html: 'en',
+    subject: 'Confirm your subscription to Emanuel Flury’s notes',
+    preheader: 'One click and you will get my new notes by email.',
+    hello: 'Hello,',
+    body: 'Thank you for signing up on eflury.com. Please confirm with one click that you want to receive my new notes on entrepreneurship, tax and technology by email.',
+    button: 'Confirm subscription',
+    fallback: 'If the button does not work, copy this link into your browser:',
+    ignore: `Did not sign up? Then simply ignore this email: nothing will be sent and your address is deleted automatically after ${PENDING_DAYS} days.`,
+    sign: ['Best regards', 'Emanuel Flury'],
+    role: 'Entrepreneur · Skopa AG · Taxed GmbH · EF Real Estate',
+    footer: 'You receive this one-off email because this address was entered in the newsletter form on eflury.com.',
+    imprint: 'Imprint',
+    privacy: 'Privacy',
+  },
+  de: {
+    html: 'de-CH',
+    subject: 'Bitte bestätigen Sie Ihr Abonnement der Notizen von Emanuel Flury',
+    preheader: 'Ein Klick, und Sie erhalten meine neuen Notizen per E-Mail.',
+    hello: 'Guten Tag',
+    body: 'Vielen Dank für Ihre Anmeldung auf eflury.com. Bitte bestätigen Sie mit einem Klick, dass Sie meine neuen Notizen zu Unternehmertum, Steuern und Technologie per E-Mail erhalten möchten.',
+    button: 'Abonnement bestätigen',
+    fallback: 'Falls die Schaltfläche nicht funktioniert, kopieren Sie diesen Link in Ihren Browser:',
+    ignore: `Sie haben sich nicht angemeldet? Dann ignorieren Sie dieses E-Mail einfach: Es wird nichts verschickt, und Ihre Adresse wird nach ${PENDING_DAYS} Tagen automatisch gelöscht.`,
+    sign: ['Freundliche Grüsse', 'Emanuel Flury'],
+    role: 'Unternehmer · Skopa AG · Taxed GmbH · EF Real Estate',
+    footer: 'Sie erhalten dieses einmalige E-Mail, weil diese Adresse im Newsletter-Formular auf eflury.com eingegeben wurde.',
+    imprint: 'Impressum',
+    privacy: 'Datenschutz',
+  },
+  fr: {
+    html: 'fr-CH',
+    subject: 'Veuillez confirmer votre abonnement aux notes d’Emanuel Flury',
+    preheader: 'Un clic et vous recevrez mes nouvelles notes par e-mail.',
+    hello: 'Bonjour,',
+    body: 'Merci pour votre inscription sur eflury.com. Veuillez confirmer d’un clic que vous souhaitez recevoir par e-mail mes nouvelles notes sur l’entrepreneuriat, la fiscalité et la technologie.',
+    button: 'Confirmer l’abonnement',
+    fallback: 'Si le bouton ne fonctionne pas, copiez ce lien dans votre navigateur :',
+    ignore: `Vous ne vous êtes pas inscrit·e ? Ignorez simplement cet e-mail : rien ne vous sera envoyé et votre adresse sera supprimée automatiquement après ${PENDING_DAYS} jours.`,
+    sign: ['Meilleures salutations', 'Emanuel Flury'],
+    role: 'Entrepreneur · Skopa AG · Taxed GmbH · EF Real Estate',
+    footer: 'Vous recevez cet e-mail unique parce que cette adresse a été saisie dans le formulaire de la newsletter sur eflury.com.',
+    imprint: 'Mentions légales',
+    privacy: 'Confidentialité',
+  },
+};
+
+const LEGAL: Record<Lang, [string, string]> = {
+  en: ['/en/imprint/', '/en/privacy/'],
+  de: ['/de/impressum/', '/de/datenschutz/'],
+  fr: ['/fr/mentions-legales/', '/fr/confidentialite/'],
+};
+
+function confirmMail(lang: Lang, link: string) {
+  const c = CONFIRM_COPY[lang];
+  const [imp, priv] = LEGAL[lang];
+  const home = `${SITE_URL}/${lang}/`;
+  const text = [
+    c.hello,
+    '',
+    c.body,
+    '',
+    `${c.button}: ${link}`,
+    '',
+    c.ignore,
+    '',
+    ...c.sign,
+    c.role,
+    home,
+    '',
+    '—',
+    c.footer,
+    `${c.imprint}: ${SITE_URL}${imp}`,
+  ].join('\n');
+  const font = "-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif";
+  const html = `<!doctype html>
+<html lang="${c.html}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>${c.subject}</title></head>
+<body style="margin:0;padding:0;background:#eef2f7">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0">${c.preheader}</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#eef2f7"><tr><td align="center" style="padding:32px 16px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:14px;overflow:hidden;font-family:${font}">
+<tr><td style="background:#022554;padding:22px 32px">
+<table role="presentation" cellpadding="0" cellspacing="0"><tr>
+<td style="padding-right:12px"><img src="${SITE_URL}/images/email/ef-mark-white.png" width="40" height="32" alt="EF" style="display:block;border:0"></td>
+<td style="font-family:${font};color:#ffffff;font-size:18px;font-weight:800;letter-spacing:.06em">EMANUEL FLURY</td>
+</tr></table>
+</td></tr>
+<tr><td style="padding:32px 32px 8px;color:#022554;font-size:16px;line-height:1.6">
+<p style="margin:0 0 16px">${c.hello}</p>
+<p style="margin:0 0 28px;color:#33475b">${c.body}</p>
+<table role="presentation" cellpadding="0" cellspacing="0" style="margin:0 0 28px"><tr><td style="border-radius:999px;background:#096b62">
+<a href="${link}" style="display:inline-block;padding:14px 30px;font-family:${font};font-size:16px;font-weight:700;color:#ffffff;text-decoration:none;border-radius:999px">${c.button}</a>
+</td></tr></table>
+<p style="margin:0 0 24px;font-size:14px;color:#5b6b7b">${c.ignore}</p>
+<p style="margin:0 0 4px">${c.sign[0]}</p>
+<p style="margin:0;font-weight:700">${c.sign[1]}</p>
+<p style="margin:0 0 24px;font-size:14px;color:#5b6b7b">${c.role}<br><a href="${home}" style="color:#1477b0;text-decoration:none">eflury.com</a></p>
+</td></tr>
+<tr><td style="padding:16px 32px 24px;border-top:1px solid #e3e9f0;font-size:12px;line-height:1.6;color:#7a8794">
+${c.fallback}<br><a href="${link}" style="color:#1477b0;word-break:break-all">${link}</a>
+</td></tr>
+</table>
+<p style="max-width:560px;margin:16px auto 0;font-family:${font};font-size:12px;line-height:1.6;color:#7a8794">${c.footer}<br>
+<a href="${SITE_URL}${imp}" style="color:#7a8794">${c.imprint}</a> · <a href="${SITE_URL}${priv}" style="color:#7a8794">${c.privacy}</a></p>
+</td></tr></table>
+</body></html>`;
+  return { subject: c.subject, text, html };
+}
 
 export const asLang = (v: unknown): Lang => (v === 'de' || v === 'fr' ? v : 'en');
 
@@ -169,9 +250,9 @@ export async function subscribe(email: string, ip: string, lang: Lang = 'en'): P
   await ref.set(doc);
 
   const link = `${SITE_URL}/api/newsletter/confirm/?t=${encodeURIComponent(confirm)}`;
-  const mail = CONFIRM_MAIL[lang](link);
+  const mail = confirmMail(lang, link);
   try {
-    await mailer().sendMail({ from: FROM, to: email, subject: mail.subject, text: mail.lines.join('\n') });
+    await mailer().sendMail({ from: FROM, to: email, subject: mail.subject, text: mail.text, html: mail.html });
   } catch (e) {
     // the mail did not go out: clear the cooldown so the next try sends again
     await ref.update({ lastMailAt: FieldValue.delete() }).catch(() => {});

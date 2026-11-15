@@ -107,7 +107,11 @@ function render(unsubUrl) {
     `${T.unsub}: ${unsubUrl}`,
   ].join('\n');
   const html = `<!doctype html><html lang="${T.html}"><body style="margin:0;padding:24px;background:#f4f6f9;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;color:#022554">
-<table role="presentation" width="100%" style="max-width:560px;margin:0 auto;background:#fff;border-radius:12px"><tr><td style="padding:32px">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;margin:0 auto;background:#fff;border-radius:14px;overflow:hidden">
+<tr><td style="background:#022554;padding:22px 32px"><table role="presentation" cellpadding="0" cellspacing="0"><tr>
+<td style="padding-right:12px"><img src="${SITE}/images/email/ef-mark-white.png" width="40" height="32" alt="EF" style="display:block;border:0"></td>
+<td style="color:#fff;font-size:18px;font-weight:800;letter-spacing:.06em">EMANUEL FLURY</td></tr></table></td></tr>
+<tr><td style="padding:32px">
 <p style="margin:0 0 8px;font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:#1477b0;font-weight:700">${T.kicker}</p>
 <h1 style="margin:0 0 12px;font-size:24px;line-height:1.25">${esc(data.title)}</h1>
 <p style="margin:0 0 24px;font-size:17px;line-height:1.6;color:#33475b">${esc(data.description)}</p>
