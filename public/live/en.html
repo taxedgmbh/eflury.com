@@ -24,10 +24,10 @@ canvas,svg#st{position:fixed;inset:0;width:100%;height:100%}
 .firm.on{opacity:1;filter:drop-shadow(0 0 16px rgba(90,184,232,.9))}
 .dot{animation:pulse 1.6s ease-in-out infinite}
 @keyframes pulse{50%{opacity:.25}}
-.panel{position:fixed;left:50%;bottom:4vh;transform:translateX(-50%);width:min(640px,92vw);background:rgba(2,20,48,.94);border:1px solid rgba(90,184,232,.4);border-radius:14px;padding:18px 22px;transition:opacity .6s;font-size:14px}
+.panel{position:fixed;left:50%;bottom:3vh;transform:translateX(-50%);width:min(520px,92vw);background:rgba(2,20,48,.9);border:1px solid rgba(90,184,232,.4);border-radius:12px;padding:12px 16px;transition:opacity 1.2s;font-size:12px}
 .panel.hide{opacity:0;pointer-events:none}
-.panel h2{margin:0 0 8px;font-size:18px}
-.panel p{margin:0 0 8px;color:rgba(244,248,253,.8)}
+.panel h2{margin:0 0 6px;font-size:14px}
+.panel p{margin:0 0 4px;color:rgba(244,248,253,.8)}
 .panel b{color:var(--sky)}
 .panel .f{display:flex;flex-wrap:wrap;gap:12px;align-items:center;margin:4px 0 10px}
 .panel input{font:inherit;font-size:16px;width:110px;min-height:44px;padding:0 10px;border-radius:8px;border:1px solid rgba(90,184,232,.5);background:#011a3d;color:#fff}
@@ -35,7 +35,7 @@ canvas,svg#st{position:fixed;inset:0;width:100%;height:100%}
 @media(prefers-reduced-motion:reduce){.dot{animation:none}}
 </style>
 </head>
-<body data-m="tiktok">
+<body data-m="wide">
 <canvas id="net"></canvas>
 <svg id="st" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" viewBox="0 0 1920 1080" preserveAspectRatio="xMidYMid slice" aria-label="Emanuel Flury LIVE show opening">
   <defs>
@@ -54,9 +54,9 @@ canvas,svg#st{position:fixed;inset:0;width:100%;height:100%}
 <div id="dim"></div>
 <div class="panel" id="panel">
   <h2>Emanuel Flury LIVE: TV backdrop</h2>
-  <p><b>Click</b> anywhere to start fullscreen. This panel hides itself.</p>
-  <p><b>T</b> TikTok column or full width · <b>L</b> move everything up or down · <b>− / +</b> slower or faster · <b>D</b> dim · <b>P</b> this panel</p>
-  <p>Logos and photos come from eflury.com.</p>
+  <p>This panel disappears by itself in a few seconds.</p>
+  <p>Keys: <b>T</b> TikTok column or full width · <b>L</b> move everything up or down · <b>− / +</b> slower or faster · <b>D</b> dim · <b>P</b> this panel</p>
+  <p>Link options: <b>?m=tiktok</b> phone column · <b>?glow=0</b> no Ambilight edges</p>
 </div>
 <script>
 {
@@ -73,6 +73,9 @@ const TX={
   fr:{role:'ENTREPRENEUR',cta:'Appuyez sur «\u00a0Suivre\u00a0» et rejoignez l’aventure',words:['ENTREPRENEUR.','CRÉER.','GRANDIR.','FOCUS.','APPRENDRE.','DIRIGER.','RÊVER.'],three:['TROIS','ENTREPRISES.'],one:['UNE','EXIGENCE.'],follow:'SUIVRE.'}
 }[LANG];
 const $=id=>document.getElementById(id);
+const QS=new URLSearchParams(location.search);
+document.body.dataset.m=(QS.get('m')||(innerWidth/innerHeight>1.2?'wide':'tiktok'))==='tiktok'?'tiktok':'wide';
+const GLOW=QS.get('glow')!=='0';
 const st=$('stage'),pats=$('pats'),top=$('top'),firms=$('firms'),frame=$('frame');
 const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
 const el=(n,a,p)=>{const e=document.createElementNS(NS,n);for(const k in a)e.setAttribute(k,a[k]);if(p)p.appendChild(e);return e};
@@ -93,25 +96,25 @@ A.photos.forEach((u,i)=>{
 let pi=0;const photo=()=>`url(#p${(pi++)%A.photos.length})`;
 
 // layout geometry
-const geo=()=>document.body.dataset.m==='tiktok'?{cx:960,w:560,l:690,r:1230}:{cx:960,w:1600,l:140,r:1780};
+const geo=()=>document.body.dataset.m==='tiktok'?{cx:960,w:560,l:690,r:1230,id:150,cy:360,fy:600,cta:735,big:360,two:300,lg:230}:{cx:960,w:1640,l:90,r:1830,id:165,cy:535,fy:875,cta:990,big:420,two:295,lg:280};
 
 function drawChrome(){
   const g=geo();top.innerHTML='';firms.innerHTML='';
   // LIVE pill + handle
-  const pill=el('g',{transform:`translate(${g.l},62)`},top);
+  const pill=el('g',{transform:`translate(${g.l},62)`},top);if(g.w>1000)pill.setAttribute('transform',`translate(${g.l},62) scale(1.3)`);
   el('rect',{x:0,y:-22,width:118,height:44,rx:22,fill:'#E5322D'},pill);
   el('circle',{cx:24,cy:0,r:7,fill:'#fff',class:'dot'},pill);
   const lt=el('text',{x:42,y:1,'dominant-baseline':'central','font-family':'Montserrat, sans-serif','font-weight':800,'font-size':22,fill:'#fff','letter-spacing':2},pill);lt.textContent='LIVE';
-  const h=el('text',{x:g.r,y:63,'text-anchor':'end','dominant-baseline':'central','font-family':'Montserrat, sans-serif','font-weight':700,'font-size':24,fill:'#5AB8E8'},top);h.textContent='@emanuelflury';
+  const h=el('text',{x:g.r,y:63,'text-anchor':'end','dominant-baseline':'central','font-family':'Montserrat, sans-serif','font-weight':700,'font-size':g.w>1000?32:24,fill:'#5AB8E8'},top);h.textContent='@emanuelflury';
   // permanent identity: EF mark + EMANUEL FLURY / ENTREPRENEUR
   const id=el('g',{},top);
   const mark=el('image',{href:A.ef,x:0,y:-34,width:85,height:68},id);
   const nm=el('text',{x:100,y:-8,'dominant-baseline':'central','font-family':'Montserrat, sans-serif','font-weight':800,'font-size':44,fill:'#fff','letter-spacing':1.5},id);nm.textContent='EMANUEL FLURY';
   const rl=el('text',{x:102,y:30,'dominant-baseline':'central','font-family':'Montserrat, sans-serif','font-weight':600,'font-size':18,fill:'#5AB8E8','letter-spacing':7},id);rl.textContent=TX.role;
   const iw=100+Math.max(nm.getComputedTextLength(),rl.getComputedTextLength());
-  id.setAttribute('transform',`translate(${g.cx-iw/2} 150)`);
+  const isc=g.w>1000?1.35:1;id.setAttribute('transform',`translate(${g.cx-iw*isc/2} ${g.id}) scale(${isc})`);
   // firms row, always on
-  const y=600,fw=(g.w+90)/3,cols=[g.cx-fw-10,g.cx-15,g.cx+fw+5],sc=document.body.dataset.m==='tiktok'?1:1.35;
+  const y=g.fy,fw=(g.w+90)/3,cols=[g.cx-fw-10,g.cx-15,g.cx+fw+5],sc=document.body.dataset.m==='tiktok'?1:1.35;
   const items=[
     {img:A.skopa,w:150*sc,h:51*sc,label:''},
     {img:A.taxed,w:52*sc,h:52*sc,label:'Taxed'},
@@ -123,7 +126,7 @@ function drawChrome(){
     if(it.label){const t=el('text',{x:x0+it.w+10,y,'dominant-baseline':'central','font-family':'Montserrat, sans-serif','font-weight':700,'font-size':19*sc,fill:'#fff'},f);t.textContent=it.label}
   });
   // follow call-to-action (the real follower goal runs in TikTok itself)
-  const ct=el('text',{x:g.cx,y:735,'text-anchor':'middle','dominant-baseline':'central','font-family':'Montserrat, sans-serif','font-weight':700,'font-size':30,fill:'#fff'},firms);ct.textContent=TX.cta;
+  const ct=el('text',{x:g.cx,y:g.cta,'text-anchor':'middle','dominant-baseline':'central','font-family':'Montserrat, sans-serif','font-weight':700,'font-size':g.w>1000?40:30,fill:'#fff'},firms);ct.textContent=TX.cta;
   ct.animate([{opacity:.65},{opacity:1},{opacity:.65}],{duration:4000,iterations:Infinity});
   frame.setAttribute('transform',`translate(0 ${offs[oi]})`);
 }
@@ -136,11 +139,11 @@ const scenes=[
   {logo:0,name:'Skopa AG'},{logo:1,name:'Taxed GmbH'},{logo:2,name:'EF Real Estate'},
   {l:[TX.follow],sub:'@emanuelflury',hold:10000}
 ];
-const CY=360;
 
-function highlight(f){document.querySelectorAll('.firm').forEach(n=>n.classList.toggle('on',f!==undefined&&+n.dataset.f===f))}
+let accent=null,flash=0;
+function highlight(f){accent=f===undefined?null:['#5AB8E8','#E8344E','#2DD4BF'][f];document.querySelectorAll('.firm').forEach(n=>n.classList.toggle('on',f!==undefined&&+n.dataset.f===f))}
 
-async function exitBurst(g,bb){
+async function exitBurst(g,bb){flash=performance.now();
   const s=el('g',{},st),jobs=[];
   for(let i=0;i<30;i++){
     const w=4+Math.random()*18,x=bb.x+Math.random()*bb.width;
@@ -159,7 +162,7 @@ async function wordScene(sc){
   const glow=mk('#5AB8E8',{opacity:0,filter:'url(#glow)'});
   const txt=mk(photo(),{'fill-opacity':0,stroke:'#e8f3fb','stroke-width':2.5,'stroke-dasharray':1400,'stroke-dashoffset':1400});
   // fit: largest size so the longest line fits the column
-  let size=sc.l.length>1?300:360;txt.setAttribute('font-size',size);
+  let size=sc.l.length>1?gm.two:gm.big;const CY=gm.cy;txt.setAttribute('font-size',size);
   const longest=Math.max(...[...txt.children].map(t=>t.getComputedTextLength()));
   if(longest>gm.w)size*=gm.w/longest;
   const lh=size*.98,y0=CY-(sc.l.length-1)*lh/2;
@@ -172,7 +175,7 @@ async function wordScene(sc){
 async function logoScene(sc){
   const gm=geo(),g=el('g',{},st);g.style.transformBox='fill-box';g.style.transformOrigin='center';
   const src=[A.skopa,A.taxed,A.efre][sc.logo],ratio=[1390/471,1,260/270][sc.logo];
-  let h=sc.logo===0?150:230,w=h*ratio;if(w>gm.w){w=gm.w;h=w/ratio}
+  const CY=gm.cy;let h=sc.logo===0?gm.lg*.65:gm.lg,w=h*ratio;if(w>gm.w){w=gm.w;h=w/ratio}
   const img=el('image',{href:src,x:gm.cx-w/2,y:CY-h/2-40,width:w,height:h,opacity:0},g);
   const t=el('text',{x:gm.cx,y:CY+h/2+30,'text-anchor':'middle','font-family':'Montserrat, sans-serif','font-weight':800,'font-size':Math.min(72,gm.w/8),fill:'#fff',opacity:0,'letter-spacing':3},g);t.textContent=sc.name.toUpperCase();
   return {g,img,t};
@@ -190,7 +193,7 @@ async function play(sc){
   }
   const {g,txt,glow,sub}=await wordScene(sc);
   if(sc.line&&!reduce){
-    const gm=geo(),ln=el('rect',{x:gm.cx-gm.w/2,y:CY-1,width:gm.w,height:2,fill:'#fff'},st);ln.style.transformBox='fill-box';ln.style.transformOrigin='center';
+    const gm=geo(),ln=el('rect',{x:gm.cx-gm.w/2,y:gm.cy-1,width:gm.w,height:2,fill:'#fff'},st);ln.style.transformBox='fill-box';ln.style.transformOrigin='center';
     await anim(ln,[{transform:'scaleX(0)'},{transform:'scaleX(1)'}],{duration:T(1600)});anim(ln,[{opacity:1},{opacity:0}],{duration:T(1200)});
   }
   if(reduce){txt.setAttribute('stroke-opacity',0);await anim(txt,[{fillOpacity:0},{fillOpacity:1}],{duration:1500});if(sub)sub.setAttribute('opacity',1);await wait(hold);await anim(g,[{opacity:1},{opacity:0}],{duration:1000});return}
@@ -238,13 +241,35 @@ const net=now=>{
   cx.globalCompositeOperation='source-over';
   const v=cx.createRadialGradient(W/2,H/2,0,W/2,H/2,Math.hypot(W,H)/2);v.addColorStop(.3,'rgba(2,37,84,0)');v.addColorStop(.85,'rgba(2,37,84,1)');
   cx.fillStyle=v;cx.fillRect(0,0,W,H);
+  if(GLOW)edges(t,now);
   if(!reduce)requestAnimationFrame(net);
 };
 requestAnimationFrame(net);
 
+// Ambilight (Philips TV): the LEDs copy the colours at the screen edges, so the edges
+// carry slow, saturated brand colours that circle the frame, plus a white flash on each
+// word burst and the venture colour while a logo is on screen. The centre stays clean.
+const hex=h=>[parseInt(h.slice(1,3),16),parseInt(h.slice(3,5),16),parseInt(h.slice(5,7),16)];
+const ORBS=[['#2DD4BF',0],['#5AB8E8',.25],['#1E6BFF',.5],['#5AB8E8',.75]];
+function along(u){u=((u%1)+1)%1;const P=2*(W+H),d=u*P;
+  if(d<W)return[d,0];if(d<W+H)return[W,d-W];if(d<2*W+H)return[W-(d-W-H),H];return[0,H-(d-2*W-H)]}
+function blob(x,y,r,c,a){const[R,G,B]=hex(c),g=cx.createRadialGradient(x,y,0,x,y,r);
+  g.addColorStop(0,`rgba(${R},${G},${B},${a})`);g.addColorStop(.5,`rgba(${R},${G},${B},${a*.45})`);g.addColorStop(1,`rgba(${R},${G},${B},0)`);
+  cx.fillStyle=g;cx.fillRect(x-r,y-r,2*r,2*r)}
+function edges(t,now){
+  cx.globalCompositeOperation='lighter';
+  const r=Math.min(W,H)*.38;
+  ORBS.forEach(([c,o],i)=>{const[x,y]=along(o+t*.012+Math.sin(t*.1+i)*.02);blob(x,y,r,c,.75)});
+  if(accent){for(const o of[.12,.38,.62,.88]){const[x,y]=along(o+t*.006);blob(x,y,r*.9,accent,.4)}}
+  const f=Math.max(0,1-(now-flash)/1600);
+  if(f>0){for(const o of[0,.125,.25,.375,.5,.625,.75,.875]){const[x,y]=along(o);blob(x,y,r,'#E8F6FF',.35*f)}}
+  cx.globalCompositeOperation='source-over';
+}
+
 // controls
 const panel=$('panel'),dim=$('dim');let dl=0;const dims=[0,.25,.45];let lock=null;
 const toggle=show=>{panel.classList.toggle('hide',!show);document.body.classList.toggle('run',!show)};
+setTimeout(()=>toggle(false),6000);if(QS.get('panel')==='0')toggle(false);
 document.addEventListener('click',async e=>{if(panel.contains(e.target))return;
   try{if(!document.fullscreenElement)await document.documentElement.requestFullscreen()}catch(e){}
   try{if('wakeLock' in navigator&&!lock)lock=await navigator.wakeLock.request('screen')}catch(e){}
