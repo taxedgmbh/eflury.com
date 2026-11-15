@@ -170,7 +170,13 @@ export async function subscribe(email: string, ip: string, lang: Lang = 'en'): P
 
   const link = `${SITE_URL}/api/newsletter/confirm/?t=${encodeURIComponent(confirm)}`;
   const mail = CONFIRM_MAIL[lang](link);
-  await mailer().sendMail({ from: FROM, to: email, subject: mail.subject, text: mail.lines.join('\n') });
+  try {
+    await mailer().sendMail({ from: FROM, to: email, subject: mail.subject, text: mail.lines.join('\n') });
+  } catch (e) {
+    // the mail did not go out: clear the cooldown so the next try sends again
+    await ref.update({ lastMailAt: FieldValue.delete() }).catch(() => {});
+    throw e;
+  }
   return 'check-email';
 }
 
