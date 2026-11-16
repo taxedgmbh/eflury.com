@@ -286,5 +286,29 @@ document.addEventListener('keydown',e=>{
 });
 }
 </script>
+<style>
+#lvs{position:fixed;inset:0;z-index:50;background:#011a3d;display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .45s;pointer-events:none}
+#lvs.on{opacity:1}
+#lvs .bx{width:100vw;height:100vh;display:flex;align-items:center;justify-content:center}
+body[data-m=tiktok] #lvs .bx{width:min(100vw,calc(100vh*9/16))}
+#lvs img{max-width:100%;max-height:100%;object-fit:contain;display:block}
+</style>
+<div id="lvs" aria-live="polite"><div class="bx"><img alt=""></div></div>
+<script>
+/* LIVE slides: the remote (eflury.com/live/remote.html) moves them forward and back; this screen follows within a second. */
+(()=>{const box=document.getElementById('lvs'),img=box.querySelector('img');let v=-1,cur=null;const cache={};
+const url=id=>'/api/live/slide/'+encodeURIComponent(id)+'/';
+const pre=id=>{if(id&&!cache[id]){const i=new Image();i.src=url(id);cache[id]=i}};
+async function tick(){
+  try{const r=await fetch('/api/live/state/',{cache:'no-store'});
+    if(r.ok){const s=await r.json();
+      if(s.v!==v){v=s.v;const ids=Array.isArray(s.ids)?s.ids:[];const id=s.index>=0?ids[s.index]:null;pre(ids[s.index+1]);pre(ids[s.index-1]);
+        if(id!==cur){cur=id;
+          if(id){const n=cache[id]||new Image();n.src=url(id);try{await n.decode()}catch(e){}if(cur===id){img.src=n.src;box.classList.add('on')}}
+          else box.classList.remove('on')}}}}
+  catch(e){}
+  setTimeout(tick,1000)}
+tick();})();
+</script>
 </body>
 </html>

@@ -21,20 +21,17 @@ const nextConfig: NextConfig = {
 
   async redirects() {
     return [
-      // TikTok LIVE backdrop for the TV: /live, /en/live, /de/live, /fr/live.
-      // Since 2026-11-16 these point to the Claude-hosted backdrop, which has the hidden,
-      // password-protected slide manager (uploads, auto-update on every screen). The static
-      // copies stay reachable as a fallback at /live/en.html, /live/de.html, /live/fr.html.
+      // TikTok LIVE backdrop for the TV: /en/live, /de/live, /fr/live (and /live = English).
+      // The pages are static files in public/live/, so no login is needed. They follow the
+      // slides set on the remote (/live/remote, password only; see src/lib/live.ts).
       // Temporary redirects on purpose. Private shortcut: noindex, not in sitemap or menus.
-      ...['', '/en', '/de', '/fr'].flatMap((prefix) =>
+      ...Object.entries({ '': 'en', '/en': 'en', '/de': 'de', '/fr': 'fr' }).flatMap(([prefix, lang]) =>
         [`${prefix}/live`, `${prefix}/LIVE`, `${prefix.toUpperCase()}/LIVE`, `${prefix}/Live`]
           .filter((v, i, all) => all.indexOf(v) === i)
-          .map((source) => ({
-            source,
-            destination: 'https://claude.ai/artifact/M553YnDXCyXvrwAF9mw7qU',
-            permanent: false,
-          })),
+          .map((source) => ({ source, destination: `/live/${lang}.html`, permanent: false })),
       ),
+      { source: '/live/remote', destination: '/live/remote.html', permanent: false },
+      { source: '/remote', destination: '/live/remote.html', permanent: false },
       // www -> apex. .htaccess did this with a RewriteCond; App Hosting terminates
       // TLS for both hosts, so the canonicalisation has to happen in the app.
       {
