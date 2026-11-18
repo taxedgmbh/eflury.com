@@ -67,6 +67,7 @@ export async function POST(req: Request) {
         if (i >= 0) {
           s.ids.splice(i, 1);
           if (s.index > i || s.index >= s.ids.length) s.index -= 1;
+          if (s.last > i || s.last >= s.ids.length) s.last -= 1;
         }
         return s;
       });
@@ -83,6 +84,8 @@ export async function POST(req: Request) {
           [s.ids[i], s.ids[j]] = [s.ids[j], s.ids[i]];
           if (s.index === i) s.index = j;
           else if (s.index === j) s.index = i;
+          if (s.last === i) s.last = j;
+          else if (s.last === j) s.last = i;
         }
         return s;
       });

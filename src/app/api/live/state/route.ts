@@ -15,7 +15,7 @@ export async function GET() {
   }
 }
 
-/** The remote: { password, action: 'next' | 'prev' | 'go' | 'backdrop', index? }. */
+/** The remote: { password, action: 'next' | 'prev' | 'go' | 'backdrop' | 'resume', index? }. */
 export async function POST(req: Request) {
   let body: { password?: unknown; action?: unknown; index?: unknown };
   try {
@@ -28,12 +28,16 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'password' }, { status: 401, headers: noStore });
   }
   const action = body.action;
-  if (action === 'check') return NextResponse.json(await readState().catch(() => ({ ids: [], index: -1, v: 0 })), { headers: noStore });
+  if (action === 'check') return NextResponse.json(await readState().catch(() => ({ ids: [], index: -1, last: -1, v: 0 })), { headers: noStore });
   try {
     const s = await changeState((s) => {
-      if (action === 'next') s.index = Math.min(s.index + 1, s.ids.length - 1);
-      else if (action === 'prev') s.index = Math.max(s.index - 1, -1);
-      else if (action === 'backdrop') s.index = -1;
+      // From the backdrop, Next (or resume) goes back to the slide that was hidden, not to slide 1.
+      if (action === 'next' || action === 'resume') s.index = s.index < 0 && s.last >= 0 ? s.last : action === 'next' ? Math.min(s.index + 1, s.ids.length - 1) : s.index;
+      else if (action === 'prev') s.index = s.index < 0 ? -1 : s.index - 1;
+      else if (action === 'backdrop') {
+        if (s.index >= 0) s.last = s.index;
+        s.index = -1;
+      }
       else if (action === 'go' && typeof body.index === 'number') s.index = Math.trunc(body.index);
       return s;
     });
