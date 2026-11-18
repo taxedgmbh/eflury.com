@@ -126,11 +126,13 @@ kbd{font:700 12px/1 var(--sans);border:1px solid var(--line);border-bottom-width
 .tile .meta button.arm{background:var(--red);color:#fff;font-size:12px}
 .none{color:var(--mute);font-size:14px;padding:18px;text-align:center;border:1px dashed var(--line);border-radius:12px;grid-column:1/-1}
 /* presenter view: the remote itself becomes a full-screen copy of the TV, for when the TV is behind you */
-.status .right{display:flex;align-items:center;gap:8px}
+.status .right{display:flex;align-items:center;gap:8px;flex-wrap:wrap;justify-content:flex-end}
+@media(max-width:600px){.status{align-items:flex-start}.status .right .tag{display:none}}
 button.fs{min-height:34px;padding:0 12px;font-size:12px;letter-spacing:.06em;text-transform:uppercase}
 #pv{position:fixed;inset:0;z-index:100;background:#011a3d;cursor:none;user-select:none;-webkit-user-select:none;touch-action:none}
 #pv.ui{cursor:default}
-#pv iframe{position:absolute;inset:0;width:100%;height:100%;border:0;pointer-events:none}
+#pv iframe{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:min(100vw,calc(100vh*16/9));height:min(100vh,calc(100vw*9/16));border:0;pointer-events:none} /* the TV's 16:9 shape, letterboxed in a narrow window */
+#pv{background:#000}
 #pv .slide{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:#000;opacity:0;transition:opacity .3s}
 #pv .slide.on{opacity:1}
 #pv .slide img{max-width:100%;max-height:100%;object-fit:contain}
@@ -181,7 +183,7 @@ button.fs{min-height:34px;padding:0 12px;font-size:12px;letter-spacing:.06em;tex
   <div id="app" class="grid" hidden>
     <div class="col">
       <section class="card" aria-label="Slide control">
-        <div class="status"><b id="pos">Backdrop</b><span class="right"><span class="tag off" id="tag">Backdrop</span><button type="button" class="fs" id="pvOpen" title="Full-screen view of the TV on this screen (F)">⛶ Full screen</button></span></div>
+        <div class="status"><b id="pos">Backdrop</b><span class="right"><span class="tag off" id="tag">Backdrop</span><button type="button" class="fs" id="pvWin" title="Show what the TV shows, filling only this browser window, so TikTok Studio can sit next to it (W)">▣ Window view</button><button type="button" class="fs" id="pvOpen" title="Show what the TV shows on the whole screen (F)">⛶ Full screen</button></span></div>
         <figure class="screen" id="stage">
           <img id="nowImg" alt="" hidden>
           <div class="empty" id="nowEmpty"><b>Animated backdrop</b><span id="nowHint">The TV shows the eflury.com animation.</span></div>
@@ -201,6 +203,7 @@ button.fs{min-height:34px;padding:0 12px;font-size:12px;letter-spacing:.06em;tex
             <li>Phone: swipe the preview left for next, right for back.</li>
             <li>Keyboard or presenter clicker: <kbd>→</kbd> or <kbd>Space</kbd> next, <kbd>←</kbd> back.</li>
             <li><kbd>B</kbd> hide or resume slides, <kbd>1</kbd>–<kbd>9</kbd> jump to a slide.</li>
+            <li><kbd>W</kbd> window view (fills this browser window only), <kbd>F</kbd> full screen, <kbd>Esc</kbd> back to the remote.</li>
           </ul>
         </details>
         <div class="msg" id="navmsg" role="status"></div>
@@ -239,7 +242,7 @@ button.fs{min-height:34px;padding:0 12px;font-size:12px;letter-spacing:.06em;tex
   <div class="hud tl"><span class="pill red" id="pvPos">Backdrop</span><span class="pill" id="pvTime" hidden></span></div>
   <div class="hud tr"><span class="nxl" id="pvNxl">Next</span><div class="nx" id="pvNx"><img id="pvNxImg" alt=""></div></div>
   <div class="hud bl"><button type="button" id="pvBd">Hide slides</button></div>
-  <div class="hud br"><span class="pill hidep" style="font-weight:700">Esc</span><button type="button" class="p" id="pvClose">✕ Back to remote</button></div>
+  <div class="hud br"><button type="button" id="pvSwap">⛶ Full screen</button><span class="pill hidep" style="font-weight:700">Esc</span><button type="button" class="p" id="pvClose">✕ Back to remote</button></div>
 </div>
 
 <div class="bar" id="bar" hidden>
@@ -352,7 +355,8 @@ document.addEventListener('keydown',e=>{
   else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}
   else if(e.key.toLowerCase()==='b'||e.key==='.')toggleBackdrop();
   else if(/^[1-9]$/.test(e.key)&&+e.key<=state.ids.length)act('state',{action:'go',index:+e.key-1});
-  else if(e.key.toLowerCase()==='f')pvOn()?pvClose():pvOpen();
+  else if(e.key.toLowerCase()==='f')isFull()?pvClose():pvOpen(true);
+  else if(e.key.toLowerCase()==='w')pvOn()&&!isFull()?pvClose():pvOpen(false);
   else if(e.key==='Escape'&&pvOn())pvClose();
 });
 // swipe on the preview: left = next, right = back
@@ -377,21 +381,30 @@ function pvRender(){
   if(nx&&$('pvNxImg').dataset.id!==nx){$('pvNxImg').src=slideUrl(nx);$('pvNxImg').dataset.id=nx}
   $('pvBd').textContent=i>=0?'Hide slides':paused?'▶ Resume':'Backdrop';$('pvBd').disabled=!n||(i<0&&!paused);
 }
-function pvOpen(){
+// Two ways: full = the whole screen; window = only this browser window (TikTok Studio can sit beside it).
+const isFull=()=>!!(document.fullscreenElement||document.webkitFullscreenElement);
+let swapping=false;
+function goFull(){const el=document.documentElement;try{const r=(el.requestFullscreen||el.webkitRequestFullscreen).call(el);if(r&&r.catch)r.catch(()=>{})}catch(e){}} // iPhone: no real full screen, the view still covers the page
+function leaveFull(){try{if(isFull()){swapping=true;const r=(document.exitFullscreen||document.webkitExitFullscreen).call(document);if(r&&r.finally)r.finally(()=>setTimeout(()=>swapping=false,300));else setTimeout(()=>swapping=false,300)}}catch(e){swapping=false}}
+function pvOpen(full){
   if(!$('pvTv').src)$('pvTv').src='/live/en.html?panel=0&glow=0';
   pv.hidden=false;document.body.style.overflow='hidden';pvRender();hud();wake();
-  const el=document.documentElement;
-  try{const r=(el.requestFullscreen||el.webkitRequestFullscreen).call(el);if(r&&r.catch)r.catch(()=>{})}catch(e){} // iPhone: no real full screen, the view still covers the page
+  if(full)goFull();else leaveFull();
+  setTimeout(swapLabel,400);swapLabel(full);
 }
+function swapLabel(full){$('pvSwap').textContent=(full??isFull())?'▣ Window':'⛶ Full screen'}
 function pvClose(){
   pv.hidden=true;document.body.style.overflow='';
-  try{if(document.fullscreenElement||document.webkitFullscreenElement)(document.exitFullscreen||document.webkitExitFullscreen).call(document)}catch(e){}
+  if(isFull()){swapping=true;try{(document.exitFullscreen||document.webkitExitFullscreen).call(document)}catch(e){}setTimeout(()=>swapping=false,300)}
 }
-$('pvOpen').onclick=pvOpen;
+$('pvOpen').onclick=()=>pvOpen(true);
+$('pvWin').onclick=()=>pvOpen(false);
+$('pvSwap').onclick=e=>{e.stopPropagation();const f=!isFull();if(f)goFull();else leaveFull();swapLabel(f);hud()};
 $('pvClose').onclick=e=>{e.stopPropagation();pvClose()};
 $('pvBd').onclick=e=>{e.stopPropagation();toggleBackdrop();hud()};
 // leaving the browser's full screen (Esc on a computer) also leaves the presenter view
-['fullscreenchange','webkitfullscreenchange'].forEach(t=>document.addEventListener(t,()=>{if(!(document.fullscreenElement||document.webkitFullscreenElement)&&pvOn())pvClose()}));
+// (switching to the window view on purpose keeps it open)
+['fullscreenchange','webkitfullscreenchange'].forEach(t=>document.addEventListener(t,()=>{swapLabel();if(!isFull()&&pvOn()&&!swapping)pvClose()}));
 pv.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')hud()});
 // tap: right two thirds = next, left third = back; swipe works too; any tap also shows the buttons
 {let x0=null,y0=0,t0=0;const c=$('pvCatch');
