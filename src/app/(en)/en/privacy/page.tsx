@@ -137,7 +137,7 @@ export default function PrivacyPage() {
 
       <h2>10. Links to social networks</h2>
       <p>
-        Links to LinkedIn, Instagram, TikTok, YouTube, Facebook, GitHub and WhatsApp are plain links. No data is sent
+        Links to LinkedIn, Instagram, TikTok, YouTube, X, Facebook, GitHub and WhatsApp are plain links. No data is sent
         to those networks unless you click a link; after that, their privacy policies apply.
       </p>
 

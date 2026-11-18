@@ -142,7 +142,7 @@ export default function DatenschutzPage() {
 
       <h2>10. Links zu sozialen Netzwerken</h2>
       <p>
-        Links zu LinkedIn, Instagram, TikTok, YouTube, Facebook, GitHub und WhatsApp sind einfache Links. An diese
+        Links zu LinkedIn, Instagram, TikTok, YouTube, X, Facebook, GitHub und WhatsApp sind einfache Links. An diese
         Netzwerke werden keine Daten übermittelt, solange Sie nicht auf einen Link klicken; danach gelten deren
         Datenschutzbestimmungen.
       </p>

@@ -142,7 +142,7 @@ export default function ConfidentialitePage() {
 
       <h2>10. Liens vers les réseaux sociaux</h2>
       <p>
-        Les liens vers LinkedIn, Instagram, TikTok, YouTube, Facebook, GitHub et WhatsApp sont de simples liens. Aucune
+        Les liens vers LinkedIn, Instagram, TikTok, YouTube, X, Facebook, GitHub et WhatsApp sont de simples liens. Aucune
         donnée n’est transmise à ces réseaux tant que vous ne cliquez pas sur un lien ; ensuite, leurs politiques de
         confidentialité s’appliquent.
       </p>
