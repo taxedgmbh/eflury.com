@@ -3,165 +3,315 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#011a3d">
 <title>LIVE remote · Emanuel Flury</title>
 <meta name="robots" content="noindex, nofollow">
 <link rel="icon" href="/favicon.svg" type="image/svg+xml">
 <style>
 @font-face{font-family:Montserrat;font-weight:400 900;font-display:swap;src:url('/fonts/montserrat-latin-800-normal.woff2') format('woff2')}
-:root{color-scheme:dark;--bg:#011a3d;--panel:#022554;--sky:#5AB8E8;--ink:#f4f8fd;--red:#E5322D;--line:rgba(90,184,232,.35)}
+:root{color-scheme:dark;--bg:#011a3d;--panel:#022554;--deep:#00132e;--sky:#5AB8E8;--teal:#2DD4BF;--ink:#f4f8fd;--mute:rgba(244,248,253,.65);--red:#E5322D;--line:rgba(90,184,232,.35)}
 *{box-sizing:border-box;min-width:0}
-html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 Montserrat,system-ui,sans-serif}
-main{max-width:760px;margin:0 auto;padding:20px 16px calc(28px + env(safe-area-inset-bottom))}
-h1{font-size:20px;margin:0 0 4px;letter-spacing:.02em}
-.sub{color:rgba(244,248,253,.7);margin:0 0 18px;font-size:14px}
+html,body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.45 Montserrat,system-ui,sans-serif;-webkit-tap-highlight-color:transparent}
+main{max-width:1180px;margin:0 auto;padding:16px 16px calc(120px + env(safe-area-inset-bottom))}
+h1{font-size:20px;margin:0;letter-spacing:.02em}
+h2{font-size:15px;margin:0;letter-spacing:.04em;text-transform:uppercase;color:var(--sky)}
+.sub{color:var(--mute);margin:4px 0 0;font-size:14px}
+a{color:var(--sky)}
 label{display:block;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);margin:12px 0 6px}
-input[type=password],input[type=number]{font:inherit;font-size:16px;width:100%;min-height:48px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:#00132e;color:#fff}
-input:focus-visible,button:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
-button{font:inherit;font-weight:800;min-height:48px;padding:0 18px;border-radius:10px;border:1px solid var(--line);background:transparent;color:#fff;cursor:pointer}
-button.p{background:var(--sky);border-color:var(--sky);color:#011a3d}
-button:disabled{opacity:.4;cursor:default}
-.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin-bottom:16px}
-.msg{min-height:22px;margin-top:10px;font-size:14px;color:#ffb3ae}
+input[type=password]{font:inherit;font-size:16px;width:100%;min-height:48px;padding:0 12px;border-radius:10px;border:1px solid var(--line);background:var(--deep);color:#fff}
+input:focus-visible,button:focus-visible,.drop:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
+button{font:inherit;font-weight:800;min-height:44px;padding:0 16px;border-radius:10px;border:1px solid var(--line);background:transparent;color:#fff;cursor:pointer;touch-action:manipulation}
+button.p{background:var(--sky);border-color:var(--sky);color:var(--bg)}
+button.ghost{border-color:transparent;color:var(--mute);font-weight:700}
+button.danger{border-color:rgba(229,50,45,.6);color:#ffb3ae}
+button:disabled{opacity:.35;cursor:default}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;margin-bottom:16px}
+.msg{min-height:20px;margin-top:8px;font-size:14px;color:#ffb3ae}
 .msg.ok{color:#9be3b0}
-.status{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:12px}
-.status b{font-size:18px}
-.pill{display:inline-flex;align-items:center;gap:8px;background:var(--red);border-radius:99px;padding:4px 12px;font-weight:800;font-size:13px;letter-spacing:.08em}
-.pill i{width:8px;height:8px;border-radius:50%;background:#fff}
-.now{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
-.now figure{margin:0;background:#00132e;border:1px solid var(--line);border-radius:10px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
-.now figure img{max-width:100%;max-height:100%;object-fit:contain}
-.now figcaption{position:absolute;left:8px;top:6px;font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);background:rgba(1,26,61,.8);padding:2px 6px;border-radius:5px}
-.nav{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-.nav button{min-height:84px;font-size:22px}
-.nav .full{grid-column:1/-1;min-height:52px;font-size:16px}
-.hint{font-size:13px;color:rgba(244,248,253,.6);margin:10px 0 0}
-ul{list-style:none;margin:12px 0 0;padding:0}
-li{display:flex;align-items:center;gap:8px;padding:8px;border-radius:10px;border:1px solid transparent}
-li.cur{border-color:var(--sky);background:rgba(90,184,232,.08)}
-li img{width:72px;height:44px;object-fit:cover;border-radius:6px;background:#00132e;flex:none}
-li .n{flex:1;font-size:14px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-li .n small{display:block;font-weight:500;color:rgba(244,248,253,.6)}
-li button{min-height:40px;padding:0 10px;font-size:13px}
 [hidden]{display:none!important}
+
+/* header */
+.top{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;margin-bottom:16px}
+.chips{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.chip{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);border-radius:99px;padding:6px 12px;font-size:13px;font-weight:700;background:var(--deep)}
+.chip i{width:8px;height:8px;border-radius:50%;background:#7a8794}
+.chip.ok i{background:#4ade80;box-shadow:0 0 8px #4ade80}
+.chip.bad i{background:var(--red)}
+.chip.live{background:var(--red);border-color:var(--red);cursor:pointer}
+.chip.live i{background:#fff;animation:pulse 1.6s infinite}
+.chip.timer{cursor:pointer;font-variant-numeric:tabular-nums}
+@keyframes pulse{50%{opacity:.3}}
+
+/* layout */
+.grid{display:grid;gap:16px}
+@media(min-width:960px){.grid{grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);align-items:start}.grid>.left{position:sticky;top:16px}}
+
+/* stage */
+.status{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:12px}
+.status b{font-size:20px}
+.status span{font-size:13px;color:var(--mute)}
+.now{display:grid;grid-template-columns:2fr 1fr;gap:10px;margin-bottom:12px;touch-action:pan-y}
+figure{margin:0;background:var(--deep);border:1px solid var(--line);border-radius:12px;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;overflow:hidden;position:relative}
+figure img{max-width:100%;max-height:100%;object-fit:contain}
+figure.on{border-color:var(--red);box-shadow:0 0 0 2px rgba(229,50,45,.35)}
+figcaption{position:absolute;left:8px;top:6px;font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--sky);background:rgba(1,26,61,.85);padding:2px 7px;border-radius:5px}
+figure.on figcaption{color:#fff;background:var(--red)}
+figure .empty{font-size:13px;color:var(--mute);text-align:center;padding:8px}
+.nav{display:grid;grid-template-columns:1fr 1.6fr;gap:10px}
+.nav button{min-height:88px;font-size:22px}
+.nav .full{grid-column:1/-1;min-height:52px;font-size:16px}
+.hint{font-size:13px;color:var(--mute);margin:10px 0 0}
+kbd{font:inherit;font-weight:800;border:1px solid var(--line);border-radius:5px;padding:0 5px}
+
+/* phone: fixed bar with Back / Next always under the thumb */
+.bar{display:none}
+@media(max-width:959px){
+  .nav .big{display:none}
+  .bar{display:grid;grid-template-columns:1fr 1.6fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(1,26,61,.96);border-top:1px solid var(--line);backdrop-filter:blur(8px)}
+  .bar button{min-height:64px;font-size:20px}
+}
+
+/* upload */
+.drop{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;text-align:center;border:2px dashed var(--line);border-radius:14px;padding:22px 14px;cursor:pointer;transition:background .2s,border-color .2s;margin-top:12px}
+.drop:hover,.drop.over{border-color:var(--sky);background:rgba(90,184,232,.08)}
+.drop b{font-size:16px}
+.drop small{color:var(--mute);font-size:13px}
+.prog{height:8px;border-radius:99px;background:var(--deep);overflow:hidden;margin-top:12px}
+.prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sky),var(--teal));transition:width .3s}
+
+/* slide grid */
+.head{display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tiles{display:grid;grid-template-columns:repeat(auto-fill,minmax(150px,1fr));gap:10px;margin:12px 0 0;padding:0;list-style:none}
+.tile{position:relative;border:2px solid transparent;border-radius:12px;background:var(--deep);overflow:hidden}
+.tile.cur{border-color:var(--red)}
+.tile.nx{border-color:var(--line)}
+.tile .show{display:block;width:100%;padding:0;border:0;border-radius:0;min-height:0;aspect-ratio:16/9;background:#000}
+.tile .show img{width:100%;height:100%;object-fit:contain;display:block}
+.tile .num{position:absolute;left:6px;top:6px;min-width:24px;height:24px;border-radius:99px;background:rgba(1,26,61,.9);font-size:12px;font-weight:800;display:flex;align-items:center;justify-content:center;padding:0 6px;pointer-events:none}
+.tile.cur .num{background:var(--red)}
+.tile .meta{display:flex;align-items:center;gap:2px;padding:4px}
+.tile .meta span{flex:1;font-size:12px;font-weight:700;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;padding-left:4px;color:var(--mute)}
+.tile .meta button{min-height:36px;min-width:36px;padding:0 6px;font-size:14px;border-color:transparent}
+.tile .meta button.arm{background:var(--red);color:#fff}
+.none{color:var(--mute);font-size:14px;padding:12px 0}
+@media(prefers-reduced-motion:reduce){.chip.live i{animation:none}.prog i{transition:none}}
 </style>
 </head>
 <body>
 <main>
-  <h1>LIVE remote</h1>
-  <p class="sub">Controls the slides on eflury.com/live. The TV follows within a second.</p>
+  <div class="top">
+    <div>
+      <h1>LIVE remote</h1>
+      <p class="sub">Slides for the TV at <a href="/live" target="_blank" rel="noopener">eflury.com/live</a>. The TV follows within a second.</p>
+    </div>
+    <div class="chips" id="chips" hidden>
+      <span class="chip" id="sync" role="status"><i></i><span>Connecting…</span></span>
+      <button class="chip timer" id="timer" type="button" title="Start, stop or reset the LIVE timer">⏱ <span>Start timer</span></button>
+    </div>
+  </div>
 
-  <section class="card" id="lock">
+  <section class="card" id="lock" style="max-width:560px">
+    <p style="margin:0 0 6px;font-size:15px;line-height:1.5">Enter the LIVE password to open the <b>slide upload</b> (images or a PDF) and the <b>Next / Back</b> controls.</p>
     <label for="pw">Password</label>
     <input id="pw" type="password" autocomplete="current-password">
     <div style="margin-top:12px"><button class="p" id="go" type="button">Unlock</button></div>
     <div class="msg" id="pwmsg" role="status"></div>
   </section>
 
-  <div id="app" hidden>
-    <section class="card" aria-label="Slide control">
-      <div class="status"><span class="pill"><i></i>ON TV</span><b id="pos">Backdrop</b></div>
-      <div class="now">
-        <figure><figcaption>Now</figcaption><img id="nowImg" alt=""></figure>
-        <figure><figcaption>Next</figcaption><img id="nextImg" alt=""></figure>
-      </div>
-      <div class="nav">
-        <button type="button" id="prev" aria-label="Previous slide">◀ Back</button>
-        <button type="button" class="p" id="next" aria-label="Next slide">Next ▶</button>
-        <button type="button" class="full" id="bd">Show backdrop (hide slides)</button>
-      </div>
-      <p class="hint">Keyboard or presenter clicker: → / Space / Page Down = next, ← / Page Up = back, B = backdrop.</p>
-      <div class="msg" id="navmsg" role="status"></div>
-    </section>
+  <div id="app" class="grid" hidden>
+    <div class="left">
+      <section class="card" aria-label="Slide control">
+        <div class="status"><b id="pos">Backdrop</b><span id="posSub"></span></div>
+        <div class="now" id="stage">
+          <figure id="nowFig"><figcaption id="nowCap">On TV</figcaption><img id="nowImg" alt=""><div class="empty" id="nowEmpty">Animated backdrop</div></figure>
+          <figure><figcaption>Next</figcaption><img id="nextImg" alt=""><div class="empty" id="nextEmpty">End</div></figure>
+        </div>
+        <div class="nav">
+          <button type="button" class="big" id="prev" aria-label="Previous slide">◀ Back</button>
+          <button type="button" class="p big" id="next" aria-label="Next slide">Next ▶</button>
+          <button type="button" class="full" id="bd">Show backdrop (hide slides)</button>
+        </div>
+        <p class="hint">Swipe the preview left or right on the phone. Keyboard or presenter clicker: <kbd>→</kbd> <kbd>Space</kbd> next, <kbd>←</kbd> back, <kbd>B</kbd> backdrop, <kbd>1</kbd>–<kbd>9</kbd> jump to a slide.</p>
+        <div class="msg" id="navmsg" role="status"></div>
+      </section>
+    </div>
 
-    <section class="card" aria-label="Upload slides">
-      <label for="files">Add slides: images (PNG, JPG, GIF, animated PNG, WebP) or a PDF</label>
-      <input id="files" type="file" multiple accept="image/png,image/apng,image/jpeg,image/gif,image/webp,application/pdf">
-      <div style="margin-top:12px"><button class="p" id="up" type="button">Upload</button></div>
-      <p class="hint">A PDF becomes one slide per page. Large images are shrunk to fit the TV. New slides go to the end.</p>
-      <div class="msg" id="upmsg" role="status"></div>
-    </section>
+    <div class="right">
+      <section class="card" aria-label="Upload slides">
+        <h2>Add slides</h2>
+        <input id="files" type="file" multiple accept="image/png,image/apng,image/jpeg,image/gif,image/webp,application/pdf" hidden>
+        <div class="drop" id="drop" role="button" tabindex="0" aria-describedby="dropHint">
+          <b>Drop images or a PDF here</b>
+          <small id="dropHint">or tap to choose · PNG, JPG, GIF, WebP, PDF (one slide per page) · uploads start right away</small>
+        </div>
+        <div class="prog" id="prog" hidden><i></i></div>
+        <div class="msg" id="upmsg" role="status"></div>
+      </section>
 
-    <section class="card" aria-label="Slides">
-      <h1 style="font-size:16px">Slides</h1>
-      <ul id="list"></ul>
-    </section>
+      <section class="card" aria-label="Slides">
+        <div class="head">
+          <h2 id="count">Slides</h2>
+          <button type="button" class="danger" id="clear" hidden>Delete all</button>
+        </div>
+        <ul class="tiles" id="list"></ul>
+      </section>
+    </div>
   </div>
 </main>
+
+<div class="bar" id="bar" hidden>
+  <button type="button" id="prev2" aria-label="Previous slide">◀ Back</button>
+  <button type="button" class="p" id="next2" aria-label="Next slide">Next ▶</button>
+</div>
+
 <script>
 (()=>{
 const $=id=>document.getElementById(id);
-const ss={get(){try{return sessionStorage.getItem('live-pw')}catch(e){return null}},set(v){try{sessionStorage.setItem('live-pw',v)}catch(e){}}};
+const store=(s,k)=>({get(){try{return s.getItem(k)}catch(e){return null}},set(v){try{v==null?s.removeItem(k):s.setItem(k,v)}catch(e){}}});
+const ss=store(sessionStorage,'live-pw'),ts=store(localStorage,'live-timer');
 let pw=ss.get()||'',state={ids:[],index:-1,v:-1},names={},busy=false;
 const slideUrl=id=>'/api/live/slide/'+encodeURIComponent(id)+'/';
+const buzz=()=>{try{navigator.vibrate&&navigator.vibrate(15)}catch(e){}};
+
 async function post(path,body){
   const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.assign({password:pw},body)),cache:'no-store'});
   let j={};try{j=await r.json()}catch(e){}
   if(r.status===401){lockUp('Password no longer accepted.');throw new Error('password')}
   if(!r.ok)throw new Error(j.error||'error');
+  synced(true);
   return j;
 }
-function lockUp(t){$('app').hidden=true;$('lock').hidden=false;$('pwmsg').textContent=t||''}
+function lockUp(t){$('app').hidden=true;$('bar').hidden=true;$('chips').hidden=true;$('lock').hidden=false;$('pwmsg').textContent=t||''}
 async function unlock(){
   const v=$('pw').value.trim()||pw;if(!v)return;pw=v;
   try{const r=await fetch('/api/live/state/',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:pw,action:'check'})});
-    if(r.status===401){$('pwmsg').textContent='Wrong password.';pw='';return}
+    if(r.status===401){$('pwmsg').textContent='Wrong password.';pw='';ss.set(null);return}
     if(!r.ok){$('pwmsg').textContent='The server is not reachable. Try again.';return}
-    ss.set(pw);$('pw').value='';$('lock').hidden=true;$('app').hidden=false;apply(await r.json());await loadNames();poll();
+    ss.set(pw);$('pw').value='';$('lock').hidden=true;$('app').hidden=false;$('bar').hidden=false;$('chips').hidden=false;
+    apply(await r.json());await loadNames();poll();wake();if(!ticking){ticking=true;tick()}
   }catch(e){$('pwmsg').textContent='The server is not reachable. Try again.'}
 }
 $('go').onclick=unlock;$('pw').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
+
+// ---- state ----
 function apply(s){
   if(!s||!Array.isArray(s.ids))return;
-  const changed=s.v!==state.v;state=s;
+  const changed=s.v!==state.v||s.ids.join()!==state.ids.join();state=s;
   const n=s.ids.length,i=s.index;
-  $('pos').textContent=i<0?(n?'Backdrop · '+n+' slides ready':'Backdrop · no slides yet'):'Slide '+(i+1)+' of '+n;
+  $('pos').textContent=i<0?'Backdrop on TV':'Slide '+(i+1)+' of '+n;
+  $('posSub').textContent=i<0?(n?n+' slide'+(n>1?'s':'')+' ready':'no slides yet'):(names[s.ids[i]]||'');
   const now=i>=0?s.ids[i]:null,nx=s.ids[i+1]||null;
-  $('nowImg').src=now?slideUrl(now):'';$('nowImg').style.visibility=now?'visible':'hidden';
-  $('nextImg').src=nx?slideUrl(nx):'';$('nextImg').style.visibility=nx?'visible':'hidden';
-  $('prev').disabled=i<0;$('next').disabled=i>=n-1;$('bd').disabled=i<0;
+  $('nowImg').hidden=!now;$('nowEmpty').hidden=!!now;if(now)$('nowImg').src=slideUrl(now);
+  $('nowFig').classList.toggle('on',!!now);
+  $('nextImg').hidden=!nx;$('nextEmpty').hidden=!!nx;if(nx)$('nextImg').src=slideUrl(nx);
+  $('nextEmpty').textContent=n?(i>=n-1?'Last slide':''):'Upload slides';
+  for(const k of ['prev','prev2'])$(k).disabled=i<0;
+  for(const k of ['next','next2'])$(k).disabled=i>=n-1;
+  $('bd').disabled=i<0;
   if(changed)renderList();
 }
-async function loadNames(){try{const r=await fetch('/api/live/slides/',{cache:'no-store'});const j=await r.json();names={};(j.slides||[]).forEach(x=>names[x.id]=x.name);renderList()}catch(e){}}
+async function loadNames(){try{const r=await fetch('/api/live/slides/',{cache:'no-store'});const j=await r.json();names={};(j.slides||[]).forEach(x=>names[x.id]=x.name);renderList();apply(Object.assign({},state,{v:state.v}))}catch(e){}}
 function renderList(){
-  const ul=$('list');ul.innerHTML='';
-  if(!state.ids.length){const li=document.createElement('li');li.textContent='No slides yet. Upload some above.';ul.appendChild(li);return}
+  const ul=$('list');ul.innerHTML='';const n=state.ids.length;
+  $('count').textContent=n?'Slides ('+n+')':'Slides';$('clear').hidden=!n;
+  if(!n){const li=document.createElement('li');li.className='none';li.textContent='No slides yet. Add some above; until then the TV shows the animated backdrop.';ul.appendChild(li);return}
   state.ids.forEach((id,i)=>{
-    const li=document.createElement('li');if(i===state.index)li.className='cur';
-    const im=document.createElement('img');im.src=slideUrl(id);im.alt='';im.loading='lazy';
-    const n=document.createElement('span');n.className='n';n.textContent=(i+1)+'. '+(names[id]||'Slide');
-    const b=(t,label,fn)=>{const x=document.createElement('button');x.type='button';x.textContent=t;x.setAttribute('aria-label',label);x.onclick=fn;return x};
-    li.append(im,n,
-      b('Show','Show slide '+(i+1)+' now',()=>act('state',{action:'go',index:i})),
-      b('↑','Move slide '+(i+1)+' up',()=>act('slides',{action:'move',id,dir:-1})),
-      b('↓','Move slide '+(i+1)+' down',()=>act('slides',{action:'move',id,dir:1})),
-      b('Delete','Delete slide '+(i+1),()=>{if(confirmDel(i))act('slides',{action:'delete',id})}));
-    ul.appendChild(li);
+    const li=document.createElement('li');li.className='tile'+(i===state.index?' cur':'')+(i===state.index+1?' nx':'');
+    const show=document.createElement('button');show.type='button';show.className='show';show.setAttribute('aria-label','Show slide '+(i+1)+' on the TV');
+    const im=document.createElement('img');im.src=slideUrl(id);im.alt='';im.loading='lazy';show.appendChild(im);
+    show.onclick=()=>act('state',{action:'go',index:i});
+    const num=document.createElement('span');num.className='num';num.textContent=i===state.index?'ON TV':String(i+1);
+    const meta=document.createElement('div');meta.className='meta';
+    const nm=document.createElement('span');nm.textContent=names[id]||'Slide';nm.title=names[id]||'';
+    const b=(t,label,fn,dis)=>{const x=document.createElement('button');x.type='button';x.textContent=t;x.setAttribute('aria-label',label);x.onclick=fn;x.disabled=!!dis;return x};
+    const del=b('✕','Delete slide '+(i+1),()=>{if(arm(del,i))act('slides',{action:'delete',id})});
+    meta.append(nm,
+      b('←','Move slide '+(i+1)+' earlier',()=>act('slides',{action:'move',id,dir:-1}),i===0),
+      b('→','Move slide '+(i+1)+' later',()=>act('slides',{action:'move',id,dir:1}),i===n-1),
+      del);
+    li.append(show,num,meta);ul.appendChild(li);
   });
 }
-let delArm=-1,delT;
-function confirmDel(i){if(delArm===i){delArm=-1;return true}delArm=i;$('navmsg').textContent='Tap Delete again to remove slide '+(i+1)+'.';clearTimeout(delT);delT=setTimeout(()=>{delArm=-1;$('navmsg').textContent=''},4000);return false}
+let armed=null,armT;
+function arm(btn,i){
+  if(armed===btn){armed=null;return true}
+  if(armed){armed.classList.remove('arm');armed.textContent='✕'}
+  armed=btn;btn.classList.add('arm');btn.textContent='Sure?';$('navmsg').textContent='';
+  clearTimeout(armT);armT=setTimeout(()=>{if(armed){armed.classList.remove('arm');armed.textContent='✕';armed=null}},4000);
+  return false;
+}
 async function act(kind,body){
   if(busy)return;busy=true;$('navmsg').textContent='';
-  try{const j=await post('/api/live/'+kind+'/',body);apply(j.state||j);if(kind==='slides')await loadNames()}
-  catch(e){if(e.message!=='password')$('navmsg').textContent='Not sent. Check the connection and try again.'}
+  try{const j=await post('/api/live/'+kind+'/',body);apply(j.state||j);if(kind==='slides')await loadNames();if(kind==='state')buzz()}
+  catch(e){if(e.message!=='password'){$('navmsg').textContent='Not sent. Check the connection and try again.';synced(false)}}
   busy=false;
 }
-$('next').onclick=()=>act('state',{action:'next'});
-$('prev').onclick=()=>act('state',{action:'prev'});
-$('bd').onclick=()=>act('state',{action:'backdrop'});
+const next=()=>act('state',{action:'next'}),prev=()=>act('state',{action:'prev'}),backdrop=()=>act('state',{action:'backdrop'});
+$('next').onclick=$('next2').onclick=next;
+$('prev').onclick=$('prev2').onclick=prev;
+$('bd').onclick=backdrop;
 document.addEventListener('keydown',e=>{
-  if($('app').hidden||e.target.closest('input'))return;
-  if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();act('state',{action:'next'})}
-  else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();act('state',{action:'prev'})}
-  else if(e.key.toLowerCase()==='b')act('state',{action:'backdrop'});
+  if($('app').hidden||e.target.closest('input')||e.metaKey||e.ctrlKey||e.altKey)return;
+  if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next()}
+  else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}
+  else if(e.key.toLowerCase()==='b'||e.key==='Escape'||e.key==='.')backdrop();
+  else if(/^[1-9]$/.test(e.key)&&+e.key<=state.ids.length)act('state',{action:'go',index:+e.key-1});
 });
+// swipe on the preview: left = next, right = back
+{let x0=null,y0=0;const st=$('stage');
+  st.addEventListener('touchstart',e=>{x0=e.touches[0].clientX;y0=e.touches[0].clientY},{passive:true});
+  st.addEventListener('touchend',e=>{if(x0==null)return;const dx=e.changedTouches[0].clientX-x0,dy=e.changedTouches[0].clientY-y0;x0=null;
+    if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5)(dx<0?next:prev)()},{passive:true});}
+
+// ---- sync status ----
+let lastOk=0;
+function synced(ok){if(ok)lastOk=Date.now();const c=$('sync');c.classList.toggle('ok',ok);c.classList.toggle('bad',!ok);c.lastChild.textContent=ok?'Connected':'Offline · retrying'}
 let pollT;
-async function poll(){clearTimeout(pollT);try{const r=await fetch('/api/live/state/',{cache:'no-store'});if(r.ok){const s=await r.json();const had=state.ids.join();apply(s);if(s.ids.join()!==had)loadNames()}}catch(e){}pollT=setTimeout(poll,2000)}
+async function poll(){clearTimeout(pollT);
+  try{const r=await fetch('/api/live/state/',{cache:'no-store'});if(r.ok){const s=await r.json();const had=state.ids.join();apply(s);synced(true);if(s.ids.join()!==had)loadNames()}else synced(false)}
+  catch(e){synced(false)}
+  pollT=setTimeout(poll,document.hidden?5000:1500)}
+document.addEventListener('visibilitychange',()=>{if(!document.hidden&&!$('app').hidden){poll();wake()}});
+
+// ---- keep the phone screen on during the LIVE ----
+let lock=null;
+async function wake(){try{if('wakeLock' in navigator&&!lock){lock=await navigator.wakeLock.request('screen');lock.addEventListener('release',()=>{lock=null})}}catch(e){}}
+
+let ticking=false;
+// ---- LIVE timer: tap to start, tap again to stop, long press to reset ----
+function timerState(){try{return JSON.parse(ts.get()||'null')}catch(e){return null}}
+function tick(){
+  const t=timerState(),el=$('timer'),lab=el.lastChild;
+  if(!t){lab.textContent='Start timer';el.classList.remove('live')}
+  else{const ms=(t.run?Date.now()-t.start:0)+(t.acc||0),s=Math.floor(ms/1000),h=Math.floor(s/3600),m=Math.floor(s/60)%60,sec=s%60;
+    lab.textContent=(h?h+':'+String(m).padStart(2,'0'):m)+':'+String(sec).padStart(2,'0')+(t.run?'':' (paused)');el.classList.toggle('live',!!t.run)}
+  setTimeout(tick,1000-Date.now()%1000);
+}
+{const el=$('timer');let pressT,long=false;
+  el.addEventListener('pointerdown',()=>{long=false;pressT=setTimeout(()=>{long=true;ts.set(null);buzz();tick()},700)});
+  el.addEventListener('pointerup',()=>clearTimeout(pressT));el.addEventListener('pointerleave',()=>clearTimeout(pressT));
+  el.addEventListener('click',()=>{if(long)return;const t=timerState();
+    if(!t)ts.set(JSON.stringify({run:true,start:Date.now(),acc:0}));
+    else if(t.run)ts.set(JSON.stringify({run:false,acc:(t.acc||0)+Date.now()-t.start}));
+    else ts.set(JSON.stringify({run:true,start:Date.now(),acc:t.acc||0}));
+    tick()});
+  el.title='Tap: start / pause · hold: reset';}
+
+// ---- delete all ----
+let clearArm=false,clearT;
+$('clear').onclick=async()=>{
+  if(!clearArm){clearArm=true;$('clear').textContent='Tap again to delete all';clearTimeout(clearT);clearT=setTimeout(()=>{clearArm=false;$('clear').textContent='Delete all'},4000);return}
+  clearArm=false;$('clear').disabled=true;$('clear').textContent='Deleting…';
+  try{if(state.index>=0)apply(await post('/api/live/state/',{action:'backdrop'}));
+    for(const id of [...state.ids]){const j=await post('/api/live/slides/',{action:'delete',id});apply(j.state)}}
+  catch(e){if(e.message!=='password')$('navmsg').textContent='Not everything was deleted. Try again.'}
+  await loadNames();$('clear').disabled=false;$('clear').textContent='Delete all';
+};
 
 // ---- upload ----
 const MAX=900*1024;
 const toB64=b=>new Promise((res,rej)=>{const r=new FileReader();r.onload=()=>res(String(r.result).split(',')[1]);r.onerror=rej;r.readAsDataURL(b)});
-async function shrink(src){ // src: image element or canvas, returns a JPEG blob under MAX
+async function shrink(src){ // image element or canvas -> JPEG blob under MAX
   const w0=src.naturalWidth||src.width,h0=src.naturalHeight||src.height;let scale=Math.min(1,1920/Math.max(w0,h0)),q=.9;
   for(let k=0;k<8;k++){const c=document.createElement('canvas');c.width=Math.round(w0*scale);c.height=Math.round(h0*scale);const x=c.getContext('2d');x.fillStyle='#011a3d';x.fillRect(0,0,c.width,c.height);x.drawImage(src,0,0,c.width,c.height);
     const b=await new Promise(r=>c.toBlob(r,'image/jpeg',q));if(b&&b.size<=MAX)return b;q=Math.max(.6,q-.1);if(q<=.6)scale*=.8}
@@ -169,8 +319,10 @@ async function shrink(src){ // src: image element or canvas, returns a JPEG blob
 }
 let pdfjs=null;
 async function loadPdf(){if(pdfjs)return pdfjs;await new Promise((res,rej)=>{const s=document.createElement('script');s.src='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js';s.onload=res;s.onerror=rej;document.head.appendChild(s)});pdfjs=window.pdfjsLib;pdfjs.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';return pdfjs}
+const isPdf=f=>f.type==='application/pdf'||/\.pdf$/i.test(f.name);
+async function pageCount(f){if(!isPdf(f))return 1;try{const lib=await loadPdf();const d=await lib.getDocument({data:await f.arrayBuffer()}).promise;return Math.min(d.numPages,100)}catch(e){return 1}}
 async function* parts(f){
-  if(f.type==='application/pdf'||/\.pdf$/i.test(f.name)){
+  if(isPdf(f)){
     const lib=await loadPdf();const doc=await lib.getDocument({data:await f.arrayBuffer()}).promise;
     for(let p=1;p<=Math.min(doc.numPages,100);p++){const page=await doc.getPage(p);const v1=page.getViewport({scale:1});const vp=page.getViewport({scale:Math.min(3,1920/Math.max(v1.width,v1.height))});
       const c=document.createElement('canvas');c.width=Math.round(vp.width);c.height=Math.round(vp.height);await page.render({canvasContext:c.getContext('2d'),viewport:vp}).promise;
@@ -183,18 +335,36 @@ async function* parts(f){
   const im=new Image();im.src=URL.createObjectURL(f);await im.decode();const b=await shrink(im);URL.revokeObjectURL(im.src);
   yield {blob:b,type:'image/jpeg',name:base};
 }
-$('up').onclick=async()=>{
-  const fs=[...$('files').files];const m=$('upmsg');m.classList.remove('ok');
-  if(!fs.length){m.textContent='Choose one or more files first.';return}
-  $('up').disabled=true;let n=0,fail=0;
+let uploading=false;
+async function upload(fs){
+  fs=[...fs].filter(f=>isPdf(f)||/^image\//.test(f.type)||/\.(png|jpe?g|gif|webp|apng)$/i.test(f.name));
+  const m=$('upmsg'),bar=$('prog'),fill=bar.firstChild;m.classList.remove('ok');
+  if(!fs.length){m.textContent='Those files are not images or PDFs.';return}
+  if(uploading)return;uploading=true;$('drop').setAttribute('aria-disabled','true');
+  let total=0;for(const f of fs)total+=await pageCount(f);
+  let n=0,fail=0;bar.hidden=false;fill.style.width='0%';
   for(const f of fs){
-    try{for await(const p of parts(f)){m.classList.add('ok');m.textContent='Uploading '+p.name+'…';
-        const j=await post('/api/live/slides/',{action:'add',name:p.name,type:p.type,data:await toB64(p.blob)});apply(j.state);n++}}
+    try{for await(const p of parts(f)){m.classList.add('ok');m.textContent='Uploading '+(n+1)+' of '+total+': '+p.name+'…';
+        const j=await post('/api/live/slides/',{action:'add',name:p.name,type:p.type,data:await toB64(p.blob)});apply(j.state);n++;fill.style.width=Math.round(n/total*100)+'%'}}
     catch(e){if(e.message==='password')break;fail++}
   }
-  await loadNames();$('up').disabled=false;$('files').value='';
-  m.classList.toggle('ok',!fail);m.textContent=(n?n+' slide'+(n>1?'s':'')+' added.':'')+(fail?' '+fail+' file'+(fail>1?'s':'')+' could not be added (a PDF that will not open, or a file that is not an image).':'');
-};
+  await loadNames();uploading=false;$('drop').removeAttribute('aria-disabled');$('files').value='';
+  setTimeout(()=>{bar.hidden=true},1200);
+  m.classList.toggle('ok',!fail);
+  m.textContent=(n?'✓ '+n+' slide'+(n>1?'s':'')+' added. ':'')+(fail?fail+' file'+(fail>1?'s':'')+' could not be added (a PDF that will not open, a file that is not an image, or the 100-slide limit).':'');
+}
+const drop=$('drop');
+drop.onclick=()=>{if(!uploading)$('files').click()};
+drop.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();drop.click()}});
+$('files').onchange=()=>{if($('files').files.length)upload($('files').files)};
+['dragenter','dragover'].forEach(t=>drop.addEventListener(t,e=>{e.preventDefault();drop.classList.add('over')}));
+['dragleave','drop'].forEach(t=>drop.addEventListener(t,e=>{e.preventDefault();drop.classList.remove('over')}));
+drop.addEventListener('drop',e=>{if(e.dataTransfer&&e.dataTransfer.files.length)upload(e.dataTransfer.files)});
+// dropping anywhere on the page also works; stop the browser from opening the file
+document.addEventListener('dragover',e=>e.preventDefault());
+document.addEventListener('drop',e=>{e.preventDefault();if(!$('app').hidden&&e.dataTransfer&&e.dataTransfer.files.length&&!drop.contains(e.target))upload(e.dataTransfer.files)});
+// paste a screenshot straight in
+document.addEventListener('paste',e=>{if($('app').hidden)return;const fs=[...(e.clipboardData?.files||[])];if(fs.length){e.preventDefault();upload(fs)}});
 
 if(pw)unlock();
 })();
