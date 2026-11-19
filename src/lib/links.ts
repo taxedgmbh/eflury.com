@@ -20,6 +20,7 @@ export const LINK_KEYS = [
   'note',
   'taxed',
   'skopa',
+  'estate',
   'whatsapp',
   'contact',
   'website',

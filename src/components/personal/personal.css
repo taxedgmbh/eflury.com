@@ -964,6 +964,24 @@
   .lk-video-text small { color: var(--text-blue); font-weight: 700; font-size: 0.75rem; letter-spacing: 0.12em; text-transform: uppercase; }
   .lk-video-text b { font-family: 'Montserrat', var(--font-sans, sans-serif); font-weight: 700; font-size: 1rem; line-height: 1.3; color: #fff; }
 
+  .lk-eyebrow { margin: 14px 0 0; color: var(--text-blue); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; text-align: center; }
+  .lk-h2 { margin: -4px 0 2px; text-align: center; font-family: 'Montserrat', var(--font-sans, sans-serif); font-weight: 800; font-size: 1.3rem; color: var(--eflury-white); text-wrap: balance; }
+  .lk-ventures { display: flex; flex-direction: column; gap: 12px; }
+  .lk .lk-venture {
+    display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: 18px;
+    background: rgb(255 255 255 / 0.05); border: 1px solid rgb(255 255 255 / 0.14); color: var(--eflury-white);
+    text-decoration: none; transition: border-color 0.15s, background 0.15s, transform 0.15s var(--ease-out);
+  }
+  .lk .lk-venture:hover { border-color: var(--eflury-blue); background: rgb(255 255 255 / 0.08); transform: translateY(-2px); }
+  .lk-venture:focus-visible { outline: 3px solid var(--action-teal); outline-offset: 3px; }
+  .lk-v-logo { flex: none; display: grid; place-items: center; width: 64px; height: 48px; }
+  .lk-v-logo img { max-width: 64px; max-height: 36px; width: auto; height: auto; border-radius: 6px; }
+  .lk-v-text { min-width: 0; display: flex; flex-direction: column; gap: 3px; }
+  .lk-v-text small { color: var(--text-blue); font-weight: 700; font-size: 0.72rem; letter-spacing: 0.12em; text-transform: uppercase; }
+  .lk-v-text b { font-family: 'Montserrat', var(--font-sans, sans-serif); font-weight: 800; font-size: 1.1rem; }
+  .lk-v-text span { font-size: 0.88rem; line-height: 1.45; opacity: 0.78; }
+  .lk-v-text em { display: inline-flex; align-items: center; gap: 4px; margin-top: 4px; font-style: normal; font-weight: 700; font-size: 0.88rem; color: var(--text-blue); }
+
   .lk-social { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; list-style: none; margin: 14px 0 0; padding: 0; }
   .lk .lk-social a { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid rgb(255 255 255 / 0.35); color: #fff !important; transition: background 0.15s, border-color 0.15s; }
   .lk-social a:hover { background: rgb(255 255 255 / 0.12); border-color: #fff; }

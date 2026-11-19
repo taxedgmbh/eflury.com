@@ -1,9 +1,10 @@
 import type { Metadata } from 'next';
-import { ArrowUpRight, Mail, MessageCircle, Play, Contact, Globe, FileText, Receipt, Atom } from 'lucide-react';
+import { ArrowUpRight, Mail, MessageCircle, Play, Contact, Globe, FileText } from 'lucide-react';
 import { HeroNetwork } from './HeroNetwork';
 import { LinksClient } from './LinksClient';
 import { SocialIcon } from './SocialIcon';
 import { SOCIALS, WHATSAPP } from './data';
+import { ventures } from './PersonalHome';
 import { getNotes } from '@/lib/notes';
 import { getLatestVideos, PINNED_VIDEO, YT_HANDLE_URL } from '@/lib/youtube';
 
@@ -147,13 +148,41 @@ export async function LinksView() {
           </span>
         </a>
 
+        {/* Same names, tags, texts and logos as the Ventures section on eflury.com. */}
+        <section className="lk-ventures" aria-labelledby="lk-ventures-title">
+          <p className="lk-eyebrow" id="lk-ventures-title">
+            Ventures
+          </p>
+          <h2 className="lk-h2">Three businesses. One standard.</h2>
+          {ventures('en').map((v) => {
+            const external = !v.href.startsWith('#');
+            const href = external ? v.href.replace('utm_campaign=ventures', 'utm_campaign=links') : `/en/${v.href}`;
+            const k = v.name.startsWith('Skopa') ? 'skopa' : v.name.startsWith('Taxed') ? 'taxed' : 'estate';
+            return (
+              <a key={v.name} className="lk-venture" href={href} data-k={k} {...(external ? { target: '_blank', rel: 'noopener' } : {})}>
+                <span className="lk-v-logo" aria-hidden>
+                  {/* eslint-disable-next-line @next/next/no-img-element -- small brand mark */}
+                  <img src={v.logo.src} alt="" width={v.logo.w} height={v.logo.h} />
+                </span>
+                <span className="lk-v-text">
+                  <small>{v.tag}</small>
+                  <b>{v.name}</b>
+                  <span>{v.text}</span>
+                  <em>
+                    {v.cta} <ArrowUpRight size={14} aria-hidden />
+                  </em>
+                </span>
+              </a>
+            );
+          })}
+        </section>
+
+        <p className="lk-eyebrow">Stay in touch</p>
         <Btn k="newsletter" href="/en/notes/#nl-notes-title" icon={<Mail size={20} />} title="Get my notes by email" sub="Free · tech, tax and real estate" external={false} />
         <Btn k="youtube" href={`${YT_HANDLE_URL}?sub_confirmation=1`} icon={<Play size={20} />} title="Subscribe on YouTube" sub="@emanuelflury" />
         {note && (
           <Btn k="note" href={`/en/notes/${note.slug}/`} icon={<FileText size={20} />} title={note.title} sub="Latest note" external={false} />
         )}
-        <Btn k="taxed" href="https://taxed.ch" icon={<Receipt size={20} />} title="Tax help for expats" sub="Taxed GmbH · Biel/Bienne" />
-        <Btn k="skopa" href="https://skopa.ai" icon={<Atom size={20} />} title="AI and quantum computing" sub="Skopa AG · Grenchen" />
         <Btn k="whatsapp" href={WHATSAPP} icon={<MessageCircle size={20} />} title="Message me on WhatsApp" />
         <Btn k="contact" href="/press/emanuel-flury.vcf" icon={<Contact size={20} />} title="Save my contact" sub="Adds me to your phone" external={false} />
         <Btn k="website" href="/en/" icon={<Globe size={20} />} title="eflury.com" sub="My story, ventures and press kit" external={false} />

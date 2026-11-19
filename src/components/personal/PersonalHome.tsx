@@ -13,7 +13,7 @@ import { REGISTRY, roles } from './data';
 import { YT_HANDLE_URL } from '@/lib/youtube';
 import { PAGES, pick, type Lang } from '@/lib/i18n';
 
-type Venture = {
+export type Venture = {
   tag: string;
   name: string;
   text: string;
@@ -30,7 +30,8 @@ const CANTON: Record<Lang, Record<string, string>> = {
   fr: { Bern: 'Berne', Solothurn: 'Soleure' },
 };
 
-function ventures(lang: Lang): Venture[] {
+/** Also used by the link page (LinksView), so names, tags, texts and logos match. */
+export function ventures(lang: Lang): Venture[] {
   const t = (en: string, de: string) => pick(lang, en, de);
   const r = roles(lang);
   return [
