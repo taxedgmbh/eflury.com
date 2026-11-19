@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
-import Link from 'next/link';
 import { ArrowUpRight, Mail, MessageCircle, Play, Contact } from 'lucide-react';
 import { HeroNetwork } from './HeroNetwork';
 import { LinksClient } from './LinksClient';
+import { NewsletterForm } from './NewsletterForm';
 import { SocialIcon } from './SocialIcon';
 import { SOCIALS, WHATSAPP, type SocialName } from './data';
 import { ventures } from './PersonalHome';
@@ -202,12 +202,6 @@ export async function LinksView() {
           </p>
           <ul className="lk-touch">
             <li>
-              <Link href="/en/notes/#nl-notes-title" data-k="newsletter">
-                <Mail size={22} aria-hidden />
-                <span>Notes by email</span>
-              </Link>
-            </li>
-            <li>
               <a href={WHATSAPP} target="_blank" rel="noopener" data-k="whatsapp">
                 <MessageCircle size={22} aria-hidden />
                 <span>WhatsApp</span>
@@ -221,6 +215,18 @@ export async function LinksView() {
               </a>
             </li>
           </ul>
+        </section>
+
+        {/* Email sign-up right on the page (double opt-in, same form as the homepage). */}
+        <section className="lk-nl" aria-labelledby="lk-nl-title" data-ksubmit="newsletter">
+          <span className="lk-nl-ic" aria-hidden>
+            <Mail size={22} />
+          </span>
+          <h2 className="lk-h2" id="lk-nl-title">
+            Get my notes by email
+          </h2>
+          <p className="lk-nl-lead">What I learn while building: tech, tax and real estate. Free, no spam, unsubscribe anytime.</p>
+          <NewsletterForm id="nl-links" lang="en" />
         </section>
       </main>
 

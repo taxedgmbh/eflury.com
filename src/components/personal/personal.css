@@ -1019,7 +1019,7 @@
   .lk[data-src]:not([data-src='direct']) .lk-follow li:last-child a { flex-direction: column; align-items: flex-start; }
   .lk[data-src]:not([data-src='direct']) .lk-follow li:last-child a .lk-f-cta { margin: auto 0 0; }
 
-  .lk-touch { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; list-style: none; margin: 4px 0 0; padding: 0; }
+  .lk-touch { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; list-style: none; margin: 4px 0 0; padding: 0; }
   .lk .lk-touch a {
     display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 6px; min-height: 84px; padding: 10px 6px;
     border-radius: 16px; background: rgb(255 255 255 / 0.05); border: 1px solid rgb(255 255 255 / 0.14); color: var(--eflury-white);
@@ -1028,6 +1028,20 @@
   .lk .lk-touch a:hover { border-color: var(--eflury-blue); background: rgb(255 255 255 / 0.08); }
   .lk-touch a:focus-visible { outline: 3px solid var(--action-teal); outline-offset: 3px; }
   .lk-touch svg { color: var(--text-blue); }
+
+  .lk-nl {
+    margin-top: 18px; padding: 22px 18px; border-radius: 20px; text-align: center;
+    background: linear-gradient(160deg, rgb(20 144 208 / 0.28), rgb(255 255 255 / 0.04)); border: 1px solid rgb(90 184 232 / 0.35);
+  }
+  .lk-nl-ic { display: inline-grid; place-items: center; width: 46px; height: 46px; margin-bottom: 8px; border-radius: 50%; background: var(--eflury-white); color: var(--surface-navy); }
+  .lk-nl .lk-h2 { margin: 0; }
+  .lk-nl-lead { margin: 6px 0 14px; font-size: 0.92rem; line-height: 1.45; color: rgb(255 255 255 / 0.8); }
+  .lk-nl .nl { text-align: left; }
+  .lk-nl .nl-label { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+  .lk-nl .nl-row { flex-direction: column; }
+  .lk-nl .nl-input { flex: none; width: 100%; }
+  .lk-nl .nl-row .pf-btn { width: 100%; justify-content: center; }
+  .lk-nl .nl-small { font-size: 0.78rem; text-align: center; }
 
   .lk-social { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; list-style: none; margin: 14px 0 0; padding: 0; }
   .lk .lk-social a { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 50%; border: 1.5px solid rgb(255 255 255 / 0.35); color: #fff !important; transition: background 0.15s, border-color 0.15s; }

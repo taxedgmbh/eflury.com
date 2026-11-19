@@ -39,6 +39,12 @@ export function LinksClient() {
       if (a?.dataset.k) beacon(a.dataset.k);
     };
     document.addEventListener('click', onClick);
+    // Newsletter sign-ups: counted when the form is sent, not when the field is tapped.
+    const onSubmit = (e: SubmitEvent) => {
+      const k = (e.target as Element | null)?.closest<HTMLElement>('[data-ksubmit]')?.dataset.ksubmit;
+      if (k) beacon(k);
+    };
+    document.addEventListener('submit', onSubmit);
     let t = 0;
     const check = async () => {
       window.clearTimeout(t);
@@ -53,6 +59,7 @@ export function LinksClient() {
     document.addEventListener('visibilitychange', vis);
     return () => {
       document.removeEventListener('click', onClick);
+      document.removeEventListener('submit', onSubmit);
       document.removeEventListener('visibilitychange', vis);
       window.clearTimeout(t);
     };
