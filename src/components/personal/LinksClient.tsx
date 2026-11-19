@@ -66,6 +66,7 @@ export function LinksClient() {
         <b>I’m LIVE on TikTok now</b>
         <small>Tap to join</small>
       </span>
+      <span className="lk-sr"> (opens in a new tab)</span>
     </a>
   );
 }

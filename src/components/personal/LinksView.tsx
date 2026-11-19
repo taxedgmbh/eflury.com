@@ -136,6 +136,7 @@ export async function LinksView() {
                       <small>{s.handle}</small>
                     </span>
                     <span className="lk-f-cta">{f.cta}</span>
+                    <span className="lk-sr"> (opens in a new tab)</span>
                   </a>
                 </li>
               );
@@ -155,6 +156,7 @@ export async function LinksView() {
             <small>Latest video</small>
             <b>{video.title}</b>
           </span>
+          <span className="lk-sr"> (opens in a new tab)</span>
         </a>
 
         {/* Same names, tags, texts and logos as the Ventures section on eflury.com. */}
@@ -180,6 +182,7 @@ export async function LinksView() {
                   <em>
                     {v.cta} <ArrowUpRight size={14} aria-hidden />
                   </em>
+                  {external && <span className="lk-sr"> (opens in a new tab)</span>}
                 </span>
               </a>
             );
@@ -201,6 +204,7 @@ export async function LinksView() {
               <a href={WHATSAPP} target="_blank" rel="noopener" data-k="whatsapp">
                 <MessageCircle size={22} aria-hidden />
                 <span>WhatsApp</span>
+                <span className="lk-sr"> (opens in a new tab)</span>
               </a>
             </li>
             <li>
