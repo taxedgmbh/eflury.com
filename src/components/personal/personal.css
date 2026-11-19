@@ -977,7 +977,13 @@
 
   .lk-eyebrow { margin: 18px 0 0; color: var(--text-blue); font-weight: 700; font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase; text-align: center; }
   .lk-h2 { margin: -4px 0 2px; text-align: center; font-family: 'Montserrat', var(--font-sans, sans-serif); font-weight: 800; font-size: 1.3rem; color: var(--eflury-white); text-wrap: balance; }
-  .lk-ventures { display: flex; flex-direction: column; gap: 12px; }
+  .lk-ventures, .lk-sec { display: flex; flex-direction: column; gap: 12px; margin-top: 30px; }
+  .lk-followbox { margin-top: 10px; }
+  /* Photo-filled section words, as on the homepage, smaller. */
+  .lk .bw { margin: 0 0 -6px; font-size: clamp(2.6rem, 13.5vw, 3.6rem); }
+  .lk .bw + .lk-eyebrow { margin-top: 6px; }
+  .lk-v-logo-light { background: #fffaf0; border-radius: 14px; padding: 2px; }
+  .lk-v-logo-light img { max-height: 46px; }
   .lk .lk-venture {
     display: flex; align-items: flex-start; gap: 14px; padding: 16px; border-radius: 18px;
     background: rgb(255 255 255 / 0.05); border: 1px solid rgb(255 255 255 / 0.14); color: var(--eflury-white);

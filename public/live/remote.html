@@ -429,7 +429,7 @@ pv.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')hud()});
 
 // ---- link page: "LIVE now" switch and anonymous counts ----
 let onAir=false;
-const LKNAMES={view:'Page visits',live:'LIVE button',video:'Latest video',newsletter:'Newsletter',youtube:'YouTube subscribe',note:'Latest note',taxed:'Taxed GmbH',skopa:'Skopa AG',estate:'EF Real Estate',whatsapp:'WhatsApp',contact:'Save contact',website:'eflury.com'};
+const LKNAMES={view:'Page visits',live:'LIVE button',video:'Latest video',newsletter:'Newsletter',youtube:'YouTube subscribe',note:'Latest note',taxed:'Taxed GmbH',skopa:'Skopa AG',estate:'EF Real Estate','partner-mglow':'Partner: Mesmerizing Glow','partner-mariyah':'Partner: Mariyah Gaga',whatsapp:'WhatsApp',contact:'Save contact',website:'eflury.com'};
 function renderOnAir(){const b=$('onair');b.setAttribute('aria-pressed',String(onAir));b.textContent=onAir?'● LIVE now is showing · tap to hide':'Show “LIVE now” on the link page'}
 function renderStats(months){
   const m=(months||[])[0];if(!m){$('lkstats').innerHTML='';return}
