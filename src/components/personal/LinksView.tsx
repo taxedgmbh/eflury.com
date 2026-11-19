@@ -92,8 +92,15 @@ export async function LinksView() {
       <header className="lk-hero">
         <Rule />
         <Rule flip />
-        {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
-        <img className="lk-mark" src="/images/ef-mark-white.svg" alt="" width={250} height={200} />
+        {/* Cut-out portrait (press kit) popping out of a brand circle, EF mark as a badge. */}
+        <div className="lk-avatar">
+          {/* eslint-disable-next-line @next/next/no-img-element -- 38 KB cut-out, sized in CSS */}
+          <img className="lk-avatar-img" src="/images/me/avatar-cutout-480.webp" alt="Emanuel Flury" width={480} height={480} fetchPriority="high" />
+          <span className="lk-avatar-mark" aria-hidden>
+            {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
+            <img src="/images/ef-mark-white.svg" alt="" width={250} height={200} />
+          </span>
+        </div>
         <div className="bh-word lk-word">
           <h1 className="bh-fill bh-fill-0" style={{ backgroundImage: `url(/images/hero/${FILLS[0]}.webp)` }}>
             EMANUEL

@@ -923,7 +923,23 @@
 .lk { position: relative; min-height: 100svh; background: var(--surface-navy); color: var(--eflury-white); isolation: isolate; overflow-x: hidden; padding: 0 16px 32px; }
   .lk-bg { position: fixed; inset: 0; z-index: -1; pointer-events: none; }
   .lk-hero { position: relative; max-width: 480px; margin: 0 auto; padding: 44px 0 26px; text-align: center; }
-  .lk-mark { display: block; width: 52px; height: auto; margin: 0 auto 16px; animation: bh-rise 0.9s var(--ease-out) both; }
+  .lk-avatar { position: relative; width: 150px; height: 150px; margin: 18px auto 18px; animation: bh-rise 0.9s var(--ease-out) both; }
+  .lk-avatar::before {
+    content: ''; position: absolute; inset: 0; border-radius: 50%;
+    background: radial-gradient(circle at 50% 35%, var(--text-blue), var(--eflury-blue) 45%, #03306b 100%);
+    box-shadow: 0 0 0 3px rgb(255 255 255 / 0.9), 0 0 0 8px rgb(90 184 232 / 0.25), 0 14px 40px rgb(0 0 0 / 0.45);
+  }
+  /* The head rises above the circle; the bottom half is cut to the circle. */
+  .lk-avatar-img {
+    position: absolute; left: -12px; bottom: 0; width: 174px; height: 174px; max-width: none;
+    clip-path: inset(0 12px 0 12px round 0 0 75px 75px);
+    filter: drop-shadow(0 6px 10px rgb(0 0 0 / 0.35));
+  }
+  .lk-avatar-mark {
+    position: absolute; right: -4px; bottom: 2px; display: grid; place-items: center; width: 44px; height: 44px; border-radius: 50%;
+    background: var(--surface-navy); box-shadow: 0 0 0 3px rgb(255 255 255 / 0.9), 0 4px 12px rgb(0 0 0 / 0.4);
+  }
+  .lk-avatar-mark img { width: 26px; height: auto; }
   .lk-word { font-size: clamp(2.7rem, 15vw, 4.1rem); filter: drop-shadow(0 12px 28px rgb(0 0 0 / 0.45)); }
   .lk-sub { margin: 14px 0 0; padding-left: 0.4em; color: var(--text-blue); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.4em; }
   .lk-lead { margin: 10px 0 0; font-family: 'Montserrat', var(--font-sans, sans-serif); font-weight: 700; font-size: 1.05rem; }
@@ -1027,7 +1043,7 @@
   .lk-foot a:hover { color: #fff; text-decoration: underline; }
 
   @media (prefers-reduced-motion: reduce) {
-    .lk-live, .lk-live-dot, .lk-mark { animation: none; }
+    .lk-live, .lk-live-dot, .lk-avatar { animation: none; }
     .lk-btn, .lk-video img { transition: none; }
   }
 
