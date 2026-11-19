@@ -32,6 +32,8 @@ export function LinksClient() {
 
   useEffect(() => {
     beacon('view');
+    // Hide the follow tile of the platform the visitor came from.
+    document.querySelector('.lk')?.setAttribute('data-src', source());
     const onClick = (e: MouseEvent) => {
       const a = (e.target as Element | null)?.closest<HTMLElement>('[data-k]');
       if (a?.dataset.k) beacon(a.dataset.k);

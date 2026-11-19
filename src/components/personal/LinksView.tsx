@@ -1,11 +1,11 @@
 import type { Metadata } from 'next';
-import { ArrowUpRight, Mail, MessageCircle, Play, Contact, Globe, FileText } from 'lucide-react';
+import Link from 'next/link';
+import { ArrowUpRight, Mail, MessageCircle, Play, Contact } from 'lucide-react';
 import { HeroNetwork } from './HeroNetwork';
 import { LinksClient } from './LinksClient';
 import { SocialIcon } from './SocialIcon';
-import { SOCIALS, WHATSAPP } from './data';
+import { SOCIALS, WHATSAPP, type SocialName } from './data';
 import { ventures } from './PersonalHome';
-import { getNotes } from '@/lib/notes';
 import { getLatestVideos, PINNED_VIDEO, YT_HANDLE_URL } from '@/lib/youtube';
 
 /*
@@ -31,6 +31,17 @@ export const linksMetadata: Metadata = {
 };
 
 const FILLS = ['palms', 'sky', 'arches', 'city'];
+
+/** Follow tiles, most important first. net matches the ?s= source of the short addresses. */
+const FOLLOW: { name: SocialName; net: string; cta: string; href?: string }[] = [
+  { name: 'Instagram', net: 'instagram', cta: 'Follow' },
+  { name: 'YouTube', net: 'youtube', cta: 'Subscribe', href: `${YT_HANDLE_URL}?sub_confirmation=1` },
+  { name: 'TikTok', net: 'tiktok', cta: 'Follow' },
+  { name: 'LinkedIn', net: 'linkedin', cta: 'Connect' },
+  { name: 'X', net: 'x', cta: 'Follow' },
+  { name: 'Facebook', net: 'facebook', cta: 'Follow' },
+  { name: 'GitHub', net: 'github', cta: 'Follow' },
+];
 const SOCIAL_KEY = {
   LinkedIn: 'social-linkedin',
   Instagram: 'social-instagram',
@@ -63,35 +74,6 @@ function Rule({ flip = false }: { flip?: boolean }) {
   );
 }
 
-function Btn({
-  k,
-  href,
-  icon,
-  title,
-  sub,
-  external = true,
-}: {
-  k: string;
-  href: string;
-  icon: React.ReactNode;
-  title: string;
-  sub?: string;
-  external?: boolean;
-}) {
-  return (
-    <a className="lk-btn" href={href} data-k={k} {...(external ? { target: '_blank', rel: 'noopener' } : {})}>
-      <span className="lk-ic" aria-hidden>
-        {icon}
-      </span>
-      <span className="lk-btn-text">
-        <b>{title}</b>
-        {sub && <small>{sub}</small>}
-      </span>
-      <ArrowUpRight className="lk-arrow" size={18} aria-hidden />
-    </a>
-  );
-}
-
 export async function LinksView() {
   const [latest] = await getLatestVideos(1);
   const video = latest ?? PINNED_VIDEO;
@@ -99,7 +81,6 @@ export async function LinksView() {
     video.id === PINNED_VIDEO.id && PINNED_VIDEO.thumb
       ? PINNED_VIDEO.thumb.small
       : `https://i.ytimg.com/vi/${video.id}/mqdefault.jpg`;
-  const note = getNotes('en')[0];
 
   return (
     <div className="pb lk">
@@ -133,6 +114,34 @@ export async function LinksView() {
 
       <main className="lk-list">
         <LinksClient />
+
+        {/* Following comes first: that is what the bio link is for. The platform the
+            visitor came from is hidden (LinksClient sets data-src on .lk). */}
+        <section className="lk-followbox" aria-labelledby="lk-follow-title">
+          <p className="lk-eyebrow" id="lk-follow-title">
+            Follow me
+          </p>
+          <h2 className="lk-h2">Follow the journey.</h2>
+          <ul className="lk-follow">
+            {FOLLOW.map((f) => {
+              const s = SOCIALS.find((x) => x.name === f.name)!;
+              return (
+                <li key={f.name} data-net={f.net}>
+                  <a href={f.href ?? s.href} target="_blank" rel="noopener me" data-k={SOCIAL_KEY[f.name]}>
+                    <span className="lk-f-ic" aria-hidden>
+                      <SocialIcon name={f.name} size={22} />
+                    </span>
+                    <span className="lk-f-text">
+                      <b>{f.name}</b>
+                      <small>{s.handle}</small>
+                    </span>
+                    <span className="lk-f-cta">{f.cta}</span>
+                  </a>
+                </li>
+              );
+            })}
+          </ul>
+        </section>
 
         <a className="lk-video" href={`https://www.youtube.com/watch?v=${video.id}`} target="_blank" rel="noopener" data-k="video">
           <span className="lk-video-thumb">
@@ -177,25 +186,31 @@ export async function LinksView() {
           })}
         </section>
 
-        <p className="lk-eyebrow">Stay in touch</p>
-        <Btn k="newsletter" href="/en/notes/#nl-notes-title" icon={<Mail size={20} />} title="Get my notes by email" sub="Free · tech, tax and real estate" external={false} />
-        <Btn k="youtube" href={`${YT_HANDLE_URL}?sub_confirmation=1`} icon={<Play size={20} />} title="Subscribe on YouTube" sub="@emanuelflury" />
-        {note && (
-          <Btn k="note" href={`/en/notes/${note.slug}/`} icon={<FileText size={20} />} title={note.title} sub="Latest note" external={false} />
-        )}
-        <Btn k="whatsapp" href={WHATSAPP} icon={<MessageCircle size={20} />} title="Message me on WhatsApp" />
-        <Btn k="contact" href="/press/emanuel-flury.vcf" icon={<Contact size={20} />} title="Save my contact" sub="Adds me to your phone" external={false} />
-        <Btn k="website" href="/en/" icon={<Globe size={20} />} title="eflury.com" sub="My story, ventures and press kit" external={false} />
-
-        <ul className="lk-social" aria-label="Follow">
-          {SOCIALS.map((s) => (
-            <li key={s.name}>
-              <a href={s.href} target="_blank" rel="noopener me" aria-label={`${s.name} ${s.handle}`} title={s.name} data-k={SOCIAL_KEY[s.name]}>
-                <SocialIcon name={s.name} size={20} />
+        <section aria-labelledby="lk-touch-title">
+          <p className="lk-eyebrow" id="lk-touch-title">
+            Get in touch
+          </p>
+          <ul className="lk-touch">
+            <li>
+              <Link href="/en/notes/#nl-notes-title" data-k="newsletter">
+                <Mail size={22} aria-hidden />
+                <span>Notes by email</span>
+              </Link>
+            </li>
+            <li>
+              <a href={WHATSAPP} target="_blank" rel="noopener" data-k="whatsapp">
+                <MessageCircle size={22} aria-hidden />
+                <span>WhatsApp</span>
               </a>
             </li>
-          ))}
-        </ul>
+            <li>
+              <a href="/press/emanuel-flury.vcf" data-k="contact">
+                <Contact size={22} aria-hidden />
+                <span>Save contact</span>
+              </a>
+            </li>
+          </ul>
+        </section>
       </main>
 
       <footer className="lk-foot">

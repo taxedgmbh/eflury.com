@@ -434,7 +434,7 @@ function renderOnAir(){const b=$('onair');b.setAttribute('aria-pressed',String(o
 function renderStats(months){
   const m=(months||[])[0];if(!m){$('lkstats').innerHTML='';return}
   const rows={},srcs=new Set();
-  for(const [key,n] of Object.entries(m.counts)){const [src,k]=key.split('__');srcs.add(src);const name=LKNAMES[k]||(k.startsWith('social-')?'Icon: '+k.slice(7):k);(rows[name]=rows[name]||{})[src]=(rows[name][src]||0)+n}
+  for(const [key,n] of Object.entries(m.counts)){const [src,k]=key.split('__');srcs.add(src);const name=LKNAMES[k]||(k.startsWith('social-')?'Follow: '+({linkedin:'LinkedIn',instagram:'Instagram',tiktok:'TikTok',youtube:'YouTube',x:'X',facebook:'Facebook',github:'GitHub'}[k.slice(7)]||k.slice(7)):k);(rows[name]=rows[name]||{})[src]=(rows[name][src]||0)+n}
   const cols=[...srcs].sort();const esc=t=>String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
   if(!cols.length){$('lkstats').innerHTML='<p class="lkhint" style="margin:0">No visits yet in '+esc(m.month)+'.</p>';return}
   const names=Object.keys(rows).sort((a,b)=>a==='Page visits'?-1:b==='Page visits'?1:a.localeCompare(b));
