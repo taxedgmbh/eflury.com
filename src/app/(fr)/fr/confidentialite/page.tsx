@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 /* French twin of /en/privacy/ and /de/datenschutz/. Keep all three in step with what the site does. */
 export default function ConfidentialitePage() {
   return (
-    <LegalPage title="Politique de confidentialité" updated="13 novembre 2026" lang="fr" alts={PAGES.privacy}>
+    <LegalPage title="Politique de confidentialité" updated="19 novembre 2026" lang="fr" alts={PAGES.privacy}>
       <p>
         Cette politique explique quelles données personnelles ce site traite, dans quel but et pendant combien de temps.
         Elle suit la loi fédérale suisse sur la protection des données (LPD) et, lorsqu’il s’applique, le règlement
@@ -145,6 +145,11 @@ export default function ConfidentialitePage() {
         Les liens vers LinkedIn, Instagram, TikTok, YouTube, X, Facebook, GitHub et WhatsApp sont de simples liens. Aucune
         donnée n’est transmise à ces réseaux tant que vous ne cliquez pas sur un lien ; ensuite, leurs politiques de
         confidentialité s’appliquent.
+      </p>
+      <p>
+        La page de liens (eflury.com/links, aussi accessible via eflury.com/tiktok et similaires) compte combien de fois
+        chaque bouton est touché et de quelle plateforme vient le visiteur, uniquement en totaux mensuels. Aucun cookie,
+        aucune adresse IP et aucun identifiant ne sont enregistrés ; les chiffres ne peuvent pas être reliés à vous.
       </p>
 
       <h2>11. Sécurité</h2>

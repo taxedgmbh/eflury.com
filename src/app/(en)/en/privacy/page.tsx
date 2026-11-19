@@ -30,7 +30,7 @@ export const metadata: Metadata = {
  */
 export default function PrivacyPage() {
   return (
-    <LegalPage title="Privacy policy" updated="13 November 2026" alts={PAGES.privacy}>
+    <LegalPage title="Privacy policy" updated="19 November 2026" alts={PAGES.privacy}>
       <p>
         This policy explains which personal data this website processes, why, and for how long. It follows the Swiss
         Federal Act on Data Protection (FADP) and, where it applies, the EU General Data Protection Regulation (GDPR).
@@ -139,6 +139,11 @@ export default function PrivacyPage() {
       <p>
         Links to LinkedIn, Instagram, TikTok, YouTube, X, Facebook, GitHub and WhatsApp are plain links. No data is sent
         to those networks unless you click a link; after that, their privacy policies apply.
+      </p>
+      <p>
+        The link page (eflury.com/links, also reached as eflury.com/tiktok and similar) counts how often each button is
+        tapped and from which platform the visitor came, as monthly totals only. No cookies, no IP address and no
+        identifier are stored, so the counts cannot be linked to you.
       </p>
 
       <h2>11. Security</h2>

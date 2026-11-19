@@ -24,7 +24,7 @@ export const metadata: Metadata = {
 /* German twin of /en/privacy/. Keep both in step with what the site does. */
 export default function DatenschutzPage() {
   return (
-    <LegalPage title="Datenschutzerklärung" updated="13. November 2026" lang="de" alts={PAGES.privacy}>
+    <LegalPage title="Datenschutzerklärung" updated="19. November 2026" lang="de" alts={PAGES.privacy}>
       <p>
         Diese Erklärung beschreibt, welche Personendaten diese Website bearbeitet, wozu und wie lange. Sie richtet sich
         nach dem Schweizer Bundesgesetz über den Datenschutz (DSG) und, soweit anwendbar, nach der
@@ -145,6 +145,11 @@ export default function DatenschutzPage() {
         Links zu LinkedIn, Instagram, TikTok, YouTube, X, Facebook, GitHub und WhatsApp sind einfache Links. An diese
         Netzwerke werden keine Daten übermittelt, solange Sie nicht auf einen Link klicken; danach gelten deren
         Datenschutzbestimmungen.
+      </p>
+      <p>
+        Die Linkseite (eflury.com/links, auch erreichbar als eflury.com/tiktok und ähnlich) zählt, wie oft jeder Button
+        angetippt wird und von welcher Plattform die Besucherinnen und Besucher kommen, nur als Monatssummen. Es werden
+        keine Cookies, keine IP-Adressen und keine Kennungen gespeichert; die Zahlen lassen sich nicht mit Ihnen verknüpfen.
       </p>
 
       <h2>11. Sicherheit</h2>

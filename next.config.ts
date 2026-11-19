@@ -32,6 +32,32 @@ const nextConfig: NextConfig = {
       ),
       { source: '/live/remote', destination: '/live/remote.html', permanent: false },
       { source: '/remote', destination: '/live/remote.html', permanent: false },
+      // Link-in-bio page. Each bio gets its own short address, so the anonymous
+      // counts on the remote show which platform people came from.
+      ...Object.entries({
+        links: 'direct',
+        link: 'direct',
+        tiktok: 'tiktok',
+        tt: 'tiktok',
+        insta: 'instagram',
+        instagram: 'instagram',
+        ig: 'instagram',
+        yt: 'youtube',
+        youtube: 'youtube',
+        x: 'x',
+        fb: 'facebook',
+        facebook: 'facebook',
+        li: 'linkedin',
+        linkedin: 'linkedin',
+      }).flatMap(([path, src]) =>
+        [path, path[0].toUpperCase() + path.slice(1), path.toUpperCase()]
+          .filter((v, i, all) => all.indexOf(v) === i)
+          .map((p) => ({
+            source: `/${p}`,
+            destination: src === 'direct' ? '/en/links/' : `/en/links/?s=${src}`,
+            permanent: false,
+          })),
+      ),
       // www -> apex. .htaccess did this with a RewriteCond; App Hosting terminates
       // TLS for both hosts, so the canonicalisation has to happen in the app.
       {
@@ -62,7 +88,7 @@ const nextConfig: NextConfig = {
         destination: '/de/',
         statusCode: 301,
       },
-      { source: '/en/:path((?!imprint|privacy|terms|notes|newsletter|opengraph-image).+)', destination: '/en/', statusCode: 301 },
+      { source: '/en/:path((?!imprint|privacy|terms|notes|newsletter|links|opengraph-image).+)', destination: '/en/', statusCode: 301 },
       { source: '/:dir(offerte|offer|demo|downloads)/:path*', destination: '/en/', statusCode: 301 },
     ];
   },

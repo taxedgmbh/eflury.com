@@ -33,6 +33,12 @@ button.p{background:var(--sky);border-color:var(--sky);color:var(--bg)}
 button.p:hover:not(:disabled){background:#7cc8ef}
 button.warn{border-color:rgba(229,50,45,.55);color:#ffc2bf}
 button:disabled{opacity:.35;cursor:default}
+.lkopen{color:var(--sky);font-weight:700;font-size:14px;text-decoration:none}
+.lkhint{margin:8px 0 14px;color:var(--mute);font-size:14px;line-height:1.45}.lkhint b{color:#fff}
+#onair[aria-pressed=true]{background:var(--red);border-color:var(--red);color:#fff}
+.lkstats{margin-top:14px;font-size:14px}.lkstats table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums}
+.lkstats th,.lkstats td{padding:6px 4px;border-bottom:1px solid var(--line);text-align:right}.lkstats th:first-child,.lkstats td:first-child{text-align:left}
+.lkstats caption{text-align:left;color:var(--mute);margin-bottom:6px;font-weight:700}
 .card{background:linear-gradient(180deg,var(--panel),#021f49);border:1px solid var(--line);border-radius:var(--r);padding:20px;margin-bottom:20px;box-shadow:0 10px 30px rgba(0,0,0,.18)}
 .msg{min-height:20px;margin-top:10px;font-size:14px;color:#ffb3ae}
 .msg:empty{margin:0;min-height:0}
@@ -208,6 +214,14 @@ button.fs{min-height:34px;padding:0 12px;font-size:12px;letter-spacing:.06em;tex
         </details>
         <div class="msg" id="navmsg" role="status"></div>
       </section>
+
+      <section class="card" aria-label="Link page">
+        <div class="head"><h2>Link page</h2><a class="lkopen" href="/links" target="_blank" rel="noopener">eflury.com/links ↗</a></div>
+        <p class="lkhint">Shows a red <b>“I’m LIVE on TikTok now”</b> button at the top of your link page (eflury.com/tiktok). Turns itself off after 6 hours.</p>
+        <button type="button" class="full" id="onair" aria-pressed="false">Show “LIVE now” on the link page</button>
+        <div class="lkstats" id="lkstats"></div>
+        <div class="msg" id="lkmsg" role="status"></div>
+      </section>
     </div>
 
     <div class="col">
@@ -275,7 +289,7 @@ async function unlock(){
     if(r.status===401){$('pwmsg').textContent='Wrong password.';pw='';ss.set(null);return}
     if(!r.ok){$('pwmsg').textContent='The server is not reachable. Try again.';return}
     ss.set(pw);$('pw').value='';$('lock').hidden=true;$('app').hidden=false;$('bar').hidden=false;$('chips').hidden=false;
-    apply(await r.json());await loadNames();poll();wake();if(!ticking){ticking=true;tick()}
+    apply(await r.json());await loadNames();loadLinks();poll();wake();if(!ticking){ticking=true;tick()}
   }catch(e){$('pwmsg').textContent='The server is not reachable. Try again.'}
 }
 $('go').onclick=unlock;$('pw').addEventListener('keydown',e=>{if(e.key==='Enter')unlock()});
@@ -412,6 +426,27 @@ pv.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')hud()});
   c.addEventListener('pointerup',e=>{if(x0==null)return;const dx=e.clientX-x0,dy=e.clientY-y0;x0=null;hud();
     if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){(dx<0?next:prev)();return}
     if(Math.abs(dx)<12&&Math.abs(dy)<12&&Date.now()-t0<600)(e.clientX<innerWidth/3?prev:next)()});}
+
+// ---- link page: "LIVE now" switch and anonymous counts ----
+let onAir=false;
+const LKNAMES={view:'Page visits',live:'LIVE button',video:'Latest video',newsletter:'Newsletter',youtube:'YouTube subscribe',note:'Latest note',taxed:'Taxed',skopa:'Skopa',whatsapp:'WhatsApp',contact:'Save contact',website:'eflury.com'};
+function renderOnAir(){const b=$('onair');b.setAttribute('aria-pressed',String(onAir));b.textContent=onAir?'● LIVE now is showing · tap to hide':'Show “LIVE now” on the link page'}
+function renderStats(months){
+  const m=(months||[])[0];if(!m){$('lkstats').innerHTML='';return}
+  const rows={},srcs=new Set();
+  for(const [key,n] of Object.entries(m.counts)){const [src,k]=key.split('__');srcs.add(src);const name=LKNAMES[k]||(k.startsWith('social-')?'Icon: '+k.slice(7):k);(rows[name]=rows[name]||{})[src]=(rows[name][src]||0)+n}
+  const cols=[...srcs].sort();const esc=t=>String(t).replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+  if(!cols.length){$('lkstats').innerHTML='<p class="lkhint" style="margin:0">No visits yet in '+esc(m.month)+'.</p>';return}
+  const names=Object.keys(rows).sort((a,b)=>a==='Page visits'?-1:b==='Page visits'?1:a.localeCompare(b));
+  $('lkstats').innerHTML='<table><caption>This month ('+esc(m.month)+')</caption><tr><th></th>'+cols.map(c=>'<th>'+esc(c)+'</th>').join('')+'<th>Total</th></tr>'+
+    names.map(n=>{const r=rows[n];const t=cols.reduce((a,c)=>a+(r[c]||0),0);return '<tr><td>'+esc(n)+'</td>'+cols.map(c=>'<td>'+(r[c]||'·')+'</td>').join('')+'<td><b>'+t+'</b></td></tr>'}).join('')+'</table>';
+}
+async function loadLinks(){try{const j=await post('/api/links/',{action:'stats'});onAir=!!j.onAir;renderOnAir();renderStats(j.months)}catch(e){}}
+$('onair').onclick=async()=>{const want=!onAir;$('onair').disabled=true;
+  try{const j=await post('/api/links/',{action:'onair',on:want});onAir=!!j.onAir;renderOnAir();buzz();$('lkmsg').textContent=onAir?'The link page now shows “LIVE now”.':'“LIVE now” is hidden.'}
+  catch(e){$('lkmsg').textContent='Could not switch. Try again.'}
+  $('onair').disabled=false};
+setInterval(()=>{if(!$('app').hidden&&!document.hidden)loadLinks()},60000);
 
 // ---- connection ----
 function synced(ok){const c=$('sync');c.classList.toggle('ok',ok);c.classList.toggle('bad',!ok);c.lastChild.textContent=ok?'Connected':'Offline · retrying'}
