@@ -78,6 +78,11 @@ const nextConfig: NextConfig = {
         ],
       },
       {
+        // Private TikTok LIVE backdrop and remote: never in a search index.
+        source: '/live/:path*',
+        headers: [{ key: 'X-Robots-Tag', value: 'noindex, nofollow' }],
+      },
+      {
         source: '/manifest.json',
         headers: [{ key: 'Cache-Control', value: 'max-age=0, must-revalidate' }],
       },

@@ -1,7 +1,8 @@
 import type { MetadataRoute } from 'next';
 import { getNotes } from '@/lib/notes';
 import { LANGS, PAGES, type Lang } from '@/lib/i18n';
-import { SITE_URL } from '@/lib/site';
+import { PORTRAIT, SITE_URL } from '@/lib/site';
+import { PINNED_VIDEO } from '@/lib/youtube';
 
 /*
  * Indexable pages only: the imprint, privacy policy and terms are noindex.
@@ -22,7 +23,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
   for (const l of LANGS) {
     const notes = getNotes(l);
     entries.push(
-      { url: abs(PAGES.home[l]), lastModified: new Date(), changeFrequency: 'weekly', priority: 1, alternates: languages(PAGES.home) },
+      {
+        url: abs(PAGES.home[l]),
+        lastModified: new Date(),
+        changeFrequency: 'weekly',
+        priority: 1,
+        alternates: languages(PAGES.home),
+        images: [abs(PORTRAIT.url), abs(`/images/og-${l}.png`)],
+        videos: [
+          {
+            title: PINNED_VIDEO.title,
+            description: 'Emanuel Flury introduces himself and his work in tech, tax and real estate in 70 seconds.',
+            thumbnail_loc: abs(PINNED_VIDEO.thumb!.src),
+            player_loc: `https://www.youtube-nocookie.com/embed/${PINNED_VIDEO.id}`,
+            publication_date: PINNED_VIDEO.published.toISOString(),
+            duration: 70,
+          },
+        ],
+      },
       {
         url: abs(PAGES.notes[l]),
         lastModified: notes[0]?.date ?? new Date(),

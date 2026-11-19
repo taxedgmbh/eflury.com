@@ -17,6 +17,27 @@ import { SITE_URL } from '@/lib/site';
  * The route files only pass the language.
  */
 
+const HOME_NAME = { en: 'Emanuel Flury', de: 'Emanuel Flury', fr: 'Emanuel Flury' };
+const AUTHOR = (lang: Lang) => ({
+  '@type': 'Person',
+  '@id': `${SITE_URL}/#person`,
+  name: 'Emanuel Flury',
+  url: `${SITE_URL}${PAGES.home[lang]}`,
+});
+
+/** Home › Notes (› article) for search results. */
+function breadcrumbs(lang: Lang, last?: { name: string; url: string }) {
+  const items = [
+    { name: HOME_NAME[lang], url: `${SITE_URL}${PAGES.home[lang]}` },
+    { name: INDEX[lang].title, url: `${SITE_URL}${PAGES.notes[lang]}` },
+    ...(last ? [last] : []),
+  ];
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((it, i) => ({ '@type': 'ListItem', position: i + 1, name: it.name, item: it.url })),
+  };
+}
+
 const longDate = (lang: Lang) => fmtDate(lang, { day: 'numeric', month: 'long', year: 'numeric' });
 const iso = (d: Date) => d.toISOString().slice(0, 10);
 
@@ -70,8 +91,35 @@ function Subscribe({ lang, id }: { lang: Lang; id: string }) {
 export function NotesIndex({ lang }: { lang: Lang }) {
   const t = (en: string, de: string) => pick(lang, en, de);
   const notes = getNotes(lang);
+  const indexUrl = `${SITE_URL}${PAGES.notes[lang]}`;
+  const ld = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'CollectionPage',
+        '@id': `${indexUrl}#webpage`,
+        url: indexUrl,
+        name: `${INDEX[lang].title} · Emanuel Flury`,
+        description: INDEX[lang].description,
+        inLanguage: HTML_LANG[lang],
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        author: AUTHOR(lang),
+        mainEntity: {
+          '@type': 'ItemList',
+          itemListElement: notes.map((n, i) => ({
+            '@type': 'ListItem',
+            position: i + 1,
+            url: `${indexUrl}${n.slug}/`,
+            name: n.title,
+          })),
+        },
+      },
+      breadcrumbs(lang),
+    ],
+  };
   return (
     <NotesPage lang={lang} alts={PAGES.notes}>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: jsonLd(ld) }} />
       <p className="eyebrow">{t('Notes', 'Notizen')}</p>
       <h1 className="nt-title">{t('What I learn while building.', 'Was ich beim Aufbauen lerne.')}</h1>
       <p className="section-lead">
@@ -142,16 +190,38 @@ export function NoteArticle({ lang, slug }: { lang: Lang; slug: string }) {
   const note = getNote(slug, lang);
   if (!note) notFound();
   const url = `${SITE_URL}${PAGES.notes[lang]}${note.slug}/`;
+  const words = note.body.split(/\s+/).filter(Boolean).length;
   const ld = {
     '@context': 'https://schema.org',
-    '@type': 'BlogPosting',
-    headline: note.title,
-    description: note.description,
-    datePublished: iso(note.date),
-    url,
-    mainEntityOfPage: url,
-    inLanguage: HTML_LANG[lang],
-    author: { '@type': 'Person', '@id': `${SITE_URL}/#person`, name: 'Emanuel Flury', url: `${SITE_URL}${PAGES.home[lang]}` },
+    '@graph': [
+      {
+        '@type': 'BlogPosting',
+        '@id': `${url}#article`,
+        headline: note.title,
+        description: note.description,
+        datePublished: iso(note.date),
+        dateModified: iso(note.date),
+        url,
+        mainEntityOfPage: { '@type': 'WebPage', '@id': url },
+        isPartOf: { '@id': `${SITE_URL}/#website` },
+        inLanguage: HTML_LANG[lang],
+        image: { '@type': 'ImageObject', url: `${SITE_URL}${OG_IMAGE[lang].url}`, width: 1200, height: 630 },
+        wordCount: words,
+        author: AUTHOR(lang),
+        publisher: AUTHOR(lang),
+        // English is the original; German and French are translations of it.
+        ...(lang === 'en'
+          ? {
+              workTranslation: Object.entries(twinUrls(note.twins))
+                .filter(([l]) => l !== 'en')
+                .map(([, p]) => ({ '@id': `${SITE_URL}${p}#article` })),
+            }
+          : note.twins.en
+            ? { translationOfWork: { '@id': `${SITE_URL}${PAGES.notes.en}${note.twins.en}/#article` } }
+            : {}),
+      },
+      breadcrumbs(lang, { name: note.title, url }),
+    ],
   };
   return (
     <NotesPage lang={lang} alts={{ ...PAGES.notes, ...twinUrls(note.twins) }}>

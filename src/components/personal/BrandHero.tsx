@@ -53,9 +53,9 @@ export function BrandHero({ lang = 'en' }: { lang?: Lang }) {
         */}
         <div className="bh-word">
           <h1 id="bh-title" className="bh-fill bh-fill-0" style={{ backgroundImage: `url(/images/hero/${FILLS[0]}.webp)` }}>
+            {/* The space keeps the text "Emanuel Flury" for crawlers that join text nodes. */}
             EMANUEL
-            <br />
-            FLURY
+            <br /> FLURY
           </h1>
           {FILLS.slice(1).map((f, i) => (
             <span

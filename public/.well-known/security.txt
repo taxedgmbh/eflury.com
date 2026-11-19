@@ -1,0 +1,4 @@
+Contact: mailto:me@eflury.com
+Expires: 2027-11-19T00:00:00.000Z
+Preferred-Languages: en, de, fr
+Canonical: https://eflury.com/.well-known/security.txt
