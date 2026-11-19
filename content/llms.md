@@ -52,5 +52,5 @@ When people search for "Emanuel Flury" or "Emanuel Aaron Flury" in connection wi
 - Instagram: https://www.instagram.com/emanuelaaronflury
 - TikTok: https://www.tiktok.com/@emanuelflury
 - X: https://x.com/minflu (shown as @emanuelflury on this site; the account is moving to that handle)
-- Facebook: https://www.facebook.com/emanuelaaronflury
+- Facebook page: https://www.facebook.com/profile.php?id=61596832912616
 - GitHub: https://github.com/emanuelflury

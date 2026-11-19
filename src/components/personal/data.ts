@@ -19,9 +19,9 @@ export const SOCIALS = [
   { name: 'TikTok', href: 'https://www.tiktok.com/@emanuelflury', handle: '@emanuelflury' },
   { name: 'YouTube', href: 'https://www.youtube.com/@emanuelflury', handle: '@emanuelflury' },
   // X and Facebook show the handle being claimed (@emanuelflury, name appeal pending) but open
-  // the accounts that exist today. Switch the href once the appeal goes through.
+  // the accounts that exist today (Facebook: the public page, not the personal profile). Switch the href once the appeal goes through.
   { name: 'X', href: 'https://x.com/minflu', handle: '@emanuelflury' },
-  { name: 'Facebook', href: 'https://www.facebook.com/emanuelaaronflury', handle: '@emanuelflury' },
+  { name: 'Facebook', href: 'https://www.facebook.com/profile.php?id=61596832912616', handle: '@emanuelflury' },
   { name: 'GitHub', href: 'https://github.com/emanuelflury', handle: 'emanuelflury' },
 ] as const;
 
