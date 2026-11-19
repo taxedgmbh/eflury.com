@@ -94,7 +94,7 @@ export function personalHomeGraph(socials: readonly string[], lang: Lang = 'en')
           height: PORTRAIT.height,
           caption: 'Emanuel Flury',
         },
-        sameAs: [...socials, 'https://skopa.ai', 'https://taxed.ch'],
+        sameAs: [...socials, 'https://www.wikidata.org/wiki/Q142211195', 'https://skopa.ai', 'https://taxed.ch'],
         nationality: { '@type': 'Country', name: 'Switzerland' },
         address: { '@type': 'PostalAddress', addressLocality: 'Grenchen', addressRegion: 'SO', addressCountry: 'CH' },
         homeLocation: {
@@ -128,10 +128,10 @@ export function personalHomeGraph(socials: readonly string[], lang: Lang = 'en')
       },
       ...(
         [
-          ['https://skopa.ai', 'Skopa AG', REGISTRY.skopa, 'Grenchen', 'Artificial intelligence and quantum computing.'],
-          ['https://taxed.ch', 'Taxed GmbH', REGISTRY.taxed, 'Biel/Bienne', 'Tax advice for expats living in Switzerland.'],
+          ['https://skopa.ai', 'Skopa AG', REGISTRY.skopa, 'Grenchen', 'Artificial intelligence and quantum computing.', 'Q142211189'],
+          ['https://taxed.ch', 'Taxed GmbH', REGISTRY.taxed, 'Biel/Bienne', 'Tax advice for expats living in Switzerland.', 'Q142211194'],
         ] as const
-      ).map(([orgUrl, name, reg, seat, description]) => ({
+      ).map(([orgUrl, name, reg, seat, description, wikidata]) => ({
         '@type': 'Organization',
         '@id': `${orgUrl}/#org`,
         name,
@@ -141,7 +141,7 @@ export function personalHomeGraph(socials: readonly string[], lang: Lang = 'en')
         founder: { '@id': ID.person },
         location: { '@type': 'Place', address: { '@type': 'PostalAddress', addressLocality: seat, addressCountry: 'CH' } },
         identifier: { '@type': 'PropertyValue', propertyID: 'CH-UID', value: reg.uid },
-        sameAs: [reg.zefix],
+        sameAs: [reg.zefix, `https://www.wikidata.org/wiki/${wikidata}`],
       })),
     ],
   };

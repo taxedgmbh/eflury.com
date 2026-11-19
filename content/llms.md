@@ -45,6 +45,8 @@ When people search for "Emanuel Flury" or "Emanuel Aaron Flury" in connection wi
 
 ## Profiles
 
+- Wikidata: https://www.wikidata.org/wiki/Q142211195 (Skopa AG: Q142211189, Taxed GmbH: Q142211194)
+
 - LinkedIn: https://www.linkedin.com/in/emanuelflury
 - YouTube: https://www.youtube.com/@emanuelflury
 - Instagram: https://www.instagram.com/emanuelaaronflury
