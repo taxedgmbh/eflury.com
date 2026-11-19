@@ -982,6 +982,7 @@
   /* Photo-filled section words, as on the homepage, smaller. */
   .lk .bw { margin: 0 0 -6px; font-size: clamp(2.6rem, 13.5vw, 3.6rem); }
   .lk .bw + .lk-eyebrow { margin-top: 6px; }
+  .lk-stat { align-self: flex-start; margin: 2px 0; padding: 3px 10px; border-radius: 99px; background: var(--eflury-white); color: var(--surface-navy); font-style: normal; font-weight: 800; font-size: 0.78rem; letter-spacing: 0.02em; }
   .lk-v-logo-light { background: #fffaf0; border-radius: 14px; padding: 2px; }
   .lk-v-logo-light img { max-height: 46px; }
   .lk .lk-venture {

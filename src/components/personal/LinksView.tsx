@@ -1,13 +1,13 @@
-import type { Metadata } from "next";
-import { ArrowUpRight, Mail, MessageCircle, Play, Contact } from "lucide-react";
-import { HeroNetwork } from "./HeroNetwork";
-import { BrandWord } from "./BrandWord";
-import { LinksClient } from "./LinksClient";
-import { NewsletterForm } from "./NewsletterForm";
-import { SocialIcon } from "./SocialIcon";
-import { SOCIALS, WHATSAPP, type SocialName } from "./data";
-import { ventures } from "./PersonalHome";
-import { getLatestVideos, PINNED_VIDEO, YT_HANDLE_URL } from "@/lib/youtube";
+import type { Metadata } from 'next';
+import { ArrowUpRight, Mail, MessageCircle, Play, Contact } from 'lucide-react';
+import { HeroNetwork } from './HeroNetwork';
+import { BrandWord } from './BrandWord';
+import { LinksClient } from './LinksClient';
+import { NewsletterForm } from './NewsletterForm';
+import { SocialIcon } from './SocialIcon';
+import { SOCIALS, WHATSAPP, type SocialName } from './data';
+import { ventures } from './PersonalHome';
+import { getLatestVideos, PINNED_VIDEO, YT_HANDLE_URL } from '@/lib/youtube';
 
 /*
  * Link-in-bio page, self-made instead of Linktree or Beacons: /en/links/,
@@ -16,102 +16,91 @@ import { getLatestVideos, PINNED_VIDEO, YT_HANDLE_URL } from "@/lib/youtube";
  * name), then the links. Not in the search index: the homepage is the page to rank.
  */
 export const linksMetadata: Metadata = {
-  title: { absolute: "Emanuel Flury · Links" },
-  description:
-    "Videos, notes, LIVE and contact: all links of Emanuel Flury in one place.",
+  title: { absolute: 'Emanuel Flury · Links' },
+  description: 'Videos, notes, LIVE and contact: all links of Emanuel Flury in one place.',
   robots: { index: false, follow: true },
-  alternates: { canonical: "/en/links/" },
+  alternates: { canonical: '/en/links/' },
   openGraph: {
-    type: "profile",
-    url: "/en/links/",
-    title: "Emanuel Flury · Links",
-    description:
-      "Videos, notes, LIVE and contact: all links of Emanuel Flury in one place.",
-    siteName: "Emanuel Flury",
-    locale: "en_GB",
+    type: 'profile',
+    url: '/en/links/',
+    title: 'Emanuel Flury · Links',
+    description: 'Videos, notes, LIVE and contact: all links of Emanuel Flury in one place.',
+    siteName: 'Emanuel Flury',
+    locale: 'en_GB',
     images: [
       {
-        url: "/images/og-en.png",
+        url: '/images/og-en.png',
         width: 1200,
         height: 630,
-        alt: "Emanuel Flury · Entrepreneur",
+        alt: 'Emanuel Flury · Entrepreneur',
       },
     ],
   },
 };
 
-const FILLS = ["palms", "sky", "arches", "city"];
+const FILLS = ['palms', 'sky', 'arches', 'city'];
 
-const utm = (url: string) =>
-  `${url}?utm_source=eflury.com&utm_medium=referral&utm_campaign=links`;
+const utm = (url: string) => `${url}?utm_source=eflury.com&utm_medium=referral&utm_campaign=links`;
 /** Partner brands. Logos are copies of their own, served from this site (no third-party requests). */
 const PARTNERS = [
   {
-    k: "partner-mglow",
-    name: "Mesmerizing Glow",
-    tag: "Skincare · Philippines",
-    text: "Sunflower-powered skincare made in the Philippines. Glow the natural you.",
-    href: utm("https://mglow.ph/"),
-    cta: "Visit mglow.ph",
-    logo: { src: "/images/partners/mesmerizing-glow.webp", w: 192, h: 192 },
+    k: 'partner-mglow',
+    name: 'Mesmerizing Glow',
+    tag: 'Skincare · Philippines',
+    text: 'Sunflower-powered skincare made in the Philippines. Glow the natural you.',
+    href: utm('https://mglow.ph/'),
+    cta: 'Visit mglow.ph',
+    logo: { src: '/images/partners/mesmerizing-glow.webp', w: 192, h: 192 },
     light: true,
+    stat: undefined as string | undefined,
   },
   {
-    k: "partner-mariyah",
-    name: "Mariyah Gaga",
-    tag: "Content creator · Philippines",
-    text: "Filipino content creator, licensed teacher and freediver.",
-    href: utm("https://mariyahgagaofficial.com/"),
-    cta: "Visit mariyahgagaofficial.com",
-    logo: { src: "/images/partners/mariyah-gaga-white.svg", w: 1055, h: 659 },
+    k: 'partner-mariyah',
+    name: 'Mariyah Gaga',
+    tag: 'Content creator · Philippines',
+    text: 'Filipino content creator, licensed teacher and freediver.',
+    // From her own site (mariyahgagaofficial.com, Nov 2026): followers across all platforms.
+    stat: '1.03M followers',
+    href: utm('https://mariyahgagaofficial.com/'),
+    cta: 'Visit mariyahgagaofficial.com',
+    logo: { src: '/images/partners/mariyah-gaga-white.svg', w: 1145, h: 679 },
     light: false,
   },
 ];
 
 /** Follow tiles, most important first. net matches the ?s= source of the short addresses. */
-const FOLLOW: { name: SocialName; net: string; cta: string; href?: string }[] =
-  [
-    { name: "Instagram", net: "instagram", cta: "Follow" },
-    {
-      name: "YouTube",
-      net: "youtube",
-      cta: "Subscribe",
-      href: `${YT_HANDLE_URL}?sub_confirmation=1`,
-    },
-    { name: "TikTok", net: "tiktok", cta: "Follow" },
-    { name: "LinkedIn", net: "linkedin", cta: "Connect" },
-    { name: "X", net: "x", cta: "Follow" },
-    { name: "Facebook", net: "facebook", cta: "Follow" },
-    { name: "GitHub", net: "github", cta: "Follow" },
-  ];
+const FOLLOW: { name: SocialName; net: string; cta: string; href?: string }[] = [
+  { name: 'Instagram', net: 'instagram', cta: 'Follow' },
+  {
+    name: 'YouTube',
+    net: 'youtube',
+    cta: 'Subscribe',
+    href: `${YT_HANDLE_URL}?sub_confirmation=1`,
+  },
+  { name: 'TikTok', net: 'tiktok', cta: 'Follow' },
+  { name: 'LinkedIn', net: 'linkedin', cta: 'Connect' },
+  { name: 'X', net: 'x', cta: 'Follow' },
+  { name: 'Facebook', net: 'facebook', cta: 'Follow' },
+  { name: 'GitHub', net: 'github', cta: 'Follow' },
+];
 const SOCIAL_KEY = {
-  LinkedIn: "social-linkedin",
-  Instagram: "social-instagram",
-  TikTok: "social-tiktok",
-  YouTube: "social-youtube",
-  X: "social-x",
-  Facebook: "social-facebook",
-  GitHub: "social-github",
+  LinkedIn: 'social-linkedin',
+  Instagram: 'social-instagram',
+  TikTok: 'social-tiktok',
+  YouTube: 'social-youtube',
+  X: 'social-x',
+  Facebook: 'social-facebook',
+  GitHub: 'social-github',
 } as const;
 
 function Rule({ flip = false }: { flip?: boolean }) {
   return (
-    <svg
-      className={`lk-rule ${flip ? "lk-rule-br" : "lk-rule-tl"}`}
-      viewBox="0 0 520 60"
-      aria-hidden
-    >
+    <svg className={`lk-rule ${flip ? 'lk-rule-br' : 'lk-rule-tl'}`} viewBox="0 0 520 60" aria-hidden>
       {flip ? (
         <>
           <line className="bh-line" x1="520" y1="16" x2="20" y2="16" />
           <circle className="bh-dot" cx="20" cy="16" r="7" />
-          <line
-            className="bh-line bh-line-2"
-            x1="520"
-            y1="50"
-            x2="220"
-            y2="50"
-          />
+          <line className="bh-line bh-line-2" x1="520" y1="50" x2="220" y2="50" />
           <circle className="bh-dot bh-dot-2" cx="220" cy="50" r="7" />
         </>
       ) : (
@@ -157,19 +146,11 @@ export async function LinksView() {
           />
           <span className="lk-avatar-mark" aria-hidden>
             {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
-            <img
-              src="/images/ef-mark-white.svg"
-              alt=""
-              width={250}
-              height={200}
-            />
+            <img src="/images/ef-mark-white.svg" alt="" width={250} height={200} />
           </span>
         </div>
         <div className="bh-word lk-word">
-          <h1
-            className="bh-fill bh-fill-0"
-            style={{ backgroundImage: `url(/images/hero/${FILLS[0]}.webp)` }}
-          >
+          <h1 className="bh-fill bh-fill-0" style={{ backgroundImage: `url(/images/hero/${FILLS[0]}.webp)` }}>
             EMANUEL
             <br /> FLURY
           </h1>
@@ -207,12 +188,7 @@ export async function LinksView() {
               const s = SOCIALS.find((x) => x.name === f.name)!;
               return (
                 <li key={f.name} data-net={f.net}>
-                  <a
-                    href={f.href ?? s.href}
-                    target="_blank"
-                    rel="noopener me"
-                    data-k={SOCIAL_KEY[f.name]}
-                  >
+                  <a href={f.href ?? s.href} target="_blank" rel="noopener me" data-k={SOCIAL_KEY[f.name]}>
                     <span className="lk-f-ic" aria-hidden>
                       <SocialIcon name={f.name} size={22} />
                     </span>
@@ -244,13 +220,7 @@ export async function LinksView() {
           >
             <span className="lk-video-thumb">
               {/* eslint-disable-next-line @next/next/no-img-element -- small remote thumbnail */}
-              <img
-                src={thumb}
-                alt=""
-                width={320}
-                height={180}
-                loading="eager"
-              />
+              <img src={thumb} alt="" width={320} height={180} loading="eager" />
               <span className="lk-video-play" aria-hidden>
                 <Play size={20} fill="currentColor" />
               </span>
@@ -270,32 +240,21 @@ export async function LinksView() {
             Ventures
           </p>
           <h2 className="lk-h2">Three businesses. One standard.</h2>
-          {ventures("en").map((v) => {
-            const external = !v.href.startsWith("#");
-            const href = external
-              ? v.href.replace("utm_campaign=ventures", "utm_campaign=links")
-              : `/en/${v.href}`;
-            const k = v.name.startsWith("Skopa")
-              ? "skopa"
-              : v.name.startsWith("Taxed")
-                ? "taxed"
-                : "estate";
+          {ventures('en').map((v) => {
+            const external = !v.href.startsWith('#');
+            const href = external ? v.href.replace('utm_campaign=ventures', 'utm_campaign=links') : `/en/${v.href}`;
+            const k = v.name.startsWith('Skopa') ? 'skopa' : v.name.startsWith('Taxed') ? 'taxed' : 'estate';
             return (
               <a
                 key={v.name}
                 className="lk-venture"
                 href={href}
                 data-k={k}
-                {...(external ? { target: "_blank", rel: "noopener" } : {})}
+                {...(external ? { target: '_blank', rel: 'noopener' } : {})}
               >
                 <span className="lk-v-logo" aria-hidden>
                   {/* eslint-disable-next-line @next/next/no-img-element -- small brand mark */}
-                  <img
-                    src={v.logo.src}
-                    alt=""
-                    width={v.logo.w}
-                    height={v.logo.h}
-                  />
+                  <img src={v.logo.src} alt="" width={v.logo.w} height={v.logo.h} />
                 </span>
                 <span className="lk-v-text">
                   <small>{v.tag}</small>
@@ -304,9 +263,7 @@ export async function LinksView() {
                   <em>
                     {v.cta} <ArrowUpRight size={14} aria-hidden />
                   </em>
-                  {external && (
-                    <span className="lk-sr"> (opens in a new tab)</span>
-                  )}
+                  {external && <span className="lk-sr"> (opens in a new tab)</span>}
                 </span>
               </a>
             );
@@ -320,29 +277,15 @@ export async function LinksView() {
           </p>
           <h2 className="lk-h2">Brands I work with.</h2>
           {PARTNERS.map((p) => (
-            <a
-              key={p.name}
-              className="lk-venture"
-              href={p.href}
-              data-k={p.k}
-              target="_blank"
-              rel="noopener"
-            >
-              <span
-                className={`lk-v-logo${p.light ? " lk-v-logo-light" : ""}`}
-                aria-hidden
-              >
+            <a key={p.name} className="lk-venture" href={p.href} data-k={p.k} target="_blank" rel="noopener">
+              <span className={`lk-v-logo${p.light ? ' lk-v-logo-light' : ''}`} aria-hidden>
                 {/* eslint-disable-next-line @next/next/no-img-element -- small partner logo */}
-                <img
-                  src={p.logo.src}
-                  alt=""
-                  width={p.logo.w}
-                  height={p.logo.h}
-                />
+                <img src={p.logo.src} alt="" width={p.logo.w} height={p.logo.h} />
               </span>
               <span className="lk-v-text">
                 <small>{p.tag}</small>
                 <b>{p.name}</b>
+                {p.stat && <i className="lk-stat">{p.stat}</i>}
                 <span>{p.text}</span>
                 <em>
                   {p.cta} <ArrowUpRight size={14} aria-hidden />
@@ -361,12 +304,7 @@ export async function LinksView() {
           <h2 className="lk-h2">Let’s talk.</h2>
           <ul className="lk-touch">
             <li>
-              <a
-                href={WHATSAPP}
-                target="_blank"
-                rel="noopener"
-                data-k="whatsapp"
-              >
+              <a href={WHATSAPP} target="_blank" rel="noopener" data-k="whatsapp">
                 <MessageCircle size={22} aria-hidden />
                 <span>WhatsApp</span>
                 <span className="lk-sr"> (opens in a new tab)</span>
@@ -382,11 +320,7 @@ export async function LinksView() {
         </section>
 
         {/* Email sign-up right on the page (double opt-in, same form as the homepage). */}
-        <section
-          className="lk-nl"
-          aria-labelledby="lk-nl-title"
-          data-ksubmit="newsletter"
-        >
+        <section className="lk-nl" aria-labelledby="lk-nl-title" data-ksubmit="newsletter">
           <span className="lk-nl-ic" aria-hidden>
             <Mail size={22} />
           </span>
@@ -394,8 +328,7 @@ export async function LinksView() {
             Get my notes by email
           </h2>
           <p className="lk-nl-lead">
-            What I learn while building: tech, tax and real estate. Free, no
-            spam, unsubscribe anytime.
+            What I learn while building: tech, tax and real estate. Free, no spam, unsubscribe anytime.
           </p>
           <NewsletterForm id="nl-links" lang="en" />
         </section>
