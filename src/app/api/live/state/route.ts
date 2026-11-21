@@ -15,9 +15,9 @@ export async function GET() {
   }
 }
 
-/** The remote: { password, action: 'next' | 'prev' | 'go' | 'backdrop' | 'resume', index? }. */
+/** The remote: { password, action: 'next' | 'prev' | 'go' | 'backdrop' | 'resume' | 'scroll', index?, dir? }. */
 export async function POST(req: Request) {
-  let body: { password?: unknown; action?: unknown; index?: unknown };
+  let body: { password?: unknown; action?: unknown; index?: unknown; dir?: unknown };
   try {
     body = await req.json();
   } catch {
@@ -28,7 +28,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ error: 'password' }, { status: 401, headers: noStore });
   }
   const action = body.action;
-  if (action === 'check') return NextResponse.json(await readState().catch(() => ({ ids: [], index: -1, last: -1, v: 0 })), { headers: noStore });
+  if (action === 'check') return NextResponse.json(await readState().catch(() => ({ ids: [], index: -1, last: -1, scroll: 0, v: 0 })), { headers: noStore });
   try {
     const s = await changeState((s) => {
       // From the backdrop, Next (or resume) goes back to the slide that was hidden, not to slide 1.
@@ -39,6 +39,8 @@ export async function POST(req: Request) {
         s.index = -1;
       }
       else if (action === 'go' && typeof body.index === 'number') s.index = Math.trunc(body.index);
+      // a web page on the TV: move it up or down (changeState keeps it in range)
+      else if (action === 'scroll' && (body.dir === 1 || body.dir === -1) && s.index >= 0) s.scroll += body.dir;
       return s;
     });
     return NextResponse.json(s, { headers: noStore });

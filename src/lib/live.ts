@@ -11,7 +11,9 @@ import { db } from './newsletter';
  *                     (type LINK_TYPE) keeps its url and frame (may it be framed) instead
  *   live_state/tv     ids: the slide order; index: the slide on screen, or -1
  *                     for the backdrop; last: the slide that was on screen when
- *                     the backdrop was shown, so Next resumes there; v: bumps on every change
+ *                     the backdrop was shown, so Next resumes there; scroll: how far a web-page
+ *                     slide is scrolled down (steps, 0 = top, back to 0 on every slide change);
+ *                     v: bumps on every change
  *
  * Reading (the TV, the slide images) is public, like the backdrop itself.
  * Every change needs the password. Only its sha256 is kept here.
@@ -24,7 +26,10 @@ export const MAX_BYTES = 950 * 1024;
 export const MAX_SLIDES = 200;
 export const TYPES = ['image/jpeg', 'image/png', 'image/webp', 'image/gif', 'image/apng'];
 
-export type LiveState = { ids: string[]; index: number; last: number; v: number };
+export type LiveState = { ids: string[]; index: number; last: number; scroll: number; v: number };
+
+/** Scroll steps: each is 60% of the screen; the TV draws a web page 8 screens tall. */
+export const MAX_SCROLL = 11;
 
 export function passwordOk(raw: unknown): boolean {
   if (typeof raw !== 'string' || raw.length > 200) return false;
@@ -39,7 +44,8 @@ export async function readState(): Promise<LiveState> {
   const ids = Array.isArray(d.ids) ? d.ids.filter((x): x is string => typeof x === 'string') : [];
   const index = typeof d.index === 'number' && d.index >= -1 && d.index < ids.length ? d.index : -1;
   const last = typeof d.last === 'number' && d.last >= 0 && d.last < ids.length ? d.last : -1;
-  return { ids, index, last, v: typeof d.v === 'number' ? d.v : 0 };
+  const scroll = typeof d.scroll === 'number' && d.scroll >= 0 && d.scroll <= MAX_SCROLL ? d.scroll : 0;
+  return { ids, index, last, scroll, v: typeof d.v === 'number' ? d.v : 0 };
 }
 
 /** Applies a change to the state in a transaction and returns the new state. */
@@ -51,11 +57,14 @@ export async function changeState(fn: (s: LiveState) => LiveState): Promise<Live
       ids: Array.isArray(d.ids) ? d.ids : [],
       index: typeof d.index === 'number' ? d.index : -1,
       last: typeof d.last === 'number' ? d.last : -1,
+      scroll: typeof d.scroll === 'number' ? d.scroll : 0,
       v: typeof d.v === 'number' ? d.v : 0,
     };
-    const next = fn({ ids: [...cur.ids], index: cur.index, last: cur.last, v: cur.v });
+    const next = fn({ ids: [...cur.ids], index: cur.index, last: cur.last, scroll: cur.scroll, v: cur.v });
     next.index = Math.max(-1, Math.min(next.index, next.ids.length - 1));
     next.last = next.index >= 0 ? -1 : Math.max(-1, Math.min(next.last, next.ids.length - 1));
+    // a new slide (or the backdrop) always starts at the top
+    next.scroll = next.index !== cur.index || next.ids[next.index] !== cur.ids[cur.index] ? 0 : Math.max(0, Math.min(MAX_SCROLL, Math.round(next.scroll)));
     next.v = cur.v + 1;
     tx.set(STATE, { ...next, updatedAt: FieldValue.serverTimestamp() });
     return next;

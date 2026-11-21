@@ -293,7 +293,10 @@ document.addEventListener('keydown',e=>{
 #lvs .bx{width:100vw;height:100vh;display:flex;align-items:center;justify-content:center}
 body[data-m=tiktok] #lvs .bx{width:min(100vw,calc(100vh*9/16))}
 #lvs img{max-width:100%;max-height:100%;object-fit:contain;display:block;position:relative}
-#lvs iframe{width:100%;height:100%;border:0;background:#fff;display:block;position:relative;pointer-events:auto}
+#lvs iframe{width:100%;height:100%;border:0;background:#fff;display:block;position:relative;pointer-events:auto;flex:none}
+/* a scrollable web page: drawn 8 screens tall, the remote moves it up and down (the TV cannot scroll inside another site) */
+#lvs .bx.tall{align-items:flex-start;overflow:hidden;background:#fff}
+#lvs .bx.tall iframe{height:800%;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
 /* Ambilight: a blurred, enlarged copy of the slide fills the edges so the TV's LEDs take on its colours */
 #lvs .amb{position:absolute;inset:-8%;background-size:cover;background-position:center;filter:blur(60px) saturate(1.5) brightness(.7);opacity:.9}
 </style>
@@ -306,10 +309,13 @@ body[data-m=tiktok] #lvs .bx{width:min(100vw,calc(100vh*9/16))}
 (()=>{const box=document.getElementById('lvs'),bx=box.querySelector('.bx'),img=box.querySelector('img'),amb=box.querySelector('.amb');let v=-1,cur=null,fr=null,known='',links={};const cache={};
 const url=id=>'/api/live/slide/'+encodeURIComponent(id)+'/';
 const live=id=>links[id]&&links[id].frame;
+// YouTube and Google Slides fit the screen; every other page can be scrolled from the remote
+const tall=id=>live(id)&&!/^https:\/\/(www\.youtube-nocookie\.com|docs\.google\.com\/presentation)\//.test(links[id].url);
+const scrollTo=n=>{if(fr)fr.style.transform=n>0?'translateY('+Math.round(-n*.6*bx.clientHeight)+'px)':''};
 const pre=id=>{if(id&&!cache[id]&&!live(id)){const i=new Image();i.src=url(id);cache[id]=i}};
 async function kinds(ids){const k=ids.join();if(k===known)return;
   try{const r=await fetch('/api/live/slides/',{cache:'no-store'});if(r.ok){const j=await r.json();links={};(j.slides||[]).forEach(x=>{if(x.url)links[x.id]=x});known=k}}catch(e){}}
-function dropFrame(later){if(!fr)return;const f=fr;fr=null;if(later)setTimeout(()=>f.remove(),500);else f.remove()}
+function dropFrame(later){if(!fr)return;const f=fr;fr=null;if(later)setTimeout(()=>{f.remove();if(!fr)bx.classList.remove('tall')},500);else{f.remove();bx.classList.remove('tall')}}
 async function tick(){
   try{const r=await fetch('/api/live/state/',{cache:'no-store'});
     if(r.ok){const s=await r.json();
@@ -318,9 +324,10 @@ async function tick(){
           if(id&&live(id)){const f=document.createElement('iframe');f.title=links[id].name||'';f.src=links[id].url;
             f.allow='autoplay; fullscreen; encrypted-media; picture-in-picture';f.referrerPolicy='no-referrer';
             f.setAttribute('sandbox','allow-scripts allow-same-origin allow-forms allow-popups allow-presentation');
-            dropFrame(false);fr=f;img.style.display='none';bx.appendChild(f);amb.style.backgroundImage='url("'+url(id)+'")';box.classList.add('on')}
+            dropFrame(false);fr=f;bx.classList.toggle('tall',tall(id));img.style.display='none';bx.appendChild(f);amb.style.backgroundImage='url("'+url(id)+'")';box.classList.add('on')}
           else if(id){const n=cache[id]||new Image();n.src=url(id);try{await n.decode()}catch(e){}if(cur===id){dropFrame(false);img.style.display='';img.src=n.src;amb.style.backgroundImage='url("'+n.src+'")';box.classList.add('on')}}
-          else{box.classList.remove('on');dropFrame(true)}}}}}
+          else{box.classList.remove('on');dropFrame(true)}}
+        scrollTo(s.scroll||0)}}}
   catch(e){}
   setTimeout(tick,1000)}
 tick();})();

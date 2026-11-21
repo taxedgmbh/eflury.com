@@ -91,6 +91,9 @@ details[open] summary::before{content:'▾ '}
 details ul{margin:6px 0 0;padding-left:18px}
 kbd{font:700 12px/1 var(--sans);border:1px solid var(--line);border-bottom-width:2px;border-radius:5px;padding:2px 6px;color:#fff;background:var(--deep)}
 
+.scr{display:grid;grid-template-columns:1fr auto 1fr;gap:10px;align-items:center;margin-top:12px}
+.scr button{min-height:56px;font-size:17px}
+.scr span{font:800 12px/1.2 var(--brand);letter-spacing:.08em;text-transform:uppercase;color:var(--sky);text-align:center;min-width:64px}
 /* phone: Back / Next always under the thumb */
 .bar{display:none}
 @media(max-width:979px){
@@ -98,6 +101,10 @@ kbd{font:700 12px/1 var(--sans);border:1px solid var(--line);border-bottom-width
   .nav .big{display:none}
   .bar{display:grid;grid-template-columns:1fr 1.7fr;gap:10px;position:fixed;left:0;right:0;bottom:0;z-index:20;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(1,26,61,.94);border-top:1px solid var(--line);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
   .bar button{min-height:62px;font-size:20px}
+  .scr{display:none} /* on a phone the Up / Down buttons sit in the bottom bar */
+  .bar .bscr{grid-column:1/-1;display:grid;grid-template-columns:1fr 1fr;gap:10px}
+  .bar .bscr[hidden]{display:none}
+  .bar .bscr button{min-height:50px;font-size:17px}
   .card{padding:16px}
 }
 @media(max-width:520px){.top{align-items:flex-start}.chips{width:100%}.chips #sync{margin-right:auto}}
@@ -205,11 +212,15 @@ button.fs{min-height:34px;padding:0 12px;font-size:12px;letter-spacing:.06em;tex
           <button type="button" class="p big" id="next" aria-label="Next slide">Next ▶</button>
           <button type="button" class="full" id="bd">Hide slides · show backdrop</button>
         </div>
+        <div class="scr" id="scr" hidden role="group" aria-label="Scroll the web page on the TV">
+          <button type="button" id="sup" aria-label="Scroll the web page up">▲ Up</button><span id="spos">Top</span><button type="button" id="sdn" aria-label="Scroll the web page down">▼ Down</button>
+        </div>
         <details>
           <summary>Shortcuts</summary>
           <ul>
             <li>Phone: swipe the preview left for next, right for back.</li>
             <li>Keyboard or presenter clicker: <kbd>→</kbd> or <kbd>Space</kbd> next, <kbd>←</kbd> back.</li>
+            <li>Web page on the TV: <kbd>↑</kbd> <kbd>↓</kbd> or the Up / Down buttons move it.</li>
             <li><kbd>B</kbd> hide or resume slides, <kbd>1</kbd>–<kbd>9</kbd> jump to a slide.</li>
             <li><kbd>W</kbd> window view (fills this browser window only), <kbd>F</kbd> full screen, <kbd>Esc</kbd> back to the remote.</li>
           </ul>
@@ -262,11 +273,12 @@ button.fs{min-height:34px;padding:0 12px;font-size:12px;letter-spacing:.06em;tex
   <span class="edge l" aria-hidden="true">‹</span><span class="edge r" aria-hidden="true">›</span>
   <div class="hud tl"><span class="pill red" id="pvPos">Backdrop</span><span class="pill" id="pvTime" hidden></span></div>
   <div class="hud tr"><span class="nxl" id="pvNxl">Next</span><div class="nx" id="pvNx"><img id="pvNxImg" alt=""></div></div>
-  <div class="hud bl"><button type="button" id="pvBd">Hide slides</button></div>
+  <div class="hud bl"><button type="button" id="pvBd">Hide slides</button><button type="button" id="pvUp" hidden aria-label="Scroll up">▲</button><button type="button" id="pvDn" hidden aria-label="Scroll down">▼</button></div>
   <div class="hud br"><button type="button" id="pvSwap">⛶ Full screen</button><span class="pill hidep" style="font-weight:700">Esc</span><button type="button" class="p" id="pvClose">✕ Back to remote</button></div>
 </div>
 
 <div class="bar" id="bar" hidden>
+  <div class="bscr" id="bscr" hidden><button type="button" id="sup2" aria-label="Scroll the web page up">▲ Up</button><button type="button" id="sdn2" aria-label="Scroll the web page down">▼ Down</button></div>
   <button type="button" id="prev2" aria-label="Previous slide">◀ Back</button>
   <button type="button" class="p" id="next2" aria-label="Next slide">Next ▶</button>
 </div>
@@ -279,6 +291,7 @@ const ss=store(sessionStorage,'live-pw'),ts=store(localStorage,'live-timer');
 let pw=ss.get()||'',state={ids:[],index:-1,last:-1,v:-1},names={},links={},busy=false,ticking=false;
 const slideUrl=id=>'/api/live/slide/'+encodeURIComponent(id)+'/';
 const buzz=()=>{try{navigator.vibrate&&navigator.vibrate(15)}catch(e){}};
+const MAXS=11; // scroll steps, as on the server (src/lib/live.ts MAX_SCROLL)
 const label=id=>(links[id]?'🌐 ':'')+(names[id]||'Slide');
 
 async function post(path,body){
@@ -319,6 +332,13 @@ function apply(s){
   $('nextImg').hidden=!nx;$('nextTh').hidden=!nx;if(nx&&$('nextImg').dataset.id!==nx){$('nextImg').src=slideUrl(nx);$('nextImg').dataset.id=nx}
   $('nextLab').textContent=paused?'Resume with':'Next up';
   $('nextName').textContent=nx?(ni+1)+'. '+label(nx):n?'End of the slides':'No slides yet';
+  // web page on the TV: scroll buttons
+  const web=!!(now&&links[now]&&links[now].frame&&!/^https:\/\/(www\.youtube-nocookie\.com|docs\.google\.com\/presentation)\//.test(links[now].url)),sc=s.scroll||0;
+  $('scr').hidden=$('bscr').hidden=!web;
+  $('spos').textContent=sc?'↓ '+sc+' / '+MAXS:'Top';
+  for(const k of ['sup','sup2','pvUp'])$(k).disabled=!sc;
+  for(const k of ['sdn','sdn2','pvDn'])$(k).disabled=sc>=MAXS;
+  $('pvUp').hidden=$('pvDn').hidden=!web;
   // buttons
   const nextTxt=paused?'Resume ▶':'Next ▶';
   for(const k of ['next','next2']){$(k).disabled=!nx;$(k).textContent=nextTxt}
@@ -366,6 +386,11 @@ async function act(kind,body){
   busy=false;
 }
 const next=()=>act('state',{action:'next'}),prev=()=>act('state',{action:'prev'});
+const scroll=dir=>{if(!$('scr').hidden)act('state',{action:'scroll',dir})};
+$('sup').onclick=$('sup2').onclick=()=>scroll(-1);
+$('sdn').onclick=$('sdn2').onclick=()=>scroll(1);
+$('pvUp').onclick=e=>{e.stopPropagation();scroll(-1);hud()};
+$('pvDn').onclick=e=>{e.stopPropagation();scroll(1);hud()};
 const toggleBackdrop=()=>act('state',{action:state.index>=0?'backdrop':'resume'});
 $('next').onclick=$('next2').onclick=next;
 $('prev').onclick=$('prev2').onclick=prev;
@@ -374,6 +399,7 @@ document.addEventListener('keydown',e=>{
   if($('app').hidden||e.target.closest('input')||e.metaKey||e.ctrlKey||e.altKey)return;
   if(['ArrowRight','PageDown',' '].includes(e.key)){e.preventDefault();next()}
   else if(['ArrowLeft','PageUp'].includes(e.key)){e.preventDefault();prev()}
+  else if((e.key==='ArrowUp'||e.key==='ArrowDown')&&!$('scr').hidden){e.preventDefault();scroll(e.key==='ArrowUp'?-1:1)}
   else if(e.key.toLowerCase()==='b'||e.key==='.')toggleBackdrop();
   else if(/^[1-9]$/.test(e.key)&&+e.key<=state.ids.length)act('state',{action:'go',index:+e.key-1});
   else if(e.key.toLowerCase()==='f')isFull()?pvClose():pvOpen(true);
@@ -432,6 +458,7 @@ pv.addEventListener('pointermove',e=>{if(e.pointerType==='mouse')hud()});
   c.addEventListener('pointerdown',e=>{x0=e.clientX;y0=e.clientY;t0=Date.now()});
   c.addEventListener('pointerup',e=>{if(x0==null)return;const dx=e.clientX-x0,dy=e.clientY-y0;x0=null;hud();
     if(Math.abs(dx)>50&&Math.abs(dx)>Math.abs(dy)*1.5){(dx<0?next:prev)();return}
+    if(Math.abs(dy)>50&&Math.abs(dy)>Math.abs(dx)*1.5){scroll(dy<0?1:-1);return}
     if(Math.abs(dx)<12&&Math.abs(dy)<12&&Date.now()-t0<600)(e.clientX<innerWidth/3?prev:next)()});}
 
 // ---- link page: "LIVE now" switch and anonymous counts ----
