@@ -1,20 +1,27 @@
 import { NextResponse } from 'next/server';
 import { FieldValue } from '@google-cloud/firestore';
-import { MAX_BYTES, MAX_SLIDES, SLIDES, STATE, TYPES, changeState, newId, passwordOk } from '@/lib/live';
+import { db } from '@/lib/newsletter';
+import { LINK_TYPE, MAX_BYTES, MAX_SLIDES, SLIDES, STATE, TYPES, changeState, embedUrl, inspectLink, newId, passwordOk } from '@/lib/live';
 
 export const dynamic = 'force-dynamic';
 
 const noStore = { 'Cache-Control': 'no-store, max-age=0', 'X-Robots-Tag': 'noindex' };
 const bad = (error: string, status = 400) => NextResponse.json({ error }, { status, headers: noStore });
 
-/** Slide names for the remote's list, in screen order. */
+/** Slide names for the remote's list and the TV, in screen order; web pages also carry their url. */
 export async function GET() {
   try {
     const st = await STATE.get();
     const ids: string[] = st.exists && Array.isArray(st.data()?.ids) ? st.data()!.ids : [];
     if (!ids.length) return NextResponse.json({ slides: [] }, { headers: noStore });
-    const docs = await Promise.all(ids.map((id) => SLIDES.doc(id).get()));
-    const slides = docs.filter((d) => d.exists).map((d) => ({ id: d.id, name: String(d.get('name') || '') }));
+    // field mask: the image bytes stay on the server
+    const docs = await db.getAll(...ids.map((id) => SLIDES.doc(id)), { fieldMask: ['name', 'type', 'url', 'frame'] });
+    const slides = docs
+      .filter((d) => d.exists)
+      .map((d) => {
+        const name = String(d.get('name') || '');
+        return d.get('type') === LINK_TYPE ? { id: d.id, name, url: String(d.get('url')), frame: d.get('frame') !== false } : { id: d.id, name };
+      });
     return NextResponse.json({ slides }, { headers: noStore });
   } catch (e) {
     console.error('live slides list failed', e instanceof Error ? e.message : e);
@@ -25,6 +32,7 @@ export async function GET() {
 /**
  * The remote:
  *   { password, action: 'add', name, type, data (base64) }   adds a slide at the end
+ *   { password, action: 'link', url, name? }                 adds a web page at the end
  *   { password, action: 'delete', id }
  *   { password, action: 'move', id, dir: -1 | 1 }
  */
@@ -40,16 +48,29 @@ export async function POST(req: Request) {
     return bad('password', 401);
   }
   try {
-    if (body.action === 'add') {
-      const type = String(body.type || '');
-      if (!TYPES.includes(type)) return bad('type');
-      if (typeof body.data !== 'string') return bad('invalid');
-      const bytes = Buffer.from(body.data, 'base64');
-      if (!bytes.length) return bad('invalid');
-      if (bytes.length > MAX_BYTES) return bad('too-big');
+    if (body.action === 'add' || body.action === 'link') {
       const id = newId();
-      const name = String(body.name || 'Slide').slice(0, 80);
-      await SLIDES.doc(id).set({ data: bytes, type, name, createdAt: FieldValue.serverTimestamp() });
+      let doc: Record<string, unknown>;
+      let extra = {};
+      if (body.action === 'link') {
+        const url = typeof body.url === 'string' ? embedUrl(body.url) : null;
+        if (!url) return bad('url');
+        const info = await inspectLink(url);
+        if (!info.ok) return bad('url');
+        const host = new URL(url).hostname.replace(/^www\./, '');
+        const name = (String(body.name || '').trim() || info.title || host).slice(0, 80);
+        doc = { type: LINK_TYPE, url, frame: info.frame, name };
+        extra = { frame: info.frame, name, url };
+      } else {
+        const type = String(body.type || '');
+        if (!TYPES.includes(type)) return bad('type');
+        if (typeof body.data !== 'string') return bad('invalid');
+        const bytes = Buffer.from(body.data, 'base64');
+        if (!bytes.length) return bad('invalid');
+        if (bytes.length > MAX_BYTES) return bad('too-big');
+        doc = { data: bytes, type, name: String(body.name || 'Slide').slice(0, 80) };
+      }
+      await SLIDES.doc(id).set({ ...doc, createdAt: FieldValue.serverTimestamp() });
       const s = await changeState((s) => {
         if (s.ids.length < MAX_SLIDES) s.ids.push(id);
         return s;
@@ -58,7 +79,7 @@ export async function POST(req: Request) {
         await SLIDES.doc(id).delete();
         return bad('full');
       }
-      return NextResponse.json({ id, state: s }, { headers: noStore });
+      return NextResponse.json({ id, ...extra, state: s }, { headers: noStore });
     }
     if (body.action === 'delete' && typeof body.id === 'string') {
       const id = body.id;

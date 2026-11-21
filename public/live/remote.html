@@ -24,7 +24,7 @@ h2{font-size:12px;margin:0;letter-spacing:.12em;text-transform:uppercase;color:v
 .sub{color:var(--mute);margin:2px 0 0;font-size:14px}
 a{color:var(--sky);text-underline-offset:3px}
 label{display:block;font:800 12px/1 var(--brand);letter-spacing:.1em;text-transform:uppercase;color:var(--sky);margin:16px 0 8px}
-input[type=password]{font:inherit;font-size:17px;width:100%;min-height:50px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:var(--deep);color:#fff}
+input[type=password],input[type=url]{font:inherit;font-size:17px;width:100%;min-height:50px;padding:0 14px;border-radius:12px;border:1px solid var(--line);background:var(--deep);color:#fff}
 input:focus-visible,button:focus-visible,.drop:focus-visible,summary:focus-visible{outline:3px solid var(--sky);outline-offset:2px}
 button{font-weight:800;font-size:15px;min-height:44px;padding:0 16px;border-radius:12px;border:1px solid var(--line);background:rgba(255,255,255,.03);color:#fff;cursor:pointer;touch-action:manipulation;transition:background .15s,border-color .15s,transform .08s}
 button:hover:not(:disabled){border-color:var(--sky)}
@@ -109,6 +109,8 @@ kbd{font:700 12px/1 var(--sans);border:1px solid var(--line);border-bottom-width
 .drop .ic{width:40px;height:40px;border-radius:50%;background:rgba(90,184,232,.15);display:flex;align-items:center;justify-content:center;color:var(--sky);font:800 22px/1 var(--brand);margin-bottom:6px}
 .drop b{font:800 16px/1.3 var(--brand)}
 .drop small{color:var(--mute);font-size:13px}
+.lkadd{margin-top:4px}.lkadd .row{display:flex;gap:10px}.lkadd .row button{min-height:50px;flex:none}
+.lkadd small{display:block;color:var(--mute);font-size:13px;margin-top:8px;line-height:1.45}
 .prog{height:8px;border-radius:99px;background:var(--deep);overflow:hidden;margin-top:14px}
 .prog i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--sky),var(--teal));transition:width .3s}
 
@@ -179,7 +181,7 @@ button.fs{min-height:34px;padding:0 12px;font-size:12px;letter-spacing:.06em;tex
 
   <section class="card" id="lock" style="max-width:520px">
     <h2>Unlock</h2>
-    <p style="margin:10px 0 0;color:var(--mute)">Enter the LIVE password to open the <b style="color:#fff">slide upload</b> (images or a PDF) and the <b style="color:#fff">Next / Back</b> controls.</p>
+    <p style="margin:10px 0 0;color:var(--mute)">Enter the LIVE password to open the <b style="color:#fff">slide upload</b> (images, a PDF or a web page) and the <b style="color:#fff">Next / Back</b> controls.</p>
     <label for="pw">Password</label>
     <input id="pw" type="password" autocomplete="current-password">
     <div style="margin-top:14px"><button class="p" id="go" type="button" style="min-width:140px">Unlock</button></div>
@@ -231,8 +233,13 @@ button.fs{min-height:34px;padding:0 12px;font-size:12px;letter-spacing:.06em;tex
         <div class="drop" id="drop" role="button" tabindex="0" aria-describedby="dropHint">
           <span class="ic" aria-hidden="true">+</span>
           <b>Drop images or a PDF here</b>
-          <small id="dropHint">or tap to choose · paste a screenshot with ⌘V<br>PNG, JPG, GIF, WebP · a PDF becomes one slide per page</small>
+          <small id="dropHint">or tap to choose · paste a screenshot or a link with ⌘V<br>PNG, JPG, GIF, WebP · a PDF becomes one slide per page</small>
         </div>
+        <form class="lkadd" id="lkform" novalidate>
+          <label for="lkurl">Or add a web page</label>
+          <div class="row"><input id="lkurl" type="url" inputmode="url" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Paste a link" enterkeyhint="go"><button class="p" type="submit" id="lkbtn">Add</button></div>
+          <small>A website, YouTube video or Google Slides. The TV shows the page itself, full screen. Some sites (Google search, Instagram, X) do not allow that; the TV then shows a card with the title and address.</small>
+        </form>
         <div class="prog" id="prog" hidden><i></i></div>
         <div class="msg" id="upmsg" role="status"></div>
       </section>
@@ -269,10 +276,10 @@ button.fs{min-height:34px;padding:0 12px;font-size:12px;letter-spacing:.06em;tex
 const $=id=>document.getElementById(id);
 const store=(s,k)=>({get(){try{return s.getItem(k)}catch(e){return null}},set(v){try{v==null?s.removeItem(k):s.setItem(k,v)}catch(e){}}});
 const ss=store(sessionStorage,'live-pw'),ts=store(localStorage,'live-timer');
-let pw=ss.get()||'',state={ids:[],index:-1,last:-1,v:-1},names={},busy=false,ticking=false;
+let pw=ss.get()||'',state={ids:[],index:-1,last:-1,v:-1},names={},links={},busy=false,ticking=false;
 const slideUrl=id=>'/api/live/slide/'+encodeURIComponent(id)+'/';
 const buzz=()=>{try{navigator.vibrate&&navigator.vibrate(15)}catch(e){}};
-const label=id=>names[id]||'Slide';
+const label=id=>(links[id]?'🌐 ':'')+(names[id]||'Slide');
 
 async function post(path,body){
   const r=await fetch(path,{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify(Object.assign({password:pw},body)),cache:'no-store'});
@@ -321,7 +328,7 @@ function apply(s){
   if(changed)renderList();
   pvRender();
 }
-async function loadNames(){try{const r=await fetch('/api/live/slides/',{cache:'no-store'});const j=await r.json();names={};(j.slides||[]).forEach(x=>names[x.id]=x.name);renderList();const s=state;state=Object.assign({},s,{v:-2});apply(s)}catch(e){}}
+async function loadNames(){try{const r=await fetch('/api/live/slides/',{cache:'no-store'});const j=await r.json();names={};links={};(j.slides||[]).forEach(x=>{names[x.id]=x.name;if(x.url)links[x.id]=x});renderList();const s=state;state=Object.assign({},s,{v:-2});apply(s)}catch(e){}}
 function renderList(){
   const ul=$('list');ul.innerHTML='';const n=state.ids.length;
   $('count').textContent=n?'Slides · '+n:'Slides';$('clear').hidden=!n;
@@ -333,7 +340,7 @@ function renderList(){
     const im=document.createElement('img');im.src=slideUrl(id);im.alt='';im.loading='lazy';show.appendChild(im);
     show.onclick=()=>act('state',{action:'go',index:i});
     const num=document.createElement('span');num.className='num';num.textContent=i===state.index?'ON TV':i===nextIdx?(i+1)+' · NEXT':String(i+1);
-    const nm=document.createElement('div');nm.className='name';nm.textContent=label(id);nm.title=label(id);
+    const nm=document.createElement('div');nm.className='name';nm.textContent=label(id)+(links[id]&&!links[id].frame?' · card':'');nm.title=links[id]?links[id].url:label(id);
     const meta=document.createElement('div');meta.className='meta';
     const b=(t,lab,fn,dis)=>{const x=document.createElement('button');x.type='button';x.textContent=t;x.setAttribute('aria-label',lab);x.title=lab;x.onclick=fn;x.disabled=!!dis;return x};
     const del=b('✕','Delete slide '+(i+1),()=>{if(arm(del))act('slides',{action:'delete',id})});
@@ -387,7 +394,7 @@ function pvRender(){
   const s=state,n=s.ids.length,i=s.index,paused=i<0&&s.last>=0&&s.last<n;
   const now=i>=0?s.ids[i]:null;
   if(now&&$('pvImg').dataset.id!==now){$('pvImg').src=slideUrl(now);$('pvImg').dataset.id=now}
-  $('pvSlide').classList.toggle('on',!!now);
+  $('pvSlide').classList.toggle('on',!!now&&!(links[now]&&links[now].frame));
   $('pvPos').textContent=i>=0?(i+1)+' / '+n:paused?'Hidden · at '+(s.last+1)+' / '+n:'Backdrop';
   $('pvPos').classList.toggle('red',i>=0);
   const ni=i>=0?i+1:paused?s.last:0,nx=n&&ni<n?s.ids[ni]:null;
@@ -545,7 +552,20 @@ $('files').onchange=()=>{if($('files').files.length)upload($('files').files)};
 drop.addEventListener('drop',e=>{if(e.dataTransfer&&e.dataTransfer.files.length)upload(e.dataTransfer.files)});
 document.addEventListener('dragover',e=>e.preventDefault());
 document.addEventListener('drop',e=>{e.preventDefault();if(!$('app').hidden&&e.dataTransfer&&e.dataTransfer.files.length&&!drop.contains(e.target))upload(e.dataTransfer.files)});
-document.addEventListener('paste',e=>{if($('app').hidden)return;const fs=[...(e.clipboardData?.files||[])];if(fs.length){e.preventDefault();upload(fs)}});
+document.addEventListener('paste',e=>{if($('app').hidden)return;const fs=[...(e.clipboardData?.files||[])];if(fs.length){e.preventDefault();upload(fs);return}
+  // a link pasted anywhere outside a text field becomes a web-page slide
+  const t=(e.clipboardData?.getData('text')||'').trim();if(!e.target.closest('input')&&/^https?:\/\/\S+$/i.test(t)){e.preventDefault();$('lkurl').value=t;$('lkform').requestSubmit()}});
+
+// ---- web page ----
+$('lkform').onsubmit=async e=>{e.preventDefault();
+  const v=$('lkurl').value.trim(),m=$('upmsg');if(!v||uploading)return;
+  $('lkbtn').disabled=true;m.classList.add('ok');m.textContent='Checking the page…';
+  try{const j=await post('/api/live/slides/',{action:'link',url:v});apply(j.state);await loadNames();$('lkurl').value='';
+    const host=new URL(j.url).hostname.replace(/^www\./,'');
+    m.classList.toggle('ok',j.frame);
+    m.textContent=j.frame?'✓ Web page added: '+j.name+'.':'Added, but '+host+' does not allow being shown inside another page, so the TV shows a card with its title and address. For the real page, take a screenshot and add it as an image.'}
+  catch(e){if(e.message!=='password'){m.classList.remove('ok');m.textContent=e.message==='url'?'That link does not open. Check it and try again (it has to be a public web address).':e.message==='full'?'The slide limit is reached.':'Not added. Check the connection and try again.'}}
+  $('lkbtn').disabled=false};
 
 if(pw)unlock();
 })();

@@ -293,22 +293,34 @@ document.addEventListener('keydown',e=>{
 #lvs .bx{width:100vw;height:100vh;display:flex;align-items:center;justify-content:center}
 body[data-m=tiktok] #lvs .bx{width:min(100vw,calc(100vh*9/16))}
 #lvs img{max-width:100%;max-height:100%;object-fit:contain;display:block;position:relative}
+#lvs iframe{width:100%;height:100%;border:0;background:#fff;display:block;position:relative;pointer-events:auto}
 /* Ambilight: a blurred, enlarged copy of the slide fills the edges so the TV's LEDs take on its colours */
 #lvs .amb{position:absolute;inset:-8%;background-size:cover;background-position:center;filter:blur(60px) saturate(1.5) brightness(.7);opacity:.9}
 </style>
 <div id="lvs" aria-live="polite"><div class="amb"></div><div class="bx"><img alt=""></div></div>
 <script>
-/* LIVE slides: the remote (eflury.com/live/remote.html) moves them forward and back; this screen follows within a second. */
-(()=>{const box=document.getElementById('lvs'),img=box.querySelector('img'),amb=box.querySelector('.amb');let v=-1,cur=null;const cache={};
+/* LIVE slides:
+/* LIVE slides: the remote (eflury.com/live/remote.html) moves them forward and back; this screen follows within a second.
+   A web-page slide (added as a link on the remote) is shown full screen in a frame; a site that forbids
+   being framed shows its title card instead. */
+(()=>{const box=document.getElementById('lvs'),bx=box.querySelector('.bx'),img=box.querySelector('img'),amb=box.querySelector('.amb');let v=-1,cur=null,fr=null,known='',links={};const cache={};
 const url=id=>'/api/live/slide/'+encodeURIComponent(id)+'/';
-const pre=id=>{if(id&&!cache[id]){const i=new Image();i.src=url(id);cache[id]=i}};
+const live=id=>links[id]&&links[id].frame;
+const pre=id=>{if(id&&!cache[id]&&!live(id)){const i=new Image();i.src=url(id);cache[id]=i}};
+async function kinds(ids){const k=ids.join();if(k===known)return;
+  try{const r=await fetch('/api/live/slides/',{cache:'no-store'});if(r.ok){const j=await r.json();links={};(j.slides||[]).forEach(x=>{if(x.url)links[x.id]=x});known=k}}catch(e){}}
+function dropFrame(later){if(!fr)return;const f=fr;fr=null;if(later)setTimeout(()=>f.remove(),500);else f.remove()}
 async function tick(){
   try{const r=await fetch('/api/live/state/',{cache:'no-store'});
     if(r.ok){const s=await r.json();
-      if(s.v!==v){v=s.v;const ids=Array.isArray(s.ids)?s.ids:[];const id=s.index>=0?ids[s.index]:null;pre(ids[s.index+1]);pre(ids[s.index-1]);
+      if(s.v!==v){v=s.v;const ids=Array.isArray(s.ids)?s.ids:[];await kinds(ids);const id=s.index>=0?ids[s.index]:null;pre(ids[s.index+1]);pre(ids[s.index-1]);
         if(id!==cur){cur=id;
-          if(id){const n=cache[id]||new Image();n.src=url(id);try{await n.decode()}catch(e){}if(cur===id){img.src=n.src;amb.style.backgroundImage='url("'+n.src+'")';box.classList.add('on')}}
-          else box.classList.remove('on')}}}}
+          if(id&&live(id)){const f=document.createElement('iframe');f.title=links[id].name||'';f.src=links[id].url;
+            f.allow='autoplay; fullscreen; encrypted-media; picture-in-picture';f.referrerPolicy='no-referrer';
+            f.setAttribute('sandbox','allow-scripts allow-same-origin allow-forms allow-popups allow-presentation');
+            dropFrame(false);fr=f;img.style.display='none';bx.appendChild(f);amb.style.backgroundImage='url("'+url(id)+'")';box.classList.add('on')}
+          else if(id){const n=cache[id]||new Image();n.src=url(id);try{await n.decode()}catch(e){}if(cur===id){dropFrame(false);img.style.display='';img.src=n.src;amb.style.backgroundImage='url("'+n.src+'")';box.classList.add('on')}}
+          else{box.classList.remove('on');dropFrame(true)}}}}}
   catch(e){}
   setTimeout(tick,1000)}
 tick();})();
