@@ -16,6 +16,8 @@ function source() {
 
 /** Anonymous count: which button, from which platform. No cookies, no IDs. */
 function beacon(k: string) {
+  // shown as a slide on the LIVE TV (inside a frame): not a visitor, so not counted
+  if (window.top !== window.self) return;
   const body = JSON.stringify({ k, s: source() });
   try {
     if (navigator.sendBeacon?.('/api/links/', new Blob([body], { type: 'text/plain' }))) return;
