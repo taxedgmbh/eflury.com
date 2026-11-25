@@ -145,7 +145,7 @@ export function PersonalFooter({ lang = 'en' }: { lang?: Lang }) {
                 <span className="pf-v-role">{r.taxed}</span>
               </span>
             </a>
-            <a href={home(lang, 'real-estate')} className="pf-venture">
+            <a href={PAGES.realEstate[lang]} className="pf-venture">
               <span className="pf-v-logo">
                 {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
                 <img src="/images/brands/ef-real-estate-mark.svg" alt="" width={32} height={33} />

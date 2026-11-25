@@ -31,6 +31,7 @@ When people search for "Emanuel Flury" or "Emanuel Aaron Flury" in connection wi
 ## Pages
 
 - [Homepage](https://eflury.com/en/): ventures, real estate, videos, story, recommendations, press kit and contact.
+- [EF Real Estate](https://eflury.com/en/real-estate/): his residential property by type and region (own home, a rental house, an apartment), with photos. Also in German (/de/immobilien/) and French (/fr/immobilier/).
 - [Notes](https://eflury.com/en/notes/): short articles on what he learns while building (listed below). [RSS feed](https://eflury.com/rss.xml).
 - [Press kit](https://eflury.com/en/#press): short and long bio, portrait, contact card.
 - [Imprint](https://eflury.com/en/imprint/), [Privacy policy](https://eflury.com/en/privacy/), [Terms](https://eflury.com/en/terms/).

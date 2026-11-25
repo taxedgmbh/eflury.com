@@ -461,6 +461,9 @@
   .re-body h3 { margin: 0; font-size: 1.3rem; color: var(--eflury-white); }
   .re-region { margin: var(--spacing-xs) 0 var(--spacing-sm); color: var(--text-blue); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.04em; }
   .re-text { margin: 0; color: var(--eflury-white); opacity: 0.75; line-height: 1.5; }
+  /* its own page: room for the fixed header above the GROW word */
+  .re.re-page { padding-top: calc(var(--spacing-3xl) + 72px); min-height: 100vh; }
+  .re-actions { display: flex; flex-wrap: wrap; gap: var(--spacing-md); margin: var(--spacing-2xl) 0 0; }
   .re-note { display: flex; align-items: center; gap: var(--spacing-md); margin: var(--spacing-2xl) 0 0; font-size: 0.9rem; color: var(--eflury-white); opacity: 0.7; }
   .re-rule { position: relative; display: inline-block; width: 80px; height: 2px; background: var(--eflury-blue); }
   .re-rule::after { content: ''; position: absolute; right: -4px; top: -4px; width: 10px; height: 10px; border-radius: 50%; background: var(--eflury-blue); }

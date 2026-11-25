@@ -240,7 +240,7 @@ export function PersonalHeader({ lang = 'en', alts }: { lang?: Lang; alts?: Part
                 <span className="mm-url">taxed.ch</span>
               </span>
             </a>
-            <a href={home(lang, 'real-estate')} className="mm-card mm-venture">
+            <a href={PAGES.realEstate[lang]} className="mm-card mm-venture">
               <span className="mm-venture-top">
                 {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
                 <img src="/images/brands/ef-real-estate-mark.svg" alt="" width={42} height={44} />
@@ -351,7 +351,7 @@ export function PersonalHeader({ lang = 'en', alts }: { lang?: Lang; alts?: Part
             <a href="https://taxed.ch" target="_blank" rel="noopener" onClick={closeMobile}>
               Taxed GmbH <ArrowUpRight size={14} aria-hidden />
             </a>
-            <a href={home(lang, 'real-estate')} onClick={closeMobile}>
+            <a href={PAGES.realEstate[lang]} onClick={closeMobile}>
               EF Real Estate <ArrowUpRight size={14} aria-hidden />
             </a>
           </details>

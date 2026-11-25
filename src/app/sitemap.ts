@@ -42,6 +42,14 @@ export default function sitemap(): MetadataRoute.Sitemap {
         ],
       },
       {
+        url: abs(PAGES.realEstate[l]),
+        lastModified: new Date('2026-11-25'),
+        changeFrequency: 'monthly',
+        priority: 0.8,
+        alternates: languages(PAGES.realEstate),
+        images: ['own-home-exterior', 'rental-house-exterior', 'apartment-building'].map((b) => abs(`/images/real-estate/${b}-1600.webp`)),
+      },
+      {
         url: abs(PAGES.notes[l]),
         lastModified: notes[0]?.date ?? new Date(),
         changeFrequency: 'weekly',

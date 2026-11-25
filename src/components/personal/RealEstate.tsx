@@ -1,7 +1,7 @@
 import { Building2, Home, KeyRound } from 'lucide-react';
 import { BrandWord } from './BrandWord';
 import { PhotoGallery, type Photo } from './PhotoGallery';
-import { pick, type Lang } from '@/lib/i18n';
+import { home, pick, type Lang } from '@/lib/i18n';
 
 // Owner rule: type + region only. Never addresses, tenants, values or financing.
 // Photos: no house numbers, street signs, plot maps or readable number plates,
@@ -63,16 +63,18 @@ function cards(lang: Lang): { Icon: typeof Home; type: string; region: string; t
   ];
 }
 
-export function RealEstate({ lang = 'en' }: { lang?: Lang }) {
+/** The EF Real Estate section: on the homepage, and on its own page (`page`: h1 and the way back). */
+export function RealEstate({ lang = 'en', page = false }: { lang?: Lang; page?: boolean }) {
+  const Name = page ? 'h1' : 'h2';
   return (
-    <section id="real-estate" className="re">
+    <section id="real-estate" className={page ? 're re-page' : 're'}>
       <div className="re-wrap">
         <BrandWord word="GROW" img="jungle" />
         <div className="re-head">
           {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
           <img src="/images/brands/ef-real-estate-mark.svg" alt="" width={104} height={108} className="re-mark" />
           <div>
-            <h2 className="re-name" aria-label="EF Real Estate">EF</h2>
+            <Name className="re-name" aria-label="EF Real Estate">EF</Name>
             <p className="re-sub">REAL ESTATE</p>
           </div>
         </div>
@@ -108,6 +110,16 @@ export function RealEstate({ lang = 'en' }: { lang?: Lang }) {
           <span className="re-rule" aria-hidden />
           {pick(lang, 'Deliberately without addresses, tenants or figures.', 'Bewusst ohne Adressen, Mieter oder Zahlen.')}
         </p>
+        {page && (
+          <p className="re-actions">
+            <a href="#contact" className="pf-btn pf-btn-fill">
+              {pick(lang, 'Get in touch', 'Kontakt aufnehmen')}
+            </a>
+            <a href={home(lang, 'ventures')} className="pf-btn pf-btn-line">
+              {pick(lang, 'All ventures', 'Alle Unternehmen')}
+            </a>
+          </p>
+        )}
       </div>
     </section>
   );

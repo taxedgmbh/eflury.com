@@ -58,6 +58,14 @@ const nextConfig: NextConfig = {
             permanent: false,
           })),
       ),
+      // EF Real Estate's own page (src/components/personal/RealEstateView.tsx).
+      ...['real-estate', 'Real-Estate', 'realestate', 'RealEstate', 'ef-real-estate', 'efrealestate', 'EFRealEstate'].map((p) => ({
+        source: `/${p}`,
+        destination: '/en/real-estate/',
+        permanent: false,
+      })),
+      { source: '/immobilien', destination: '/de/immobilien/', permanent: false },
+      { source: '/immobilier', destination: '/fr/immobilier/', permanent: false },
       // www -> apex. .htaccess did this with a RewriteCond; App Hosting terminates
       // TLS for both hosts, so the canonicalisation has to happen in the app.
       {
@@ -84,11 +92,11 @@ const nextConfig: NextConfig = {
       // The German site went live again on 2026-11-13 (personal brand). Old
       // consulting URLs under /de/ land on the German homepage.
       {
-        source: '/de/:path((?!impressum|datenschutz|nutzungsbedingungen|notizen|newsletter|opengraph-image|rss\\.xml).+)',
+        source: '/de/:path((?!impressum|datenschutz|nutzungsbedingungen|notizen|newsletter|immobilien|opengraph-image|rss\\.xml).+)',
         destination: '/de/',
         statusCode: 301,
       },
-      { source: '/en/:path((?!imprint|privacy|terms|notes|newsletter|links|opengraph-image).+)', destination: '/en/', statusCode: 301 },
+      { source: '/en/:path((?!imprint|privacy|terms|notes|newsletter|links|real-estate|opengraph-image).+)', destination: '/en/', statusCode: 301 },
       { source: '/:dir(offerte|offer|demo|downloads)/:path*', destination: '/en/', statusCode: 301 },
     ];
   },

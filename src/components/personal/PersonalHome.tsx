@@ -66,7 +66,7 @@ export function ventures(lang: Lang): Venture[] {
         `Residential property held as private equity. Role: ${r.estate}.`,
         `Wohnimmobilien als Private Equity. Rolle: ${r.estate}.`,
       ),
-      href: '#real-estate',
+      href: PAGES.realEstate[lang],
       cta: t('See the properties', 'Zu den Liegenschaften'),
       logo: { src: '/images/brands/ef-real-estate-mark.svg', w: 35, h: 36 },
     },
@@ -91,7 +91,7 @@ export function PersonalHome({ lang = 'en' }: { lang?: Lang }) {
           </p>
           <div className="v-grid">
             {ventures(lang).map((v) => {
-              const external = !v.href.startsWith('#');
+              const external = /^https?:/.test(v.href);
               return (
                 <article key={v.name} className="v-card">
                   {/* eslint-disable-next-line @next/next/no-img-element -- small brand mark */}

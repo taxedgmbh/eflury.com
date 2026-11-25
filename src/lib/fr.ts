@@ -74,6 +74,9 @@ export const FR: Record<string, string> = {
   'Discover Skopa': 'Découvrir Skopa',
   'Get tax advice': 'Demander un conseil fiscal',
   'See the properties': 'Voir les biens',
+  'All ventures': 'Toutes les entreprises',
+  'EF Real Estate: residential property in the cantons of Solothurn and Bern, held by Emanuel Flury as private equity. Own home, a rental house and an apartment.':
+    'EF Real Estate : immobilier résidentiel dans les cantons de Soleure et de Berne, détenu par Emanuel Flury en private equity. Sa propre maison, une maison louée et un appartement.',
   Founded: 'Fondée en',
   'Canton of': 'canton de',
   'Commercial register': 'Registre du commerce',

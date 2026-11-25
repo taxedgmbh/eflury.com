@@ -41,6 +41,7 @@ export const PAGES = {
   privacy: { en: '/en/privacy/', de: '/de/datenschutz/', fr: '/fr/confidentialite/' },
   terms: { en: '/en/terms/', de: '/de/nutzungsbedingungen/', fr: '/fr/conditions-utilisation/' },
   newsletter: { en: '/en/newsletter/', de: '/de/newsletter/', fr: '/fr/newsletter/' },
+  realEstate: { en: '/en/real-estate/', de: '/de/immobilien/', fr: '/fr/immobilier/' },
   rss: { en: '/rss.xml', de: '/de/rss.xml', fr: '/fr/rss.xml' },
 } as const satisfies Record<string, LangMap>;
 

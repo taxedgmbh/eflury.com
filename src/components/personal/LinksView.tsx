@@ -241,8 +241,8 @@ export async function LinksView() {
           </p>
           <h2 className="lk-h2">Three businesses. One standard.</h2>
           {ventures('en').map((v) => {
-            const external = !v.href.startsWith('#');
-            const href = external ? v.href.replace('utm_campaign=ventures', 'utm_campaign=links') : `/en/${v.href}`;
+            const external = /^https?:/.test(v.href);
+            const href = external ? v.href.replace('utm_campaign=ventures', 'utm_campaign=links') : v.href;
             const k = v.name.startsWith('Skopa') ? 'skopa' : v.name.startsWith('Taxed') ? 'taxed' : 'estate';
             return (
               <a
