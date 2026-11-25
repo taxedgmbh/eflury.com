@@ -37,4 +37,6 @@ Solange die bisherigen Regeln gelten, lässt sich der Unterhalt am selbst bewohn
 
 Für Wohneigentümer ist 2029 weniger eine Steueränderung als eine Planungsfrist. Der günstigste Moment, darüber nachzudenken, ist jetzt, solange alle Optionen noch offen sind.
 
+Wie ich selbst Wohneigentum halte: [EF Real Estate](/de/immobilien/).
+
 Diese Notiz ist eine allgemeine Information, keine individuelle Steuerberatung. Für Ihre eigene Situation wenden Sie sich an eine Steuerfachperson, zum Beispiel bei [Taxed](https://taxed.ch/?utm_source=eflury.com&utm_medium=referral&utm_campaign=notes).

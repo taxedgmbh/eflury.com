@@ -1,5 +1,7 @@
 import { Building2, Home, KeyRound } from 'lucide-react';
+import { preload } from 'react-dom';
 import { BrandWord } from './BrandWord';
+import { EMAIL } from './data';
 import { PhotoGallery, type Photo } from './PhotoGallery';
 import { home, PAGES, pick, type Lang } from '@/lib/i18n';
 
@@ -113,6 +115,9 @@ export function cards(lang: Lang): Property[] {
 /** The EF Real Estate section: on the homepage, and on its own page (`page`: h1 and the way back). */
 export function RealEstate({ lang = 'en', page = false }: { lang?: Lang; page?: boolean }) {
   const Name = page ? 'h1' : 'h2';
+  const Card = page ? 'h2' : 'h3';
+  // On its own page the GROW word is the first large paint (LCP): fetch its photo first.
+  if (page) preload('/images/hero/jungle.webp', { as: 'image', fetchPriority: 'high' });
   return (
     <section id="real-estate" className={page ? 're re-page' : 're'}>
       <div className="re-wrap">
@@ -162,7 +167,7 @@ export function RealEstate({ lang = 'en', page = false }: { lang?: Lang; page?: 
                 </div>
               )}
               <div className="re-body">
-                <h3>{c.type}</h3>
+                <Card>{c.type}</Card>
                 <p className="re-region">{c.region}</p>
                 <p className="re-text">{c.text}</p>
               </div>
@@ -184,7 +189,7 @@ export function RealEstate({ lang = 'en', page = false }: { lang?: Lang; page?: 
         )}
         {page && (
           <p className="re-actions">
-            <a href="#contact" className="pf-btn pf-btn-fill">
+            <a href={`mailto:${EMAIL}?subject=EF%20Real%20Estate`} className="pf-btn pf-btn-fill">
               {pick(lang, 'Get in touch', 'Kontakt aufnehmen')}
             </a>
             <a href={home(lang, 'ventures')} className="pf-btn pf-btn-line">

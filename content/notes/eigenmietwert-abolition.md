@@ -36,4 +36,6 @@ As long as the old rules apply, maintenance on a home you live in can still be d
 
 For homeowners, 2029 is less a tax change than a planning deadline. The cheapest moment to think about it is now, while every option is still open.
 
+How I hold residential property myself: [EF Real Estate](/en/real-estate/).
+
 This note is general information, not individual tax advice. For your own situation, talk to a tax adviser, for example at [Taxed](https://taxed.ch/?utm_source=eflury.com&utm_medium=referral&utm_campaign=notes).

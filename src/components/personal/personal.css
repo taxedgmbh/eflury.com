@@ -467,7 +467,7 @@
   .re-num { position: absolute; top: var(--spacing-md); left: var(--spacing-md); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem; color: var(--eflury-white); opacity: 0.6; }
   .re-icon { display: inline-flex; width: 72px; height: 72px; align-items: center; justify-content: center; border-radius: var(--radius-full); background: rgb(255 255 255 / 0.08); color: var(--text-blue); }
   .re-body { padding: var(--spacing-lg); }
-  .re-body h3 { margin: 0; font-size: 1.3rem; color: var(--eflury-white); }
+  .re-body :is(h2, h3) { margin: 0; font-size: 1.3rem; color: var(--eflury-white); }
   .re-region { margin: var(--spacing-xs) 0 var(--spacing-sm); color: var(--text-blue); font-weight: 700; font-size: 0.85rem; letter-spacing: 0.04em; }
   .re-text { margin: 0; color: var(--eflury-white); opacity: 0.75; line-height: 1.5; }
   /* its own page: room for the fixed header above the GROW word */
@@ -904,6 +904,7 @@
 .pb .rd-link:hover { text-decoration: underline; }
 .pb .rd-note { margin: var(--spacing-lg) 0 0; font-size: 0.875rem; color: rgb(255 255 255 / 0.6); }
 .pb .rd-note a { color: var(--teal-text); }
+.pb .rd-note .nw { white-space: nowrap; }
 @media (max-width: 767px) {
   .pb .rd-card { padding: var(--spacing-md) var(--spacing-lg); gap: 0; }
   .pb .rd-card .pv-icon { display: none; }

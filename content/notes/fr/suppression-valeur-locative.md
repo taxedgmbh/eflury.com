@@ -37,4 +37,6 @@ Tant que les règles actuelles s’appliquent, l’entretien du logement occupé
 
 Pour les propriétaires, 2029 est moins un changement fiscal qu’une échéance de planification. Le meilleur moment pour y réfléchir, c’est maintenant, tant que toutes les options sont encore ouvertes.
 
+Comment je détiens moi-même de l’immobilier résidentiel : [EF Real Estate](/fr/immobilier/).
+
 Cette note est une information générale, pas un conseil fiscal individuel. Pour votre situation, adressez-vous à un spécialiste de la fiscalité, par exemple chez [Taxed](https://taxed.ch/?utm_source=eflury.com&utm_medium=referral&utm_campaign=notes).

@@ -192,7 +192,10 @@ export function RealEstateView({ lang }: { lang: Lang }) {
               <p className="rd-note">
                 {t('Related note:', 'Passende Notiz:')}{' '}
                 <Link href={`${PAGES.notes[lang]}${note.slug}/`}>
-                  {note.title} <ArrowRight size={14} aria-hidden />
+                  {note.title.split(' ').slice(0, -1).join(' ')}{' '}
+                  <span className="nw">
+                    {note.title.split(' ').at(-1)} <ArrowRight size={14} aria-hidden />
+                  </span>
                 </Link>
               </p>
             )}
