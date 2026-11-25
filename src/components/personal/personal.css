@@ -441,8 +441,17 @@
   .re-wrap { max-width: 1120px; margin: 0 auto; padding: 0 var(--spacing-lg); }
   .re-head { display: flex; align-items: center; gap: var(--spacing-lg); }
   .re-mark { width: 88px; height: auto; }
+  .re-title { margin: 0; display: flex; flex-direction: column; }
+  .re-title .re-name, .re-title .re-sub { display: block; }
+  .re-crumbs { margin: 0 0 var(--spacing-lg); font-size: 0.9rem; color: var(--eflury-white); opacity: 0.75; }
+  .re-crumbs a { color: var(--text-blue); text-decoration: none; }
+  .re-crumbs a:hover { text-decoration: underline; }
+  .re-intro { max-width: 760px; margin: calc(-1 * var(--spacing-lg)) 0 var(--spacing-2xl); font-size: 1.05rem; line-height: 1.7; color: var(--eflury-white); opacity: 0.82; }
+  .re-more { margin: var(--spacing-lg) 0 0; }
+  .re-more a { color: var(--text-blue); font-weight: 700; text-decoration: none; }
+  .re-more a:hover { text-decoration: underline; }
   .re-name { margin: 0; font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(1.8rem, 4vw, 3rem); line-height: 1; color: var(--eflury-white); }
-  .re-sub { margin: var(--spacing-sm) 0 0; padding-left: 0.42em; color: var(--text-blue); font-weight: 700; font-size: 1.2rem; letter-spacing: 0.42em; }
+  .re-sub { text-transform: uppercase; margin: var(--spacing-sm) 0 0; padding-left: 0.42em; color: var(--text-blue); font-weight: 700; font-size: 1.2rem; letter-spacing: 0.42em; }
   .re-lead { max-width: 640px; margin: var(--spacing-xl) 0 var(--spacing-2xl); font-size: 1.2rem; line-height: 1.6; color: var(--eflury-white); opacity: 0.88; }
 
   .re-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--spacing-lg); }

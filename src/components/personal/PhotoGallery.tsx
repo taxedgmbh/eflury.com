@@ -50,12 +50,15 @@ export function PhotoGallery({
   label,
   layout = "cover",
   lang = "en",
+  eager = false,
 }: {
   photos: Photo[];
   label: string;
   /** cover: one image with a count badge. strip: every photo as a thumbnail. */
   layout?: "cover" | "strip";
   lang?: "en" | "de" | "fr";
+  /** Above the fold: load the cover right away, with high priority. */
+  eager?: boolean;
 }) {
   const L = GALLERY_TEXT[lang];
   const dialog = useRef<HTMLDialogElement>(null);
@@ -137,7 +140,8 @@ export function PhotoGallery({
               alt={cover.alt}
               width={cover.width}
               height={cover.height}
-              loading="lazy"
+              loading={eager ? "eager" : "lazy"}
+              fetchPriority={eager ? "high" : undefined}
               decoding="async"
             />
             <span className="re-cover-badge">

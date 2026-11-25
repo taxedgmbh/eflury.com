@@ -1,7 +1,7 @@
 import { Building2, Home, KeyRound } from 'lucide-react';
 import { BrandWord } from './BrandWord';
 import { PhotoGallery, type Photo } from './PhotoGallery';
-import { home, pick, type Lang } from '@/lib/i18n';
+import { home, PAGES, pick, type Lang } from '@/lib/i18n';
 
 // Owner rule: type + region only. Never addresses, tenants, values or financing.
 // Photos: no house numbers, street signs, plot maps or readable number plates,
@@ -15,7 +15,21 @@ const photo = (lang: Lang, base: string, [en, de]: Alt, width: number, height: n
   height,
 });
 
-function cards(lang: Lang): { Icon: typeof Home; type: string; region: string; text: string; photos?: Photo[] }[] {
+export type Property = {
+  Icon: typeof Home;
+  type: string;
+  region: string;
+  text: string;
+  /** schema.org type and the district and canton on Wikipedia, for the page's structured data */
+  schema: { type: 'SingleFamilyResidence' | 'Apartment'; district: [string, string]; canton: [string, string] };
+  photos?: Photo[];
+};
+
+const W = 'https://en.wikipedia.org/wiki/';
+const SO: [string, string] = ['Canton of Solothurn', `${W}Canton_of_Solothurn`];
+const BE: [string, string] = ['Canton of Bern', `${W}Canton_of_Bern`];
+
+export function cards(lang: Lang): Property[] {
   const t = (en: string, de: string) => pick(lang, en, de);
   const p = (base: string, alt: Alt, w: number, h: number) => photo(lang, base, alt, w, h);
   return [
@@ -24,10 +38,21 @@ function cards(lang: Lang): { Icon: typeof Home; type: string; region: string; t
       type: t('Own home', 'Eigenheim'),
       region: t('Lebern district · Canton of Solothurn', 'Bezirk Lebern · Kanton Solothurn'),
       text: t('Where I live.', 'Wo ich wohne.'),
+      schema: { type: 'SingleFamilyResidence', district: ['Lebern District', `${W}Lebern_District`], canton: SO },
       photos: [
-        p('own-home-exterior', ['The house in summer, with the Jura behind', 'Das Haus im Sommer, dahinter der Jura'], 1600, 976),
+        p(
+          'own-home-exterior',
+          ['The house in summer, with the Jura behind', 'Das Haus im Sommer, dahinter der Jura'],
+          1600,
+          976,
+        ),
         p('own-home-garden', ['The house from the garden', 'Das Haus vom Garten aus'], 1600, 1200),
-        p('own-home-living-room', ['Living room with oak floor and a view of the garden', 'Wohnzimmer mit Eichenboden und Blick in den Garten'], 1512, 2016),
+        p(
+          'own-home-living-room',
+          ['Living room with oak floor and a view of the garden', 'Wohnzimmer mit Eichenboden und Blick in den Garten'],
+          1512,
+          2016,
+        ),
         p('own-home-kitchen', ['New kitchen cabinets', 'Neue Küchenfronten'], 1600, 1200),
         p('own-home-garage', ['Renovated garage with laundry corner', 'Renovierte Garage mit Waschecke'], 1600, 1200),
       ],
@@ -37,10 +62,26 @@ function cards(lang: Lang): { Icon: typeof Home; type: string; region: string; t
       type: t('Rental house', 'Vermietetes Haus'),
       region: t('Wasseramt district · Canton of Solothurn', 'Bezirk Wasseramt · Kanton Solothurn'),
       text: t('A house I rent out.', 'Ein Haus, das ich vermiete.'),
+      schema: { type: 'SingleFamilyResidence', district: ['Wasseramt District', `${W}Wasseramt_District`], canton: SO },
       photos: [
-        p('rental-house-exterior', ['The rental house from the garden', 'Das vermietete Haus vom Garten aus'], 1600, 1200),
-        p('rental-house-room-1', ['Bedroom with two windows and oak floor', 'Schlafzimmer mit zwei Fenstern und Eichenboden'], 1600, 1200),
-        p('rental-house-room-2', ['Room under the white beamed ceiling', 'Zimmer unter der weissen Balkendecke'], 1600, 1200),
+        p(
+          'rental-house-exterior',
+          ['The rental house from the garden', 'Das vermietete Haus vom Garten aus'],
+          1600,
+          1200,
+        ),
+        p(
+          'rental-house-room-1',
+          ['Bedroom with two windows and oak floor', 'Schlafzimmer mit zwei Fenstern und Eichenboden'],
+          1600,
+          1200,
+        ),
+        p(
+          'rental-house-room-2',
+          ['Room under the white beamed ceiling', 'Zimmer unter der weissen Balkendecke'],
+          1600,
+          1200,
+        ),
         p('rental-house-room-3', ['Room looking onto the garden', 'Zimmer mit Blick in den Garten'], 1512, 2016),
         p('rental-house-room-4', ['Room with oak floor, renovated', 'Renoviertes Zimmer mit Eichenboden'], 1600, 1200),
         p('rental-house-garden', ['Terrace and garden', 'Terrasse und Garten'], 1600, 1200),
@@ -51,8 +92,14 @@ function cards(lang: Lang): { Icon: typeof Home; type: string; region: string; t
       type: t('Apartment', 'Vermietete Wohnung'),
       region: t('Seeland · Canton of Bern', 'Seeland · Kanton Bern'),
       text: t('An apartment I rent out.', 'Eine Wohnung, die ich vermiete.'),
+      schema: { type: 'Apartment', district: ['Seeland', `${W}Seeland_(administrative_district)`], canton: BE },
       photos: [
-        p('apartment-building', ['The apartment building in evening light', 'Das Mehrfamilienhaus im Abendlicht'], 1600, 1200),
+        p(
+          'apartment-building',
+          ['The apartment building in evening light', 'Das Mehrfamilienhaus im Abendlicht'],
+          1600,
+          1200,
+        ),
         p('apartment-living-room', ['Living room with balcony door', 'Wohnzimmer mit Balkontür'], 1600, 1200),
         p('apartment-living-room-2', ['Living room with stone accent wall', 'Wohnzimmer mit Steinwand'], 1600, 1200),
         p('apartment-kitchen', ['Renovated kitchen', 'Renovierte Küche'], 1600, 1200),
@@ -69,23 +116,39 @@ export function RealEstate({ lang = 'en', page = false }: { lang?: Lang; page?: 
   return (
     <section id="real-estate" className={page ? 're re-page' : 're'}>
       <div className="re-wrap">
+        {page && (
+          <nav className="re-crumbs" aria-label={pick(lang, 'Breadcrumb', 'Brotkrumen')}>
+            <a href={PAGES.home[lang]}>Emanuel Flury</a> <span aria-hidden>›</span>{' '}
+            <span aria-current="page">EF Real Estate</span>
+          </nav>
+        )}
         <BrandWord word="GROW" img="jungle" />
         <div className="re-head">
           {/* eslint-disable-next-line @next/next/no-img-element -- SVG mark */}
           <img src="/images/brands/ef-real-estate-mark.svg" alt="" width={104} height={108} className="re-mark" />
-          <div>
-            <Name className="re-name" aria-label="EF Real Estate">EF</Name>
-            <p className="re-sub">REAL ESTATE</p>
-          </div>
+          <Name className="re-title">
+            <span className="re-name">EF</span> <span className="re-sub">Real Estate</span>
+          </Name>
         </div>
-        <p className="re-lead">{pick(lang, 'Private equity in residential property.', 'Private Equity in Wohnimmobilien.')}</p>
+        <p className="re-lead">
+          {pick(lang, 'Private equity in residential property.', 'Private Equity in Wohnimmobilien.')}
+        </p>
+        {page && (
+          <p className="re-intro">
+            {pick(
+              lang,
+              'EF Real Estate is how I hold residential property: privately, as private equity, not as a company. Three properties in the cantons of Solothurn and Bern: my own home in the Lebern district, a rental house in the Wasseramt district and an apartment in the Seeland. I renovate them step by step, with new floors, kitchens and rooms.',
+              'EF Real Estate ist die Art, wie ich Wohnimmobilien halte: privat, als Private Equity, nicht als Firma. Drei Liegenschaften in den Kantonen Solothurn und Bern: mein Eigenheim im Bezirk Lebern, ein vermietetes Haus im Bezirk Wasseramt und eine Wohnung im Seeland. Ich renoviere sie Schritt für Schritt, mit neuen Böden, Küchen und Zimmern.',
+            )}
+          </p>
+        )}
 
         <div className="re-grid">
           {cards(lang).map(({ Icon, photos, ...c }, i) => (
             <article key={c.type} className="re-card">
               {photos ? (
                 <div className="re-photo re-photo-img">
-                  <PhotoGallery photos={photos} label={c.type} lang={lang} />
+                  <PhotoGallery photos={photos} label={c.type} lang={lang} eager={page} />
                   <span className="re-num" aria-hidden>
                     0{i + 1}
                   </span>
@@ -108,8 +171,17 @@ export function RealEstate({ lang = 'en', page = false }: { lang?: Lang; page?: 
         </div>
         <p className="re-note">
           <span className="re-rule" aria-hidden />
-          {pick(lang, 'Deliberately without addresses, tenants or figures.', 'Bewusst ohne Adressen, Mieter oder Zahlen.')}
+          {pick(
+            lang,
+            'Deliberately without addresses, tenants or figures.',
+            'Bewusst ohne Adressen, Mieter oder Zahlen.',
+          )}
         </p>
+        {!page && (
+          <p className="re-more">
+            <a href={PAGES.realEstate[lang]}>{pick(lang, 'More about EF Real Estate', 'Mehr über EF Real Estate')} →</a>
+          </p>
+        )}
         {page && (
           <p className="re-actions">
             <a href="#contact" className="pf-btn pf-btn-fill">
