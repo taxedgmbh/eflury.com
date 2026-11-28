@@ -233,6 +233,30 @@ export async function LinksView() {
           </a>
         </section>
 
+        <section className="lk-sec" aria-labelledby="lk-me-title">
+          <p className="lk-eyebrow" id="lk-me-title">
+            About me
+          </p>
+          <h2 className="lk-h2">The person behind it.</h2>
+          <a className="lk-video lk-me" href="/en/#about" data-k="about">
+            <span className="lk-video-thumb lk-me-photo">
+              {/* eslint-disable-next-line @next/next/no-img-element -- pre-sized WebP */}
+              <img
+                src="/images/me/sofa-thinking-800.webp"
+                alt="Emanuel Flury on a sofa, thinking"
+                width={800}
+                height={1067}
+                loading="lazy"
+                decoding="async"
+              />
+            </span>
+            <span className="lk-video-text">
+              <small>My story</small>
+              <b>Finance, automation and building my own companies.</b>
+            </span>
+          </a>
+        </section>
+
         {/* Same names, tags, texts and logos as the Ventures section on eflury.com. */}
         <section className="lk-ventures" aria-labelledby="lk-ventures-title">
           <BrandWord word="BUILD" img="dusk" align="center" />

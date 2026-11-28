@@ -42,6 +42,14 @@ function chapters(lang: Lang) {
 // From brand/02-photos (about-and-hero, founder-journey): no strangers' faces,
 // no readable plates. Re-encoded, so EXIF/GPS is stripped.
 const ME = '/images/me/';
+// New photos (Nov 2026), chosen without flash red-eye; re-encoded with sharp, no EXIF.
+function offDuty(lang: Lang): Photo[] {
+  const t = (en: string, de: string) => pick(lang, en, de);
+  return [
+    { base: `${ME}sofa-thinking`, alt: t('Emanuel Flury on a sofa, thinking', 'Emanuel Flury nachdenklich auf einem Sofa'), width: 1512, height: 2016 },
+    { base: `${ME}sofa-profile`, alt: t('Emanuel Flury in profile on a sofa, chin in hand', 'Emanuel Flury im Profil auf einem Sofa, das Kinn in der Hand'), width: 1512, height: 2016 },
+  ];
+}
 function onTheRoad(lang: Lang): Photo[] {
   const t = (en: string, de: string) => pick(lang, en, de);
   return [
@@ -122,6 +130,8 @@ export function PersonalAbout({ lang = 'en' }: { lang?: Lang }) {
 
           <p className="ab-kicker ab-photos-title">{t('On the road', 'Unterwegs')}</p>
           <PhotoGallery photos={onTheRoad(lang)} label={t('On the road', 'Unterwegs')} layout="strip" lang={lang} />
+          <p className="ab-kicker ab-photos-title">{t('Off duty', 'Abseits vom Büro')}</p>
+          <PhotoGallery photos={offDuty(lang)} label={t('Off duty', 'Abseits vom Büro')} layout="strip" lang={lang} />
         </div>
       </div>
     </section>

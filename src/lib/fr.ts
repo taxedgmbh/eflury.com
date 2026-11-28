@@ -190,6 +190,9 @@ export const FR: Record<string, string> = {
   Entrepreneur: 'Entrepreneur',
   'Founded Taxed GmbH in 2021 and Skopa AG in 2026. Today Directeur général of Skopa AG, Directeur général (mandat) of Taxed GmbH and propriétaire of EF Real Estate.':
     'Fondation de Taxed GmbH en 2021 et de Skopa AG en 2026. Aujourd’hui directeur général de Skopa AG, directeur général (mandat) de Taxed GmbH et propriétaire d’EF Real Estate.',
+  'Off duty': 'En dehors du travail',
+  'Emanuel Flury on a sofa, thinking': 'Emanuel Flury pensif sur un canapé',
+  'Emanuel Flury in profile on a sofa, chin in hand': 'Emanuel Flury de profil sur un canapé, le menton dans la main',
   'On the road': 'En route',
   'Emanuel Flury on a terrace at night, city behind': 'Emanuel Flury sur une terrasse la nuit, la ville en arrière-plan',
   'Emanuel Flury leaning on a railing above the city': 'Emanuel Flury accoudé à une rambarde au-dessus de la ville',

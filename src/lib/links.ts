@@ -21,6 +21,7 @@ export const LINK_KEYS = [
   'taxed',
   'skopa',
   'estate',
+  'about',
   'partner-mglow',
   'partner-mariyah',
   'whatsapp',
